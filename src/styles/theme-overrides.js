@@ -1,16 +1,24 @@
 module.exports = {
-  '@primary-color': '#ec3944',
-  '@link-color': ' #ec3944',
-  '@success-color': '#52c41a',
-  '@warning-color': '#faad14',
-  '@error-color': '#f5222d',
-  '@font-size-base': '14px',
-  '@heading-color': 'rgba(0, 0, 0, 0.85)',
-  '@text-color': 'rgba(0, 0, 0, 0.65)',
-  '@text-color-secondary': 'rgba(0, 0, 0, 0.45)',
+  '@primary-color': '#6ceae6', // Turquoise
+  '@link-color': ' #429cb5', // Boston Blue
+  '@success-color': '#00d93d', // Border around story submitted modal
+  '@warning-color': '#ff313a', // from 'remove child' button
+  '@error-color': '#f5222d', // Un-changed
+  '@font-size-base': '18px', // Base font size
+  '@heading-color': '#292929', // Header-Nero
+  '@text-color': '#5F5F5F', // Body Text-Dim Grey
+  '@text-color-secondary': '#949494', // Secondary Text-Suva Grey
   '@disabled-color': 'rgba(0, 0, 0, 0.25)',
-  '@border-radius-base': '2px',
-  '@border-color-base': '#d9d9d9',
+  '@border-radius-base': '10px', // Most used border-radius
+  '@border-color-base': '#292929', // Header-Nero
   '@box-shadow-base':
     '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05)',
+  '@body-background': '##444444', // main 'background' for desktop
+  '@btn-primary-color': '#007aff', // parent btn color
+  '@btn-default-color': '#eb7d5b', // Child btn color (Burnt Sienna)
+  '@btn-danger-color': '#ff313a', // From parent dashboard
+  '@checkbox-size': '50px', // From mission dash
+  '@checkbox-color': '#ffffff', // Block Background-White
+  '@checkbox-check-color': '#ffffff', // Block Background-White
+  '@checkbox-check-bg': '#429cb5', // Boston Blue
 };
