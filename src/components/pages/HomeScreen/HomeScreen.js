@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
+import { useHistory, Link, Route } from "react-router-dom"
 import { Layout, Menu, Button, Typography } from 'antd';
 
 import { PlusCircleFilled } from '@ant-design/icons';
+import Help from '../../../components/common/Help'
 
 import '../../../styles/HomeScreen.less';
+
 
 const { Content, Sider } = Layout;
 const { Title } = Typography;
 
-class HomeScreen extends Component {
-  render() {
+function HomeScreen () {
+  const history = useHistory();
+  
     return (
       <>
         <Layout className="container">
@@ -24,9 +28,9 @@ class HomeScreen extends Component {
               mode="inline"
               defaultSelectedKeys={['dashboard']}
             >
-              <Menu.Item key="dashboard">Dashboard</Menu.Item>
+              <Menu.Item key="dashboard"></Menu.Item>
               <Menu.Item key="settings">Parent Settings</Menu.Item>
-              <Menu.Item key="help">Help</Menu.Item>
+              <Menu.Item key="help"><Link to="/help">Help</Link></Menu.Item>
               <Menu.Item key="logout">Log out</Menu.Item>
             </Menu>
           </Sider>
@@ -36,18 +40,22 @@ class HomeScreen extends Component {
               STORY SQUAD
             </Title>
             <Content className="content">
-              <button>
+            <Route path = "/help" component = {Help} />
+              {/* <button>
                 <h2>
                   <PlusCircleFilled />
                   Add a Child
                 </h2>
-              </button>
+              </button> */}
             </Content>
           </Layout>
         </Layout>
+        
+
+        
       </>
     );
   }
-}
+
 
 export default HomeScreen;
