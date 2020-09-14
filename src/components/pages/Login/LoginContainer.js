@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import OktaSignIn from '@okta/okta-signin-widget';
-// import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 import { config } from '../../../utils/oktaConfig';
 
@@ -14,7 +13,7 @@ const LoginContainer = () => {
       redirectUri,
       registration: {
         click: function() {
-          window.location.href = 'https://acme.com/sign-up';
+          window.location.href = 'https://acme.com/sign-up'; //This just redirects to a random page for now, will have actual page when signup feature is complete
         },
       },
       features: { registration: true },
@@ -24,8 +23,6 @@ const LoginContainer = () => {
       i18n: {
         en: {
           'primaryauth.title': 'Welcome back, Sign in to continue',
-          'primaryauth.username.placeholder': 'Email',
-          'primaryauth.password.placeholder': 'Password',
           // change title for your app
         },
       },
