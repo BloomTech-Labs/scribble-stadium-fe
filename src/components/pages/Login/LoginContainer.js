@@ -13,7 +13,9 @@ const LoginContainer = () => {
       clientId,
       redirectUri,
       registration: {
-        // there is more we can do to handle some errors here.
+        click: function() {
+          window.location.href = 'https://acme.com/sign-up';
+        },
       },
       features: { registration: true },
       // turning this feature on allows your widget to use Okta for user registration
@@ -22,6 +24,8 @@ const LoginContainer = () => {
       i18n: {
         en: {
           'primaryauth.title': 'Welcome back, Sign in to continue',
+          'primaryauth.username.placeholder': 'Email',
+          'primaryauth.password.placeholder': 'Password',
           // change title for your app
         },
       },
