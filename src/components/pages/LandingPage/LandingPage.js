@@ -1,14 +1,14 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import { LoginContainer } from '../Login';
+import { Header } from '../../common';
 import '../../../styles/LandingPage.less';
 
 const LandingPage = () => {
   return (
     <>
-      <Row>Header Placeholder</Row>
-
-      <Row>
+      <Header />
+      <Row id="head-row">
         <Col span={16}>
           <p>
             Story Squad is a game where imagination comes to play. It’s where
