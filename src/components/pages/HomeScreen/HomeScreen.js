@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { useHistory, Link, Route } from "react-router-dom"
+import { Link, Route } from "react-router-dom"
 import { Layout, Menu, Button, Typography } from 'antd';
 
 import { PlusCircleFilled } from '@ant-design/icons';
@@ -12,7 +12,7 @@ const { Content, Sider } = Layout;
 const { Title } = Typography;
 
 function HomeScreen () {
-  const history = useHistory();
+  
   
     return (
       <>
@@ -28,7 +28,7 @@ function HomeScreen () {
               mode="inline"
               defaultSelectedKeys={['dashboard']}
             >
-              <Menu.Item key="dashboard"></Menu.Item>
+              <Menu.Item key="dashboard"><Link to="/dashboard"></Link>Dashboard</Menu.Item>
               <Menu.Item key="settings">Parent Settings</Menu.Item>
               <Menu.Item key="help"><Link to="/help">Help</Link></Menu.Item>
               <Menu.Item key="logout">Log out</Menu.Item>
@@ -40,13 +40,14 @@ function HomeScreen () {
               STORY SQUAD
             </Title>
             <Content className="content">
-            <Route path = "/help" component = {Help} />
-              {/* <button>
+            <Route exact path = "/help" component = {Help} />
+             <Route exact path = "/dashboard" ><button>
                 <h2>
                   <PlusCircleFilled />
                   Add a Child
                 </h2>
-              </button> */}
+              </button>
+              </Route>
             </Content>
           </Layout>
         </Layout>
