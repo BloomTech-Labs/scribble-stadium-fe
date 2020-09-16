@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import OktaSignIn from '@okta/okta-signin-widget';
-import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 import { config } from '../../../utils/oktaConfig';
 
@@ -13,15 +12,17 @@ const LoginContainer = () => {
       clientId,
       redirectUri,
       registration: {
-        // there is more we can do to handle some errors here.
+        click: function () {
+          window.location.href = 'https://acme.com/sign-up'; //This just redirects to a random page for now, will have actual page when signup feature is complete
+        },
       },
-      features: { registration: false },
+      features: { registration: true },
       // turning this feature on allows your widget to use Okta for user registration
       logo: 'path-to-your-logo',
       // add your custom logo to your signing/register widget here.
       i18n: {
         en: {
-          'primaryauth.title': 'Welcome to Labs Basic SPA Please sign in',
+          'primaryauth.title': 'Welcome back, Sign in to continue',
           // change title for your app
         },
       },
