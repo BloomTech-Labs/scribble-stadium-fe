@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
 import RenderChildDashboard from './RenderChildDashboard';
-import RenderHomePage from '../Home/RenderHomePage';
 
 const ChildDashboardContainer = ({ LoadingComponent }) => {
   const { authState, authService } = useOktaAuth();
