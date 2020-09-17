@@ -28,7 +28,7 @@ function HomeScreen() {
             defaultSelectedKeys={['dashboard']}
           >
             <Menu.Item key="dashboard">
-              <Link to="/dashboard"></Link>Dashboard
+              <Link to="/dashboard">Dashboard</Link>
             </Menu.Item>
             <Menu.Item key="settings">Parent Settings</Menu.Item>
             <Menu.Item key="help">
