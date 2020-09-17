@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link, BrowserRouter as Router, Route } from "react-router-dom"
 import { Layout, Menu, Button, Typography } from 'antd';
-import { Link } from 'react-router-dom';
 
 import { PlusCircleFilled } from '@ant-design/icons';
 import Help from '../../../components/common/Help'
