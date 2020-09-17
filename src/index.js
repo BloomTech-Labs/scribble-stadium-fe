@@ -21,16 +21,13 @@ import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 
-
-
-
 ReactDOM.render(
-//  
-    <Router>
-      <React.StrictMode>
-        <App />
-       </React.StrictMode>
-     </Router>,
+  //
+  <Router>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Router>,
 
   document.getElementById('root')
 );
