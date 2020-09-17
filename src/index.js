@@ -22,11 +22,8 @@ import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import optionModal from './components/pages/Modal/optionModal';
 
-
-
-
 ReactDOM.render(
-  //  
+  //
   <Router>
     <React.StrictMode>
       <App />

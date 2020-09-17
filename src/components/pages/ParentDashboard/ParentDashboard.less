@@ -3,14 +3,19 @@
 .trigger {
   font-size: 18px;
   line-height: 64px;
-  //   padding: 0 24px;
   cursor: pointer;
   transition: color 0.3s;
 }
+.ant-menu-item-selected {
+  color: #6ceae6;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
 .container {
   background-color: white;
+  margin: 0;
 }
-.trigger:hover {
+.trigger a:hover {
   color: #1890ff;
 }
 .logo {
@@ -26,15 +31,25 @@
 .menu {
   margin-top: 5%;
 }
-
+.homescreen-content {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+}
 button {
   border-radius: 14px;
   box-sizing: border-box;
-  width: 40%;
-  height: 30vh;
+  width: 45%;
+  height: 45vh;
   background-color: #6ceae6;
   text-size-adjust: 3rem;
   border: none;
+  margin-left: 10px;
+}
+button a:hover {
+  color: #1890ff;
 }
 
 .site-layout-background {
@@ -42,14 +57,14 @@ button {
 }
 .content {
   background-color: #fff;
-  margin: 3%;
+  // margin: 3%;
 }
 
 .title {
   text-align: center;
   font-family: 'bangers';
   color: #0267c1;
-  margin-top: 1%;
+  margin-bottom: 111px;
 }
 
 .ant-layout-sider {
@@ -60,11 +75,9 @@ button {
   border-right: 2px solid gray;
 }
 .ant-layout-header {
-  margin-top: 1%;
+  margin-top: 2%;
 }
-.ant-layout-footer {
-  background: #fff;
-}
+
 [class^='ant-'],
 [class*='ant-'],
 [class*='ant-'] *::after {
@@ -72,6 +85,11 @@ button {
   box-sizing: border-box;
   background-color: #fff;
 }
-.ant-layout + .ant-layout {
-  margin-top: 48px;
-}
+// .ant-layout + .ant-layout {
+//   margin-top: 48px;
+// }
+// .ant-layout-content {
+//   flex: auto;
+//   min-height: 9px;
+//   background-color: #fff;
+// }
