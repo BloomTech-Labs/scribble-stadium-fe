@@ -1,5 +1,10 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { useOktaAuth } from '@okta/okta-react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import { getAuthHeader, getDSData } from '../../../api';
+import { Link } from 'react-router-dom';
 import {
   Layout,
   Menu,
@@ -10,8 +15,7 @@ import {
   Switch,
   Typography,
 } from 'antd';
-// import FormInput from '../../common/FormInput';
-// import Button from '../../common/Button';
+
 import './AddChild.less';
 
 const { Content, Sider } = Layout;
@@ -22,20 +26,26 @@ const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
 };
-const dislexia = {
+const dyslexia = {
   wrapperCol: { offset: 10, span: 6 },
 };
 
-const RenderAddChild = () => {
+const RenderAddChild = props => {
+  // const { authService } = props;
+  const { authState, authService } = useOktaAuth();
+  const [newChild, setNewChild] = useState({
+    Name: '',
+    GradeLevelID: '',
+    PIN: '',
+    AvatarURL: '',
+    isDyslexic: false,
+  });
   const [form] = Form.useForm();
-  //We can store form data into upper component or Redux or dva by using onFieldsChange ex
+  //We can store form data into upper component or Redux or dva by using onFieldsChange ex:
   const onGradeChange = value => {
     switch (value) {
       case 'male':
         form.setFieldsValue({ note: 'Hi, man!' });
-        return;
-      case 'female':
-        form.setFieldsValue({ note: 'Hi, lady!' });
         return;
       case 'other':
         form.setFieldsValue({ note: 'Hi there!' });
@@ -44,8 +54,21 @@ const RenderAddChild = () => {
         return;
     }
   };
+  const parentId = localStorage.getItem({
+    headers: { Authorization: 'idToken' },
+  });
   const onFinish = values => {
-    console.log('values of form:', values);
+    console.log('values', values);
+    getDSData(' https://story-squad-b-api.herokuapp.com/child', parentId);
+    // axios
+    //   .post(' https://story-squad-b-api.herokuapp.com/child', {
+    //     ...values,
+    //     ParentID: parentId,
+    //   })
+    //   .then(response => {
+    //     console.log('success', response);
+    //   })
+    //   .catch(error => console.error(error.response));
   };
 
   return (
@@ -61,10 +84,18 @@ const RenderAddChild = () => {
           mode="inline"
           defaultSelectedKeys={['dashboard']}
         >
-          <Menu.Item key="dashboard">Dashboard</Menu.Item>
-          <Menu.Item key="settings">Parent Settings</Menu.Item>
-          <Menu.Item key="help">Help</Menu.Item>
-          <Menu.Item key="logout">Log out</Menu.Item>
+          <Menu.Item key="dashboard">
+            <Link to="/parent-dashboard">Dashboard</Link>
+          </Menu.Item>
+          <Menu.Item key="settings">
+            <Link to="/parent-settings">Parent Settings</Link>
+          </Menu.Item>
+          <Menu.Item key="help">
+            <Link to="/help">Help</Link>
+          </Menu.Item>
+          <Menu.Item onClick={() => authService.logout()} key="logout">
+            Log out
+          </Menu.Item>
         </Menu>
       </Sider>
 
@@ -77,7 +108,7 @@ const RenderAddChild = () => {
         <Form {...layout} form={form} name="add-child" onFinish={onFinish}>
           <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
             <Form.Item
-              name="username"
+              name="Name"
               rules={[
                 { required: true, message: 'Please input your Username!' },
               ]}
@@ -85,7 +116,7 @@ const RenderAddChild = () => {
               <Input placeholder="User Name" />
             </Form.Item>
 
-            <Form.Item name="grade" rules={[{ required: true }]}>
+            <Form.Item name="GradeLevelID" rules={[{ required: true }]}>
               <Select
                 placeholder="Select a grade:"
                 onChange={onGradeChange}
@@ -98,12 +129,19 @@ const RenderAddChild = () => {
                 <Option value="seven">Seven</Option>
               </Select>
             </Form.Item>
-            <Form.Item name="pin" rules={[{ required: true }]}>
+            <Form.Item name="PIN" rules={[{ required: true }]}>
               <Input placeholder="Set PIN" />
             </Form.Item>
+            <Form.Item name="AvatarID" rules={[{ required: true }]}>
+              <Input placeholder="Set Avatar number:" />
+            </Form.Item>
           </Form.Item>
-          <Form.Item {...dislexia}>
-            <Form.Item name="dislexia" label="Dyslexia" valuePropName="checked">
+          <Form.Item {...dyslexia}>
+            <Form.Item
+              name="isDyslexic"
+              label="Dyslexia"
+              valuePropName="checked"
+            >
               <Switch
                 // checkedChildren="On"
                 // unCheckedChildren="Off"
