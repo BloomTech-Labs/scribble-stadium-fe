@@ -7,6 +7,7 @@ import Help from '../../../components/common/Help';
 
 import '../../../styles/HomeScreen.less';
 
+
 const { Content, Sider } = Layout;
 const { Title } = Typography;
 
@@ -20,6 +21,7 @@ function HomeScreen() {
               Welcome Back
             </Title>
           </div>
+    
           <Menu
             className="menu"
             mode="inline"

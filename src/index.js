@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+
 import {
   BrowserRouter as Router,
   Route,
@@ -43,6 +44,7 @@ function App() {
   };
 
   return (
+   
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
         <Route path="/login" component={LoginPage} />
