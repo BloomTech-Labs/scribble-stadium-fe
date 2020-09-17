@@ -5,7 +5,7 @@ import '../../styles/Header.less';
 const Header = () => {
   return (
     <div className="Hero">
-      <p>STORY SQUAD</p>
+      <p className="header-text">STORY SQUAD</p>
       <img src={city_img} alt="MyCity" />
     </div>
   );
