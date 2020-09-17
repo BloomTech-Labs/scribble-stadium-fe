@@ -5,9 +5,6 @@ import { Layout, Menu, Button, Typography } from 'antd';
 import { PlusCircleFilled } from '@ant-design/icons';
 import Help from '../../../components/common/Help';
 
-import '../../../styles/HomeScreen.less';
-
-
 const { Content, Sider } = Layout;
 const { Title } = Typography;
 
