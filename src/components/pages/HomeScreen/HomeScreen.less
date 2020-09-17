@@ -3,14 +3,18 @@
 .trigger {
   font-size: 18px;
   line-height: 64px;
-  //   padding: 0 24px;
   cursor: pointer;
   transition: color 0.3s;
+}
+.ant-menu-item-selected {
+  color: #6ceae6;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 .container {
   background-color: white;
 }
-.trigger:hover {
+.trigger a:hover {
   color: #1890ff;
 }
 .logo {
@@ -26,15 +30,23 @@
 .menu {
   margin-top: 5%;
 }
-
+.homescreen-content {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 button {
   border-radius: 14px;
   box-sizing: border-box;
-  width: 40%;
-  height: 30vh;
+  width: 45%;
+  height: 45vh;
   background-color: #6ceae6;
   text-size-adjust: 3rem;
   border: none;
+}
+button a:hover {
+  color: #1890ff;
 }
 
 .site-layout-background {
@@ -60,11 +72,9 @@ button {
   border-right: 2px solid gray;
 }
 .ant-layout-header {
-  margin-top: 1%;
+  margin-top: 2%;
 }
-.ant-layout-footer {
-  background: #fff;
-}
+
 [class^='ant-'],
 [class*='ant-'],
 [class*='ant-'] *::after {
@@ -74,4 +84,9 @@ button {
 }
 .ant-layout + .ant-layout {
   margin-top: 48px;
+}
+.ant-layout-content {
+  flex: auto;
+  min-height: 9px;
+  background-color: #fff;
 }
