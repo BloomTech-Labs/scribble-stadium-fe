@@ -3,7 +3,7 @@ import { useOktaAuth } from '@okta/okta-react';
 
 import RenderAddChild from './RenderAddChild';
 
-function HomeScreenContainer({ LoadingComponent }) {
+function AddChildContainer({ LoadingComponent }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
@@ -40,4 +40,4 @@ function HomeScreenContainer({ LoadingComponent }) {
   );
 }
 
-export default HomeScreenContainer;
+export default AddChildContainer;
