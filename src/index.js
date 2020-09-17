@@ -19,6 +19,7 @@ import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import { LandingPage } from './components/pages/LandingPage';
+import { MissionControl } from './components/pages/MissionControl';
 
 ReactDOM.render(
   <Router>
@@ -50,6 +51,13 @@ function App() {
           path="/"
           exact
           component={() => <HomePage LoadingComponent={LoadingComponent} />}
+        />
+        <SecureRoute
+          path="/mission-control"
+          exact
+          component={() => (
+            <MissionControl LoadingComponent={LoadingComponent} />
+          )}
         />
         <SecureRoute path="/example-list" component={ExampleListPage} />
         <SecureRoute path="/profile-list" component={ProfileListPage} />
