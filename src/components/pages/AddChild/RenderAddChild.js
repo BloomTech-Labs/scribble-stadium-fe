@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
+
 import PropTypes from 'prop-types';
-import axios from 'axios';
+
 import { useHistory } from 'react-router-dom';
-import { getAuthHeader, getDSData } from '../../../api';
+import { postNewChild } from '../../../api';
 import { Link } from 'react-router-dom';
 import {
   Layout,
@@ -18,7 +19,7 @@ import {
 
 import './AddChild.less';
 
-const { Content, Sider } = Layout;
+const { Sider } = Layout;
 const { Title } = Typography;
 const { Option } = Select;
 
@@ -31,15 +32,21 @@ const dyslexia = {
 };
 
 const RenderAddChild = props => {
-  // const { authService } = props;
   const { authState, authService } = useOktaAuth();
+  const { push } = useHistory();
+
   const [newChild, setNewChild] = useState({
     Name: '',
     GradeLevelID: '',
     PIN: '',
     AvatarURL: '',
-    isDyslexic: false,
+    IsDyslexic: false,
   });
+
+  const handleChange = (value, e) => {
+    console.log('this is value', value);
+  };
+
   const [form] = Form.useForm();
   //We can store form data into upper component or Redux or dva by using onFieldsChange ex:
   const onGradeChange = value => {
@@ -54,21 +61,20 @@ const RenderAddChild = props => {
         return;
     }
   };
-  const parentId = localStorage.getItem({
-    headers: { Authorization: 'idToken' },
-  });
+  // const addChild = {
+  //   Name: ,
+  //   GradeLevelID: values.GradeLevelID,
+  //   PIN: values.PIN,
+  //   AvatarURL: values.AvatarURL,
+  //   isDyslexic: values.isDyslexic,
+  // };
+
   const onFinish = values => {
     console.log('values', values);
-    getDSData(' https://story-squad-b-api.herokuapp.com/child', parentId);
-    // axios
-    //   .post(' https://story-squad-b-api.herokuapp.com/child', {
-    //     ...values,
-    //     ParentID: parentId,
-    //   })
-    //   .then(response => {
-    //     console.log('success', response);
-    //   })
-    //   .catch(error => console.error(error.response));
+    // setNewChild({ ...newChild, values });
+    postNewChild(authState, { ...values, ParentID: 1 });
+    // console.log('token', authState); //displays the tokenID
+    push('/parent-dashboard');
   };
 
   return (
@@ -104,11 +110,11 @@ const RenderAddChild = props => {
           Settings
         </Title>
 
-        {/* <Content className="content"> */}
         <Form {...layout} form={form} name="add-child" onFinish={onFinish}>
           <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
             <Form.Item
               name="Name"
+              onChange={handleChange}
               rules={[
                 { required: true, message: 'Please input your Username!' },
               ]}
@@ -119,26 +125,43 @@ const RenderAddChild = props => {
             <Form.Item name="GradeLevelID" rules={[{ required: true }]}>
               <Select
                 placeholder="Select a grade:"
-                onChange={onGradeChange}
+                // onChange={onGradeChange}
+                onChange={handleChange}
                 allowClear
               >
-                <Option value="third">Third</Option>
-                <Option value="fourth">Fourth</Option>
-                <Option value="fifth">Fifth</Option>
-                <Option value="sixth">Sixth</Option>
-                <Option value="seven">Seven</Option>
+                <Option value="1">Third</Option>
+                <Option value="2">Fourth</Option>
+                <Option value="3">Fifth</Option>
+                <Option value="4">Sixth</Option>
+                <Option value="5">Seven</Option>
               </Select>
             </Form.Item>
-            <Form.Item name="PIN" rules={[{ required: true }]}>
-              <Input placeholder="Set PIN" />
-            </Form.Item>
             <Form.Item name="AvatarID" rules={[{ required: true }]}>
-              <Input placeholder="Set Avatar number:" />
+              <Select
+                placeholder="Select an Avatar:"
+                // onChange={onGradeChange}
+                onChange={handleChange}
+                allowClear
+              >
+                <Option value="1">1</Option>
+                <Option value="2">2</Option>
+                <Option value="3">3</Option>
+                <Option value="4">4</Option>
+                <Option value="5">5</Option>
+              </Select>
+            </Form.Item>
+            <Form.Item
+              name="PIN"
+              onChange={handleChange}
+              rules={[{ required: true }]}
+            >
+              <Input placeholder="Set PIN" />
             </Form.Item>
           </Form.Item>
           <Form.Item {...dyslexia}>
             <Form.Item
-              name="isDyslexic"
+              name="IsDyslexic"
+              onChange={handleChange}
               label="Dyslexia"
               valuePropName="checked"
             >
