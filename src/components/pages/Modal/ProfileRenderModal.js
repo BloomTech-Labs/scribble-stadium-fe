@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { getProfileData } from '../../../api'
 
@@ -23,9 +22,7 @@ const ChooseModal = props => {
 
 
 
-  const showModal = () => {
-    setVisible(true)
-  };
+
 
   const handleOk = e => {
     setVisible(true)
