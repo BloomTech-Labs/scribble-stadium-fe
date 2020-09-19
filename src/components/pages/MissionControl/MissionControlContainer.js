@@ -8,6 +8,7 @@ function MissionControlContainer({ LoadingComponent }) {
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
+  const [checked, setChecked] = useState(false);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -28,13 +29,21 @@ function MissionControlContainer({ LoadingComponent }) {
     return () => (isSubscribed = false);
   }, [memoAuthService]);
 
+  const checkedToggle = e => {
+    setChecked(!checked);
+  };
+
   return (
     <>
       {authState.isAuthenticated && !userInfo && (
         <LoadingComponent message="Fetching user profile..." />
       )}
       {authState.isAuthenticated && userInfo && (
-        <RenderMissionControl userInfo={userInfo} authService={authService} />
+        <RenderMissionControl
+          userInfo={userInfo}
+          authService={authService}
+          checkedToggle={checkedToggle}
+        />
       )}
     </>
   );

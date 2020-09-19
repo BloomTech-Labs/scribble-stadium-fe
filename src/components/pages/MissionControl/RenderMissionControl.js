@@ -19,21 +19,25 @@ const RenderMissionControl = props => {
         <Row className="main-row">
           <Col className="read" span={12}>
             <Checkbox className="checking-box" defaultChecked={false} />
-            <img src={read_icon} alt="reading icon" />
-            <p className="mission-control-text">Read</p>
+            <Col className="image-and-text-container">
+              <img src={read_icon} alt="reading icon" />
+              <p className="mission-control-text">Read</p>
+            </Col>
           </Col>
           <Col className="write-and-draw" span={12}>
             <Row className="write">
               <Checkbox className="checking-box" defaultChecked={false} />
-
-              <img src={write_icon} alt="writing icon" />
-              <p className="mission-control-text">asdfeasWrite</p>
+              <Col className="image-and-text-container">
+                <img src={write_icon} alt="writing icon" />
+                <p className="mission-control-text">Write</p>
+              </Col>
             </Row>
             <Row className="draw">
-              <Checkbox className="checking-box" defaultChecked={false} />
-
-              <img src={draw_icon} alt="drawing icon" />
-              <p className="mission-control-text">Draw</p>
+              <Checkbox className="draw-checking-box" defaultChecked={false} />
+              <Col className="image-and-text-container">
+                <img src={draw_icon} alt="drawing icon" />
+                <p className="mission-control-text">Draw</p>
+              </Col>
             </Row>
           </Col>
         </Row>

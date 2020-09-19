@@ -9,8 +9,38 @@
   height: 100%;
 }
 
+.read .image-and-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.write .image-and-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.draw .image-and-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .read {
   background: #b5d33d;
+}
+
+.checking-box {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.draw-checking-box {
+  position: absolute;
+  top: 52%;
+  right: 20px;
 }
 
 .read,
@@ -19,6 +49,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-size: 4rem;
+  color: #292929;
 }
 
 .write {
