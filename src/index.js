@@ -11,21 +11,20 @@ import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 
 import 'antd/dist/antd.less';
 
-import { NotFoundPage } from './components/pages/NotFound';
-import { ExampleListPage } from './components/pages/ExampleList';
-import { ProfileListPage } from './components/pages/ProfileList';
-import { LoginPage } from './components/pages/Login';
-import { LandingPage } from './components/pages/LandingPage';
-import { HomePage } from './components/pages/Home';
-import { ExampleDataViz } from './components/pages/ExampleDataViz';
+// Helpers
 import { config } from './utils/oktaConfig';
-import { LoadingComponent } from './components/common';
-import { ChildDashboard } from './components/pages/ChildDashboard';
-import { MissionControl } from './components/pages/MissionControl';
+import { NotFoundPage } from './components/pages/NotFound';
+
+//Components
 import { AddChild } from './components/pages/AddChild';
+import { ChildDashboard } from './components/pages/ChildDashboard';
+import { Help } from './components/pages/Help';
+import { LandingPage } from './components/pages/LandingPage';
+import { LoadingComponent } from './components/common';
+import { MissionControl } from './components/pages/MissionControl';
+import { Modal } from './components/pages/Modal';
 import { ParentDashboard } from './components/pages/ParentDashboard';
 import { ParentSettings } from './components/pages/FamilySettings';
-import { Help } from './components/pages/Help';
 
 ReactDOM.render(
   //
@@ -58,7 +57,7 @@ function App() {
         <SecureRoute
           path="/"
           exact
-          component={() => <HomePage LoadingComponent={LoadingComponent} />}
+          component={() => <Modal LoadingComponent={LoadingComponent} />}
         />
         <SecureRoute
           path="/child-dashboard"
@@ -73,9 +72,7 @@ function App() {
             <MissionControl LoadingComponent={LoadingComponent} />
           )}
         />
-        <SecureRoute path="/example-list" component={ExampleListPage} />
-        <SecureRoute path="/profile-list" component={ProfileListPage} />
-        <SecureRoute path="/datavis" component={ExampleDataViz} />
+
         <SecureRoute
           path="/add-child"
           component={() => <AddChild LoadingComponent={LoadingComponent} />}
