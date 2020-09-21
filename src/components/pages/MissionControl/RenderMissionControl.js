@@ -8,9 +8,9 @@ import write_icon from '../../../assets/icons/write_icon.svg';
 
 import '../../../styles/MissionControl.less';
 const RenderMissionControl = props => {
-  // function onChange(e) {
-  //   console.log(`checked=${e.target.checked}`);
-  // }
+  function handleChecked(e) {
+    console.log(`checked=${e.target.checked}`);
+  }
 
   return (
     <>
@@ -18,7 +18,11 @@ const RenderMissionControl = props => {
       <div className="mission-container">
         <Row className="main-row">
           <Col className="read" span={12}>
-            <Checkbox className="checking-box" defaultChecked={false} />
+            <Checkbox
+              className="checking-box"
+              defaultChecked={false}
+              onChange={handleChecked}
+            />
             <Col className="image-and-text-container">
               <img src={read_icon} alt="reading icon" />
               <p className="mission-control-text">Read</p>
@@ -26,14 +30,22 @@ const RenderMissionControl = props => {
           </Col>
           <Col className="write-and-draw" span={12}>
             <Row className="write">
-              <Checkbox className="checking-box" defaultChecked={false} />
+              <Checkbox
+                className="checking-box"
+                defaultChecked={false}
+                onChange={handleChecked}
+              />
               <Col className="image-and-text-container">
                 <img src={write_icon} alt="writing icon" />
                 <p className="mission-control-text">Write</p>
               </Col>
             </Row>
             <Row className="draw">
-              <Checkbox className="draw-checking-box" defaultChecked={false} />
+              <Checkbox
+                className="draw-checking-box"
+                defaultChecked={false}
+                onChange={handleChecked}
+              />
               <Col className="image-and-text-container">
                 <img src={draw_icon} alt="drawing icon" />
                 <p className="mission-control-text">Draw</p>
