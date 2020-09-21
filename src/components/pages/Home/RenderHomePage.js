@@ -24,6 +24,9 @@ function RenderHomePage(props) {
           <Link to="/datavis">Data Visualizations Example</Link>
         </p>
         <p>
+          <Link to="/child-dashboard">Child Dashboard</Link>
+        </p>
+        <p>
           <Button type="primary" onClick={() => authService.logout()}>
             Logout
           </Button>

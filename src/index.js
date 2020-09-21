@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+
 import {
   BrowserRouter as Router,
   Route,
@@ -14,18 +15,20 @@ import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ExampleListPage } from './components/pages/ExampleList';
 import { ProfileListPage } from './components/pages/ProfileList';
+import { LoginPage } from './components/pages/Login';
 import { HomePage } from './components/pages/Home';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
-import { LandingPage } from './components/pages/LandingPage';
 
 ReactDOM.render(
+  //
   <Router>
     <React.StrictMode>
       <App />
     </React.StrictMode>
   </Router>,
+
   document.getElementById('root')
 );
 
@@ -41,9 +44,10 @@ function App() {
   };
 
   return (
+   
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
-        <Route path="/login" component={LandingPage} />
+        <Route path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute

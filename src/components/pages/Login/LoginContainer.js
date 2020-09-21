@@ -12,7 +12,7 @@ const LoginContainer = () => {
       clientId,
       redirectUri,
       registration: {
-        click: function() {
+        click: function () {
           window.location.href = 'https://acme.com/sign-up'; //This just redirects to a random page for now, will have actual page when signup feature is complete
         },
       },
