@@ -43,6 +43,7 @@ const ParentDashboard = props => {
           <Title className="title" style={{ color: '#0267C1' }} level={1}>
             STORY SQUAD
           </Title>
+          <Layout>Kids cards</Layout>
           {/* <Content className="content"> */}
           <div className="homescreen-content">
             <button>

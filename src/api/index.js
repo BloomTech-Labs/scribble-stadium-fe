@@ -37,7 +37,22 @@ const getDSData = (url, authState) => {
 const apiAuthGet = (endpoint, authHeader) => {
   return axios.get(`${apiUrl}${endpoint}`, { headers: authHeader });
 };
+const apiAuthPost = (endpoint, body, authHeader) => {
+  return axios.post(`${apiUrl}${endpoint}`, body, { headers: authHeader });
+};
 
+const postNewChild = (authState, child) => {
+  try {
+    return apiAuthPost('/child', child, getAuthHeader(authState)).then(
+      response => response.data
+    );
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [];
+    });
+  }
+};
 const getProfileData = authState => {
   try {
     return apiAuthGet('/profiles', getAuthHeader(authState)).then(
@@ -67,4 +82,14 @@ const getChildFormValues = async authState => {
   }
 };
 
-export { sleep, getExampleData, getProfileData, getDSData, getChildFormValues };
+export {
+  sleep,
+  getExampleData,
+  getProfileData,
+  getDSData,
+  apiAuthGet,
+  getAuthHeader,
+  apiAuthPost,
+  postNewChild,
+  getChildFormValues,
+};
