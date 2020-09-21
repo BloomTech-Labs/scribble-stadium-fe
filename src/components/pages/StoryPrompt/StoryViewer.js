@@ -1,25 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import SampleDoc from '../../../assets/pdfs/dummy.pdf';
 import axios from 'axios';
 import '../../../styles/StoryViewer.less';
+import { getStoryData } from '../../../api/index';
 
 const StoryViewer = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
+  const [storyPrompt, setStoryPrompt] = useState();
+
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-  // const getPDF = () => {
-  //   axios
-  //     .get('https://story-squad-b-api.herokuapp.com/stories/1')
-  //     .then(res => {
-  //       const storyPrompt = res;
-  //       console.log(res);
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // };
+  useEffect(() => {
+    setStoryPrompt(getStoryData('/stories/11'));
+  }, []);
 
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
@@ -37,7 +31,7 @@ const StoryViewer = () => {
 
   return (
     <div>
-      {/* <button type="button" onClick={}>
+      {/* <button type="button" onClick={getPDF}>
         Get Story
       </button> */}
       <button type="button" disabled={pageNumber <= 1} onClick={previousPage}>
@@ -51,7 +45,8 @@ const StoryViewer = () => {
         Next Page
       </button>
       <Document
-        file={'https://test-image-bucket-14579.s3.amazonaws.com/pdf.pdf'}
+        // file={'https://test-image-bucket-14579.s3.amazonaws.com/pdf.pdf'}
+        file={storyPrompt}
         onLoadSuccess={onDocumentLoadSuccess}
         loading="Loading Story..."
       >
