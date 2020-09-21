@@ -48,30 +48,10 @@ const RenderAddChild = props => {
   };
 
   const [form] = Form.useForm();
-  //We can store form data into upper component or Redux or dva by using onFieldsChange ex:
-  const onGradeChange = value => {
-    switch (value) {
-      case 'male':
-        form.setFieldsValue({ note: 'Hi, man!' });
-        return;
-      case 'other':
-        form.setFieldsValue({ note: 'Hi there!' });
-        return;
-      default:
-        return;
-    }
-  };
-  // const addChild = {
-  //   Name: ,
-  //   GradeLevelID: values.GradeLevelID,
-  //   PIN: values.PIN,
-  //   AvatarURL: values.AvatarURL,
-  //   isDyslexic: values.isDyslexic,
-  // };
 
   const onFinish = values => {
     console.log('values', values);
-    // setNewChild({ ...newChild, values });
+
     postNewChild(authState, { ...values, ParentID: 1 });
     // console.log('token', authState); //displays the tokenID
     push('/parent-dashboard');
