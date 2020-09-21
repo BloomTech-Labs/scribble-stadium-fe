@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { getAuthHeader, getDSData } from '../../../api';
+import { getAuthHeader, getDSData, getChildFormValues } from '../../../api';
 import { Link } from 'react-router-dom';
 import {
   Layout,
@@ -33,13 +33,9 @@ const dyslexia = {
 const RenderAddChild = props => {
   // const { authService } = props;
   const { authState, authService } = useOktaAuth();
-  const [newChild, setNewChild] = useState({
-    Name: '',
-    GradeLevelID: '',
-    PIN: '',
-    AvatarURL: '',
-    isDyslexic: false,
-  });
+
+  const [gradeLevels, setGradeLevels] = useState([]);
+  const [avatars, setAvatars] = useState([]);
   const [form] = Form.useForm();
   //We can store form data into upper component or Redux or dva by using onFieldsChange ex:
   const onGradeChange = value => {
@@ -54,6 +50,15 @@ const RenderAddChild = props => {
         return;
     }
   };
+
+  useEffect(() => {
+    getChildFormValues(authState).then(data => {
+      console.log(data);
+      setAvatars(() => data[0]);
+      setGradeLevels(() => data[1]);
+    });
+  }, []);
+
   const parentId = localStorage.getItem({
     headers: { Authorization: 'idToken' },
   });
@@ -122,18 +127,28 @@ const RenderAddChild = props => {
                 onChange={onGradeChange}
                 allowClear
               >
-                <Option value="third">Third</Option>
-                <Option value="fourth">Fourth</Option>
-                <Option value="fifth">Fifth</Option>
-                <Option value="sixth">Sixth</Option>
-                <Option value="seven">Seven</Option>
+                {gradeLevels.map(g => {
+                  return (
+                    <Option key={g.ID} value={g.ID}>
+                      {g.GradeLevel}
+                    </Option>
+                  );
+                })}
               </Select>
             </Form.Item>
             <Form.Item name="PIN" rules={[{ required: true }]}>
               <Input placeholder="Set PIN" />
             </Form.Item>
             <Form.Item name="AvatarID" rules={[{ required: true }]}>
-              <Input placeholder="Set Avatar number:" />
+              <Select placeholder="Select an avatar:" allowClear>
+                {avatars.map(g => {
+                  return (
+                    <Option key={g.ID} value={g.ID}>
+                      {g.AvatarURL}
+                    </Option>
+                  );
+                })}
+              </Select>
             </Form.Item>
           </Form.Item>
           <Form.Item {...dyslexia}>

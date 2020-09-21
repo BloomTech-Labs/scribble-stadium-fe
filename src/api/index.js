@@ -51,4 +51,20 @@ const getProfileData = authState => {
   }
 };
 
-export { sleep, getExampleData, getProfileData, getDSData };
+const getChildFormValues = async authState => {
+  try {
+    return Promise.all([
+      apiAuthGet('/avatars', getAuthHeader(authState)),
+      apiAuthGet('/gradelevels', getAuthHeader(authState)),
+    ]).then(res => {
+      return res.map(x => x.data);
+    });
+  } catch (err) {
+    return new Promise(() => {
+      console.log(err);
+      return [];
+    });
+  }
+};
+
+export { sleep, getExampleData, getProfileData, getDSData, getChildFormValues };
