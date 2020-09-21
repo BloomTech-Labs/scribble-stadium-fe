@@ -4,34 +4,21 @@ import { useOktaAuth } from '@okta/okta-react';
 import PropTypes from 'prop-types';
 
 import { useHistory } from 'react-router-dom';
-import { postNewChild } from '../../../api';
-import { Link } from 'react-router-dom';
-import {
-  Layout,
-  Menu,
-  Form,
-  Input,
-  Button,
-  Select,
-  Switch,
-  Typography,
-} from 'antd';
 
-import './AddChild.less';
+import { Link } from 'react-router-dom';
+import { Layout, Menu, Form, Input, Button, Select, Typography } from 'antd';
+
+import '../AddChild/AddChild.less';
 
 const { Sider } = Layout;
 const { Title } = Typography;
-const { Option } = Select;
 
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
 };
-const dyslexia = {
-  wrapperCol: { offset: 10, span: 6 },
-};
 
-const RenderAddChild = props => {
+const FamilySettings = props => {
   const { authState, authService } = useOktaAuth();
   const { push } = useHistory();
 
@@ -52,8 +39,6 @@ const RenderAddChild = props => {
   const onFinish = values => {
     console.log('values', values);
 
-    postNewChild(authState, { ...values, ParentID: 1 });
-    // console.log('token', authState); //displays the tokenID
     push('/parent-dashboard');
   };
 
@@ -65,11 +50,7 @@ const RenderAddChild = props => {
             Welcome Back
           </Title>
         </div>
-        <Menu
-          className="menu"
-          mode="inline"
-          defaultSelectedKeys={['dashboard']}
-        >
+        <Menu className="menu" mode="inline" defaultSelectedKeys={['settings']}>
           <Menu.Item key="dashboard">
             <Link to="/parent-dashboard">Dashboard</Link>
           </Menu.Item>
@@ -89,68 +70,66 @@ const RenderAddChild = props => {
         <Title className="title" style={{ color: '#0267C1' }} level={1}>
           Settings
         </Title>
+        <Layout>kids cards</Layout>
+        <h2>Change Email or Password</h2>
 
-        <Form {...layout} form={form} name="add-child" onFinish={onFinish}>
+        <Form
+          {...layout}
+          form={form}
+          name="change-family-settings"
+          onFinish={onFinish}
+        >
           <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
             <Form.Item
-              name="Name"
+              name="email"
               onChange={handleChange}
               rules={[
-                { required: true, message: 'Please input your Username!' },
+                {
+                  type: 'email',
+                  message: 'The input is not valid E-mail!',
+                },
+                { required: true, message: 'Please enter an email address!' },
               ]}
             >
-              <Input placeholder="User Name" />
-            </Form.Item>
-
-            <Form.Item name="GradeLevelID" rules={[{ required: true }]}>
-              <Select
-                placeholder="Select a grade:"
-                // onChange={onGradeChange}
-                onChange={handleChange}
-                allowClear
-              >
-                <Option value="1">Third</Option>
-                <Option value="2">Fourth</Option>
-                <Option value="3">Fifth</Option>
-                <Option value="4">Sixth</Option>
-                <Option value="5">Seven</Option>
-              </Select>
-            </Form.Item>
-            <Form.Item name="AvatarID" rules={[{ required: true }]}>
-              <Select
-                placeholder="Select an Avatar:"
-                // onChange={onGradeChange}
-                onChange={handleChange}
-                allowClear
-              >
-                <Option value="1">1</Option>
-                <Option value="2">2</Option>
-                <Option value="3">3</Option>
-                <Option value="4">4</Option>
-                <Option value="5">5</Option>
-              </Select>
+              <Input placeholder="Enter New Email" />
             </Form.Item>
             <Form.Item
-              name="PIN"
-              onChange={handleChange}
-              rules={[{ required: true }]}
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please input your old password!',
+                },
+              ]}
+              hasFeedback
             >
-              <Input placeholder="Set PIN" />
+              <Input.Password placeholder="Enter old Password" />
             </Form.Item>
-          </Form.Item>
-          <Form.Item {...dyslexia}>
             <Form.Item
-              name="IsDyslexic"
+              name="email"
               onChange={handleChange}
-              label="Dyslexia"
-              valuePropName="checked"
+              rules={[
+                {
+                  type: 'email',
+                  message: 'The input is not valid E-mail!',
+                },
+                { required: true, message: 'Please enter an email address!' },
+              ]}
             >
-              <Switch
-                // checkedChildren="On"
-                // unCheckedChildren="Off"
-                style={{ backgroundColor: '#007AFF' }}
-                defaultChecked
-              />
+              <Input placeholder="Enter New Email" />
+            </Form.Item>
+            <Form.Item
+              name="email"
+              onChange={handleChange}
+              rules={[
+                {
+                  type: 'email',
+                  message: 'The input is not valid E-mail!',
+                },
+                { required: true, message: 'Please enter an email address!' },
+              ]}
+            >
+              <Input placeholder="Re-enter New Email" />
             </Form.Item>
           </Form.Item>
           <Form.Item wrapperCol={{ span: 20, offset: 8 }}>
@@ -160,7 +139,7 @@ const RenderAddChild = props => {
               size="large"
               htmlType="submit"
             >
-              Add a Child
+              Update
             </Button>
           </Form.Item>
         </Form>
@@ -170,8 +149,4 @@ const RenderAddChild = props => {
   );
 };
 
-export default RenderAddChild;
-
-// RenderAddChild.PropTypes = {
-
-// }
+export default FamilySettings;

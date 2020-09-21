@@ -14,6 +14,7 @@ import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ExampleListPage } from './components/pages/ExampleList';
 import { ProfileListPage } from './components/pages/ProfileList';
+import { LoginPage } from './components/pages/Login';
 import { LandingPage } from './components/pages/LandingPage';
 import { HomePage } from './components/pages/Home';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
@@ -21,6 +22,10 @@ import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import { ChildDashboard } from './components/pages/ChildDashboard';
 import { MissionControl } from './components/pages/MissionControl';
+import { AddChild } from './components/pages/AddChild';
+import { ParentDashboard } from './components/pages/ParentDashboard';
+import { ParentSettings } from './components/pages/FamilySettings';
+import { Help } from './components/pages/Help';
 
 ReactDOM.render(
   //
@@ -71,6 +76,29 @@ function App() {
         <SecureRoute path="/example-list" component={ExampleListPage} />
         <SecureRoute path="/profile-list" component={ProfileListPage} />
         <SecureRoute path="/datavis" component={ExampleDataViz} />
+        <SecureRoute
+          path="/add-child"
+          component={() => <AddChild LoadingComponent={LoadingComponent} />}
+        />
+        <SecureRoute
+          path="/parent-dashboard"
+          exact
+          component={() => (
+            <ParentDashboard LoadingComponent={LoadingComponent} />
+          )}
+        />
+        <SecureRoute
+          path="/help"
+          exact
+          component={() => <Help LoadingComponent={LoadingComponent} />}
+        />
+        <SecureRoute
+          path="/parent-settings"
+          exact
+          component={() => (
+            <ParentSettings LoadingComponent={LoadingComponent} />
+          )}
+        />
         <Route component={NotFoundPage} />
       </Switch>
     </Security>
