@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import { useHistory } from 'react-router-dom';
+import bc from 'bcryptjs';
+import { useHistory } from "react-router-dom";
+
+
+
 import { getProfileData } from '../../../api'
 
 
 
-import { Modal, Button } from 'antd';
+import { Modal, Button, Form, Input } from 'antd';
 
-const ChooseModal = props => {
-  const { authState, authService } = useOktaAuth();
+const ProfileRenderModal = props => {
+  const { authState } = useOktaAuth();
   const [visible, setVisible] = useState(true);
   const [userInfo, setUserInfo] = useState([]);
   const [selected, setSelected] = useState(null)
+  const [form] = Form.useForm()
+  const history = useHistory()
+
+  const onFinish = (values) => {
+    history.push(`${selected.type.toLowerCase()}-dashboard`)
+  }
 
   useEffect(() => {
     getProfileData(authState)
@@ -30,7 +40,7 @@ const ChooseModal = props => {
   };
 
   const userSelect = user => {
-    console.log("USER HAS BEEN SELECTED", {user})
+
     setSelected(user)
   }
 
@@ -38,19 +48,52 @@ const ChooseModal = props => {
     <>
 
       {<Modal
-        title="Basic Modal"
+        title="So we can direct you to the right place, please let us know who you are."
         visible={visible}
         onOk={handleOk}
         onCancel={handleCancel}
+        footer={null}
+
       >
         {!selected ? userInfo.map(user => {
           return (
             <>
-              <Button onClick={(e) => userSelect(user)}>{user.Name}</Button>
+              <Button key={`${user.type}-${user.ID}`} onClick={(e) => userSelect(user)}>{user.Name}</Button>
             </>
           )
-        }) : <p>{selected.Name}, {selected.PIN}</p>}
-
+        }) : <Form
+          form={form}
+          onFinish={onFinish}
+        >
+            <p>Enter your PIN</p>
+            <p>{selected.Name} {selected.PIN}</p>
+            <Form.Item
+              name="pin"
+              label="PIN"
+              validateTrigger="onSubmit"
+              hasFeedback
+              validateStatus="null"
+              rules={
+                [
+                  {
+                    required: true,
+                    message: 'Please enter your PIN.'
+                  },
+                  ({ getFieldValue }) => ({
+                    validator(rule, value) {
+                      if (bc.compareSync(value, selected.PIN)) {
+                        return Promise.resolve();
+                      }
+                      return Promise.reject('The two passwords that you entered do not match!');
+                    },
+                  })]
+              }
+            >
+              <Input />
+            </Form.Item>
+            <Button type='primary' htmlType='submit'>Enter</Button>
+          </Form>
+        }
       </Modal>}
 
     </>
@@ -58,4 +101,4 @@ const ChooseModal = props => {
 }
 
 
-export default ChooseModal;
+export default ProfileRenderModal;
