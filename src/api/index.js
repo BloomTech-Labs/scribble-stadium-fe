@@ -51,4 +51,17 @@ const getProfileData = authState => {
   }
 };
 
-export { sleep, getExampleData, getProfileData, getDSData };
+const getStory = authState => {
+  try {
+    return apiAuthGet('/stories/11', getAuthHeader(authState)).then(
+      response => response.data
+    );
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [];
+    });
+  }
+};
+
+export { sleep, getExampleData, getProfileData, getDSData, getStory };

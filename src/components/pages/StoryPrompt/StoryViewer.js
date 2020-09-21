@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import axios from 'axios';
 import '../../../styles/StoryViewer.less';
-import { getStoryData } from '../../../api/index';
+import { getStory } from '../../../api/index';
+import { useOktaAuth } from '@okta/okta-react';
 
 const StoryViewer = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [storyPrompt, setStoryPrompt] = useState();
+  const { authState, authService } = useOktaAuth();
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
   useEffect(() => {
-    setStoryPrompt(getStoryData('/stories/11'));
+    // ========== second argument to getStory() is hardcoded for testing ==========
+    getStory(authState, 11).then(res => {
+      setStoryPrompt(res.URL);
+      console.log(res);
+    });
   }, []);
 
   const onDocumentLoadSuccess = ({ numPages }) => {
@@ -45,7 +50,6 @@ const StoryViewer = () => {
         Next Page
       </button>
       <Document
-        // file={'https://test-image-bucket-14579.s3.amazonaws.com/pdf.pdf'}
         file={storyPrompt}
         onLoadSuccess={onDocumentLoadSuccess}
         loading="Loading Story..."
