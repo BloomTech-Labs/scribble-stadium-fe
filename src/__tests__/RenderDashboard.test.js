@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
-import Help from '../components/pages/Help/Help';
+import Help from '../../components/pages/Help/Help';
 
 test('Heading', () => {
   render(
