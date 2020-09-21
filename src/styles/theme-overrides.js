@@ -18,7 +18,6 @@ module.exports = {
   '@btn-default-color': '#eb7d5b', // Child btn color (Burnt Sienna)
   '@btn-danger-color': '#ff313a', // From parent dashboard
   '@checkbox-size': '50px', // From mission dash
-  '@checkbox-color': '#ffffff', // Block Background-White
+  '@checkbox-color': '#429cb5', // Block Background-White
   '@checkbox-check-color': '#ffffff', // Block Background-White
-  '@checkbox-check-bg': '#429cb5', // Boston Blue
 };
