@@ -51,9 +51,9 @@ const getProfileData = authState => {
   }
 };
 
-const getStory = authState => {
+const getStory = (authState, id) => {
   try {
-    return apiAuthGet('/stories/11', getAuthHeader(authState)).then(
+    return apiAuthGet(`/stories/${id}`, getAuthHeader(authState)).then(
       response => response.data
     );
   } catch (error) {

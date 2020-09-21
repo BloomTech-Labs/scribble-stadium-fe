@@ -4,7 +4,7 @@ import '../../../styles/StoryViewer.less';
 import { getStory } from '../../../api/index';
 import { useOktaAuth } from '@okta/okta-react';
 
-const StoryViewer = () => {
+const StoryViewerContainer = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [storyPrompt, setStoryPrompt] = useState();
@@ -59,4 +59,4 @@ const StoryViewer = () => {
     </div>
   );
 };
-export default StoryViewer;
+export default StoryViewerContainer;
