@@ -36,9 +36,6 @@ const StoryViewer = () => {
 
   return (
     <div>
-      {/* <button type="button" onClick={getPDF}>
-        Get Story
-      </button> */}
       <button type="button" disabled={pageNumber <= 1} onClick={previousPage}>
         Previous Page
       </button>

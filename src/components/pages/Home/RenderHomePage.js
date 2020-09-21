@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
-import StoryViewer from '../StoryPrompt/StoryViewer';
 
 function RenderHomePage(props) {
   const { userInfo, authService } = props;
@@ -30,8 +29,6 @@ function RenderHomePage(props) {
           <Button type="primary" onClick={() => authService.logout()}>
             Logout
           </Button>
-
-          <StoryViewer />
         </p>
       </div>
     </div>
