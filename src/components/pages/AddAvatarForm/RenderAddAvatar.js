@@ -29,7 +29,7 @@ const RenderAddAvatar = props => {
 
     const formData = new FormData();
     fileList.forEach(file => {
-      formData.append('files', file);
+      formData.append('avatars', file);
     });
 
     Object.keys(values).forEach(key => {
@@ -87,7 +87,7 @@ const RenderAddAvatar = props => {
       <Header />
       <Form form={form} onFinish={onFinish}>
         <Upload
-          listType='picture-card'
+          listType="picture-card"
           beforeUpload={beforeUpload}
           onRemove={onRemove}
           onChange={handleChange}
@@ -95,10 +95,10 @@ const RenderAddAvatar = props => {
           fileList={filePreviews}
         >
           {/* {fileList.length >= 5 ? null : ( */}
-            <div>
-              <PlusOutlined />
-              <div style={{marginTop: '10px'}}>Upload</div>
-            </div>
+          <div>
+            <PlusOutlined />
+            <div style={{ marginTop: '10px' }}>Upload</div>
+          </div>
           {/* )} */}
         </Upload>
         <Modal
