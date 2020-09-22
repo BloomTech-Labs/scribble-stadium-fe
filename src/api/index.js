@@ -66,6 +66,17 @@ const getProfileData = authState => {
   }
 };
 
+const getStory = (authState, id) => {
+  try {
+    return apiAuthGet(`/stories/${id}`, getAuthHeader(authState)).then(
+      response => response.data
+    );
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+    });
+  }
+};
 /**
  * Reads in gradelevels and avatars from the database to enforce referential integrity
  * @param {Object} authState necessary for API functionality
@@ -93,6 +104,7 @@ export {
   getProfileData,
   getDSData,
   apiAuthGet,
+  getStory,
   getAuthHeader,
   apiAuthPost,
   postNewChild,
