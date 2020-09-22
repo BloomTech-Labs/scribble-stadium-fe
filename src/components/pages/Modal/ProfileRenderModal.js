@@ -16,7 +16,7 @@ const ProfileRenderModal = props => {
   const history = useHistory();
 
   const onFinish = values => {
-    history.push(`${selected.type.toLowerCase()}-dashboard`);
+    history.push(`${selected.type.toLowerCase()}/dashboard`);
   };
 
   useEffect(() => {

@@ -17,9 +17,7 @@ const RenderChildDashboard = props => {
         <Row>
           <Col className="accept-mission" span={12}>
             <p className="accept-mission-text">
-              <Link to="/child-dashboard/mission-control">
-                ACCEPT THE MISSION!
-              </Link>
+              <Link to="/child/mission-control">ACCEPT THE MISSION!</Link>
             </p>
           </Col>
           <Col className="change-avatar" span={12}>

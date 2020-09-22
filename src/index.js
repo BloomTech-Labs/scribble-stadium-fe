@@ -13,18 +13,19 @@ import 'antd/dist/antd.less';
 
 // Helpers
 import { config } from './utils/oktaConfig';
-import { NotFoundPage } from './components/pages/NotFound';
 
 //Components
+import { LoadingComponent } from './components/common';
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
 import { Help } from './components/pages/Help';
 import { LandingPage } from './components/pages/LandingPage';
-import { LoadingComponent } from './components/common';
 import { MissionControl } from './components/pages/MissionControl';
 import { Modal } from './components/pages/Modal';
+import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
 import { ParentSettings } from './components/pages/FamilySettings';
+import { StoryPrompt } from './components/pages/StoryPrompt';
 
 ReactDOM.render(
   //
@@ -60,42 +61,46 @@ function App() {
           component={() => <Modal LoadingComponent={LoadingComponent} />}
         />
         <SecureRoute
-          path="/child-dashboard"
-          exact
+          path="/child/story"
+          component={() => <StoryPrompt LoadingComponent={LoadingComponent} />}
+        />
+        <SecureRoute
+          path="/child/dashboard"
           component={() => (
             <ChildDashboard LoadingComponent={LoadingComponent} />
           )}
         />
         <SecureRoute
-          path="/child-dashboard/mission-control"
+          path="/child/mission-control"
           component={() => (
             <MissionControl LoadingComponent={LoadingComponent} />
           )}
         />
 
         <SecureRoute
-          path="/add-child"
+          path="/parent/add-child"
           component={() => <AddChild LoadingComponent={LoadingComponent} />}
         />
         <SecureRoute
-          path="/parent-dashboard"
+          path="/parent/dashboard"
           exact
           component={() => (
             <ParentDashboard LoadingComponent={LoadingComponent} />
           )}
         />
         <SecureRoute
-          path="/help"
+          path="/parent/help"
           exact
           component={() => <Help LoadingComponent={LoadingComponent} />}
         />
         <SecureRoute
-          path="/parent-settings"
+          path="/parent/settings"
           exact
           component={() => (
             <ParentSettings LoadingComponent={LoadingComponent} />
           )}
         />
+
         <Route component={NotFoundPage} />
       </Switch>
     </Security>
