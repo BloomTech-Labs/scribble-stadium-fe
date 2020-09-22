@@ -3,6 +3,7 @@ import { Document, Page, pdfjs } from 'react-pdf';
 import '../../../styles/StoryViewer.less';
 import { getStory } from '../../../api/index';
 import { useOktaAuth } from '@okta/okta-react';
+import { Button } from 'antd';
 
 const StoryViewerContainer = () => {
   const [numPages, setNumPages] = useState(null);
@@ -36,16 +37,18 @@ const StoryViewerContainer = () => {
 
   return (
     <div>
-      <button type="button" disabled={pageNumber <= 1} onClick={previousPage}>
-        Previous Page
-      </button>
-      <button
-        type="button"
-        disabled={pageNumber >= numPages}
-        onClick={nextPage}
-      >
-        Next Page
-      </button>
+      <div class="btn-container">
+        <Button type="button" disabled={pageNumber <= 1} onClick={previousPage}>
+          Previous Page
+        </Button>
+        <Button
+          type="button"
+          disabled={pageNumber >= numPages}
+          onClick={nextPage}
+        >
+          Next Page
+        </Button>
+      </div>
       <Document
         file={storyPrompt}
         onLoadSuccess={onDocumentLoadSuccess}

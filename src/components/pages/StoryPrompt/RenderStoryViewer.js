@@ -1,8 +1,8 @@
 import React from 'react';
 import { Header } from '../../common';
-import { StoryViewerContainer } from './StoryViewerContainer';
+import StoryViewerContainer from './StoryViewerContainer';
 
-const StoryViewerRender = props => {
+const RenderStoryViewer = props => {
   return (
     <>
       <Header />
@@ -10,4 +10,4 @@ const StoryViewerRender = props => {
     </>
   );
 };
-export default StoryViewerRender;
+export default RenderStoryViewer;
