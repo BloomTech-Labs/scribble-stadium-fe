@@ -9,7 +9,7 @@ const StoryViewerContainer = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [storyPrompt, setStoryPrompt] = useState();
-  const { authState, authService } = useOktaAuth();
+  const { authState } = useOktaAuth();
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -19,7 +19,7 @@ const StoryViewerContainer = () => {
       setStoryPrompt(res.URL);
       console.log(res);
     });
-  }, []);
+  }, [authState]);
 
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);

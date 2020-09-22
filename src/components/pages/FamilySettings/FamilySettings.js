@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
-import PropTypes from 'prop-types';
-
 import { useHistory } from 'react-router-dom';
 
 import { Link } from 'react-router-dom';
-import { Layout, Menu, Form, Input, Button, Select, Typography } from 'antd';
+import { Layout, Menu, Form, Input, Button, Typography } from 'antd';
 
 import '../AddChild/AddChild.less';
 
@@ -19,7 +17,7 @@ const layout = {
 };
 
 const FamilySettings = props => {
-  const { authState, authService } = useOktaAuth();
+  const { authService } = useOktaAuth();
   const { push } = useHistory();
 
   const [newChild, setNewChild] = useState({
