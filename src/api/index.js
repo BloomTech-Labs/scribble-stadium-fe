@@ -66,6 +66,27 @@ const getProfileData = authState => {
   }
 };
 
+/**
+ * Reads in gradelevels and avatars from the database to enforce referential integrity
+ * @param {Object} authState necessary for API functionality
+ * @returns {Promise} a promise that resolves to an array of [[avatars], [gradeLevels]]
+ */
+const getChildFormValues = async authState => {
+  try {
+    return Promise.all([
+      apiAuthGet('/avatars', getAuthHeader(authState)),
+      apiAuthGet('/gradelevels', getAuthHeader(authState)),
+    ]).then(res => {
+      return res.map(x => x.data);
+    });
+  } catch (err) {
+    return new Promise(() => {
+      console.log(err);
+      return [];
+    });
+  }
+};
+
 export {
   sleep,
   getExampleData,
@@ -75,4 +96,5 @@ export {
   getAuthHeader,
   apiAuthPost,
   postNewChild,
+  getChildFormValues,
 };
