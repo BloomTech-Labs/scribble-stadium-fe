@@ -98,6 +98,17 @@ const getChildFormValues = async authState => {
   }
 };
 
+const postNewAvatar = async (authState, body) => {
+  try {
+    return apiAuthPost('/avatars', body, getAuthHeader(authState)).then(
+      res => res.data
+    );
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+};
+
 export {
   sleep,
   getExampleData,
@@ -109,4 +120,5 @@ export {
   apiAuthPost,
   postNewChild,
   getChildFormValues,
+  postNewAvatar,
 };
