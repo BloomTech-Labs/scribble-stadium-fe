@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // we will define a bunch of API calls here.
-const apiUrl = process.env.REACT_APP_API_URI;
+const apiUrl = 'http://localhost:8000' || process.env.REACT_APP_API_URI;
 
 const sleep = time =>
   new Promise(resolve => {
