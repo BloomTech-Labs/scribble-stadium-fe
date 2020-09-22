@@ -28,10 +28,10 @@ const ParentDashboard = props => {
           >
             <Menu.Item key="dashboard">Dashboard</Menu.Item>
             <Menu.Item key="settings">
-              <Link to="/parent-settings">Parent Settings</Link>
+              <Link to="/parent/settings">Parent Settings</Link>
             </Menu.Item>
             <Menu.Item key="help">
-              <Link to="/help">Help</Link>
+              <Link to="/parent/help">Help</Link>
             </Menu.Item>
             <Menu.Item onClick={() => authService.logout()} key="logout">
               Log out
@@ -48,7 +48,7 @@ const ParentDashboard = props => {
           <div className="homescreen-content">
             <button>
               <h2>
-                <Link to="/add-child">
+                <Link to="/parent/add-child">
                   <PlusCircleFilled /> Add a Child
                 </Link>
               </h2>
