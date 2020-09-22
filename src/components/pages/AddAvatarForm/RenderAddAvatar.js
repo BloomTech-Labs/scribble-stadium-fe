@@ -5,20 +5,22 @@ import { postNewAvatar } from '../../../api';
 import { getBase64 } from '../../../utils/helpers';
 
 import { Header } from '../../common';
-import { Form, Input, Upload, message, Button } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+
+import { Form, Upload, Button } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 import Modal from 'antd/lib/modal/Modal';
 
 const RenderAddAvatar = props => {
   const { authState } = useOktaAuth();
 
   const [fileList, setFileList] = useState([]);
+  const [filePreviews, setFilePreviews] = useState([]);
   const [uploading, setUploading] = useState(false);
-  // const [preview, setPreview] = useState({
-  //   visible: false,
-  //   image: '',
-  //   title: '',
-  // });
+  const [preview, setPreview] = useState({
+    visible: false,
+    image: '',
+    title: '',
+  });
 
   const [form] = Form.useForm();
 
@@ -26,7 +28,6 @@ const RenderAddAvatar = props => {
     setUploading(true);
 
     const formData = new FormData();
-    // formData.append('files', fileList[0]);
     fileList.forEach(file => {
       formData.append('files', file);
     });
@@ -48,24 +49,25 @@ const RenderAddAvatar = props => {
 
   const beforeUpload = file => {
     setFileList([...fileList, file]);
+    setFilePreviews([...filePreviews, file]);
     return false;
   };
 
-  // const handleChange = ({ fileList }) => setFileList(fileList);
+  const handleChange = ({ fileList }) => setFilePreviews(fileList);
 
-  // const handleCancel = () =>
-  //   setPreview(preview => ({ ...preview, visible: false }));
+  const handleCancel = () =>
+    setPreview(preview => ({ ...preview, visible: false }));
 
-  // const handlePreview = async file => {
-  //   if (!file.url && !file.preview) {
-  //     file.preview = await getBase64(file.originFileObj);
-  //   }
-  //   setPreview({
-  //     image: file.url || file.preview,
-  //     visible: true,
-  //     title: file.name || file.url.substring(file.url.lastIndexOf('/') + 1),
-  //   });
-  // };
+  const handlePreview = async file => {
+    if (!file.url && !file.preview) {
+      file.preview = await getBase64(file.originFileObj);
+    }
+    setPreview({
+      image: file.url || file.preview,
+      visible: true,
+      title: file.name || file.url.substring(file.url.lastIndexOf('/') + 1),
+    });
+  };
 
   const onRemove = file => {
     setFileList(curList => {
@@ -82,19 +84,24 @@ const RenderAddAvatar = props => {
 
   return (
     <>
+      <Header />
       <Form form={form} onFinish={onFinish}>
-        <Form.Item name="text">
-          <Input />
-        </Form.Item>
         <Upload
-          // onChange={handleChange}
+          listType='picture-card'
           beforeUpload={beforeUpload}
           onRemove={onRemove}
-          fileList={fileList}
+          onChange={handleChange}
+          onPreview={handlePreview}
+          fileList={filePreviews}
         >
-          <Button icon={<UploadOutlined />}>Select File(s)</Button>
+          {/* {fileList.length >= 5 ? null : ( */}
+            <div>
+              <PlusOutlined />
+              <div style={{marginTop: '10px'}}>Upload</div>
+            </div>
+          {/* )} */}
         </Upload>
-        {/* <Modal
+        <Modal
           visible={preview.visible}
           title={preview.title}
           footer={null}
@@ -105,7 +112,7 @@ const RenderAddAvatar = props => {
             style={{ width: '100%' }}
             src={preview.image}
           />
-        </Modal> */}
+        </Modal>
         <Button
           type="primary"
           htmlType="submit"

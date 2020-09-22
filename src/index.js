@@ -23,6 +23,7 @@ import { AddChild } from './components/pages/AddChild';
 import { ParentDashboard } from './components/pages/ParentDashboard';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { Help } from './components/pages/Help';
+import { AddAvatar } from './components/pages/AddAvatarForm';
 
 ReactDOM.render(
   //
@@ -55,8 +56,13 @@ function App() {
         <SecureRoute
           path="/"
           exact
-          component={() => <HomePage LoadingComponent={LoadingComponent} />}
+          component={() => <AddAvatar LoadingComponent={LoadingComponent} />}
         />
+        {/* <SecureRoute
+          path="/"
+          exact
+          component={() => <HomePage LoadingComponent={LoadingComponent} />}
+        /> */}
         <SecureRoute path="/example-list" component={ExampleListPage} />
         <SecureRoute path="/profile-list" component={ProfileListPage} />
         <SecureRoute path="/datavis" component={ExampleDataViz} />
