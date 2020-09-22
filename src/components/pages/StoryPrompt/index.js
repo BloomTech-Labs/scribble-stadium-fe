@@ -1,1 +1,1 @@
-export { default as StoryPrompt } from './StoryViewerContainer';
+export { default as StoryPrompt } from './RenderStoryViewer';

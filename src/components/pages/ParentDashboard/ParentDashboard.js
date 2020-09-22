@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Menu, Button, Typography } from 'antd';
+import { Layout, Menu, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 
@@ -7,11 +7,11 @@ import { PlusCircleFilled } from '@ant-design/icons';
 
 import './ParentDashboard.less';
 
-const { Content, Sider } = Layout;
+const { Sider } = Layout;
 const { Title } = Typography;
 
 const ParentDashboard = props => {
-  const { authState, authService } = useOktaAuth();
+  const { authService } = useOktaAuth();
   return (
     <>
       <Layout className="container">

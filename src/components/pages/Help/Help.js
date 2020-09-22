@@ -10,7 +10,7 @@ const { Sider } = Layout;
 const { Title } = Typography;
 
 const ParentDashboard = props => {
-  const { authState, authService } = useOktaAuth();
+  const { authService } = useOktaAuth();
   return (
     <>
       <Layout className="container">

@@ -6,6 +6,7 @@ import RenderChildDashboard from './RenderChildDashboard';
 const ChildDashboardContainer = ({ LoadingComponent }) => {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
+  // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
 
   useEffect(() => {
