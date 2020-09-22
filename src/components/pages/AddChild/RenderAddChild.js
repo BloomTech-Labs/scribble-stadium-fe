@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import PropTypes from 'prop-types';
-import axios from 'axios';
+
 import { useHistory } from 'react-router-dom';
-import { getAuthHeader, getDSData } from '../../../api';
+import { getChildFormValues } from '../../../api';
+import { postNewChild } from '../../../api';
 import { Link } from 'react-router-dom';
 import {
   Layout,
@@ -18,7 +18,7 @@ import {
 
 import './AddChild.less';
 
-const { Content, Sider } = Layout;
+const { Sider } = Layout;
 const { Title } = Typography;
 const { Option } = Select;
 
@@ -31,44 +31,26 @@ const dyslexia = {
 };
 
 const RenderAddChild = props => {
-  // const { authService } = props;
   const { authState, authService } = useOktaAuth();
-  const [newChild, setNewChild] = useState({
-    Name: '',
-    GradeLevelID: '',
-    PIN: '',
-    AvatarURL: '',
-    isDyslexic: false,
-  });
+
+  const [gradeLevels, setGradeLevels] = useState([]);
+  const [avatars, setAvatars] = useState([]);
   const [form] = Form.useForm();
+  const { push } = useHistory();
   //We can store form data into upper component or Redux or dva by using onFieldsChange ex:
-  const onGradeChange = value => {
-    switch (value) {
-      case 'male':
-        form.setFieldsValue({ note: 'Hi, man!' });
-        return;
-      case 'other':
-        form.setFieldsValue({ note: 'Hi there!' });
-        return;
-      default:
-        return;
-    }
-  };
-  const parentId = localStorage.getItem({
-    headers: { Authorization: 'idToken' },
-  });
+
+  useEffect(() => {
+    getChildFormValues(authState).then(data => {
+      setAvatars(() => data[0]);
+      setGradeLevels(() => data[1]);
+    });
+  }, [authState]);
+
   const onFinish = values => {
     console.log('values', values);
-    getDSData(' https://story-squad-b-api.herokuapp.com/child', parentId);
-    // axios
-    //   .post(' https://story-squad-b-api.herokuapp.com/child', {
-    //     ...values,
-    //     ParentID: parentId,
-    //   })
-    //   .then(response => {
-    //     console.log('success', response);
-    //   })
-    //   .catch(error => console.error(error.response));
+
+    postNewChild(authState, { ...values, ParentID: 1 });
+    push('/parent-dashboard');
   };
 
   return (
@@ -104,7 +86,6 @@ const RenderAddChild = props => {
           Settings
         </Title>
 
-        {/* <Content className="content"> */}
         <Form {...layout} form={form} name="add-child" onFinish={onFinish}>
           <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
             <Form.Item
@@ -117,37 +98,38 @@ const RenderAddChild = props => {
             </Form.Item>
 
             <Form.Item name="GradeLevelID" rules={[{ required: true }]}>
-              <Select
-                placeholder="Select a grade:"
-                onChange={onGradeChange}
-                allowClear
-              >
-                <Option value="third">Third</Option>
-                <Option value="fourth">Fourth</Option>
-                <Option value="fifth">Fifth</Option>
-                <Option value="sixth">Sixth</Option>
-                <Option value="seven">Seven</Option>
+              <Select placeholder="Select a grade:" allowClear>
+                {gradeLevels.map(g => {
+                  return (
+                    <Option key={g.ID} value={g.ID}>
+                      {g.GradeLevel}
+                    </Option>
+                  );
+                })}
+              </Select>
+            </Form.Item>
+            <Form.Item name="AvatarID" rules={[{ required: true }]}>
+              <Select placeholder="Select an avatar:" allowClear>
+                {avatars.map(g => {
+                  return (
+                    <Option key={g.ID} value={g.ID}>
+                      {g.AvatarURL}
+                    </Option>
+                  );
+                })}
               </Select>
             </Form.Item>
             <Form.Item name="PIN" rules={[{ required: true }]}>
               <Input placeholder="Set PIN" />
             </Form.Item>
-            <Form.Item name="AvatarID" rules={[{ required: true }]}>
-              <Input placeholder="Set Avatar number:" />
-            </Form.Item>
           </Form.Item>
           <Form.Item {...dyslexia}>
             <Form.Item
-              name="isDyslexic"
+              name="IsDyslexic"
               label="Dyslexia"
               valuePropName="checked"
             >
-              <Switch
-                // checkedChildren="On"
-                // unCheckedChildren="Off"
-                style={{ backgroundColor: '#007AFF' }}
-                defaultChecked
-              />
+              <Switch style={{ backgroundColor: '#007AFF' }} defaultChecked />
             </Form.Item>
           </Form.Item>
           <Form.Item wrapperCol={{ span: 20, offset: 8 }}>
@@ -161,14 +143,9 @@ const RenderAddChild = props => {
             </Button>
           </Form.Item>
         </Form>
-        {/* </Content> */}
       </Layout>
     </Layout>
   );
 };
 
 export default RenderAddChild;
-
-// RenderAddChild.PropTypes = {
-
-// }
