@@ -82,9 +82,7 @@ const ProfileRenderModal = props => {
                       if (bc.compareSync(value, selected.PIN)) {
                         return Promise.resolve();
                       }
-                      return Promise.reject(
-                        'The two passwords that you entered do not match!'
-                      );
+                      return Promise.reject('Your pin does not match!');
                     },
                   }),
                 ]}
