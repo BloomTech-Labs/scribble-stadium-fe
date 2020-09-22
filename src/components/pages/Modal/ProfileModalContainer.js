@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
-import ProfileRenderModal from './ProfileRenderModal'
+import ProfileRenderModal from './ProfileRenderModal';
 
-function ProfileModalContainer ({ LoadingComponent }) {
+function ProfileModalContainer({ LoadingComponent }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line

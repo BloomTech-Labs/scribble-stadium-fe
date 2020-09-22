@@ -22,13 +22,13 @@ const ParentDashboard = props => {
           </div>
           <Menu className="menu" mode="inline" defaultSelectedKeys={['help']}>
             <Menu.Item key="dashboard">
-              <Link to="/parent-dashboard">Dashboard</Link>
+              <Link to="/parent/dashboard">Dashboard</Link>
             </Menu.Item>
             <Menu.Item key="settings">
-              <Link to="/parent-settings">Parent Settings</Link>
+              <Link to="/parent/settings">Parent Settings</Link>
             </Menu.Item>
             <Menu.Item key="help">
-              <Link to="/help">Help</Link>
+              <Link to="/parent/help">Help</Link>
             </Menu.Item>
             <Menu.Item onClick={() => authService.logout()} key="logout">
               Log out

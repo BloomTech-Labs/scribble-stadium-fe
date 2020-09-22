@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
+import { Link } from 'react-router-dom';
 
 import adventure_passport from '../../../assets/images/child_dashboard_images/adventure_passport.svg';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
@@ -15,7 +16,9 @@ const RenderChildDashboard = props => {
       <div className="dash-container">
         <Row>
           <Col className="accept-mission" span={12}>
-            <p className="accept-mission-text">ACCEPT THE MISSION!</p>
+            <p className="accept-mission-text">
+              <Link to="/child/mission-control">ACCEPT THE MISSION!</Link>
+            </p>
           </Col>
           <Col className="change-avatar" span={12}>
             <img

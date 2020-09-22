@@ -37,7 +37,7 @@ const StoryViewerContainer = () => {
 
   return (
     <div>
-      <div class="btn-container">
+      <div className="btn-container">
         <Button type="button" disabled={pageNumber <= 1} onClick={previousPage}>
           Previous Page
         </Button>
