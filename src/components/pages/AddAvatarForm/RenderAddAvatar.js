@@ -82,7 +82,6 @@ const RenderAddAvatar = props => {
 
   return (
     <>
-      <Header />
       <Form form={form} onFinish={onFinish}>
         <Form.Item name="text">
           <Input />
