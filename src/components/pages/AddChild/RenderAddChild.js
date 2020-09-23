@@ -16,8 +16,6 @@ import {
   Typography,
 } from 'antd';
 
-import './AddChild.less';
-
 const { Sider } = Layout;
 const { Title } = Typography;
 const { Option } = Select;

@@ -2,7 +2,6 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import { LoginContainer } from '../Login';
 import { Header } from '../../common';
-import '../../../styles/LandingPage.less';
 
 const LandingPage = () => {
   return (

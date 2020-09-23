@@ -5,8 +5,6 @@ import { useOktaAuth } from '@okta/okta-react';
 
 import { PlusCircleFilled } from '@ant-design/icons';
 
-import './ParentDashboard.less';
-
 const { Sider } = Layout;
 const { Title } = Typography;
 

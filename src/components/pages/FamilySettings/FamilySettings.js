@@ -6,8 +6,6 @@ import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Layout, Menu, Form, Input, Button, Typography } from 'antd';
 
-import '../AddChild/AddChild.less';
-
 const { Sider } = Layout;
 const { Title } = Typography;
 

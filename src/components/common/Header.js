@@ -1,6 +1,5 @@
 import React from 'react';
 import city_img from '../../assets/images/cityscape.png';
-import '../../styles/Header.less';
 
 const Header = () => {
   return (
