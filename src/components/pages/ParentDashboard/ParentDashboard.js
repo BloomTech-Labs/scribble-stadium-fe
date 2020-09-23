@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Menu, Button, Typography } from 'antd';
+import { Layout, Menu, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 
@@ -7,11 +7,11 @@ import { PlusCircleFilled } from '@ant-design/icons';
 
 import './ParentDashboard.less';
 
-const { Content, Sider } = Layout;
+const { Sider } = Layout;
 const { Title } = Typography;
 
 const ParentDashboard = props => {
-  const { authState, authService } = useOktaAuth();
+  const { authService } = useOktaAuth();
   return (
     <>
       <Layout className="container">
@@ -28,10 +28,10 @@ const ParentDashboard = props => {
           >
             <Menu.Item key="dashboard">Dashboard</Menu.Item>
             <Menu.Item key="settings">
-              <Link to="/parent-settings">Parent Settings</Link>
+              <Link to="/parent/settings">Parent Settings</Link>
             </Menu.Item>
             <Menu.Item key="help">
-              <Link to="/help">Help</Link>
+              <Link to="/parent/help">Help</Link>
             </Menu.Item>
             <Menu.Item onClick={() => authService.logout()} key="logout">
               Log out
@@ -48,7 +48,7 @@ const ParentDashboard = props => {
           <div className="homescreen-content">
             <button>
               <h2>
-                <Link to="/add-child">
+                <Link to="/parent/add-child">
                   <PlusCircleFilled /> Add a Child
                 </Link>
               </h2>

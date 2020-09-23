@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
-import PropTypes from 'prop-types';
-
 import { useHistory } from 'react-router-dom';
+import { getChildFormValues } from '../../../api';
 import { postNewChild } from '../../../api';
 import { Link } from 'react-router-dom';
 import {
@@ -33,27 +32,24 @@ const dyslexia = {
 
 const RenderAddChild = props => {
   const { authState, authService } = useOktaAuth();
-  const { push } = useHistory();
 
-  const [newChild, setNewChild] = useState({
-    Name: '',
-    GradeLevelID: '',
-    PIN: '',
-    AvatarURL: '',
-    IsDyslexic: false,
-  });
-
-  const handleChange = (value, e) => {
-    console.log('this is value', value);
-  };
-
+  const [gradeLevels, setGradeLevels] = useState([]);
+  const [avatars, setAvatars] = useState([]);
   const [form] = Form.useForm();
+  const { push } = useHistory();
+  //We can store form data into upper component or Redux or dva by using onFieldsChange ex:
+
+  useEffect(() => {
+    getChildFormValues(authState).then(data => {
+      setAvatars(() => data[0]);
+      setGradeLevels(() => data[1]);
+    });
+  }, [authState]);
 
   const onFinish = values => {
     console.log('values', values);
 
     postNewChild(authState, { ...values, ParentID: 1 });
-    // console.log('token', authState); //displays the tokenID
     push('/parent-dashboard');
   };
 
@@ -71,13 +67,13 @@ const RenderAddChild = props => {
           defaultSelectedKeys={['dashboard']}
         >
           <Menu.Item key="dashboard">
-            <Link to="/parent-dashboard">Dashboard</Link>
+            <Link to="/parent/dashboard">Dashboard</Link>
           </Menu.Item>
           <Menu.Item key="settings">
-            <Link to="/parent-settings">Parent Settings</Link>
+            <Link to="/parent/settings">Parent Settings</Link>
           </Menu.Item>
           <Menu.Item key="help">
-            <Link to="/help">Help</Link>
+            <Link to="/parent/help">Help</Link>
           </Menu.Item>
           <Menu.Item onClick={() => authService.logout()} key="logout">
             Log out
@@ -94,7 +90,6 @@ const RenderAddChild = props => {
           <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
             <Form.Item
               name="Name"
-              onChange={handleChange}
               rules={[
                 { required: true, message: 'Please input your Username!' },
               ]}
@@ -103,54 +98,38 @@ const RenderAddChild = props => {
             </Form.Item>
 
             <Form.Item name="GradeLevelID" rules={[{ required: true }]}>
-              <Select
-                placeholder="Select a grade:"
-                // onChange={onGradeChange}
-                onChange={handleChange}
-                allowClear
-              >
-                <Option value="1">Third</Option>
-                <Option value="2">Fourth</Option>
-                <Option value="3">Fifth</Option>
-                <Option value="4">Sixth</Option>
-                <Option value="5">Seven</Option>
+              <Select placeholder="Select a grade:" allowClear>
+                {gradeLevels.map(g => {
+                  return (
+                    <Option key={g.ID} value={g.ID}>
+                      {g.GradeLevel}
+                    </Option>
+                  );
+                })}
               </Select>
             </Form.Item>
             <Form.Item name="AvatarID" rules={[{ required: true }]}>
-              <Select
-                placeholder="Select an Avatar:"
-                // onChange={onGradeChange}
-                onChange={handleChange}
-                allowClear
-              >
-                <Option value="1">1</Option>
-                <Option value="2">2</Option>
-                <Option value="3">3</Option>
-                <Option value="4">4</Option>
-                <Option value="5">5</Option>
+              <Select placeholder="Select an avatar:" allowClear>
+                {avatars.map(g => {
+                  return (
+                    <Option key={g.ID} value={g.ID}>
+                      {g.AvatarURL}
+                    </Option>
+                  );
+                })}
               </Select>
             </Form.Item>
-            <Form.Item
-              name="PIN"
-              onChange={handleChange}
-              rules={[{ required: true }]}
-            >
+            <Form.Item name="PIN" rules={[{ required: true }]}>
               <Input placeholder="Set PIN" />
             </Form.Item>
           </Form.Item>
           <Form.Item {...dyslexia}>
             <Form.Item
               name="IsDyslexic"
-              onChange={handleChange}
               label="Dyslexia"
               valuePropName="checked"
             >
-              <Switch
-                // checkedChildren="On"
-                // unCheckedChildren="Off"
-                style={{ backgroundColor: '#007AFF' }}
-                defaultChecked
-              />
+              <Switch style={{ backgroundColor: '#007AFF' }} defaultChecked />
             </Form.Item>
           </Form.Item>
           <Form.Item wrapperCol={{ span: 20, offset: 8 }}>
@@ -164,14 +143,9 @@ const RenderAddChild = props => {
             </Button>
           </Form.Item>
         </Form>
-        {/* </Content> */}
       </Layout>
     </Layout>
   );
 };
 
 export default RenderAddChild;
-
-// RenderAddChild.PropTypes = {
-
-// }

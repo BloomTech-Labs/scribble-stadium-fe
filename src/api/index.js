@@ -66,13 +66,59 @@ const getProfileData = authState => {
   }
 };
 
+const getStory = (authState, id) => {
+  try {
+    return apiAuthGet(`/stories/${id}`, getAuthHeader(authState)).then(
+      response => response.data
+    );
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+    });
+  }
+};
+/**
+ * Reads in gradelevels and avatars from the database to enforce referential integrity
+ * @param {Object} authState necessary for API functionality
+ * @returns {Promise} a promise that resolves to an array of [[avatars], [gradeLevels]]
+ */
+const getChildFormValues = async authState => {
+  try {
+    return Promise.all([
+      apiAuthGet('/avatars', getAuthHeader(authState)),
+      apiAuthGet('/gradelevels', getAuthHeader(authState)),
+    ]).then(res => {
+      return res.map(x => x.data);
+    });
+  } catch (err) {
+    return new Promise(() => {
+      console.log(err);
+      return [];
+    });
+  }
+};
+
+const postNewAvatar = async (authState, body) => {
+  try {
+    return apiAuthPost('/avatars', body, getAuthHeader(authState)).then(
+      res => res.data
+    );
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+};
+
 export {
   sleep,
   getExampleData,
   getProfileData,
   getDSData,
   apiAuthGet,
+  getStory,
   getAuthHeader,
   apiAuthPost,
   postNewChild,
+  getChildFormValues,
+  postNewAvatar,
 };

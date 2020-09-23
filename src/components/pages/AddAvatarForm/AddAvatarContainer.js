@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
-import HomeScreen from './HomeScreen';
+import RenderAddAvatar from './RenderAddAvatar';
 
-function HomeScreenContainer({ LoadingComponent }) {
+const AddAvatarContainer = ({ LoadingComponent }) => {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
-  // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
 
   useEffect(() => {
@@ -15,8 +14,6 @@ function HomeScreenContainer({ LoadingComponent }) {
     memoAuthService
       .getUser()
       .then(info => {
-        // if user is authenticated we can use the authService to snag some user info.
-        // isSubscribed is a boolean toggle that we're using to clean up our useEffect.
         if (isSubscribed) {
           setUserInfo(info);
         }
@@ -31,13 +28,13 @@ function HomeScreenContainer({ LoadingComponent }) {
   return (
     <>
       {authState.isAuthenticated && !userInfo && (
-        <LoadingComponent message="Fetching user profile..." />
+        <LoadingComponent message="Fetching userProfile..." />
       )}
       {authState.isAuthenticated && userInfo && (
-        <HomeScreen userInfo={userInfo} authService={authService} />
+        <RenderAddAvatar userInfo={userInfo} authService={authService} />
       )}
     </>
   );
-}
+};
 
-export default HomeScreenContainer;
+export default AddAvatarContainer;
