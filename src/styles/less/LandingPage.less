@@ -1,31 +1,24 @@
 @import '~antd/dist/antd.less';
 @import '~antd/lib/style/themes/default.less';
 
-// Inner Layout
-.ant-layout-has-sider {
-  justify-content: space-around;
-  margin: 0 auto;
-  padding: 5%;
-  width: 100%;
-}
+#head-row {
+  .ant-col-16 {
+    padding: 2%;
+    p {
+      font-family: nunito, sans-serif;
+      font-weight: 300;
+      font-style: normal;
+      color: @header-nero;
+      text-shadow: none;
+      line-height: 33px;
+      text-align: left;
+    }
+  }
 
-.ant-layout-content {
-  font-size: @font-size-base;
-  flex-wrap: wrap;
-  width: 40%;
-}
-
-.ant-layout-sider {
-  background: @checkbox-color;
-  max-width: 1000px;
-  width: 600px;
-}
-
-p {
-  font-family: nunito, sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  color: @header-nero;
-  text-shadow: none;
-  line-height: 33px;
+  .ant-col-8 {
+    background: @suva-grey;
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+  }
 }

@@ -28,7 +28,6 @@ const LandingPage = () => {
           <LoginContainer />
         </Col>
       </Row>
-      <Row>footer placeholder</Row>
     </>
   );
 };
