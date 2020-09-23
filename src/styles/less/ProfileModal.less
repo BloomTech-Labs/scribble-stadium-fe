@@ -1,4 +1,9 @@
 .profile-modal {
+  .ant-modal-title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
   .ant-modal-content {
     width: 40vw;
     min-width: 300px;
@@ -8,21 +13,27 @@
     .button-list {
       display: flex;
       flex-flow: column nowrap;
+      font-size: 1.2rem;
     }
 
     button:not(:last-child) {
       margin-bottom: 2.5vh;
     }
 
-    .pin {
-      letter-spacing: 15px;
-      font-weight: 600;
-    }
-
     form {
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
+
+      .pin {
+        letter-spacing: 15px;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
 
       [class$='explain'] {
         text-align: center;
