@@ -1,0 +1,44 @@
+.profile-modal {
+  .ant-modal-content {
+    width: 40vw;
+    min-width: 300px;
+    margin: 0 auto;
+    position: relative;
+
+    .button-list {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+
+    button:not(:last-child) {
+      margin-bottom: 2.5vh;
+    }
+
+    .pin {
+      letter-spacing: 15px;
+      font-weight: 600;
+    }
+
+    form {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+
+      [class$='explain'] {
+        text-align: center;
+      }
+
+      button:not(.back) {
+        margin-top: 2.5vh;
+        width: 50%;
+        min-width: 50px;
+      }
+    }
+
+    .back {
+      position: absolute;
+      top: 8px;
+      left: 5px;
+    }
+  }
+}
