@@ -3,6 +3,8 @@ import { useOktaAuth } from '@okta/okta-react';
 import bc from 'bcryptjs';
 import { useHistory } from 'react-router-dom';
 
+import { ArrowLeftOutlined } from '@ant-design/icons';
+
 import { getProfileData } from '../../../api';
 
 import { Modal, Button, Form, Input } from 'antd';
@@ -37,6 +39,10 @@ const ProfileRenderModal = props => {
     setSelected(user);
   };
 
+  const backToProfiles = e => {
+    setSelected(!selected);
+  };
+
   return (
     <>
       {
@@ -63,9 +69,7 @@ const ProfileRenderModal = props => {
           ) : (
             <Form form={form} onFinish={onFinish}>
               <p>Enter your PIN</p>
-              <p>
-                {selected.Name} {selected.PIN}
-              </p>
+              <p>{selected.Name}</p>
               <Form.Item
                 name="pin"
                 label="PIN"
@@ -89,6 +93,7 @@ const ProfileRenderModal = props => {
               >
                 <Input />
               </Form.Item>
+              <ArrowLeftOutlined onClick={backToProfiles} />
               <Button type="primary" htmlType="submit">
                 Enter
               </Button>
