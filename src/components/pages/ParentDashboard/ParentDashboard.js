@@ -31,7 +31,7 @@ const ParentDashboard = props => {
 
   return (
     <>
-      <Layout className="container">
+      <Layout className="parent-dashboard">
         <Sider className="sider" theme="light">
           <div className="logo">
             <Title className="welcome" level={4}>

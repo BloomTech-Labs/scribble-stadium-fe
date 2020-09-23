@@ -1,134 +1,133 @@
 @import '~antd/dist/antd.less';
 @import '~antd/lib/style/themes/default.less';
 
-.container {
+.parent-dashboard {
   background-color: white;
   margin: 0;
-}
-.trigger {
-  font-size: 18px;
-  line-height: 64px;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-.ant-menu-item-selected {
-  color: #6ceae6;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-}
+  .trigger {
+    font-size: 18px;
+    line-height: 64px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .ant-menu-item-selected {
+    color: #6ceae6;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+  }
 
-.trigger a:hover {
-  color: #1890ff;
-}
-.logo {
-  height: 30vh;
-  border: 2px 2px bold;
-}
-.welcome {
-  padding: 2%;
-  margin-top: 10%;
-  text-align: center;
-  size: 2rem;
-}
-.menu {
-  margin-top: 5%;
-}
-.children {
-  display: flex;
-  width: 100%;
-  justify-content: flex-start;
-  padding: 0 2%;
-  background-color: #fff;
-  .ant-card {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    position: relative;
-    background-color: @primary-color;
+  .trigger a:hover {
+    color: #1890ff;
+  }
+  .logo {
     height: 30vh;
-    margin: 0 2.5vw 2.5vh 0;
-    padding: 16px;
-    width: 45%;
-    border-radius: 14px;
-    justify-content: center;
+    border: 2px 2px bold;
+  }
+  .welcome {
+    padding: 2%;
+    margin-top: 10%;
     text-align: center;
-
-    h2 {
-      align-self: center;
-    }
-
-    .ant-card-body,
-    .ant-layout {
-      background: none;
-    }
-    img {
-      size: 40%;
-      height: 22vh;
-      padding: 10%;
-    }
-    button {
-      border-radius: 15px;
-      box-sizing: border-box;
-      width: 85%;
-      padding: 3 3vw;
-      height: 5vh;
-      margin-bottom: '0';
+    size: 2rem;
+  }
+  .menu {
+    margin-top: 5%;
+  }
+  .children {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0 2%;
+    background-color: #fff;
+    .ant-card {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      position: relative;
+      background-color: #6ceae6;
+      height: 30vh;
+      margin: 0 2.5vw 2.5vh 0;
+      padding: 16px;
+      width: 45%;
+      border-radius: 14px;
+      justify-content: center;
       text-align: center;
-      font-size: 1rem;
-      a:hover {
-        color: black;
-        font: bold;
-        border-bottom: 1px bold black;
+
+      h2 {
+        align-self: center;
+      }
+
+      .ant-card-body,
+      .ant-layout {
+        background: none;
+      }
+      img {
+        size: 40%;
+        height: 22vh;
+        padding: 10%;
+      }
+      button {
+        border-radius: 15px;
+        box-sizing: border-box;
+        width: 85%;
+        padding: 3 3vw;
+        height: 5vh;
+        margin-bottom: '0';
+        text-align: center;
+        font-size: 1rem;
+        a:hover {
+          color: black;
+          font: bold;
+          border-bottom: 1px bold black;
+        }
+      }
+      .child-info {
+        display: flex;
+        flex-flow: row nowrap;
+        flex-grow: 1;
       }
     }
-    .child-info {
-      display: flex;
-      flex-flow: row nowrap;
-      flex-grow: 1;
-    }
   }
-}
-.homescreen-content {
-  display: flex;
-  justify-content: left;
-  flex-direction: row;
+  .homescreen-content {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
 
-  margin: 5%;
-}
+    margin: 5%;
+  }
 
-button a:hover {
-  color: #1890ff;
-}
+  button a:hover {
+    color: #1890ff;
+  }
 
-.site-layout-background {
-  background: #fff;
-}
-.content {
-  background-color: #fff;
-}
+  .site-layout-background {
+    background: #fff;
+  }
+  .content {
+    background-color: #fff;
+  }
 
-.title {
-  text-align: center;
-  font-family: 'bangers';
-  color: #0267c1;
-  background: none;
-}
+  .title {
+    text-align: center;
+    font-family: 'bangers';
+    color: #0267c1;
+    background: none;
+  }
 
-.ant-layout-sider {
-  background: #fff;
-  color: #fff;
-  line-height: 520px;
-  height: 100vh;
-  border-right: 2px solid gray;
-}
-.ant-layout-header {
-  margin-top: 2%;
-}
+  .ant-layout-sider {
+    background: #fff;
+    color: #fff;
+    line-height: 520px;
+    height: 100vh;
+    border-right: 2px solid gray;
+  }
+  .ant-layout-header {
+    margin-top: 2%;
+  }
 
-[class^='ant-'],
-[class*='ant-'],
-[class*='ant-'] *::after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  background-color: #fff;
+  [class^='ant-'],
+  [class*='ant-'],
+  [class*='ant-'] *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
 }

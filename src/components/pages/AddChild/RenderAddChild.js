@@ -52,7 +52,7 @@ const RenderAddChild = props => {
   };
 
   return (
-    <Layout className="container">
+    <Layout className="add-child">
       <Sider className="sider" theme="light">
         <div className="logo">
           <Title className="welcome" level={4}>

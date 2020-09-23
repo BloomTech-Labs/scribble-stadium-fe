@@ -16,15 +16,7 @@ const ChildCard = props => {
           {props.name}
         </h2>
       </Layout>
-      <Button
-        style={{
-          backgroundColor: '#007AFF',
-          color: 'white',
-        }}
-        type="primary"
-        size="large"
-        htmlType="submit"
-      >
+      <Button type="primary" size="large" htmlType="submit">
         {props.name.toUpperCase()}'S PROGRESS
       </Button>
     </Card>
