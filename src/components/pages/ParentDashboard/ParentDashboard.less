@@ -1,5 +1,10 @@
 @import '~antd/dist/antd.less';
 @import '~antd/lib/style/themes/default.less';
+
+.container {
+  background-color: white;
+  margin: 0;
+}
 .trigger {
   font-size: 18px;
   line-height: 64px;
@@ -11,10 +16,7 @@
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
-.container {
-  background-color: white;
-  margin: 0;
-}
+
 .trigger a:hover {
   color: #1890ff;
 }
@@ -31,6 +33,61 @@
 .menu {
   margin-top: 5%;
 }
+.children {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 0 2%;
+  background-color: #fff;
+  .ant-card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    position: relative;
+    background-color: @primary-color;
+    height: 30vh;
+    margin: 0 2.5vw 2.5vh 0;
+    padding: 16px;
+    width: 45%;
+    border-radius: 14px;
+    justify-content: center;
+    text-align: center;
+
+    h2 {
+      align-self: center;
+    }
+
+    .ant-card-body,
+    .ant-layout {
+      background: none;
+    }
+    img {
+      size: 40%;
+      height: 22vh;
+      padding: 10%;
+    }
+    button {
+      border-radius: 15px;
+      box-sizing: border-box;
+      width: 85%;
+      padding: 3 3vw;
+      height: 5vh;
+      margin-bottom: '0';
+      text-align: center;
+      font-size: 1rem;
+      a:hover {
+        color: black;
+        font: bold;
+        border-bottom: 1px bold black;
+      }
+    }
+    .child-info {
+      display: flex;
+      flex-flow: row nowrap;
+      flex-grow: 1;
+    }
+  }
+}
 .homescreen-content {
   display: flex;
   justify-content: left;
@@ -38,16 +95,7 @@
 
   margin: 5%;
 }
-button {
-  border-radius: 14px;
-  box-sizing: border-box;
-  width: 50%;
-  height: 35vh;
-  background-color: #6ceae6;
-  text-size-adjust: 3rem;
-  border: none;
-  margin-left: 10px;
-}
+
 button a:hover {
   color: #1890ff;
 }
@@ -57,14 +105,13 @@ button a:hover {
 }
 .content {
   background-color: #fff;
-  // margin: 3%;
 }
 
 .title {
   text-align: center;
   font-family: 'bangers';
   color: #0267c1;
-  margin-bottom: 111px;
+  background: none;
 }
 
 .ant-layout-sider {
@@ -85,11 +132,3 @@ button a:hover {
   box-sizing: border-box;
   background-color: #fff;
 }
-// .ant-layout + .ant-layout {
-//   margin-top: 48px;
-// }
-// .ant-layout-content {
-//   flex: auto;
-//   min-height: 9px;
-//   background-color: #fff;
-// }
