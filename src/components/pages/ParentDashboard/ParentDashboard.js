@@ -1,17 +1,36 @@
 import React from 'react';
-import { Layout, Menu, Typography } from 'antd';
+import { Layout, Menu, Typography, Card } from 'antd';
 import { Link } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 
 import { PlusCircleFilled } from '@ant-design/icons';
+import ChildCard from '../../common/ChildCard';
 
 import './ParentDashboard.less';
 
 const { Sider } = Layout;
 const { Title } = Typography;
 
+const initialChildren = [
+  {
+    Name: 'Jackie',
+    GradeLevelID: '7',
+    PIN: '1234',
+    AvatarURL: 'https://picsum.photos/200/300.jpg',
+    IsDyslexic: false,
+  },
+  {
+    Name: 'Ryan',
+    GradeLevelID: '8',
+    PIN: '1212',
+    AvatarURL: 'https://picsum.photos/200/300.jpg',
+    IsDyslexic: false,
+  },
+];
+
 const ParentDashboard = props => {
   const { authService } = useOktaAuth();
+
   return (
     <>
       <Layout className="container">
@@ -43,18 +62,20 @@ const ParentDashboard = props => {
           <Title className="title" style={{ color: '#0267C1' }} level={1}>
             STORY SQUAD
           </Title>
-          <Layout>Kids cards</Layout>
-          {/* <Content className="content"> */}
-          <div className="homescreen-content">
-            <button>
-              <h2>
-                <Link to="/parent/add-child">
-                  <PlusCircleFilled /> Add a Child
-                </Link>
-              </h2>
-            </button>
+          <div className="children-container">
+            <Layout className="children" style={{ flexFlow: 'row wrap' }}>
+              {initialChildren.map(child => (
+                <ChildCard name={child.Name} AvatarURL={child.AvatarURL} />
+              ))}
+              <Card>
+                <h2>
+                  <Link to="/parent/add-child">
+                    <PlusCircleFilled /> Add a Child
+                  </Link>
+                </h2>
+              </Card>
+            </Layout>
           </div>
-          {/* </Content> */}
         </Layout>
       </Layout>
     </>
