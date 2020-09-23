@@ -3,9 +3,9 @@ import city_img from '../../assets/images/cityscape.svg';
 
 const Header = () => {
   return (
-    <div className="Hero">
+    <div className="hero">
       <p className="header-text">STORY SQUAD</p>
-      <img src={city_img} alt="MyCity" />
+      {/* <img className="city-image" src={city_img} alt="MyCity" /> */}
     </div>
   );
 };

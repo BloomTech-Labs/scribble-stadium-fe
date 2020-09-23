@@ -1,29 +1,22 @@
 @import '~antd/dist/antd.less';
 @import '~antd/lib/style/themes/default.less';
 
-.Hero {
-  height: 25vh;
-  background-color: #6ceae6;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  align-content: space-between;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-.Hero img {
-  width: 100%;
-  height: 25%;
-  left: 6px;
-  box-sizing: border-box;
-  position: absolute;
-}
-.header-text,
-p {
-  color: #ffffff;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  text-align: center;
-  font-size: 2rem;
-  font-family: 'bangers';
+.hero {
+  background-image: url('../../assets/images/cityscape.svg');
+  min-height: 30vh;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: bottom;
+  border: 5px solid @header-nero;
+  background-color: @turquoise;
+  .header-text,
+  p {
+    color: #ffffff;
+    text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+    text-align: center;
+    font-size: 5rem;
+    font-family: 'bangers';
+    font-weight: bold;
+    z-index: 1;
+  }
 }
