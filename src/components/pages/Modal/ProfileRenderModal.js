@@ -61,7 +61,7 @@ const ProfileRenderModal = props => {
           onOk={handleOk}
           onCancel={handleCancel}
           closable={false}
-          centered="true"
+          centered={true}
           footer={null}
         >
           {!selected ? (
