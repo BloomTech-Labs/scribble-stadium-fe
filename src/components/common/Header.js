@@ -1,5 +1,5 @@
 import React from 'react';
-import city_img from '../../assets/images/cityscape.png';
+import city_img from '../../assets/images/cityscape.svg';
 
 const Header = () => {
   return (
