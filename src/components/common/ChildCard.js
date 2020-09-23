@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, Button, Layout } from 'antd';
-import '../../components/pages/ParentDashboard/ParentDashboard.less';
 
 const ChildCard = props => {
   return (
