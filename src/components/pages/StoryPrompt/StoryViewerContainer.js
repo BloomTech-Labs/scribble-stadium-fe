@@ -1,64 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import { Document, Page, pdfjs } from 'react-pdf';
-import { getStory } from '../../../api/index';
+import React, { useState, useEffect, useMemo } from 'react';
+import RenderStoryViewer from './RenderStoryViewer';
 import { useOktaAuth } from '@okta/okta-react';
-import { Button } from 'antd';
 
-const StoryViewerContainer = () => {
-  const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
-  const [storyPrompt, setStoryPrompt] = useState();
-  const { authState } = useOktaAuth();
-
-  pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+const StoryViewerContainer = ({ LoadingComponent }) => {
+  const { authState, authService } = useOktaAuth();
+  const [userInfo, setUserInfo] = useState(null);
+  const [memoAuthService] = useMemo(() => [authService], []);
 
   useEffect(() => {
-    // ========== second argument to getStory() is hardcoded for testing ==========
-    getStory(authState, 11).then(res => {
-      setStoryPrompt(res.URL);
-      console.log(res);
-    });
-  }, [authState]);
+    let isSubscribed = true;
 
-  const onDocumentLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
-    setPageNumber(1);
-  };
-  const changePage = offset => {
-    setPageNumber(prevPageNumber => prevPageNumber + offset);
-  };
-  const previousPage = () => {
-    changePage(-1);
-  };
-  const nextPage = () => {
-    changePage(1);
-  };
+    memoAuthService
+      .getUser()
+      .then(info => {
+        if (isSubscribed) {
+          setUserInfo(info);
+        }
+      })
+      .catch(error => {
+        isSubscribed = false;
+        return setUserInfo(null);
+      });
+    return () => (isSubscribed = false);
+  }, [memoAuthService]);
 
   return (
-    <div>
-      <div className="btn-container">
-        <Button type="button" disabled={pageNumber <= 1} onClick={previousPage}>
-          Previous Page
-        </Button>
-        <Button
-          type="button"
-          disabled={pageNumber >= numPages}
-          onClick={nextPage}
-        >
-          Next Page
-        </Button>
-      </div>
-      <Document
-        file={storyPrompt}
-        onLoadSuccess={onDocumentLoadSuccess}
-        loading="Loading Story..."
-      >
-        <Page pageNumber={pageNumber} />
-        <p>
-          Page {pageNumber} of {numPages}
-        </p>
-      </Document>
-    </div>
+    <>
+      {authState.isAuthenticated && !userInfo && (
+        <LoadingComponent message="Fetching user profile..." />
+      )}
+      {authState.isAuthenticated && userInfo && (
+        <RenderStoryViewer userInfo={userInfo} authService={authService} />
+      )}
+    </>
   );
 };
 export default StoryViewerContainer;
