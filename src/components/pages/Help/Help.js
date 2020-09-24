@@ -20,7 +20,7 @@ const Help = props => {
             >
               Help
             </Title>
-            <h1>Contact US</h1>
+            <h2>Contact Us</h2>
             <h3>Email us: email@storysquad.com</h3>
           </div>
         </Layout>
