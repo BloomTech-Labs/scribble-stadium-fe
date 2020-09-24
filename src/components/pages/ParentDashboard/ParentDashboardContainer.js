@@ -2,8 +2,9 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
 import ParentDashboard from './ParentDashboard';
+import { connect } from 'react-redux';
 
-function ParentDashboardContainer({ LoadingComponent }) {
+function ParentDashboardContainer({ LoadingComponent, ...props }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
@@ -34,10 +35,19 @@ function ParentDashboardContainer({ LoadingComponent }) {
         <LoadingComponent message="Fetching user profile..." />
       )}
       {authState.isAuthenticated && userInfo && (
-        <ParentDashboard userInfo={userInfo} authService={authService} />
+        <ParentDashboard
+          {...props}
+          userInfo={userInfo}
+          authService={authService}
+        />
       )}
     </>
   );
 }
 
-export default ParentDashboardContainer;
+export default connect(
+  state => ({
+    parent: state.parent,
+  }),
+  {}
+)(ParentDashboardContainer);

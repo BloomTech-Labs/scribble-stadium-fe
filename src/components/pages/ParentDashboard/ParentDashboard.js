@@ -29,6 +29,8 @@ const initialChildren = [
 const ParentDashboard = props => {
   const { authService } = useOktaAuth();
 
+  const { parent } = props;
+
   return (
     <>
       <Layout className="parent-dashboard">
