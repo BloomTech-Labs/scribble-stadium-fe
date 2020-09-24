@@ -1,72 +1,78 @@
 @import '~antd/dist/antd.less';
 @import '~antd/lib/style/themes/default.less';
+@import 'global.less';
+@import 'variables.less';
 
 .dash-container {
-  height: 73vh;
-}
+  height: 75vh;
 
-.ant-row {
-  height: 50%;
-}
-
-.accept-mission {
-  background: url('../../assets/images/child_dashboard_images/accept_the_mission.svg')
-    no-repeat;
-  background-size: contain;
-  background-position: center;
-  background-color: #b5d33d;
-  p {
-    margin: 0 auto;
+  .accept-mission, .change-avatar, .adventure-passport, .trophy-room{
+    border: 5px solid @header-nero;
+    height: 35vh;
   }
-}
 
-.accept-mission,
-img {
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .accept-mission {
+    background: url('../../assets/images/child_dashboard_images/accept_the_mission.svg')
+      no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: @conifer;
+    
+    p {
+      margin: 0 auto;
+    }
+  }
 
-.accept-mission-text {
-  font-size: 4.5rem;
-  padding: 8%;
-  cursor: pointer;
-}
+  .accept-mission,
+  img {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.change-avatar {
-  background: #eb7d5b;
-}
+  .accept-mission-text {
+    font-size: 3.2rem;
+    padding: 8%;
+    cursor: pointer;
+    a {
+      font-family: 'Bangers', cursive;
+      color: #ffffff;
+      text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+    }
+  }
 
-.change-avatar,
-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .change-avatar {
+    
+    background: @burnt-sienna;
+  }
 
-.adventure-passport {
-  background: #fed23f;
-}
+  .change-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.adventure-passport,
-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  
 
-.trophy-room {
-  background: #429cb5;
-}
+  .adventure-passport {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: @bright-sun;
+  }
+  .adventure-passport img{
+    padding-bottom: 6%;
+  }
 
-.trophy-room,
-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .trophy-room {
+    background: #429cb5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.child-dash-img {
-  cursor: pointer;
+  .child-dash-img {
+    cursor: pointer;
+  }
 }
