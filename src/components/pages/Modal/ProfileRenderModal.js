@@ -22,8 +22,22 @@ const ProfileRenderModal = props => {
   const [form] = Form.useForm();
   const history = useHistory();
 
+  // Redux Action Dispatch
+  const { setParent, setChild } = props;
+
   const onFinish = values => {
-    history.push(`${selected.type.toLowerCase()}/dashboard`);
+    if (selected.type === 'Parent') {
+      setParent({
+        ...selected,
+        children: userInfo.filter(user => user.type !== 'Parent'),
+      });
+      history.push(`parent/dashboard`);
+    } else if ((selected.type = 'Child')) {
+      setChild(selected);
+      history.push(`child/dashboard`);
+    } else {
+      // error case?
+    }
   };
 
   useEffect(() => {

@@ -1,3 +1,5 @@
+import { child } from '../actions';
+
 const initialState = {
   id: null,
   name: null,
@@ -9,6 +11,15 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case child.SET_CHILD:
+      return {
+        id: action.payload.ID,
+        name: action.payload.Name,
+        isDyslexic: action.payload.IsDyslexic,
+        avatarUrl: action.payload.AvatarURL,
+        gradeLevel: action.payload.GradeLevel,
+        parentId: action.payload.ParentID,
+      };
     default:
       return state;
   }

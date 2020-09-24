@@ -15,8 +15,8 @@
  * STEP 3: Action Creation
  * [x] create root action index file
  * [x] create action files for each reducer and import them into action index
- * [ ] figure out what actions you need to update state
- * [ ] write action creator functions for each action
+ * [x] figure out what actions you need to update state
+ * [x] write action creator functions for each action
  *
  * STEP 4: Connect your application to your redux store
  * [ ] decide what parts of the application require state
