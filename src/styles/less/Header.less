@@ -9,7 +9,7 @@
   background-position: bottom;
   border: 5px solid @header-nero;
   background-color: @turquoise;
-  .header-text,
+  position: relative;
   h1 {
     color: #ffffff;
     text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
@@ -18,5 +18,15 @@
     font-family: 'bangers';
     font-weight: bold;
     z-index: 1;
+  }
+  .menu-button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-weight: 500;
+
+    button {
+      text-align: left;
+    }
   }
 }

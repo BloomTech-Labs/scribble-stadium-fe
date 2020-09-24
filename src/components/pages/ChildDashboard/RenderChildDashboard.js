@@ -7,10 +7,10 @@ import adventure_passport from '../../../assets/images/child_dashboard_images/ad
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 import trophy_room from '../../../assets/images/child_dashboard_images/trophy_room.svg';
 
-const RenderChildDashboard = props => {
+const RenderChildDashboard = ({ authService }) => {
   return (
     <>
-      <Header />
+      <Header authService={authService} displayMenu={true} />
       <div className="dash-container">
         <Row>
           <Col className="accept-mission" span={12}>

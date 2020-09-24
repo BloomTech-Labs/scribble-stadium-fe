@@ -1,7 +1,7 @@
 module.exports = {
-  // '@primary-color': '#6ceae6', // Turquoise
   '@primary-color': '#007aff', // Turquoise
-  // '@link-color': ' #429cb5', // Boston Blue
+  '@primary-3': '#6ceae6', // Turquoise
+  '@primary-4': ' #429cb5', // Boston Blue
   // '@success-color': '#00d93d', // Border around story submitted modal
   // '@warning-color': '#ff313a', // from 'remove child' button
   // '@error-color': '#f5222d', // Un-changed
@@ -27,4 +27,6 @@ module.exports = {
   // Buttons
   '@btn-primary-color': '#fff',
   '@btn-primary-bg': '@primary-color',
+
+  // Dropdown
 };

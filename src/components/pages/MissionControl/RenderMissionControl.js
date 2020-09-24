@@ -7,14 +7,14 @@ import draw_icon from '../../../assets/icons/draw_icon.svg';
 import read_icon from '../../../assets/icons/read_icon.svg';
 import write_icon from '../../../assets/icons/write_icon.svg';
 
-const RenderMissionControl = props => {
+const RenderMissionControl = ({ authService }) => {
   function handleChecked(e) {
     console.log(`checked=${e.target.checked}`);
   }
 
   return (
     <>
-      <Header />
+      <Header authService={authService} />
       <div className="mission-container">
         <Row className="main-row">
           <Col className="read" span={12}>

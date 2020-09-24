@@ -6,7 +6,7 @@ import { Header } from '../../common';
 const LandingPage = () => {
   return (
     <>
-      <Header />
+      <Header displayMenu={false} />
       <Row id="head-row">
         <Col span={16}>
           <p>
