@@ -1,22 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
+import ParentNavSider from '../../common/ParentNavSider';
+
 import { useHistory } from 'react-router-dom';
 import { getChildFormValues } from '../../../api';
 import { postNewChild } from '../../../api';
-import { Link } from 'react-router-dom';
-import {
-  Layout,
-  Menu,
-  Form,
-  Input,
-  Button,
-  Select,
-  Switch,
-  Typography,
-} from 'antd';
 
-const { Sider } = Layout;
+import { Layout, Form, Input, Button, Select, Switch, Typography } from 'antd';
+
 const { Title } = Typography;
 const { Option } = Select;
 
@@ -29,13 +21,12 @@ const dyslexia = {
 };
 
 const RenderAddChild = props => {
-  const { authState, authService } = useOktaAuth();
+  const { authState } = useOktaAuth();
 
   const [gradeLevels, setGradeLevels] = useState([]);
   const [avatars, setAvatars] = useState([]);
   const [form] = Form.useForm();
   const { push } = useHistory();
-  //We can store form data into upper component or Redux or dva by using onFieldsChange ex:
 
   useEffect(() => {
     getChildFormValues(authState).then(data => {
@@ -53,31 +44,7 @@ const RenderAddChild = props => {
 
   return (
     <Layout className="add-child">
-      <Sider className="sider" theme="light">
-        <div className="logo">
-          <Title className="welcome" level={4}>
-            Welcome Back
-          </Title>
-        </div>
-        <Menu
-          className="menu"
-          mode="inline"
-          defaultSelectedKeys={['dashboard']}
-        >
-          <Menu.Item key="dashboard">
-            <Link to="/parent/dashboard">Dashboard</Link>
-          </Menu.Item>
-          <Menu.Item key="settings">
-            <Link to="/parent/settings">Parent Settings</Link>
-          </Menu.Item>
-          <Menu.Item key="help">
-            <Link to="/parent/help">Help</Link>
-          </Menu.Item>
-          <Menu.Item onClick={() => authService.logout()} key="logout">
-            Log out
-          </Menu.Item>
-        </Menu>
-      </Sider>
+      <ParentNavSider />
 
       <Layout className="content">
         <Title className="title" style={{ color: '#0267C1' }} level={1}>
