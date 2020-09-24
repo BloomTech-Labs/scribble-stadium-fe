@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
+import { connect } from 'react-redux';
+
 import RenderChildDashboard from './RenderChildDashboard';
 
-const ChildDashboardContainer = ({ LoadingComponent }) => {
+const ChildDashboardContainer = ({ LoadingComponent, ...props }) => {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
@@ -38,4 +40,8 @@ const ChildDashboardContainer = ({ LoadingComponent }) => {
   );
 };
 
-export default ChildDashboardContainer;
+const mapStateToProps = state => ({
+  child: state.child,
+});
+
+export default connect(mapStateToProps, {})(ChildDashboardContainer);

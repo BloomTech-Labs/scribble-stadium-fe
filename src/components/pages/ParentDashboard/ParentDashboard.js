@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Menu, Typography, Card } from 'antd';
+import { Layout, Typography, Card } from 'antd';
 import { Link } from 'react-router-dom';
 
 import { PlusCircleFilled } from '@ant-design/icons';
