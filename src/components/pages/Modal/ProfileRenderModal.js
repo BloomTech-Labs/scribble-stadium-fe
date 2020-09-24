@@ -52,7 +52,7 @@ const ProfileRenderModal = props => {
 
   return (
     <>
-      <Header />
+      <Header displayMenu={false} />
       {
         <Modal
           className="profile-modal"

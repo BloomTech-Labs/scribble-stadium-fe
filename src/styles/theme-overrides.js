@@ -27,4 +27,6 @@ module.exports = {
   // Buttons
   '@btn-primary-color': '#fff',
   '@btn-primary-bg': '@primary-color',
+
+  // Dropdown
 };
