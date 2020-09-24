@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
+import ParentNavSider from '../../common/ParentNavSider';
 import { useOktaAuth } from '@okta/okta-react';
 
 import { useHistory } from 'react-router-dom';
 
-import { Link } from 'react-router-dom';
-import { Layout, Menu, Form, Input, Button, Typography } from 'antd';
+import { Layout, Form, Input, Button, Typography } from 'antd';
 
-const { Sider } = Layout;
 const { Title } = Typography;
 
 const layout = {
@@ -15,22 +14,12 @@ const layout = {
 };
 
 const FamilySettings = props => {
-  const { authService } = useOktaAuth();
+  const [form] = Form.useForm();
   const { push } = useHistory();
-
-  const [newChild, setNewChild] = useState({
-    Name: '',
-    GradeLevelID: '',
-    PIN: '',
-    AvatarURL: '',
-    IsDyslexic: false,
-  });
 
   const handleChange = (value, e) => {
     console.log('this is value', value);
   };
-
-  const [form] = Form.useForm();
 
   const onFinish = values => {
     console.log('values', values);
@@ -39,28 +28,8 @@ const FamilySettings = props => {
   };
 
   return (
-    <Layout className="container">
-      <Sider className="sider" theme="light">
-        <div className="logo">
-          <Title className="welcome" level={4}>
-            Welcome Back
-          </Title>
-        </div>
-        <Menu className="menu" mode="inline" defaultSelectedKeys={['settings']}>
-          <Menu.Item key="dashboard">
-            <Link to="/parent/dashboard">Dashboard</Link>
-          </Menu.Item>
-          <Menu.Item key="settings">
-            <Link to="/parent/settings">Parent Settings</Link>
-          </Menu.Item>
-          <Menu.Item key="help">
-            <Link to="/parent/help">Help</Link>
-          </Menu.Item>
-          <Menu.Item onClick={() => authService.logout()} key="logout">
-            Log out
-          </Menu.Item>
-        </Menu>
-      </Sider>
+    <Layout className="parent-dashboard">
+      <ParentNavSider />
 
       <Layout className="content">
         <Title className="title" style={{ color: '#0267C1' }} level={1}>
