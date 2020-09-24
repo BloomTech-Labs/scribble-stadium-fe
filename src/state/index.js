@@ -19,10 +19,10 @@
  * [x] write action creator functions for each action
  *
  * STEP 4: Connect your application to your redux store
- * [ ] decide what parts of the application require state
- * [ ] decide what parts of your application can affect state
- * [ ] connect the necessary components to your redux store
- * [ ] ensure that each component has access to any state values/actions that are needed
+ * [x] decide what parts of the application require state
+ * [x] decide what parts of your application can affect state
+ * [x] connect the necessary components to your redux store
+ * [x] ensure that each component has access to any state values/actions that are needed
  */
 
 import { createStore, applyMiddleware } from 'redux';
