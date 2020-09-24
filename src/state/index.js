@@ -1,20 +1,20 @@
 /**
  * STEP 1: Create Redux Store
- * [ ] add imports to store file
- * [ ] create root reducer index file
- * [ ] create redux store
- * [ ] apply necessary middleware for actions/logging
- * [ ] add provider to your tree
+ * [x] add imports to store file
+ * [x] create root reducer index file
+ * [x] create redux store
+ * [x] add provider to your tree
+ * [x] apply necessary middleware for actions/logging
  *
  * STEP 2: Create Specific reducers for application state
- * [ ] decide on state setup needed for project
- * [ ] split into appropriate reducers
- * [ ] create initial state shape in each reducer
- * [ ] import each reducer into your root reducer
+ * [x] decide on state setup needed for project
+ * [x] split into appropriate reducers
+ * [x] create initial state shape in each reducer
+ * [x] import each reducer into your root reducer
  *
  * STEP 3: Action Creation
- * [ ] create root action index file
- * [ ] create action files for each reducer and import them into action index
+ * [x] create root action index file
+ * [x] create action files for each reducer and import them into action index
  * [ ] figure out what actions you need to update state
  * [ ] write action creator functions for each action
  *
@@ -26,9 +26,11 @@
  */
 
 import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
 import rootReducer from './reducers';
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 export default store;

@@ -2,4 +2,10 @@
 // This allows for the simplification of flow when importing reducers into your actions throughout your app.
 import { combineReducers } from 'redux';
 
-export default combineReducers([]);
+import { reducer as child } from './childReducer';
+import { reducer as parent } from './parentReducer';
+
+export default combineReducers({
+  child,
+  parent,
+});
