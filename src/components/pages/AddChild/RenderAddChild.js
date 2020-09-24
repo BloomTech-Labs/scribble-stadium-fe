@@ -44,7 +44,7 @@ const RenderAddChild = props => {
 
   return (
     <Layout className="add-child">
-      <ParentNavSider />
+      <ParentNavSider selected="dashboard" />
 
       <Layout className="content">
         <Title className="title" style={{ color: '#0267C1' }} level={1}>

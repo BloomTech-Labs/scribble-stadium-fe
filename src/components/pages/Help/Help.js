@@ -5,11 +5,11 @@ import ParentNavSider from '../../common/ParentNavSider';
 
 const { Title } = Typography;
 
-const ParentDashboard = props => {
+const Help = props => {
   return (
     <>
-      <Layout className="container">
-        <ParentNavSider />
+      <Layout className="parent-dashboard">
+        <ParentNavSider selected="help" />
 
         <Layout>
           <div className="Contact">
@@ -29,25 +29,4 @@ const ParentDashboard = props => {
   );
 };
 
-export default ParentDashboard;
-
-// import React from 'react';
-// import '../../../styles/HelpPage.less';
-// import { Typography } from 'antd';
-// const { Title } = Typography;
-
-// const Help = () => {
-//   return (
-//     <>
-//       <div className="Contact">
-//         <Title className="help-title" style={{ color: '#0267C1' }} level={1}>
-//           HELP
-//         </Title>
-//         <h1>Contact US</h1>
-//         <h3>Email us: email@storysquad.com</h3>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Help;
+export default Help;
