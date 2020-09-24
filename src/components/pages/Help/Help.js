@@ -3,9 +3,6 @@ import { Layout, Menu, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 
-import '../ParentDashboard/ParentDashboard.less';
-import '../../../styles/HelpPage.less';
-
 const { Sider } = Layout;
 const { Title } = Typography;
 

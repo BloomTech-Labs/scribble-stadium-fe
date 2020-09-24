@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import '../../../styles/StoryViewer.less';
 import { getStory } from '../../../api/index';
 import { useOktaAuth } from '@okta/okta-react';
 import { Button } from 'antd';

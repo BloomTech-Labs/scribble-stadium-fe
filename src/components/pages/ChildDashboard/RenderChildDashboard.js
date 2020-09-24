@@ -7,8 +7,6 @@ import adventure_passport from '../../../assets/images/child_dashboard_images/ad
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 import trophy_room from '../../../assets/images/child_dashboard_images/trophy_room.svg';
 
-import '../../../styles/ChildDashboard.less';
-
 const RenderChildDashboard = props => {
   return (
     <>

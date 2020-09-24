@@ -7,7 +7,6 @@ import draw_icon from '../../../assets/icons/draw_icon.svg';
 import read_icon from '../../../assets/icons/read_icon.svg';
 import write_icon from '../../../assets/icons/write_icon.svg';
 
-import '../../../styles/MissionControl.less';
 const RenderMissionControl = props => {
   function handleChecked(e) {
     console.log(`checked=${e.target.checked}`);

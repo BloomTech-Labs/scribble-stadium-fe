@@ -1,0 +1,22 @@
+@import '~antd/dist/antd.less';
+@import '~antd/lib/style/themes/default.less';
+
+.hero {
+  background-image: url('../../assets/images/cityscape.svg');
+  min-height: 30vh;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: bottom;
+  border: 5px solid @header-nero;
+  background-color: @turquoise;
+  .header-text,
+  h1 {
+    color: #ffffff;
+    text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+    text-align: center;
+    font-size: 5rem;
+    font-family: 'bangers';
+    font-weight: bold;
+    z-index: 1;
+  }
+}
