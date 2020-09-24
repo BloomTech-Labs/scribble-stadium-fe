@@ -6,7 +6,7 @@ import { useOktaAuth } from '@okta/okta-react';
 const { Sider } = Layout;
 const { Title } = Typography;
 
-const ParentNavSider = () => {
+const ParentNavSider = props => {
   const { authService } = useOktaAuth();
   return (
     <Sider className="sider" theme="light">
@@ -15,7 +15,11 @@ const ParentNavSider = () => {
           Welcome Back
         </Title>
       </div>
-      <Menu className="menu" mode="inline" defaultSelectedKeys={['dashboard']}>
+      <Menu
+        className="menu"
+        mode="inline"
+        defaultSelectedKeys={[props.selected]}
+      >
         <Menu.Item key="dashboard">
           <Link to="/parent/dashboard">Dashboard</Link>
         </Menu.Item>
