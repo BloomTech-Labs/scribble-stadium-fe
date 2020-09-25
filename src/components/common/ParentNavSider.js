@@ -1,13 +1,20 @@
 import React from 'react';
 import { Layout, Menu, Typography } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
+import { connect } from 'react-redux';
+import { global } from '../../state/actions';
 
 const { Sider } = Layout;
 const { Title } = Typography;
 
 const ParentNavSider = props => {
   const { authService } = useOktaAuth();
+  const { push } = useHistory();
+  const switchUsers = e => {
+    props.clearUsers();
+    push('/');
+  };
   return (
     <Sider className="sider" theme="light">
       <div className="logo">
@@ -29,6 +36,9 @@ const ParentNavSider = props => {
         <Menu.Item key="help">
           <Link to="/parent/help">Help</Link>
         </Menu.Item>
+        <Menu.Item onClick={switchUsers} key="switch">
+          Change User
+        </Menu.Item>
         <Menu.Item onClick={() => authService.logout()} key="logout">
           Log out
         </Menu.Item>
@@ -37,4 +47,6 @@ const ParentNavSider = props => {
   );
 };
 
-export default ParentNavSider;
+export default connect(null, {
+  clearUsers: global.clearUsers,
+})(ParentNavSider);
