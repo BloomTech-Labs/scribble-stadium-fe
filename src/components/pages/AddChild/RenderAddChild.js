@@ -17,7 +17,7 @@ const layout = {
   wrapperCol: { span: 16 },
 };
 const dyslexia = {
-  wrapperCol: { offset: 10, span: 6 },
+  wrapperCol: { offset: 14, span: 4 },
 };
 
 const RenderAddChild = props => {
@@ -46,7 +46,7 @@ const RenderAddChild = props => {
     <Layout className="add-child">
       <ParentNavSider selected="dashboard" />
 
-      <Layout className="content">
+      <Layout className="child-content">
         <Title className="title" style={{ color: '#0267C1' }} level={1}>
           Settings
         </Title>
@@ -94,16 +94,15 @@ const RenderAddChild = props => {
               label="Dyslexia"
               valuePropName="checked"
             >
-              <Switch style={{ backgroundColor: '#007AFF' }} defaultChecked />
+              <Switch
+                checkedChildren="On"
+                unCheckedChildren="Off"
+                defaultChecked
+              />
             </Form.Item>
           </Form.Item>
-          <Form.Item wrapperCol={{ span: 20, offset: 8 }}>
-            <Button
-              style={{ backgroundColor: '#007AFF', color: 'white' }}
-              type="primary"
-              size="large"
-              htmlType="submit"
-            >
+          <Form.Item wrapperCol={{ span: 20, offset: 6 }}>
+            <Button type="primary" size="large" htmlType="submit">
               Add a Child
             </Button>
           </Form.Item>
