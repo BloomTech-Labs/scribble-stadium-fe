@@ -1,3 +1,4 @@
+import { SmileFilled } from '@ant-design/icons';
 import { Layout, Spin } from 'antd';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -10,7 +11,10 @@ function ParentLoadingComponent(props) {
     <div className="parent-loader">
       <ParentNavSider key={null} />
       <Layout>
-        <Spin size="large" />
+        <Spin
+          indicator={<SmileFilled className="spinner" spin />}
+          size="large"
+        />
         <span>{message}</span>
       </Layout>
     </div>
