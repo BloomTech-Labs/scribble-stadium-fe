@@ -1,4 +1,5 @@
+import * as global from './globalActions';
 import * as child from './childActions';
 import * as parent from './parentActions';
 
-export { child, parent };
+export { global, child, parent };
