@@ -14,6 +14,8 @@ You can find the deployed project at: [AWS Amplify](https://b.storysquad.dev/)
 <br>
 [Trello Board](https://trello.com/b/IUMvKKNf/story-squad-b-trevor)
 <br>
+[Architecture Layout](https://whimsical.com/428nXLpzshbbb32xF67Lu4)
+<br>
 
 ---
 
@@ -47,7 +49,15 @@ React
 
 Ant Design
 
--
+- A set of high-quality React components out of the box
+- Powerful theme customization
+- Whole package of design resources and development tools
+
+Redux state management
+
+- Redux helps you write applications that behave consistently,
+- Centrilize your application's state and logic
+- The Redux DevTools make it easy to trace bugs
 
 ## [Backend](https://story-squad-b-api.herokuapp.com) built using:
 
