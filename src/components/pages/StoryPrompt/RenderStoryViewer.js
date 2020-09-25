@@ -6,7 +6,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import { Button } from 'antd';
 import { SizeMe } from 'react-sizeme';
 
-const RenderStoryViewer = ({ authService }) => {
+const RenderStoryViewer = props => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [storyPrompt, setStoryPrompt] = useState();
@@ -38,7 +38,7 @@ const RenderStoryViewer = ({ authService }) => {
 
   return (
     <>
-      <Header authService={authService} />
+      <Header />
       <div>
         <div className="btn-container">
           <Button
