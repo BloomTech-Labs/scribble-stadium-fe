@@ -1,92 +1,139 @@
-# Basic SPA
+Story Squad Team B
 
-For steps on how to work with this repository [please see here](https://docs.labs.lambdaschool.com/labs-spa-starter/)
+[<img src="https://avatars2.githubusercontent.com/t/4044276?s=280&v=4" width="200" />](https://avatars2.githubusercontent.com/t/4044276?s=280&v=4)
 
-🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your first Pull-Request is merged. This is intended to be a guideline. Feel free to add your own flare to it.
+You can find the deployed project at: [AWS Amplify](https://b.storysquad.dev/)
 
-# Title of project goes here
+## Project Overview
 
-You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
+---
 
-## Contributors
-
-🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
-
-|                                                      [Student 1](https://github.com/)                                                       |                                                       [Student 2](https://github.com/)                                                        |                                                      [Student 3](https://github.com/)                                                       |                                                       [Student 4](https://github.com/)                                                        |                                                      [Student 5](https://github.com/)                                                       |
-| :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
-| [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/) |
-|                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)                             |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)                           |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)                           |                           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)                            |
-|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |
-
+[Product Canvas](https://trello.com/b/IUMvKKNf/story-squad-b-trevor)
 <br>
+[UX Design](https://www.figma.com/file/WaHXdLK2NASoFWYVMZLVNt/Story_Squad?node-id=962%3A211)
+<br>
+[Trello Board](https://trello.com/b/IUMvKKNf/story-squad-b-trevor)
+<br>
+[Architecture Layout](https://whimsical.com/428nXLpzshbbb32xF67Lu4)
 <br>
 
-🚫 Optional examples of using images with links for your tech stack, make sure to change these to fit your project
+---
 
-![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
-![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
+Welcome to Story Squad! We are an interactive learning platform targeted at grade school children, and we help build reading comprehension as well as artistic, writing, and analytical/critical thinking skills through weekly competitions.
 
-🚫 more info on using badges [here](https://github.com/badges/shields)
+Each week features a new chapter in an exciting novel, written and serialized specifically for Story Squad by author and educator Graig Peterson. Children are provided with prompts based on the chapter they've just read, and participants are then divided into teams of two. Students create art and fanfiction to match the prompt, before going head to head in a bracket-style tournament.
 
-- Fork and clone the repo to install it as your own remote.
-  - **note** please [be sure to set your remote](https://help.github.jp/enterprise/2.11/user/articles/changing-a-remote-s-url/) for this repo to point to your Labs Team Front End Repository.
-- run: `npm install` to download all dependencies.
-- run: `npm start` to start your local development server.
+In addition to growing their literary and artistic skills, students learn team building and critical thinking skills through a unique voting system, where each child must weight their own work against their teammate in order to increase their odds of winning. Badges and points incentivize winning and encourage participation.
 
-> When using Okta for authentication, the app will need to run locally on port 3000.
+Story Squad is a paid service; parents are required to create the account for their children and pay a monthly subscription fee in order for their children to compete. This brings the platform into compliance with COPPA and ensures a long future for the project.
 
 ### Key Features
 
-- feature one
-- feature two
-- feature three
-- feature four
-- feature five
+- A Custom, Serialized Novel geared toward children in 3rd-6th grade
+- Parental Controls which allow parents to add and customize child accounts
+- Secure Payment Handling via Stripe
 
-#### Front end deployed to `🚫insert service here`
+<br>
 
-#### [Back end](🚫link to back end repo here) built using:
+# Tech Stack
 
-#### 🚫 back end framework goes here
+## Front end built using:
 
-- point one
-- point two
-- point three
+React
 
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
+- First Class Performance with Virtual DOM
+- Lightweight Library resulting in low bundle size/improved load times
+- Easy cross-platform development via progressive web app
+- Simple routing
+  <br>
 
-# APIs
+Ant Design
 
-## Authentication API here
+- A set of high-quality React components out of the box
+- Powerful theme customization
+- Whole package of design resources and development tools
 
-🚫Replace text below with a description of the API
+Redux state management
 
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
+- Redux helps you write applications that behave consistently,
+- Centrilize your application's state and logic
+- The Redux DevTools make it easy to trace bugs
 
-## Payment API here
+## [Backend](https://story-squad-b-api.herokuapp.com) built using:
 
-🚫Replace text below with a description of the API
+### Express
 
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
+- Built in routing and middleware
+- Useful add-ons such as helmet and CORS
 
-## Misc API here
+### Swagger
 
-🚫Replace text below with a description of the API
+-
 
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
+# API's
+
+### JWT & BCrypt
+
+JSON Web Tokens are an industry standard authentication solution. Paired with BCrypt for hashing passwords, this allows secure local password authentication without reliance on third party solutions.
+
+## Environment Variables
+
+In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
+
+```
+*  BROWSER=none
+*  REACT_APP_ENDPOINT=http://localhost:4000
+```
+
+# Testing
+
+## Jest
+
+- Simple testing
+- Mocking of dependencies
+- Promotes consistent unit testing
 
 # Installation Instructions
 
-🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
+Clone repo
+
+```
+git clone https://github.com/Lambda-School-Labs/Labs26-StorySquad-FE-TeamB
+
+cd Labs26-StorySquad-FE-TeamB
+```
+
+Install Dependencies
+
+```
+npm install
+```
+
+Run Test
+
+```
+npm test
+```
+
+Clone and download the [banckend](https://story-squad-b-api.herokuapp.com)
+
+Follow backend [set up guides](https://github.com/Lambda-School-Labs/Labs26-StorySquad-BE-TeamB)
+<br>
+<br>
+Run the application locally
+
+```
+npm dev
+```
 
 ## Other Scripts
 
-🚫replace these examples with your own
-
-    * build - creates a build of the application
-    * start - starts the production server after a build is created
-    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
+```
+* build - creates a build of the application
+* dev - runs the development server
+* test - runs tests as defined in *.spec.ts files
+* lint - format and correct errors with prettier
+```
 
 # Contributing
 
@@ -122,4 +169,27 @@ Remember that this project is licensed under the MIT license, and by submitting 
 
 ## Documentation
 
-See [Backend Documentation](🚫*link to your backend API SWAGGER DOCS here*) for details on the backend of our project.
+See [Backend Documentation](https://story-squad-b-api.herokuapp.com/api-docs/) for details on the backend of our project.
+
+<br>
+
+![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
+![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
+![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
+
+## <div align="center">Contributors</div>
+
+|                                                          [Brandon Ramirez](https://github.com/bramirez96)                                                          |                                                          [Schrese Holloway](https://github.com/Schrese)                                                          |                                                             [Nick Ohman](https://github.com/Nick-Ohman)                                                             |                                                            [James Clark](https://github.com/JLC6290)                                                            |                                                           [Sandra Coburn](https://github.com/SandraCoburn)                                                            |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars3.githubusercontent.com/u/7229865?s=400&u=52b967e0ec2561de13c1bc5f3aefaf2c3730ac4d&v=4" width = "100" />](https://github.com/bramirez96) | [<img src="https://avatars1.githubusercontent.com/u/53787633?s=400&u=2cec780b758237d3667575b2d2a013c7e2cbc33e&v=4" width = "100" />](https://github.com/Schrese) | [<img src="https://avatars3.githubusercontent.com/u/59833966?s=400&u=be9ac244947874fde1b5728981c84907cab11ffd&v=4" width = "100" />](https://github.com/Nick-Ohman) | [<img src="https://avatars0.githubusercontent.com/u/8883829?s=400&u=7b32022acbf71282b90193bdefec8e0dbf8e9d30&v=4" width = "100" />](https://github.com/JLC6290) | [<img src="https://avatars2.githubusercontent.com/u/55418328?s=400&u=0e3e63b3b07d6eeea143c6aab8034a5c6c899c52&v=4" width = "100" />](https://github.com/SandraCoburn) |
+|                                      [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/bramirez96)                                       |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Schrese)                                       |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Nick-Ohman)                                       |                                                           [<img src=""> ](https://github.com/JLC6290)                                                           |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/SandraCoburn)                                       |
+|                    [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/bramirez96/)                     |                     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/schrese/)                     |                     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/nick-ohman/)                     |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jamesleeclark/)                  |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/sandra-borunda-coburn/)                 |
+
+<br>
+<br>
+
+| [Trevor Martin](https://github.com/debauchery1st) |  
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------:  
+ [<img src="https://avatars2.githubusercontent.com/u/12375688?s=400&u=1de2f45b1d8113d7fb1290a029ddb66b21a945d4&v=4" width = "100" />](https://github.com/debauchery1st) |
+[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/debauchery1st) |
+[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/trevor4hire/) |
