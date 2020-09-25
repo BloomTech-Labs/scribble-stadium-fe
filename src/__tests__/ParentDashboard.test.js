@@ -1,8 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { render, screen, cleanup, act } from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { render, screen, cleanup } from '@testing-library/react';
 import ParentDashboard from '../components/pages/ParentDashboard/ParentDashboard';
-import { useOktaAuth } from '@okta/okta-react';
+
+import configureStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
+const mockStore = configureStore([]);
+const store = mockStore();
 
 afterEach(() => {
   cleanup();
@@ -18,47 +22,37 @@ jest.mock('@okta/okta-react', () => ({
   },
 }));
 
+const Component = () => {
+  return (
+    <Router>
+      <Provider store={store}>
+        <ParentDashboard />
+      </Provider>
+    </Router>
+  );
+};
+
 describe('<ParentDashboard /> test suite', () => {
   test('Welcome Back', () => {
-    render(
-      <Router>
-        <ParentDashboard />
-      </Router>
-    );
+    render(<Component />);
     expect(screen.getByText(/Welcome Back/i)).toBeInTheDocument();
   });
 
   test('Dashboard Nav', () => {
-    render(
-      <Router>
-        <ParentDashboard />
-      </Router>
-    );
+    render(<Component />);
     expect(screen.getByText(/Dashboard/i)).toBeInTheDocument();
   });
 
   test('Help Nav', () => {
-    render(
-      <Router>
-        <ParentDashboard />
-      </Router>
-    );
+    render(<Component />);
     expect(screen.getByText(/Help/i)).toBeInTheDocument();
   });
   test('Parent Settings Nav', () => {
-    render(
-      <Router>
-        <ParentDashboard />
-      </Router>
-    );
+    render(<Component />);
     expect(screen.getByText(/Parent Settings/i)).toBeInTheDocument();
   });
   test('Log out Nav', () => {
-    render(
-      <Router>
-        <ParentDashboard />
-      </Router>
-    );
+    render(<Component />);
     expect(screen.getByText(/log out/i)).toBeInTheDocument();
   });
 });
