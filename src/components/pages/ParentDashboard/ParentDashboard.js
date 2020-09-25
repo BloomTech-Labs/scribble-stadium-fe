@@ -37,8 +37,12 @@ const ParentDashboard = props => {
           </Title>
           <div className="children-container">
             <Layout className="children" style={{ flexFlow: 'row wrap' }}>
-              {initialChildren.map(child => (
-                <ChildCard name={child.Name} AvatarURL={child.AvatarURL} />
+              {initialChildren.map((child, i) => (
+                <ChildCard
+                  key={i}
+                  name={child.Name}
+                  AvatarURL={child.AvatarURL}
+                />
               ))}
               <Card>
                 <h2>
