@@ -28,7 +28,7 @@ const AddAvatarContainer = ({ LoadingComponent }) => {
   return (
     <>
       {authState.isAuthenticated && !userInfo && (
-        <LoadingComponent message="Fetching userProfile..." />
+        <LoadingComponent message="Loading..." />
       )}
       {authState.isAuthenticated && userInfo && (
         <RenderAddAvatar userInfo={userInfo} authService={authService} />

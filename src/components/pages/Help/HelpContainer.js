@@ -31,7 +31,7 @@ function HelpContainer({ LoadingComponent }) {
   return (
     <>
       {authState.isAuthenticated && !userInfo && (
-        <LoadingComponent message="Fetching user profile..." />
+        <LoadingComponent message="Loading..." />
       )}
       {authState.isAuthenticated && userInfo && (
         <Help userInfo={userInfo} authService={authService} />

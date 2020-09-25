@@ -32,7 +32,7 @@ function ParentDashboardContainer({ LoadingComponent, ...props }) {
   return (
     <>
       {authState.isAuthenticated && !userInfo && (
-        <LoadingComponent message="Fetching user profile..." />
+        <LoadingComponent message="Loading..." />
       )}
       {authState.isAuthenticated && userInfo && (
         <ParentDashboard

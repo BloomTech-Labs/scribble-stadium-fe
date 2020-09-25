@@ -11,7 +11,7 @@ import {
   useHistory,
   Switch,
 } from 'react-router-dom';
-import { LoginCallback, Security } from '@okta/okta-react';
+import { Security } from '@okta/okta-react';
 
 import 'antd/dist/antd.less';
 import './styles/less/index.less';
@@ -21,7 +21,10 @@ import { config } from './utils/oktaConfig';
 import SecureRoute from './components/common/SecureRoute';
 
 //Components
-import { LoadingComponent } from './components/common';
+import {
+  ChildLoadingComponent,
+  ParentLoadingComponent,
+} from './components/common';
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
 import { Help } from './components/pages/Help';
@@ -32,6 +35,7 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
+import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 
 ReactDOM.render(
   //
@@ -61,51 +65,55 @@ function App() {
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
         <Route path="/login" component={LandingPage} />
-        <Route path="/implicit/callback" component={LoginCallback} />
+        <Route path="/implicit/callback" component={LoginCallbackLoader} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
           path="/"
           exact
-          component={() => <Modal LoadingComponent={LoadingComponent} />}
+          component={() => <Modal LoadingComponent={ChildLoadingComponent} />}
         />
         <SecureRoute
           path="/child/story"
-          component={() => <StoryPrompt LoadingComponent={LoadingComponent} />}
+          component={() => (
+            <StoryPrompt LoadingComponent={ChildLoadingComponent} />
+          )}
         />
         <SecureRoute
           path="/child/dashboard"
           component={() => (
-            <ChildDashboard LoadingComponent={LoadingComponent} />
+            <ChildDashboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <SecureRoute
           path="/child/mission-control"
           component={() => (
-            <MissionControl LoadingComponent={LoadingComponent} />
+            <MissionControl LoadingComponent={ChildLoadingComponent} />
           )}
         />
 
         <SecureRoute
           path="/parent/add-child"
-          component={() => <AddChild LoadingComponent={LoadingComponent} />}
+          component={() => (
+            <AddChild LoadingComponent={ParentLoadingComponent} />
+          )}
         />
         <SecureRoute
           path="/parent/dashboard"
           exact
           component={() => (
-            <ParentDashboard LoadingComponent={LoadingComponent} />
+            <ParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
         <SecureRoute
           path="/parent/help"
           exact
-          component={() => <Help LoadingComponent={LoadingComponent} />}
+          component={() => <Help LoadingComponent={ParentLoadingComponent} />}
         />
         <SecureRoute
           path="/parent/settings"
           exact
           component={() => (
-            <ParentSettings LoadingComponent={LoadingComponent} />
+            <ParentSettings LoadingComponent={ParentLoadingComponent} />
           )}
         />
 
