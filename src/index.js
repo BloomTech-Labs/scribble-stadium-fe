@@ -11,13 +11,14 @@ import {
   useHistory,
   Switch,
 } from 'react-router-dom';
-import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
+import { LoginCallback, Security } from '@okta/okta-react';
 
 import 'antd/dist/antd.less';
 import './styles/less/index.less';
 
 // Helpers
 import { config } from './utils/oktaConfig';
+import SecureRoute from './components/common/SecureRoute';
 
 //Components
 import { LoadingComponent } from './components/common';

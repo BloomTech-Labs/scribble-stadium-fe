@@ -116,7 +116,7 @@ const ProfileRenderModal = props => {
                   }),
                 ]}
               >
-                <Input className="pin" maxLength={4} />
+                <Input autoFocus={true} className="pin" maxLength={4} />
               </Form.Item>
               <Button type="primary" htmlType="submit">
                 Enter

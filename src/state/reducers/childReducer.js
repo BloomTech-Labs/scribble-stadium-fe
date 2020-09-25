@@ -1,4 +1,4 @@
-import { child } from '../actions';
+import { child, global } from '../actions';
 
 const initialState = {
   id: null,
@@ -20,6 +20,8 @@ export const reducer = (state = initialState, action) => {
         gradeLevel: action.payload.GradeLevel,
         parentId: action.payload.ParentID,
       };
+    case global.clearUsers:
+      return initialState;
     default:
       return state;
   }
