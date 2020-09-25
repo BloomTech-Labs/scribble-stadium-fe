@@ -171,6 +171,12 @@ Remember that this project is licensed under the MIT license, and by submitting 
 
 See [Backend Documentation](https://story-squad-b-api.herokuapp.com/api-docs/) for details on the backend of our project.
 
+<br>
+
+![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
+![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
+![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
+
 ## <div align="center">Contributors</div>
 
 |                                                          [Brandon Ramirez](https://github.com/bramirez96)                                                          |                                                          [Schrese Holloway](https://github.com/Schrese)                                                          |                                                             [Nick Ohman](https://github.com/Nick-Ohman)                                                             |                                                            [James Clark](https://github.com/JLC6290)                                                            |                                                           [Sandra Coburn](https://github.com/SandraCoburn)                                                            |
@@ -182,6 +188,8 @@ See [Backend Documentation](https://story-squad-b-api.herokuapp.com/api-docs/) f
 <br>
 <br>
 
-![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
-![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
+| [Trevor Martin](https://github.com/debauchery1st) |  
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------:  
+ [<img src="https://avatars2.githubusercontent.com/u/12375688?s=400&u=1de2f45b1d8113d7fb1290a029ddb66b21a945d4&v=4" width = "100" />](https://github.com/debauchery1st) |
+[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/debauchery1st) |
+[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/trevor4hire/) |
