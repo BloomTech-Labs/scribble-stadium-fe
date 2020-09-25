@@ -24,6 +24,7 @@ module.exports = {
   // Card Styles
   '@card-radius': '14px',
 
+  '@layout-body-background': '#fff',
   // Buttons
   '@btn-primary-color': '#fff',
   '@btn-primary-bg': '@primary-color',
