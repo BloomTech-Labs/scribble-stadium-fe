@@ -1,12 +1,10 @@
-Story Squad Team B
+# Story Squad Team B
 
 [<img src="https://avatars2.githubusercontent.com/t/4044276?s=280&v=4" width="200" />](https://avatars2.githubusercontent.com/t/4044276?s=280&v=4)
 
 You can find the deployed project at: [AWS Amplify](https://b.storysquad.dev/)
 
 ## Project Overview
-
----
 
 [Product Canvas](https://trello.com/b/IUMvKKNf/story-squad-b-trevor)
 <br>
@@ -35,9 +33,9 @@ Story Squad is a paid service; parents are required to create the account for th
 
 <br>
 
-# Tech Stack
+## Tech Stack
 
-## Front end built using:
+### Front end built using:
 
 React
 
@@ -59,24 +57,24 @@ Redux state management
 - Centrilize your application's state and logic
 - The Redux DevTools make it easy to trace bugs
 
-## [Backend](https://story-squad-b-api.herokuapp.com) built using:
+### [Backend](https://story-squad-b-api.herokuapp.com) built using:
 
-### Express
+Express
 
 - Built in routing and middleware
 - Useful add-ons such as helmet and CORS
 
-### Swagger
+Swagger
 
 -
 
-# API's
+## API's
 
 ### JWT & BCrypt
 
 JSON Web Tokens are an industry standard authentication solution. Paired with BCrypt for hashing passwords, this allows secure local password authentication without reliance on third party solutions.
 
-## Environment Variables
+### Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
@@ -85,15 +83,15 @@ In order for the app to function correctly, the user must set up their own envir
 *  REACT_APP_ENDPOINT=http://localhost:4000
 ```
 
-# Testing
+## Testing
 
-## Jest
+Jest
 
 - Simple testing
 - Mocking of dependencies
 - Promotes consistent unit testing
 
-# Installation Instructions
+## Installation Instructions
 
 Clone repo
 
@@ -135,7 +133,7 @@ npm dev
 * lint - format and correct errors with prettier
 ```
 
-# Contributing
+## Contributing
 
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
@@ -177,16 +175,15 @@ See [Backend Documentation](https://story-squad-b-api.herokuapp.com/api-docs/) f
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
 ![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
 
-## <div align="center">Contributors</div>
+## Contributors
 
 |                                                          [Brandon Ramirez](https://github.com/bramirez96)                                                          |                                                          [Schrese Holloway](https://github.com/Schrese)                                                          |                                                             [Nick Ohman](https://github.com/Nick-Ohman)                                                             |                                                            [James Clark](https://github.com/JLC6290)                                                            |                                                           [Sandra Coburn](https://github.com/SandraCoburn)                                                            |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | [<img src="https://avatars3.githubusercontent.com/u/7229865?s=400&u=52b967e0ec2561de13c1bc5f3aefaf2c3730ac4d&v=4" width = "100" />](https://github.com/bramirez96) | [<img src="https://avatars1.githubusercontent.com/u/53787633?s=400&u=2cec780b758237d3667575b2d2a013c7e2cbc33e&v=4" width = "100" />](https://github.com/Schrese) | [<img src="https://avatars3.githubusercontent.com/u/59833966?s=400&u=be9ac244947874fde1b5728981c84907cab11ffd&v=4" width = "100" />](https://github.com/Nick-Ohman) | [<img src="https://avatars0.githubusercontent.com/u/8883829?s=400&u=7b32022acbf71282b90193bdefec8e0dbf8e9d30&v=4" width = "100" />](https://github.com/JLC6290) | [<img src="https://avatars2.githubusercontent.com/u/55418328?s=400&u=0e3e63b3b07d6eeea143c6aab8034a5c6c899c52&v=4" width = "100" />](https://github.com/SandraCoburn) |
-|                                      [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/bramirez96)                                       |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Schrese)                                       |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Nick-Ohman)                                       |                                                           [<img src=""> ](https://github.com/JLC6290)                                                           |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/SandraCoburn)                                       |
+|                                      [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/bramirez96)                                       |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Schrese)                                       |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Nick-Ohman)                                       |                                       [<img src="https://github.com/favicon.ico" width="15">](https://github.com/JLC6290)                                       |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/SandraCoburn)                                       |
 |                    [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/bramirez96/)                     |                     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/schrese/)                     |                     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/nick-ohman/)                     |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jamesleeclark/)                  |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/sandra-borunda-coburn/)                 |
 
-<br>
-<br>
+<!-- <br> -->
 
 | [Trevor Martin](https://github.com/debauchery1st) |  
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------:  
