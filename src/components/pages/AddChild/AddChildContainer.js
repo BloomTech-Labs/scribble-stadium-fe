@@ -31,7 +31,7 @@ function AddChildContainer({ LoadingComponent }) {
   return (
     <>
       {authState.isAuthenticated && !userInfo && (
-        <LoadingComponent message="Fetching user profile..." />
+        <LoadingComponent message="Loading..." />
       )}
       {authState.isAuthenticated && userInfo && (
         <RenderAddChild userInfo={userInfo} authService={authService} />

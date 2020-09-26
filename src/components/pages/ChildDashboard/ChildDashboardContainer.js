@@ -31,7 +31,7 @@ const ChildDashboardContainer = ({ LoadingComponent, ...props }) => {
   return (
     <>
       {authState.isAuthenticated && !userInfo && (
-        <LoadingComponent message="Fetching userProfile..." />
+        <LoadingComponent message="Loading..." />
       )}
       {authState.isAuthenticated && userInfo && (
         <RenderChildDashboard userInfo={userInfo} authService={authService} />

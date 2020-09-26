@@ -1,0 +1,24 @@
+.parent-loader {
+  display: flex;
+  flex-flow: row nowrap;
+  .logo {
+    .logoStyle();
+  }
+  .welcome {
+    .welcomeStyle();
+  }
+  .ant-layout-sider {
+    .siderStyle();
+  }
+
+  .ant-layout {
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    .spinner {
+      color: @primary-color;
+    }
+  }
+}
