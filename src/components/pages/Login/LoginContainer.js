@@ -16,13 +16,14 @@ const LoginContainer = () => {
           window.location.href = 'https://acme.com/sign-up'; //This just redirects to a random page for now, will have actual page when signup feature is complete
         },
       },
-      features: { registration: true },
+      features: { registration: false },
       // turning this feature on allows your widget to use Okta for user registration
       logo: 'path-to-your-logo',
       // add your custom logo to your signing/register widget here.
       i18n: {
         en: {
-          'primaryauth.title': 'Welcome back, Sign in to continue',
+          'primaryauth.title': `Welcome back, sign in to continue`,
+          'primaryauth.username.placeholder': 'Email',
           // change title for your app
         },
       },
