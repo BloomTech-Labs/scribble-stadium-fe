@@ -2,8 +2,13 @@
 @import '~antd/lib/style/themes/default.less';
 
 #head-row {
+  min-width: 400px;
+  min-height: 70vh;
   .ant-col-16 {
-    padding: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 10.5vh;
+
     p {
       font-family: nunito, sans-serif;
       font-weight: 300;
@@ -16,9 +21,69 @@
   }
 
   .ant-col-8 {
-    background: @suva-grey;
+    background: #fafafa;
     display: flex;
     justify-content: center;
+    padding: 10vh 5% 0;
+    min-height: 70vh;
+  }
+}
+
+#okta-sign-in {
+  .auth-header {
+    height: 0px;
+  }
+
+  h2 {
+    vertical-align: top;
+    font-size: 3rem;
+    font-family: nunito;
+  }
+
+  label {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  #okta-signin-username,
+  #okta-signin-password {
+    width: 80%;
+    height: 3rem;
+    border: 1px solid @dim-grey;
+    border-radius: 10px;
+  }
+
+  .o-form-input-name-username,
+  .o-form-input-name-password {
+    font-size: 1.5rem;
+  }
+
+  .custom-checkbox {
+    padding-bottom: 5%;
+    label {
+      font-size: 1.5rem;
+      padding-left: 2%;
+    }
+  }
+
+  .o-form-button-bar {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto;
+    height: 3rem;
+    .button {
+      width: 50%;
+      border-radius: 14px;
+      justify-content: center;
+      cursor: pointer;
+      background: @button-blue;
+      border: none;
+      color: @white-smoke;
+      font-size: 1.5rem;
+    }
+  }
+  .auth-footer {
+    font-size: 1rem;
     padding-top: 5%;
   }
 }
