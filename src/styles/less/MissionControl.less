@@ -43,8 +43,15 @@
   right: 20px;
 }
 
+.ant-checkbox-inner,
+.ant-checkbox-inner:after {
+  @check-width: 50px;
+  @check-height: 50px;
+}
+
 .read,
 .mission-control-text {
+  font-family: 'bangers';
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,6 +84,14 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+p.mission-control-text {
+  margin-bottom: 0;
+}
+
+.mission-control-text a {
+  color: #292929;
 }
 
 .checking-box {
