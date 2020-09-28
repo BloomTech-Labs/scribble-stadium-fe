@@ -11,7 +11,6 @@ const RenderChildDashboard = props => {
   const { push } = useHistory();
 
   const handleAcceptMission = e => {
-    console.log('hello there');
     push('/child/mission-control');
   };
 

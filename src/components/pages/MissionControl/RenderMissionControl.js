@@ -1,22 +1,29 @@
 import React from 'react';
 import { Header } from '../../common';
-import { Row, Col, Checkbox } from 'antd';
-import { Link } from 'react-router-dom';
+import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 
 import draw_icon from '../../../assets/icons/draw_icon.svg';
 import read_icon from '../../../assets/icons/read_icon.svg';
 import write_icon from '../../../assets/icons/write_icon.svg';
+import unchecked_box from '../../../assets/icons/unchecked_box.svg';
+import checked_box from '../../../assets/icons/checked_box.svg';
+import Checkbox from './Checkbox';
 
 const RenderMissionControl = props => {
   const { push } = useHistory();
+
+  const readCompleted = true;
+  const writeCompleted = false;
+  const drawCompleted = false;
 
   function handleChecked(e) {
     console.log(`checked=${e.target.checked}`);
   }
 
+  // redirects the user to the pdf of the story
   const handleReadStory = e => {
-    console.log('get to reading!!!');
+    e.stopPropagation();
     push('/child/story');
   };
 
@@ -30,7 +37,9 @@ const RenderMissionControl = props => {
               className="checking-box"
               defaultChecked={false}
               onChange={handleChecked}
+              isCompleted={readCompleted}
             />
+
             <Col className="image-and-text-container">
               <img src={read_icon} alt="reading icon" />
               <p className="mission-control-text">Read</p>
@@ -42,7 +51,9 @@ const RenderMissionControl = props => {
                 className="checking-box"
                 defaultChecked={false}
                 onChange={handleChecked}
+                isCompleted={writeCompleted}
               />
+
               <Col className="image-and-text-container">
                 <img src={write_icon} alt="writing icon" />
                 <p className="mission-control-text">Write</p>
@@ -50,9 +61,10 @@ const RenderMissionControl = props => {
             </Row>
             <Row className="draw">
               <Checkbox
-                className="draw-checking-box"
+                className="checking-box"
                 defaultChecked={false}
                 onChange={handleChecked}
+                isCompleted={drawCompleted}
               />
               <Col className="image-and-text-container">
                 <img src={draw_icon} alt="drawing icon" />
