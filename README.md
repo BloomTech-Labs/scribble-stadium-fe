@@ -185,8 +185,8 @@ See [Backend Documentation](https://story-squad-b-api.herokuapp.com/api-docs/) f
 
 <!-- <br> -->
 
-| [Trevor Martin](https://github.com/debauchery1st) |  
+| [Trevor Martin](https://github.com/trevorjamesmartin) |  
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------:  
- [<img src="https://avatars2.githubusercontent.com/u/12375688?s=400&u=1de2f45b1d8113d7fb1290a029ddb66b21a945d4&v=4" width = "100" />](https://github.com/debauchery1st) |
-[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/debauchery1st) |
+ [<img src="https://avatars2.githubusercontent.com/u/12375688?s=400&u=1de2f45b1d8113d7fb1290a029ddb66b21a945d4&v=4" width = "100" />](https://github.com/trevorjamesmartin) |
+[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/trevorjamesmartin) |
 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/trevor4hire/) |
