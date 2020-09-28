@@ -17,7 +17,7 @@ const ChildCard = props => {
         </h2>
       </Layout>
       <Button type="primary" size="large" htmlType="submit">
-        {props.name.toUpperCase()}'S PROGRESS
+        {props.name.toUpperCase()}'S {props.update}
       </Button>
     </Card>
   );
