@@ -2,11 +2,11 @@ import { LoginCallback } from '@okta/okta-react';
 import React from 'react';
 import { ChildLoadingComponent } from './';
 
-const LoginCallbackLoader = () => {
+const LoginCallbackLoader = props => {
   return (
     <>
       <ChildLoadingComponent message="Logging in..." />
-      <LoginCallback />
+      <LoginCallback {...props} />
     </>
   );
 };
