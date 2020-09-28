@@ -54,7 +54,11 @@ const FamilySettings = props => {
         </Title>
         <Layout className="children" style={{ flexFlow: 'row wrap' }}>
           {initialChildren.map(child => (
-            <ChildCard name={child.Name} AvatarURL={child.AvatarURL} />
+            <ChildCard
+              name={child.Name}
+              AvatarURL={child.AvatarURL}
+              update="SETTINGS"
+            />
           ))}
         </Layout>
 
