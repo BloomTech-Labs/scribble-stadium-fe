@@ -6,6 +6,7 @@ import { MenuOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { global } from '../../state/actions';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import BackButton from '../common/BackButton';
 
 const ChildMenu = props => {
   const { push } = useHistory();
@@ -33,9 +34,10 @@ const ChildMenu = props => {
   );
 };
 
-const Header = ({ displayMenu = true, ...props }) => {
+const Header = ({ displayMenu = true, backButton = false, ...props }) => {
   return (
     <div className="hero">
+      {backButton && <BackButton destination={'/child/mission-control'} />}
       {displayMenu && (
         <Dropdown
           overlay={<ChildMenu clearUsers={props.clearUsers} />}

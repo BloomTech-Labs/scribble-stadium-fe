@@ -38,24 +38,8 @@ const RenderStoryViewer = props => {
 
   return (
     <>
-      <Header />
-      <div>
-        <div className="btn-container">
-          <Button
-            type="button"
-            disabled={pageNumber <= 1}
-            onClick={previousPage}
-          >
-            Previous Page
-          </Button>
-          <Button
-            type="button"
-            disabled={pageNumber >= numPages}
-            onClick={nextPage}
-          >
-            Next Page
-          </Button>
-        </div>
+      <Header backButton={true} />
+      <div class="viewer-container">
         <SizeMe>
           {({ size }) => (
             <Document
@@ -75,6 +59,22 @@ const RenderStoryViewer = props => {
             </Document>
           )}
         </SizeMe>
+        <div className="btn-container">
+          <Button
+            type="button"
+            disabled={pageNumber <= 1}
+            onClick={previousPage}
+          >
+            Previous Page
+          </Button>
+          <Button
+            type="button"
+            disabled={pageNumber >= numPages}
+            onClick={nextPage}
+          >
+            Next Page
+          </Button>
+        </div>
       </div>
     </>
   );
