@@ -1,22 +1,30 @@
 import React from 'react';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import adventure_passport from '../../../assets/images/child_dashboard_images/adventure_passport.svg';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 import trophy_room from '../../../assets/images/child_dashboard_images/trophy_room.svg';
 
 const RenderChildDashboard = props => {
+  const { push } = useHistory();
+
+  const handleAcceptMission = e => {
+    push('/child/mission-control');
+  };
+
   return (
     <>
       <Header displayMenu={true} />
       <div className="dash-container">
         <Row className="toprow">
-          <Col className="accept-mission" span={13}>
-            <p className="accept-mission-text">
-              <Link to="/child/mission-control">ACCEPT THE MISSION!</Link>
-            </p>
+          <Col
+            className="accept-mission"
+            span={13}
+            onClick={handleAcceptMission}
+          >
+            <p className="accept-mission-text">ACCEPT THE MISSION!</p>
           </Col>
           <Col className="change-avatar" span={11}>
             <img
