@@ -4,6 +4,7 @@ import { getStory } from '../../../api/index';
 import { Header } from '../../common';
 import { useOktaAuth } from '@okta/okta-react';
 import { Button } from 'antd';
+import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { SizeMe } from 'react-sizeme';
 
 const RenderStoryViewer = props => {
@@ -65,14 +66,14 @@ const RenderStoryViewer = props => {
             disabled={pageNumber <= 1}
             onClick={previousPage}
           >
-            Previous Page
+            {<ArrowLeftOutlined />}
           </Button>
           <Button
             type="button"
             disabled={pageNumber >= numPages}
             onClick={nextPage}
           >
-            Next Page
+            {<ArrowRightOutlined />}
           </Button>
         </div>
       </div>
