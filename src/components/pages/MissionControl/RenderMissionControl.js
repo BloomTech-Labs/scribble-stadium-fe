@@ -6,8 +6,6 @@ import { useHistory } from 'react-router-dom';
 import draw_icon from '../../../assets/icons/draw_icon.svg';
 import read_icon from '../../../assets/icons/read_icon.svg';
 import write_icon from '../../../assets/icons/write_icon.svg';
-import unchecked_box from '../../../assets/icons/unchecked_box.svg';
-import checked_box from '../../../assets/icons/checked_box.svg';
 import Checkbox from './Checkbox';
 
 const RenderMissionControl = props => {
@@ -17,8 +15,9 @@ const RenderMissionControl = props => {
   const writeCompleted = false;
   const drawCompleted = false;
 
+  // Will be for when we are checking whether or not the child has completed a task
   function handleChecked(e) {
-    console.log(`checked=${e.target.checked}`);
+    return `checked=${e.target.checked}`;
   }
 
   // redirects the user to the pdf of the story

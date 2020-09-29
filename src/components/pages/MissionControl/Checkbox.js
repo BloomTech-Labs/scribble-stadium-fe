@@ -4,7 +4,6 @@ import unchecked_box from '../../../assets/icons/unchecked_box.svg';
 import checked_box from '../../../assets/icons/checked_box.svg';
 
 const Checkbox = props => {
-  console.log(props);
   return (
     <img
       className={props.className}
