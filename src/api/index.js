@@ -109,6 +109,20 @@ const postNewAvatar = async (authState, body) => {
   }
 };
 
+const getChildTasks = async (authState, childid, storyid) => {
+  try {
+    return apiAuthGet(
+      `/submission?childId=${childid}&storyId=${storyid}`,
+      getAuthHeader(authState)
+    ).then(response => console.log(response, 'from call'));
+  } catch (err) {
+    return new Promise(() => {
+      console.log(err);
+      return [];
+    });
+  }
+};
+
 export {
   sleep,
   getExampleData,
@@ -121,4 +135,5 @@ export {
   postNewChild,
   getChildFormValues,
   postNewAvatar,
+  getChildTasks,
 };

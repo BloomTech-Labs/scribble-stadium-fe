@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
+import { connect } from 'react-redux';
 
 import RenderMissionControl from './RenderMissionControl';
 
-function MissionControlContainer({ LoadingComponent }) {
+const MissionControlContainer = ({ LoadingComponent, ...props }) => {
+  console.log(props);
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
@@ -47,6 +49,12 @@ function MissionControlContainer({ LoadingComponent }) {
       )}
     </>
   );
-}
+};
 
-export default MissionControlContainer;
+export default connect(
+  state => ({
+    child: state.child,
+    tasks: state.tasks,
+  }),
+  {}
+)(MissionControlContainer);

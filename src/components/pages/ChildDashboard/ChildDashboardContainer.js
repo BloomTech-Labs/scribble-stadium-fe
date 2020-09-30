@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import RenderChildDashboard from './RenderChildDashboard';
 
 const ChildDashboardContainer = ({ LoadingComponent, ...props }) => {
+  console.log(props, 'from container');
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
@@ -34,14 +35,20 @@ const ChildDashboardContainer = ({ LoadingComponent, ...props }) => {
         <LoadingComponent message="Loading..." />
       )}
       {authState.isAuthenticated && userInfo && (
-        <RenderChildDashboard userInfo={userInfo} authService={authService} />
+        <RenderChildDashboard
+          {...props}
+          userInfo={userInfo}
+          authService={authService}
+        />
       )}
     </>
   );
 };
 
-const mapStateToProps = state => ({
-  child: state.child,
-});
-
-export default connect(mapStateToProps, {})(ChildDashboardContainer);
+export default connect(
+  state => ({
+    child: state.child,
+    tasks: state.tasks,
+  }),
+  {}
+)(ChildDashboardContainer);
