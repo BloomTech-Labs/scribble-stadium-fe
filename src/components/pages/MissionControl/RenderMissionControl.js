@@ -28,7 +28,7 @@ const RenderMissionControl = props => {
 
   return (
     <>
-      <Header />
+      <Header title="MISSION" />
       <div className="mission-container">
         <Row className="main-row">
           <Col className="read" span={12} onClick={handleReadStory}>
@@ -55,7 +55,9 @@ const RenderMissionControl = props => {
 
               <Col className="image-and-text-container">
                 <img src={write_icon} alt="writing icon" />
-                <p className="mission-control-text">Write</p>
+                <p className="mission-control-text">
+                  <Link to="writing-sub">Write</Link>
+                </p>
               </Col>
             </Row>
             <Row className="draw">
