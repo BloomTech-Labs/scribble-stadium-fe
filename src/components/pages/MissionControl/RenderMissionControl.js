@@ -25,6 +25,10 @@ const RenderMissionControl = props => {
     e.stopPropagation();
     push('/child/story');
   };
+  const handleWrite = e => {
+    e.stopPropagation();
+    push('/child/writing-sub');
+  };
 
   return (
     <>
@@ -45,7 +49,7 @@ const RenderMissionControl = props => {
             </Col>
           </Col>
           <Col className="write-and-draw" span={12}>
-            <Row className="write">
+            <Row className="write" onClick={handleWrite}>
               <Checkbox
                 className="checking-box"
                 defaultChecked={false}
@@ -55,9 +59,7 @@ const RenderMissionControl = props => {
 
               <Col className="image-and-text-container">
                 <img src={write_icon} alt="writing icon" />
-                <p className="mission-control-text">
-                  <Link to="writing-sub">Write</Link>
-                </p>
+                <p className="mission-control-text">Write</p>
               </Col>
             </Row>
             <Row className="draw">
