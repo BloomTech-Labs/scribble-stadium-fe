@@ -109,12 +109,19 @@ const postNewAvatar = async (authState, body) => {
   }
 };
 
+/**
+ * Returns an object identifying whether or not a child has completed their submission tasks
+ * @param {Object} authState
+ * @param {number} childid id of whatever child is performing the tasks
+ * @param {number} storyid id of the story of the week
+ * @returns {Object} Object of tasks and relevant id's
+ */
 const getChildTasks = async (authState, childid, storyid) => {
   try {
     return apiAuthGet(
       `/submission?childId=${childid}&storyId=${storyid}`,
       getAuthHeader(authState)
-    ).then(response => console.log(response, 'from call'));
+    ).then(response => response.data);
   } catch (err) {
     return new Promise(() => {
       console.log(err);

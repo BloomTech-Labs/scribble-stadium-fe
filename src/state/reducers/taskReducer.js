@@ -13,12 +13,12 @@ export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case tasks.SET_TASKS:
       return {
-        id: action.payload.id,
-        child_id: action.payload.child_id,
-        story_id: action.payload.story_id,
-        hasRead: action.payload.read,
-        hasWritten: action.payload.write,
-        hasDrawn: action.payload.draw,
+        id: action.payload.ID,
+        child_id: action.payload.ChildId,
+        story_id: action.payload.StoryId,
+        hasRead: action.payload.HasRead,
+        hasWritten: action.payload.HasWritten,
+        hasDrawn: action.payload.HasDrawn,
       };
     default:
       return state;
