@@ -60,22 +60,23 @@ const RenderStoryViewer = props => {
             </Document>
           )}
         </SizeMe>
-        <div className="btn-container">
-          <Button
-            type="button"
-            disabled={pageNumber <= 1}
-            onClick={previousPage}
-          >
-            {<ArrowLeftOutlined />}
-          </Button>
-          <Button
-            type="button"
-            disabled={pageNumber >= numPages}
-            onClick={nextPage}
-          >
-            {<ArrowRightOutlined />}
-          </Button>
-        </div>
+
+        <Button
+          className="prev-button"
+          type="button"
+          disabled={pageNumber <= 1}
+          onClick={previousPage}
+        >
+          {<ArrowLeftOutlined />}
+        </Button>
+        <Button
+          className="next-button"
+          type="button"
+          disabled={pageNumber >= numPages}
+          onClick={nextPage}
+        >
+          {<ArrowRightOutlined />}
+        </Button>
       </div>
     </>
   );
