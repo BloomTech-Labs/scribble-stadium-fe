@@ -19,11 +19,13 @@ const RenderChildDashboard = props => {
             </p>
           </Col>
           <Col className="change-avatar" span={11}>
-            <img
-              className="child-dash-img"
-              src={change_your_avatar}
-              alt="Change Your Avatar Button"
-            />
+            <Link to="/child/avatar">
+              <img
+                className="child-dash-img"
+                src={change_your_avatar}
+                alt="Change Your Avatar Button"
+              />
+            </Link>
           </Col>
         </Row>
         <Row>
