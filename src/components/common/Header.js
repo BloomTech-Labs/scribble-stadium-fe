@@ -44,7 +44,7 @@ const Header = ({ displayMenu = true, backButton = false, ...props }) => {
           trigger={['click']}
           className="menu-button"
         >
-          <Button icon={<MenuOutlined />} type="text" />
+          <Button className="menu" icon={<MenuOutlined />} type="default" />
         </Dropdown>
       )}
       <h1 className="header-text">STORY SQUAD</h1>

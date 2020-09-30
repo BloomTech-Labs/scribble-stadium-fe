@@ -63,7 +63,8 @@ const RenderStoryViewer = props => {
 
         <Button
           className="prev-button"
-          type="button"
+          type="primary"
+          size="large"
           disabled={pageNumber <= 1}
           onClick={previousPage}
         >
@@ -71,7 +72,8 @@ const RenderStoryViewer = props => {
         </Button>
         <Button
           className="next-button"
-          type="button"
+          type="primary"
+          size="large"
           disabled={pageNumber >= numPages}
           onClick={nextPage}
         >

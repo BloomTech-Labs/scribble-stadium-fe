@@ -19,26 +19,20 @@
     font-weight: bold;
     z-index: 1;
   }
-  .menu-button {
+  button {
     position: absolute;
-    right: 5px;
-    top: 5px;
     font-weight: 500;
-
-    button {
-      text-align: left;
-    }
-  }
-  .back-button {
-    position: absolute;
-    font-size: 2rem;
     font-family: 'Nunito';
     font-weight: bold;
-    span {
-      color: #ffffff;
-      &:hover {
-        color: #b1b1b1;
-      }
+    top: 5px;
+    background-color: #ffffffbb;
+    box-shadow: inset none;
+    -moz-box-shadow: inset none;
+    &.menu {
+      right: 5px;
+    }
+    &.back-button {
+      left: 5px;
     }
   }
 }
