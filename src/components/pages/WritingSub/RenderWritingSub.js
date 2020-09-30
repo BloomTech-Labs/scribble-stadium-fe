@@ -1,10 +1,11 @@
 import React from 'react';
 import { Header } from '../../common';
 import { Row } from 'antd';
-import { UploadDocs } from '../../common';
+import { UploadDocs } from '../../common/';
 import { postNewWritingSub } from '../../../api/index';
 
 const RenderWritingSub = () => {
+  const submissionId = 1;
   return (
     <>
       <Header title="PENCILS READY?" />
@@ -23,7 +24,7 @@ const RenderWritingSub = () => {
             uploadButtonClassname="uploadButton"
             fileName="writingSub"
             apiAxios={postNewWritingSub}
-            apiAxiosParams="authState, body, childId"
+            submissionId={submissionId}
           />
         </div>
       </div>

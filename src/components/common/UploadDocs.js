@@ -17,7 +17,7 @@ const UploadDocs = ({
   uploadButtonText,
   submitButtonClassname,
   apiAxios,
-  axiosParams,
+  submissionId,
 }) => {
   const { authState } = useOktaAuth();
 
@@ -44,7 +44,7 @@ const UploadDocs = ({
     Object.keys(values).forEach(key => {
       formData.append(key, values[key]);
     });
-    apiAxios(axiosParams)
+    apiAxios(authState, formData, submissionId)
       .then(res => {
         console.log(res);
         setUploading(false);
@@ -75,7 +75,10 @@ const UploadDocs = ({
     });
   };
 
-  const handleChange = ({ fileList }) => setFilePreviews(fileList);
+  const handleChange = ({ fileList }) => {
+    setFilePreviews(fileList);
+    setFileList(fileList);
+  };
 
   const onRemove = file => {
     setFileList(curList => {
