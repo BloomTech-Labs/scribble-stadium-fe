@@ -108,6 +108,18 @@ const postNewAvatar = async (authState, body) => {
     return [];
   }
 };
+const postNewWritingSub = async (authState, body, subId) => {
+  try {
+    return apiAuthPost(
+      `/submit/write/${subId}`,
+      body,
+      getAuthHeader(authState)
+    ).then(res => res.data);
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+};
 
 /**
  * Returns an object identifying whether or not a child has completed their submission tasks
@@ -143,4 +155,5 @@ export {
   getChildFormValues,
   postNewAvatar,
   getChildTasks,
+  postNewWritingSub,
 };
