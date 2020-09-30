@@ -17,7 +17,7 @@ const RenderStoryViewer = props => {
 
   useEffect(() => {
     // ========== second argument to getStory() is hardcoded for testing ==========
-    getStory(authState, 11).then(res => {
+    getStory(authState, 10).then(res => {
       setStoryPrompt(res.URL);
       console.log(res);
     });
