@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { getStory } from '../../../api/index';
 import { Header } from '../../common';
 import { useOktaAuth } from '@okta/okta-react';
 import { Button } from 'antd';
+import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { SizeMe } from 'react-sizeme';
 
 const RenderStoryViewer = props => {
@@ -22,6 +23,39 @@ const RenderStoryViewer = props => {
     });
   }, [authState]);
 
+  const previousPage = () => {
+    if (pageNumber > 1) {
+      changePage(-1);
+    }
+  };
+  const nextPage = () => {
+    if (pageNumber < numPages) {
+      changePage(1);
+    }
+  };
+
+  const keydownListener = useCallback(
+    event => {
+      if (event.keyCode === 37) {
+        console.log(event.keyCode);
+        previousPage();
+      }
+      if (event.keyCode === 39) {
+        nextPage();
+        console.log(event.keyCode);
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [previousPage, nextPage, numPages]
+  );
+
+  useEffect(() => {
+    document.addEventListener('keydown', keydownListener);
+    return () => {
+      document.removeEventListener('keydown', keydownListener);
+    };
+  }, [keydownListener]);
+
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
     setPageNumber(1);
@@ -29,33 +63,11 @@ const RenderStoryViewer = props => {
   const changePage = offset => {
     setPageNumber(prevPageNumber => prevPageNumber + offset);
   };
-  const previousPage = () => {
-    changePage(-1);
-  };
-  const nextPage = () => {
-    changePage(1);
-  };
 
   return (
     <>
-      <Header />
-      <div>
-        <div className="btn-container">
-          <Button
-            type="button"
-            disabled={pageNumber <= 1}
-            onClick={previousPage}
-          >
-            Previous Page
-          </Button>
-          <Button
-            type="button"
-            disabled={pageNumber >= numPages}
-            onClick={nextPage}
-          >
-            Next Page
-          </Button>
-        </div>
+      <Header backButton={true} />
+      <div class="viewer-container">
         <SizeMe>
           {({ size }) => (
             <Document
@@ -75,6 +87,23 @@ const RenderStoryViewer = props => {
             </Document>
           )}
         </SizeMe>
+
+        <Button
+          className="prev-button"
+          type="button"
+          disabled={pageNumber <= 1}
+          onClick={previousPage}
+        >
+          {<ArrowLeftOutlined />}
+        </Button>
+        <Button
+          className="next-button"
+          type="button"
+          disabled={pageNumber >= numPages}
+          onClick={nextPage}
+        >
+          {<ArrowRightOutlined />}
+        </Button>
       </div>
     </>
   );

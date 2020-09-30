@@ -7,16 +7,30 @@
   justify-content: center;
 }
 
-.btn-container {
-  display: flex;
-  justify-content: center;
-  .ant-btn {
-    width: 20%;
-  }
+.prev-button,
+.next-button {
+  position: fixed;
+  bottom: 0.4vw;
+  margin: 1%;
+}
+.prev-button {
+  left: 0.4vw;
+}
+.next-button {
+  right: 0.4vw;
 }
 
 .page-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  p {
+    font-size: 2rem;
+    font-family: 'Nunito';
+  }
+}
+
+.viewer-container {
+  display: flex;
+  flex-direction: column;
 }
