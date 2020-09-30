@@ -108,6 +108,18 @@ const postNewAvatar = async (authState, body) => {
     return [];
   }
 };
+const postNewWritingSub = async (authState, body, subId) => {
+  try {
+    return apiAuthPost(
+      `/submit/write/${subId}`,
+      body,
+      getAuthHeader(authState)
+    ).then(res => res.data);
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+};
 
 export {
   sleep,
@@ -121,4 +133,5 @@ export {
   postNewChild,
   getChildFormValues,
   postNewAvatar,
+  postNewWritingSub,
 };

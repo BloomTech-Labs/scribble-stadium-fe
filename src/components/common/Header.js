@@ -47,7 +47,7 @@ const Header = ({ displayMenu = true, backButton = false, ...props }) => {
           <Button className="menu" icon={<MenuOutlined />} type="default" />
         </Dropdown>
       )}
-      <h1 className="header-text">STORY SQUAD</h1>
+      <h1 className="header-text">{props.title || 'STORY SQUAD'}</h1>
     </div>
   );
 };
