@@ -26,7 +26,6 @@ import {
   ParentLoadingComponent,
 } from './components/common';
 import { AddChild } from './components/pages/AddChild';
-import { AddAvatar } from './components/pages/AddAvatarForm';
 import { ChildDashboard } from './components/pages/ChildDashboard';
 import { Help } from './components/pages/Help';
 import { LandingPage } from './components/pages/LandingPage';
@@ -38,7 +37,6 @@ import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
-//import WritingSub from './components/pages/WritingSub/RenderWritingSub';
 
 ReactDOM.render(
   //
@@ -65,7 +63,6 @@ function App() {
   };
 
   return (
-    //  <WritingSub />
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
         <Route path="/login" component={LandingPage} />
@@ -82,12 +79,7 @@ function App() {
             <StoryPrompt LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <SecureRoute
-          path="/child/avatar"
-          component={() => (
-            <AddAvatar LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
+
         <SecureRoute
           path="/child/dashboard"
           component={() => (
