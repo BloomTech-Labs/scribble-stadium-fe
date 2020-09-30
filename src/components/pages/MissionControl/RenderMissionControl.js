@@ -11,8 +11,6 @@ import Checkbox from './Checkbox';
 
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import { getChildTasks } from '../../../api';
-import { tasks } from '../../../state/actions';
-import RenderChildDashboard from '../ChildDashboard/RenderChildDashboard';
 
 const RenderMissionControl = props => {
   console.log(props);
@@ -22,7 +20,7 @@ const RenderMissionControl = props => {
   // const {setTasks} = props;
   useEffect(() => {
     getChildTasks(authState, props.child.id, 10).then(res => {
-      console.log(res);
+      // console.log(res);
       props.setTasks(res);
     });
   }, [authState]);

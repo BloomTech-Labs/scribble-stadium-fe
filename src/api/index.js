@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { child } from '../state/actions';
 
 // we will define a bunch of API calls here.
 const apiUrl = process.env.REACT_APP_API_URI;
@@ -39,6 +40,10 @@ const apiAuthGet = (endpoint, authHeader) => {
 };
 const apiAuthPost = (endpoint, body, authHeader) => {
   return axios.post(`${apiUrl}${endpoint}`, body, { headers: authHeader });
+};
+
+const apiAuthPut = (endpoint, body, authHeader) => {
+  return axios.put(`${apiUrl}${endpoint}`, body, { headers: authHeader });
 };
 
 const postNewChild = (authState, child) => {
@@ -142,6 +147,21 @@ const getChildTasks = async (authState, childid, storyid) => {
   }
 };
 
+const markAsRead = async (authState, submissionId) => {
+  try {
+    return apiAuthPut(
+      `/submit/read/${submissionId}`,
+      {},
+      getAuthHeader(authState)
+    ).then(response => console.log(response));
+  } catch (err) {
+    return new Promise(() => {
+      console.log(err);
+      return [];
+    });
+  }
+};
+
 export {
   sleep,
   getExampleData,
@@ -156,4 +176,6 @@ export {
   postNewAvatar,
   getChildTasks,
   postNewWritingSub,
+  apiAuthPut,
+  markAsRead,
 };
