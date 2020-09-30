@@ -4,6 +4,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
 
 import RenderChildDashboard from './RenderChildDashboard';
+import { tasks, child } from '../../../state/actions';
 
 const ChildDashboardContainer = ({ LoadingComponent, ...props }) => {
   console.log(props, 'from container');
@@ -48,7 +49,15 @@ const ChildDashboardContainer = ({ LoadingComponent, ...props }) => {
 export default connect(
   state => ({
     child: state.child,
-    tasks: state.tasks,
+    // tasks: state.tasks,
   }),
-  {}
+  {
+    setTasks: tasks.setTasks,
+  }
 )(ChildDashboardContainer);
+
+// export default connect(null, {
+//   setTasks: tasks.setTasks,
+// })(ChildDashboardContainer);
+
+// export default ChildDashboardContainer;

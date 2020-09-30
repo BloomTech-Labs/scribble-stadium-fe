@@ -22,11 +22,11 @@ const RenderMissionControl = props => {
   const writeCompleted = false;
   const drawCompleted = false;
 
-  useEffect(() => {
-    getChildTasks(authState, props.child.id, 10).then(res => {
-      console.log(res);
-    });
-  });
+  // useEffect(() => {
+  //   getChildTasks(authState, props.child.id, 10).then(res => {
+  //     console.log(res);
+  //   });
+  // });
 
   // Will be for when we are checking whether or not the child has completed a task
   function handleChecked(e) {
@@ -90,10 +90,12 @@ const RenderMissionControl = props => {
   );
 };
 
-export default connect(
-  state => ({
-    child: state.child,
-    setTasks: tasks.setTasks,
-  }),
-  {}
-)(RenderMissionControl);
+// export default connect(
+//   state => ({
+//     child: state.child,
+//     setTasks: tasks.setTasks,
+//   }),
+//   {}
+// )(RenderMissionControl);
+
+export default RenderMissionControl;

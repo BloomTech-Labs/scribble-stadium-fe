@@ -42,6 +42,7 @@ const MissionControlContainer = ({ LoadingComponent, ...props }) => {
       )}
       {authState.isAuthenticated && userInfo && (
         <RenderMissionControl
+          child={props.child}
           userInfo={userInfo}
           authService={authService}
           checkedToggle={checkedToggle}
@@ -58,3 +59,5 @@ export default connect(
   }),
   {}
 )(MissionControlContainer);
+
+// export default MissionControlContainer;
