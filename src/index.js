@@ -35,6 +35,7 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
+import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 
 ReactDOM.render(
@@ -78,6 +79,7 @@ function App() {
             <StoryPrompt LoadingComponent={ChildLoadingComponent} />
           )}
         />
+
         <SecureRoute
           path="/child/dashboard"
           component={() => (
@@ -90,7 +92,12 @@ function App() {
             <MissionControl LoadingComponent={ChildLoadingComponent} />
           )}
         />
-
+        <SecureRoute
+          path="/child/writing-sub"
+          component={() => (
+            <WritingSub LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
         <SecureRoute
           path="/parent/add-child"
           component={() => (
