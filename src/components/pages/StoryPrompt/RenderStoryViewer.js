@@ -23,27 +23,38 @@ const RenderStoryViewer = props => {
     });
   }, [authState]);
 
-  const keydownListener = useCallback(event => {
-    if (event.keyCode === 37) {
-      previousPage();
-    }
-    if (event.keyCode === 39) {
-      nextPage();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    document.addEventListener('keydown', keydownListener, true);
-    return () => document.removeEventListener('keydown', keydownListener, true);
-  }, [keydownListener]);
-
   const previousPage = () => {
-    changePage(-1);
+    if (pageNumber > 1) {
+      changePage(-1);
+    }
   };
   const nextPage = () => {
-    changePage(1);
+    if (pageNumber < numPages) {
+      changePage(1);
+    }
   };
+
+  const keydownListener = useCallback(
+    event => {
+      if (event.keyCode === 37) {
+        console.log(event.keyCode);
+        previousPage();
+      }
+      if (event.keyCode === 39) {
+        nextPage();
+        console.log(event.keyCode);
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [previousPage, nextPage, numPages]
+  );
+
+  useEffect(() => {
+    document.addEventListener('keydown', keydownListener);
+    return () => {
+      document.removeEventListener('keydown', keydownListener);
+    };
+  }, [keydownListener]);
 
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
