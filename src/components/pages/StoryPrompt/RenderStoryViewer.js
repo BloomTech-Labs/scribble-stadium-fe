@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { getStory } from '../../../api/index';
 import { Header } from '../../common';
@@ -23,18 +23,34 @@ const RenderStoryViewer = props => {
     });
   }, [authState]);
 
+  const keydownListener = useCallback(event => {
+    if (event.keyCode === 37) {
+      previousPage();
+    }
+    if (event.keyCode === 39) {
+      nextPage();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('keydown', keydownListener, true);
+    return () => document.removeEventListener('keydown', keydownListener, true);
+  }, [keydownListener]);
+
+  const previousPage = () => {
+    changePage(-1);
+  };
+  const nextPage = () => {
+    changePage(1);
+  };
+
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
     setPageNumber(1);
   };
   const changePage = offset => {
     setPageNumber(prevPageNumber => prevPageNumber + offset);
-  };
-  const previousPage = () => {
-    changePage(-1);
-  };
-  const nextPage = () => {
-    changePage(1);
   };
 
   return (
@@ -63,8 +79,7 @@ const RenderStoryViewer = props => {
 
         <Button
           className="prev-button"
-          type="primary"
-          size="large"
+          type="button"
           disabled={pageNumber <= 1}
           onClick={previousPage}
         >
@@ -72,8 +87,7 @@ const RenderStoryViewer = props => {
         </Button>
         <Button
           className="next-button"
-          type="primary"
-          size="large"
+          type="button"
           disabled={pageNumber >= numPages}
           onClick={nextPage}
         >
