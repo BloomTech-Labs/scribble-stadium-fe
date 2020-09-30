@@ -42,6 +42,7 @@ const ParentDashboard = props => {
                   key={i}
                   name={child.Name}
                   AvatarURL={child.AvatarURL}
+                  update="PROGRESS"
                 />
               ))}
               <Card>

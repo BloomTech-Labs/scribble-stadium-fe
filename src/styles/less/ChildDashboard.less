@@ -6,7 +6,10 @@
 .dash-container {
   height: 70vh;
 
-  .accept-mission, .change-avatar, .adventure-passport, .trophy-room{
+  .accept-mission,
+  .change-avatar,
+  .adventure-passport,
+  .trophy-room {
     border: 5px solid @header-nero;
     height: 35vh;
   }
@@ -17,9 +20,16 @@
     background-size: contain;
     background-position: center;
     background-color: @conifer;
-    
+    cursor: pointer;
+
     p {
       margin: 0 auto;
+    }
+    img {
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 
@@ -34,12 +44,10 @@
   .accept-mission-text {
     font-size: 3.2rem;
     padding: 8%;
-    cursor: pointer;
-    a {
-      font-family: 'Bangers', cursive;
-      color: @white;
-      text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
-    }
+
+    font-family: 'Bangers', cursive;
+    color: @white;
+    text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
   }
 
   .change-avatar {
@@ -58,8 +66,8 @@
     align-items: center;
     background: @bright-sun;
   }
-  
-  .adventure-passport img{
+
+  .adventure-passport img {
     max-width: 100%;
     max-height: 100%;
   }
@@ -69,9 +77,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .child-dash-img {
-    cursor: pointer;
   }
 }
