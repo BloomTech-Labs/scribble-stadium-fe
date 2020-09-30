@@ -12,21 +12,24 @@ import Checkbox from './Checkbox';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import { getChildTasks } from '../../../api';
 import { tasks } from '../../../state/actions';
+import RenderChildDashboard from '../ChildDashboard/RenderChildDashboard';
 
 const RenderMissionControl = props => {
   console.log(props);
   const { push } = useHistory();
   const { authState } = useOktaAuth();
 
+  // const {setTasks} = props;
+  useEffect(() => {
+    getChildTasks(authState, props.child.id, 10).then(res => {
+      console.log(res);
+      props.setTasks(res);
+    });
+  }, [authState]);
+
   const readCompleted = true;
   const writeCompleted = false;
   const drawCompleted = false;
-
-  // useEffect(() => {
-  //   getChildTasks(authState, props.child.id, 10).then(res => {
-  //     console.log(res);
-  //   });
-  // });
 
   // Will be for when we are checking whether or not the child has completed a task
   function handleChecked(e) {
@@ -94,12 +97,17 @@ const RenderMissionControl = props => {
   );
 };
 
-// export default connect(
-//   state => ({
-//     child: state.child,
-//     setTasks: tasks.setTasks,
-//   }),
-//   {}
-// )(RenderMissionControl);
+export default connect(
+  state => ({
+    child: state.child,
+    // setTasks: tasks.setTasks,
+    tasks: state.tasks,
+  }),
+  {}
+)(RenderMissionControl);
 
-export default RenderMissionControl;
+// export default connect(null, {
+//   setTasks: tasks.setTasks,
+// })(RenderMissionControl);
+
+// export default RenderMissionControl;

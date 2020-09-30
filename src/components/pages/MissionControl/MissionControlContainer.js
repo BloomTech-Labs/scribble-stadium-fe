@@ -3,6 +3,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
 
 import RenderMissionControl from './RenderMissionControl';
+import { tasks } from '../../../state/actions';
 
 const MissionControlContainer = ({ LoadingComponent, ...props }) => {
   console.log(props);
@@ -42,7 +43,7 @@ const MissionControlContainer = ({ LoadingComponent, ...props }) => {
       )}
       {authState.isAuthenticated && userInfo && (
         <RenderMissionControl
-          child={props.child}
+          {...props}
           userInfo={userInfo}
           authService={authService}
           checkedToggle={checkedToggle}
@@ -52,12 +53,16 @@ const MissionControlContainer = ({ LoadingComponent, ...props }) => {
   );
 };
 
-export default connect(
-  state => ({
-    child: state.child,
-    tasks: state.tasks,
-  }),
-  {}
-)(MissionControlContainer);
+// export default connect(
+//   state => ({
+//     child: state.child,
+//     tasks: state.tasks,
+//   }),
+//   {}
+// )(MissionControlContainer);
+
+export default connect(null, {
+  setTasks: tasks.setTasks,
+})(MissionControlContainer);
 
 // export default MissionControlContainer;

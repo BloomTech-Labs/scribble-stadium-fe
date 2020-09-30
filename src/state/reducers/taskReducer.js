@@ -7,6 +7,7 @@ const initialState = {
   hasRead: false,
   hasWritten: false,
   hasDrawn: false,
+  complexity: null,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -14,11 +15,12 @@ export const reducer = (state = initialState, action) => {
     case tasks.SET_TASKS:
       return {
         id: action.payload.ID,
-        child_id: action.payload.ChildId,
-        story_id: action.payload.StoryId,
+        child_id: action.payload.ChildID,
+        story_id: action.payload.StoryID,
         hasRead: action.payload.HasRead,
         hasWritten: action.payload.HasWritten,
         hasDrawn: action.payload.HasDrawn,
+        complexity: null,
       };
     default:
       return state;

@@ -49,15 +49,6 @@ const ChildDashboardContainer = ({ LoadingComponent, ...props }) => {
 export default connect(
   state => ({
     child: state.child,
-    // tasks: state.tasks,
   }),
-  {
-    setTasks: tasks.setTasks,
-  }
+  {}
 )(ChildDashboardContainer);
-
-// export default connect(null, {
-//   setTasks: tasks.setTasks,
-// })(ChildDashboardContainer);
-
-// export default ChildDashboardContainer;

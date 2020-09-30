@@ -22,11 +22,11 @@ const RenderChildDashboard = props => {
     push('/child/mission-control');
   };
 
-  useEffect(() => {
-    getChildTasks(authState, props.child.id, 10).then(res => {
-      console.log(res);
-    });
-  });
+  // useEffect(() => {
+  //   getChildTasks(authState, props.child.id, 10).then(res => {
+  //     console.log(res);
+  //   });
+  // });
 
   return (
     <>
@@ -70,7 +70,3 @@ const RenderChildDashboard = props => {
 };
 
 export default RenderChildDashboard;
-
-// export default connect(null, {
-//   setTasks: tasks.setTasks,
-// })(RenderChildDashboard);
