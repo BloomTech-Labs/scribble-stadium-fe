@@ -18,7 +18,9 @@ const UploadDocs = ({
   submitButtonClassname,
   apiAxios,
   submissionId,
+  storyId,
 }) => {
+  console.log(storyId, fileName);
   const { authState } = useOktaAuth();
 
   const [uploading, setUploading] = useState(false);
@@ -33,6 +35,7 @@ const UploadDocs = ({
   const [form] = Form.useForm();
 
   const onFinish = values => {
+    console.log(values);
     setUploading(true);
 
     const formData = new FormData();
@@ -40,10 +43,9 @@ const UploadDocs = ({
     fileList.forEach(file => {
       formData.append(fileName, file);
     });
-
     Object.keys(values).forEach(key => {
       formData.append(key, values[key]);
-      // formData.append()   I need to append the story id here (as a key/value pair)
+      formData.append('storyId', storyId);
     });
     apiAxios(authState, formData, submissionId)
       .then(res => {
@@ -51,7 +53,9 @@ const UploadDocs = ({
         setUploading(false);
       })
       .catch(err => {
-        console.log(err);
+        for (var value of formData.entries()) {
+          console.log(value[0], err);
+        }
         setUploading(false);
       });
   };
@@ -104,7 +108,7 @@ const UploadDocs = ({
           beforeUpload={beforeUpload}
           onPreview={handlePreview}
           onChange={handleChange}
-          multiple="true"
+          multiple={true}
         >
           <Button className={uploadButtonClassname}>{uploadButtonText}</Button>
         </Upload>

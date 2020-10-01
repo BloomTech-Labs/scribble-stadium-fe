@@ -79,7 +79,6 @@ const RenderStoryViewer = props => {
     <>
       <Header backButton={true} />
       <div class="viewer-container">
-        <button onClick={onFinish}>Finished</button>
         <SizeMe>
           {({ size }) => (
             <Document

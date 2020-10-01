@@ -1,11 +1,13 @@
 import React from 'react';
-import { Header } from '../../common';
 import { Row } from 'antd';
+
+import { Header } from '../../common';
 import { UploadDocs } from '../../common/';
 import { postNewWritingSub } from '../../../api/index';
 import { SubmissionModal } from '../../common/index';
 
-const RenderWritingSub = () => {
+const RenderWritingSub = props => {
+  console.log(props);
   const inst =
     'Once you finish writing your story, please take a picture of all your pages and upload them. After all pages are uploaded, click submit.';
   const submissionId = 1;
@@ -29,7 +31,8 @@ const RenderWritingSub = () => {
             uploadButtonClassname="uploadButton"
             fileName="writingSub"
             apiAxios={postNewWritingSub}
-            submissionId={submissionId}
+            submissionId={props.tasks.id}
+            storyId={props.tasks.story_id}
           />
         </div>
       </div>

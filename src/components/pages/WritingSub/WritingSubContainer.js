@@ -47,7 +47,7 @@ function WritingSubContainer({ LoadingComponent, ...props }) {
 
 export default connect(
   state => ({
-    parent: state.parent,
+    tasks: state.tasks,
   }),
   {}
 )(WritingSubContainer);

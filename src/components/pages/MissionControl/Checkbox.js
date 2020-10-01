@@ -15,8 +15,6 @@ const Checkbox = props => {
   );
 };
 
-// export default Checkbox;
-
 export default connect(state => ({
   tasks: state.tasks,
 }))(Checkbox);
