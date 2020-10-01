@@ -43,12 +43,10 @@ const RenderStoryViewer = props => {
   const keydownListener = useCallback(
     event => {
       if (event.keyCode === 37) {
-        console.log(event.keyCode);
         previousPage();
       }
       if (event.keyCode === 39) {
         nextPage();
-        console.log(event.keyCode);
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
