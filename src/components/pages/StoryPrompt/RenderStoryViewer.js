@@ -16,6 +16,7 @@ const RenderStoryViewer = props => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [storyPrompt, setStoryPrompt] = useState();
+  const [hasViewedAllPages, setViewed] = useState(false);
   const { authState } = useOktaAuth();
   const { push } = useHistory();
 
@@ -28,6 +29,12 @@ const RenderStoryViewer = props => {
       console.log(res);
     });
   }, [authState]);
+
+  useEffect(() => {
+    if (pageNumber === numPages) {
+      setViewed(true);
+    }
+  }, [pageNumber, numPages]);
 
   const previousPage = () => {
     if (pageNumber > 1) {
@@ -117,7 +124,7 @@ const RenderStoryViewer = props => {
           <Button
             className="finished-reading"
             type="button"
-            disabled={pageNumber < numPages}
+            disabled={!hasViewedAllPages}
             onClick={onFinish}
           >
             Finished Reading?
