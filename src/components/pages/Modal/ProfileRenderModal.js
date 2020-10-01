@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import bc from 'bcryptjs';
 import { useHistory } from 'react-router-dom';
@@ -19,6 +19,7 @@ const ProfileRenderModal = props => {
   const [userInfo, setUserInfo] = useState([]);
   const [selected, setSelected] = useState(null);
   const [title, setTitle] = useState(titleText);
+  const submitButton = useRef(null);
   const [form] = Form.useForm();
   const history = useHistory();
 
@@ -62,6 +63,13 @@ const ProfileRenderModal = props => {
   const backToProfiles = e => {
     setSelected(!selected);
     setTitle(titleText);
+    form.resetFields();
+  };
+
+  const blurOnFourChars = e => {
+    if (e.target.value.length === 4) {
+      submitButton.current.focus();
+    }
   };
 
   return (
@@ -116,11 +124,19 @@ const ProfileRenderModal = props => {
                   }),
                 ]}
               >
-                <Input autoFocus={true} className="pin" maxLength={4} />
+                <Input
+                  autoFocus={true}
+                  className="pin"
+                  maxLength={4}
+                  onChange={blurOnFourChars}
+                  autoComplete="off"
+                />
               </Form.Item>
-              <Button type="primary" htmlType="submit">
-                Enter
-              </Button>
+              <Form.Item>
+                <Button type="primary" htmlType="submit" ref={submitButton}>
+                  Enter
+                </Button>
+              </Form.Item>
 
               <Button
                 className="back"
