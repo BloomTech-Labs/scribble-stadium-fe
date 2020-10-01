@@ -79,7 +79,7 @@ const RenderStoryViewer = props => {
   const onFinish = e => {
     markAsRead(authState, props.tasks.id);
     push('/child/mission-control');
-    props.setHasRead(true);
+    props.setHasRead(!hasViewedAllPages);
   };
 
   return (

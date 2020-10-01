@@ -24,7 +24,8 @@ export const reducer = (state = initialState, action) => {
       };
     case tasks.SET_HAS_READ:
       return {
-        hasRead: action.payload,
+        ...state,
+        hasRead: true,
       };
     case global.CLEAR_USERS:
       return initialState;

@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import RenderStoryViewer from './RenderStoryViewer';
 import { useOktaAuth } from '@okta/okta-react';
-import { connect } from 'react-redux';
-import { tasks } from '../../../state/actions';
 
 const StoryViewerContainer = ({ LoadingComponent }) => {
   const { authState, authService } = useOktaAuth();
@@ -40,6 +38,3 @@ const StoryViewerContainer = ({ LoadingComponent }) => {
 };
 
 export default StoryViewerContainer;
-// export default connect(null, {
-//   setHasRead: tasks.setHasRead,
-// })(StoryViewerContainer);

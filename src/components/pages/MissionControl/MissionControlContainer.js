@@ -53,6 +53,11 @@ const MissionControlContainer = ({ LoadingComponent, ...props }) => {
   );
 };
 
-export default connect(null, {
-  setTasks: tasks.setTasks,
-})(MissionControlContainer);
+export default connect(
+  state => ({
+    tasks: state.tasks,
+  }),
+  {
+    setTasks: tasks.setTasks,
+  }
+)(MissionControlContainer);

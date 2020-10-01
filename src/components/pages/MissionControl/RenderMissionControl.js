@@ -21,6 +21,7 @@ const RenderMissionControl = props => {
     if (props.tasks.id === null) {
       getChildTasks(authState, props.child.id, 10).then(res => {
         props.setTasks(res);
+        console.log('we made an api call');
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
