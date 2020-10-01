@@ -7,6 +7,7 @@ import { Button } from 'antd';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { SizeMe } from 'react-sizeme';
 
+
 const RenderStoryViewer = props => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
@@ -37,12 +38,10 @@ const RenderStoryViewer = props => {
   const keydownListener = useCallback(
     event => {
       if (event.keyCode === 37) {
-        console.log(event.keyCode);
         previousPage();
       }
       if (event.keyCode === 39) {
         nextPage();
-        console.log(event.keyCode);
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
