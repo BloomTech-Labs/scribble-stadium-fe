@@ -1,32 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 
-import { getChildTasks } from '../../../api';
-import { tasks } from '../../../state/actions';
-
 import adventure_passport from '../../../assets/images/child_dashboard_images/adventure_passport.svg';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 import trophy_room from '../../../assets/images/child_dashboard_images/trophy_room.svg';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
-import { connect } from 'react-redux';
-import RenderMissionControl from '../MissionControl/RenderMissionControl';
 
 const RenderChildDashboard = props => {
   console.log(props, 'from renderer');
   const { push } = useHistory();
-  const { authState } = useOktaAuth();
 
   const handleAcceptMission = e => {
     push('/child/mission-control');
   };
-
-  // useEffect(() => {
-  //   getChildTasks(authState, props.child.id, 10).then(res => {
-  //     console.log(res);
-  //   });
-  // });
 
   return (
     <>

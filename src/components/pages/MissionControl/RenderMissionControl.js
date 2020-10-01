@@ -17,17 +17,12 @@ const RenderMissionControl = props => {
   const { push } = useHistory();
   const { authState } = useOktaAuth();
 
-  // const {setTasks} = props;
   useEffect(() => {
     getChildTasks(authState, props.child.id, 10).then(res => {
-      // console.log(res);
       props.setTasks(res);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authState]);
-
-  const readCompleted = true;
-  const writeCompleted = false;
-  const drawCompleted = false;
 
   // Will be for when we are checking whether or not the child has completed a task
   function handleChecked(e) {
@@ -54,7 +49,7 @@ const RenderMissionControl = props => {
               className="checking-box"
               defaultChecked={false}
               onChange={handleChecked}
-              isCompleted={readCompleted}
+              isCompleted={props.tasks.hasRead}
             />
 
             <Col className="image-and-text-container">
@@ -68,7 +63,7 @@ const RenderMissionControl = props => {
                 className="checking-box"
                 defaultChecked={false}
                 onChange={handleChecked}
-                isCompleted={writeCompleted}
+                isCompleted={props.tasks.hasWritten}
               />
 
               <Col className="image-and-text-container">
@@ -81,7 +76,7 @@ const RenderMissionControl = props => {
                 className="checking-box"
                 defaultChecked={false}
                 onChange={handleChecked}
-                isCompleted={drawCompleted}
+                isCompleted={props.tasks.hasDrawn}
               />
               <Col className="image-and-text-container">
                 <img src={draw_icon} alt="drawing icon" />
@@ -98,14 +93,7 @@ const RenderMissionControl = props => {
 export default connect(
   state => ({
     child: state.child,
-    // setTasks: tasks.setTasks,
     tasks: state.tasks,
   }),
   {}
 )(RenderMissionControl);
-
-// export default connect(null, {
-//   setTasks: tasks.setTasks,
-// })(RenderMissionControl);
-
-// export default RenderMissionControl;
