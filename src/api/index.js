@@ -153,7 +153,7 @@ const markAsRead = async (authState, submissionId) => {
       `/submit/read/${submissionId}`,
       {},
       getAuthHeader(authState)
-    ).then(response => console.log(response));
+    ).then(response => response.data);
   } catch (err) {
     return new Promise(() => {
       console.log(err);

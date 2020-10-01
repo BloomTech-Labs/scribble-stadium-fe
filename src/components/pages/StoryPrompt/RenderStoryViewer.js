@@ -6,12 +6,18 @@ import { useOktaAuth } from '@okta/okta-react';
 import { Button } from 'antd';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { SizeMe } from 'react-sizeme';
+import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
+import { markAsRead } from '../../../api';
 
 const RenderStoryViewer = props => {
+  console.log(props);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [storyPrompt, setStoryPrompt] = useState();
   const { authState } = useOktaAuth();
+  const { push } = useHistory();
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -64,10 +70,16 @@ const RenderStoryViewer = props => {
     setPageNumber(prevPageNumber => prevPageNumber + offset);
   };
 
+  const onFinish = e => {
+    markAsRead(authState, props.tasks.id);
+    push('/child/mission-control');
+  };
+
   return (
     <>
       <Header backButton={true} />
       <div class="viewer-container">
+        <button onClick={onFinish}>Finished</button>
         <SizeMe>
           {({ size }) => (
             <Document
@@ -108,4 +120,9 @@ const RenderStoryViewer = props => {
     </>
   );
 };
-export default RenderStoryViewer;
+// export default RenderStoryViewer;
+
+export default connect(state => ({
+  child: state.child,
+  tasks: state.tasks,
+}))(RenderStoryViewer);

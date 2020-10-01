@@ -43,6 +43,7 @@ const UploadDocs = ({
 
     Object.keys(values).forEach(key => {
       formData.append(key, values[key]);
+      // formData.append()   I need to append the story id here (as a key/value pair)
     });
     apiAxios(authState, formData, submissionId)
       .then(res => {
