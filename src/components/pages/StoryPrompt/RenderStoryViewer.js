@@ -127,7 +127,6 @@ const RenderStoryViewer = props => {
     </>
   );
 };
-// export default RenderStoryViewer;
 
 export default connect(state => ({
   child: state.child,

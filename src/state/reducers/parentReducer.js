@@ -16,7 +16,7 @@ export const reducer = (state = initialState, action) => {
         email: action.payload.Email,
         children: action.payload.children,
       };
-    case global.clearUsers:
+    case global.CLEAR_USERS:
       return initialState;
     default:
       return state;

@@ -22,7 +22,11 @@ export const reducer = (state = initialState, action) => {
         hasDrawn: action.payload.HasDrawn,
         complexity: null,
       };
-    case global.clearUsers:
+    case tasks.SET_HAS_READ:
+      return {
+        hasRead: action.payload,
+      };
+    case global.CLEAR_USERS:
       return initialState;
     default:
       return state;
