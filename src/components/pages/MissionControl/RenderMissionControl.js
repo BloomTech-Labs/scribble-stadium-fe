@@ -18,9 +18,11 @@ const RenderMissionControl = props => {
   const { authState } = useOktaAuth();
 
   useEffect(() => {
-    getChildTasks(authState, props.child.id, 10).then(res => {
-      props.setTasks(res);
-    });
+    if (props.tasks.id === null) {
+      getChildTasks(authState, props.child.id, 10).then(res => {
+        props.setTasks(res);
+      });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authState]);
 

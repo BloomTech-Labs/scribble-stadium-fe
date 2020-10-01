@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import { markAsRead } from '../../../api';
+import { tasks } from '../../../state/actions';
 
 const RenderStoryViewer = props => {
   console.log(props);
@@ -71,6 +72,7 @@ const RenderStoryViewer = props => {
   const onFinish = e => {
     markAsRead(authState, props.tasks.id);
     push('/child/mission-control');
+    props.setHasRead(true);
   };
 
   return (
@@ -128,7 +130,12 @@ const RenderStoryViewer = props => {
   );
 };
 
-export default connect(state => ({
-  child: state.child,
-  tasks: state.tasks,
-}))(RenderStoryViewer);
+export default connect(
+  state => ({
+    child: state.child,
+    tasks: state.tasks,
+  }),
+  {
+    setHasRead: tasks.setHasRead,
+  }
+)(RenderStoryViewer);
