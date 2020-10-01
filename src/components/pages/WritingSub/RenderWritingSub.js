@@ -29,7 +29,7 @@ const RenderWritingSub = props => {
             submitButtonClassname="orange-submit-button"
             uploadButtonText="Choose files from your device"
             uploadButtonClassname="uploadButton"
-            fileName="writingSub"
+            fileName="pages"
             apiAxios={postNewWritingSub}
             submissionId={props.tasks.id}
             storyId={props.tasks.story_id}

@@ -1,4 +1,4 @@
-import { tasks } from '../actions';
+import { global, tasks } from '../actions';
 
 const initialState = {
   id: null,
@@ -22,6 +22,8 @@ export const reducer = (state = initialState, action) => {
         hasDrawn: action.payload.HasDrawn,
         complexity: null,
       };
+    case global.clearUsers:
+      return initialState;
     default:
       return state;
   }

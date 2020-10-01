@@ -113,6 +113,16 @@ const RenderStoryViewer = props => {
         >
           {<ArrowRightOutlined />}
         </Button>
+        <div className="finished-container">
+          <Button
+            className="finished-reading"
+            type="button"
+            disabled={pageNumber < numPages}
+            onClick={onFinish}
+          >
+            Finished Reading?
+          </Button>
+        </div>
       </div>
     </>
   );

@@ -20,7 +20,6 @@ const UploadDocs = ({
   submissionId,
   storyId,
 }) => {
-  console.log(storyId, fileName);
   const { authState } = useOktaAuth();
 
   const [uploading, setUploading] = useState(false);
@@ -35,7 +34,7 @@ const UploadDocs = ({
   const [form] = Form.useForm();
 
   const onFinish = values => {
-    console.log(values);
+    // console.log(values);
     setUploading(true);
 
     const formData = new FormData();
@@ -45,8 +44,8 @@ const UploadDocs = ({
     });
     Object.keys(values).forEach(key => {
       formData.append(key, values[key]);
-      formData.append('storyId', storyId);
     });
+    formData.append('storyId', storyId);
     apiAxios(authState, formData, submissionId)
       .then(res => {
         console.log(res);
@@ -54,7 +53,7 @@ const UploadDocs = ({
       })
       .catch(err => {
         for (var value of formData.entries()) {
-          console.log(value[0], err);
+          console.log(value, err);
         }
         setUploading(false);
       });
@@ -82,7 +81,7 @@ const UploadDocs = ({
 
   const handleChange = ({ fileList }) => {
     setFilePreviews(fileList);
-    setFileList(fileList);
+    // setFileList(fileList);
   };
 
   const onRemove = file => {
