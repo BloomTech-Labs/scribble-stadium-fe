@@ -29,6 +29,10 @@ const RenderMissionControl = props => {
     e.stopPropagation();
     push('/child/writing-sub');
   };
+  const handleDraw = e => {
+    e.stopPropagation();
+    push('/child/drawing-sub');
+  };
 
   return (
     <>
@@ -62,7 +66,7 @@ const RenderMissionControl = props => {
                 <p className="mission-control-text">Write</p>
               </Col>
             </Row>
-            <Row className="draw">
+            <Row className="draw" onClick={handleDraw}>
               <Checkbox
                 className="checking-box"
                 defaultChecked={false}
