@@ -5,7 +5,17 @@
 
 .dash-container {
   height: 70vh;
-
+  @media @mobile {
+    display: flex;
+    flex-direction: column;
+  }
+  .toprow,
+  .bottomrow {
+    @media @mobile {
+      flex-direction: column;
+    }
+  }
+  
   .accept-mission,
   .change-avatar,
   .adventure-passport,
@@ -21,6 +31,7 @@
     background-position: center;
     background-color: @conifer;
     cursor: pointer;
+    
 
     p {
       margin: 0 auto;

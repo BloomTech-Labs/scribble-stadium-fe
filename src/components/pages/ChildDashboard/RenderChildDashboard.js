@@ -18,10 +18,12 @@ const RenderChildDashboard = props => {
     <>
       <Header displayMenu={true} />
       <div className="dash-container">
+        
         <Row className="toprow">
           <Col
             className="accept-mission"
             span={13}
+            xs={{span: 20}}
             onClick={handleAcceptMission}
           >
             <p className="accept-mission-text">ACCEPT THE MISSION!</p>
@@ -34,7 +36,7 @@ const RenderChildDashboard = props => {
             />
           </Col>
         </Row>
-        <Row>
+        <Row className="bottomrow">
           <Col className="adventure-passport" span={11}>
             <img
               className="child-dash-img"
@@ -50,6 +52,7 @@ const RenderChildDashboard = props => {
             />
           </Col>
         </Row>
+        
       </div>
     </>
   );
