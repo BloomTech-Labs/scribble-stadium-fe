@@ -17,7 +17,7 @@ jobs:
       - run: cp .env.sample .env
       - uses: paambaati/codeclimate-action@v2.6.0
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CodeClimateReporterId }}
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           # Run our `coverage` script in our `package.json`
           coverageCommand: npm run coverage
