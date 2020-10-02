@@ -8,7 +8,6 @@ import { postNewWritingSub } from '../../../api/index';
 import { SubmissionModal } from '../../common/index';
 
 const RenderWritingSub = props => {
-  console.log(props);
   const inst =
     'Once you finish writing your story, please take a picture of all your pages and upload them. After all pages are uploaded, click submit.';
 

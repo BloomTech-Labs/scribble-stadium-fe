@@ -26,7 +26,6 @@ const UploadDocs = ({
   setHasDrawn,
   ...props
 }) => {
-  console.log(props, 'props from upload', fileName);
   const { authState } = useOktaAuth();
 
   const [uploading, setUploading] = useState(false);
@@ -58,13 +57,10 @@ const UploadDocs = ({
         setUploading(false);
         if (fileName === 'pages') {
           setHasWritten(false);
-          console.log(res, 'props', props, 'values', values);
         } else if (fileName === 'drawing') {
           setHasDrawn(false);
-          console.log(res, 'props', props, 'values', values);
         }
 
-        // console.log(res, 'props', props, 'values', values);
         push('/child/mission-control');
       })
       .catch(err => {
@@ -75,11 +71,7 @@ const UploadDocs = ({
       });
   };
 
-  const beforeUpload = file => {
-    setFileList([...fileList, file]);
-    setFilePreviews([...filePreviews, file]);
-    return false;
-  };
+  const beforeUpload = () => false;
 
   const handleCancel = () =>
     setPreview(preview => ({ ...preview, visible: false }));
@@ -95,9 +87,11 @@ const UploadDocs = ({
     });
   };
 
-  const handleChange = ({ fileList }) => {
+  const handleChange = ({ fileList, file }) => {
     setFilePreviews(fileList);
-    // setFileList(fileList);
+    setFileList(fl => {
+      return [...fl, file];
+    });
   };
 
   const onRemove = file => {
@@ -107,11 +101,12 @@ const UploadDocs = ({
       newFileList.splice(index, 1);
       return newFileList;
     });
+    // setFilePreviews(fileList);
   };
 
   useEffect(() => {
-    console.log(fileList);
-  }, [fileList]);
+    console.log({ fileList, filePreviews });
+  });
 
   return (
     <>

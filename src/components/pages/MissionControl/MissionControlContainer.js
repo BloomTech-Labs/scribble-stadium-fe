@@ -6,7 +6,6 @@ import RenderMissionControl from './RenderMissionControl';
 import { tasks } from '../../../state/actions';
 
 const MissionControlContainer = ({ LoadingComponent, ...props }) => {
-  console.log(props);
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line

@@ -26,7 +26,6 @@ const RenderStoryViewer = props => {
     // ========== second argument to getStory() is hardcoded for testing ==========
     getStory(authState, 10).then(res => {
       setStoryPrompt(res.URL);
-      console.log(res);
     });
   }, [authState]);
 
