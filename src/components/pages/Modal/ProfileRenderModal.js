@@ -19,7 +19,7 @@ const ProfileRenderModal = props => {
   const [userInfo, setUserInfo] = useState([]);
   const [selected, setSelected] = useState(null);
   const [title, setTitle] = useState(titleText);
-  const submitButton = useRef(null);
+  const formRef = useRef(null);
   const [form] = Form.useForm();
   const history = useHistory();
 
@@ -68,7 +68,7 @@ const ProfileRenderModal = props => {
 
   const blurOnFourChars = e => {
     if (e.target.value.length === 4) {
-      submitButton.current.focus();
+      formRef.current.submit();
     }
   };
 
@@ -102,7 +102,7 @@ const ProfileRenderModal = props => {
               })}
             </div>
           ) : (
-            <Form form={form} onFinish={onFinish}>
+            <Form form={form} onFinish={onFinish} ref={formRef}>
               <p>Enter your PIN</p>
               <Form.Item
                 name="pin"
@@ -119,7 +119,7 @@ const ProfileRenderModal = props => {
                       if (x) {
                         return Promise.resolve();
                       }
-                      return Promise.reject('Your pin does not match!');
+                      return Promise.reject('Incorrect PIN!');
                     },
                   }),
                 ]}
@@ -130,12 +130,8 @@ const ProfileRenderModal = props => {
                   maxLength={4}
                   onChange={blurOnFourChars}
                   autoComplete="off"
+                  size="large"
                 />
-              </Form.Item>
-              <Form.Item>
-                <Button type="primary" htmlType="submit" ref={submitButton}>
-                  Enter
-                </Button>
               </Form.Item>
 
               <Button
