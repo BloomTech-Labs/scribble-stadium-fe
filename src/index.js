@@ -27,6 +27,7 @@ import {
 } from './components/common';
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
+import { DrawingSub } from './components/pages/DrawingSub';
 import { Help } from './components/pages/Help';
 import { LandingPage } from './components/pages/LandingPage';
 import { MissionControl } from './components/pages/MissionControl';
@@ -90,6 +91,12 @@ function App() {
           path="/child/mission-control"
           component={() => (
             <MissionControl LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <SecureRoute
+          path="/child/drawing-sub"
+          component={() => (
+            <DrawingSub LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <SecureRoute
