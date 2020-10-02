@@ -23,9 +23,10 @@ const UploadDocs = ({
   submissionId,
   storyId,
   setHasWritten,
+  setHasDrawn,
   ...props
 }) => {
-  console.log(props);
+  console.log(props, 'props from upload', fileName);
   const { authState } = useOktaAuth();
 
   const [uploading, setUploading] = useState(false);
@@ -41,7 +42,6 @@ const UploadDocs = ({
   const [form] = Form.useForm();
 
   const onFinish = values => {
-    // console.log(values);
     setUploading(true);
 
     const formData = new FormData();
@@ -56,8 +56,15 @@ const UploadDocs = ({
     apiAxios(authState, formData, submissionId)
       .then(res => {
         setUploading(false);
-        setHasWritten(false);
-        console.log(res, 'props', props);
+        if (fileName === 'pages') {
+          setHasWritten(false);
+          console.log(res, 'props', props, 'values', values);
+        } else if (fileName === 'drawing') {
+          setHasDrawn(false);
+          console.log(res, 'props', props, 'values', values);
+        }
+
+        // console.log(res, 'props', props, 'values', values);
         push('/child/mission-control');
       })
       .catch(err => {
@@ -156,5 +163,6 @@ export default connect(
   }),
   {
     setHasWritten: tasks.setHasWritten,
+    setHasDrawn: tasks.setHasDrawn,
   }
 )(UploadDocs);

@@ -32,6 +32,11 @@ export const reducer = (state = initialState, action) => {
         ...state,
         hasWritten: true,
       };
+    case tasks.SET_HAS_DRAWN:
+      return {
+        ...state,
+        hasDrawn: true,
+      };
     case global.CLEAR_USERS:
       return initialState;
     default:
