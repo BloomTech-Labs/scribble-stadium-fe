@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { Form, Button, Upload, Modal } from 'antd';
+import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { tasks } from '../../state/actions';
 
 function getBase64(file) {
   return new Promise((resolve, reject) => {
@@ -19,7 +22,10 @@ const UploadDocs = ({
   apiAxios,
   submissionId,
   storyId,
+  setHasWritten,
+  ...props
 }) => {
+  console.log(props);
   const { authState } = useOktaAuth();
 
   const [uploading, setUploading] = useState(false);
@@ -30,6 +36,7 @@ const UploadDocs = ({
     image: '',
     title: '',
   });
+  const { push } = useHistory();
 
   const [form] = Form.useForm();
 
@@ -48,8 +55,10 @@ const UploadDocs = ({
     formData.append('storyId', storyId);
     apiAxios(authState, formData, submissionId)
       .then(res => {
-        console.log(res);
         setUploading(false);
+        setHasWritten(false);
+        console.log(res, 'props', props);
+        push('/child/mission-control');
       })
       .catch(err => {
         for (var value of formData.entries()) {
@@ -140,4 +149,12 @@ const UploadDocs = ({
   );
 };
 
-export default UploadDocs;
+// export default UploadDocs;
+export default connect(
+  state => ({
+    tasks: state.tasks,
+  }),
+  {
+    setHasWritten: tasks.setHasWritten,
+  }
+)(UploadDocs);

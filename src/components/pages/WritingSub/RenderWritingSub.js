@@ -1,10 +1,12 @@
 import React from 'react';
 import { Row } from 'antd';
+import { connect } from 'react-redux';
 
 import { Header } from '../../common';
 import { UploadDocs } from '../../common/';
 import { postNewWritingSub } from '../../../api/index';
 import { SubmissionModal } from '../../common/index';
+import { tasks } from '../../../state/actions';
 
 const RenderWritingSub = props => {
   console.log(props);
@@ -33,6 +35,8 @@ const RenderWritingSub = props => {
             apiAxios={postNewWritingSub}
             submissionId={props.tasks.id}
             storyId={props.tasks.story_id}
+            {...props}
+            setHasWritten={props.setHasWritten}
           />
         </div>
       </div>
@@ -40,4 +44,7 @@ const RenderWritingSub = props => {
   );
 };
 
-export default RenderWritingSub;
+// export default RenderWritingSub;
+export default connect(state => ({
+  tasks: state.tasks,
+}))(RenderWritingSub);
