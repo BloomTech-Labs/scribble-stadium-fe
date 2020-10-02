@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import bc from 'bcryptjs';
 import { useHistory } from 'react-router-dom';
@@ -19,6 +19,7 @@ const ProfileRenderModal = props => {
   const [userInfo, setUserInfo] = useState([]);
   const [selected, setSelected] = useState(null);
   const [title, setTitle] = useState(titleText);
+  const formRef = useRef(null);
   const [form] = Form.useForm();
   const history = useHistory();
 
@@ -62,6 +63,13 @@ const ProfileRenderModal = props => {
   const backToProfiles = e => {
     setSelected(!selected);
     setTitle(titleText);
+    form.resetFields();
+  };
+
+  const blurOnFourChars = e => {
+    if (e.target.value.length === 4) {
+      formRef.current.submit();
+    }
   };
 
   return (
@@ -94,7 +102,7 @@ const ProfileRenderModal = props => {
               })}
             </div>
           ) : (
-            <Form form={form} onFinish={onFinish}>
+            <Form form={form} onFinish={onFinish} ref={formRef}>
               <p>Enter your PIN</p>
               <Form.Item
                 name="pin"
@@ -111,16 +119,20 @@ const ProfileRenderModal = props => {
                       if (x) {
                         return Promise.resolve();
                       }
-                      return Promise.reject('Your pin does not match!');
+                      return Promise.reject('Incorrect PIN!');
                     },
                   }),
                 ]}
               >
-                <Input autoFocus={true} className="pin" maxLength={4} />
+                <Input
+                  autoFocus={true}
+                  className="pin"
+                  maxLength={4}
+                  onChange={blurOnFourChars}
+                  autoComplete="off"
+                  size="large"
+                />
               </Form.Item>
-              <Button type="primary" htmlType="submit">
-                Enter
-              </Button>
 
               <Button
                 className="back"
