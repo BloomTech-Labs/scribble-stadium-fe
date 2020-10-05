@@ -112,6 +112,14 @@ const postNewAvatar = async (authState, body) => {
     return [];
   }
 };
+
+/**
+ *
+ * @param {Object} authState
+ * @param {Object} body formData
+ * @param {number} subId id of the full submission
+ * @returns {array} an array of submission objects containing the image url, the checksum, and the page number
+ */
 const postNewWritingSub = async (authState, body, subId) => {
   try {
     return apiAuthPost(
@@ -124,6 +132,14 @@ const postNewWritingSub = async (authState, body, subId) => {
     return [];
   }
 };
+
+/**
+ *
+ * @param {Object} authState
+ * @param {Object} body formData
+ * @param {number} subId id of the full submission
+ * @returns {Object} submission object containing the image url, and the checksum
+ */
 const postNewDrawingSub = async (authState, body, subId) => {
   try {
     return apiAuthPost(
@@ -158,6 +174,12 @@ const getChildTasks = async (authState, childid, storyid) => {
   }
 };
 
+/**
+ *
+ * @param {Object} authState
+ * @param {number} submissionId id of the full submission
+ * @returns {Object} enpty object on success
+ */
 const markAsRead = async (authState, submissionId) => {
   try {
     return apiAuthPut(

@@ -36,6 +36,9 @@ const UploadDocs = ({
     image: '',
     title: '',
   });
+
+  const [maxLength, setMaxLength] = useState(1);
+
   const { push } = useHistory();
 
   const [form] = Form.useForm();
@@ -87,11 +90,16 @@ const UploadDocs = ({
     });
   };
 
-  const handleChange = ({ fileList, file }) => {
+  const handleChange = ({ fileList, file, fileName }) => {
     setFilePreviews(fileList);
     setFileList(fl => {
       return [...fl, file];
     });
+    if (fileName === 'pages') {
+      setMaxLength(5);
+    } else {
+      setMaxLength(1);
+    }
   };
 
   const onRemove = file => {
@@ -120,7 +128,11 @@ const UploadDocs = ({
           onChange={handleChange}
           multiple={true}
         >
-          <Button className={uploadButtonClassname}>{uploadButtonText}</Button>
+          {fileList.length >= maxLength ? null : (
+            <Button className={uploadButtonClassname}>
+              {uploadButtonText}
+            </Button>
+          )}
         </Upload>
 
         <div className="bottom">
