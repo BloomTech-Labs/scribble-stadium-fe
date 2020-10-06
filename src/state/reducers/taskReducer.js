@@ -8,6 +8,7 @@ const initialState = {
   hasWritten: false,
   hasDrawn: false,
   complexity: null,
+  LowConfidence: null,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -21,6 +22,7 @@ export const reducer = (state = initialState, action) => {
         hasWritten: action.payload.HasWritten,
         hasDrawn: action.payload.HasDrawn,
         complexity: null,
+        LowConfidence: null,
       };
     case tasks.SET_HAS_READ:
       return {

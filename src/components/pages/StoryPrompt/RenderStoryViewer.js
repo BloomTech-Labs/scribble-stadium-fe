@@ -83,7 +83,7 @@ const RenderStoryViewer = props => {
   return (
     <>
       <Header backButton={true} />
-      <div class="viewer-container">
+      <div className="viewer-container">
         <SizeMe>
           {({ size }) => (
             <Document
