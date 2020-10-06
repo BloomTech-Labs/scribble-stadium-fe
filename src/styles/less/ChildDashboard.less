@@ -5,17 +5,21 @@
 
 .dash-container {
   height: 70vh;
-  @media @mobile {
-    display: flex;
-    flex-direction: column;
-  }
   .toprow,
   .bottomrow {
     @media @mobile {
-      flex-direction: column;
+      width: 100%;
     }
   }
-  
+  .ant-col.ant-col-13.accept-mission,
+  .ant-col.ant-col-11.change-avatar,
+  .ant-col.ant-col-11.adventure-passport,
+  .ant-col.ant-col-13.trophy-room {
+    @media @mobile {
+      max-width: 100%;
+    }
+  }
+
   .accept-mission,
   .change-avatar,
   .adventure-passport,
@@ -31,11 +35,7 @@
     background-position: center;
     background-color: @conifer;
     cursor: pointer;
-    
 
-    p {
-      margin: 0 auto;
-    }
     img {
       z-index: 1;
       display: flex;
@@ -55,20 +55,28 @@
   .accept-mission-text {
     font-size: 3.2rem;
     padding: 8%;
-
     font-family: 'Bangers', cursive;
     color: @white;
     text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
-  }
-
-  .change-avatar {
-    background: @burnt-sienna;
+    margin: 0 auto;
+    @media @mobile {
+      padding: 0%;
+      font-size: 2.5rem;
+    }
   }
 
   .change-avatar {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: @burnt-sienna;
+
+    img {
+      @media @mobile {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
   }
 
   .adventure-passport {
@@ -88,5 +96,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    img {
+      @media @mobile {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
   }
 }
