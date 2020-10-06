@@ -2,7 +2,7 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { cleanup } from '@testing-library/react';
-import { Button } from 'antd';
+import { Row } from 'antd';
 
 import RenderWritingSub from '../components/pages/WritingSub/RenderWritingSub';
 import SubmissionModal from '../components/common/SubmissionModal';
@@ -29,6 +29,6 @@ describe('<RenderWritingSub />', () => {
   });
   it('should render a Button in the antD form', () => {
     wrapper = shallow(<RenderWritingSub />);
-    expect(wrapper.find(Button));
+    expect(wrapper.find(Row)).toHaveLength(1);
   });
 });
