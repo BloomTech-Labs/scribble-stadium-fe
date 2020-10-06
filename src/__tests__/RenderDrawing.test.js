@@ -16,9 +16,7 @@ afterEach(() => {
 
 describe('<RenderDrawingSub />', () => {
   let wrapper;
-  //   beforeEach(() => {
 
-  //   });
   it('Should render <SubmissionModal />', () => {
     wrapper = shallow(<RenderDrawingSub instructions={() => {}} />);
     wrapper.setProps({ instructions: { inst: '' } });
