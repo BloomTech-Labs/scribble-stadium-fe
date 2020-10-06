@@ -41,6 +41,10 @@ const apiAuthPost = (endpoint, body, authHeader) => {
   return axios.post(`${apiUrl}${endpoint}`, body, { headers: authHeader });
 };
 
+const apiAuthPut = (endpoint, body, authHeader) => {
+  return axios.put(`${apiUrl}${endpoint}`, body, { headers: authHeader });
+};
+
 const postNewChild = (authState, child) => {
   try {
     return apiAuthPost('/child', child, getAuthHeader(authState)).then(
@@ -108,6 +112,14 @@ const postNewAvatar = async (authState, body) => {
     return [];
   }
 };
+
+/**
+ *
+ * @param {Object} authState
+ * @param {Object} body formData
+ * @param {number} subId id of the full submission
+ * @returns {array} an array of submission objects containing the image url, the checksum, and the page number
+ */
 const postNewWritingSub = async (authState, body, subId) => {
   try {
     return apiAuthPost(
@@ -120,6 +132,14 @@ const postNewWritingSub = async (authState, body, subId) => {
     return [];
   }
 };
+
+/**
+ *
+ * @param {Object} authState
+ * @param {Object} body formData
+ * @param {number} subId id of the full submission
+ * @returns {Object} submission object containing the image url, and the checksum
+ */
 const postNewDrawingSub = async (authState, body, subId) => {
   try {
     return apiAuthPost(
@@ -130,6 +150,48 @@ const postNewDrawingSub = async (authState, body, subId) => {
   } catch (err) {
     console.log(err);
     return [];
+  }
+};
+
+/**
+ * Returns an object identifying whether or not a child has completed their submission tasks
+ * @param {Object} authState
+ * @param {number} childid id of whatever child is performing the tasks
+ * @param {number} storyid id of the story of the week
+ * @returns {Object} Object of tasks and relevant id's
+ */
+const getChildTasks = async (authState, childid, storyid) => {
+  try {
+    return apiAuthGet(
+      `/submission?childId=${childid}&storyId=${storyid}`,
+      getAuthHeader(authState)
+    ).then(response => response.data);
+  } catch (err) {
+    return new Promise(() => {
+      console.log(err);
+      return [];
+    });
+  }
+};
+
+/**
+ *
+ * @param {Object} authState
+ * @param {number} submissionId id of the full submission
+ * @returns {Object} enpty object on success
+ */
+const markAsRead = async (authState, submissionId) => {
+  try {
+    return apiAuthPut(
+      `/submit/read/${submissionId}`,
+      {},
+      getAuthHeader(authState)
+    ).then(response => response.data);
+  } catch (err) {
+    return new Promise(() => {
+      console.log(err);
+      return [];
+    });
   }
 };
 
@@ -145,6 +207,9 @@ export {
   postNewChild,
   getChildFormValues,
   postNewAvatar,
+  getChildTasks,
   postNewWritingSub,
+  apiAuthPut,
+  markAsRead,
   postNewDrawingSub,
 };

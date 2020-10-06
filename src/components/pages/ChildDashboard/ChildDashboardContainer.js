@@ -34,14 +34,20 @@ const ChildDashboardContainer = ({ LoadingComponent, ...props }) => {
         <LoadingComponent message="Loading..." />
       )}
       {authState.isAuthenticated && userInfo && (
-        <RenderChildDashboard userInfo={userInfo} authService={authService} />
+        <RenderChildDashboard
+          {...props}
+          userInfo={userInfo}
+          authService={authService}
+        />
       )}
     </>
   );
 };
 
-const mapStateToProps = state => ({
-  child: state.child,
-});
-
-export default connect(mapStateToProps, {})(ChildDashboardContainer);
+export default connect(
+  state => ({
+    child: state.child,
+    tasks: state.tasks,
+  }),
+  {}
+)(ChildDashboardContainer);

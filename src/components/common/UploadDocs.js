@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import { Form, Button, Upload, Modal } from 'antd';
+import { Form, Button, Upload, Modal, notification } from 'antd';
+import { useHistory } from 'react-router-dom';
 
 function getBase64(file) {
   return new Promise((resolve, reject) => {
@@ -11,13 +12,16 @@ function getBase64(file) {
   });
 }
 
-const UploadDocs = ({
+export const UploadDocs = ({
   fileName,
   uploadButtonClassname,
   uploadButtonText,
   submitButtonClassname,
   apiAxios,
   submissionId,
+  storyId,
+  setSubmitted,
+  maxLength,
 }) => {
   const { authState } = useOktaAuth();
 
@@ -30,6 +34,8 @@ const UploadDocs = ({
     title: '',
   });
 
+  const { push } = useHistory();
+
   const [form] = Form.useForm();
 
   const onFinish = values => {
@@ -40,29 +46,30 @@ const UploadDocs = ({
     fileList.forEach(file => {
       formData.append(fileName, file);
     });
-
     Object.keys(values).forEach(key => {
       formData.append(key, values[key]);
     });
+    formData.append('storyId', storyId);
     apiAxios(authState, formData, submissionId)
       .then(res => {
-        console.log(res);
         setUploading(false);
+        setSubmitted();
+        push('/child/mission-control');
       })
       .catch(err => {
-        console.log(err);
+        for (var value of formData.entries()) {
+          console.log(value, err);
+        }
         setUploading(false);
       });
   };
 
-  const beforeUpload = file => {
-    setFileList([...fileList, file]);
-    setFilePreviews([...filePreviews, file]);
-    return false;
-  };
+  const beforeUpload = () => false;
 
-  const handleCancel = () =>
+  const handleCancel = () => {
+    console.log('handleCancel');
     setPreview(preview => ({ ...preview, visible: false }));
+  };
 
   const handlePreview = async file => {
     if (!file.url && !file.preview) {
@@ -75,14 +82,27 @@ const UploadDocs = ({
     });
   };
 
-  const handleChange = ({ fileList }) => {
+  const handleChange = ({ fileList, file }) => {
     setFilePreviews(fileList);
-    setFileList(fileList);
+    setFileList(fl => {
+      console.log({ fl, file }, 'handleChange');
+      if (fileList.length > fl.length) {
+        return [...fl, file];
+      } else {
+        return fl;
+      }
+    });
+
+    if (fileList.length > maxLength) {
+      openNotificationWithIcon('warning');
+    }
   };
 
   const onRemove = file => {
+    console.log('onRemove');
     setFileList(curList => {
-      const index = curList.indexOf(file);
+      const index = filePreviews.indexOf(file);
+      console.log(index, 'onRemove');
       const newFileList = curList.slice();
       newFileList.splice(index, 1);
       return newFileList;
@@ -90,8 +110,16 @@ const UploadDocs = ({
   };
 
   useEffect(() => {
-    console.log(fileList);
-  }, [fileList]);
+    console.log({ fileList, filePreviews }, 'useEffect');
+  });
+
+  // For error message warning if there are too many images
+  const openNotificationWithIcon = type => {
+    notification[type]({
+      message: `Please Remove Photo(s)`,
+      description: `You are only allowed to have ${maxLength} images.`,
+    });
+  };
 
   return (
     <>
@@ -103,7 +131,7 @@ const UploadDocs = ({
           beforeUpload={beforeUpload}
           onPreview={handlePreview}
           onChange={handleChange}
-          multiple="true"
+          multiple={true}
         >
           <Button className={uploadButtonClassname}>{uploadButtonText}</Button>
         </Upload>
@@ -125,7 +153,7 @@ const UploadDocs = ({
             className={submitButtonClassname}
             type="primary"
             htmlType="submit"
-            disabled={fileList.length === 0}
+            disabled={fileList.length === 0 || fileList.length > maxLength}
             loading={uploading}
           >
             {uploading ? 'Uploading...' : 'Submit'}

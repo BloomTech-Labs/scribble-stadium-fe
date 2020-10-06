@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import unchecked_box from '../../../assets/icons/unchecked_box.svg';
 import checked_box from '../../../assets/icons/checked_box.svg';
@@ -14,4 +15,6 @@ const Checkbox = props => {
   );
 };
 
-export default Checkbox;
+export default connect(state => ({
+  tasks: state.tasks,
+}))(Checkbox);

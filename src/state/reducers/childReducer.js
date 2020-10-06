@@ -20,7 +20,7 @@ export const reducer = (state = initialState, action) => {
         gradeLevel: action.payload.GradeLevel,
         parentId: action.payload.ParentID,
       };
-    case global.clearUsers:
+    case global.CLEAR_USERS:
       return initialState;
     default:
       return state;

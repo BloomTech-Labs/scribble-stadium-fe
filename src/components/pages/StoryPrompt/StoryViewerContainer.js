@@ -36,4 +36,5 @@ const StoryViewerContainer = ({ LoadingComponent }) => {
     </>
   );
 };
+
 export default StoryViewerContainer;

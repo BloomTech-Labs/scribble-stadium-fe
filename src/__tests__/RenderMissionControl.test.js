@@ -1,26 +1,38 @@
 import React from 'react';
-import RenderMissionControl from '../components/pages/MissionControl/RenderMissionControl';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
 
+import RenderMissionControl from '../components/pages/MissionControl/RenderMissionControl';
+
 import configureStore from 'redux-mock-store';
+
 const mockStore = configureStore([]);
 const store = mockStore();
 
+configure({ adapter: new Adapter() });
+
+jest.mock('@okta/okta-react', () => ({
+  useOktaAuth: () => {
+    return {
+      authState: {},
+      authService: {},
+    };
+  },
+}));
+
 const Component = () => {
   return (
-    <Router>
-      <Provider store={store}>
-        <RenderMissionControl />
-      </Provider>
-    </Router>
+    <Provider store={store}>
+      <RenderMissionControl />
+    </Provider>
   );
 };
 
 describe('<RenderMissionControl /> test suite', () => {
-  test('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Component />, div);
+  it('does not render incorrect text', () => {
+    const wrapper = shallow(<Component />);
+    wrapper.setProps({ isAuthenticated: true });
+    expect(wrapper.contains(<h2>Welcome to React</h2>)).toEqual(false);
   });
 });
