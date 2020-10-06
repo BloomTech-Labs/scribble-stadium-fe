@@ -32,8 +32,8 @@ const RenderWritingSub = props => {
             apiAxios={postNewWritingSub}
             submissionId={props.tasks.id}
             storyId={props.tasks.story_id}
-            {...props}
-            setHasWritten={props.setHasWritten}
+            setSubmitted={props.setHasWritten}
+            maxLength={5}
           />
         </div>
       </div>

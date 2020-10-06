@@ -29,8 +29,8 @@ const RenderDrawingSub = props => {
             apiAxios={postNewDrawingSub}
             submissionId={props.tasks.id}
             storyId={props.tasks.story_id}
-            {...props}
-            setHasDrawn={props.setHasDrawn}
+            setSubmitted={props.setHasDrawn}
+            maxLength={1}
           />
         </div>
       </div>

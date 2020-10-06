@@ -106,20 +106,20 @@ const RenderStoryViewer = props => {
 
         <Button
           className="prev-button"
-          type="button"
+          type="primary"
           disabled={pageNumber <= 1}
           onClick={previousPage}
-        >
-          {<ArrowLeftOutlined />}
-        </Button>
+          icon={<ArrowLeftOutlined />}
+          size="large"
+        ></Button>
         <Button
           className="next-button"
-          type="button"
+          type="primary"
           disabled={pageNumber >= numPages}
           onClick={nextPage}
-        >
-          {<ArrowRightOutlined />}
-        </Button>
+          icon={<ArrowRightOutlined />}
+          size="large"
+        ></Button>
         <div className="finished-container">
           <Button
             className="finished-reading"

@@ -22,9 +22,8 @@ const UploadDocs = ({
   apiAxios,
   submissionId,
   storyId,
-  setHasWritten,
-  setHasDrawn,
-  ...props
+  setSubmission,
+  maxLength,
 }) => {
   const { authState } = useOktaAuth();
 
@@ -36,8 +35,6 @@ const UploadDocs = ({
     image: '',
     title: '',
   });
-
-  const [maxLength, setMaxLength] = useState(1);
 
   const { push } = useHistory();
 
@@ -58,12 +55,7 @@ const UploadDocs = ({
     apiAxios(authState, formData, submissionId)
       .then(res => {
         setUploading(false);
-        if (fileName === 'pages') {
-          setHasWritten(false);
-        } else if (fileName === 'drawing') {
-          setHasDrawn(false);
-        }
-
+        setSubmission();
         push('/child/mission-control');
       })
       .catch(err => {
@@ -76,8 +68,10 @@ const UploadDocs = ({
 
   const beforeUpload = () => false;
 
-  const handleCancel = () =>
+  const handleCancel = () => {
+    console.log('handleCancel');
     setPreview(preview => ({ ...preview, visible: false }));
+  };
 
   const handlePreview = async file => {
     if (!file.url && !file.preview) {
@@ -90,24 +84,27 @@ const UploadDocs = ({
     });
   };
 
-  const handleChange = ({ fileList, file, fileName }) => {
+  const handleChange = ({ fileList, file }) => {
     setFilePreviews(fileList);
     setFileList(fl => {
-      return [...fl, file];
+      console.log({ fl, file }, 'handleChange');
+      if (fileList.length > fl.length) {
+        return [...fl, file];
+      } else {
+        return fl;
+      }
     });
-    if (fileName === 'pages') {
-      setMaxLength(5);
-    } else {
-      setMaxLength(1);
-    }
+
     if (fileList.length > maxLength) {
       openNotificationWithIcon('warning');
     }
   };
 
   const onRemove = file => {
+    console.log('onRemove');
     setFileList(curList => {
-      const index = curList.indexOf(file);
+      const index = filePreviews.indexOf(file);
+      console.log(index, 'onRemove');
       const newFileList = curList.slice();
       newFileList.splice(index, 1);
       return newFileList;
@@ -115,7 +112,7 @@ const UploadDocs = ({
   };
 
   useEffect(() => {
-    console.log({ fileList, filePreviews });
+    console.log({ fileList, filePreviews }, 'useEffect');
   });
 
   // For error message warning if there are too many images
