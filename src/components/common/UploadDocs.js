@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import { Form, Button, Upload, Modal } from 'antd';
+import { Form, Button, Upload, Modal, notification } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { tasks } from '../../state/actions';
@@ -100,6 +100,9 @@ const UploadDocs = ({
     } else {
       setMaxLength(1);
     }
+    if (fileList.length > maxLength) {
+      openNotificationWithIcon('warning');
+    }
   };
 
   const onRemove = file => {
@@ -109,12 +112,19 @@ const UploadDocs = ({
       newFileList.splice(index, 1);
       return newFileList;
     });
-    // setFilePreviews(fileList);
   };
 
   useEffect(() => {
     console.log({ fileList, filePreviews });
   });
+
+  // For error message warning if there are too many images
+  const openNotificationWithIcon = type => {
+    notification[type]({
+      message: `Please Remove Photo(s)`,
+      description: `You are only allowed to have ${maxLength} images.`,
+    });
+  };
 
   return (
     <>
@@ -128,11 +138,7 @@ const UploadDocs = ({
           onChange={handleChange}
           multiple={true}
         >
-          {fileList.length >= maxLength ? null : (
-            <Button className={uploadButtonClassname}>
-              {uploadButtonText}
-            </Button>
-          )}
+          <Button className={uploadButtonClassname}>{uploadButtonText}</Button>
         </Upload>
 
         <div className="bottom">
@@ -152,7 +158,7 @@ const UploadDocs = ({
             className={submitButtonClassname}
             type="primary"
             htmlType="submit"
-            disabled={fileList.length === 0}
+            disabled={fileList.length === 0 || fileList.length > maxLength}
             loading={uploading}
           >
             {uploading ? 'Uploading...' : 'Submit'}
