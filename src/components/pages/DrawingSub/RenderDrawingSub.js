@@ -5,6 +5,7 @@ import { Header } from '../../common';
 import { UploadDocs } from '../../common/';
 import { postNewDrawingSub } from '../../../api/index';
 import { SubmissionModal } from '../../common/index';
+import { tasks } from '../../../state/actions';
 
 const RenderDrawingSub = props => {
   const inst =
@@ -38,7 +39,11 @@ const RenderDrawingSub = props => {
   );
 };
 
-// export default RenderDrawingSub;
-export default connect(state => ({
-  tasks: state.tasks,
-}))(RenderDrawingSub);
+export default connect(
+  state => ({
+    tasks: state.tasks,
+  }),
+  {
+    setHasDrawn: tasks.setHasDrawn,
+  }
+)(RenderDrawingSub);

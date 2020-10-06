@@ -14,7 +14,7 @@ function getBase64(file) {
   });
 }
 
-const UploadDocs = ({
+export const UploadDocs = ({
   fileName,
   uploadButtonClassname,
   uploadButtonText,
@@ -22,7 +22,7 @@ const UploadDocs = ({
   apiAxios,
   submissionId,
   storyId,
-  setSubmission,
+  setSubmitted,
   maxLength,
 }) => {
   const { authState } = useOktaAuth();
@@ -55,7 +55,7 @@ const UploadDocs = ({
     apiAxios(authState, formData, submissionId)
       .then(res => {
         setUploading(false);
-        setSubmission();
+        setSubmitted();
         push('/child/mission-control');
       })
       .catch(err => {
@@ -166,13 +166,4 @@ const UploadDocs = ({
   );
 };
 
-// export default UploadDocs;
-export default connect(
-  state => ({
-    tasks: state.tasks,
-  }),
-  {
-    setHasWritten: tasks.setHasWritten,
-    setHasDrawn: tasks.setHasDrawn,
-  }
-)(UploadDocs);
+export default UploadDocs;
