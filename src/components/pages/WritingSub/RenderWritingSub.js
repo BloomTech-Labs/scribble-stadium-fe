@@ -7,7 +7,8 @@ import { UploadDocs } from '../../common/';
 import { postNewWritingSub } from '../../../api/index';
 import { SubmissionModal } from '../../common/index';
 import { tasks } from '../../../state/actions';
-const RenderWritingSub = props => {
+
+export const RenderWritingSub = props => {
   const inst =
     'Once you finish writing your story, please take a picture of all your pages and upload them. After all pages are uploaded, click submit.';
 

@@ -7,7 +7,7 @@ import { postNewDrawingSub } from '../../../api/index';
 import { SubmissionModal } from '../../common/index';
 import { tasks } from '../../../state/actions';
 
-const RenderDrawingSub = props => {
+export const RenderDrawingSub = props => {
   const inst =
     'Once you finish your drawing, please take a picture of all of your pages and upload them. After all pages are uploaded, click submit.';
   // const submissionId = 1;

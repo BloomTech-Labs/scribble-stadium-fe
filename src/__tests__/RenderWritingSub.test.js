@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { cleanup } from '@testing-library/react';
 import { Row } from 'antd';
 
-import RenderWritingSub from '../components/pages/WritingSub/RenderWritingSub';
+import { RenderWritingSub } from '../components/pages/WritingSub/RenderWritingSub';
 import SubmissionModal from '../components/common/SubmissionModal';
 import Header from '../components/common/Header';
 
@@ -18,17 +18,19 @@ describe('<RenderWritingSub />', () => {
   let wrapper;
 
   it('Should render <SubmissionModal />', () => {
-    wrapper = shallow(<RenderWritingSub instructions={() => {}} />);
+    wrapper = shallow(
+      <RenderWritingSub instructions={() => {}} tasks={() => {}} />
+    );
     wrapper.setProps({ instructions: { inst: '' } });
     expect(wrapper.find(SubmissionModal)).toHaveLength(1);
   });
   it('Should render <Header />', () => {
-    wrapper = shallow(<RenderWritingSub title={() => {}} />);
+    wrapper = shallow(<RenderWritingSub title={() => {}} tasks={() => {}} />);
     wrapper.setProps({ title: { title: '' } });
     expect(wrapper.find(Header)).toHaveLength(1);
   });
   it('should render a Button in the antD form', () => {
-    wrapper = shallow(<RenderWritingSub />);
+    wrapper = shallow(<RenderWritingSub tasks={() => {}} />);
     expect(wrapper.find(Row)).toHaveLength(1);
   });
 });

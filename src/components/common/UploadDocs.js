@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { Form, Button, Upload, Modal, notification } from 'antd';
 import { useHistory } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { tasks } from '../../state/actions';
 
 function getBase64(file) {
   return new Promise((resolve, reject) => {
