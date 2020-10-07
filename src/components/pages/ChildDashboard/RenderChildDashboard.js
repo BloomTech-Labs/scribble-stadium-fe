@@ -22,12 +22,12 @@ const RenderChildDashboard = props => {
         <Row className="toprow">
           <Col
             className="accept-mission"
-            span={13} xs={24}
+            xs={24} sm={13} 
             onClick={handleAcceptMission}
           >
             <p className="accept-mission-text">ACCEPT THE MISSION!</p>
           </Col>
-          <Col className="change-avatar" span={11} xs={24}>
+          <Col className="change-avatar" xs={24} sm={11} >
             <img
               className="child-dash-img"
               src={change_your_avatar}
@@ -36,14 +36,14 @@ const RenderChildDashboard = props => {
           </Col>
         </Row>
         <Row className="bottomrow">
-          <Col className="adventure-passport" span={11} xs={24}>
+          <Col className="adventure-passport" xs={24} sm={11}>
             <img
               className="child-dash-img"
               src={adventure_passport}
               alt="Adventure Passport Button"
             />
           </Col>
-          <Col className="trophy-room" span={13} xs={24}>
+          <Col className="trophy-room" xs={24} sm={13} >
             <img
               className="child-dash-img"
               src={trophy_room}

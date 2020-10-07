@@ -49,7 +49,7 @@ const RenderMissionControl = props => {
       <Header title="MISSION" />
       <div className="mission-container">
         <Row className="main-row">
-          <Col className="read" span={12} onClick={handleReadStory}>
+          <Col className="read" xs={24} sm={12} onClick={handleReadStory}>
             <Checkbox
               className="checking-box"
               defaultChecked={false}
@@ -62,7 +62,7 @@ const RenderMissionControl = props => {
               <p className="mission-control-text">Read</p>
             </Col>
           </Col>
-          <Col className="write-and-draw" span={12}>
+          <Col className="write-and-draw" xs={24} sm={12}>
             <Row className="write" onClick={handleWrite}>
               <Checkbox
                 className="checking-box"
