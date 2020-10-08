@@ -22,7 +22,7 @@ const RenderChildDashboard = props => {
         <Row className="toprow">
           <Col
             className="accept-mission"
-            xs={24} sm={13}
+            xs={24} sm={13} 
             onClick={handleAcceptMission}
           >
             <p className="accept-mission-text">ACCEPT THE MISSION!</p>
