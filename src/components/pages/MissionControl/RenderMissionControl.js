@@ -72,7 +72,7 @@ const RenderMissionControl = props => {
               />
 
               <Col className="image-and-text-container">
-                <img src={write_icon} alt="writing icon" />
+                <img className="WritingandDrawingIcon" src={write_icon} alt="writing icon" />
                 <p className="mission-control-text">Write</p>
               </Col>
             </Row>
@@ -84,7 +84,7 @@ const RenderMissionControl = props => {
                 isCompleted={props.tasks.hasDrawn}
               />
               <Col className="image-and-text-container">
-                <img src={draw_icon} alt="drawing icon" />
+                <img className="WritingandDrawingIcon"  src={draw_icon} alt="drawing icon" />
                 <p className="mission-control-text">Draw</p>
               </Col>
             </Row>
