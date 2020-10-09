@@ -19,8 +19,9 @@ export const RenderWritingSub = props => {
       <div className="writing-sub-container">
         <Row className="main-row">
           <p>
-            A sidekick does something completely out of character, and everyone
-            must figure out why.
+            {props.tasks.writingPrompt}
+            {/* A sidekick does something completely out of character, and everyone
+            must figure out why. */}
           </p>
         </Row>
         <div className="upload">

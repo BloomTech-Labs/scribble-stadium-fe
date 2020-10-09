@@ -69,18 +69,6 @@ const getProfileData = authState => {
   }
 };
 
-// const getStory = (authState, id) => {
-//   try {
-//     return apiAuthGet(`/stories/${id}`, getAuthHeader(authState)).then(
-//       response => response.data
-//     );
-//   } catch (error) {
-//     return new Promise(() => {
-//       console.log(error);
-//     });
-//   }
-// };
-
 /**
  *
  * @param {Object} authState necessary for API functionality

@@ -27,6 +27,11 @@ const RenderMissionControl = props => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authState]);
 
+  // Will be for when we are checking whether or not the child has completed a task
+  function handleChecked(e) {
+    return `checked=${e.target.checked}`;
+  }
+
   // redirects the user to the pdf of the story
   const handleReadStory = e => {
     e.stopPropagation();
@@ -50,6 +55,7 @@ const RenderMissionControl = props => {
             <Checkbox
               className="checking-box"
               defaultChecked={false}
+              onChange={handleChecked}
               isCompleted={props.tasks.hasRead}
             />
 
@@ -63,6 +69,7 @@ const RenderMissionControl = props => {
               <Checkbox
                 className="checking-box"
                 defaultChecked={false}
+                onChange={handleChecked}
                 isCompleted={props.tasks.hasWritten}
               />
 
@@ -79,6 +86,7 @@ const RenderMissionControl = props => {
               <Checkbox
                 className="checking-box"
                 defaultChecked={false}
+                onChange={handleChecked}
                 isCompleted={props.tasks.hasDrawn}
               />
               <Col className="image-and-text-container">

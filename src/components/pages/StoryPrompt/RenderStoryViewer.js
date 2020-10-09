@@ -24,7 +24,6 @@ const RenderStoryViewer = props => {
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
   useEffect(() => {
-    // ========== second argument to getStory() is hardcoded for testing ==========
     getStory(authState, props.child.cohortId).then(res => {
       console.log(res);
       setStoryPrompt(res.URL);
