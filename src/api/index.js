@@ -40,6 +40,9 @@ const apiAuthGet = (endpoint, authHeader) => {
 const apiAuthPost = (endpoint, body, authHeader) => {
   return axios.post(`${apiUrl}${endpoint}`, body, { headers: authHeader });
 };
+const apiAuthPut = (endpoint, body, authHeader) => {
+  return axios.put(`${apiUrl}${endpoint}`, body, { headers: authHeader });
+};
 
 const postNewChild = (authState, child) => {
   try {
@@ -142,6 +145,7 @@ export {
   getStory,
   getAuthHeader,
   apiAuthPost,
+  apiAuthPut,
   postNewChild,
   getChildFormValues,
   postNewAvatar,
