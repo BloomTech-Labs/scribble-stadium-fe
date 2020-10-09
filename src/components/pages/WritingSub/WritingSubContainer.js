@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
 import RenderWritingSub from './RenderWritingSub';
-import { connect } from 'react-redux';
 
 function WritingSubContainer({ LoadingComponent, ...props }) {
   const { authState, authService } = useOktaAuth();
@@ -45,9 +44,4 @@ function WritingSubContainer({ LoadingComponent, ...props }) {
   );
 }
 
-export default connect(
-  state => ({
-    parent: state.parent,
-  }),
-  {}
-)(WritingSubContainer);
+export default WritingSubContainer;

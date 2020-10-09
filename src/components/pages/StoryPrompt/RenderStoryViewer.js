@@ -6,13 +6,19 @@ import { useOktaAuth } from '@okta/okta-react';
 import { Button } from 'antd';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { SizeMe } from 'react-sizeme';
+import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
+import { markAsRead } from '../../../api';
+import { tasks } from '../../../state/actions';
 
 const RenderStoryViewer = props => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [storyPrompt, setStoryPrompt] = useState();
+  const [hasViewedAllPages, setViewed] = useState(false);
   const { authState } = useOktaAuth();
+  const { push } = useHistory();
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -20,9 +26,14 @@ const RenderStoryViewer = props => {
     // ========== second argument to getStory() is hardcoded for testing ==========
     getStory(authState, 10).then(res => {
       setStoryPrompt(res.URL);
-      console.log(res);
     });
   }, [authState]);
+
+  useEffect(() => {
+    if (pageNumber === numPages) {
+      setViewed(true);
+    }
+  }, [pageNumber, numPages]);
 
   const previousPage = () => {
     if (pageNumber > 1) {
@@ -63,10 +74,16 @@ const RenderStoryViewer = props => {
     setPageNumber(prevPageNumber => prevPageNumber + offset);
   };
 
+  const onFinish = e => {
+    markAsRead(authState, props.tasks.id);
+    push('/child/mission-control');
+    props.setHasRead();
+  };
+
   return (
     <>
       <Header backButton={true} />
-      <div class="viewer-container">
+      <div className="viewer-container">
         <SizeMe>
           {({ size }) => (
             <Document
@@ -89,22 +106,41 @@ const RenderStoryViewer = props => {
 
         <Button
           className="prev-button"
-          type="button"
+          type="primary"
           disabled={pageNumber <= 1}
           onClick={previousPage}
-        >
-          {<ArrowLeftOutlined />}
-        </Button>
+          icon={<ArrowLeftOutlined />}
+          size="large"
+        ></Button>
         <Button
           className="next-button"
-          type="button"
+          type="primary"
           disabled={pageNumber >= numPages}
           onClick={nextPage}
-        >
-          {<ArrowRightOutlined />}
-        </Button>
+          icon={<ArrowRightOutlined />}
+          size="large"
+        ></Button>
+        <div className="finished-container">
+          <Button
+            className="finished-reading"
+            type="button"
+            disabled={!hasViewedAllPages}
+            onClick={onFinish}
+          >
+            Finished Reading?
+          </Button>
+        </div>
       </div>
     </>
   );
 };
-export default RenderStoryViewer;
+
+export default connect(
+  state => ({
+    child: state.child,
+    tasks: state.tasks,
+  }),
+  {
+    setHasRead: tasks.setHasRead,
+  }
+)(RenderStoryViewer);

@@ -1,14 +1,16 @@
 import React from 'react';
-import { Header } from '../../common';
 import { Row } from 'antd';
+import { connect } from 'react-redux';
+
+import { Header } from '../../common';
 import { UploadDocs } from '../../common/';
 import { postNewWritingSub } from '../../../api/index';
 import { SubmissionModal } from '../../common/index';
+import { tasks } from '../../../state/actions';
 
-const RenderWritingSub = () => {
+export const RenderWritingSub = props => {
   const inst =
     'Once you finish writing your story, please take a picture of all your pages and upload them. After all pages are uploaded, click submit.';
-  const submissionId = 1;
 
   return (
     <>
@@ -27,9 +29,12 @@ const RenderWritingSub = () => {
             submitButtonClassname="orange-submit-button"
             uploadButtonText="Choose files from your device"
             uploadButtonClassname="uploadButton"
-            fileName="writingSub"
+            fileName="pages"
             apiAxios={postNewWritingSub}
-            submissionId={submissionId}
+            submissionId={props.tasks.id}
+            storyId={props.tasks.story_id}
+            setSubmitted={props.setHasWritten}
+            maxLength={5}
           />
         </div>
       </div>
@@ -37,4 +42,11 @@ const RenderWritingSub = () => {
   );
 };
 
-export default RenderWritingSub;
+export default connect(
+  state => ({
+    tasks: state.tasks,
+  }),
+  {
+    setHasWritten: tasks.setHasWritten,
+  }
+)(RenderWritingSub);

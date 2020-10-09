@@ -1,14 +1,16 @@
 import React from 'react';
-import { Header } from '../../common';
 import { Row } from 'antd';
+import { connect } from 'react-redux';
+import { Header } from '../../common';
 import { UploadDocs } from '../../common/';
 import { postNewDrawingSub } from '../../../api/index';
 import { SubmissionModal } from '../../common/index';
+import { tasks } from '../../../state/actions';
 
-const RenderDrawingSub = () => {
+export const RenderDrawingSub = props => {
   const inst =
     'Once you finish your drawing, please take a picture of all of your pages and upload them. After all pages are uploaded, click submit.';
-  const submissionId = 1;
+  // const submissionId = 1;
 
   return (
     <>
@@ -26,7 +28,10 @@ const RenderDrawingSub = () => {
             uploadButtonClassname="uploadButton"
             fileName="drawing"
             apiAxios={postNewDrawingSub}
-            submissionId={submissionId}
+            submissionId={props.tasks.id}
+            storyId={props.tasks.story_id}
+            setSubmitted={props.setHasDrawn}
+            maxLength={1}
           />
         </div>
       </div>
@@ -34,4 +39,11 @@ const RenderDrawingSub = () => {
   );
 };
 
-export default RenderDrawingSub;
+export default connect(
+  state => ({
+    tasks: state.tasks,
+  }),
+  {
+    setHasDrawn: tasks.setHasDrawn,
+  }
+)(RenderDrawingSub);

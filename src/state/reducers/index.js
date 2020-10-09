@@ -4,8 +4,10 @@ import { combineReducers } from 'redux';
 
 import { reducer as child } from './childReducer';
 import { reducer as parent } from './parentReducer';
+import { reducer as tasks } from './taskReducer';
 
 export default combineReducers({
   child,
   parent,
+  tasks,
 });
