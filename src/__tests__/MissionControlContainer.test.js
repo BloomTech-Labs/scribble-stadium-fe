@@ -22,12 +22,12 @@ jest.mock('@okta/okta-react', () => ({
 }));
 configure({ adapter: new Adapter() });
 
-describe('<ParentDashboardContainer />', () => {
+describe('<MissionControlContainer />', () => {
   configure({ adapter: new Adapter() });
   const mockStore = configureStore([]);
   const store = mockStore();
 
-  describe('Render <ParentDashboardContainer />', () => {
+  describe('Render <MissionControlContainer />', () => {
     let shallowWrapper = ShallowWrapper;
     beforeEach(() => {
       shallowWrapper = shallow(
@@ -38,7 +38,7 @@ describe('<ParentDashboardContainer />', () => {
         </Router>
       );
     });
-    it('Find ParentDashboard', () => {
+    it('Find Render Mission', () => {
       expect(shallowWrapper.find(RenderMissionControl).length).toBe(0);
     });
     it('Find Loading Component', () => {
