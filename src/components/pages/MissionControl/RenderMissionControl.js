@@ -18,17 +18,14 @@ const RenderMissionControl = props => {
 
   useEffect(() => {
     if (props.tasks.id === null) {
-      getChildTasks(authState, props.child.id, 10).then(res => {
-        props.setTasks(res);
-      });
+      getChildTasks(authState, props.child.id, props.child.cohortId).then(
+        res => {
+          props.setTasks(res);
+        }
+      );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authState]);
-
-  // Will be for when we are checking whether or not the child has completed a task
-  function handleChecked(e) {
-    return `checked=${e.target.checked}`;
-  }
 
   // redirects the user to the pdf of the story
   const handleReadStory = e => {
@@ -53,7 +50,6 @@ const RenderMissionControl = props => {
             <Checkbox
               className="checking-box"
               defaultChecked={false}
-              onChange={handleChecked}
               isCompleted={props.tasks.hasRead}
             />
 
@@ -67,12 +63,15 @@ const RenderMissionControl = props => {
               <Checkbox
                 className="checking-box"
                 defaultChecked={false}
-                onChange={handleChecked}
                 isCompleted={props.tasks.hasWritten}
               />
 
               <Col className="image-and-text-container">
-                <img className="WritingandDrawingIcon" src={write_icon} alt="writing icon" />
+                <img
+                  className="WritingandDrawingIcon"
+                  src={write_icon}
+                  alt="writing icon"
+                />
                 <p className="mission-control-text">Write</p>
               </Col>
             </Row>
@@ -80,11 +79,14 @@ const RenderMissionControl = props => {
               <Checkbox
                 className="checking-box"
                 defaultChecked={false}
-                onChange={handleChecked}
                 isCompleted={props.tasks.hasDrawn}
               />
               <Col className="image-and-text-container">
-                <img className="WritingandDrawingIcon"  src={draw_icon} alt="drawing icon" />
+                <img
+                  className="WritingandDrawingIcon"
+                  src={draw_icon}
+                  alt="drawing icon"
+                />
                 <p className="mission-control-text">Draw</p>
               </Col>
             </Row>

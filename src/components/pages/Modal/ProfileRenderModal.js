@@ -44,6 +44,7 @@ const ProfileRenderModal = props => {
   useEffect(() => {
     getProfileData(authState).then(res => {
       setUserInfo(res);
+      console.log(res);
     });
   }, [authState]);
 

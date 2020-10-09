@@ -13,6 +13,7 @@ import { markAsRead } from '../../../api';
 import { tasks } from '../../../state/actions';
 
 const RenderStoryViewer = props => {
+  console.log({ props });
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [storyPrompt, setStoryPrompt] = useState();
@@ -24,9 +25,13 @@ const RenderStoryViewer = props => {
 
   useEffect(() => {
     // ========== second argument to getStory() is hardcoded for testing ==========
-    getStory(authState, 10).then(res => {
+    getStory(authState, props.child.cohortId).then(res => {
+      console.log(res);
       setStoryPrompt(res.URL);
+      props.setWritingPrompt(res);
+      props.setDrawingPrompt(res);
     });
+    // eslint-disable-next-line
   }, [authState]);
 
   useEffect(() => {
@@ -77,6 +82,7 @@ const RenderStoryViewer = props => {
   const onFinish = e => {
     markAsRead(authState, props.tasks.id);
     push('/child/mission-control');
+
     props.setHasRead();
   };
 
@@ -142,5 +148,7 @@ export default connect(
   }),
   {
     setHasRead: tasks.setHasRead,
+    setWritingPrompt: tasks.setWritingPrompt,
+    setDrawingPrompt: tasks.setDrawingPrompt,
   }
 )(RenderStoryViewer);
