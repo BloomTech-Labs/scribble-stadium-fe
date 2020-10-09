@@ -1,0 +1,29 @@
+import { apiAuthGet, apiAuthPut } from './';
+
+export const getCohorts = () => {
+  try {
+    return apiAuthGet('/mod/cohorts', null).then(res => res.data);
+  } catch (err) {
+    return [];
+  }
+};
+
+export const getPostsForModeration = cohortId => {
+  try {
+    return apiAuthGet(`/mod/submissions?cohortId=${cohortId}`, null).then(
+      res => res.data
+    );
+  } catch (err) {
+    return {};
+  }
+};
+
+export const setSubmitStatus = (id, Status) => {
+  try {
+    return apiAuthPut(`/mod/submissions/${id}`, { Status }, null).then(
+      res => res.data
+    );
+  } catch (err) {
+    return {};
+  }
+};

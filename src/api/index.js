@@ -40,7 +40,6 @@ const apiAuthGet = (endpoint, authHeader) => {
 const apiAuthPost = (endpoint, body, authHeader) => {
   return axios.post(`${apiUrl}${endpoint}`, body, { headers: authHeader });
 };
-
 const apiAuthPut = (endpoint, body, authHeader) => {
   return axios.put(`${apiUrl}${endpoint}`, body, { headers: authHeader });
 };
@@ -204,12 +203,12 @@ export {
   getStory,
   getAuthHeader,
   apiAuthPost,
+  apiAuthPut,
   postNewChild,
   getChildFormValues,
   postNewAvatar,
   getChildTasks,
   postNewWritingSub,
-  apiAuthPut,
   markAsRead,
   postNewDrawingSub,
 };
