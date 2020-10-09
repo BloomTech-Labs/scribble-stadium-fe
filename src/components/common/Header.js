@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { global } from '../../state/actions';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import BackButton from '../common/BackButton';
+import PropTypes from 'prop-types';
 
 const ChildMenu = props => {
   const { push } = useHistory();
@@ -54,3 +55,7 @@ const Header = ({ displayMenu = true, backButton = false, ...props }) => {
 export default connect(null, {
   clearUsers: global.clearUsers,
 })(Header);
+
+Header.propTypes = {
+  title: PropTypes.string,
+};
