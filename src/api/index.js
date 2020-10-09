@@ -44,10 +44,6 @@ const apiAuthPut = (endpoint, body, authHeader) => {
   return axios.put(`${apiUrl}${endpoint}`, body, { headers: authHeader });
 };
 
-const apiAuthPut = (endpoint, body, authHeader) => {
-  return axios.put(`${apiUrl}${endpoint}`, body, { headers: authHeader });
-};
-
 const postNewChild = (authState, child) => {
   try {
     return apiAuthPost('/child', child, getAuthHeader(authState)).then(
