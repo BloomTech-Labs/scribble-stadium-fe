@@ -1,16 +1,15 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
+import { child } from '../../../state/actions';
+import RenderJoinTheSquad from './RenderJoinTheSquad';
 
-import RenderJoinTheSquad from './RenderJoinTheSquad'
-import { tasks } from '../../../state/actions';
 
 const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
-  const [checked, setChecked] = useState(false);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -18,10 +17,9 @@ const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
     memoAuthService
       .getUser()
       .then(info => {
-        // if user is authenticated we can use the authService to snag some user info.
-        // isSubscribed is a boolean toggle that we're using to clean up our useEffect.
         if (isSubscribed) {
           setUserInfo(info);
+          console.log(info, "User info!!!!!!!!!!!!!!!!!!!")
         }
       })
       .catch(err => {
@@ -31,9 +29,6 @@ const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
     return () => (isSubscribed = false);
   }, [memoAuthService]);
 
-  const checkedToggle = e => {
-    setChecked(!checked);
-  };
 
   return (
     <>
@@ -45,18 +40,13 @@ const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
           {...props}
           userInfo={userInfo}
           authService={authService}
-          checkedToggle={checkedToggle}
         />
       )}
     </>
   );
 };
 
-export default connect(
-  state => ({
-    tasks: state.tasks,
-  }),
-  {
-    setTasks: tasks.setTasks,
-  }
-)(JoinTheSquadContainer);
+export default connect(null, {
+  setChild: child.setChild,
+})(JoinTheSquadContainer);
+
