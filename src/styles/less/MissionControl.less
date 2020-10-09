@@ -14,6 +14,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media @tablet {
+    margin-top: 5%;
+  }
+  @media @mobile {
+    margin-top: 5%;
+  }
 }
 
 .write .image-and-text-container {
@@ -117,7 +124,7 @@ p.mission-control-text {
   align-items: flex-start;
 }
 
-.ant-col.ant-col-12.read,
+.ant-col.read,
 .ant-row.write,
 .ant-row.draw {
   border: 5px solid #292929;
