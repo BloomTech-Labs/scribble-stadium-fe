@@ -100,6 +100,7 @@ const ModerationTest = props => {
                     </Card>
                   </Col>
                 );
+              else return <></>;
             })}
           </Row>
         </Content>

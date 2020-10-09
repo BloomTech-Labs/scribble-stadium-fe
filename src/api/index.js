@@ -209,7 +209,6 @@ export {
   postNewAvatar,
   getChildTasks,
   postNewWritingSub,
-  apiAuthPut,
   markAsRead,
   postNewDrawingSub,
 };
