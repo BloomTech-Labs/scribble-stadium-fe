@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
-import { child } from '../../../state/actions';
+
 import RenderJoinTheSquad from './RenderJoinTheSquad';
 
 
@@ -19,7 +19,6 @@ const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
       .then(info => {
         if (isSubscribed) {
           setUserInfo(info);
-          console.log(info, "User info!!!!!!!!!!!!!!!!!!!")
         }
       })
       .catch(err => {
@@ -46,7 +45,11 @@ const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
   );
 };
 
-export default connect(null, {
-  setChild: child.setChild,
-})(JoinTheSquadContainer);
+export default connect(
+  state => ({
+    child: state.child,
+    
+  }),
+  {}
+)(JoinTheSquadContainer);
 
