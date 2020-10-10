@@ -18,6 +18,9 @@ const RenderStoryViewer = props => {
   const [pageNumber, setPageNumber] = useState(1);
   const [storyPrompt, setStoryPrompt] = useState();
   const [hasViewedAllPages, setViewed] = useState(false);
+
+  const [storyStuff, setStoryStuff] = useState({});
+
   const { authState } = useOktaAuth();
   const { push } = useHistory();
 
@@ -27,8 +30,7 @@ const RenderStoryViewer = props => {
     getStory(authState, props.child.cohortId).then(res => {
       console.log(res);
       setStoryPrompt(res.URL);
-      props.setWritingPrompt(res);
-      props.setDrawingPrompt(res);
+      props.setSubmissionInformation(res);
     });
     // eslint-disable-next-line
   }, [authState]);
@@ -147,7 +149,6 @@ export default connect(
   }),
   {
     setHasRead: tasks.setHasRead,
-    setWritingPrompt: tasks.setWritingPrompt,
-    setDrawingPrompt: tasks.setDrawingPrompt,
+    setSubmissionInformation: tasks.setSubmissionInformation,
   }
 )(RenderStoryViewer);

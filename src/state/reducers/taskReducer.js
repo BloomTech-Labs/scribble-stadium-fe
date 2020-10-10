@@ -9,8 +9,12 @@ const initialState = {
   hasDrawn: false,
   complexity: null,
   LowConfidence: null,
-  writingPrompt: '',
-  drawingPrompt: '',
+  story: {
+    writingPrompt: '',
+    drawingPrompt: '',
+    storyTitle: '',
+    storyUrl: null,
+  },
 };
 
 export const reducer = (state = initialState, action) => {
@@ -40,15 +44,15 @@ export const reducer = (state = initialState, action) => {
         ...state,
         hasDrawn: true,
       };
-    case tasks.SET_WRITING_PROMPT:
+    case tasks.SET_SUBMISSION_INFORMATION:
       return {
         ...state,
-        writingPrompt: action.payload.WritingPrompt,
-      };
-    case tasks.SET_DRAWING_PROMPT:
-      return {
-        ...state,
-        drawingPrompt: action.payload.DrawingPrompt,
+        story: {
+          writingPrompt: action.payload.WritingPrompt,
+          drawingPrompt: action.payload.DrawingPrompt,
+          storyTitle: action.payload.Title,
+          storyUrl: action.payload.URL,
+        },
       };
     case global.CLEAR_USERS:
       return initialState;
