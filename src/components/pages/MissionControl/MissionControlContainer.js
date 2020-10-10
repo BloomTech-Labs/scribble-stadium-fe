@@ -58,5 +58,6 @@ export default connect(
   }),
   {
     setTasks: tasks.setTasks,
+    setSubmissionInformation: tasks.setSubmissionInformation,
   }
 )(MissionControlContainer);

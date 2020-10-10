@@ -19,21 +19,19 @@ const RenderStoryViewer = props => {
   const [storyPrompt, setStoryPrompt] = useState();
   const [hasViewedAllPages, setViewed] = useState(false);
 
-  const [storyStuff, setStoryStuff] = useState({});
-
   const { authState } = useOktaAuth();
   const { push } = useHistory();
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-  useEffect(() => {
-    getStory(authState, props.child.cohortId).then(res => {
-      console.log(res);
-      setStoryPrompt(res.URL);
-      props.setSubmissionInformation(res);
-    });
-    // eslint-disable-next-line
-  }, [authState]);
+  // useEffect(() => {
+  //   getStory(authState, props.child.cohortId).then(res => {
+  //     console.log(res);
+  //     setStoryPrompt(res.URL);
+  //     props.setSubmissionInformation(res);
+  //   });
+  //   // eslint-disable-next-line
+  // }, [authState]);
 
   useEffect(() => {
     if (pageNumber === numPages) {
@@ -94,7 +92,7 @@ const RenderStoryViewer = props => {
         <SizeMe>
           {({ size }) => (
             <Document
-              file={storyPrompt}
+              file={props.tasks.story.storyUrl}
               onLoadSuccess={onDocumentLoadSuccess}
               loading="Loading Story..."
             >

@@ -10,7 +10,7 @@ import write_icon from '../../../assets/icons/write_icon.svg';
 import Checkbox from './Checkbox';
 
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
-import { getChildTasks } from '../../../api';
+import { getChildTasks, getStory } from '../../../api';
 
 const RenderMissionControl = props => {
   const { push } = useHistory();
@@ -23,6 +23,10 @@ const RenderMissionControl = props => {
           props.setTasks(res);
         }
       );
+      getStory(authState, props.child.cohortId).then(res => {
+        console.log(res, 'from second api call in use-effect');
+        props.setSubmissionInformation(res);
+      });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authState]);
