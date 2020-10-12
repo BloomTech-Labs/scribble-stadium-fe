@@ -12,7 +12,6 @@ import { markAsRead } from '../../../api';
 import { tasks } from '../../../state/actions';
 
 const RenderStoryViewer = props => {
-  console.log({ props });
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [hasViewedAllPages, setViewed] = useState(false);

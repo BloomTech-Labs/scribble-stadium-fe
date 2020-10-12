@@ -24,7 +24,6 @@ const RenderMissionControl = props => {
         }
       );
       getStory(authState, props.child.cohortId).then(res => {
-        console.log(res, 'from second api call in use-effect');
         props.setSubmissionInformation(res);
       });
     }

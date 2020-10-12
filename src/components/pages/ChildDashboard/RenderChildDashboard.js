@@ -8,7 +8,6 @@ import change_your_avatar from '../../../assets/images/child_dashboard_images/ch
 import trophy_room from '../../../assets/images/child_dashboard_images/trophy_room.svg';
 
 const RenderChildDashboard = props => {
-  console.log({ props });
   const { push } = useHistory();
 
   const handleAcceptMission = e => {
