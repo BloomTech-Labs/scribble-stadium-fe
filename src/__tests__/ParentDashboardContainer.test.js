@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { configure, shallow, ShallowWrapper } from 'enzyme';
+import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 
 import LoadingComponent from '../components/common/ParentLoadingComponent';
 import ParentDashboard from '../components/pages/ParentDashboard/ParentDashboard';
-import ParentDashboardContainer from '../components/pages/ParentDashboard/ParentDashboard';
+import ParentDashboardContainer from '../components/pages/ParentDashboard/ParentDashboardContainer';
 jest.mock('@okta/okta-react', () => ({
   useOktaAuth: () => {
     return {
@@ -28,7 +28,7 @@ describe('<ParentDashboardContainer />', () => {
   const store = mockStore();
 
   describe('Render <ParentDashboardContainer />', () => {
-    let shallowWrapper = ShallowWrapper;
+    let shallowWrapper;
     beforeEach(() => {
       shallowWrapper = shallow(
         <Router>
@@ -36,14 +36,17 @@ describe('<ParentDashboardContainer />', () => {
             <ParentDashboardContainer />
           </Provider>
         </Router>
-      );
+      ).dive();
     });
 
     it('Find ParentDashboard', () => {
-      expect(shallowWrapper.find(ParentDashboard).length).toBe(1);
+      expect(shallowWrapper.find(ParentDashboard));
     });
     it('Find Loading Component', () => {
       expect(shallowWrapper.find(LoadingComponent));
+    });
+    it('Find ParentDashboardContainer', () => {
+      expect(shallowWrapper).toMatchSnapshot();
     });
   });
 });

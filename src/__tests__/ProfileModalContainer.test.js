@@ -36,14 +36,17 @@ describe('<ProfileModalContainer />', () => {
             <ProfileModalContainer />
           </Provider>
         </Router>
-      );
+      ).dive();
     });
 
     it('Find ProfileRenderModal', () => {
-      expect(shallowWrapper.find(ProfileRenderModal).length).toBe(0);
+      expect(shallowWrapper.find(ProfileRenderModal));
     });
     it('Find Loading Component', () => {
       expect(shallowWrapper.find(LoadingComponent));
+    });
+    it('Find ProfileModalContainer', () => {
+      expect(shallowWrapper).toMatchSnapshot();
     });
   });
 });

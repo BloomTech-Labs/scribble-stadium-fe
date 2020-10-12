@@ -36,13 +36,16 @@ describe('<MissionControlContainer />', () => {
             <MissionControlContainer />
           </Provider>
         </Router>
-      );
+      ).dive();
     });
     it('Find Render Mission', () => {
       expect(shallowWrapper.find(RenderMissionControl).length).toBe(0);
     });
     it('Find Loading Component', () => {
       expect(shallowWrapper.find(LoadingComponent));
+    });
+    it('MissionControlContainer', () => {
+      expect(shallowWrapper).toMatchSnapshot(); // <------
     });
   });
 });
