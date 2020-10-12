@@ -1,7 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ProfileModalContainer /> Render <ProfileModalContainer /> Find WritingSubContainer 1`] = `ShallowWrapper {}`;
-
-exports[`<WritingSubContainer /> Render WritingSubContainer Find ParentDashboard 1`] = `ShallowWrapper {}`;
-
-exports[`<WritingSubContainer /> Render WritingSubContainer Find WritingSubContainer 1`] = `ShallowWrapper {}`;
