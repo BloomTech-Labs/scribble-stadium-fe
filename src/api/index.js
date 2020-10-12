@@ -81,7 +81,6 @@ const getStory = (authState, cohortId) => {
       `/story?cohortId=${cohortId}`,
       getAuthHeader(authState)
     ).then(response => {
-      console.log(response);
       return response.data;
     });
   } catch (error) {
