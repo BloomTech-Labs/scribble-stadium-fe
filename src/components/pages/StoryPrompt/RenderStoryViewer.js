@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import { getStory } from '../../../api/index';
 import { Header } from '../../common';
 import { useOktaAuth } from '@okta/okta-react';
 import { Button } from 'antd';
@@ -16,22 +15,12 @@ const RenderStoryViewer = props => {
   console.log({ props });
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
-  const [storyPrompt, setStoryPrompt] = useState();
   const [hasViewedAllPages, setViewed] = useState(false);
 
   const { authState } = useOktaAuth();
   const { push } = useHistory();
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-
-  // useEffect(() => {
-  //   getStory(authState, props.child.cohortId).then(res => {
-  //     console.log(res);
-  //     setStoryPrompt(res.URL);
-  //     props.setSubmissionInformation(res);
-  //   });
-  //   // eslint-disable-next-line
-  // }, [authState]);
 
   useEffect(() => {
     if (pageNumber === numPages) {
