@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProfileModalContainer /> Render <ProfileModalContainer /> Find FamilySettingsContainer 1`] = `ShallowWrapper {}`;
