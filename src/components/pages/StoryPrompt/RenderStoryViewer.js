@@ -80,7 +80,7 @@ const RenderStoryViewer = props => {
         <SizeMe>
           {({ size }) => (
             <Document
-              file={props.tasks.story.storyUrl}
+              file={props.tasks.storyUrl}
               onLoadSuccess={onDocumentLoadSuccess}
               loading="Loading Story..."
             >
