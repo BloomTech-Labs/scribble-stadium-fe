@@ -18,7 +18,6 @@ const RenderMatchUp = props => {
           <Col className="red-box" xs={24} sm={11}>
             <div>
               <img src={matchup_bolt} alt="light bolt" />
-              <p className="matchup-vs">VS</p>
             </div>
           </Col>
         </Row>
