@@ -18,10 +18,7 @@ export const RenderWritingSub = props => {
       <SubmissionModal instructions={inst} />
       <div className="writing-sub-container">
         <Row className="main-row">
-          <p>
-            A sidekick does something completely out of character, and everyone
-            must figure out why.
-          </p>
+          <p>{props.tasks.writingPrompt}</p>
         </Row>
         <div className="upload">
           <h1>Upload</h1>

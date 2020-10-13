@@ -9,20 +9,23 @@ const initialState = {
   hasDrawn: false,
   complexity: null,
   LowConfidence: null,
+  drawingPrompt: '',
+  writingPrompt: '',
+  storyTitle: '',
+  storyUrl: null,
 };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case tasks.SET_TASKS:
       return {
+        ...state,
         id: action.payload.ID,
         child_id: action.payload.ChildID,
         story_id: action.payload.StoryID,
         hasRead: action.payload.HasRead,
         hasWritten: action.payload.HasWritten,
         hasDrawn: action.payload.HasDrawn,
-        complexity: null,
-        LowConfidence: null,
       };
     case tasks.SET_HAS_READ:
       return {
@@ -38,6 +41,15 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         hasDrawn: true,
+      };
+    case tasks.SET_SUBMISSION_INFORMATION:
+      return {
+        ...state,
+
+        writingPrompt: action.payload.WritingPrompt,
+        drawingPrompt: action.payload.DrawingPrompt,
+        storyTitle: action.payload.Title,
+        storyUrl: action.payload.URL,
       };
     case global.CLEAR_USERS:
       return initialState;

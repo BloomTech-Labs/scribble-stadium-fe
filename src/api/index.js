@@ -69,17 +69,27 @@ const getProfileData = authState => {
   }
 };
 
-const getStory = (authState, id) => {
+/**
+ *
+ * @param {Object} authState necessary for API functionality
+ * @param {number} cohortId the cohort id of the respective child
+ * @returns {Promise} a promise that resolves to an object containing {DrawingPrompt, ID, Title, URL, and WritingPrompt}
+ */
+const getStory = (authState, cohortId) => {
   try {
-    return apiAuthGet(`/stories/${id}`, getAuthHeader(authState)).then(
-      response => response.data
-    );
+    return apiAuthGet(
+      `/story?cohortId=${cohortId}`,
+      getAuthHeader(authState)
+    ).then(response => {
+      return response.data;
+    });
   } catch (error) {
     return new Promise(() => {
       console.log(error);
     });
   }
 };
+
 /**
  * Reads in gradelevels and avatars from the database to enforce referential integrity
  * @param {Object} authState necessary for API functionality
