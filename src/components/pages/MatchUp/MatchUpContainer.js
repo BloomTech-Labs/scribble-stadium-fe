@@ -47,7 +47,7 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
 
 export default connect(
   state => ({
-    parent: state.parent,
+    child: state.child,
   }),
   {}
 )(MatchUpContainer);
