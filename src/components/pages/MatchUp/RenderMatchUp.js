@@ -4,12 +4,6 @@ import { Row, Col, Button } from 'antd';
 import matchup_bolt from '../../../assets/images/match_up_images/matchup_bolt.svg';
 
 const RenderMatchUp = props => {
-  //   const { push } = useHistory();
-
-  //   const handleAcceptMission = e => {
-  //     return;
-  //   };
-
   return (
     <>
       <Header displayMenu={true} title="The Matchup" />

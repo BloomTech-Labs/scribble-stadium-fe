@@ -1,0 +1,119 @@
+.matchup-container {
+  height: 70vh;
+  .toprow,
+  .bottomrow {
+    @media @mobile {
+      width: 100%;
+    }
+  }
+  .ant-col.ant-col-13.green-box,
+  .ant-col.ant-col-11.red-box,
+  .ant-col.ant-col-11.yellow-box,
+  .ant-col.ant-col-13.blue-box {
+    @media @mobile {
+      max-width: 100%;
+    }
+  }
+
+  .green-box,
+  .red-box,
+  .yellow-box,
+  .blue-box {
+    border: 5px solid @header-nero;
+    height: 35vh;
+  }
+
+  .green-box {
+    .matchupBoxesStyle();
+    background-color: @conifer;
+
+    img {
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  //   .accept-mission,
+  //   img {
+  //     z-index: 1;
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //   }
+
+  //   .accept-mission-text {
+  //     font-size: 3.2rem;
+  //     font-family: 'Bangers', cursive;
+  //     color: @white;
+  //     text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+  //     margin: 0 auto;
+  //     @media @tablet, @mobile {
+  //       padding: 0%;
+  //       font-size: 2.5rem;
+  //     }
+  //   }
+
+  .red-box {
+    .matchupBoxesStyle();
+    background: @burnt-sienna;
+
+    .matchup-vs {
+      /* VS */
+
+      position: absolute;
+      width: 42.32px;
+      height: 51px;
+      left: 257px;
+      top: 347px;
+
+      font-family: Bangers;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 48px;
+      line-height: 51px;
+      /* identical to box height */
+
+      color: #587291;
+
+      text-shadow: 0px 5px 0px #000000;
+    }
+
+    img {
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .yellow-box {
+    .matchupBoxesStyle();
+    background: @bright-sun;
+  }
+
+  .blue-box {
+    background: @boston-blue;
+    .matchupBoxesStyle();
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  .back-button {
+    .orangeButtonStyle();
+    position: absolute;
+    left: 2%;
+    top: 91.33%;
+  }
+
+  .vote-button {
+    .orangeButtonStyle();
+    position: absolute;
+    right: 2%;
+    top: 91.33%;
+  }
+}
