@@ -16,18 +16,17 @@ const InstructionsModal = props => {
     console.log(e);
     setVisible(false);
   };
-
+  let showButton = null;
   useEffect(() => {
     showModal();
+    if (props.showOkButton) {
+      showButton = (
+        <Button onClick={handleCancel} className="accept-button">
+          I Accept!!!
+        </Button>
+      );
+    }
   }, []);
-  let showButton = null;
-  if (props.showOkButton) {
-    showButton = (
-      <Button onClick={handleCancel} className="accept-button">
-        I Accept!!!
-      </Button>
-    );
-  }
 
   return (
     <>
