@@ -5,7 +5,7 @@ import ParentNavSider from '../../common/ParentNavSider';
 
 import { useHistory } from 'react-router-dom';
 import { getChildFormValues } from '../../../api';
-import { postNewChild } from '../../../api';
+import { postNewChild, getChild } from '../../../api';
 
 import { Layout, Form, Input, Button, Select, Switch, Typography } from 'antd';
 import { connect } from 'react-redux';
@@ -32,6 +32,7 @@ const RenderAddChild = props => {
 
   useEffect(() => {
     getChildFormValues(authState).then(data => {
+      console.log(data, 'avatar url');
       setAvatars(() => data[0]);
       setGradeLevels(() => data[1]);
     });
@@ -46,7 +47,9 @@ const RenderAddChild = props => {
       CohortID: 1,
     }).then(res => {
       console.log(res);
-      props.setChildren({ ...values, ID: res });
+      getChild(authState, res).then(child => {
+        props.setChildren({ ...child });
+      });
     });
     push('/parent/dashboard');
   };

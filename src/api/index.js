@@ -44,12 +44,11 @@ const apiAuthPut = (endpoint, body, authHeader) => {
   return axios.put(`${apiUrl}${endpoint}`, body, { headers: authHeader });
 };
 
-const getChild = (childId, authState) => {
+const getChild = (authState, childId) => {
   try {
     return apiAuthGet(`/child/${childId}`, getAuthHeader(authState)).then(
       response => {
-        console.log(response, 'from getChild');
-        return response;
+        return response.data;
       }
     );
   } catch (error) {
