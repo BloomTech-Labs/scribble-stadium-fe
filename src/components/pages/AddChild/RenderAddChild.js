@@ -22,7 +22,6 @@ const dyslexia = {
 };
 
 const RenderAddChild = props => {
-  console.log(props);
   const { authState } = useOktaAuth();
 
   const [gradeLevels, setGradeLevels] = useState([]);
@@ -125,7 +124,6 @@ const RenderAddChild = props => {
   );
 };
 
-// export default RenderAddChild;
 export default connect(
   state => ({
     parent: state.parent,

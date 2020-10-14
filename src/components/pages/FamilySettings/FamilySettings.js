@@ -125,7 +125,6 @@ const FamilySettings = props => {
   );
 };
 
-// export default FamilySettings;
 export default connect(
   state => ({
     parent: state.parent,
