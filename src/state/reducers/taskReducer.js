@@ -9,10 +9,12 @@ const initialState = {
   hasDrawn: false,
   complexity: null,
   LowConfidence: null,
-  drawingPrompt: '',
-  writingPrompt: '',
-  storyTitle: '',
-  storyUrl: null,
+  story: {
+    drawingPrompt: '',
+    writingPrompt: '',
+    storyTitle: '',
+    storyUrl: null,
+  },
 };
 
 export const reducer = (state = initialState, action) => {
@@ -26,6 +28,7 @@ export const reducer = (state = initialState, action) => {
         hasRead: action.payload.HasRead,
         hasWritten: action.payload.HasWritten,
         hasDrawn: action.payload.HasDrawn,
+        complexity: action.payload.Complexity,
       };
     case tasks.SET_HAS_READ:
       return {
@@ -45,11 +48,12 @@ export const reducer = (state = initialState, action) => {
     case tasks.SET_SUBMISSION_INFORMATION:
       return {
         ...state,
-
-        writingPrompt: action.payload.WritingPrompt,
-        drawingPrompt: action.payload.DrawingPrompt,
-        storyTitle: action.payload.Title,
-        storyUrl: action.payload.URL,
+        story: {
+          writingPrompt: action.payload.WritingPrompt,
+          drawingPrompt: action.payload.DrawingPrompt,
+          storyTitle: action.payload.Title,
+          storyUrl: action.payload.URL,
+        },
       };
     case global.CLEAR_USERS:
       return initialState;

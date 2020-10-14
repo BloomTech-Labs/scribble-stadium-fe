@@ -195,7 +195,10 @@ const getChildTasks = async (authState, childid, storyid) => {
     return apiAuthGet(
       `/submission?childId=${childid}&storyId=${storyid}`,
       getAuthHeader(authState)
-    ).then(response => response.data);
+    ).then(response => {
+      console.log(response);
+      return response.data;
+    });
   } catch (err) {
     return new Promise(() => {
       console.log(err);

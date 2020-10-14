@@ -18,7 +18,7 @@ export const RenderDrawingSub = props => {
       <SubmissionModal instructions={inst} />
       <div className="writing-sub-container">
         <Row className="main-row">
-          <p>{props.tasks.drawingPrompt}</p>
+          <p>{props.tasks.story.drawingPrompt}</p>
         </Row>
         <div className="upload">
           <h1 className="upload">Upload</h1>
