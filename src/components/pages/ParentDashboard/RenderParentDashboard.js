@@ -8,23 +8,6 @@ import ParentNavSider from '../../common/ParentNavSider';
 
 const { Title } = Typography;
 
-const initialChildren = [
-  {
-    Name: 'Jackie',
-    GradeLevelID: '7',
-    PIN: '1234',
-    AvatarURL: 'https://picsum.photos/200/300.jpg',
-    IsDyslexic: false,
-  },
-  {
-    Name: 'Ryan',
-    GradeLevelID: '8',
-    PIN: '1212',
-    AvatarURL: 'https://picsum.photos/200/300.jpg',
-    IsDyslexic: false,
-  },
-];
-
 const ParentDashboard = props => {
   return (
     <>
@@ -37,9 +20,9 @@ const ParentDashboard = props => {
           </Title>
           <div className="children-container">
             <Layout className="children" style={{ flexFlow: 'row wrap' }}>
-              {initialChildren.map((child, i) => (
+              {props.parent.children.map((child, i) => (
                 <ChildCard
-                  key={i}
+                  key={child.ID}
                   name={child.Name}
                   AvatarURL={child.AvatarURL}
                   update="PROGRESS"

@@ -16,7 +16,7 @@ const ChildCard = props => {
           {props.name}
         </h2>
       </Layout>
-      <Button type="primary" size="large" htmlType="submit">
+      <Button type="primary" size="large" htmlType="submit" disabled>
         {props.name.toUpperCase()}'S {props.update}
       </Button>
     </Card>

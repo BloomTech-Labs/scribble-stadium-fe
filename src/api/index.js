@@ -44,18 +44,6 @@ const apiAuthPut = (endpoint, body, authHeader) => {
   return axios.put(`${apiUrl}${endpoint}`, body, { headers: authHeader });
 };
 
-const postNewChild = (authState, child) => {
-  try {
-    return apiAuthPost('/child', child, getAuthHeader(authState)).then(
-      response => response.data
-    );
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
-  }
-};
 const getProfileData = authState => {
   try {
     return apiAuthGet('/profiles', getAuthHeader(authState)).then(
@@ -68,6 +56,50 @@ const getProfileData = authState => {
     });
   }
 };
+
+// Parent API Calls
+
+/**
+ * @param {Object} authState necessary for API functionality
+ * @param {number} childId id of the child needed for information
+ * @return {Object} child information containing Name, PIN, IsDyslexic, CohortID, ParentID, AvatarID, and GradeLevelID
+ */
+const getChild = (authState, childId) => {
+  try {
+    return apiAuthGet(`/child/${childId}`, getAuthHeader(authState)).then(
+      response => {
+        return response.data;
+      }
+    );
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+    });
+  }
+};
+
+/**
+ *
+ * @param {Object} authState necessary for API functionality
+ * @param {Object} child object containing fields for Name, PIN, IsDyslexic, CohortID, ParentID, AvatarID, and GradeLevelID
+ * @returns {number} child id for child that was just created
+ */
+const postNewChild = (authState, child) => {
+  try {
+    return apiAuthPost('/child', child, getAuthHeader(authState)).then(
+      response => {
+        return response.data;
+      }
+    );
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [];
+    });
+  }
+};
+
+// Child API Calls
 
 /**
  *
@@ -108,17 +140,6 @@ const getChildFormValues = async authState => {
       console.log(err);
       return [];
     });
-  }
-};
-
-const postNewAvatar = async (authState, body) => {
-  try {
-    return apiAuthPost('/avatars', body, getAuthHeader(authState)).then(
-      res => res.data
-    );
-  } catch (err) {
-    console.log(err);
-    return [];
   }
 };
 
@@ -204,6 +225,25 @@ const markAsRead = async (authState, submissionId) => {
   }
 };
 
+// Moderator API Calls
+
+/**
+ *
+ * @param {Object} authState necessary for API functionality
+ * @param {File, Array} body can either be one file or an array of files to upload
+ * @returns {Array} the newly created avatar(s)
+ */
+const postNewAvatar = async (authState, body) => {
+  try {
+    return apiAuthPost('/avatars', body, getAuthHeader(authState)).then(
+      res => res.data
+    );
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+};
+
 export {
   sleep,
   getExampleData,
@@ -216,9 +256,10 @@ export {
   apiAuthPut,
   postNewChild,
   getChildFormValues,
-  postNewAvatar,
   getChildTasks,
   postNewWritingSub,
   markAsRead,
   postNewDrawingSub,
+  getChild,
+  postNewAvatar,
 };

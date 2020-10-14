@@ -7,7 +7,7 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
 import LoadingComponent from '../components/common/ParentLoadingComponent';
-import ParentDashboard from '../components/pages/ParentDashboard/ParentDashboard';
+import RenderParentDashboard from '../components/pages/ParentDashboard/RenderParentDashboard';
 import ParentDashboardContainer from '../components/pages/ParentDashboard/ParentDashboardContainer';
 jest.mock('@okta/okta-react', () => ({
   useOktaAuth: () => {
@@ -40,7 +40,7 @@ describe('<ParentDashboardContainer />', () => {
     });
 
     it('Find ParentDashboard', () => {
-      expect(shallowWrapper.find(ParentDashboard));
+      expect(shallowWrapper.find(RenderParentDashboard));
     });
     it('Find Loading Component', () => {
       expect(shallowWrapper.find(LoadingComponent));
