@@ -2,6 +2,7 @@ import React from 'react';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
+import { InstructionsModal } from '../../common';
 
 import adventure_passport from '../../../assets/images/child_dashboard_images/adventure_passport.svg';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
@@ -13,10 +14,12 @@ const RenderChildDashboard = props => {
   const handleAcceptMission = e => {
     push('/child/mission-control');
   };
-
+  const inst =
+    'Welcome to Story Squad. Accept your mission to start an adventure!';
   return (
     <>
       <Header displayMenu={true} />
+      <InstructionsModal instructions={inst} />
       <div className="dash-container">
         <Row className="toprow">
           <Col

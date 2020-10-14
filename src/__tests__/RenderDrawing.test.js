@@ -5,7 +5,7 @@ import { cleanup } from '@testing-library/react';
 import { Button } from 'antd';
 
 import { RenderDrawingSub } from '../components/pages/DrawingSub/RenderDrawingSub';
-import SubmissionModal from '../components/common/SubmissionModal';
+import InstructionsModal from '../components/common/InstructionsModal';
 import Header from '../components/common/Header';
 
 configure({ adapter: new Adapter() });
@@ -22,7 +22,7 @@ describe('<RenderDrawingSub />', () => {
       <RenderDrawingSub instructions={() => {}} tasks={{ story: {} }} />
     );
     wrapper.setProps({ instructions: { inst: '' } });
-    expect(wrapper.find(SubmissionModal)).toHaveLength(1);
+    expect(wrapper.find(InstructionsModal)).toHaveLength(1);
   });
   it('Should render <Header />', () => {
     wrapper = shallow(
