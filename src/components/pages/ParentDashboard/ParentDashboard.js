@@ -9,8 +9,6 @@ import ParentNavSider from '../../common/ParentNavSider';
 const { Title } = Typography;
 
 const ParentDashboard = props => {
-  console.log(props);
-
   return (
     <>
       <Layout className="parent-dashboard">

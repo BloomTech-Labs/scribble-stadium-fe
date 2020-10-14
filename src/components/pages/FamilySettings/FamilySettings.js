@@ -5,6 +5,7 @@ import { Layout, Form, Input, Button, Typography } from 'antd';
 
 import ParentNavSider from '../../common//ParentNavSider';
 import ChildCard from '../../common/ChildCard';
+import { connect } from 'react-redux';
 
 const { Title } = Typography;
 
@@ -12,23 +13,6 @@ const layoutSettings = {
   labelCol: { span: 12 },
   wrapperCol: { span: 16 },
 };
-
-const initialChildren = [
-  {
-    Name: 'Jackie',
-    GradeLevelID: '7',
-    PIN: '1234',
-    AvatarURL: 'https://picsum.photos/200/300.jpg',
-    IsDyslexic: false,
-  },
-  {
-    Name: 'Ryan',
-    GradeLevelID: '8',
-    PIN: '1212',
-    AvatarURL: 'https://picsum.photos/200/300.jpg',
-    IsDyslexic: false,
-  },
-];
 
 const FamilySettings = props => {
   const { push } = useHistory();
@@ -53,7 +37,7 @@ const FamilySettings = props => {
           Settings
         </Title>
         <Layout className="children" style={{ flexFlow: 'row wrap' }}>
-          {initialChildren.map(child => (
+          {props.parent.children.map(child => (
             <ChildCard
               name={child.Name}
               AvatarURL={child.AvatarURL}
@@ -129,6 +113,7 @@ const FamilySettings = props => {
                 type="primary"
                 size="large"
                 htmlType="submit"
+                disabled
               >
                 Update
               </Button>
@@ -140,4 +125,10 @@ const FamilySettings = props => {
   );
 };
 
-export default FamilySettings;
+// export default FamilySettings;
+export default connect(
+  state => ({
+    parent: state.parent,
+  }),
+  {}
+)(FamilySettings);
