@@ -1,11 +1,10 @@
 import React from 'react';
 import { Row } from 'antd';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { Header } from '../../common';
 import { UploadDocs } from '../../common/';
 import { postNewDrawingSub } from '../../../api/index';
-import { SubmissionModal } from '../../common/index';
+import { InstructionsModal } from '../../common/index';
 import { tasks } from '../../../state/actions';
 
 export const RenderDrawingSub = props => {
@@ -15,7 +14,7 @@ export const RenderDrawingSub = props => {
   return (
     <>
       <Header title="READY, SET ...DRAW!" />
-      <SubmissionModal instructions={inst} />
+      <InstructionsModal instructions={inst} />
       <div className="writing-sub-container">
         <Row className="main-row">
           <p>{props.tasks.drawingPrompt}</p>
