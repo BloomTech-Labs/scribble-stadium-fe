@@ -22,11 +22,11 @@ jest.mock('@okta/okta-react', () => ({
   },
 }));
 
-const Component = () => {
+const Component = props => {
   return (
     <Router>
       <Provider store={store}>
-        <ParentDashboard />
+        <ParentDashboard {...props} />
       </Provider>
     </Router>
   );
@@ -34,25 +34,25 @@ const Component = () => {
 
 describe('<ParentDashboard /> test suite', () => {
   test('Welcome Back', () => {
-    render(<Component />);
+    render(<Component parent={{ children: [] }} />);
     expect(screen.getByText(/Welcome Back/i)).toBeInTheDocument();
   });
 
   test('Dashboard Nav', () => {
-    render(<Component />);
+    render(<Component parent={{ children: [] }} />);
     expect(screen.getByText(/Dashboard/i)).toBeInTheDocument();
   });
 
   test('Help Nav', () => {
-    render(<Component />);
+    render(<Component parent={{ children: [] }} />);
     expect(screen.getByText(/Help/i)).toBeInTheDocument();
   });
   test('Parent Settings Nav', () => {
-    render(<Component />);
+    render(<Component parent={{ children: [] }} />);
     expect(screen.getByText(/Parent Settings/i)).toBeInTheDocument();
   });
   test('Log out Nav', () => {
-    render(<Component />);
+    render(<Component parent={{ children: [] }} />);
     expect(screen.getByText(/log out/i)).toBeInTheDocument();
   });
 });
