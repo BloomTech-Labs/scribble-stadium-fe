@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { render, screen, cleanup } from '@testing-library/react';
-import ParentDashboard from '../components/pages/ParentDashboard/ParentDashboard';
+import RenderParentDashboard from '../components/pages/ParentDashboard/RenderParentDashboard';
 
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
@@ -26,7 +26,7 @@ const Component = props => {
   return (
     <Router>
       <Provider store={store}>
-        <ParentDashboard {...props} />
+        <RenderParentDashboard {...props} />
       </Provider>
     </Router>
   );

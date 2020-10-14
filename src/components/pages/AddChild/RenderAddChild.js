@@ -37,6 +37,11 @@ const RenderAddChild = props => {
     });
   }, [authState]);
 
+  /**
+   *
+   * @param {Object} values fields including Name, PIN, IsDyslexic, CohortID, ParentID, AvatarID, and GradeLevelID
+   * @returns {number} the newly created child id is put into the getChild api call
+   */
   const onFinish = values => {
     console.log('values', values);
 
@@ -45,7 +50,6 @@ const RenderAddChild = props => {
       ParentID: props.parent.id,
       CohortID: 1,
     }).then(res => {
-      console.log(res);
       getChild(authState, res).then(child => {
         props.setChildren({ ...child });
       });
@@ -106,11 +110,7 @@ const RenderAddChild = props => {
               label="Dyslexia"
               valuePropName="checked"
             >
-              <Switch
-                checkedChildren="On"
-                unCheckedChildren="Off"
-                // defaultChecked
-              />
+              <Switch checkedChildren="On" unCheckedChildren="Off" />
             </Form.Item>
           </Form.Item>
           <Form.Item wrapperCol={{ span: 20, offset: 6 }}>
