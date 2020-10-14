@@ -31,7 +31,6 @@ const RenderAddChild = props => {
 
   useEffect(() => {
     getChildFormValues(authState).then(data => {
-      console.log(data, 'avatar url');
       setAvatars(() => data[0]);
       setGradeLevels(() => data[1]);
     });
@@ -43,8 +42,6 @@ const RenderAddChild = props => {
    * @returns {number} the newly created child id is put into the getChild api call
    */
   const onFinish = values => {
-    console.log('values', values);
-
     postNewChild(authState, {
       ...values,
       ParentID: props.parent.id,
