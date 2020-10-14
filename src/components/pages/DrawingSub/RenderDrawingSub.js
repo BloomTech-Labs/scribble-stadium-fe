@@ -9,7 +9,7 @@ import { tasks } from '../../../state/actions';
 
 export const RenderDrawingSub = props => {
   const inst =
-    'Once you finish your drawing, please take a picture of all of your pages and upload them. After all pages are uploaded, click submit.';
+    'Once you finish your drawing, please take a picture of all your pages and upload them.  Tips: Take one photo per page. Find good Lighting and check your photo turns out clear. Make sure each page is straight and not cropped. After all pages are uploaded, click submit.';
 
   return (
     <>
