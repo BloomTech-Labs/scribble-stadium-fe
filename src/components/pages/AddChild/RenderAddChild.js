@@ -8,6 +8,7 @@ import { getChildFormValues } from '../../../api';
 import { postNewChild } from '../../../api';
 
 import { Layout, Form, Input, Button, Select, Switch, Typography } from 'antd';
+import { connect } from 'react-redux';
 
 const { Title } = Typography;
 const { Option } = Select;
@@ -21,6 +22,7 @@ const dyslexia = {
 };
 
 const RenderAddChild = props => {
+  console.log(props);
   const { authState } = useOktaAuth();
 
   const [gradeLevels, setGradeLevels] = useState([]);
@@ -38,8 +40,15 @@ const RenderAddChild = props => {
   const onFinish = values => {
     console.log('values', values);
 
-    postNewChild(authState, { ...values, ParentID: 1 });
-    push('/parent-dashboard');
+    postNewChild(authState, {
+      ...values,
+      ParentID: props.parent.id,
+      CohortID: 1,
+    }).then(res => {
+      console.log(res);
+      props.setChildren({ ...values, ID: res });
+    });
+    push('/parent/dashboard');
   };
 
   return (
@@ -90,6 +99,7 @@ const RenderAddChild = props => {
           </Form.Item>
           <Form.Item {...dyslexia}>
             <Form.Item
+              initialValue={false}
               name="IsDyslexic"
               label="Dyslexia"
               valuePropName="checked"
@@ -97,7 +107,7 @@ const RenderAddChild = props => {
               <Switch
                 checkedChildren="On"
                 unCheckedChildren="Off"
-                defaultChecked
+                // defaultChecked
               />
             </Form.Item>
           </Form.Item>
@@ -112,4 +122,10 @@ const RenderAddChild = props => {
   );
 };
 
-export default RenderAddChild;
+// export default RenderAddChild;
+export default connect(
+  state => ({
+    parent: state.parent,
+  }),
+  {}
+)(RenderAddChild);

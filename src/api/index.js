@@ -44,10 +44,27 @@ const apiAuthPut = (endpoint, body, authHeader) => {
   return axios.put(`${apiUrl}${endpoint}`, body, { headers: authHeader });
 };
 
+const getChild = (childId, authState) => {
+  try {
+    return apiAuthGet(`/child/${childId}`, getAuthHeader(authState)).then(
+      response => {
+        console.log(response, 'from getChild');
+        return response;
+      }
+    );
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+    });
+  }
+};
+
 const postNewChild = (authState, child) => {
   try {
     return apiAuthPost('/child', child, getAuthHeader(authState)).then(
-      response => response.data
+      response => {
+        return response.data;
+      }
     );
   } catch (error) {
     return new Promise(() => {
@@ -56,6 +73,7 @@ const postNewChild = (authState, child) => {
     });
   }
 };
+
 const getProfileData = authState => {
   try {
     return apiAuthGet('/profiles', getAuthHeader(authState)).then(
@@ -221,4 +239,5 @@ export {
   postNewWritingSub,
   markAsRead,
   postNewDrawingSub,
+  getChild,
 };
