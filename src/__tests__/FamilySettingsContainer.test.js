@@ -7,7 +7,7 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
 import LoadingComponent from '../components/common/ParentLoadingComponent';
-import FamilySettings from '../components/pages/FamilySettings/FamilySettings';
+import RenderFamilySettings from '../components/pages/FamilySettings/RenderFamilySettings';
 import FamilySettingsContainer from '../components/pages/FamilySettings/FamilySettingsContainer';
 jest.mock('@okta/okta-react', () => ({
   useOktaAuth: () => {
@@ -40,7 +40,7 @@ describe('<ProfileModalContainer />', () => {
     });
 
     it('Find FamilySettings', () => {
-      expect(shallowWrapper.find(FamilySettings));
+      expect(shallowWrapper.find(RenderFamilySettings));
     });
     it('Find Loading Component', () => {
       expect(shallowWrapper.find(LoadingComponent));
