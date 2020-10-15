@@ -4,6 +4,7 @@ import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { InstructionsModal } from '../../common';
+import { modalInstructions } from '../../../utils/helpers';
 
 import draw_icon from '../../../assets/icons/draw_icon.svg';
 import read_icon from '../../../assets/icons/read_icon.svg';
@@ -17,23 +18,28 @@ const RenderMissionControl = props => {
   const [showOkButton, setShowOkButton] = useState(false);
   const { push } = useHistory();
   const { authState } = useOktaAuth();
+  const [instructionText, setInstructionText] = useState('');
 
   useEffect(() => {
     if (props.tasks.id === null) {
       getChildTasks(authState, props.child.id, props.child.cohortId).then(
         res => {
           props.setTasks(res);
+          //InstructionsModal conditions to display accept button:
+          if (res.HasRead) {
+            setShowOkButton(false);
+            setInstructionText(modalInstructions.missionControl2);
+          } else {
+            setShowOkButton(true);
+            setInstructionText(modalInstructions.missionControl1);
+          }
         }
       );
       getStory(authState, props.child.cohortId).then(res => {
         props.setSubmissionInformation(res);
       });
-      if (!props.tasks.hasRead) {
-        setShowOkButton(true);
-      } else {
-        setShowOkButton(false);
-      }
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authState]);
 
@@ -55,19 +61,12 @@ const RenderMissionControl = props => {
     e.stopPropagation();
     push('/child/drawing-sub');
   };
-  //Changes the text in instructions modal
-  let inst;
-  !props.tasks.hasRead
-    ? (inst =
-        'Welcome to Story Squad! To begin your journey click the "READ" icon to start the story! Are you ready to accept the challenge?')
-    : (inst =
-        "Great job! It's time to get creative. Click on one of the prompts.");
 
   return (
     <>
       <Header title="MISSION" />
       <InstructionsModal
-        instructions={inst}
+        instructions={instructionText}
         style={{ fontSize: '2rem' }}
         showOkButton={showOkButton}
       />

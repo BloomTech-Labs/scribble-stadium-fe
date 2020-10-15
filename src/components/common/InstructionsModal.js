@@ -16,16 +16,9 @@ const InstructionsModal = props => {
     console.log(e);
     setVisible(false);
   };
-  let showButton = null;
+
   useEffect(() => {
     showModal();
-    if (props.showOkButton) {
-      showButton = (
-        <Button onClick={handleCancel} className="accept-button">
-          I Accept!!!
-        </Button>
-      );
-    }
   }, []);
 
   return (
@@ -43,7 +36,11 @@ const InstructionsModal = props => {
         closeIcon={null}
       >
         <p style={props.style}>{props.instructions}</p>
-        {showButton}
+        {props.showOkButton && (
+          <Button onClick={handleCancel} className="accept-button">
+            I Accept!!!
+          </Button>
+        )}
       </Modal>
     </>
   );
