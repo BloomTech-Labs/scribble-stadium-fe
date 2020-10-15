@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
@@ -17,23 +17,31 @@ const RenderMissionControl = props => {
   const [showOkButton, setShowOkButton] = useState(false);
   const { push } = useHistory();
   const { authState } = useOktaAuth();
+  const [instructionText, setInstructionText] = useState('');
 
   useEffect(() => {
     if (props.tasks.id === null) {
       getChildTasks(authState, props.child.id, props.child.cohortId).then(
         res => {
           props.setTasks(res);
+          if (res.HasRead) {
+            setShowOkButton(false);
+            setInstructionText(
+              "Great job! It's time to get creative. Click on one of the prompts."
+            );
+          } else {
+            setShowOkButton(true);
+            setInstructionText(
+              'Welcome to Story Squad! To begin your journey click the "READ" icon to start the story! Are you ready to accept the challenge?'
+            );
+          }
         }
       );
       getStory(authState, props.child.cohortId).then(res => {
         props.setSubmissionInformation(res);
       });
-      if (!props.tasks.hasRead) {
-        setShowOkButton(true);
-      } else {
-        setShowOkButton(false);
-      }
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authState]);
 
@@ -55,19 +63,12 @@ const RenderMissionControl = props => {
     e.stopPropagation();
     push('/child/drawing-sub');
   };
-  //Changes the text in instructions modal
-  let inst;
-  !props.tasks.hasRead
-    ? (inst =
-        'Welcome to Story Squad! To begin your journey click the "READ" icon to start the story! Are you ready to accept the challenge?')
-    : (inst =
-        "Great job! It's time to get creative. Click on one of the prompts.");
 
   return (
     <>
       <Header title="MISSION" />
       <InstructionsModal
-        instructions={inst}
+        instructions={instructionText}
         style={{ fontSize: '2rem' }}
         showOkButton={showOkButton}
       />
