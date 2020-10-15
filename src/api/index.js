@@ -196,7 +196,6 @@ const getChildTasks = async (authState, childid, storyid) => {
       `/submission?childId=${childid}&storyId=${storyid}`,
       getAuthHeader(authState)
     ).then(response => {
-      console.log(response);
       return response.data;
     });
   } catch (err) {
