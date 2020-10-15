@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { InstructionsModal } from '../../common';
+import { modalInstructions } from '../../../utils/helpers';
 
 import draw_icon from '../../../assets/icons/draw_icon.svg';
 import read_icon from '../../../assets/icons/read_icon.svg';
@@ -24,16 +25,13 @@ const RenderMissionControl = props => {
       getChildTasks(authState, props.child.id, props.child.cohortId).then(
         res => {
           props.setTasks(res);
+          //InstructionsModal conditions to display accept button:
           if (res.HasRead) {
             setShowOkButton(false);
-            setInstructionText(
-              "Great job! It's time to get creative. Click on one of the prompts."
-            );
+            setInstructionText(modalInstructions.missionControl2);
           } else {
             setShowOkButton(true);
-            setInstructionText(
-              'Welcome to Story Squad! To begin your journey click the "READ" icon to start the story! Are you ready to accept the challenge?'
-            );
+            setInstructionText(modalInstructions.missionControl1);
           }
         }
       );
