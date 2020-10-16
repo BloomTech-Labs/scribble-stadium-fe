@@ -19,7 +19,7 @@ export const RenderWritingSub = props => {
       />
       <div className="writing-sub-container">
         <Row className="main-row">
-          <p>{props.tasks.writingPrompt}</p>
+          <p>{props.tasks.story.writingPrompt}</p>
         </Row>
         <div className="upload">
           <h1>Upload</h1>
