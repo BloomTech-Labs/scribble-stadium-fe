@@ -118,6 +118,7 @@ const getStory = (authState, cohortId) => {
   } catch (error) {
     return new Promise(() => {
       console.log(error);
+      return [];
     });
   }
 };
@@ -227,6 +228,101 @@ const markAsRead = async (authState, submissionId) => {
   }
 };
 
+// Gamification API Calls
+
+/**
+ *
+ * @param {Object} authState necessary for API functionality
+ * @param {number} childId id of the child who is "teaming up"
+ * @returns {Object} containing information on the child and their teammate
+ */
+const getChildTeam = async (authState, childId) => {
+  try {
+    return apiAuthGet(
+      `/game/team?childId=${childId}`,
+      getAuthHeader(authState)
+    ).then(response => {
+      console.log(response);
+      return response;
+    });
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [error];
+    });
+  }
+};
+
+/**
+ *
+ * @param {Object} authState necessary for API functionality
+ * @param {Object} teamPoints these are the points assigned for each of the submissions
+ * @returns {}  UNKONWN RIGHT NOW
+ */
+const submitPoints = async (authState, teamPoints) => {
+  try {
+    return apiAuthPost(
+      `/game/points`,
+      teamPoints,
+      getAuthHeader(authState)
+    ).then(response => {
+      console.log(response);
+      return response;
+    });
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [error];
+    });
+  }
+};
+
+/**
+ *
+ * @param {Object} authState  necessary for API functionality
+ * @param {number} childId id of the child who is "squadding up"
+ * @returns {number} squadId is returned
+ */
+const getChildSquad = async (authState, childId) => {
+  try {
+    return apiAuthGet(
+      `/game/squad?childId=${childId}`,
+      getAuthHeader(authState)
+    ).then(response => {
+      console.log(response);
+      return response;
+    });
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [error];
+    });
+  }
+};
+
+/**
+ *
+ * @param {Object} authState necessary for API functionality
+ * @param {number} squadId this will be received from 'getChildSquad' api call
+ * @returns {Array} array of 4 objects (one for each child) containing information about their submissions
+ */
+const getChildFaceoffs = async (authState, squadId) => {
+  try {
+    return apiAuthGet(
+      `/game/faceoffs?squadId=${squadId}`,
+      getAuthHeader(authState)
+    ).then(response => {
+      console.log(response);
+      return response;
+    });
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [error];
+    });
+  }
+};
+
 // Moderator API Calls
 
 /**
@@ -264,4 +360,8 @@ export {
   postNewDrawingSub,
   getChild,
   postNewAvatar,
+  getChildTeam,
+  submitPoints,
+  getChildSquad,
+  getChildFaceoffs,
 };
