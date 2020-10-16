@@ -4,10 +4,12 @@
 .JoinSquadContainer {
   height: 70vh;
   display: flex;
+  @media @tablet{
+    flex-direction: column;
+}
 }
 
 .joinSquad1 {
-  height: 100%;
   background: #b5d33d;
   display: flex;
   justify-content: center;
@@ -25,18 +27,28 @@
   border: 5px solid #292929;
 }
 
-.imgContain {
+.imgContain1 {
   display: flex;
   padding-bottom: 10%;
+  @media @tablet {
+      padding-left: 5%;
+      padding-bottom: 0%;
+  }
+  
 }
-img {
+
+.imgContain2 {
+  display: flex;
   align-items: center;
+  justify-content: center;
+  height: 70vh;
+  
+  
 }
 .button {
   display: flex;
-  height: 5vh;
   justify-content: flex-end;
-  align-items: flex-end;
+  margin:3%;
 }
 .sharePoints {
   background: #eb7d5b;
@@ -45,4 +57,11 @@ img {
     background-color: #eb7d5bbb;
     border-color: #eb7d5bbb;
   }
+}
+img{
+    max-width: 100%;
+    max-height: 100%;
+    @media @tablet{
+        width:70%;
+    }
 }

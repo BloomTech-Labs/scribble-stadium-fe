@@ -30,6 +30,9 @@ const ChildMenu = props => {
       <Menu.Item key="4" onClick={() => authService.logout()}>
         Log Out
       </Menu.Item>
+      <Menu.Item key="5">
+        <Link to="/child/join">Join</Link>
+      </Menu.Item>
     </Menu>
   );
 };
