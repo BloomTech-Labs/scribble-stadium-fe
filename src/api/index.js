@@ -323,6 +323,52 @@ const getChildFaceoffs = async (authState, squadId) => {
   }
 };
 
+/**
+ *
+ * @param {Object} authState necessary for API functionality
+ * @param {Object} voteInfo includes the Vote, the MemberID, and the FaceoffID
+ * @returns UNKNOWN right now
+ */
+const postVotes = async (authState, voteInfo) => {
+  try {
+    return apiAuthPost(`/game/votes`, voteInfo, getAuthHeader(authState)).then(
+      response => {
+        console.log(response);
+        return response;
+      }
+    );
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [];
+    });
+  }
+};
+
+/**
+ *
+ * @param {Object} authState necessary for API functionality
+ * @param {number} squadId id of the squad that the child is in
+ * @param {number} memberId id of the team the child is on
+ * @returns {Array} containing objects of the results of the faceoff
+ */
+const getGameVotes = async (authState, squadId, memberId) => {
+  try {
+    return apiAuthGet(
+      `/game/votes?squadId=${squadId}&memberId=${memberId}`,
+      getAuthHeader(authState)
+    ).then(response => {
+      console.log(response);
+      return response;
+    });
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [];
+    });
+  }
+};
+
 // Moderator API Calls
 
 /**
@@ -364,4 +410,6 @@ export {
   submitPoints,
   getChildSquad,
   getChildFaceoffs,
+  postVotes,
+  getGameVotes,
 };
