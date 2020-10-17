@@ -1,18 +1,10 @@
 import React, { useState } from 'react';
-import { Card, Button, Layout, Modal } from 'antd';
+import { Card, Button, Layout } from 'antd';
 
-import { SquadScoreIS, SquadScoreIsNOT } from '../../utils/helpers';
+import LargeModal from './LargeModal';
 
 const ChildCard = props => {
   const [visible, setVisible] = useState(false);
-
-  const handleCancel = () => {
-    setVisible(false);
-  };
-
-  const handleOk = () => {
-    setVisible(false);
-  };
 
   return (
     <Card className="child-card">
@@ -36,43 +28,12 @@ const ChildCard = props => {
       >
         {props.name.toUpperCase()}'S {props.update}
       </Button>
-      <Modal
+      <LargeModal
         visible={visible}
-        width="90%"
-        onCancel={handleCancel}
-        onOk={handleCancel}
-        cancelButtonProps={{ disabled: true }}
-        title={`${props.name.toUpperCase()}'s ${props.update}`}
-      >
-        <h2>Welcome to the Progress Page!</h2>
-        <h3>
-          Below you will see some graphs representing what we at Story Squad
-          call our "Squad Score". What exactly is a Squad Score? We're glad you
-          asked!
-        </h3>
-        <h4>
-          What Squad Score <em>is</em>:
-        </h4>
-        {SquadScoreIS.map(is => (
-          <ul>
-            <li>{is}</li>
-          </ul>
-        ))}
-        <h4>
-          What Squad Score is <em>not</em>:
-        </h4>
-        {SquadScoreIsNOT.map(isNot => (
-          <ul>
-            <li>{isNot}</li>
-          </ul>
-        ))}
-        <h3>
-          We provide you with these visualizations so you can be involved and
-          engaged in your child's Story Squad experience. Feel free to check
-          this page regularly, because we'll update it weekly with every new
-          submission!
-        </h3>
-      </Modal>
+        setVisible={setVisible}
+        title={`${props.name.toUpperCase()}'s ${props.update} `}
+        modalType="progress"
+      />
     </Card>
   );
 };
