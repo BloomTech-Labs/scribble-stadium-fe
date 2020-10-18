@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
@@ -11,6 +11,7 @@ import trophy_room from '../../../assets/images/child_dashboard_images/trophy_ro
 
 const RenderChildDashboard = props => {
   const { push } = useHistory();
+  const [modalVisible, setModalVisible] = useState(true);
 
   const handleAcceptMission = e => {
     push('/child/mission-control');
@@ -20,7 +21,13 @@ const RenderChildDashboard = props => {
     <>
       <Header displayMenu={true} />
       <InstructionsModal
-        modalVisible={true}
+        modalVisible={modalVisible}
+        handleCancel={() => {
+          setModalVisible(false);
+        }}
+        handleOk={() => {
+          setModalVisible(false);
+        }}
         instructions={modalInstructions.childDash}
       />
       <div className="dash-container">

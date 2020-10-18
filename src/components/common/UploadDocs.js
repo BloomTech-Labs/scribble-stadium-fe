@@ -31,7 +31,7 @@ export const UploadDocs = ({
 
   const onFinish = values => {
     setUploading(true);
-    handleSubmit();
+
     const formData = new FormData();
 
     fileList.forEach(file => {
@@ -44,7 +44,10 @@ export const UploadDocs = ({
     apiAxios(authState, formData, submissionId)
       .then(res => {
         setUploading(false);
-        setSubmitted();
+        setSubmitted(true);
+      })
+      .then(res => {
+        handleSubmit();
       })
       .catch(err => {
         for (var value of formData.entries()) {
