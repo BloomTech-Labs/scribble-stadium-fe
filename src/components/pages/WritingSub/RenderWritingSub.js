@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Row } from 'antd';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 import { Header } from '../../common';
 import { UploadDocs } from '../../common/';
@@ -11,10 +11,11 @@ import { modalInstructions } from '../../../utils/helpers';
 import { tasks } from '../../../state/actions';
 
 export const RenderWritingSub = props => {
+  //Modal state
   const [modalVisible, setModalVisible] = useState(true);
   const [modalText, setModalText] = useState('');
 
-  const { push } = useHistory();
+  // const { push } = useHistory();
 
   const handleSubmit = () => {
     console.log('handle submit was called');
@@ -34,9 +35,14 @@ export const RenderWritingSub = props => {
       <Header title="PENCILS READY?" />
       <InstructionsModal
         modalVisible={modalVisible}
+        handleCancel={() => {
+          setModalVisible(false);
+        }}
+        handleOk={() => {
+          setModalVisible(false);
+        }}
         instructions={modalText || modalInstructions.writingSub}
         style={{ fontSize: '1.5rem' }}
-        // handleClose={handleClose}
       />
       <div className="writing-sub-container">
         <Row className="main-row">
