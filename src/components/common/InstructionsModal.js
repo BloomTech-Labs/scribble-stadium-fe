@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Modal, Button } from 'antd';
 
 const InstructionsModal = props => {
-  const [visible, setVisible] = useState(false);
-
-  const showModal = () => {
-    setVisible(true);
-  };
+  const { modalVisible, style, instructions, showOkButton } = props;
+  const [visible, setVisible] = useState(modalVisible);
 
   const handleCancel = e => {
     setVisible(false);
@@ -18,8 +15,8 @@ const InstructionsModal = props => {
   };
 
   useEffect(() => {
-    showModal();
-  }, []);
+    setVisible(modalVisible);
+  }, [modalVisible]);
 
   return (
     <>
@@ -35,8 +32,8 @@ const InstructionsModal = props => {
         footer={null}
         closeIcon={null}
       >
-        <p style={props.style}>{props.instructions}</p>
-        {props.showOkButton && (
+        <p style={style}>{instructions}</p>
+        {showOkButton && (
           <Button onClick={handleCancel} className="accept-button">
             I Accept!!!
           </Button>
