@@ -1,3 +1,5 @@
+import { modal } from '../state/actions';
+
 export function getBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -22,4 +24,10 @@ export const modalInstructions = {
   missionControl3: "It's time to join your squad! Click next to continue",
   sharePoints:
     "Ready Squad! Read your partner's story, view their drawing and share some points.",
+};
+
+export const getMissionControlText = hasRead => {
+  return hasRead
+    ? modalInstructions.missionControl2
+    : modalInstructions.missionControl1;
 };
