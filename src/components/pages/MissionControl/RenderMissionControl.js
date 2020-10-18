@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useSelector } from 'react';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { InstructionsModal } from '../../common';
-import { modalInstructions } from '../../../utils/helpers';
-
+import { getMissionControlText } from '../../../utils/helpers';
 import draw_icon from '../../../assets/icons/draw_icon.svg';
 import read_icon from '../../../assets/icons/read_icon.svg';
 import write_icon from '../../../assets/icons/write_icon.svg';
@@ -13,28 +12,25 @@ import Checkbox from './Checkbox';
 
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import { getChildTasks, getStory } from '../../../api';
+import { tasks } from '../../../state/actions';
 
 const RenderMissionControl = props => {
-  const [showOkButton, setShowOkButton] = useState(false);
+  //modal state
+  const [instructionText, setInstructionText] = useState('');
+  const { hasRead } = props;
+
   const { push } = useHistory();
   const { authState } = useOktaAuth();
-  const [instructionText, setInstructionText] = useState('');
 
   useEffect(() => {
     if (props.tasks.id === null) {
       getChildTasks(authState, props.child.id, props.child.cohortId).then(
         res => {
           props.setTasks(res);
-          //InstructionsModal conditions to display accept button:
-          if (res.HasRead) {
-            setShowOkButton(false);
-            setInstructionText(modalInstructions.missionControl2);
-          } else {
-            setShowOkButton(true);
-            setInstructionText(modalInstructions.missionControl1);
-          }
+          setInstructionText(getMissionControlText(res.HasRead));
         }
       );
+
       getStory(authState, props.child.cohortId).then(res => {
         props.setSubmissionInformation(res);
       });
@@ -55,20 +51,25 @@ const RenderMissionControl = props => {
   };
   const handleWrite = e => {
     e.stopPropagation();
-    push('/child/writing-sub');
+    if (!props.tasks.hasWritten) {
+      push('/child/writing-sub');
+    }
   };
   const handleDraw = e => {
     e.stopPropagation();
-    push('/child/drawing-sub');
+    if (!props.tasks.hasDrawn) {
+      push('/child/drawing-sub');
+    }
   };
 
   return (
     <>
       <Header title="MISSION" />
       <InstructionsModal
+        modalVisible={true}
         instructions={instructionText}
         style={{ fontSize: '2rem' }}
-        showOkButton={showOkButton}
+        showOkButton={!hasRead}
       />
       <div className="mission-container">
         <Row className="main-row">
@@ -77,7 +78,7 @@ const RenderMissionControl = props => {
               className="checking-box"
               defaultChecked={false}
               onChange={handleChecked}
-              isCompleted={props.tasks.hasRead}
+              isCompleted={hasRead}
             />
 
             <Col className="image-and-text-container">
@@ -130,6 +131,10 @@ export default connect(
   state => ({
     child: state.child,
     tasks: state.tasks,
+    hasRead: state.tasks.hasRead,
   }),
-  {}
+  {
+    setTasks: tasks.setTasks,
+    setSubmissionInformation: tasks.setSubmissionInformation,
+  }
 )(RenderMissionControl);
