@@ -37,6 +37,8 @@ import { ParentDashboard } from './components/pages/ParentDashboard';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
+import { PointShare } from './components/pages/PointShare';
+import { SquadUp } from './components/pages/SquadUp';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 
 ReactDOM.render(
@@ -103,6 +105,16 @@ function App() {
           path="/child/writing-sub"
           component={() => (
             <WritingSub LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <SecureRoute
+          path="/child/squad-up"
+          component={() => <SquadUp LoadingComponent={ChildLoadingComponent} />}
+        />
+        <SecureRoute
+          path="/child/point-share"
+          component={() => (
+            <PointShare LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <SecureRoute

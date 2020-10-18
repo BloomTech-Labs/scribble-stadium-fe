@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Header } from '../../common';
-import { Row, Col } from 'antd';
+import { Row, Col, Button } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -43,6 +43,10 @@ const RenderMissionControl = props => {
     e.stopPropagation();
     push('/child/drawing-sub');
   };
+  const handleClick = e => {
+    e.stopPropagation();
+    push('/child/point-share');
+  };
 
   return (
     <>
@@ -72,7 +76,11 @@ const RenderMissionControl = props => {
               />
 
               <Col className="image-and-text-container">
-                <img className="WritingandDrawingIcon" src={write_icon} alt="writing icon" />
+                <img
+                  className="WritingandDrawingIcon"
+                  src={write_icon}
+                  alt="writing icon"
+                />
                 <p className="mission-control-text">Write</p>
               </Col>
             </Row>
@@ -84,12 +92,24 @@ const RenderMissionControl = props => {
                 isCompleted={props.tasks.hasDrawn}
               />
               <Col className="image-and-text-container">
-                <img className="WritingandDrawingIcon"  src={draw_icon} alt="drawing icon" />
+                <img
+                  className="WritingandDrawingIcon"
+                  src={draw_icon}
+                  alt="drawing icon"
+                />
                 <p className="mission-control-text">Draw</p>
               </Col>
             </Row>
           </Col>
         </Row>
+        <Button
+          className="squad-up"
+          type="button"
+          // disabled={!props.tasks}
+          onClick={handleClick}
+        >
+          Squad Up!
+        </Button>
       </div>
     </>
   );
