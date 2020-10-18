@@ -1,16 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { Form, Button, Upload, Modal, notification } from 'antd';
-import { useHistory } from 'react-router-dom';
 
-function getBase64(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
-  });
-}
+import { getBase64 } from '../../utils/helpers';
 
 export const UploadDocs = ({
   fileName,
@@ -22,6 +14,7 @@ export const UploadDocs = ({
   storyId,
   setSubmitted,
   maxLength,
+  handleSubmit,
 }) => {
   const { authState } = useOktaAuth();
 
@@ -34,13 +27,11 @@ export const UploadDocs = ({
     title: '',
   });
 
-  const { push } = useHistory();
-
   const [form] = Form.useForm();
 
   const onFinish = values => {
     setUploading(true);
-
+    handleSubmit();
     const formData = new FormData();
 
     fileList.forEach(file => {
@@ -54,7 +45,6 @@ export const UploadDocs = ({
       .then(res => {
         setUploading(false);
         setSubmitted();
-        push('/child/mission-control');
       })
       .catch(err => {
         for (var value of formData.entries()) {
