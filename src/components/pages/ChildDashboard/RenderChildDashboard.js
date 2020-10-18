@@ -19,7 +19,10 @@ const RenderChildDashboard = props => {
   return (
     <>
       <Header displayMenu={true} />
-      <InstructionsModal instructions={modalInstructions.childDash} />
+      <InstructionsModal
+        modalVisible={true}
+        instructions={modalInstructions.childDash}
+      />
       <div className="dash-container">
         <Row className="toprow">
           <Col
