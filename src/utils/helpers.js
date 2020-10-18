@@ -1,5 +1,3 @@
-import { modal } from '../state/actions';
-
 export function getBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -27,6 +25,7 @@ export const modalInstructions = {
 };
 
 export const getMissionControlText = hasRead => {
+  console.log('helper', hasRead);
   return hasRead
     ? modalInstructions.missionControl2
     : modalInstructions.missionControl1;
