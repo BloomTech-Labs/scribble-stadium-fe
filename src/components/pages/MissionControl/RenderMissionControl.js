@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useSelector } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
@@ -17,6 +17,8 @@ import { tasks } from '../../../state/actions';
 const RenderMissionControl = props => {
   //modal state
   const [instructionText, setInstructionText] = useState('');
+  const [modalVisible, setModalVisible] = useState(true);
+  const [showButton, setShowButton] = useState(false);
   const { hasRead } = props;
 
   const { push } = useHistory();
@@ -27,7 +29,9 @@ const RenderMissionControl = props => {
       getChildTasks(authState, props.child.id, props.child.cohortId).then(
         res => {
           props.setTasks(res);
+          console.log('api call', res.HasRead);
           setInstructionText(getMissionControlText(res.HasRead));
+          setShowButton(!res.HasRead);
         }
       );
 
@@ -66,10 +70,16 @@ const RenderMissionControl = props => {
     <>
       <Header title="MISSION" />
       <InstructionsModal
-        modalVisible={true}
+        modalVisible={modalVisible}
+        handleCancel={() => {
+          setModalVisible(false);
+        }}
+        handleOk={() => {
+          setModalVisible(false);
+        }}
         instructions={instructionText}
         style={{ fontSize: '2rem' }}
-        showOkButton={!hasRead}
+        showOkButton={showButton}
       />
       <div className="mission-container">
         <Row className="main-row">
