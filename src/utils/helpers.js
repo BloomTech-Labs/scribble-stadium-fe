@@ -24,6 +24,16 @@ export const modalInstructions = {
     "Ready Squad! Read your partner's story, view their drawing and share some points.",
 };
 
+export const getMissionControlText = (hasRead, hasDrawn, hasWritten) => {
+  if ((hasRead && !hasDrawn) || !hasWritten) {
+    return modalInstructions.missionControl2;
+  } else if (hasRead && hasDrawn && hasWritten) {
+    return modalInstructions.missionControl3;
+  } else if (!hasRead) {
+    return modalInstructions.missionControl1;
+  }
+};
+
 export const progressInfo = {
   welcome: 'Welcome to the Progress Page!',
   explanation:

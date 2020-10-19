@@ -14,6 +14,11 @@ afterEach(() => {
   cleanup();
 });
 
+jest.mock('react-router-dom', () => ({
+  useHistory: () => ({
+    push: jest.fn(),
+  }),
+}));
 describe('<RenderDrawingSub />', () => {
   let wrapper;
 
