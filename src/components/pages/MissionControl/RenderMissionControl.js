@@ -19,7 +19,7 @@ const RenderMissionControl = props => {
   const [instructionText, setInstructionText] = useState('');
   const [modalVisible, setModalVisible] = useState(true);
   const [showButton, setShowButton] = useState(false);
-  const { hasRead } = props;
+  const { hasRead, hasWritten, hasDrawn } = props;
 
   const { push } = useHistory();
   const { authState } = useOktaAuth();
@@ -30,8 +30,10 @@ const RenderMissionControl = props => {
         res => {
           props.setTasks(res);
           console.log('api call', res.HasRead);
-          setInstructionText(getMissionControlText(res.HasRead));
-          setShowButton(!res.HasRead);
+          setInstructionText(
+            getMissionControlText(res.HasRead, res.HasDrawn, res.HasWritten)
+          );
+          setShowButton(!res.HasRead || (res.HasWritten && res.HasDrawn));
         }
       );
 
@@ -41,7 +43,7 @@ const RenderMissionControl = props => {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authState]);
+  }, [authState, hasRead, hasWritten, hasDrawn]);
 
   // Will be for when we are checking whether or not the child has completed a task
   function handleChecked(e) {
@@ -55,13 +57,13 @@ const RenderMissionControl = props => {
   };
   const handleWrite = e => {
     e.stopPropagation();
-    if (!props.tasks.hasWritten) {
+    if (!hasWritten) {
       push('/child/writing-sub');
     }
   };
   const handleDraw = e => {
     e.stopPropagation();
-    if (!props.tasks.hasDrawn) {
+    if (!hasDrawn) {
       push('/child/drawing-sub');
     }
   };
@@ -102,7 +104,7 @@ const RenderMissionControl = props => {
                 className="checking-box"
                 defaultChecked={false}
                 onChange={handleChecked}
-                isCompleted={props.tasks.hasWritten}
+                isCompleted={hasWritten}
               />
 
               <Col className="image-and-text-container">
@@ -119,7 +121,7 @@ const RenderMissionControl = props => {
                 className="checking-box"
                 defaultChecked={false}
                 onChange={handleChecked}
-                isCompleted={props.tasks.hasDrawn}
+                isCompleted={hasDrawn}
               />
               <Col className="image-and-text-container">
                 <img
@@ -142,6 +144,8 @@ export default connect(
     child: state.child,
     tasks: state.tasks,
     hasRead: state.tasks.hasRead,
+    hasWritten: state.tasks.hasWritten,
+    hasDrawn: state.tasks.hasDrawn,
   }),
   {
     setTasks: tasks.setTasks,
