@@ -27,12 +27,12 @@ export const RenderDrawingSub = props => {
         modalVisible={modalVisible}
         handleCancel={() => {
           setModalVisible(false);
-        }}
-        handleOk={() => {
-          setModalVisible(false);
           if (props.hasDrawn) {
             push('/child/mission-control');
           }
+        }}
+        handleOk={() => {
+          setModalVisible(false);
         }}
         style={{ fontSize: '1.5rem' }}
         instructions={modalText || modalInstructions.drawingSub}

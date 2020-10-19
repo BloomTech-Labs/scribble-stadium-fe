@@ -18,7 +18,6 @@ export const RenderWritingSub = props => {
   const { push } = useHistory();
 
   const handleSubmit = () => {
-    console.log('handle submit was called');
     setModalVisible(true);
     setModalText(modalInstructions.submissionComplete);
   };

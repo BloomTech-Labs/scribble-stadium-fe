@@ -29,7 +29,7 @@ const RenderMissionControl = props => {
       getChildTasks(authState, props.child.id, props.child.cohortId).then(
         res => {
           props.setTasks(res);
-          console.log('api call', res.HasRead);
+
           setInstructionText(
             getMissionControlText(res.HasRead, res.HasDrawn, res.HasWritten)
           );

@@ -10,7 +10,6 @@ const InstructionsModal = props => {
     handleCancel,
     handleOk,
   } = props;
-  console.log('instructions', instructions);
 
   return (
     <>
