@@ -33,6 +33,7 @@ export const getMissionControlText = (hasRead, hasDrawn, hasWritten) => {
     return modalInstructions.missionControl1;
   }
 };
+
 export const progressInfo = {
   welcome: 'Welcome to the Progress Page!',
   explanation:
