@@ -378,7 +378,7 @@ export const data = {
         },
       },
     },
-    xaxis: { anchor: 'y', domain: [0.0, 1.0], title: { text: 'x' } },
-    yaxis: { anchor: 'x', domain: [0.0, 1.0], title: { text: 'y' } },
+    xaxis: { anchor: 'y', domain: [0.0, 1.0], title: { text: 'Week Number' } },
+    yaxis: { anchor: 'x', domain: [0.0, 1.0], title: { text: 'Squad Score' } },
   },
 };

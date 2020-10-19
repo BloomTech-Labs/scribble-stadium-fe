@@ -5,12 +5,9 @@ import { data } from '../../utils/dataTest';
 const ProgressChart = () => {
   return (
     <div>
-      <h2> Squad Score:</h2>
+      <h2> Squad Score Over Time:</h2>
       <div>
-        <Plot
-          data={data.data}
-          layout={{ width: 420, height: 340, title: 'Weekly Progress' }}
-        />
+        <Plot data={data.data} layout={data.layout} />
       </div>
     </div>
   );
