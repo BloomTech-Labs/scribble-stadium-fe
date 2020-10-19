@@ -5,7 +5,7 @@ import { data } from '../../utils/dataTest';
 const ProgressChart = () => {
   return (
     <div>
-      <h2> Data visualization</h2>
+      <h2> Squad Score:</h2>
       <div>
         <Plot
           data={data.data}
