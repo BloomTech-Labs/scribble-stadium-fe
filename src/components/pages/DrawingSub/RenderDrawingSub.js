@@ -7,11 +7,14 @@ import { postNewDrawingSub } from '../../../api/index';
 import { InstructionsModal } from '../../common/index';
 import { modalInstructions } from '../../../utils/helpers';
 import { tasks } from '../../../state/actions';
+import { useHistory } from 'react-router-dom';
 
 export const RenderDrawingSub = props => {
   //Modal state
   const [modalVisible, setModalVisible] = useState(false);
   const [modalText, setModalText] = useState('');
+
+  const { push } = useHistory();
 
   const handleSubmit = () => {
     setModalVisible(true);
@@ -27,6 +30,9 @@ export const RenderDrawingSub = props => {
         }}
         handleOk={() => {
           setModalVisible(false);
+          if (props.hasDrawn) {
+            push('/child/mission-control');
+          }
         }}
         style={{ fontSize: '1.5rem' }}
         instructions={modalText || modalInstructions.drawingSub}
