@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal, Button } from 'antd';
 
 import { progressInfo } from '../../utils/helpers';
+import ProgressChart from '../../components/common/ProgressChart';
 
 const LargeModal = props => {
   console.log(props, 'from large modal');
@@ -41,6 +42,7 @@ const LargeModal = props => {
                 <li>{isNot}</li>
               </ul>
             ))}
+            <ProgressChart />
           </div>
         ) : (
           <h2>Image from gamification will be here</h2>
