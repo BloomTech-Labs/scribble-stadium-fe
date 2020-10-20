@@ -22,7 +22,7 @@ const PointShare = props => {
       if (submittedTotal > 100) {
         return prevState;
       } else {
-        // update header prop
+        return submittedTotal;
       }
     });
   };
@@ -54,21 +54,25 @@ const PointShare = props => {
             <div className="submission-container">
               <img className="submission" src="" alt="Submission" />
               <InputNumber
-                defaultValue={storyOnePoints}
+                value={storyOnePoints}
                 min={10}
                 step={5}
-                onChange={checkValues}
-                onClick={event => setStoryOnePoints(event.target.value)}
+                onChange={value => {
+                  setStoryOnePoints(value);
+                  checkValues();
+                }}
               />
             </div>
             <div className="submission-container">
               <img className="submission" src="" alt="Submission" />
               <InputNumber
-                defaultValue={illustrationOnePoints}
+                value={illustrationOnePoints}
                 min={10}
                 step={5}
-                onChange={checkValues}
-                onClick={event => setIllustrationOnePoints(event.target.value)}
+                onChange={value => {
+                  setIllustrationOnePoints(value);
+                  checkValues();
+                }}
               />
             </div>
           </Row>
@@ -76,21 +80,26 @@ const PointShare = props => {
             <div className="submission-container">
               <img className="submission" src="" alt="Submission" />
               <InputNumber
-                defaultValue={storyTwoPoints}
+                value={storyTwoPoints}
                 min={10}
                 step={5}
-                onChange={checkValues}
-                onClick={event => setStoryTwoPoints(event.target.value)}
+                onChange={value => {
+                  setStoryTwoPoints(value);
+                  checkValues();
+                }}
+              />
               />
             </div>
             <div className="submission-container">
               <img className="submission" src="" alt="Submission" />
               <InputNumber
-                defaultValue={illustrationTwoPoints}
+                value={illustrationTwoPoints}
                 min={10}
                 step={5}
-                onChange={checkValues}
-                onClick={event => setIllustrationTwoPoints(event.target.value)}
+                onChange={value => {
+                  setIllustrationTwoPoints(value);
+                  checkValues();
+                }}
               />
             </div>
           </Row>
