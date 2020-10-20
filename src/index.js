@@ -36,6 +36,7 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
+import { VotingPage } from './components/pages/VotingPage';
 import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 
@@ -103,6 +104,12 @@ function App() {
           path="/child/writing-sub"
           component={() => (
             <WritingSub LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <SecureRoute
+          path="/child/voting-page"
+          component={() => (
+            <VotingPage LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <SecureRoute
