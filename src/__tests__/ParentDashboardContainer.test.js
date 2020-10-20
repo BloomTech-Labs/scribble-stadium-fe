@@ -27,7 +27,6 @@ jest.mock('@okta/okta-react', () => ({
   },
 }));
 
-// works but has warnings for state and un-mounted components - 100%
 describe('<ParentDashboardContainer /> test suite', () => {
   test('container renders without crashing', async () => {
     const { container, getByText } = render(
