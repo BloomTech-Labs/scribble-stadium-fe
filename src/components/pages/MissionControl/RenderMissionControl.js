@@ -29,11 +29,6 @@ const RenderMissionControl = props => {
       getChildTasks(authState, props.child.id, props.child.cohortId).then(
         res => {
           props.setTasks(res);
-
-          setInstructionText(
-            getMissionControlText(res.HasRead, res.HasDrawn, res.HasWritten)
-          );
-          setShowButton(!res.HasRead || (res.HasWritten && res.HasDrawn));
         }
       );
 
@@ -43,7 +38,12 @@ const RenderMissionControl = props => {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authState, hasRead, hasWritten, hasDrawn]);
+  }, []);
+
+  useEffect(() => {
+    setInstructionText(getMissionControlText(hasRead, hasDrawn, hasWritten));
+    setShowButton(!hasRead || (hasWritten && hasDrawn));
+  }, [hasRead, hasWritten, hasDrawn]);
 
   // Will be for when we are checking whether or not the child has completed a task
   function handleChecked(e) {

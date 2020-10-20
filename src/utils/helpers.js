@@ -25,12 +25,12 @@ export const modalInstructions = {
 };
 
 export const getMissionControlText = (hasRead, hasDrawn, hasWritten) => {
-  if ((hasRead && !hasDrawn) || !hasWritten) {
-    return modalInstructions.missionControl2;
-  } else if (hasRead && hasDrawn && hasWritten) {
-    return modalInstructions.missionControl3;
-  } else if (!hasRead) {
+  if (!hasRead) {
     return modalInstructions.missionControl1;
+  } else if (hasRead && (!hasDrawn || !hasWritten)) {
+    return modalInstructions.missionControl2;
+  } else {
+    return modalInstructions.missionControl3;
   }
 };
 
