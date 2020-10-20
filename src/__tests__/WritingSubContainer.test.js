@@ -1,19 +1,16 @@
-import * as React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { cleanup } from '@testing-library/react';
-
+import { render, cleanup } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
-import LoadingComponent from '../components/common/ParentLoadingComponent';
-import RenderWritingSub from '../components/pages/WritingSub/RenderWritingSub';
-import WritingSubContainer from '../components/pages/WritingSub/WritingSubContainer';
+import { ChildLoadingComponent } from '../components/common';
+import { WritingSub } from '../components/pages/WritingSub';
 
-afterEach(() => {
-  cleanup();
-});
+const mockStore = configureStore([]);
+const store = mockStore();
+
+afterEach(cleanup);
 
 jest.mock('@okta/okta-react', () => ({
   useOktaAuth: () => {
@@ -21,38 +18,22 @@ jest.mock('@okta/okta-react', () => ({
       authState: {
         isAuthenticated: true,
       },
-      authService: {},
+      authService: {
+        getUser: () => Promise.reject(),
+      },
     };
   },
 }));
 
-configure({ adapter: new Adapter() });
-
-describe('<ProfileModalContainer />', () => {
-  configure({ adapter: new Adapter() });
-  const mockStore = configureStore([]);
-  const store = mockStore();
-
-  describe('Render <ProfileModalContainer />', () => {
-    let shallowWrapper;
-    beforeEach(() => {
-      shallowWrapper = shallow(
-        <Router>
-          <Provider store={store}>
-            <WritingSubContainer />
-          </Provider>
-        </Router>
-      ).dive();
-    });
-
-    it('Find WritingSub', () => {
-      expect(shallowWrapper.find(RenderWritingSub));
-    });
-    it('Find Loading Component', () => {
-      expect(shallowWrapper.find(LoadingComponent));
-    });
-    it('Find WritingSubContainer', () => {
-      expect(shallowWrapper).toMatchSnapshot();
-    });
+describe('<WritingSub /> test suite', () => {
+  test('container renders without crashing', async () => {
+    const { getByText } = render(
+      <Router>
+        <Provider store={store}>
+          <WritingSub LoadingComponent={ChildLoadingComponent} />
+        </Provider>
+      </Router>
+    );
+    expect(getByText(/loading/i)).toBeInTheDocument();
   });
 });

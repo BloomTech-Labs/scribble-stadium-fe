@@ -1,52 +1,41 @@
-import * as React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { BrowserRouter as Router } from 'react-router-dom';
-
+import React from 'react';
+import { render, cleanup } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
 
-import LoadingComponent from '../components/common/ParentLoadingComponent';
-import RenderParentDashboard from '../components/pages/ParentDashboard/RenderParentDashboard';
+import { ParentLoadingComponent } from '../components/common';
 import ParentDashboardContainer from '../components/pages/ParentDashboard/ParentDashboardContainer';
+
+const mockStore = configureStore([]);
+const store = mockStore();
+
+afterEach(cleanup);
+
+jest.mock('react-plotly.js', () => {});
+
 jest.mock('@okta/okta-react', () => ({
   useOktaAuth: () => {
     return {
       authState: {
         isAuthenticated: true,
       },
-      authService: {},
+      authService: {
+        getUser: () => Promise.reject(),
+      },
     };
   },
 }));
 
-configure({ adapter: new Adapter() });
-
-describe('<ParentDashboardContainer />', () => {
-  configure({ adapter: new Adapter() });
-  const mockStore = configureStore([]);
-  const store = mockStore();
-
-  describe('Render <ParentDashboardContainer />', () => {
-    let shallowWrapper;
-    beforeEach(() => {
-      shallowWrapper = shallow(
-        <Router>
-          <Provider store={store}>
-            <ParentDashboardContainer />
-          </Provider>
-        </Router>
-      ).dive();
-    });
-
-    it('Find ParentDashboard', () => {
-      expect(shallowWrapper.find(RenderParentDashboard));
-    });
-    it('Find Loading Component', () => {
-      expect(shallowWrapper.find(LoadingComponent));
-    });
-    it('Find ParentDashboardContainer', () => {
-      expect(shallowWrapper).toMatchSnapshot();
-    });
+describe('<ParentDashboardContainer /> test suite', () => {
+  test('container renders without crashing', async () => {
+    const { container, getByText } = render(
+      <Provider store={store}>
+        <ParentDashboardContainer LoadingComponent={ParentLoadingComponent} />
+      </Provider>,
+      { wrapper: MemoryRouter }
+    );
+    expect(container).toBeInTheDocument();
+    expect(getByText(/loading/i)).toBeInTheDocument();
   });
 });

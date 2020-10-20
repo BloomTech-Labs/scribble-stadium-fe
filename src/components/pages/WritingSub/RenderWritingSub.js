@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row } from 'antd';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { Header } from '../../common';
 import { UploadDocs } from '../../common/';
@@ -10,11 +11,32 @@ import { modalInstructions } from '../../../utils/helpers';
 import { tasks } from '../../../state/actions';
 
 export const RenderWritingSub = props => {
+  //Modal state
+  const [modalVisible, setModalVisible] = useState(true);
+  const [modalText, setModalText] = useState('');
+
+  const { push } = useHistory();
+
+  const handleSubmit = () => {
+    setModalVisible(true);
+    setModalText(modalInstructions.submissionComplete);
+  };
+
   return (
     <>
       <Header title="PENCILS READY?" />
       <InstructionsModal
-        instructions={modalInstructions.writingSub}
+        modalVisible={modalVisible}
+        handleCancel={() => {
+          setModalVisible(false);
+          if (props.tasks.hasWritten) {
+            push('/child/mission-control');
+          }
+        }}
+        handleOk={() => {
+          setModalVisible(false);
+        }}
+        instructions={modalText || modalInstructions.writingSub}
         style={{ fontSize: '1.5rem' }}
       />
       <div className="writing-sub-container">
@@ -33,6 +55,7 @@ export const RenderWritingSub = props => {
             storyId={props.tasks.story_id}
             setSubmitted={props.setHasWritten}
             maxLength={5}
+            handleSubmit={handleSubmit}
           />
         </div>
       </div>
