@@ -9,6 +9,8 @@ import { Provider } from 'react-redux';
 import LoadingComponent from '../components/common/ParentLoadingComponent';
 import RenderFamilySettings from '../components/pages/FamilySettings/RenderFamilySettings';
 import FamilySettingsContainer from '../components/pages/FamilySettings/FamilySettingsContainer';
+
+jest.mock('react-plotly.js', () => {});
 jest.mock('@okta/okta-react', () => ({
   useOktaAuth: () => {
     return {
