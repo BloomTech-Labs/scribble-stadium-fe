@@ -2,7 +2,7 @@ import { SmileFilled } from '@ant-design/icons';
 import { Layout, Spin } from 'antd';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ParentNavSider from './ParentNavSider';
+import ParentNavSider from '../common/ParentNavSider';
 
 function ParentLoadingComponent(props) {
   const { message } = props;
