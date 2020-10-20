@@ -25,8 +25,8 @@ const MissionControlContainer = ({ LoadingComponent, ...props }) => {
         }
       })
       .catch(err => {
-        isSubscribed = false;
-        return setUserInfo(null);
+        // isSubscribed = false;
+        setUserInfo(null);
       });
     return () => (isSubscribed = false);
   }, [memoAuthService]);

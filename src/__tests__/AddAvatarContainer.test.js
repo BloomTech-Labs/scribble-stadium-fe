@@ -1,24 +1,50 @@
-import * as React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { BrowserRouter as Router } from 'react-router-dom';
-
+import React from 'react';
+import { render, cleanup } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import LoadingComponent from '../components/common/ParentLoadingComponent';
-import RenderAddAvatar from '../components/pages/AddAvatarForm/RenderAddAvatar';
 import AddAvatarContainer from '../components/pages/AddAvatarForm/AddAvatarContainer';
+import { ParentLoadingComponent } from '../components/common';
+
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import RenderAddAvatar from '../components/pages/AddAvatarForm/RenderAddAvatar';
+import LoadingComponent from '../components/common/ParentLoadingComponent';
+
+const mockStore = configureStore([]);
+const store = mockStore();
+
+afterEach(() => {
+  cleanup();
+});
+
 jest.mock('@okta/okta-react', () => ({
   useOktaAuth: () => {
     return {
       authState: {
         isAuthenticated: true,
       },
-      authService: {},
+      authService: {
+        getUser: () => Promise.reject(),
+      },
     };
   },
 }));
+
+describe('<AddAvatarContainer /> test suite', () => {
+  test('container renders without crashing', async () => {
+    const { container, getByText } = render(
+      <Router>
+        <Provider store={store}>
+          <AddAvatarContainer LoadingComponent={ParentLoadingComponent} />
+        </Provider>
+      </Router>
+    );
+    expect(container).toBeInTheDocument();
+    expect(getByText(/loading/i)).toBeInTheDocument();
+  });
+});
 
 configure({ adapter: new Adapter() });
 
