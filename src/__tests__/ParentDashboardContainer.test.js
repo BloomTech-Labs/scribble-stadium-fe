@@ -9,6 +9,8 @@ import { Provider } from 'react-redux';
 import LoadingComponent from '../components/common/ParentLoadingComponent';
 import RenderParentDashboard from '../components/pages/ParentDashboard/RenderParentDashboard';
 import ParentDashboardContainer from '../components/pages/ParentDashboard/ParentDashboardContainer';
+
+jest.mock('react-plotly.js', () => {});
 jest.mock('@okta/okta-react', () => ({
   useOktaAuth: () => {
     return {
