@@ -1,0 +1,33 @@
+.voting-container {
+  height: 70vh;
+  .main-row {
+    height: 100%;
+  }
+
+  .left-half .image-and-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media @tablet {
+      margin-top: 5%;
+    }
+    @media @mobile {
+      margin-top: 5%;
+    }
+  }
+  .left-half {
+    background: #b5d33d;
+    cursor: pointer;
+    position: relative;
+    border: 7px solid #292929;
+    box-sizing: border-box;
+  }
+  .right-half {
+    background: #fed23f;
+    cursor: pointer;
+    position: relative;
+    border: 7px solid #292929;
+    box-sizing: border-box;
+  }
+}
