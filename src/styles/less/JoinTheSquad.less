@@ -4,9 +4,9 @@
 .JoinSquadContainer {
   height: 70vh;
   display: flex;
-  @media @tablet{
+  @media @tablet {
     flex-direction: column;
-}
+  }
 }
 
 .joinSquad1 {
@@ -18,37 +18,35 @@
   background-color: #fed23f;
   height: 100%;
   display: flex;
-  justify-content: center;
   flex-direction: column;
 }
 
 .joinSquad1,
 .joinSquad2 {
   border: 5px solid #292929;
+  position: relative;
 }
 
 .imgContain1 {
   display: flex;
-  padding-bottom: 10%;
+  position: relative;
+  flex-direction: column;
   @media @tablet {
-      padding-left: 5%;
-      padding-bottom: 0%;
+    padding-left: 5%;
+    padding-bottom: 0%;
   }
-  
 }
 
 .imgContain2 {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 70vh;
-  
-  
+  flex-direction: column;
+  height: 69vh;
+  position: relative;
 }
 .button {
   display: flex;
   justify-content: flex-end;
-  margin:3%;
+  margin: 3%;
 }
 .sharePoints {
   background: #eb7d5b;
@@ -64,4 +62,39 @@ img{
     @media @tablet{
         width:70%;
     }
+}
+
+.star {
+  z-index: 1;
+  margin-top: 20%;
+  
+}
+
+.wordBubble {
+  z-index: 2;
+  position: fixed;
+}
+
+.wordBubble2 {
+  z-index: 2;
+  position: fixed;
+  margin-left: 20%;
+  margin-top: 0%;
+}
+
+.text{
+  z-index: 3;
+  position: fixed;
+  margin-top: 5%;
+  margin-left: 4%;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+}
+.text2{
+  z-index: 3;
+  position: fixed;
+  margin-top: 5%;
+  margin-left: 24%;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
 }
