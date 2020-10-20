@@ -243,7 +243,7 @@ const getChildTeam = async (authState, childId) => {
       getAuthHeader(authState)
     ).then(response => {
       console.log(response);
-      return response;
+      return response.data;
     });
   } catch (error) {
     return new Promise(() => {
@@ -257,7 +257,7 @@ const getChildTeam = async (authState, childId) => {
  *
  * @param {Object} authState necessary for API functionality
  * @param {Object} teamPoints these are the points assigned for each of the submissions
- * @returns {}  UNKONWN RIGHT NOW
+ * @returns {Array} with id reference to the vote
  */
 const submitPoints = async (authState, teamPoints) => {
   try {
@@ -267,12 +267,12 @@ const submitPoints = async (authState, teamPoints) => {
       getAuthHeader(authState)
     ).then(response => {
       console.log(response);
-      return response;
+      return response.data;
     });
   } catch (error) {
     return new Promise(() => {
       console.log(error);
-      return [error];
+      return [];
     });
   }
 };
@@ -290,12 +290,12 @@ const getChildSquad = async (authState, childId) => {
       getAuthHeader(authState)
     ).then(response => {
       console.log(response);
-      return response;
+      return response.data;
     });
   } catch (error) {
     return new Promise(() => {
       console.log(error);
-      return [error];
+      return [];
     });
   }
 };
@@ -313,12 +313,12 @@ const getChildFaceoffs = async (authState, squadId) => {
       getAuthHeader(authState)
     ).then(response => {
       console.log(response);
-      return response;
+      return response.data;
     });
   } catch (error) {
     return new Promise(() => {
       console.log(error);
-      return [error];
+      return [];
     });
   }
 };
@@ -327,14 +327,14 @@ const getChildFaceoffs = async (authState, squadId) => {
  *
  * @param {Object} authState necessary for API functionality
  * @param {Object} voteInfo includes the Vote, the MemberID, and the FaceoffID
- * @returns UNKNOWN right now
+ * @returns {Array} with id reference to the vote
  */
 const postVotes = async (authState, voteInfo) => {
   try {
     return apiAuthPost(`/game/votes`, voteInfo, getAuthHeader(authState)).then(
       response => {
         console.log(response);
-        return response;
+        return response.data;
       }
     );
   } catch (error) {
@@ -359,7 +359,7 @@ const getGameVotes = async (authState, squadId, memberId) => {
       getAuthHeader(authState)
     ).then(response => {
       console.log(response);
-      return response;
+      return response.data;
     });
   } catch (error) {
     return new Promise(() => {
