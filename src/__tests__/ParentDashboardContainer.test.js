@@ -12,6 +12,8 @@ const store = mockStore();
 
 afterEach(cleanup);
 
+jest.mock('react-plotly.js', () => {});
+
 jest.mock('@okta/okta-react', () => ({
   useOktaAuth: () => {
     return {

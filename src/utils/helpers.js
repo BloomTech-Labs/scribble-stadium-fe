@@ -23,3 +23,34 @@ export const modalInstructions = {
   sharePoints:
     "Ready Squad! Read your partner's story, view their drawing and share some points.",
 };
+
+export const getMissionControlText = (hasRead, hasDrawn, hasWritten) => {
+  if ((hasRead && !hasDrawn) || !hasWritten) {
+    return modalInstructions.missionControl2;
+  } else if (hasRead && hasDrawn && hasWritten) {
+    return modalInstructions.missionControl3;
+  } else if (!hasRead) {
+    return modalInstructions.missionControl1;
+  }
+};
+
+export const progressInfo = {
+  welcome: 'Welcome to the Progress Page!',
+  explanation:
+    "Below you will see some graphs representing what we at Story Squad call our 'Squad Score'. What exactly is a Squad Score? We're glad you asked!",
+  isTitle: 'What Squad Score IS:',
+  is: [
+    'Built just for use in the context of Story Squad, attempting to capture qualitative writing features in quantitative terms',
+    'Based on text analysis we conduct automatically on every submitted story',
+    'Made up of some factors based on real writing complexity measures (such as grammatical syntax, vocabulary word usage, word length, etc) and others geared specifically toward measures of creative writing',
+    'Used to show a child’s “progress” and to group kids into their weekly squad with other children who had similar Squad Scores on their submissions that week',
+  ],
+  isNotTitle: 'What Squad Score is NOT:',
+  isNot: [
+    'Intended to be an indicator of your child’s writing ability',
+    'Free from error -- while messy handwriting or spelling mistakes are not penalized, they can impact transcription accuracy, which in turn can cause variability in their Squad Score',
+    'A replacement for a formal or school-based writing skills assessment',
+  ],
+  ending:
+    "We provide you with these visualizations so you can be involved and engaged in your child's Story Squad experience. Feel free to check this page regularly, because we'll update it weekly with every new submission!",
+};

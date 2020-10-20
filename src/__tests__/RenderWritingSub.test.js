@@ -3,6 +3,7 @@ import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { cleanup } from '@testing-library/react';
 import { Row } from 'antd';
+import { useHistory } from 'react-router-dom';
 
 import { RenderWritingSub } from '../components/pages/WritingSub/RenderWritingSub';
 import InstructionsModal from '../components/common/InstructionsModal';
@@ -13,6 +14,12 @@ configure({ adapter: new Adapter() });
 afterEach(() => {
   cleanup();
 });
+
+jest.mock('react-router-dom', () => ({
+  useHistory: () => ({
+    push: jest.fn(),
+  }),
+}));
 
 describe('<RenderWritingSub />', () => {
   let wrapper;

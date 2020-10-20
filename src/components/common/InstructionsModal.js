@@ -1,31 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Modal, Button } from 'antd';
 
 const InstructionsModal = props => {
-  const [visible, setVisible] = useState(false);
-
-  const showModal = () => {
-    setVisible(true);
-  };
-
-  const handleCancel = e => {
-    setVisible(false);
-  };
-
-  const handleOk = e => {
-    console.log(e);
-    setVisible(false);
-  };
-
-  useEffect(() => {
-    showModal();
-  }, []);
+  const {
+    modalVisible,
+    style,
+    instructions,
+    showOkButton = false,
+    handleCancel,
+    handleOk,
+  } = props;
 
   return (
     <>
       <Modal
         className="instructions-modal"
-        visible={visible}
+        visible={modalVisible}
         keyboard={true}
         width={'70%'}
         onCancel={handleCancel}
@@ -35,8 +25,8 @@ const InstructionsModal = props => {
         footer={null}
         closeIcon={null}
       >
-        <p style={props.style}>{props.instructions}</p>
-        {props.showOkButton && (
+        <p style={style}>{instructions}</p>
+        {showOkButton && (
           <Button onClick={handleCancel} className="accept-button">
             I Accept!!!
           </Button>
