@@ -40,23 +40,10 @@ const apiAuthGet = (endpoint, authHeader) => {
 const apiAuthPost = (endpoint, body, authHeader) => {
   return axios.post(`${apiUrl}${endpoint}`, body, { headers: authHeader });
 };
-
 const apiAuthPut = (endpoint, body, authHeader) => {
   return axios.put(`${apiUrl}${endpoint}`, body, { headers: authHeader });
 };
 
-const postNewChild = (authState, child) => {
-  try {
-    return apiAuthPost('/child', child, getAuthHeader(authState)).then(
-      response => response.data
-    );
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
-  }
-};
 const getProfileData = authState => {
   try {
     return apiAuthGet('/profiles', getAuthHeader(authState)).then(
@@ -70,10 +57,19 @@ const getProfileData = authState => {
   }
 };
 
-const getStory = (authState, id) => {
+// Parent API Calls
+
+/**
+ * @param {Object} authState necessary for API functionality
+ * @param {number} childId id of the child needed for information
+ * @return {Object} child information containing Name, PIN, IsDyslexic, CohortID, ParentID, AvatarID, and GradeLevelID
+ */
+const getChild = (authState, childId) => {
   try {
-    return apiAuthGet(`/stories/${id}`, getAuthHeader(authState)).then(
-      response => response.data
+    return apiAuthGet(`/child/${childId}`, getAuthHeader(authState)).then(
+      response => {
+        return response.data;
+      }
     );
   } catch (error) {
     return new Promise(() => {
@@ -81,6 +77,51 @@ const getStory = (authState, id) => {
     });
   }
 };
+
+/**
+ *
+ * @param {Object} authState necessary for API functionality
+ * @param {Object} child object containing fields for Name, PIN, IsDyslexic, CohortID, ParentID, AvatarID, and GradeLevelID
+ * @returns {number} child id for child that was just created
+ */
+const postNewChild = (authState, child) => {
+  try {
+    return apiAuthPost('/child', child, getAuthHeader(authState)).then(
+      response => {
+        return response.data;
+      }
+    );
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [];
+    });
+  }
+};
+
+// Child API Calls
+
+/**
+ *
+ * @param {Object} authState necessary for API functionality
+ * @param {number} cohortId the cohort id of the respective child
+ * @returns {Promise} a promise that resolves to an object containing {DrawingPrompt, ID, Title, URL, and WritingPrompt}
+ */
+const getStory = (authState, cohortId) => {
+  try {
+    return apiAuthGet(
+      `/story?cohortId=${cohortId}`,
+      getAuthHeader(authState)
+    ).then(response => {
+      return response.data;
+    });
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+    });
+  }
+};
+
 /**
  * Reads in gradelevels and avatars from the database to enforce referential integrity
  * @param {Object} authState necessary for API functionality
@@ -99,17 +140,6 @@ const getChildFormValues = async authState => {
       console.log(err);
       return [];
     });
-  }
-};
-
-const postNewAvatar = async (authState, body) => {
-  try {
-    return apiAuthPost('/avatars', body, getAuthHeader(authState)).then(
-      res => res.data
-    );
-  } catch (err) {
-    console.log(err);
-    return [];
   }
 };
 
@@ -165,7 +195,9 @@ const getChildTasks = async (authState, childid, storyid) => {
     return apiAuthGet(
       `/submission?childId=${childid}&storyId=${storyid}`,
       getAuthHeader(authState)
-    ).then(response => response.data);
+    ).then(response => {
+      return response.data;
+    });
   } catch (err) {
     return new Promise(() => {
       console.log(err);
@@ -195,6 +227,25 @@ const markAsRead = async (authState, submissionId) => {
   }
 };
 
+// Moderator API Calls
+
+/**
+ *
+ * @param {Object} authState necessary for API functionality
+ * @param {File, Array} body can either be one file or an array of files to upload
+ * @returns {Array} the newly created avatar(s)
+ */
+const postNewAvatar = async (authState, body) => {
+  try {
+    return apiAuthPost('/avatars', body, getAuthHeader(authState)).then(
+      res => res.data
+    );
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+};
+
 export {
   sleep,
   getExampleData,
@@ -204,12 +255,13 @@ export {
   getStory,
   getAuthHeader,
   apiAuthPost,
+  apiAuthPut,
   postNewChild,
   getChildFormValues,
-  postNewAvatar,
   getChildTasks,
   postNewWritingSub,
-  apiAuthPut,
   markAsRead,
   postNewDrawingSub,
+  getChild,
+  postNewAvatar,
 };

@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Button, Layout } from 'antd';
 
+import LargeModal from './LargeModal';
+
 const ChildCard = props => {
+  const [visible, setVisible] = useState(false);
+
   return (
     <Card className="child-card">
       <Layout className="child-info">
@@ -16,9 +20,20 @@ const ChildCard = props => {
           {props.name}
         </h2>
       </Layout>
-      <Button type="primary" size="large" htmlType="submit">
+      <Button
+        type="primary"
+        size="large"
+        htmlType="submit"
+        onClick={() => setVisible(true)}
+      >
         {props.name.toUpperCase()}'S {props.update}
       </Button>
+      <LargeModal
+        visible={visible}
+        setVisible={setVisible}
+        title={`${props.name.toUpperCase()}'s ${props.update} `}
+        modalType="progress"
+      />
     </Card>
   );
 };

@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { InstructionsModal } from '../../common';
+import { modalInstructions } from '../../../utils/helpers';
 
 import draw_icon from '../../../assets/icons/draw_icon.svg';
 import read_icon from '../../../assets/icons/read_icon.svg';
@@ -10,18 +12,34 @@ import write_icon from '../../../assets/icons/write_icon.svg';
 import Checkbox from './Checkbox';
 
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
-import { getChildTasks } from '../../../api';
+import { getChildTasks, getStory } from '../../../api';
 
 const RenderMissionControl = props => {
+  const [showOkButton, setShowOkButton] = useState(false);
   const { push } = useHistory();
   const { authState } = useOktaAuth();
+  const [instructionText, setInstructionText] = useState('');
 
   useEffect(() => {
     if (props.tasks.id === null) {
-      getChildTasks(authState, props.child.id, 10).then(res => {
-        props.setTasks(res);
+      getChildTasks(authState, props.child.id, props.child.cohortId).then(
+        res => {
+          props.setTasks(res);
+          //InstructionsModal conditions to display accept button:
+          if (res.HasRead) {
+            setShowOkButton(false);
+            setInstructionText(modalInstructions.missionControl2);
+          } else {
+            setShowOkButton(true);
+            setInstructionText(modalInstructions.missionControl1);
+          }
+        }
+      );
+      getStory(authState, props.child.cohortId).then(res => {
+        props.setSubmissionInformation(res);
       });
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authState]);
 
@@ -47,9 +65,14 @@ const RenderMissionControl = props => {
   return (
     <>
       <Header title="MISSION" />
+      <InstructionsModal
+        instructions={instructionText}
+        style={{ fontSize: '2rem' }}
+        showOkButton={showOkButton}
+      />
       <div className="mission-container">
         <Row className="main-row">
-          <Col className="read" span={12} onClick={handleReadStory}>
+          <Col className="read" xs={24} sm={12} onClick={handleReadStory}>
             <Checkbox
               className="checking-box"
               defaultChecked={false}
@@ -62,7 +85,7 @@ const RenderMissionControl = props => {
               <p className="mission-control-text">Read</p>
             </Col>
           </Col>
-          <Col className="write-and-draw" span={12}>
+          <Col className="write-and-draw" xs={24} sm={12}>
             <Row className="write" onClick={handleWrite}>
               <Checkbox
                 className="checking-box"
@@ -72,7 +95,11 @@ const RenderMissionControl = props => {
               />
 
               <Col className="image-and-text-container">
-                <img src={write_icon} alt="writing icon" />
+                <img
+                  className="WritingandDrawingIcon"
+                  src={write_icon}
+                  alt="writing icon"
+                />
                 <p className="mission-control-text">Write</p>
               </Col>
             </Row>
@@ -84,7 +111,11 @@ const RenderMissionControl = props => {
                 isCompleted={props.tasks.hasDrawn}
               />
               <Col className="image-and-text-container">
-                <img src={draw_icon} alt="drawing icon" />
+                <img
+                  className="WritingandDrawingIcon"
+                  src={draw_icon}
+                  alt="drawing icon"
+                />
                 <p className="mission-control-text">Draw</p>
               </Col>
             </Row>

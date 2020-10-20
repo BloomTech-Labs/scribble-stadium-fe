@@ -17,3 +17,8 @@ export const SET_HAS_DRAWN = 'SET_HAS_DRAWN';
 export const setHasDrawn = () => dispatch => {
   dispatch({ type: SET_HAS_DRAWN });
 };
+
+export const SET_SUBMISSION_INFORMATION = 'SET_SUBMISSION_INFORMATION';
+export const setSubmissionInformation = promptData => dispatch => {
+  dispatch({ type: SET_SUBMISSION_INFORMATION, payload: promptData });
+};

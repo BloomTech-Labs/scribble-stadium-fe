@@ -5,9 +5,10 @@ import ParentNavSider from '../../common/ParentNavSider';
 
 import { useHistory } from 'react-router-dom';
 import { getChildFormValues } from '../../../api';
-import { postNewChild } from '../../../api';
+import { postNewChild, getChild } from '../../../api';
 
 import { Layout, Form, Input, Button, Select, Switch, Typography } from 'antd';
+import { connect } from 'react-redux';
 
 const { Title } = Typography;
 const { Option } = Select;
@@ -35,11 +36,22 @@ const RenderAddChild = props => {
     });
   }, [authState]);
 
+  /**
+   *
+   * @param {Object} values fields including Name, PIN, IsDyslexic, CohortID, ParentID, AvatarID, and GradeLevelID
+   * @returns {number} the newly created child id is put into the getChild api call
+   */
   const onFinish = values => {
-    console.log('values', values);
-
-    postNewChild(authState, { ...values, ParentID: 1 });
-    push('/parent-dashboard');
+    postNewChild(authState, {
+      ...values,
+      ParentID: props.parent.id,
+      CohortID: 1,
+    }).then(res => {
+      getChild(authState, res).then(child => {
+        props.setChildren({ ...child });
+      });
+    });
+    push('/parent/dashboard');
   };
 
   return (
@@ -90,15 +102,12 @@ const RenderAddChild = props => {
           </Form.Item>
           <Form.Item {...dyslexia}>
             <Form.Item
+              initialValue={false}
               name="IsDyslexic"
               label="Dyslexia"
               valuePropName="checked"
             >
-              <Switch
-                checkedChildren="On"
-                unCheckedChildren="Off"
-                defaultChecked
-              />
+              <Switch checkedChildren="On" unCheckedChildren="Off" />
             </Form.Item>
           </Form.Item>
           <Form.Item wrapperCol={{ span: 20, offset: 6 }}>
@@ -112,4 +121,9 @@ const RenderAddChild = props => {
   );
 };
 
-export default RenderAddChild;
+export default connect(
+  state => ({
+    parent: state.parent,
+  }),
+  {}
+)(RenderAddChild);

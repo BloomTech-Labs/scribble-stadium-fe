@@ -5,7 +5,7 @@ import { cleanup } from '@testing-library/react';
 import { Button } from 'antd';
 
 import { RenderDrawingSub } from '../components/pages/DrawingSub/RenderDrawingSub';
-import SubmissionModal from '../components/common/SubmissionModal';
+import InstructionsModal from '../components/common/InstructionsModal';
 import Header from '../components/common/Header';
 
 configure({ adapter: new Adapter() });
@@ -19,18 +19,20 @@ describe('<RenderDrawingSub />', () => {
 
   it('Should render <SubmissionModal />', () => {
     wrapper = shallow(
-      <RenderDrawingSub instructions={() => {}} tasks={() => {}} />
+      <RenderDrawingSub instructions={() => {}} tasks={{ story: {} }} />
     );
     wrapper.setProps({ instructions: { inst: '' } });
-    expect(wrapper.find(SubmissionModal)).toHaveLength(1);
+    expect(wrapper.find(InstructionsModal)).toHaveLength(1);
   });
   it('Should render <Header />', () => {
-    wrapper = shallow(<RenderDrawingSub title={() => {}} tasks={() => {}} />);
+    wrapper = shallow(
+      <RenderDrawingSub title={() => {}} tasks={{ story: {} }} />
+    );
     wrapper.setProps({ title: { title: '' } });
     expect(wrapper.find(Header)).toHaveLength(1);
   });
   it('should render a Button in the antD form', () => {
-    wrapper = shallow(<RenderDrawingSub tasks={() => {}} />);
+    wrapper = shallow(<RenderDrawingSub tasks={{ story: {} }} />);
     expect(wrapper.find(Button));
   });
 });

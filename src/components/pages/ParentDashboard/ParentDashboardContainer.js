@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
-import ParentDashboard from './ParentDashboard';
+import RenderParentDashboard from './RenderParentDashboard';
 import { connect } from 'react-redux';
 
 function ParentDashboardContainer({ LoadingComponent, ...props }) {
@@ -35,7 +35,7 @@ function ParentDashboardContainer({ LoadingComponent, ...props }) {
         <LoadingComponent message="Loading..." />
       )}
       {authState.isAuthenticated && userInfo && (
-        <ParentDashboard
+        <RenderParentDashboard
           {...props}
           userInfo={userInfo}
           authService={authService}

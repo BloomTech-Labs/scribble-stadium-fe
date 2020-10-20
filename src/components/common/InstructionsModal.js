@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Modal } from 'antd';
+import { Modal, Button } from 'antd';
 
-const SubmissionModal = props => {
+const InstructionsModal = props => {
   const [visible, setVisible] = useState(false);
 
   const showModal = () => {
@@ -24,7 +24,7 @@ const SubmissionModal = props => {
   return (
     <>
       <Modal
-        className="submission-modal"
+        className="instructions-modal"
         visible={visible}
         keyboard={true}
         width={'70%'}
@@ -35,10 +35,15 @@ const SubmissionModal = props => {
         footer={null}
         closeIcon={null}
       >
-        <p>{props.instructions}</p>
+        <p style={props.style}>{props.instructions}</p>
+        {props.showOkButton && (
+          <Button onClick={handleCancel} className="accept-button">
+            I Accept!!!
+          </Button>
+        )}
       </Modal>
     </>
   );
 };
 
-export default SubmissionModal;
+export default InstructionsModal;

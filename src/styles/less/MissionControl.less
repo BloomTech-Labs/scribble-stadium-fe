@@ -1,5 +1,6 @@
 @import '~antd/dist/antd.less';
 @import '~antd/lib/style/themes/default.less';
+@import 'variables.less';
 
 .mission-container {
   height: 70vh;
@@ -13,6 +14,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media @tablet {
+    margin-top: 5%;
+  }
+  @media @mobile {
+    margin-top: 5%;
+  }
 }
 
 .write .image-and-text-container {
@@ -33,11 +41,25 @@
   position: relative;
 }
 
+.read:hover {
+  background: lighten(@conifer, 10%);
+
+  .mission-control-text {
+    font-size: 4.5rem;
+  }
+}
+
 .checking-box {
   position: absolute;
   top: 20px;
   right: 20px;
   cursor: not-allowed;
+  @media @tablet, @mobile {
+    height: 20px;
+    width: 20px;
+    top: 10px;
+    right: 10px;
+  }
 }
 
 .ant-checkbox-inner,
@@ -72,6 +94,23 @@
   flex-direction: column;
 }
 
+.write:hover {
+  background: lighten(@burnt-sienna, 10%);
+
+  .mission-control-text {
+    font-size: 4.5rem;
+  }
+}
+
+.WritingandDrawingIcon {
+  @media @tablet, @mobile {
+    max-width: 60%;
+    max-height: 60%;
+    margin-right: 7%;
+    margin-top: 5%;
+  }
+}
+
 .draw {
   background: #fed23f;
   height: 50%;
@@ -85,6 +124,14 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.draw:hover {
+  background: lighten(@bright-sun, 10%);
+
+  .mission-control-text {
+    font-size: 4.5rem;
+  }
 }
 
 p.mission-control-text {
@@ -101,7 +148,7 @@ p.mission-control-text {
   align-items: flex-start;
 }
 
-.ant-col.ant-col-12.read,
+.ant-col.read,
 .ant-row.write,
 .ant-row.draw {
   border: 5px solid #292929;

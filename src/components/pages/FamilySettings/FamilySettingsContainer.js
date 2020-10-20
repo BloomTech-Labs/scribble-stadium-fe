@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
-import FamilySettings from './FamilySettings';
+import RenderFamilySettings from './RenderFamilySettings';
 
 function FamilySettingsContainer({ LoadingComponent }) {
   const { authState, authService } = useOktaAuth();
@@ -34,7 +34,7 @@ function FamilySettingsContainer({ LoadingComponent }) {
         <LoadingComponent message="Loading..." />
       )}
       {authState.isAuthenticated && userInfo && (
-        <FamilySettings userInfo={userInfo} authService={authService} />
+        <RenderFamilySettings userInfo={userInfo} authService={authService} />
       )}
     </>
   );
