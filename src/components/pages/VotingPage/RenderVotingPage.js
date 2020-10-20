@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from '../../common';
-import { Row, Col } from 'antd';
+import { Row, Col, Button } from 'antd';
 
 const RenderVotingPage = props => {
   return (
@@ -12,6 +12,7 @@ const RenderVotingPage = props => {
           <Col className="left-half" xs={24} sm={12}></Col>
           <Col className="right-half" xs={24} sm={12}></Col>
         </Row>
+        <Button className="submit-button">Submit</Button>
       </div>
     </>
   );
