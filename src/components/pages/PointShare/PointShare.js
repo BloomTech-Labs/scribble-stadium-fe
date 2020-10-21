@@ -13,98 +13,126 @@ const PointShare = props => {
   const [illustrationTwoPoints, setIllustrationTwoPoints] = useState(0);
 
   const checkValues = () => {
-    setTotalPoints(prevState => {
-      var submittedTotal =
-        storyOnePoints +
-        storyTwoPoints +
-        illustrationOnePoints +
-        illustrationTwoPoints;
-      if (submittedTotal > 100) {
-        return prevState;
-      } else {
-        return submittedTotal;
-      }
-    });
+    // var submittedTotal =
+    //     storyOnePoints +
+    //     storyTwoPoints +
+    //     illustrationOnePoints +
+    //     illustrationTwoPoints;
+    // setTotalPoints(100 - submittedTotal);
   };
 
-  const formSubmit = () => {};
+  // const formSubmit = () => {};
 
   return (
     <>
-      <Header title="SHARE POINTS" />
-      <Row className="main-row">
-        <Col className="squad-col" span={6}>
-          <Row className="teammate-one">
-            <img
-              className="teammate-one-avatar"
-              src={placeholder}
-              alt="Child Avatar"
-            />
-          </Row>
-          <Row className="teammate-two">
-            <img
-              className="teammate-one-avatar"
-              src={placeholder}
-              alt="Child Avatar"
-            />
-          </Row>
-        </Col>
-        <Col className="points-col" span={18}>
-          <Row className="teammate-one-points">
-            <div className="submission-container">
-              <img className="submission" src="" alt="Submission" />
-              <InputNumber
-                value={storyOnePoints}
-                min={10}
-                step={5}
-                onChange={value => {
-                  setStoryOnePoints(value);
-                  checkValues();
-                }}
+      {/* Header requires countDown={true}  */}
+      <Header
+        title="SHARE POINTS"
+        pointsRemaining={true}
+        points={totalPoints}
+      />
+      <div className="point-share-container">
+        <Row className="team-row">
+          <Col className="squad-col" span={6}>
+            <Row className="teammate-one">
+              <img
+                className="teammate-one-avatar"
+                src={placeholder}
+                alt="Child Avatar"
               />
-            </div>
-            <div className="submission-container">
-              <img className="submission" src="" alt="Submission" />
-              <InputNumber
-                value={illustrationOnePoints}
-                min={10}
-                step={5}
-                onChange={value => {
-                  setIllustrationOnePoints(value);
-                  checkValues();
-                }}
+            </Row>
+            <Row className="teammate-two">
+              <img
+                className="teammate-one-avatar"
+                src={placeholder}
+                alt="Child Avatar"
               />
-            </div>
-          </Row>
-          <Row className="teammate-two-points">
-            <div className="submission-container">
-              <img className="submission" src="" alt="Submission" />
-              <InputNumber
-                value={storyTwoPoints}
-                min={10}
-                step={5}
-                onChange={value => {
-                  setStoryTwoPoints(value);
-                  checkValues();
-                }}
-              />
-              />
-            </div>
-            <div className="submission-container">
-              <img className="submission" src="" alt="Submission" />
-              <InputNumber
-                value={illustrationTwoPoints}
-                min={10}
-                step={5}
-                onChange={value => {
-                  setIllustrationTwoPoints(value);
-                  checkValues();
-                }}
-              />
-            </div>
-          </Row>
-        </Col>
-      </Row>
+            </Row>
+          </Col>
+          <Col className="points-col" span={18}>
+            <Row className="teammate-one-points">
+              <div className="submission-container">
+                <img className="submission" src="" alt="Submission" />
+                <InputNumber
+                  value={storyOnePoints}
+                  min={0}
+                  step={5}
+                  onChange={value => {
+                    setStoryOnePoints(value);
+                    setTotalPoints(
+                      100 -
+                        (value +
+                          storyTwoPoints +
+                          illustrationOnePoints +
+                          illustrationTwoPoints)
+                    );
+                    checkValues();
+                  }}
+                />
+              </div>
+              <div className="submission-container">
+                <img className="submission" src="" alt="Submission" />
+                <InputNumber
+                  value={illustrationOnePoints}
+                  min={0}
+                  step={5}
+                  onChange={value => {
+                    setIllustrationOnePoints(value);
+                    setTotalPoints(
+                      100 -
+                        (value +
+                          storyTwoPoints +
+                          storyOnePoints +
+                          illustrationTwoPoints)
+                    );
+                    checkValues();
+                  }}
+                />
+              </div>
+            </Row>
+            <Row className="teammate-two-points">
+              <div className="submission-container">
+                <img className="submission" src="" alt="Submission" />
+                <InputNumber
+                  value={storyTwoPoints}
+                  min={0}
+                  step={5}
+                  onChange={value => {
+                    setStoryTwoPoints(value);
+                    setTotalPoints(
+                      100 -
+                        (value +
+                          storyOnePoints +
+                          illustrationOnePoints +
+                          illustrationTwoPoints)
+                    );
+                    checkValues();
+                  }}
+                />
+              </div>
+              <div className="submission-container">
+                <img className="submission" src="" alt="Submission" />
+                <InputNumber
+                  value={illustrationTwoPoints}
+                  min={0}
+                  step={5}
+                  onChange={value => {
+                    setIllustrationTwoPoints(value);
+                    setTotalPoints(
+                      100 -
+                        (value +
+                          storyTwoPoints +
+                          illustrationOnePoints +
+                          storyOnePoints)
+                    );
+                    checkValues();
+                  }}
+                />
+              </div>
+            </Row>
+          </Col>
+        </Row>
+      </div>
     </>
   );
 };
