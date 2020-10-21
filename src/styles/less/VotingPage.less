@@ -1,0 +1,45 @@
+.voting-container {
+  height: 70vh;
+  .main-row {
+    height: 100%;
+  }
+
+  .image-and-check-container {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5%;
+
+    .pdfCard {
+      height: auto;
+      width: 60%;
+      img {
+        width: 90%;
+        padding-right: 0;
+      }
+    }
+
+    @media @tablet {
+      margin-top: 5%;
+    }
+    @media @mobile {
+      margin-top: 5%;
+    }
+  }
+
+  .left-half {
+    background: #429cb5;
+
+    position: relative;
+    border: 7px solid #292929;
+    box-sizing: border-box;
+  }
+  .right-half {
+    background: #fed23f;
+
+    position: relative;
+    border: 7px solid #292929;
+    box-sizing: border-box;
+  }
+}

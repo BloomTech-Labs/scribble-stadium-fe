@@ -7,6 +7,7 @@ import Button from './Button';
 import Header from './Header';
 import UploadDocs from './UploadDocs';
 import InstructionsModal from './InstructionsModal';
+import VotingForm from './VotingForm';
 // notice we're building out a 'package' of reusables here and exporting them as an object of component properties.
 // to use this, simply `import {foo, bar, baz} from '<path-to-this-directory>/ReusableComponents';`
 export {
@@ -19,4 +20,5 @@ export {
   Header,
   UploadDocs,
   InstructionsModal,
+  VotingForm,
 };
