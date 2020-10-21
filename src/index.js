@@ -40,6 +40,7 @@ import { WritingSub } from './components/pages/WritingSub';
 import { PointShare } from './components/pages/PointShare';
 import { SquadUp } from './components/pages/SquadUp';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
+import { JoinTheSquad } from './components/pages/JoinTheSquad';
 
 ReactDOM.render(
   //
@@ -140,6 +141,13 @@ function App() {
           exact
           component={() => (
             <ParentSettings LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
+        <SecureRoute
+          path="/child/join"
+          exact
+          component={() => (
+            <JoinTheSquad LoadingComponent={ChildLoadingComponent} />
           )}
         />
 

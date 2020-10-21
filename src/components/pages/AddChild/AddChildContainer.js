@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
+import { connect } from 'react-redux';
 
 import RenderAddChild from './RenderAddChild';
+import { parent } from '../../../state/actions';
 
-function AddChildContainer({ LoadingComponent }) {
+function AddChildContainer({ LoadingComponent, ...props }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
@@ -34,10 +36,22 @@ function AddChildContainer({ LoadingComponent }) {
         <LoadingComponent message="Loading..." />
       )}
       {authState.isAuthenticated && userInfo && (
-        <RenderAddChild userInfo={userInfo} authService={authService} />
+        <RenderAddChild
+          {...props}
+          userInfo={userInfo}
+          authService={authService}
+        />
       )}
     </>
   );
 }
 
-export default AddChildContainer;
+// export default AddChildContainer;
+export default connect(
+  state => ({
+    parent: state.parent,
+  }),
+  {
+    setChildren: parent.setChildren,
+  }
+)(AddChildContainer);

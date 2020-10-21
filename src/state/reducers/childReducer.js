@@ -7,6 +7,7 @@ const initialState = {
   avatarUrl: null,
   gradeLevel: null,
   parentId: null,
+  cohortId: null,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -19,6 +20,7 @@ export const reducer = (state = initialState, action) => {
         avatarUrl: action.payload.AvatarURL,
         gradeLevel: action.payload.GradeLevel,
         parentId: action.payload.ParentID,
+        cohortId: action.payload.CohortID,
       };
     case global.CLEAR_USERS:
       return initialState;

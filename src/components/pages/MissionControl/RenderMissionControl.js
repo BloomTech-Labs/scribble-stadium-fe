@@ -1,29 +1,49 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from '../../common';
 import { Row, Col, Button } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import { InstructionsModal } from '../../common';
+import { getMissionControlText } from '../../../utils/helpers';
 import draw_icon from '../../../assets/icons/draw_icon.svg';
 import read_icon from '../../../assets/icons/read_icon.svg';
 import write_icon from '../../../assets/icons/write_icon.svg';
 import Checkbox from './Checkbox';
 
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
-import { getChildTasks } from '../../../api';
+import { getChildTasks, getStory } from '../../../api';
+import { tasks } from '../../../state/actions';
 
 const RenderMissionControl = props => {
+  //modal state
+  const [instructionText, setInstructionText] = useState('');
+  const [modalVisible, setModalVisible] = useState(true);
+  const [showButton, setShowButton] = useState(false);
+  const { hasRead, hasWritten, hasDrawn } = props;
+
   const { push } = useHistory();
   const { authState } = useOktaAuth();
 
   useEffect(() => {
     if (props.tasks.id === null) {
-      getChildTasks(authState, props.child.id, 10).then(res => {
-        props.setTasks(res);
+      getChildTasks(authState, props.child.id, props.child.cohortId).then(
+        res => {
+          props.setTasks(res);
+        }
+      );
+
+      getStory(authState, props.child.cohortId).then(res => {
+        props.setSubmissionInformation(res);
       });
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authState]);
+  }, []);
+
+  useEffect(() => {
+    setInstructionText(getMissionControlText(hasRead, hasDrawn, hasWritten));
+    setShowButton(!hasRead || (hasWritten && hasDrawn));
+  }, [hasRead, hasWritten, hasDrawn]);
 
   // Will be for when we are checking whether or not the child has completed a task
   function handleChecked(e) {
@@ -37,11 +57,15 @@ const RenderMissionControl = props => {
   };
   const handleWrite = e => {
     e.stopPropagation();
-    push('/child/writing-sub');
+    if (!hasWritten) {
+      push('/child/writing-sub');
+    }
   };
   const handleDraw = e => {
     e.stopPropagation();
-    push('/child/drawing-sub');
+    if (!hasDrawn) {
+      push('/child/drawing-sub');
+    }
   };
   const handleClick = e => {
     e.stopPropagation();
@@ -51,6 +75,18 @@ const RenderMissionControl = props => {
   return (
     <>
       <Header title="MISSION" />
+      <InstructionsModal
+        modalVisible={modalVisible}
+        handleCancel={() => {
+          setModalVisible(false);
+        }}
+        handleOk={() => {
+          setModalVisible(false);
+        }}
+        instructions={instructionText}
+        style={{ fontSize: '2rem' }}
+        showOkButton={showButton}
+      />
       <div className="mission-container">
         <Row className="main-row">
           <Col className="read" xs={24} sm={12} onClick={handleReadStory}>
@@ -58,7 +94,7 @@ const RenderMissionControl = props => {
               className="checking-box"
               defaultChecked={false}
               onChange={handleChecked}
-              isCompleted={props.tasks.hasRead}
+              isCompleted={hasRead}
             />
 
             <Col className="image-and-text-container">
@@ -72,7 +108,7 @@ const RenderMissionControl = props => {
                 className="checking-box"
                 defaultChecked={false}
                 onChange={handleChecked}
-                isCompleted={props.tasks.hasWritten}
+                isCompleted={hasWritten}
               />
 
               <Col className="image-and-text-container">
@@ -89,7 +125,7 @@ const RenderMissionControl = props => {
                 className="checking-box"
                 defaultChecked={false}
                 onChange={handleChecked}
-                isCompleted={props.tasks.hasDrawn}
+                isCompleted={hasDrawn}
               />
               <Col className="image-and-text-container">
                 <img
@@ -119,6 +155,12 @@ export default connect(
   state => ({
     child: state.child,
     tasks: state.tasks,
+    hasRead: state.tasks.hasRead,
+    hasWritten: state.tasks.hasWritten,
+    hasDrawn: state.tasks.hasDrawn,
   }),
-  {}
+  {
+    setTasks: tasks.setTasks,
+    setSubmissionInformation: tasks.setSubmissionInformation,
+  }
 )(RenderMissionControl);

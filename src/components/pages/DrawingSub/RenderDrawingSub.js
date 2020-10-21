@@ -1,27 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row } from 'antd';
 import { connect } from 'react-redux';
 import { Header } from '../../common';
 import { UploadDocs } from '../../common/';
 import { postNewDrawingSub } from '../../../api/index';
-import { SubmissionModal } from '../../common/index';
+import { InstructionsModal } from '../../common/index';
+import { modalInstructions } from '../../../utils/helpers';
 import { tasks } from '../../../state/actions';
+import { useHistory } from 'react-router-dom';
 
 export const RenderDrawingSub = props => {
-  const inst =
-    'Once you finish your drawing, please take a picture of all of your pages and upload them. After all pages are uploaded, click submit.';
-  // const submissionId = 1;
+  //Modal state
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalText, setModalText] = useState('');
 
+  const { push } = useHistory();
+
+  const handleSubmit = () => {
+    setModalVisible(true);
+    setModalText(modalInstructions.submissionComplete);
+  };
   return (
     <>
       <Header title="READY, SET ...DRAW!" />
-      <SubmissionModal instructions={inst} />
+      <InstructionsModal
+        modalVisible={modalVisible}
+        handleCancel={() => {
+          setModalVisible(false);
+          if (props.hasDrawn) {
+            push('/child/mission-control');
+          }
+        }}
+        handleOk={() => {
+          setModalVisible(false);
+        }}
+        style={{ fontSize: '1.5rem' }}
+        instructions={modalText || modalInstructions.drawingSub}
+      />
       <div className="writing-sub-container">
         <Row className="main-row">
-          <p>Draw a picture of your favorite part of the story.</p>
+          <p>{props.tasks.story.drawingPrompt}</p>
         </Row>
         <div className="upload">
-          <h1>Upload</h1>
+          <h1 className="upload">Upload</h1>
           <UploadDocs
             submitButtonClassname="orange-submit-button"
             uploadButtonText="Choose files from your device"
@@ -32,6 +53,7 @@ export const RenderDrawingSub = props => {
             storyId={props.tasks.story_id}
             setSubmitted={props.setHasDrawn}
             maxLength={1}
+            handleSubmit={handleSubmit}
           />
         </div>
       </div>
@@ -42,6 +64,7 @@ export const RenderDrawingSub = props => {
 export default connect(
   state => ({
     tasks: state.tasks,
+    hasDrawn: state.tasks.hasDrawn,
   }),
   {
     setHasDrawn: tasks.setHasDrawn,

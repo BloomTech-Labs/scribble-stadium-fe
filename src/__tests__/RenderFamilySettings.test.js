@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { cleanup } from '@testing-library/react';
 import { Button, Layout } from 'antd';
 
-import FamilySettings from '../components/pages/FamilySettings/FamilySettings';
+import RenderFamilySettings from '../components/pages/FamilySettings/RenderFamilySettings';
 import ParentNavSider from '../components/common/ParentNavSider';
 
 configure({ adapter: new Adapter() });
@@ -15,6 +15,7 @@ configure({ adapter: new Adapter() });
 afterEach(() => {
   cleanup();
 });
+
 jest.mock('@okta/okta-react', () => ({
   useOktaAuth: () => {
     return {
@@ -33,7 +34,7 @@ const Component = () => {
   return (
     <Router>
       <Provider store={store}>
-        <FamilySettings />
+        <RenderFamilySettings />
       </Provider>
     </Router>
   );

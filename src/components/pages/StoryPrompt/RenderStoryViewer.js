@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import { getStory } from '../../../api/index';
 import { Header } from '../../common';
 import { useOktaAuth } from '@okta/okta-react';
 import { Button } from 'antd';
@@ -15,19 +14,12 @@ import { tasks } from '../../../state/actions';
 const RenderStoryViewer = props => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
-  const [storyPrompt, setStoryPrompt] = useState();
   const [hasViewedAllPages, setViewed] = useState(false);
+
   const { authState } = useOktaAuth();
   const { push } = useHistory();
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-
-  useEffect(() => {
-    // ========== second argument to getStory() is hardcoded for testing ==========
-    getStory(authState, 10).then(res => {
-      setStoryPrompt(res.URL);
-    });
-  }, [authState]);
 
   useEffect(() => {
     if (pageNumber === numPages) {
@@ -77,6 +69,7 @@ const RenderStoryViewer = props => {
   const onFinish = e => {
     markAsRead(authState, props.tasks.id);
     push('/child/mission-control');
+
     props.setHasRead();
   };
 
@@ -87,7 +80,7 @@ const RenderStoryViewer = props => {
         <SizeMe>
           {({ size }) => (
             <Document
-              file={storyPrompt}
+              file={props.tasks.story.storyUrl}
               onLoadSuccess={onDocumentLoadSuccess}
               loading="Loading Story..."
             >
@@ -142,5 +135,6 @@ export default connect(
   }),
   {
     setHasRead: tasks.setHasRead,
+    setSubmissionInformation: tasks.setSubmissionInformation,
   }
 )(RenderStoryViewer);

@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { global } from '../../state/actions';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import BackButton from '../common/BackButton';
+import PropTypes from 'prop-types';
 
 const ChildMenu = props => {
   const { push } = useHistory();
@@ -30,6 +31,9 @@ const ChildMenu = props => {
       </Menu.Item>
       <Menu.Item key="4" onClick={() => authService.logout()}>
         Log Out
+      </Menu.Item>
+      <Menu.Item key="5">
+        <Link to="/child/join">Join</Link>
       </Menu.Item>
     </Menu>
   );
@@ -67,3 +71,7 @@ const Header = ({
 export default connect(null, {
   clearUsers: global.clearUsers,
 })(Header);
+
+Header.propTypes = {
+  title: PropTypes.string,
+};
