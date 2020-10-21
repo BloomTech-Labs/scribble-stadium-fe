@@ -33,7 +33,6 @@ export const setClusters = () => {
   try {
     return apiAuthPut('/mod/clusters').then(
       res => {
-        console.log(res);
         return res;
       }
     );
@@ -47,7 +46,6 @@ export const setFaceoffs = () => {
   try {
     return apiAuthPut('/mod/faceoffs').then(
       res => {
-        console.log(res);
         return res;
       }
     );
@@ -61,7 +59,6 @@ export const setResults = () => {
   try {
     return apiAuthPut('/mod/results').then(
       res => {
-        console.log(res);
         return res;
       }
     );

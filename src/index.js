@@ -41,6 +41,8 @@ import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 import { JoinTheSquad } from './components/pages/JoinTheSquad';
 
+// Gamification Components
+import ModerationTest from './components/pages/ModerationTest/ModerationTest';
 
 ReactDOM.render(
   //
@@ -148,8 +150,7 @@ function App() {
           )}
         />
         
-        
-
+          <Route exact path='/moderation' component={ModerationTest} />
         <Route component={NotFoundPage} />
       </Switch>
     </Security>

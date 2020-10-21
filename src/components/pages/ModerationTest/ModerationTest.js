@@ -4,6 +4,9 @@ import {
   getCohorts,
   getPostsForModeration,
   setSubmitStatus,
+  setClusters,
+  setFaceoffs,
+  setResults
 } from '../../../api/moderation';
 
 import { Button, Layout, PageHeader, Select, Form, Row, Card, Col } from 'antd';
@@ -56,6 +59,24 @@ const ModerationTest = props => {
     });
   };
 
+  const cluster = () => {
+    setClusters().then(res => {
+      console.log(res);
+    });
+  };
+
+  const faceoff = () => {
+    setFaceoffs().then(res => {
+      console.log(res);
+    });
+  };
+
+  const results = () => {
+    setResults().then(res => {
+      console.log(res);
+    });
+  };
+
   return (
     <Layout className="moderation-page">
       <PageHeader>
@@ -77,6 +98,9 @@ const ModerationTest = props => {
               <Form.Item>
                 <Button type="primary">Load Submissions</Button>
                 <Button type="default">Remove</Button>
+                <Button type="default" onClick={cluster}>Generate Cluster</Button>
+                <Button type="default" onClick={faceoff}>Generate Faceoffs</Button>
+                <Button type="default" onClick={results}>Generate Results</Button>
               </Form.Item>
             </Form.Item>
           </Form>
