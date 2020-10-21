@@ -19,6 +19,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
     "plotly.js": "^1.57.0",
+    "plotly.js-basic-dist": "^1.57.1",
     "prettier": "^2.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -36,7 +37,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build --max-old-space-size=4096",
+    "build": "craco build",
     "test": "craco test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
     "prettier": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",

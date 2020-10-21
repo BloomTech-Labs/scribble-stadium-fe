@@ -1,6 +1,9 @@
 import React from 'react';
-import Plot from 'react-plotly.js';
 import { data } from '../../utils/dataTest';
+
+import Plotly from 'plotly.js-basic-dist';
+import createPlotlyComponent from 'react-plotly.js/factory';
+const Plot = createPlotlyComponent(Plotly);
 
 const ProgressChart = () => {
   return (

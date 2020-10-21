@@ -12,8 +12,6 @@ import ParentNavSider from '../components/common/ParentNavSider';
 
 configure({ adapter: new Adapter() });
 
-jest.mock('react-plotly.js', () => {});
-
 afterEach(() => {
   cleanup();
 });
