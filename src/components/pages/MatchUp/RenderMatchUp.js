@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from '../../common';
 import { Row, Col, Button } from 'antd';
-import { faceoffs as facedata } from './testdata';
 
 import FaceoffContent from './FaceoffContent';
 
@@ -9,8 +8,8 @@ const RenderMatchUp = props => {
   const [faceoffs, setFaceoffs] = useState([]);
 
   useEffect(() => {
-    setFaceoffs(facedata);
-  }, []);
+    setFaceoffs(props.faceoffs);
+  }, [props]);
 
   return (
     <>
