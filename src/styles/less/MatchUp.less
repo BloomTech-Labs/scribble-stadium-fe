@@ -18,13 +18,26 @@
         }
 
         .sub {
+          padding: 1.5vh;
           max-width: 13.5vw;
           flex-grow: 1;
           display: flex;
-          justify-content: center;
+          flex-flow: column nowrap;
           align-items: center;
-          img {
-            max-width: 100%;
+          .child-info {
+            img {
+              max-height: 30px;
+              margin-right: 1.5vw;
+            }
+          }
+          .submission-preview {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+              max-width: 100%;
+            }
           }
         }
       }

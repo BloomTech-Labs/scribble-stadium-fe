@@ -6,6 +6,9 @@ const faceoffs = [
     Type: 'Writing',
     SquadID: 0,
     Submission1: {
+      AvatarURL:
+        'https://test-image-bucket-14579.s3.amazonaws.com/bucketFolder/1601584466844-lg-C%3A%5CUsers%5Cbranr%5CAppData%5CLocal%5CTemp%5Ct2__laE0soRe4eimzzCZbOjy.png-1.png',
+      Name: 'Child',
       ID: 1,
       ImgURL:
         'https://test-image-bucket-14579.s3.amazonaws.com/bucketFolder/1601584466844-lg-C%3A%5CUsers%5Cbranr%5CAppData%5CLocal%5CTemp%5Ct2__laE0soRe4eimzzCZbOjy.png-1.png',
@@ -38,6 +41,9 @@ const faceoffs = [
       ],
     },
     Submission2: {
+      AvatarURL:
+        'https://test-image-bucket-14579.s3.amazonaws.com/bucketFolder/1601584466844-lg-C%3A%5CUsers%5Cbranr%5CAppData%5CLocal%5CTemp%5Ct2__laE0soRe4eimzzCZbOjy.png-1.png',
+      Name: 'Child',
       ID: 2,
       ImgURL:
         'https://test-image-bucket-14579.s3.amazonaws.com/bucketFolder/1601584466844-lg-C%3A%5CUsers%5Cbranr%5CAppData%5CLocal%5CTemp%5Ct2__laE0soRe4eimzzCZbOjy.png-1.png',
@@ -64,6 +70,9 @@ const faceoffs = [
     Type: 'Writing',
     SquadID: 0,
     Submission1: {
+      AvatarURL:
+        'https://test-image-bucket-14579.s3.amazonaws.com/bucketFolder/1601584466844-lg-C%3A%5CUsers%5Cbranr%5CAppData%5CLocal%5CTemp%5Ct2__laE0soRe4eimzzCZbOjy.png-1.png',
+      Name: 'Child',
       ID: 3,
       ImgURL:
         'https://test-image-bucket-14579.s3.amazonaws.com/bucketFolder/1601584466844-lg-C%3A%5CUsers%5Cbranr%5CAppData%5CLocal%5CTemp%5Ct2__laE0soRe4eimzzCZbOjy.png-1.png',
@@ -76,6 +85,9 @@ const faceoffs = [
       ],
     },
     Submission2: {
+      AvatarURL:
+        'https://test-image-bucket-14579.s3.amazonaws.com/bucketFolder/1601584466844-lg-C%3A%5CUsers%5Cbranr%5CAppData%5CLocal%5CTemp%5Ct2__laE0soRe4eimzzCZbOjy.png-1.png',
+      Name: 'Child',
       ID: 4,
       ImgURL:
         'https://test-image-bucket-14579.s3.amazonaws.com/bucketFolder/1601584466844-lg-C%3A%5CUsers%5Cbranr%5CAppData%5CLocal%5CTemp%5Ct2__laE0soRe4eimzzCZbOjy.png-1.png',
@@ -97,6 +109,9 @@ const faceoffs = [
     Type: 'Writing',
     SquadID: 0,
     Submission1: {
+      AvatarURL:
+        'https://test-image-bucket-14579.s3.amazonaws.com/bucketFolder/1601584466844-lg-C%3A%5CUsers%5Cbranr%5CAppData%5CLocal%5CTemp%5Ct2__laE0soRe4eimzzCZbOjy.png-1.png',
+      Name: 'Child',
       ID: 5,
       ImgURL:
         'https://test-image-bucket-14579.s3.amazonaws.com/bucketFolder/1601584466844-lg-C%3A%5CUsers%5Cbranr%5CAppData%5CLocal%5CTemp%5Ct2__laE0soRe4eimzzCZbOjy.png-1.png',
@@ -119,6 +134,9 @@ const faceoffs = [
       ],
     },
     Submission2: {
+      AvatarURL:
+        'https://test-image-bucket-14579.s3.amazonaws.com/bucketFolder/1601584466844-lg-C%3A%5CUsers%5Cbranr%5CAppData%5CLocal%5CTemp%5Ct2__laE0soRe4eimzzCZbOjy.png-1.png',
+      Name: 'Child',
       ID: 6,
       ImgURL:
         'https://test-image-bucket-14579.s3.amazonaws.com/bucketFolder/1601584466844-lg-C%3A%5CUsers%5Cbranr%5CAppData%5CLocal%5CTemp%5Ct2__laE0soRe4eimzzCZbOjy.png-1.png',
@@ -145,6 +163,9 @@ const faceoffs = [
     Type: 'Writing',
     SquadID: 0,
     Submission1: {
+      AvatarURL:
+        'https://test-image-bucket-14579.s3.amazonaws.com/bucketFolder/1601584466844-lg-C%3A%5CUsers%5Cbranr%5CAppData%5CLocal%5CTemp%5Ct2__laE0soRe4eimzzCZbOjy.png-1.png',
+      Name: 'Child',
       ID: 7,
       ImgURL:
         'https://test-image-bucket-14579.s3.amazonaws.com/bucketFolder/1601584466844-lg-C%3A%5CUsers%5Cbranr%5CAppData%5CLocal%5CTemp%5Ct2__laE0soRe4eimzzCZbOjy.png-1.png',
@@ -157,6 +178,9 @@ const faceoffs = [
       ],
     },
     Submission2: {
+      AvatarURL:
+        'https://test-image-bucket-14579.s3.amazonaws.com/bucketFolder/1601584466844-lg-C%3A%5CUsers%5Cbranr%5CAppData%5CLocal%5CTemp%5Ct2__laE0soRe4eimzzCZbOjy.png-1.png',
+      Name: 'Child',
       ID: 8,
       ImgURL:
         'https://test-image-bucket-14579.s3.amazonaws.com/bucketFolder/1601584466844-lg-C%3A%5CUsers%5Cbranr%5CAppData%5CLocal%5CTemp%5Ct2__laE0soRe4eimzzCZbOjy.png-1.png',

@@ -22,7 +22,13 @@ const FaceoffContent = props => {
 const FaceoffSubDisplay = ({ sub }) => {
   return (
     <div className="sub">
-      <img src={sub.ImgURL} alt="text" />
+      <div className="child-info">
+        <img src={sub.AvatarURL} alt="text" />
+        <span className="name">{sub.Name}</span>
+      </div>
+      <div className="submission-preview">
+        <img src={sub.ImgURL} alt="text" />
+      </div>
     </div>
   );
 };
