@@ -39,8 +39,9 @@ import { StoryPrompt } from './components/pages/StoryPrompt';
 import { VotingPage } from './components/pages/VotingPage';
 import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
-import { JoinTheSquad } from './components/pages/JoinTheSquad';
 
+// Gameification Components
+import { JoinTheSquad } from './components/pages/JoinTheSquad';
 
 ReactDOM.render(
   //

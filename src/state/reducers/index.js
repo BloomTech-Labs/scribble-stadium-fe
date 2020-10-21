@@ -5,9 +5,11 @@ import { combineReducers } from 'redux';
 import { reducer as child } from './childReducer';
 import { reducer as parent } from './parentReducer';
 import { reducer as tasks } from './taskReducer';
+import {reducer as faceoffs} from './faceoffsReducers';
 
 export default combineReducers({
   child,
   parent,
   tasks,
+  faceoffs,
 });

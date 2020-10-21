@@ -6,9 +6,20 @@ import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import Squadup from '../../../assets/images/Squadup.svg';
 import wordbubble from '../../../assets/images/match_up_images/wordbubble.svg';
 import wordBubbleright from '../../../assets/images/match_up_images/wordBubbleright.svg';
+import {getChildSquad} from '../../../api';
 
 const RenderJoinTheSquad = props => {
   const { push } = useHistory();
+  const {authState} = useOktaAuth();
+
+  useEffect(() => {
+    getChildSquad(authState, props.child.id).then(
+      res => {
+        console.log(res);
+      }
+    );
+  });
+
   return (
     <>
       <Header title="JOIN THE SQUAD" />

@@ -17,6 +17,10 @@ const RenderChildDashboard = props => {
     push('/child/mission-control');
   };
 
+  const handleJoinSquad = e => {
+    push('/child/join');
+  };
+
   return (
     <>
       <Header displayMenu={true} />
@@ -54,6 +58,7 @@ const RenderChildDashboard = props => {
               className="child-dash-img"
               src={adventure_passport}
               alt="Adventure Passport Button"
+              onClick={handleJoinSquad}
             />
           </Col>
           <Col className="trophy-room" xs={24} sm={13}>
