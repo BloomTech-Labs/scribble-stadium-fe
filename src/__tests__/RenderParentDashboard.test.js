@@ -8,8 +8,6 @@ import { Provider } from 'react-redux';
 const mockStore = configureStore([]);
 const store = mockStore();
 
-jest.mock('react-plotly.js', () => {});
-
 afterEach(() => {
   cleanup();
 });
