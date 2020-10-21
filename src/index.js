@@ -38,6 +38,8 @@ import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
+import { JoinTheSquad } from './components/pages/JoinTheSquad';
+
 
 ReactDOM.render(
   //
@@ -66,6 +68,7 @@ function App() {
   return (
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
+        
         <Route path="/login" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
@@ -130,6 +133,15 @@ function App() {
             <ParentSettings LoadingComponent={ParentLoadingComponent} />
           )}
         />
+        <SecureRoute
+          path="/child/join"
+          exact
+          component={() => (
+            <JoinTheSquad LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        
+        
 
         <Route component={NotFoundPage} />
       </Switch>

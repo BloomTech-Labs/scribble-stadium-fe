@@ -1,0 +1,102 @@
+@import '~antd/dist/antd.less';
+@import '~antd/lib/style/themes/default.less';
+
+.JoinSquadContainer {
+  height: 70vh;
+  display: flex;
+  @media @tablet {
+    flex-direction: column;
+  }
+}
+
+.joinSquad1 {
+  background: #b5d33d;
+  display: flex;
+  justify-content: center;
+}
+.joinSquad2 {
+  background-color: #fed23f;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.joinSquad1,
+.joinSquad2 {
+  border: 5px solid #292929;
+  position: relative;
+}
+
+.imgContain1 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  @media @tablet {
+    padding-left: 5%;
+    padding-bottom: 0%;
+  }
+}
+
+.imgContain2 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.button {
+  display: flex;
+  justify-content: flex-end;
+
+
+}
+.sharePoints {
+  background: #eb7d5b;
+  border-color: #eb7d5b;
+  margin-bottom:3%;
+  margin-right: 3%;
+  &:hover {
+    background-color: #eb7d5bbb;
+    border-color: #eb7d5bbb;
+  }
+}
+img{
+    max-width: 100%;
+    max-height: 100%;
+    @media @tablet{
+        width:70%;
+    }
+}
+
+.star {
+  z-index: 1;
+  margin-top: 20%;
+  
+}
+
+.wordBubble {
+  z-index: 2;
+  position: fixed;
+}
+
+.wordBubble2 {
+  z-index: 2;
+  position: fixed;
+  margin-left: 20%;
+  margin-top: 0%;
+}
+
+.text{
+  z-index: 3;
+  position: fixed;
+  margin-top: 5%;
+  margin-left: 4%;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+}
+.text2{
+  z-index: 3;
+  position: fixed;
+  margin-top: 5%;
+  margin-left: 24%;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+}
