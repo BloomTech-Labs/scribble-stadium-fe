@@ -59,18 +59,21 @@ const ModerationTest = props => {
     });
   };
 
+  // Moderator can begin the clustering process for joining teams
   const cluster = () => {
     setClusters().then(res => {
       console.log(res);
     });
   };
 
+  // Moderator can begin the faceoff stage 
   const faceoff = () => {
     setFaceoffs().then(res => {
       console.log(res);
     });
   };
 
+  // Moderator can begin the results stage
   const results = () => {
     setResults().then(res => {
       console.log(res);

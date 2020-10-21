@@ -42,6 +42,8 @@ import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 import { JoinTheSquad } from './components/pages/JoinTheSquad';
 
 // Gamification Components
+
+// Note: for demo purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
 
 ReactDOM.render(
