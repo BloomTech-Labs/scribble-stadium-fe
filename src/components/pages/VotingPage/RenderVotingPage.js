@@ -1,14 +1,11 @@
 import React from 'react';
 import { Header } from '../../common';
-import { Row, Col, Button, Card } from 'antd';
+import { Row, Col, Card } from 'antd';
 import pdfSample from '../../../assets/images/votingPage/pdfSample.svg';
 import pdf2Sample from '../../../assets/images/votingPage/pdf2Sample.svg';
-import Checkbox from '../../common/CheckBoxVoting';
+import { VotingForm } from '../../common';
 
 const RenderVotingPage = props => {
-  function handleChecked(e) {
-    return `checked=${e.target.checked}`;
-  }
   return (
     <>
       <Header title="VOTE FOR YOUR FAVORITE STORY" />
@@ -24,9 +21,6 @@ const RenderVotingPage = props => {
                   alt="writing submission"
                 />
               </Card>
-              <div className="check-box">
-                <Checkbox defaultChecked={false} onChange={handleChecked} />
-              </div>
             </div>
           </Col>
 
@@ -39,13 +33,10 @@ const RenderVotingPage = props => {
                   alt="writing submission"
                 />
               </Card>
-              <div className="check-box">
-                <Checkbox defaultChecked={false} onChange={handleChecked} />
-              </div>
             </div>
+            <VotingForm />
           </Col>
         </Row>
-        <Button className="submit-button">Submit</Button>
       </div>
     </>
   );
