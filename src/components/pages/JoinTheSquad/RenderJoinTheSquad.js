@@ -12,7 +12,9 @@ import wordBubbleright from '../../../assets/images/match_up_images/wordBubbleri
 const RenderJoinTheSquad = props => {
   const { push } = useHistory();
 
-
+  useEffect(() => {
+    console.log(props, "[props!!!!")
+  }, [console]);
 
   return (
     <>
@@ -21,7 +23,7 @@ const RenderJoinTheSquad = props => {
 
         <Col className="joinSquad1" xs={24} sm={12}>
           <div className="imgContain1">
-            <p className="text">Hi! <br></br>My name is WhiteFox.</p>
+            <p className="text">Hi! <br></br>My name is {props.child.name}.</p>
             <img className="wordBubble" src={wordbubble} alt="word bubble" />
             <img className="star" src={Squadup} alt="Blast Character Background" />
           </div>
