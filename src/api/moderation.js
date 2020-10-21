@@ -27,3 +27,43 @@ export const setSubmitStatus = (id, Status) => {
     return {};
   }
 };
+
+
+export const setClusters = () => {
+  try {
+    return apiAuthPut('/mod/clusters').then(
+      res => {
+        return res;
+      }
+    );
+  } catch (err) {
+    console.log(err);
+    return {err};
+  };
+};
+
+export const setFaceoffs = () => {
+  try {
+    return apiAuthPut('/mod/faceoffs').then(
+      res => {
+        return res;
+      }
+    );
+  } catch (err) {
+    console.log(err);
+    return {err};
+  };
+};
+
+export const setResults = () => {
+  try {
+    return apiAuthPut('/mod/results').then(
+      res => {
+        return res;
+      }
+    );
+  } catch (err) {
+    console.log(err);
+    return {err};
+  }
+};

@@ -43,6 +43,9 @@ import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 // Gameification Components
 import { JoinTheSquad } from './components/pages/JoinTheSquad';
 
+// Note: for demo purposes ONLY
+import ModerationTest from './components/pages/ModerationTest/ModerationTest';
+
 ReactDOM.render(
   //
   <Router>
@@ -149,8 +152,7 @@ function App() {
           )}
         />
         
-        
-
+          <Route exact path='/moderation' component={ModerationTest} />
         <Route component={NotFoundPage} />
       </Switch>
     </Security>
