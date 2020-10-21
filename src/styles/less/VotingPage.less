@@ -4,10 +4,27 @@
     height: 100%;
   }
 
-  .left-half .image-and-text-container {
+  .image-and-check-container {
+    justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 5%;
+
+    .pdfCard {
+      height: auto;
+      width: 60%;
+      img {
+        width: 90%;
+        padding-right: 0;
+      }
+    }
+    .check-box {
+      padding: 5%;
+      .ant-checkbox-input {
+        size: 20%;
+      }
+    }
 
     @media @tablet {
       margin-top: 5%;
@@ -16,6 +33,7 @@
       margin-top: 5%;
     }
   }
+
   .left-half {
     background: #429cb5;
     cursor: pointer;
