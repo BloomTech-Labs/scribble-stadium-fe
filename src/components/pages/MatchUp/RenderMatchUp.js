@@ -1,33 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from '../../common';
 import { Row, Col, Button } from 'antd';
-import matchup_bolt from '../../../assets/images/match_up_images/matchup_bolt.svg';
+import { faceoffs as facedata } from './testdata';
+
+import FaceoffContent from './FaceoffContent';
 
 const RenderMatchUp = props => {
+  const [faceoffs, setFaceoffs] = useState([]);
+
+  useEffect(() => {
+    setFaceoffs(facedata);
+  }, []);
+
   return (
     <>
       <Header displayMenu={true} title="The Matchup" />
       <div className="matchup-container">
         <Row className="toprow">
           <Col className="green-box" xs={24} sm={13}>
-            <div>
-              <img src={matchup_bolt} alt="light bolt" />
-            </div>
+            {faceoffs[0] && <FaceoffContent content={faceoffs[0]} />}
           </Col>
 
           <Col className="red-box" xs={24} sm={11}>
-            <div>
-              <img src={matchup_bolt} alt="light bolt" />
-            </div>
+            {faceoffs[1] && <FaceoffContent content={faceoffs[1]} />}
           </Col>
         </Row>
         <Row className="bottomrow">
           <Col className="yellow-box" xs={24} sm={11}>
-            <img src={matchup_bolt} alt="light bolt" />
+            {faceoffs[2] && <FaceoffContent content={faceoffs[2]} />}
           </Col>
 
           <Col className="blue-box" xs={24} sm={13}>
-            <img src={matchup_bolt} alt="light bolt" />
+            {faceoffs[3] && <FaceoffContent content={faceoffs[3]} />}
           </Col>
         </Row>
 
