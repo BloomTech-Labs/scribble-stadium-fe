@@ -1,3 +1,4 @@
+// istanbul ignore file
 import { apiAuthGet, apiAuthPut } from './';
 
 export const getCohorts = () => {

@@ -28,7 +28,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         memberId: action.payload.MemberID
-      }
+      };
     case global.CLEAR_USERS:
       return initialState;
     default:

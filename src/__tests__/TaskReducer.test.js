@@ -19,7 +19,7 @@ describe('taskReducer test suite', () => {
     },
   };
 
-  it('should return the initial state', () => {
+  it('should return changes to the state', () => {
     const action = {
       type: tasks.SET_TASKS,
       payload: {
