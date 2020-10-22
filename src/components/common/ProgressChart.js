@@ -11,14 +11,23 @@ const Plot = createPlotlyComponent(Plotly);
 
 const ProgressChart = ({ ChildID }) => {
   const [graph, setGraph] = useState(null);
+  const [error, setError] = useState(null);
   const { authState } = useOktaAuth();
 
   useEffect(() => {
-    try {
-      getChildGraph(authState, ChildID).then(res => {
-        setGraph(res);
+    getChildGraph(authState, ChildID)
+      .then(res => {
+        setGraph(res.data);
+        setError(null);
+      })
+      .catch(err => {
+        if (err.response.status === 404)
+          setError("Your child hasn't submitted any writing yet!");
+        else
+          setError(
+            "An unexpected error occurred while loading your child's progress."
+          );
       });
-    } catch (err) {}
   }, [ChildID, authState]);
 
   return (
@@ -31,6 +40,8 @@ const ProgressChart = ({ ChildID }) => {
             layout={graph.layout}
             config={{ staticPlot: true, responsive: true, autosizable: true }}
           />
+        ) : error ? (
+          <p>{error}</p>
         ) : (
           <Spin indicator={SmileFilled} />
         )}

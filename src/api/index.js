@@ -390,15 +390,7 @@ const postNewAvatar = async (authState, body) => {
 };
 
 const getChildGraph = async (authState, ChildID) => {
-  try {
-    return apiAuthGet(
-      `/parent/viz?childId=${ChildID}`,
-      getAuthHeader(authState)
-    ).then(res => res.data);
-  } catch (err) {
-    console.log(err);
-    return null;
-  }
+  return apiAuthGet(`/parent/viz?childId=${ChildID}`, getAuthHeader(authState));
 };
 
 export {
