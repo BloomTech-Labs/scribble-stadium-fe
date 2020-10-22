@@ -3,11 +3,12 @@ import matchup_bolt from '../../../assets/images/match_up_images/matchup_bolt.sv
 
 const FaceoffContent = props => {
   const [content, setContent] = useState(null);
-
+  console.log(props, content, 'from faceoffcontent')
   useEffect(() => {
     setTimeout(() => {
       setContent(props.content);
     }, 1000);
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -15,11 +16,13 @@ const FaceoffContent = props => {
       {content && <FaceoffSubDisplay sub={content.Submission1} />}
       <img src={matchup_bolt} alt="lightning bolt" />
       {content && <FaceoffSubDisplay sub={content.Submission2} />}
+      {content && <div className="points">{content.Points}</div>}
     </div>
   );
 };
 
 const FaceoffSubDisplay = ({ sub }) => {
+  console.log(sub, 'from subdisplay')
   return (
     <div className="sub">
       <div className="child-info">

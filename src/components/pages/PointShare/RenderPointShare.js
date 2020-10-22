@@ -4,11 +4,12 @@ import { Header } from '../../common';
 import { Row, Col, InputNumber, Button, notification } from 'antd';
 import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
+import { useHistory } from 'react-router-dom';
 
 // import placeholder from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 
 const PointShare = props => {
-  console.log(props, 'from pointShare')
+  const { push } = useHistory();
   const [totalPoints, setTotalPoints] = useState(100);
   const [storyOnePoints, setStoryOnePoints] = useState(0);
   const [storyTwoPoints, setStoryTwoPoints] = useState(0);
@@ -44,9 +45,11 @@ const PointShare = props => {
   useEffect(() => {
     if (teamPoints) {
       console.log(teamPoints, 'team points');
-      submitPoints(authState, teamPoints);
-    }
-  }, [teamPoints, authState]);
+      submitPoints(authState, teamPoints).then(res => {
+        push('/child/match-up');
+      });
+    };
+  }, [teamPoints, authState, push]);
 
   return (
     <>

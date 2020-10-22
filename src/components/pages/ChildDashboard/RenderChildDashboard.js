@@ -21,6 +21,10 @@ const RenderChildDashboard = props => {
     push('/child/join');
   };
 
+  const handleFaceoffs = e => {
+    push('/child/match-up');
+  };
+
   return (
     <>
       <Header displayMenu={true} />
@@ -66,6 +70,7 @@ const RenderChildDashboard = props => {
               className="child-dash-img"
               src={trophy_room}
               alt="Trophy Room Button"
+              onClick={handleFaceoffs}
             />
           </Col>
         </Row>

@@ -44,6 +44,7 @@ import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 // Gameification Components
 import { JoinTheSquad } from './components/pages/JoinTheSquad';
 import { PointShare } from './components/pages/PointShare';
+import { MatchUp } from './components/pages/MatchUp';
 
 // Note: for demo purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
@@ -158,6 +159,13 @@ function App() {
           component={() => (
             <PointShare LoadingComponent={ChildLoadingComponent} />
           )}
+        />
+        <SecureRoute
+          path="/child/match-up"
+          exact
+          component={() => (
+            <MatchUp LoadingComponent={ChildLoadingComponent} />
+          )}  
         />
         <Route exact path="/moderation" component={ModerationTest} />
         <Route component={NotFoundPage} />
