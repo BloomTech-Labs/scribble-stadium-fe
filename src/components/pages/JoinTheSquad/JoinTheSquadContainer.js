@@ -3,7 +3,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
 
 import RenderJoinTheSquad from './RenderJoinTheSquad';
-
+import {team} from '../../../state/actions';
 
 const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
   const { authState, authService } = useOktaAuth();
@@ -48,8 +48,10 @@ const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
 export default connect(
   state => ({
     child: state.child,
-    
+    team: state.team,
   }),
-  {}
+  {
+    setTeamSubmissions: team.setTeamSubmissions,
+  }
 )(JoinTheSquadContainer);
 
