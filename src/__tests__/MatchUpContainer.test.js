@@ -25,7 +25,7 @@ jest.mock('@okta/okta-react', () => ({
   },
 }));
 
-describe('<MissionControlContainer /> test suite', () => {
+describe('<MatchupContainer /> test suite', () => {
   test('container renders without crashing', async () => {
     const { getByText } = render(
       <Router>
