@@ -67,10 +67,6 @@ const RenderMissionControl = props => {
       push('/child/drawing-sub');
     }
   };
-  const handleClick = e => {
-    e.stopPropagation();
-    push('/child/point-share');
-  };
 
   return (
     <>
@@ -138,14 +134,6 @@ const RenderMissionControl = props => {
             </Row>
           </Col>
         </Row>
-        <Button
-          className="squad-up"
-          type="button"
-          // disabled={!props.tasks}
-          onClick={handleClick}
-        >
-          Squad Up!
-        </Button>
       </div>
     </>
   );

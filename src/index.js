@@ -151,7 +151,13 @@ function App() {
             <JoinTheSquad LoadingComponent={ChildLoadingComponent} />
           )}
         />
-
+        <SecureRoute
+          path="/child/point-share"
+          exact
+          component={() => (
+            <PointShare LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
         <Route exact path="/moderation" component={ModerationTest} />
         <Route component={NotFoundPage} />
       </Switch>
