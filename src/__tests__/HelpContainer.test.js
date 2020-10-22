@@ -1,52 +1,39 @@
-import * as React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { BrowserRouter as Router } from 'react-router-dom';
-
+import React from 'react';
+import { render, cleanup } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
 
-import LoadingComponent from '../components/common/ParentLoadingComponent';
-import Help from '../components/pages/Help/Help';
+import { ParentLoadingComponent } from '../components/common';
 import HelpContainer from '../components/pages/Help/HelpContainer';
+
+const mockStore = configureStore([]);
+const store = mockStore();
+
+afterEach(cleanup);
+
 jest.mock('@okta/okta-react', () => ({
   useOktaAuth: () => {
     return {
       authState: {
         isAuthenticated: true,
       },
-      authService: {},
+      authService: {
+        getUser: () => Promise.reject(),
+      },
     };
   },
 }));
 
-configure({ adapter: new Adapter() });
-
-describe('<ProfileModalContainer />', () => {
-  configure({ adapter: new Adapter() });
-  const mockStore = configureStore([]);
-  const store = mockStore();
-
-  describe('Render <ProfileModalContainer />', () => {
-    let shallowWrapper;
-    beforeEach(() => {
-      shallowWrapper = shallow(
-        <Router>
-          <Provider store={store}>
-            <HelpContainer />
-          </Provider>
-        </Router>
-      ).dive();
-    });
-
-    it('Find Help', () => {
-      expect(shallowWrapper.find(Help));
-    });
-    it('Find Loading Component', () => {
-      expect(shallowWrapper.find(LoadingComponent));
-    });
-    it('Find HelpContainer', () => {
-      expect(shallowWrapper).toMatchSnapshot();
-    });
+describe('<HelpContainer /> test suite', () => {
+  test('container renders without crashing', async () => {
+    const { container, getByText } = render(
+      <Provider store={store}>
+        <HelpContainer LoadingComponent={ParentLoadingComponent} />
+      </Provider>,
+      { wrapper: MemoryRouter }
+    );
+    expect(container).toBeInTheDocument();
+    expect(getByText(/loading/i)).toBeInTheDocument();
   });
 });
