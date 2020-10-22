@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import { connect } from 'react-redux';
+import PointShare from './PointShare';
 
-import RenderJoinTheSquad from './RenderJoinTheSquad';
-
-const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
+const PointShareContainer = ({ LoadingComponent }) => {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
@@ -20,7 +18,7 @@ const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
           setUserInfo(info);
         }
       })
-      .catch(err => {
+      .catch(error => {
         isSubscribed = false;
         return setUserInfo(null);
       });
@@ -33,19 +31,10 @@ const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
         <LoadingComponent message="Loading..." />
       )}
       {authState.isAuthenticated && userInfo && (
-        <RenderJoinTheSquad
-          {...props}
-          userInfo={userInfo}
-          authService={authService}
-        />
+        <PointShare userInfo={userInfo} authService={authService} />
       )}
     </>
   );
 };
 
-export default connect(
-  state => ({
-    child: state.child,
-  }),
-  {}
-)(JoinTheSquadContainer);
+export default PointShareContainer;
