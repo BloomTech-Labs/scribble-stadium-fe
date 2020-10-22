@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from '../../common';
 import { Row, Col, Button } from 'antd';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import { useHistory } from 'react-router-dom';
 import FaceoffContent from './FaceoffContent';
+
 
 const RenderMatchUp = props => {
   const [faceoffs, setFaceoffs] = useState([]);
-  // const { authState } = useOktaAuth();
+  const { push } = useHistory();
 
   useEffect(() => {
     setFaceoffs(props.squad);
-    // getChildSquad(authState, props.child.id).then(res => {
-    //   console.log(res, 'from getsquad');
-    //   getChildFaceoffs(authState, res.ID).then(response => {
-    //     console.log(response, 'from getfaceoffs');
-    //   });
-    // });
   }, [props]);
+
+  const handleVote = e => {
+    e.preventDefault();
+    push('/child-squad-vote')
+  };
 
   return (
     <>
@@ -43,7 +43,7 @@ const RenderMatchUp = props => {
 
         <Button className="back-button">Back</Button>
 
-        <Button className="vote-button">Vote!</Button>
+        <Button className="vote-button" onClick={handleVote}>Vote!</Button>
       </div>
     </>
   );

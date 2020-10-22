@@ -47,7 +47,8 @@ function VotingPageContainer({ LoadingComponent, ...props }) {
 
 export default connect(
   state => ({
-    parent: state.parent,
+    child: state.child,
+    squad: state.squad,
   }),
   {}
 )(VotingPageContainer);

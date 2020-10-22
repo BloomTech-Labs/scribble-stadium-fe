@@ -37,7 +37,6 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
-import { VotingPage } from './components/pages/VotingPage';
 import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 
@@ -45,6 +44,7 @@ import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 import { JoinTheSquad } from './components/pages/JoinTheSquad';
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
+import { VotingPage } from './components/pages/VotingPage';
 
 // Note: for demo purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
@@ -116,12 +116,6 @@ function App() {
           )}
         />
         <SecureRoute
-          path="/child/voting-page"
-          component={() => (
-            <VotingPage LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <SecureRoute
           path="/parent/add-child"
           component={() => (
             <AddChild LoadingComponent={ParentLoadingComponent} />
@@ -166,6 +160,13 @@ function App() {
           component={() => (
             <MatchUp LoadingComponent={ChildLoadingComponent} />
           )}  
+        />
+        <SecureRoute
+          path="/child-squad-vote"
+          exact
+          component={() => (
+            <VotingPage LoadingComponent={ChildLoadingComponent} />
+          )}
         />
         <Route exact path="/moderation" component={ModerationTest} />
         <Route component={NotFoundPage} />
