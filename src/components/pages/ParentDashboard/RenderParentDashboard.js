@@ -23,6 +23,7 @@ const ParentDashboard = props => {
               {props.parent.children.map((child, i) => (
                 <ChildCard
                   key={child.ID}
+                  id={child.ID}
                   name={child.Name}
                   AvatarURL={child.AvatarURL}
                   update="PROGRESS"
