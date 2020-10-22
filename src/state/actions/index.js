@@ -4,4 +4,4 @@ import * as parent from './parentActions';
 import * as tasks from './taskActions';
 import * as team from './teamActions';
 
-export { global, child, parent, tasks, team };
+export { global, child, parent, tasks, team }; 

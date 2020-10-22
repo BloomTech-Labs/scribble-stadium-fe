@@ -1,4 +1,4 @@
-// istanbul ignore file
+// istanbul ignore file 
 /**
  * STEP 1: Create Redux Store
  * [x] add imports to store file

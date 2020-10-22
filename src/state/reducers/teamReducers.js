@@ -1,4 +1,4 @@
-import { global, team } from '../actions';
+import { global, team } from '../actions'; 
 
 const initialState = {
     teamName: '',
@@ -18,7 +18,7 @@ export const reducer = (state = initialState, action) => {
                         child2 = action.payload[key];
                     } else {
                         child1 = action.payload[key];
-                    }
+                    } 
                 }
             }
             return {

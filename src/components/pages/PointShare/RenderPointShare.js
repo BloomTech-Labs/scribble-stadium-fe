@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'; 
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import { Header } from '../../common';
 import { Row, Col, InputNumber, Button, notification } from 'antd';
 import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
 
-import placeholder from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
+// import placeholder from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 
 const PointShare = props => {
   console.log(props, 'from pointShare')

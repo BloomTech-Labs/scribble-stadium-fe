@@ -1,4 +1,4 @@
-import { child, global } from '../actions';
+import { child, global } from '../actions'; 
 
 const initialState = {
   id: null,

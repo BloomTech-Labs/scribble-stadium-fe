@@ -41,7 +41,7 @@ describe('childReducer test suite', () => {
       gradeLevel: '3',
       parentId: 1,
       cohortId: 1,
-      memberId: null,
+      memberId: null, 
     });
   });
 

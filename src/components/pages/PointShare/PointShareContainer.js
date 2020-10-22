@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo } from 'react'; 
 import { useOktaAuth } from '@okta/okta-react';
 import PointShare from './RenderPointShare';
 

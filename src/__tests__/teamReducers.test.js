@@ -26,7 +26,7 @@ describe('teamReducer test suite', () => {
               "MemberID": 2,
             }
         });
-    });
+    }); 
 
     it('should return initial state when clearusers is called', () => {
         const action = { type: global.CLEAR_USERS };
