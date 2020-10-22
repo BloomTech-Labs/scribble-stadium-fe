@@ -36,10 +36,16 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
+import { VotingPage } from './components/pages/VotingPage';
 import { WritingSub } from './components/pages/WritingSub';
 import { PointShare } from './components/pages/PointShare';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 import { JoinTheSquad } from './components/pages/JoinTheSquad';
+
+// Gamification Components
+
+// Note: for demo purposes ONLY
+import ModerationTest from './components/pages/ModerationTest/ModerationTest';
 
 ReactDOM.render(
   //
@@ -108,9 +114,9 @@ function App() {
           )}
         />
         <SecureRoute
-          path="/child/point-share"
+          path="/child/voting-page"
           component={() => (
-            <PointShare LoadingComponent={ChildLoadingComponent} />
+            <VotingPage LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <SecureRoute
@@ -146,6 +152,7 @@ function App() {
           )}
         />
 
+        <Route exact path="/moderation" component={ModerationTest} />
         <Route component={NotFoundPage} />
       </Switch>
     </Security>

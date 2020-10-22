@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
-import RenderMatchUp from './RenderMatchUp';
+import RenderVotingPage from './RenderVotingPage';
 import { connect } from 'react-redux';
 
-import { faceoffs } from './testdata';
-
-function MatchUpContainer({ LoadingComponent, ...props }) {
+function VotingPageContainer({ LoadingComponent, ...props }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
@@ -37,9 +35,8 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
         <LoadingComponent message="Loading..." />
       )}
       {authState.isAuthenticated && userInfo && (
-        <RenderMatchUp
+        <RenderVotingPage
           {...props}
-          faceoffs={faceoffs}
           userInfo={userInfo}
           authService={authService}
         />
@@ -50,7 +47,7 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
 
 export default connect(
   state => ({
-    child: state.child,
+    parent: state.parent,
   }),
   {}
-)(MatchUpContainer);
+)(VotingPageContainer);

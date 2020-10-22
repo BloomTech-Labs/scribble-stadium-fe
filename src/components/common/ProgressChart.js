@@ -10,7 +10,11 @@ const ProgressChart = () => {
     <div>
       <h2> Squad Score Over Time:</h2>
       <div>
-        <Plot data={data.data} layout={data.layout} />
+        <Plot
+          data={data.data}
+          layout={data.layout}
+          config={{ staticPlot: true }}
+        />
       </div>
     </div>
   );

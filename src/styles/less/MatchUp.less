@@ -1,78 +1,76 @@
 .matchup-container {
-  height: 70vh;
-  .toprow,
-  .bottomrow {
-    @media @mobile {
-      width: 100%;
-    }
-  }
-  .ant-col.ant-col-13.green-box,
-  .ant-col.ant-col-11.red-box,
-  .ant-col.ant-col-11.yellow-box,
-  .ant-col.ant-col-13.blue-box {
-    @media @mobile {
-      max-width: 100%;
-    }
-  }
+  position: relative;
 
-  .green-box,
-  .red-box,
-  .yellow-box,
-  .blue-box {
-    border: 5px solid @header-nero;
-    height: 35vh;
+  .ant-row {
+    [class^='ant-col'] {
+      height: 35vh;
+      border: 5px solid @header-nero;
+      display: flex;
+      .faceoff {
+        flex-grow: 1;
+
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+
+        & > img {
+          height: 80%;
+        }
+
+        .sub {
+          padding: 1.5vh;
+          max-width: 13.5vw;
+          flex-grow: 1;
+          display: flex;
+          flex-flow: column nowrap;
+          align-items: center;
+          .child-info {
+            img {
+              max-height: 30px;
+              margin-right: 1.5vw;
+            }
+          }
+          .submission-preview {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+              max-width: 100%;
+            }
+          }
+        }
+      }
+    }
   }
 
   .green-box {
-    .matchupBoxesStyle();
     background-color: @conifer;
-
-    img {
-      margin-top: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
   }
 
   .red-box {
-    .matchupBoxesStyle();
     background: @burnt-sienna;
-
-    img {
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
   }
 
   .yellow-box {
-    .matchupBoxesStyle();
     background: @bright-sun;
   }
 
   .blue-box {
     background: @boston-blue;
-    .matchupBoxesStyle();
-
-    img {
-      max-width: 100%;
-      max-height: 100%;
-    }
   }
 
   .back-button {
     .orangeButtonStyle();
     position: absolute;
-    left: 2%;
-    top: 91.33%;
+    left: 2vh;
+    bottom: 2vh;
   }
 
   .vote-button {
     .orangeButtonStyle();
     position: absolute;
-    right: 2%;
-    top: 91.33%;
+    right: 2vh;
+    bottom: 2vh;
   }
 }
