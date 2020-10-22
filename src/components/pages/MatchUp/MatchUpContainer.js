@@ -4,6 +4,8 @@ import { useOktaAuth } from '@okta/okta-react';
 import RenderMatchUp from './RenderMatchUp';
 import { connect } from 'react-redux';
 
+import { faceoffs } from './testdata';
+
 function MatchUpContainer({ LoadingComponent, ...props }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
@@ -37,6 +39,7 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
       {authState.isAuthenticated && userInfo && (
         <RenderMatchUp
           {...props}
+          faceoffs={faceoffs}
           userInfo={userInfo}
           authService={authService}
         />
