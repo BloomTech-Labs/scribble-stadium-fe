@@ -3,11 +3,11 @@ import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { cleanup } from '@testing-library/react';
 import { Row } from 'antd';
-import { useHistory } from 'react-router-dom';
 
 import { RenderWritingSub } from '../components/pages/WritingSub/RenderWritingSub';
 import InstructionsModal from '../components/common/InstructionsModal';
 import Header from '../components/common/Header';
+import { UploadDocs } from '../components/common';
 
 configure({ adapter: new Adapter() });
 
@@ -23,8 +23,13 @@ jest.mock('react-router-dom', () => ({
 
 describe('<RenderWritingSub />', () => {
   let wrapper;
+  afterEach(() => {
+    wrapper = shallow(
+      <RenderWritingSub instructions={() => {}} tasks={{ story: {} }} />
+    );
+  });
 
-  it('Should render <SubmissionModal />', () => {
+  it('Should render <InstructionModal />', () => {
     wrapper = shallow(
       <RenderWritingSub instructions={() => {}} tasks={{ story: {} }} />
     );
@@ -32,14 +37,13 @@ describe('<RenderWritingSub />', () => {
     expect(wrapper.find(InstructionsModal)).toHaveLength(1);
   });
   it('Should render <Header />', () => {
-    wrapper = shallow(
-      <RenderWritingSub title={() => {}} tasks={{ story: {} }} />
-    );
     wrapper.setProps({ title: { title: '' } });
     expect(wrapper.find(Header)).toHaveLength(1);
   });
   it('should render a Button in the antD form', () => {
-    wrapper = shallow(<RenderWritingSub tasks={{ story: {} }} />);
     expect(wrapper.find(Row)).toHaveLength(1);
+  });
+  it('should render <UploadDocs ?>', () => {
+    expect(wrapper.find(UploadDocs)).toHaveLength(1);
   });
 });

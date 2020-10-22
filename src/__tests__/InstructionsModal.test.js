@@ -2,7 +2,7 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { cleanup } from '@testing-library/react';
-import { Modal } from 'antd';
+import { Modal, Button } from 'antd';
 
 import InstructionsModal from '../components/common/InstructionsModal';
 
@@ -12,11 +12,15 @@ afterEach(() => {
   cleanup();
 });
 
-describe('<RenderWritingSub />', () => {
+describe('<InstructionsModal />', () => {
   let wrapper;
 
-  it('should render a Button in the antD form', () => {
+  it('should render a Modal in page', () => {
     wrapper = shallow(<InstructionsModal />);
     expect(wrapper.find(Modal)).toHaveLength(1);
+  });
+  it('should render a Modal in page', () => {
+    wrapper = shallow(<Modal className="instructions-modal" />);
+    expect(wrapper.is('.instructions-modal')).toEqual(true);
   });
 });
