@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Link, useHistory } from 'react-router-dom';
 import { Button, Dropdown, Menu } from 'antd';
+import { CountDown } from 'ant-design-pro/lib/CountDown';
 import { MenuOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { global } from '../../state/actions';
@@ -38,10 +39,19 @@ const ChildMenu = props => {
   );
 };
 
-const Header = ({ displayMenu = true, backButton = false, ...props }) => {
+const Header = ({
+  displayMenu = true,
+  backButton = false,
+  countDown = false,
+  pointsRemaining = false,
+  ...props
+}) => {
+  // const targetTime = new Date().getTime() + 300;
+  // CountDown component requires 'target' property, currently not functional
   return (
     <div className="hero">
       {backButton && <BackButton destination={'/child/mission-control'} />}
+      {countDown && <CountDown className="countdown" />}
       {displayMenu && (
         <Dropdown
           overlay={<ChildMenu clearUsers={props.clearUsers} />}
@@ -50,6 +60,9 @@ const Header = ({ displayMenu = true, backButton = false, ...props }) => {
         >
           <Button className="menu" icon={<MenuOutlined />} type="default" />
         </Dropdown>
+      )}
+      {pointsRemaining && (
+        <h2 className="points-remaining">POINTS REMAINING: {props.points}</h2>
       )}
       <h1 className="header-text">{props.title || 'STORY SQUAD'}</h1>
     </div>

@@ -28,7 +28,6 @@ const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
     return () => (isSubscribed = false);
   }, [memoAuthService]);
 
-
   return (
     <>
       {authState.isAuthenticated && !userInfo && (
@@ -54,4 +53,3 @@ export default connect(
     setTeamSubmissions: team.setTeamSubmissions,
   }
 )(JoinTheSquadContainer);
-

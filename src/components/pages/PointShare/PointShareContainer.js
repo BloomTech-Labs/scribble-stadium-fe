@@ -1,12 +1,8 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
+import PointShare from './PointShare';
 
-import RenderMatchUp from './RenderMatchUp';
-import { connect } from 'react-redux';
-
-import { faceoffs } from './testdata';
-
-function MatchUpContainer({ LoadingComponent, ...props }) {
+const PointShareContainer = ({ LoadingComponent }) => {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
@@ -18,13 +14,11 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
     memoAuthService
       .getUser()
       .then(info => {
-        // if user is authenticated we can use the authService to snag some user info.
-        // isSubscribed is a boolean toggle that we're using to clean up our useEffect.
         if (isSubscribed) {
           setUserInfo(info);
         }
       })
-      .catch(err => {
+      .catch(error => {
         isSubscribed = false;
         return setUserInfo(null);
       });
@@ -37,20 +31,10 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
         <LoadingComponent message="Loading..." />
       )}
       {authState.isAuthenticated && userInfo && (
-        <RenderMatchUp
-          {...props}
-          faceoffs={faceoffs}
-          userInfo={userInfo}
-          authService={authService}
-        />
+        <PointShare userInfo={userInfo} authService={authService} />
       )}
     </>
   );
-}
+};
 
-export default connect(
-  state => ({
-    child: state.child,
-  }),
-  {}
-)(MatchUpContainer);
+export default PointShareContainer;

@@ -1,0 +1,57 @@
+@import '~antd/dist/antd.less';
+@import '~antd/lib/style/themes/default.less';
+
+.point-share-container {
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.ant-row.team-row {
+  width: 100%;
+}
+
+.ant-col.squad-col {
+  height: 100%;
+  background: #b5d33d;
+  border: 5px solid #292929;
+}
+
+.ant-row.teammate-one-points,
+.ant-row.teammate-two-points {
+  justify-content: center;
+  border: 5px solid #292929;
+  background: #fed23f;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 50%;
+}
+
+.submission-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.ant-row.teammate-one,
+.ant-row.teammate-two {
+  border: 5px solid #292929;
+  position: relative;
+  height: 50%;
+}
+
+.match-up {
+  font-family: Nunito;
+  font-style: 2rem;
+  z-index: 1;
+  padding: 0 3%;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  background-color: #eb7d5b;
+  color: #fff;
+  border: 3px solid #000000;
+  border-radius: 10px;
+}

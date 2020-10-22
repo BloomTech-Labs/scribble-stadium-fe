@@ -38,6 +38,7 @@ import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { VotingPage } from './components/pages/VotingPage';
 import { WritingSub } from './components/pages/WritingSub';
+import { PointShare } from './components/pages/PointShare';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 
 // Gameification Components
@@ -73,7 +74,6 @@ function App() {
   return (
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
-        
         <Route path="/login" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
@@ -151,8 +151,14 @@ function App() {
             <JoinTheSquad LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        
-          <Route exact path='/moderation' component={ModerationTest} />
+        <SecureRoute
+          path="/child/point-share"
+          exact
+          component={() => (
+            <PointShare LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <Route exact path="/moderation" component={ModerationTest} />
         <Route component={NotFoundPage} />
       </Switch>
     </Security>
