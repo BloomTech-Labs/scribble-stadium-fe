@@ -33,6 +33,7 @@ const ChildCard = props => {
         setVisible={setVisible}
         title={`${props.name.toUpperCase()}'s ${props.update} `}
         modalType="progress"
+        id={props.id}
       />
     </Card>
   );

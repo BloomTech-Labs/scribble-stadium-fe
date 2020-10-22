@@ -1,4 +1,4 @@
-// istanbul ignore file 
+// istanbul ignore file
 import axios from 'axios';
 
 // we will define a bunch of API calls here.
@@ -389,6 +389,18 @@ const postNewAvatar = async (authState, body) => {
   }
 };
 
+const getChildGraph = async (authState, ChildID) => {
+  try {
+    return apiAuthGet(
+      `/parent/viz?childId=${ChildID}`,
+      getAuthHeader(authState)
+    ).then(res => res.data);
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
+};
+
 export {
   sleep,
   getExampleData,
@@ -413,4 +425,5 @@ export {
   getChildFaceoffs,
   postVotes,
   getGameVotes,
+  getChildGraph,
 };
