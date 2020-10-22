@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import { Header } from '../../common';
-import { Row, Col, InputNumber, Button } from 'antd';
+import { Row, Col, InputNumber, Button, notification } from 'antd';
 import { connect } from 'react-redux';
+import { submitPoints } from '../../../api/index';
 
 import placeholder from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 
@@ -11,17 +13,46 @@ const PointShare = props => {
   const [storyTwoPoints, setStoryTwoPoints] = useState(0);
   const [illustrationOnePoints, setIllustrationOnePoints] = useState(0);
   const [illustrationTwoPoints, setIllustrationTwoPoints] = useState(0);
+  const [teamPoints, setTeamPoints] = useState([
+    {
+      WritingPoints: null,
+      DrawingPoints: null,
+      MemberID: null,
+      SubmissionID: null,
+    },
+    {
+      WritingPoints: null,
+      DrawingPoints: null,
+      MemberID: null,
+      SubmissionID: null,
+    },
+  ]);
 
-  const checkValues = () => {
-    // var submittedTotal =
-    //     storyOnePoints +
-    //     storyTwoPoints +
-    //     illustrationOnePoints +
-    //     illustrationTwoPoints;
-    // setTotalPoints(100 - submittedTotal);
+  const { authState } = useOktaAuth();
+
+  const formSubmit = () => {
+    if (totalPoints < 0) {
+      notification.error({
+        message: 'You may only allocate 100 points!',
+      });
+      return;
+    }
+    setTeamPoints([
+      {
+        WritingPoints: storyOnePoints,
+        DrawingPoints: illustrationOnePoints,
+        MemberID: 0,
+        SubmissionID: 0,
+      },
+      {
+        WritingPoints: storyTwoPoints,
+        DrawingPoints: illustrationTwoPoints,
+        MemberID: 0,
+        SubmissionID: 0,
+      },
+    ]);
+    submitPoints(authState, teamPoints);
   };
-
-  // const formSubmit = () => {};
 
   return (
     <>
@@ -66,7 +97,6 @@ const PointShare = props => {
                           illustrationOnePoints +
                           illustrationTwoPoints)
                     );
-                    checkValues();
                   }}
                 />
               </div>
@@ -85,7 +115,6 @@ const PointShare = props => {
                           storyOnePoints +
                           illustrationTwoPoints)
                     );
-                    checkValues();
                   }}
                 />
               </div>
@@ -106,7 +135,6 @@ const PointShare = props => {
                           illustrationOnePoints +
                           illustrationTwoPoints)
                     );
-                    checkValues();
                   }}
                 />
               </div>
@@ -125,13 +153,21 @@ const PointShare = props => {
                           illustrationOnePoints +
                           storyOnePoints)
                     );
-                    checkValues();
                   }}
                 />
               </div>
             </Row>
           </Col>
         </Row>
+        <Button
+          selection="#eb7d5bbb"
+          className="match-up"
+          type="primary"
+          size="large"
+          onClick={formSubmit}
+        >
+          Match Up!
+        </Button>
       </div>
     </>
   );
