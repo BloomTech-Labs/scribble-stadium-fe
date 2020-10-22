@@ -3,23 +3,20 @@ import { Header } from '../../common';
 import { Row, Col, Button } from 'antd';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import FaceoffContent from './FaceoffContent';
-import { getChildSquad, getChildFaceoffs } from '../../../api';
 
 const RenderMatchUp = props => {
-  console.log(props);
   const [faceoffs, setFaceoffs] = useState([]);
-  const { authState } = useOktaAuth();
+  // const { authState } = useOktaAuth();
 
   useEffect(() => {
-    // setFaceoffs(props.faceoffs);
-    getChildSquad(authState, props.child.id).then(res => {
-      console.log(res, 'from getsquad');
-      getChildFaceoffs(authState, res.ID).then(response => {
-        console.log(response, 'from getfaceoffs');
-        setFaceoffs(response);
-      });
-    });
-  }, [props, authState]);
+    setFaceoffs(props.squad);
+    // getChildSquad(authState, props.child.id).then(res => {
+    //   console.log(res, 'from getsquad');
+    //   getChildFaceoffs(authState, res.ID).then(response => {
+    //     console.log(response, 'from getfaceoffs');
+    //   });
+    // });
+  }, [props]);
 
   return (
     <>

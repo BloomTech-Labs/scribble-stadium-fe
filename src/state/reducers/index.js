@@ -6,10 +6,12 @@ import { reducer as child } from './childReducer';
 import { reducer as parent } from './parentReducer';
 import { reducer as tasks } from './taskReducer';
 import { reducer as team } from './teamReducers';
+import { reducer as squad } from './squadReducer';
 
 export default combineReducers({
   child,
   parent,
   tasks,
   team,
+  squad,
 });

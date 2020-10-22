@@ -3,7 +3,6 @@ import matchup_bolt from '../../../assets/images/match_up_images/matchup_bolt.sv
 
 const FaceoffContent = props => {
   const [content, setContent] = useState(null);
-  console.log(props, content, 'from faceoffcontent')
   useEffect(() => {
     setTimeout(() => {
       setContent(props.content);
@@ -22,7 +21,6 @@ const FaceoffContent = props => {
 };
 
 const FaceoffSubDisplay = ({ sub }) => {
-  console.log(sub, 'from subdisplay')
   return (
     <div className="sub">
       <div className="child-info">
