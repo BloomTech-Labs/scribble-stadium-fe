@@ -1,7 +1,9 @@
 import React from 'react';
 import { Modal, Button } from 'antd';
+import { useHistory } from 'react-router-dom';
 
 const InstructionsModal = props => {
+  const {push} = useHistory();
   const {
     modalVisible,
     style,
@@ -10,6 +12,11 @@ const InstructionsModal = props => {
     handleCancel,
     handleOk,
   } = props;
+
+  // For when we're ready for checking the status of the weekly game
+  // const joinScquad = e => {
+  //   push('/child/join');
+  // };
 
   return (
     <>
