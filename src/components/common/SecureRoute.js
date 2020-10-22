@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+// istanbul ignore file 
+import React from 'react';
 import { SecureRoute } from '@okta/okta-react';
 import { Redirect, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';

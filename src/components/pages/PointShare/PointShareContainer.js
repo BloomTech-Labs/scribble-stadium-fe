@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo } from 'react'; 
 import { useOktaAuth } from '@okta/okta-react';
-import PointShare from './PointShare';
+import PointShare from './RenderPointShare';
 
 const PointShareContainer = ({ LoadingComponent }) => {
   const { authState, authService } = useOktaAuth();

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
@@ -15,6 +15,10 @@ const RenderChildDashboard = props => {
 
   const handleAcceptMission = e => {
     push('/child/mission-control');
+  };
+
+  const handleJoinSquad = e => {
+    push('/child/join');
   };
 
   return (
@@ -54,6 +58,7 @@ const RenderChildDashboard = props => {
               className="child-dash-img"
               src={adventure_passport}
               alt="Adventure Passport Button"
+              onClick={handleJoinSquad}
             />
           </Col>
           <Col className="trophy-room" xs={24} sm={13}>

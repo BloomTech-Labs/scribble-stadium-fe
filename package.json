@@ -68,7 +68,8 @@
     ],
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/stories/",
-      "<rootDir>/node_modules/"
+      "<rootDir>/node_modules/",
+      "<rootDir>/src/api/"
     ]
   },
   "browserslist": {

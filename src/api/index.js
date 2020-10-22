@@ -1,3 +1,4 @@
+// istanbul ignore file 
 import axios from 'axios';
 
 // we will define a bunch of API calls here.

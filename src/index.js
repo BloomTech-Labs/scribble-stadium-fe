@@ -1,4 +1,5 @@
-import React from 'react';
+// istanbul ignore file
+import React from 'react'; 
 import ReactDOM from 'react-dom';
 
 // Redux
@@ -38,11 +39,11 @@ import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { VotingPage } from './components/pages/VotingPage';
 import { WritingSub } from './components/pages/WritingSub';
-import { PointShare } from './components/pages/PointShare';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
-import { JoinTheSquad } from './components/pages/JoinTheSquad';
 
-// Gamification Components
+// Gameification Components
+import { JoinTheSquad } from './components/pages/JoinTheSquad';
+import { PointShare } from './components/pages/PointShare';
 
 // Note: for demo purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';

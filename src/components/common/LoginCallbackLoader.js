@@ -1,4 +1,5 @@
-import { LoginCallback } from '@okta/okta-react';
+// istanbul ignore file
+import { LoginCallback } from '@okta/okta-react'; 
 import React from 'react';
 import { ChildLoadingComponent } from './';
 
