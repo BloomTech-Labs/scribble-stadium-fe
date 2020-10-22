@@ -42,7 +42,7 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
       });
     });
   // eslint-disable-next-line
-  }, [props.child.id, authState]);
+  }, [authState]);
 
    return (
     <>
