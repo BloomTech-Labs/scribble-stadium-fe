@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Header } from '../../common';
 import { Col, Button } from 'antd';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import Squadup from '../../../assets/images/Squadup.svg';
 import wordbubble from '../../../assets/images/match_up_images/wordbubble.svg';
@@ -11,7 +11,8 @@ import { connect } from 'react-redux';
 
 
 const RenderJoinTheSquad = props => {
-  // const { push } = useHistory();
+  console.log(props);
+  const { push } = useHistory();
   const {authState} = useOktaAuth();
 
   useEffect(() => {
@@ -22,8 +23,11 @@ const RenderJoinTheSquad = props => {
       }
     );
   // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [authState]);
+  }, [authState]);
 
+  const teamVote = e => {
+    push('/child/point-share');
+  };
 
   return (
     <>
@@ -32,7 +36,7 @@ const RenderJoinTheSquad = props => {
         <Col className="joinSquad1" xs={24} sm={12}>
           <div className="imgContain1">
             <p className="text">
-              Hi! <br></br>My name is {props.child.name}.
+              Hi! <br></br>My name is {props.team.child1.ChildName}.
             </p>
             <img className="wordBubble" src={wordbubble} alt="word bubble" />
             <img
@@ -45,7 +49,7 @@ const RenderJoinTheSquad = props => {
         <Col className="joinSquad2" xs={24} sm={12}>
           <div className="imgContain2">
             <p className="text2">
-              Hi! <br></br>My name is WhiteFox.
+              Hi! <br></br>My name is {props.team.child2.ChildName}.
             </p>
             <img
               className="wordBubble2"
@@ -64,6 +68,7 @@ const RenderJoinTheSquad = props => {
               className="sharePoints"
               type="primary"
               size="large"
+              onClick={teamVote}
             >
               Share Points
             </Button>
