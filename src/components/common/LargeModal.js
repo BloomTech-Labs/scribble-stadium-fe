@@ -42,7 +42,7 @@ const LargeModal = props => {
                 <li>{isNot}</li>
               </ul>
             ))}
-            <ProgressChart />
+            <ProgressChart ChildID={props.id} />
           </div>
         ) : (
           <h2>Image from gamification will be here</h2>
