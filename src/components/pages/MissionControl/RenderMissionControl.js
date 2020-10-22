@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; 
+import React, { useEffect, useState } from 'react';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
@@ -41,7 +41,6 @@ const RenderMissionControl = props => {
   }, []);
 
   useEffect(() => {
-    console.log(props, "this is props!!!!!!!!!!!!!!!!!!!")
     setInstructionText(getMissionControlText(hasRead, hasDrawn, hasWritten));
     setShowButton(!hasRead || (hasWritten && hasDrawn));
   }, [hasRead, hasWritten, hasDrawn]);
@@ -123,7 +122,6 @@ const RenderMissionControl = props => {
                 defaultChecked={false}
                 onChange={handleChecked}
                 isCompleted={hasDrawn}
-                
               />
               <Col className="image-and-text-container">
                 <img
