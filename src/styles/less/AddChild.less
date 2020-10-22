@@ -1,6 +1,3 @@
-@import '~antd/dist/antd.less';
-@import '~antd/lib/style/themes/default.less';
-
 .add-child {
   .logo {
     .logoStyle();
@@ -8,57 +5,68 @@
   .welcome {
     .welcomeStyle();
   }
-  input {
-    background-color: #6ceae6;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 20px;
-    height: 50px;
-    border-radius: 0;
-    background: rgba(255, 255, 255, 0.75);
-  }
-
-  .child-content {
-    align-items: center;
-    justify-content: center;
-    padding: 3%;
-    margin-bottom: 10%;
-  }
-
   .title {
     .titleStyle();
   }
-
   .ant-layout-sider {
     .siderStyle();
   }
-  .settings-form {
-    form {
-      width: 94%;
-    }
-    padding: 2%;
-    justify-content: center;
-    h2 {
-      align-self: center;
-    }
-    #change-family-settings_password {
-      height: 26px;
-      background: rgba(255, 255, 255, 0.75);
-      border-radius: 0;
-    }
-  }
-  form {
-    background: @primary-3;
-    width: 80%;
-    border-radius: 10px;
 
-    .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
-      height: 50px;
-      background: rgba(255, 255, 255, 0.75);
-      border-radius: 0;
-    }
-    button {
-      width: 67%;
+  .child-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 3%;
+
+    form {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+
+      padding: 2.5vh;
+      width: 90%;
+
+      background-color: @primary-3;
+      border-radius: 10px;
+
+      input {
+        width: 100%;
+        background-color: #fffc;
+        height: 50px;
+      }
+
+      .form-inline {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+        .form-elements {
+          margin-top: 24px;
+        }
+
+        .avatar-select {
+          width: 35%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 24px 5%;
+
+          button {
+            flex-grow: 1;
+            height: 100%;
+          }
+        }
+
+        .avatar-select + div {
+          width: 62%;
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: space-evenly;
+        }
+      }
     }
   }
+}
+.avatar-select-modal {
 }
