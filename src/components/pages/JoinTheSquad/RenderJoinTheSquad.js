@@ -8,6 +8,7 @@ import wordbubble from '../../../assets/images/match_up_images/wordbubble.svg';
 import wordBubbleright from '../../../assets/images/match_up_images/wordBubbleright.svg';
 import {getChildTeam} from '../../../api';
 import { connect } from 'react-redux';
+import { child } from '../../../state/actions';
 
 
 const RenderJoinTheSquad = props => {
@@ -18,7 +19,8 @@ const RenderJoinTheSquad = props => {
   useEffect(() => {
     getChildTeam(authState, props.child.id).then(
       res => {
-        console.log(res);
+        console.log(res[props.child.id].MemberID);
+        props.setMemberId(res[props.child.id]);
         props.setTeamSubmissions(res);
       }
     );
@@ -82,6 +84,9 @@ const RenderJoinTheSquad = props => {
 export default connect(
   state => ({
     team: state.team,
+    child: state.child,
   }),
-  {}
+  {
+    setMemberId: child.setMemberId,
+  }
 )(RenderJoinTheSquad);

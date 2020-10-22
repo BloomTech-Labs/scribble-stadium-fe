@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import { Header } from '../../common';
 import { Row, Col, InputNumber, Button, notification } from 'antd';
@@ -14,20 +14,7 @@ const PointShare = props => {
   const [storyTwoPoints, setStoryTwoPoints] = useState(0);
   const [illustrationOnePoints, setIllustrationOnePoints] = useState(0);
   const [illustrationTwoPoints, setIllustrationTwoPoints] = useState(0);
-  const [teamPoints, setTeamPoints] = useState([
-    {
-      WritingPoints: null,
-      DrawingPoints: null,
-      MemberID: null,
-      SubmissionID: null,
-    },
-    {
-      WritingPoints: null,
-      DrawingPoints: null,
-      MemberID: null,
-      SubmissionID: null,
-    },
-  ]);
+  const [teamPoints, setTeamPoints] = useState(null);
 
   const { authState } = useOktaAuth();
 
@@ -42,18 +29,24 @@ const PointShare = props => {
       {
         WritingPoints: storyOnePoints,
         DrawingPoints: illustrationOnePoints,
-        MemberID: props.team.child1.MemberID,
-        SubmissionID: props.team.child2.SubmissionID,
+        MemberID: props.child.memberId,
+        SubmissionID: props.team.child1.SubmissionID,
       },
       {
         WritingPoints: storyTwoPoints,
         DrawingPoints: illustrationTwoPoints,
-        MemberID: props.team.child2.MemberID,
+        MemberID: props.child.memberId,
         SubmissionID: props.team.child2.SubmissionID,
       },
     ]);
-    submitPoints(authState, teamPoints);
   };
+
+  useEffect(() => {
+    if (teamPoints) {
+      console.log(teamPoints, 'team points');
+      submitPoints(authState, teamPoints);
+    }
+  }, [teamPoints, authState]);
 
   return (
     <>
@@ -140,7 +133,7 @@ const PointShare = props => {
                 />
               </div>
               <div className="submission-container">
-                <img className="submission" src={props.team.child1.Pages[0].PageURL} width={100} alt="Submission" />
+                <img className="submission" src={props.team.child2.Pages[0].PageURL} width={100} alt="Submission" />
                 <InputNumber
                   value={illustrationTwoPoints}
                   min={0}
