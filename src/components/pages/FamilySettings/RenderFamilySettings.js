@@ -23,7 +23,7 @@ const FamilySettings = props => {
 
   const [form] = Form.useForm();
 
-  const onFinish = values => {S
+  const onFinish = values => {
     push('/parent-dashboard');
   };
 
