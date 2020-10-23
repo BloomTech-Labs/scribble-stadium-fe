@@ -40,7 +40,6 @@ const PointShare = props => {
 
   useEffect(() => {
     if (teamPoints) {
-      console.log(teamPoints, 'team points');
       submitPoints(authState, teamPoints);
     };
   }, [teamPoints, authState]);
