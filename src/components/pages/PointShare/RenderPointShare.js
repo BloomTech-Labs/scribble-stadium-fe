@@ -5,6 +5,8 @@ import { Row, Col, InputNumber, Button, notification } from 'antd';
 import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
 
+import { SubmissionViewerModal } from '../../common';
+
 // import placeholder from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 
 const PointShare = props => {
@@ -15,6 +17,9 @@ const PointShare = props => {
   const [illustrationOnePoints, setIllustrationOnePoints] = useState(0);
   const [illustrationTwoPoints, setIllustrationTwoPoints] = useState(0);
   const [teamPoints, setTeamPoints] = useState(null);
+
+  const [modalContent, setModalContent] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const { authState } = useOktaAuth();
 
@@ -48,9 +53,21 @@ const PointShare = props => {
     }
   }, [teamPoints, authState]);
 
+  const openModal = content => {
+    setModalContent(content);
+    setShowModal(true);
+  };
+
   return (
     <>
       {/* Header requires countDown={true}  */}
+      {showModal && (
+        <SubmissionViewerModal
+          showModal={showModal}
+          content={modalContent}
+          closeModal={() => setShowModal(false)}
+        />
+      )}
       <Header
         title="SHARE POINTS"
         pointsRemaining={true}
@@ -81,6 +98,7 @@ const PointShare = props => {
                   className="submission"
                   src={props.team.child1.ImgURL}
                   alt="Submission"
+                  onClick={() => openModal([props.team.child1.ImgURL])}
                 />
                 <InputNumber
                   value={storyOnePoints}
@@ -103,6 +121,7 @@ const PointShare = props => {
                   className="submission"
                   src={props.team.child1.Pages[0].PageURL}
                   alt="Submission"
+                  onClick={() => openModal(props.team.child1.Pages)}
                 />
                 <InputNumber
                   value={illustrationOnePoints}
@@ -127,6 +146,7 @@ const PointShare = props => {
                   className="submission"
                   src={props.team.child2.ImgURL}
                   alt="Submission"
+                  onClick={() => openModal([props.team.child1.ImgURL])}
                 />
                 <InputNumber
                   value={storyTwoPoints}
@@ -149,6 +169,7 @@ const PointShare = props => {
                   className="submission"
                   src={props.team.child2.Pages[0].PageURL}
                   alt="Submission"
+                  onClick={() => openModal(props.team.child1.Pages)}
                 />
                 <InputNumber
                   value={illustrationTwoPoints}
