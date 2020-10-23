@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
 import { ChildLoadingComponent } from '../components/common';
-import { ChildDashboard } from '../components/pages/ChildDashboard';
+import { JoinTheSquad } from '../components/pages/JoinTheSquad';
 
 const mockStore = configureStore([]);
 const store = mockStore();
@@ -25,12 +25,12 @@ jest.mock('@okta/okta-react', () => ({
   },
 }));
 
-describe('<ChildDashboard /> test suite', () => {
+describe('<JoinTheSquad /> test suite', () => {
   test('container renders without crashing', async () => {
     const { getByText } = render(
       <Router>
         <Provider store={store}>
-          <ChildDashboard LoadingComponent={ChildLoadingComponent} />
+          <JoinTheSquad LoadingComponent={ChildLoadingComponent} />
         </Provider>
       </Router>
     );
