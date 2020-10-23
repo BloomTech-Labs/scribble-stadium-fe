@@ -26,10 +26,13 @@
   height: 45px;
 
   color: #fff;
-  background-color: #eb7d5b;
+  background-color: @burnt-sienna;
   box-sizing: border-box;
   font-size: 1rem;
   border: 3px solid @header-nero;
+  &:hover {
+    background-color: lighten(@burnt-sienna, 10%);
+  }
 }
 .matchupBoxesStyle() {
 }

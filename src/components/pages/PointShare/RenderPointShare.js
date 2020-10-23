@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; 
+import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import { Header } from '../../common';
 import { Row, Col, InputNumber, Button, notification } from 'antd';
@@ -8,7 +8,7 @@ import { submitPoints } from '../../../api/index';
 // import placeholder from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 
 const PointShare = props => {
-  console.log(props, 'from pointShare')
+  console.log(props, 'from pointShare');
   const [totalPoints, setTotalPoints] = useState(100);
   const [storyOnePoints, setStoryOnePoints] = useState(0);
   const [storyTwoPoints, setStoryTwoPoints] = useState(0);
@@ -58,7 +58,7 @@ const PointShare = props => {
       />
       <div className="point-share-container">
         <Row className="team-row">
-          <Col className="squad-col" span={6}>
+          <Col>
             <Row className="teammate-one">
               <img
                 className="teammate-one-avatar"
@@ -74,10 +74,14 @@ const PointShare = props => {
               />
             </Row>
           </Col>
-          <Col className="points-col" span={18}>
+          <Col>
             <Row className="teammate-one-points">
               <div className="submission-container">
-                <img className="submission" src={props.team.child1.ImgURL} width={100}alt="Submission" />
+                <img
+                  className="submission"
+                  src={props.team.child1.ImgURL}
+                  alt="Submission"
+                />
                 <InputNumber
                   value={storyOnePoints}
                   min={0}
@@ -95,7 +99,11 @@ const PointShare = props => {
                 />
               </div>
               <div className="submission-container">
-                <img className="submission" src={props.team.child1.Pages[0].PageURL} width={100} alt="Submission" />
+                <img
+                  className="submission"
+                  src={props.team.child1.Pages[0].PageURL}
+                  alt="Submission"
+                />
                 <InputNumber
                   value={illustrationOnePoints}
                   min={0}
@@ -115,7 +123,11 @@ const PointShare = props => {
             </Row>
             <Row className="teammate-two-points">
               <div className="submission-container">
-                <img className="submission" src={props.team.child2.ImgURL} width={100} alt="Submission" />
+                <img
+                  className="submission"
+                  src={props.team.child2.ImgURL}
+                  alt="Submission"
+                />
                 <InputNumber
                   value={storyTwoPoints}
                   min={0}
@@ -133,7 +145,11 @@ const PointShare = props => {
                 />
               </div>
               <div className="submission-container">
-                <img className="submission" src={props.team.child2.Pages[0].PageURL} width={100} alt="Submission" />
+                <img
+                  className="submission"
+                  src={props.team.child2.Pages[0].PageURL}
+                  alt="Submission"
+                />
                 <InputNumber
                   value={illustrationTwoPoints}
                   min={0}
