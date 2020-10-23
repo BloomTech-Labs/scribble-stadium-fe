@@ -1,14 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { render, cleanup } from '@testing-library/react';
-import configureStore from 'redux-mock-store';
+import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
 import { ChildLoadingComponent } from '../components/common';
-import { MatchUp } from '../components/pages/MatchUp';
+import MatchUp from '../components/pages/MatchUp/MatchUpContainer';
 
-const mockStore = configureStore([]);
-const store = mockStore();
+const mockStore = configureMockStore([]);
+const store = mockStore({
+  child: { id: 0 },
+  squad: {},
+});
 
 afterEach(cleanup);
 
@@ -17,6 +20,7 @@ jest.mock('@okta/okta-react', () => ({
     return {
       authState: {
         isAuthenticated: true,
+        userInfo: '',
       },
       authService: {
         getUser: () => Promise.reject(),

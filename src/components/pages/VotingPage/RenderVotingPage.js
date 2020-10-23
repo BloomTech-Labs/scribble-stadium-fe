@@ -4,7 +4,6 @@ import { Row, Col, Card } from 'antd';
 import { VotingForm } from '../../common';
 
 const RenderVotingPage = props => {
-
   return (
     <>
       <Header title="VOTE FOR YOUR FAVORITE STORY" />

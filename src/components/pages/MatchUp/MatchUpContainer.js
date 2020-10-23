@@ -35,9 +35,7 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
   }, [memoAuthService]);
 
   useEffect(() => {
-    console.log(props, 'props');
     getChildSquad(authState, props.child.id).then(squad => {
-      console.log(squad.MemberID, 'squad api call');
       getChildFaceoffs(authState, squad.ID).then(allFaceoffs => {
         props.setMemberId(squad);
         props.setSquadFaceoffs(allFaceoffs);
