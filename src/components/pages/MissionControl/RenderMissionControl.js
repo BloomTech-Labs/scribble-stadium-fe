@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; 
+import React, { useEffect, useState } from 'react';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
@@ -56,13 +56,13 @@ const RenderMissionControl = props => {
   };
   const handleWrite = e => {
     e.stopPropagation();
-    if (!hasWritten) {
+    if (!hasWritten && hasRead) {
       push('/child/writing-sub');
     }
   };
   const handleDraw = e => {
     e.stopPropagation();
-    if (!hasDrawn) {
+    if (!hasDrawn && hasRead) {
       push('/child/drawing-sub');
     }
   };
