@@ -1,16 +1,28 @@
 import React, { useState } from 'react';
-
 import { Button, Form, Radio } from 'antd';
+import { useOktaAuth } from '@okta/okta-react';
+import { useHistory } from 'react-router-dom';
 
-const VotingForm = () => {
+import { postVotes } from '../../api';
+
+const VotingForm = props => {
+  const { push } = useHistory();
+  const { authState } = useOktaAuth();
   const [value, setValue] = useState(1);
 
   const onChange = e => {
     console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
-  const onFinish = values => {
-    console.log('Success:', values);
+  const onFinish = () => {
+    const body = {
+      "Vote": value, 
+      "MemberID": props.MemberID,
+      "FaceoffID": props.FaceoffID
+    };
+    postVotes(authState, body).then(res => {
+      push('/child/match-up');
+    });
   };
   const onFinishFailed = errorInfo => {
     console.log('Failed:', errorInfo);

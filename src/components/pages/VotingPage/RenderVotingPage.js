@@ -1,24 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Header } from '../../common';
 import { Row, Col, Card } from 'antd';
-import pdfSample from '../../../assets/images/votingPage/pdfSample.svg';
-import pdf2Sample from '../../../assets/images/votingPage/pdf2Sample.svg';
 import { VotingForm } from '../../common';
-import { useOktaAuth } from '@okta/okta-react';
-import { getGameVotes } from '../../../api';
 
 const RenderVotingPage = props => {
-  const {authState} = useOktaAuth();
-
-  useEffect(() => {
-    console.log(props.squad[0], 'from render voting page');
-    for (let key in props.squad){
-      console.log(props.squad[key])
-    }
-    getGameVotes(authState, props.squad[0].SquadID, props.child.memberId).then(res => {
-      console.log(res, 'from api call');
-    });
-  }, []);
 
   return (
     <>
@@ -31,7 +16,7 @@ const RenderVotingPage = props => {
               <Card className="pdfCard">
                 <img
                   className="WritingandDrawingIcon"
-                  src={pdfSample}
+                  src={props.faceoff.Submission1.ImgURL}
                   alt="writing submission"
                 />
               </Card>
@@ -43,12 +28,12 @@ const RenderVotingPage = props => {
               <Card className="pdfCard">
                 <img
                   className="WritingandDrawingIcon"
-                  src={pdf2Sample}
+                  src={props.faceoff.Submission2.ImgURL}
                   alt="writing submission"
                 />
               </Card>
             </div>
-            <VotingForm />
+            <VotingForm FaceoffID={props.faceoff.ID} MemberID={props.child.memberId}/>
           </Col>
         </Row>
       </div>

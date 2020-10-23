@@ -4,7 +4,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import RenderMatchUp from './RenderMatchUp';
 import { connect } from 'react-redux';
 
-import { squad } from '../../../state/actions';
+import { squad, child } from '../../../state/actions';
 import { getChildSquad, getChildFaceoffs } from '../../../api';
 
 function MatchUpContainer({ LoadingComponent, ...props }) {
@@ -37,7 +37,9 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
   useEffect(() => {
     console.log(props, 'props');
     getChildSquad(authState, props.child.id).then(squad => {
+      console.log(squad.MemberID, 'squad api call');
       getChildFaceoffs(authState, squad.ID).then(allFaceoffs => {
+        props.setMemberId(squad);
         props.setSquadFaceoffs(allFaceoffs);
       });
     });
@@ -67,5 +69,6 @@ export default connect(
   }),
   {
     setSquadFaceoffs: squad.setSquadFaceoffs,
+    setMemberId: child.setMemberId,
   }
 )(MatchUpContainer);

@@ -162,7 +162,7 @@ function App() {
           )}  
         />
         <SecureRoute
-          path="/child-squad-vote"
+          path="/child/squad-vote"
           exact
           component={() => (
             <VotingPage LoadingComponent={ChildLoadingComponent} />

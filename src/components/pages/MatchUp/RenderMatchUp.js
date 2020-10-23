@@ -15,7 +15,7 @@ const RenderMatchUp = props => {
 
   const handleVote = e => {
     e.preventDefault();
-    push('/child-squad-vote')
+    push('/child/squad-vote');
   };
 
   return (
