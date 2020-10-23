@@ -1,5 +1,6 @@
 # Story Squad Team B
-[![Maintainability](https://api.codeclimate.com/v1/badges/0a3a11c6f1e83568a5cf/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/Labs26-StorySquad-FE-TeamB/maintainability)  [![Test Coverage](https://api.codeclimate.com/v1/badges/0a3a11c6f1e83568a5cf/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/Labs26-StorySquad-FE-TeamB/test_coverage)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/0a3a11c6f1e83568a5cf/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/Labs26-StorySquad-FE-TeamB/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/0a3a11c6f1e83568a5cf/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/Labs26-StorySquad-FE-TeamB/test_coverage)
 
 [<img src="https://avatars2.githubusercontent.com/t/4044276?s=280&v=4" width="200" />](https://avatars2.githubusercontent.com/t/4044276?s=280&v=4)
 
@@ -7,7 +8,11 @@ You can find the deployed project at: [AWS Amplify](https://b.storysquad.dev/)
 
 ## Project Overview
 
-[Product Canvas](https://trello.com/b/IUMvKKNf/story-squad-b-trevor)
+[Frontend video](https://youtu.be/RwdSUOyeXG0)
+<br>
+[Backend video](https://youtu.be/K5k19qWKHbI)
+<br>
+[Product Roadmap](https://www.notion.so/Story-Squad-Roadmap-2682f21ae48b420cbb0caafa3f500b5e)
 <br>
 [UX Design](https://www.figma.com/file/WaHXdLK2NASoFWYVMZLVNt/Story_Squad?node-id=962%3A211)
 <br>
@@ -30,7 +35,6 @@ Story Squad is a paid service; parents are required to create the account for th
 
 - A Custom, Serialized Novel geared toward children in 3rd-6th grade
 - Parental Controls which allow parents to add and customize child accounts
-- Secure Payment Handling via Stripe
 
 <br>
 
@@ -52,6 +56,11 @@ Ant Design
 - Powerful theme customization
 - Whole package of design resources and development tools
 
+React Plotly
+
+- Easy to use to embed D3 charts
+- This React component takes the chart type, data and styling as Plotyly.JSON in its data and layout props, then draws the chart using Plotly.js.
+
 Redux state management
 
 - Redux helps you write applications that behave consistently,
@@ -65,9 +74,9 @@ Express
 - Built in routing and middleware
 - Useful add-ons such as helmet and CORS
 
-Swagger
+Swagger Editor Documentation
 
--
+- Defines and documents RESTful APIs
 
 ## API's
 
@@ -81,7 +90,7 @@ In order for the app to function correctly, the user must set up their own envir
 
 ```
 *  BROWSER=none
-*  REACT_APP_ENDPOINT=http://localhost:4000
+*  REACT_APP_ENDPOINT=http://localhost:3000
 ```
 
 ## Testing
