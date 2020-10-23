@@ -11,14 +11,13 @@ const VotingForm = props => {
   const [value, setValue] = useState(1);
 
   const onChange = e => {
-    console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
   const onFinish = () => {
     const body = {
       "Vote": value, 
       "MemberID": props.MemberID,
-      "FaceoffID": props.FaceoffID
+      "FaceoffID": props.FaceoffID,
     };
     postVotes(authState, body).then(res => {
       push('/child/match-up');
