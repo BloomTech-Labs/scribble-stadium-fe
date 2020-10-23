@@ -38,7 +38,6 @@ const RenderAddAvatar = props => {
 
     postNewAvatar(authState, formData)
       .then(res => {
-        console.log(res);
         setUploading(false);
       })
       .catch(err => {
@@ -77,10 +76,6 @@ const RenderAddAvatar = props => {
       return newFileList;
     });
   };
-
-  useEffect(() => {
-    console.log(fileList);
-  }, [fileList]);
 
   return (
     <>

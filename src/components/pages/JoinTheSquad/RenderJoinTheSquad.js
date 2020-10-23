@@ -12,14 +12,12 @@ import { child } from '../../../state/actions';
 
 
 const RenderJoinTheSquad = props => {
-  console.log(props);
   const { push } = useHistory();
   const {authState} = useOktaAuth();
 
   useEffect(() => {
     getChildTeam(authState, props.child.id).then(
       res => {
-        console.log(res[props.child.id].MemberID);
         props.setMemberId(res[props.child.id]);
         props.setTeamSubmissions(res);
       }

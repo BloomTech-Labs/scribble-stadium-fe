@@ -1,14 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { render, cleanup } from '@testing-library/react';
-import configureStore from 'redux-mock-store';
+import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
 import { ChildLoadingComponent } from '../components/common';
 import { VotingPage } from '../components/pages/VotingPage';
 
-const mockStore = configureStore([]);
-const store = mockStore();
+const mockStore = configureMockStore([]);
+const store = mockStore({
+  squad: [
+    {SquadID: 0},
+  ],
+  child: {}
+});
 
 afterEach(cleanup);
 

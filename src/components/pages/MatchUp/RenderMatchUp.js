@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from '../../common';
 import { Row, Col, Button } from 'antd';
-
+import { useHistory } from 'react-router-dom';
 import FaceoffContent from './FaceoffContent';
+
 
 const RenderMatchUp = props => {
   const [faceoffs, setFaceoffs] = useState([]);
+  const { push } = useHistory();
 
   useEffect(() => {
-    setFaceoffs(props.faceoffs);
+    setFaceoffs(props.squad);
   }, [props]);
+
+  const handleVote = e => {
+    e.preventDefault();
+    push('/child/squad-vote');
+  };
 
   return (
     <>
@@ -36,7 +43,7 @@ const RenderMatchUp = props => {
 
         <Button className="back-button">Back</Button>
 
-        <Button className="vote-button">Vote!</Button>
+        <Button className="vote-button" onClick={handleVote}>Vote!</Button>
       </div>
     </>
   );

@@ -4,13 +4,16 @@ import { useOktaAuth } from '@okta/okta-react';
 import RenderMatchUp from './RenderMatchUp';
 import { connect } from 'react-redux';
 
-import { faceoffs } from './testdata';
+import { squad, child } from '../../../state/actions';
+import { getChildSquad, getChildFaceoffs } from '../../../api';
 
 function MatchUpContainer({ LoadingComponent, ...props }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
+  // const [faceoffs, setFaceoffs] = useState(null);
+
 
   useEffect(() => {
     let isSubscribed = true;
@@ -31,15 +34,24 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
     return () => (isSubscribed = false);
   }, [memoAuthService]);
 
-  return (
+  useEffect(() => {
+    getChildSquad(authState, props.child.id).then(squad => {
+      getChildFaceoffs(authState, squad.ID).then(allFaceoffs => {
+        props.setMemberId(squad);
+        props.setSquadFaceoffs(allFaceoffs);
+      });
+    });
+  // eslint-disable-next-line
+  }, [authState]);
+
+   return (
     <>
       {authState.isAuthenticated && !userInfo && (
         <LoadingComponent message="Loading..." />
       )}
-      {authState.isAuthenticated && userInfo && (
+      {authState.isAuthenticated && userInfo && props.squad && (
         <RenderMatchUp
           {...props}
-          faceoffs={faceoffs}
           userInfo={userInfo}
           authService={authService}
         />
@@ -51,6 +63,10 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
 export default connect(
   state => ({
     child: state.child,
+    squad: state.squad,
   }),
-  {}
+  {
+    setSquadFaceoffs: squad.setSquadFaceoffs,
+    setMemberId: child.setMemberId,
+  }
 )(MatchUpContainer);

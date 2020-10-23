@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 import { Col, Modal, Row } from 'antd';
 
-const SubmissionViewerModal = ({ content, showModal }) => {
+const SubmissionViewerModal = ({ content, showModal, closeModal }) => {
   const [selected, setSelected] = useState(null);
   const [pics, setPics] = useState(null);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setVisible(showModal);
     setPics(content.map(item => ({ src: item.ImgURL || item.PageURL })));
     setSelected(1);
   }, [content, showModal]);
@@ -24,10 +22,10 @@ const SubmissionViewerModal = ({ content, showModal }) => {
     <Modal
       className="submission-viewer"
       closable={false}
-      visible={visible}
+      visible={showModal}
       style={{ minWidth: '90%', top: '5vh' }}
       cancelButtonProps={{ style: { display: 'none' } }}
-      onOk={() => setVisible(false)}
+      onOk={() => closeModal()}
       okText="Done"
     >
       {pics && (

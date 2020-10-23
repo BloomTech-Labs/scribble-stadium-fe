@@ -5,8 +5,6 @@ import { progressInfo } from '../../utils/helpers';
 import ProgressChart from '../../components/common/ProgressChart';
 
 const LargeModal = props => {
-  console.log(props, 'from large modal');
-
   const handleClose = () => {
     props.setVisible(false);
   };

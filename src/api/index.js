@@ -243,7 +243,6 @@ const getChildTeam = async (authState, childId) => {
       `/game/team?childId=${childId}`,
       getAuthHeader(authState)
     ).then(response => {
-      console.log(response);
       return response.data;
     });
   } catch (error) {
@@ -267,7 +266,6 @@ const submitPoints = async (authState, teamPoints) => {
       teamPoints,
       getAuthHeader(authState)
     ).then(response => {
-      console.log(response);
       return response.data;
     });
   } catch (error) {
@@ -290,7 +288,6 @@ const getChildSquad = async (authState, childId) => {
       `/game/squad?childId=${childId}`,
       getAuthHeader(authState)
     ).then(response => {
-      console.log(response);
       return response.data;
     });
   } catch (error) {
@@ -313,7 +310,6 @@ const getChildFaceoffs = async (authState, squadId) => {
       `/game/faceoffs?squadId=${squadId}`,
       getAuthHeader(authState)
     ).then(response => {
-      console.log(response);
       return response.data;
     });
   } catch (error) {
@@ -334,7 +330,6 @@ const postVotes = async (authState, voteInfo) => {
   try {
     return apiAuthPost(`/game/votes`, voteInfo, getAuthHeader(authState)).then(
       response => {
-        console.log(response);
         return response.data;
       }
     );
@@ -359,7 +354,6 @@ const getGameVotes = async (authState, squadId, memberId) => {
       `/game/votes?squadId=${squadId}&memberId=${memberId}`,
       getAuthHeader(authState)
     ).then(response => {
-      console.log(response);
       return response.data;
     });
   } catch (error) {

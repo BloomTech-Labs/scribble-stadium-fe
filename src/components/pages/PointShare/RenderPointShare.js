@@ -7,10 +7,7 @@ import { submitPoints } from '../../../api/index';
 
 import { SubmissionViewerModal } from '../../common';
 
-// import placeholder from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
-
 const PointShare = props => {
-  console.log(props, 'from pointShare');
   const [totalPoints, setTotalPoints] = useState(100);
   const [storyOnePoints, setStoryOnePoints] = useState(0);
   const [storyTwoPoints, setStoryTwoPoints] = useState(0);
@@ -48,7 +45,6 @@ const PointShare = props => {
 
   useEffect(() => {
     if (teamPoints) {
-      console.log(teamPoints, 'team points');
       submitPoints(authState, teamPoints);
     }
   }, [teamPoints, authState]);
@@ -98,7 +94,9 @@ const PointShare = props => {
                   className="submission"
                   src={props.team.child1.ImgURL}
                   alt="Submission"
-                  onClick={() => openModal([props.team.child1.ImgURL])}
+                  onClick={() =>
+                    openModal([{ ImgURL: props.team.child1.ImgURL }])
+                  }
                 />
                 <InputNumber
                   value={storyOnePoints}
@@ -146,7 +144,9 @@ const PointShare = props => {
                   className="submission"
                   src={props.team.child2.ImgURL}
                   alt="Submission"
-                  onClick={() => openModal([props.team.child1.ImgURL])}
+                  onClick={() =>
+                    openModal([{ ImgURL: props.team.child2.ImgURL }])
+                  }
                 />
                 <InputNumber
                   value={storyTwoPoints}
@@ -169,7 +169,7 @@ const PointShare = props => {
                   className="submission"
                   src={props.team.child2.Pages[0].PageURL}
                   alt="Submission"
-                  onClick={() => openModal(props.team.child1.Pages)}
+                  onClick={() => openModal(props.team.child2.Pages)}
                 />
                 <InputNumber
                   value={illustrationTwoPoints}

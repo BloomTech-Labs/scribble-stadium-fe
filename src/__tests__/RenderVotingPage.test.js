@@ -17,21 +17,35 @@ afterEach(() => {
 describe('<RenderVotingPage />', () => {
   let wrapper;
 
+  const props = {
+    faceoff: 
+      {
+      ID: 0,
+      Submission1: {
+        ImgURL: '',
+      },
+      Submission2: {
+        ImgURL: '',
+      },
+    },
+    child: {
+      memberId: 0,
+    }
+  };
   it('Should render <Header />', () => {
-    wrapper = shallow(<RenderVotingPage />);
-    wrapper.setProps({ title: { title: '' } });
+    wrapper = shallow(<RenderVotingPage {...props}  />);
     expect(wrapper.find(Header)).toHaveLength(1);
   });
   it('should render a Row in the antD form', () => {
-    wrapper = shallow(<RenderVotingPage />);
+    wrapper = shallow(<RenderVotingPage {...props} />);
     expect(wrapper.find(Row)).toHaveLength(1);
   });
   it('should render a Card in the antD form', () => {
-    wrapper = shallow(<RenderVotingPage />);
+    wrapper = shallow(<RenderVotingPage {...props} />);
     expect(wrapper.find(Card)).toHaveLength(2);
   });
   it('should render a Col in the antD form', () => {
-    wrapper = shallow(<RenderVotingPage />);
+    wrapper = shallow(<RenderVotingPage {...props} />);
     expect(wrapper.find(Col)).toHaveLength(2);
   });
 });

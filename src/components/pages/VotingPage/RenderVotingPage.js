@@ -1,8 +1,6 @@
 import React from 'react';
 import { Header } from '../../common';
 import { Row, Col, Card } from 'antd';
-import pdfSample from '../../../assets/images/votingPage/pdfSample.svg';
-import pdf2Sample from '../../../assets/images/votingPage/pdf2Sample.svg';
 import { VotingForm } from '../../common';
 
 const RenderVotingPage = props => {
@@ -17,7 +15,7 @@ const RenderVotingPage = props => {
               <Card className="pdfCard">
                 <img
                   className="WritingandDrawingIcon"
-                  src={pdfSample}
+                  src={props.faceoff.Submission1.ImgURL}
                   alt="writing submission"
                 />
               </Card>
@@ -29,12 +27,12 @@ const RenderVotingPage = props => {
               <Card className="pdfCard">
                 <img
                   className="WritingandDrawingIcon"
-                  src={pdf2Sample}
+                  src={props.faceoff.Submission2.ImgURL}
                   alt="writing submission"
                 />
               </Card>
             </div>
-            <VotingForm />
+            <VotingForm FaceoffID={props.faceoff.ID} MemberID={props.child.memberId}/>
           </Col>
         </Row>
       </div>
