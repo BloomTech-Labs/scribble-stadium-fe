@@ -25,12 +25,6 @@ jest.mock('react-router-dom', () => ({
   }),
 }));
 
-jest.mock('react-router-dom', () => ({
-  useHistory: () => ({
-    push: jest.fn(),
-  }),
-}));
-
 afterEach(() => {
   cleanup();
 });
