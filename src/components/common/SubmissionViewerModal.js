@@ -26,7 +26,10 @@ const SubmissionViewerModal = ({ content, showModal, closeModal }) => {
       style={{ minWidth: '90%', top: '5vh' }}
       cancelButtonProps={{ style: { display: 'none' } }}
       onOk={() => closeModal()}
+      onCancel={() => closeModal()}
       okText="Done"
+      maskClosable={true}
+      keyboard={true}
     >
       {pics && (
         <>
