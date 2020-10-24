@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'; 
+import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import { Header } from '../../common';
 import { Row, Col, InputNumber, Button, notification } from 'antd';
 import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
+
+import { SubmissionViewerModal } from '../../common';
 
 const PointShare = props => {
   const [totalPoints, setTotalPoints] = useState(100);
@@ -12,6 +14,9 @@ const PointShare = props => {
   const [illustrationOnePoints, setIllustrationOnePoints] = useState(0);
   const [illustrationTwoPoints, setIllustrationTwoPoints] = useState(0);
   const [teamPoints, setTeamPoints] = useState(null);
+
+  const [modalContent, setModalContent] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const { authState } = useOktaAuth();
 
@@ -41,12 +46,24 @@ const PointShare = props => {
   useEffect(() => {
     if (teamPoints) {
       submitPoints(authState, teamPoints);
-    };
+    }
   }, [teamPoints, authState]);
+
+  const openModal = content => {
+    setModalContent(content);
+    setShowModal(true);
+  };
 
   return (
     <>
       {/* Header requires countDown={true}  */}
+      {showModal && (
+        <SubmissionViewerModal
+          showModal={showModal}
+          content={modalContent}
+          closeModal={() => setShowModal(false)}
+        />
+      )}
       <Header
         title="SHARE POINTS"
         pointsRemaining={true}
@@ -54,7 +71,7 @@ const PointShare = props => {
       />
       <div className="point-share-container">
         <Row className="team-row">
-          <Col className="squad-col" span={6}>
+          <Col>
             <Row className="teammate-one">
               <img
                 className="teammate-one-avatar"
@@ -70,10 +87,17 @@ const PointShare = props => {
               />
             </Row>
           </Col>
-          <Col className="points-col" span={18}>
+          <Col>
             <Row className="teammate-one-points">
               <div className="submission-container">
-                <img className="submission" src={props.team.child1.ImgURL} width={100}alt="Submission" />
+                <img
+                  className="submission"
+                  src={props.team.child1.ImgURL}
+                  alt="Submission"
+                  onClick={() =>
+                    openModal([{ ImgURL: props.team.child1.ImgURL }])
+                  }
+                />
                 <InputNumber
                   value={storyOnePoints}
                   min={0}
@@ -91,7 +115,12 @@ const PointShare = props => {
                 />
               </div>
               <div className="submission-container">
-                <img className="submission" src={props.team.child1.Pages[0].PageURL} width={100} alt="Submission" />
+                <img
+                  className="submission"
+                  src={props.team.child1.Pages[0].PageURL}
+                  alt="Submission"
+                  onClick={() => openModal(props.team.child1.Pages)}
+                />
                 <InputNumber
                   value={illustrationOnePoints}
                   min={0}
@@ -111,7 +140,14 @@ const PointShare = props => {
             </Row>
             <Row className="teammate-two-points">
               <div className="submission-container">
-                <img className="submission" src={props.team.child2.ImgURL} width={100} alt="Submission" />
+                <img
+                  className="submission"
+                  src={props.team.child2.ImgURL}
+                  alt="Submission"
+                  onClick={() =>
+                    openModal([{ ImgURL: props.team.child2.ImgURL }])
+                  }
+                />
                 <InputNumber
                   value={storyTwoPoints}
                   min={0}
@@ -129,7 +165,12 @@ const PointShare = props => {
                 />
               </div>
               <div className="submission-container">
-                <img className="submission" src={props.team.child2.Pages[0].PageURL} width={100} alt="Submission" />
+                <img
+                  className="submission"
+                  src={props.team.child2.Pages[0].PageURL}
+                  alt="Submission"
+                  onClick={() => openModal(props.team.child2.Pages)}
+                />
                 <InputNumber
                   value={illustrationTwoPoints}
                   min={0}

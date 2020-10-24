@@ -5,53 +5,62 @@
   height: 70vh;
   display: flex;
   flex-direction: row;
-}
 
-.ant-row.team-row {
-  width: 100%;
-}
+  .team-row {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    .ant-col {
+      height: 100%;
+      .ant-row {
+        border: 5px solid @header-nero;
+        border-top-width: 0;
+        height: 50%;
+      }
+      &:first-of-type {
+        background: @conifer;
+        width: 35vh;
+        img {
+          height: 100%;
+          width: auto;
+        }
+      }
+      &:last-of-type {
+        flex-grow: 1;
+        .teammate-one-points {
+          background-color: @burnt-sienna;
+        }
+        .teammate-two-points {
+          background-color: @bright-sun;
+        }
+        .ant-row {
+          border: 0 5px 5px 0 solid @header-nero;
+          border-left-width: 0;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          padding: 2.5vh 5vw 50px;
 
-.ant-col.squad-col {
-  height: 100%;
-  background: #b5d33d;
-  border: 5px solid #292929;
-}
+          .submission-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            justify-content: space-evenly;
+            img {
+              height: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
 
-.ant-row.teammate-one-points,
-.ant-row.teammate-two-points {
-  justify-content: center;
-  border: 5px solid #292929;
-  background: #fed23f;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  height: 50%;
-}
-
-.submission-container {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-}
-
-.ant-row.teammate-one,
-.ant-row.teammate-two {
-  border: 5px solid #292929;
-  position: relative;
-  height: 50%;
-}
-
-.match-up {
-  font-family: Nunito;
-  font-style: 2rem;
-  z-index: 1;
-  padding: 0 3%;
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  background-color: #eb7d5b;
-  color: #fff;
-  border: 3px solid #000000;
-  border-radius: 10px;
+  .match-up {
+    .orangeButtonStyle();
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+  }
 }

@@ -1,0 +1,30 @@
+.submission-viewer {
+  .gallery {
+    .img-col {
+      width: 18%;
+      cursor: pointer;
+      max-height: 10vh;
+      overflow: hidden;
+      img {
+        width: 100%;
+        max-width: 100%;
+        object-fit: cover;
+        object-position: top;
+      }
+
+      &:not(:last-child) {
+        margin-right: 2.5%;
+      }
+      &.selected {
+        border: 1px solid @button-blue;
+      }
+    }
+  }
+  .selected-viewer {
+    width: 100%;
+    padding: 2.5vh;
+    img {
+      width: 100%;
+    }
+  }
+}
