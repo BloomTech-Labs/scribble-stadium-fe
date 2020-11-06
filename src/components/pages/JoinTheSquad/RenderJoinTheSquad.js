@@ -1,28 +1,25 @@
-import React, { useEffect } from 'react'; 
+import React, { useEffect } from 'react';
 import { Header } from '../../common';
 import { Col, Button } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import Squadup from '../../../assets/images/Squadup.svg';
-import wordbubble from '../../../assets/images/match_up_images/wordbubble.svg';
+import wordBubble from '../../../assets/images/match_up_images/wordbubble.svg';
 import wordBubbleright from '../../../assets/images/match_up_images/wordBubbleright.svg';
-import {getChildTeam} from '../../../api';
+import { getChildTeam } from '../../../api';
 import { connect } from 'react-redux';
 import { child } from '../../../state/actions';
 
-
 const RenderJoinTheSquad = props => {
   const { push } = useHistory();
-  const {authState} = useOktaAuth();
+  const { authState } = useOktaAuth();
 
   useEffect(() => {
-    getChildTeam(authState, props.child.id).then(
-      res => {
-        props.setMemberId(res[props.child.id]);
-        props.setTeamSubmissions(res);
-      }
-    );
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    getChildTeam(authState, props.child.id).then(res => {
+      props.setMemberId(res[props.child.id]);
+      props.setTeamSubmissions(res);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authState]);
 
   const teamVote = e => {
@@ -36,23 +33,10 @@ const RenderJoinTheSquad = props => {
         <Col className="joinSquad1" xs={24} sm={12}>
           <div className="imgContain1">
             <p className="text">
-              Hi! <br></br>My name is {props.team.child1.ChildName}.
-            </p>
-            <img className="wordBubble" src={wordbubble} alt="word bubble" />
-            <img
-              className="star"
-              src={Squadup}
-              alt="Blast Character Background"
-            />
-          </div>
-        </Col>
-        <Col className="joinSquad2" xs={24} sm={12}>
-          <div className="imgContain2">
-            <p className="text2">
-              Hi! <br></br>My name is {props.team.child2.ChildName}.
+              Hi! <br></br>My name is {props.team.child1.ChildName}!
             </p>
             <img
-              className="wordBubble2"
+              className="wordBubble"
               src={wordBubbleright}
               alt="word bubble"
             />
@@ -60,6 +44,30 @@ const RenderJoinTheSquad = props => {
               className="star"
               src={Squadup}
               alt="Blast Character Background"
+            />
+
+            <img
+              className="child1-avatar"
+              src={props.team.child1.AvatarURL}
+              alt="Child 1 Avatar"
+            />
+          </div>
+        </Col>
+        <Col className="joinSquad2" xs={24} sm={12}>
+          <div className="imgContain2">
+            <p className="text2">
+              Hi! <br></br>My name is {props.team.child2.ChildName}!
+            </p>
+            <img className="wordBubble2" src={wordBubble} alt="word bubble" />
+            <img
+              className="star"
+              src={Squadup}
+              alt="Blast Character Background"
+            />
+            <img
+              className="child2-avatar"
+              src={props.team.child2.AvatarURL}
+              alt="hero image"
             />
           </div>
           <div className="button">
