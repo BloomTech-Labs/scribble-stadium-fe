@@ -49,11 +49,21 @@
 .sharePoints {
   background: #eb7d5b;
   border-color: #eb7d5b;
-  margin-bottom: 3%;
-  margin-right: 3%;
+  // margin-bottom: 3%;
+  // margin-right: 3%;
+  position:fixed;
+  bottom: 30px;
+  right: 30px;
   &:hover {
     background-color: #eb7d5bbb;
     border-color: #eb7d5bbb;
+  }
+  @media @mobile{
+    position: relative;
+    right:56px;
+    bottom: 57.5vh;
+    height: 5vh;
+    width: 218px;
   }
 }
 img {
@@ -61,35 +71,156 @@ img {
 }
 
 .star {
-  z-index: 1;
-  margin-top: 20%;
+  z-index: 2;
+  // margin-top: 20%;
+  position: inherit;
+  bottom:95px;
+  @media @mobile{
+    height: 32vh;
+  }
 }
 
 .wordBubble {
-  z-index: 2;
-  position: fixed;
+  z-index: 3;
+  // position: fixed;
+  margin-left: 12%;
+  margin-top: 0%;
+  @media @mobile{
+    margin-top: 33%;
+  }
 }
 
 .wordBubble2 {
-  z-index: 2;
-  position: fixed;
-  margin-left: 20%;
+  z-index: 3;
+  // position: fixed;
+  margin-left: 12%;
   margin-top: 0%;
 }
 
 .text {
-  z-index: 3;
-  position: fixed;
-  margin-top: 5%;
-  margin-left: 4%;
+  z-index: 4;
+  position: absolute;
+  margin-top: 17%;
+  margin-left: 43%;
   font-family: 'Nunito', sans-serif;
   font-size: 1rem;
+  @media @mobile{
+    top: 19%;
+    left: 0%;
+  }
 }
 .text2 {
-  z-index: 3;
-  position: fixed;
-  margin-top: 5%;
-  margin-left: 24%;
+  z-index: 4;
+  position: absolute;
+  margin-top: 8%;
+  margin-left: 48%;
   font-family: 'Nunito', sans-serif;
   font-size: 1rem;
+
+  @media @mobile{
+    top: 9%;
+    left: -9%
+  }
 }
+
+.child1-avatar{
+  z-index: 2;
+  height: 18vh;
+  position: absolute;
+  left: 39%;
+  top: 33%;
+  @media @mobile{
+    height: 16vh;
+    left: 38%;
+    top: 44%;
+  }
+}
+
+.child2-avatar{
+  z-index: 2;
+  height: 18vh;
+  position: absolute;
+  left: 43%;
+  top: 39%;
+
+  @media @mobile{
+    left: 38%;
+    top: 39%;
+    height: 15vh;
+  }
+}
+
+
+
+// .star {
+//   z-index: 2;
+//   /* margin-top: 20%; */
+//   position: inherit;
+//   bottom: 95px;
+// }
+
+// .text2 {
+//   z-index: 4;
+//   position: absolute;
+//   margin-top: 10%;
+//   margin-left: 48%;
+//   font-family: 'Nunito', sans-serif;
+//   font-size: 1rem;
+// }
+
+// .wordBubble2 {
+//   z-index: 3;
+//   margin-left: 12%;
+//   margin-top: 0%;
+// }
+
+// .child2-avatar {
+//   height: 18vh;
+//   position: absolute;
+//   left: 43%;
+//   top: 39%;
+//   z-index: 2;
+// }
+
+// .sharePoints {
+//   background: #eb7d5b;
+//   border-color: #eb7d5b;
+//   position: fixed;
+//   bottom: 30px;
+//   right: 30px;
+// }
+
+
+
+
+// LEFT //
+// .wordBubble {
+//   z-index: 3;
+//   margin-left: 12%;
+//   margin-top: 0%;
+// }
+
+// .text {
+//   z-index: 4;
+//   position: absolute;
+//   margin-top: 17%;
+//   margin-left: 43%;
+//   font-family: 'Nunito', sans-serif;
+//   font-size: 1rem;
+// }
+
+// .child1-avatar {
+//   height: 18vh;
+//   position: absolute;
+//   left: 39%;
+//   top: 33%;
+//   z-index: 2;
+// }
+
+// .star {
+//   z-index: 2;
+//   /* margin-top: 20%; */
+//   position: inherit;
+//   bottom: 95px;
+// }
+
