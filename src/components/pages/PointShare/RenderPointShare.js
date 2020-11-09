@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import { Header } from '../../common';
 import { Row, Col, InputNumber, Button, notification } from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
 
 import { SubmissionViewerModal } from '../../common';
+import { InstructionsModal } from '../../common';
+import { modalInstructions } from '../../../utils/helpers';
 
 const PointShare = props => {
   const [totalPoints, setTotalPoints] = useState(100);
@@ -14,9 +17,9 @@ const PointShare = props => {
   const [illustrationOnePoints, setIllustrationOnePoints] = useState(0);
   const [illustrationTwoPoints, setIllustrationTwoPoints] = useState(0);
   const [teamPoints, setTeamPoints] = useState(null);
-
   const [modalContent, setModalContent] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [modalVisible, setModalVisible] = useState(true);
 
   const { authState } = useOktaAuth();
 
@@ -68,6 +71,22 @@ const PointShare = props => {
         title="SHARE POINTS"
         pointsRemaining={true}
         points={totalPoints}
+      />
+      <QuestionCircleOutlined
+        className="question-icon"
+        onClick={() => {
+          setModalVisible(true);
+        }}
+      />
+      <InstructionsModal
+        modalVisible={modalVisible}
+        handleCancel={() => {
+          setModalVisible(false);
+        }}
+        handleOk={() => {
+          setModalVisible(false);
+        }}
+        instructions={modalInstructions.sharePoints}
       />
       <div className="point-share-container">
         <Row className="team-row">
