@@ -22,6 +22,7 @@ export const modalInstructions = {
   missionControl3: "It's time to join your squad! Click next to continue",
   sharePoints:
     "Ready Squad! Read your partner's story, view their drawing and share some points.",
+  matchUp: "Welcome to this week's matchup. Please vote 3 times.",
 };
 
 export const getMissionControlText = (hasRead, hasDrawn, hasWritten) => {

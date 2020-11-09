@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from '../../common';
 import { Row, Col, Button } from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
 import FaceoffContent from './FaceoffContent';
-
+import { InstructionsModal } from '../../common';
+import { modalInstructions } from '../../../utils/helpers';
 
 const RenderMatchUp = props => {
-  const [faceoffs, setFaceoffs] = useState([]);
   const { push } = useHistory();
+  const [faceoffs, setFaceoffs] = useState([]);
+  const [modalVisible, setModalVisible] = useState(true);
 
   useEffect(() => {
     setFaceoffs(props.squad);
@@ -21,6 +24,22 @@ const RenderMatchUp = props => {
   return (
     <>
       <Header displayMenu={true} title="The Matchup" />
+      <QuestionCircleOutlined
+        className="question-icon"
+        onClick={() => {
+          setModalVisible(true);
+        }}
+      />
+      <InstructionsModal
+        modalVisible={modalVisible}
+        handleCancel={() => {
+          setModalVisible(false);
+        }}
+        handleOk={() => {
+          setModalVisible(false);
+        }}
+        instructions={modalInstructions.matchUp}
+      />
       <div className="matchup-container">
         <Row className="toprow">
           <Col className="green-box" xs={24} sm={13}>
@@ -43,7 +62,9 @@ const RenderMatchUp = props => {
 
         <Button className="back-button">Back</Button>
 
-        <Button className="vote-button" onClick={handleVote}>Vote!</Button>
+        <Button className="vote-button" onClick={handleVote}>
+          Vote!
+        </Button>
       </div>
     </>
   );
