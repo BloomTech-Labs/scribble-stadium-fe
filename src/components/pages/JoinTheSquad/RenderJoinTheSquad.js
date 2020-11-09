@@ -67,7 +67,7 @@ const RenderJoinTheSquad = props => {
             <img
               className="child2-avatar"
               src={props.team.child2.AvatarURL}
-              alt="hero image"
+              alt="User's Avatar"
             />
           </div>
           <div className="button">
