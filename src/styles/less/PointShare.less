@@ -2,11 +2,11 @@
 @import '~antd/lib/style/themes/default.less';
 
 .question-icon {
-  font-size: 2rem;
+  font-size: 24px;
   color: white;
   position: absolute;
-  top: 18%;
-  left: 2%;
+  top: 2%;
+  left: 61%;
 }
 
 .point-share-container {
@@ -27,7 +27,7 @@
       }
       &:first-of-type {
         background: @conifer;
-        width: 35vh;
+        width: 80vh;
         img {
           height: 100%;
           width: auto;
@@ -37,6 +37,9 @@
         flex-grow: 1;
         .teammate-one-points {
           background-color: @burnt-sienna;
+          justify-content: space-evenly;
+          padding: 0;
+
         }
         .teammate-two-points {
           background-color: @bright-sun;
@@ -56,8 +59,17 @@
             align-items: center;
             height: 100%;
             justify-content: space-evenly;
+            width: 25%;
             img {
-              height: 50%;
+              height: 70%;
+              width: 70%;
+              border-radius: 20px;
+              border: 5px solid black;
+            }
+            .ant-input-number{
+              font-size: x-large;
+              font-family: Bangers;
+
             }
           }
         }
@@ -70,5 +82,11 @@
     position: fixed;
     bottom: 15px;
     right: 15px;
+  }
+  .teammate-one-avatar{
+    height: 100%;
+    width: auto;
+    position: relative;
+    left: 10%;
   }
 }
