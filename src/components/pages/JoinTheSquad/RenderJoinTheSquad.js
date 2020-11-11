@@ -25,6 +25,9 @@ const RenderJoinTheSquad = props => {
   const teamVote = e => {
     push('/child/point-share');
   };
+  const home = e => {
+    push('/child/dashboard');
+  };
 
   return (
     <>
@@ -52,6 +55,9 @@ const RenderJoinTheSquad = props => {
               alt="Child 1 Avatar"
             />
           </div>
+          <Button className="back-button" onClick={home}>
+            Back
+          </Button>
         </Col>
         <Col className="joinSquad2" xs={24} sm={12}>
           <div className="imgContain2">

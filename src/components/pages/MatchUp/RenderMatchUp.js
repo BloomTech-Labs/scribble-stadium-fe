@@ -21,6 +21,10 @@ const RenderMatchUp = props => {
     push('/child/squad-vote');
   };
 
+  const back2Dash = e => {
+    push('/child/dashboard');
+  };
+
   return (
     <>
       <Header displayMenu={true} title="The Matchup" />
@@ -60,7 +64,9 @@ const RenderMatchUp = props => {
           </Col>
         </Row>
 
-        <Button className="back-button">Back</Button>
+        <Button className="back-button" onClick={back2Dash}>
+          Back
+        </Button>
 
         <Button className="vote-button" onClick={handleVote}>
           Vote!

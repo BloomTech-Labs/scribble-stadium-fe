@@ -5,6 +5,7 @@ import { Row, Col, InputNumber, Button, notification } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
+import { useHistory } from 'react-router-dom';
 
 import { SubmissionViewerModal } from '../../common';
 import { InstructionsModal } from '../../common';
@@ -22,6 +23,7 @@ const PointShare = props => {
   const [modalVisible, setModalVisible] = useState(true);
 
   const { authState } = useOktaAuth();
+  const { push } = useHistory();
 
   const formSubmit = () => {
     if (totalPoints < 0) {
@@ -30,6 +32,7 @@ const PointShare = props => {
       });
       return;
     }
+
     setTeamPoints([
       {
         WritingPoints: storyOnePoints,
@@ -57,6 +60,9 @@ const PointShare = props => {
     setShowModal(true);
   };
 
+  const backJoin = e => {
+    push('/child/join');
+  };
   return (
     <>
       {/* Header requires countDown={true}  */}
@@ -209,6 +215,9 @@ const PointShare = props => {
             </Row>
           </Col>
         </Row>
+        <Button className="back-button" onClick={backJoin}>
+          Back
+        </Button>
         <Button
           selection="#eb7d5bbb"
           className="match-up"
