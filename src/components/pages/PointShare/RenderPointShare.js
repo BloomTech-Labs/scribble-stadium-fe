@@ -83,8 +83,10 @@ const PointShare = props => {
       )}
       <Header
         title="SHARE POINTS"
+        displayMenu={true}
         pointsRemaining={true}
         points={totalPoints}
+        teamName={true}
       />
       <QuestionCircleOutlined
         className="question-icon"

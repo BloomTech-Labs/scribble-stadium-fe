@@ -14,6 +14,7 @@
     flex-flow: row nowrap;
     .ant-col {
       height: 100%;
+      width: 15%;
       .ant-row {
         border: 5px solid @header-nero;
         border-top-width: 0;
@@ -21,7 +22,6 @@
       }
       &:first-of-type {
         background: @conifer;
-        width: 135vh;
         img {
           height: 90%;
           width: auto;
@@ -60,13 +60,34 @@
             img {
               height: 70%;
               width: 70%;
-              border-radius: 20px;
+              border-radius: 20px 20px 0 0;
               border: 5px solid black;
             }
             .ant-input-number{
-              font-size: x-large;
+              font-size: xxx-large;
               font-family: Bangers;
-
+              line-height:1.5715;
+              width: 70%;
+              border-radius: 0 0 16px 16px;
+              .ant-input-number-handler-wrap{
+                width: 78px;
+                height:100%;
+                .ant-input-number-handler{
+                width: 100%;
+                height: 50%;
+                text-align: center;
+                line-height: 0;
+                margin-right: 36%;
+                span{
+                  margin-right:36%;
+                  font-size: 30%;
+                }
+                }
+              }
+              .ant-input-number-input{
+                  height: 100%;
+                  text-align: center;
+              }
             }
           }
         }
@@ -94,9 +115,9 @@
   }
 }
 .question-icon {
-  font-size: 2rem;
+  font-size: 3rem;
   color: white;
   position: absolute;
   top: 23%;
-  left: 96%;
+  left: 95%;
 }
