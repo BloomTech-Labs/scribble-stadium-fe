@@ -5,7 +5,6 @@ import { Row, Col, InputNumber, Button, notification } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
-import { useHistory } from 'react-router-dom';
 
 import { SubmissionViewerModal } from '../../common';
 import { InstructionsModal } from '../../common';
@@ -23,16 +22,16 @@ const PointShare = props => {
   const [modalVisible, setModalVisible] = useState(true);
 
   const { authState } = useOktaAuth();
-  const { push } = useHistory();
 
   const formSubmit = () => {
+    // note: lines 30 - 35 not required anymore! However, "notification" could be used for future implementations
+    // regarding error handling for the user's share points submission. Yay!
     if (totalPoints < 0) {
       notification.error({
         message: 'You may only allocate 100 points!',
       });
       return;
     }
-
     setTeamPoints([
       {
         WritingPoints: storyOnePoints,
@@ -60,14 +59,10 @@ const PointShare = props => {
     setShowModal(true);
   };
 
-  const backJoin = e => {
-    push('/child/join');
-  };
-
   // ShatePointHandler - handler that sets the logic of each input number point value:
-  // maxValue - it returns the maximum value available for each input outside of current.
-  // pointsetter - it takes into account the min and max value on each input and it will
-  // determine how much you can spend on the individual input.
+  // maxValue - it returns the maximum value available for each input.
+  // pointsetter - it takes into account the min and max value on each input, and it will
+  // determine how many points are available to spend on the current input number field.
   // setTotalPoints - it keeps track of total points available
   const sharePointHandler = ({ value, pointsetter, a, b, c }) => {
     const maxValue =
@@ -137,15 +132,16 @@ const PointShare = props => {
                   }
                 />
                 <InputNumber
-                  value={storyOnePoints}
+                  value={illustrationOnePoints}
+                  max={70}
                   min={0}
                   step={5}
                   onChange={value =>
                     sharePointHandler({
                       value,
-                      pointsetter: setStoryOnePoints,
+                      pointsetter: setIllustrationOnePoints,
                       a: storyTwoPoints,
-                      b: illustrationOnePoints,
+                      b: storyOnePoints,
                       c: illustrationTwoPoints,
                     })
                   }
@@ -159,15 +155,16 @@ const PointShare = props => {
                   onClick={() => openModal(props.team.child1.Pages)}
                 />
                 <InputNumber
-                  value={illustrationOnePoints}
+                  value={storyOnePoints}
+                  max={70}
                   min={0}
                   step={5}
                   onChange={value =>
                     sharePointHandler({
                       value,
-                      pointsetter: setIllustrationOnePoints,
+                      pointsetter: setStoryOnePoints,
                       a: storyTwoPoints,
-                      b: storyOnePoints,
+                      b: illustrationOnePoints,
                       c: illustrationTwoPoints,
                     })
                   }
@@ -185,29 +182,8 @@ const PointShare = props => {
                   }
                 />
                 <InputNumber
-                  value={storyTwoPoints}
-                  min={0}
-                  step={5}
-                  onChange={value =>
-                    sharePointHandler({
-                      value,
-                      pointsetter: setStoryTwoPoints,
-                      a: storyOnePoints,
-                      b: illustrationOnePoints,
-                      c: illustrationTwoPoints,
-                    })
-                  }
-                />
-              </div>
-              <div className="submission-container">
-                <img
-                  className="submission"
-                  src={props.team.child2.Pages[0].PageURL}
-                  alt="Submission"
-                  onClick={() => openModal(props.team.child2.Pages)}
-                />
-                <InputNumber
                   value={illustrationTwoPoints}
+                  max={70}
                   min={0}
                   step={5}
                   onChange={value =>
@@ -221,12 +197,32 @@ const PointShare = props => {
                   }
                 />
               </div>
+              <div className="submission-container">
+                <img
+                  className="submission"
+                  src={props.team.child2.Pages[0].PageURL}
+                  alt="Submission"
+                  onClick={() => openModal(props.team.child2.Pages)}
+                />
+                <InputNumber
+                  value={storyTwoPoints}
+                  max={70}
+                  min={0}
+                  step={5}
+                  onChange={value =>
+                    sharePointHandler({
+                      value,
+                      pointsetter: setStoryTwoPoints,
+                      a: storyOnePoints,
+                      b: illustrationOnePoints,
+                      c: illustrationTwoPoints,
+                    })
+                  }
+                />
+              </div>
             </Row>
           </Col>
         </Row>
-        <Button className="back-button" onClick={backJoin}>
-          Back
-        </Button>
         <Button
           selection="#eb7d5bbb"
           className="match-up"
