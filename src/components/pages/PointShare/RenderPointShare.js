@@ -75,8 +75,10 @@ const PointShare = props => {
       )}
       <Header
         title="SHARE POINTS"
+        displayMenu={true}
         pointsRemaining={true}
         points={totalPoints}
+        teamName={true}
       />
       <QuestionCircleOutlined
         className="question-icon"
@@ -123,6 +125,7 @@ const PointShare = props => {
                     openModal([{ ImgURL: props.team.child1.ImgURL }])
                   }
                 />
+                {console.log(props.team)}
                 <InputNumber
                   value={storyOnePoints}
                   min={0}

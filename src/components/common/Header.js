@@ -37,10 +37,13 @@ const ChildMenu = props => {
 };
 
 const Header = ({
-  displayMenu = true,
+  displayMenu = false,
   backButton = false,
   countDown = false,
   pointsRemaining = false,
+  teamName = false,
+  versus = false,
+  pointsToWin = false,
   ...props
 }) => {
   // const targetTime = new Date().getTime() + 300;
@@ -62,10 +65,19 @@ const Header = ({
         <h2 className="points-remaining">POINTS REMAINING: {props.points}</h2>
       )}
       <h1 className="header-text">{props.title || 'STORY SQUAD'}</h1>
+      {teamName && <h2 className="team-name">{props.team.teamName}</h2>}
+      {versus && (
+        <h2 className="versus">
+          {props.team.teamName} VS {}
+        </h2>
+      )}
+      {pointsToWin && (
+        <h3 className="points-to-win">201 POINTS NEEDED TO WIN!</h3>
+      )}
     </div>
   );
 };
-export default connect(null, {
+export default connect(state => ({ team: state.team }), {
   clearUsers: global.clearUsers,
 })(Header);
 

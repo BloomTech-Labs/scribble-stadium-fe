@@ -27,7 +27,12 @@ const RenderMatchUp = props => {
 
   return (
     <>
-      <Header displayMenu={true} title="The Matchup" />
+      <Header
+        displayMenu={true}
+        title="The Matchup"
+        versus={true}
+        pointsToWin={true}
+      />
       <QuestionCircleOutlined
         className="question-icon"
         onClick={() => {
