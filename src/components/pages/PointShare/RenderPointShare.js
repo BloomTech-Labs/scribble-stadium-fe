@@ -63,6 +63,19 @@ const PointShare = props => {
   const backJoin = e => {
     push('/child/join');
   };
+
+  // ShatePointHandler - handler that sets the logic of each input number point value:
+  // maxValue - it returns the maximum value available for each input outside of current.
+  // pointsetter - it takes into account the min and max value on each input and it will
+  // determine how much you can spend on the individual input.
+  // setTotalPoints - it keeps track of total points available
+  const sharePointHandler = ({ value, pointsetter, a, b, c }) => {
+    const maxValue =
+      100 - (Math.max(a, 10) + Math.max(b, 10) + Math.max(c, 10));
+    pointsetter(Math.min(value, maxValue));
+    setTotalPoints(Math.max(100 - (value + a + b + c), 0));
+  };
+
   return (
     <>
       {/* Header requires countDown={true}  */}
@@ -130,16 +143,15 @@ const PointShare = props => {
                   value={storyOnePoints}
                   min={0}
                   step={5}
-                  onChange={value => {
-                    setStoryOnePoints(value);
-                    setTotalPoints(
-                      100 -
-                        (value +
-                          storyTwoPoints +
-                          illustrationOnePoints +
-                          illustrationTwoPoints)
-                    );
-                  }}
+                  onChange={value =>
+                    sharePointHandler({
+                      value,
+                      pointsetter: setStoryOnePoints,
+                      a: storyTwoPoints,
+                      b: illustrationOnePoints,
+                      c: illustrationTwoPoints,
+                    })
+                  }
                 />
               </div>
               <div className="submission-container">
@@ -153,16 +165,15 @@ const PointShare = props => {
                   value={illustrationOnePoints}
                   min={0}
                   step={5}
-                  onChange={value => {
-                    setIllustrationOnePoints(value);
-                    setTotalPoints(
-                      100 -
-                        (value +
-                          storyTwoPoints +
-                          storyOnePoints +
-                          illustrationTwoPoints)
-                    );
-                  }}
+                  onChange={value =>
+                    sharePointHandler({
+                      value,
+                      pointsetter: setIllustrationOnePoints,
+                      a: storyTwoPoints,
+                      b: storyOnePoints,
+                      c: illustrationTwoPoints,
+                    })
+                  }
                 />
               </div>
             </Row>
@@ -180,16 +191,15 @@ const PointShare = props => {
                   value={storyTwoPoints}
                   min={0}
                   step={5}
-                  onChange={value => {
-                    setStoryTwoPoints(value);
-                    setTotalPoints(
-                      100 -
-                        (value +
-                          storyOnePoints +
-                          illustrationOnePoints +
-                          illustrationTwoPoints)
-                    );
-                  }}
+                  onChange={value =>
+                    sharePointHandler({
+                      value,
+                      pointsetter: setStoryTwoPoints,
+                      a: storyOnePoints,
+                      b: illustrationOnePoints,
+                      c: illustrationTwoPoints,
+                    })
+                  }
                 />
               </div>
               <div className="submission-container">
@@ -203,16 +213,15 @@ const PointShare = props => {
                   value={illustrationTwoPoints}
                   min={0}
                   step={5}
-                  onChange={value => {
-                    setIllustrationTwoPoints(value);
-                    setTotalPoints(
-                      100 -
-                        (value +
-                          storyTwoPoints +
-                          illustrationOnePoints +
-                          storyOnePoints)
-                    );
-                  }}
+                  onChange={value =>
+                    sharePointHandler({
+                      value,
+                      pointsetter: setIllustrationTwoPoints,
+                      a: storyTwoPoints,
+                      b: illustrationOnePoints,
+                      c: storyOnePoints,
+                    })
+                  }
                 />
               </div>
             </Row>
