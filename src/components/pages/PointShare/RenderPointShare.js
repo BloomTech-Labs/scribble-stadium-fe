@@ -138,7 +138,6 @@ const PointShare = props => {
                     openModal([{ ImgURL: props.team.child1.ImgURL }])
                   }
                 />
-                {console.log(props.team)}
                 <InputNumber
                   value={storyOnePoints}
                   min={0}
