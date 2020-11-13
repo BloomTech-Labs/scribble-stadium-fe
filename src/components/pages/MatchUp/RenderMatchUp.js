@@ -13,7 +13,7 @@ const RenderMatchUp = props => {
   const [modalVisible, setModalVisible] = useState(true);
 
   useEffect(() => {
-    setFaceoffs(props.squad);
+    setFaceoffs(props.faceoffs);
   }, [props]);
 
   const handleVote = e => {
