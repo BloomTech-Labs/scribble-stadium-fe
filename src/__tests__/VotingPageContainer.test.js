@@ -9,10 +9,8 @@ import { VotingPage } from '../components/pages/VotingPage';
 
 const mockStore = configureMockStore([]);
 const store = mockStore({
-  squad: [
-    {SquadID: 0},
-  ],
-  child: {}
+  faceoffs: [{ SquadID: 0 }],
+  child: {},
 });
 
 afterEach(cleanup);
