@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import { Header } from '../../common';
 import { Row, Col, InputNumber, Button, notification } from 'antd';
@@ -11,6 +12,7 @@ import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
 
 const PointShare = props => {
+  const { push } = useHistory();
   const [totalPoints, setTotalPoints] = useState(100);
   const [storyOnePoints, setStoryOnePoints] = useState(0);
   const [storyTwoPoints, setStoryTwoPoints] = useState(0);
@@ -69,6 +71,10 @@ const PointShare = props => {
       100 - (Math.max(a, 10) + Math.max(b, 10) + Math.max(c, 10));
     pointsetter(Math.min(value, maxValue));
     setTotalPoints(Math.max(100 - (value + a + b + c), 0));
+  };
+
+  const backToJoin = e => {
+    push('/child/join');
   };
 
   return (
@@ -233,6 +239,9 @@ const PointShare = props => {
           onClick={formSubmit}
         >
           Match Up!
+        </Button>
+        <Button className="back-to-join-the-squad" onClick={backToJoin}>
+          Back
         </Button>
       </div>
     </>
