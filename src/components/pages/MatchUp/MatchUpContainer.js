@@ -40,7 +40,6 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
   useEffect(() => {
     getChildSquad(authState, props.child.id).then(squad => {
       getFaceoffsForMatchup(authState, squad.ID).then(allFaceoffs => {
-        console.log("Child's Squad Faceoffs:", allFaceoffs);
         props.setMemberId(squad);
         props.setSquadFaceoffs(allFaceoffs);
       });
