@@ -304,7 +304,29 @@ const getChildSquad = async (authState, childId) => {
  * @param {number} squadId this will be received from 'getChildSquad' api call
  * @returns {Array} array of 4 objects (one for each child) containing information about their submissions
  */
-const getChildFaceoffs = async (authState, squadId) => {
+const getFaceoffsForMatchup = async (authState, squadId) => {
+  try {
+    return apiAuthGet(
+      `/game/faceoffs?squadId=${squadId}`,
+      getAuthHeader(authState)
+    ).then(response => {
+      return response.data;
+    });
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [];
+    });
+  }
+};
+
+/**
+ *
+ * @param {Object} authState necessary for API functionality
+ * @param {number} squadId this will be received from 'getChildSquad' api call
+ * @returns {Array} array of 4 objects (one for each child) containing information about their submissions
+ */
+const getFaceoffsForVoting = async (authState, squadId) => {
   try {
     return apiAuthGet(
       `/game/faceoffs?squadId=${squadId}`,
@@ -408,7 +430,8 @@ export {
   getChildTeam,
   submitPoints,
   getChildSquad,
-  getChildFaceoffs,
+  getFaceoffsForMatchup,
+  getFaceoffsForVoting,
   postVotes,
   getGameVotes,
   getChildGraph,

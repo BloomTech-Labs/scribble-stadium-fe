@@ -13,7 +13,7 @@ function VotingPageContainer({ LoadingComponent, ...props }) {
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
-  const [faceoff, setFaceoff] = useState();
+  const [votes, setVotes] = useState();
 
   useEffect(() => {
     let isSubscribed = true;
@@ -41,13 +41,13 @@ function VotingPageContainer({ LoadingComponent, ...props }) {
       props.child.memberId
     ).then(res => {
       if (res.length === 0) {
-        setFaceoff(props.faceoffs[3]);
+        setVotes(props.votes[3]);
       } else if (res.length === 1) {
-        setFaceoff(props.faceoffs[2]);
+        setVotes(props.votes[2]);
       } else if (res.length === 2) {
-        setFaceoff(props.faceoffs[1]);
+        setVotes(props.votes[1]);
       } else if (res.length === 3) {
-        setFaceoff(props.faceoffs[0]);
+        setVotes(props.votes[0]);
       } else {
         push('/child/dashboard');
       }
@@ -60,10 +60,10 @@ function VotingPageContainer({ LoadingComponent, ...props }) {
       {authState.isAuthenticated && !userInfo && (
         <LoadingComponent message="Loading..." />
       )}
-      {authState.isAuthenticated && userInfo && faceoff && (
+      {authState.isAuthenticated && userInfo && votes && (
         <RenderVotingPage
           {...props}
-          faceoff={faceoff}
+          votes={votes}
           userInfo={userInfo}
           authService={authService}
         />
@@ -76,6 +76,7 @@ export default connect(
   state => ({
     child: state.child,
     faceoffs: state.faceoffs,
+    votes: state.votes,
   }),
   {}
 )(VotingPageContainer);
