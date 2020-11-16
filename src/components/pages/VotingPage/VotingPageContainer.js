@@ -75,7 +75,7 @@ function VotingPageContainer({ LoadingComponent, ...props }) {
 export default connect(
   state => ({
     child: state.child,
-    faceoffs: state.faceoff,
+    faceoffs: state.faceoffs,
   }),
   {}
 )(VotingPageContainer);
