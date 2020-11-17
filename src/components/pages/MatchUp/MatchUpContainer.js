@@ -4,8 +4,12 @@ import { useOktaAuth } from '@okta/okta-react';
 import RenderMatchUp from './RenderMatchUp';
 import { connect } from 'react-redux';
 
-import { faceoffs, child } from '../../../state/actions';
-import { getChildSquad, getChildFaceoffs } from '../../../api';
+import { faceoffs, child, votes } from '../../../state/actions';
+import {
+  getChildSquad,
+  getFaceoffsForMatchup,
+  getFaceoffsForVoting,
+} from '../../../api';
 
 function MatchUpContainer({ LoadingComponent, ...props }) {
   const { authState, authService } = useOktaAuth();
@@ -35,10 +39,20 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
 
   useEffect(() => {
     getChildSquad(authState, props.child.id).then(squad => {
-      getChildFaceoffs(authState, squad.ID).then(allFaceoffs => {
+      getFaceoffsForMatchup(authState, squad.ID).then(allFaceoffs => {
         props.setMemberId(squad);
         props.setSquadFaceoffs(allFaceoffs);
       });
+
+      if (squad.ID % 2 === 0) {
+        getFaceoffsForVoting(authState, squad.ID - 1).then(faceoffs => {
+          props.setVotes(faceoffs);
+        });
+      } else {
+        getFaceoffsForVoting(authState, squad.ID + 1).then(faceoffs => {
+          props.setVotes(faceoffs);
+        });
+      }
     });
     // eslint-disable-next-line
   }, [authState]);
@@ -63,9 +77,11 @@ export default connect(
   state => ({
     child: state.child,
     faceoffs: state.faceoffs,
+    votes: state.votes,
   }),
   {
     setSquadFaceoffs: faceoffs.setSquadFaceoffs,
     setMemberId: child.setMemberId,
+    setVotes: votes.setVotes,
   }
 )(MatchUpContainer);

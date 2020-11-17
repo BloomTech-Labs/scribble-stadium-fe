@@ -8,16 +8,16 @@ import { postVotes } from '../../api';
 const VotingForm = props => {
   const { push } = useHistory();
   const { authState } = useOktaAuth();
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState();
 
   const onChange = e => {
     setValue(e.target.value);
   };
   const onFinish = () => {
     const body = {
-      "Vote": value, 
-      "MemberID": props.MemberID,
-      "FaceoffID": props.FaceoffID,
+      Vote: value,
+      MemberID: props.MemberID,
+      FaceoffID: props.FaceoffID,
     };
     postVotes(authState, body).then(res => {
       push('/child/match-up');

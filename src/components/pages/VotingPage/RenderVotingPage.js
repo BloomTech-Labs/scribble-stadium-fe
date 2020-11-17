@@ -15,7 +15,7 @@ const RenderVotingPage = props => {
               <Card className="pdfCard">
                 <img
                   className="WritingandDrawingIcon"
-                  src={props.faceoff.Submission1.ImgURL}
+                  src={props.votes.Submission1.ImgURL}
                   alt="writing submission"
                 />
               </Card>
@@ -27,12 +27,15 @@ const RenderVotingPage = props => {
               <Card className="pdfCard">
                 <img
                   className="WritingandDrawingIcon"
-                  src={props.faceoff.Submission2.ImgURL}
+                  src={props.votes.Submission2.ImgURL}
                   alt="writing submission"
                 />
               </Card>
             </div>
-            <VotingForm FaceoffID={props.faceoff.ID} MemberID={props.child.memberId}/>
+            <VotingForm
+              FaceoffID={props.votes.ID}
+              MemberID={props.child.memberId}
+            />
           </Col>
         </Row>
       </div>
