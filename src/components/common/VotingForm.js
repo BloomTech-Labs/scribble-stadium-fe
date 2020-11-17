@@ -37,7 +37,6 @@ const VotingForm = props => {
       <Form.Item name="vote" valuePropName="checked">
         <Radio.Group onChange={onChange} value={value}>
           <Radio className="left-radio" value={1} />
-
           <Radio className="right-radio" value={2} />
         </Radio.Group>
       </Form.Item>
