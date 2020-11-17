@@ -39,10 +39,6 @@ describe('<RenderVotingPage />', () => {
     wrapper = shallow(<RenderVotingPage {...props} />);
     expect(wrapper.find(Row)).toHaveLength(1);
   });
-  it('should render a Card in the antD form', () => {
-    wrapper = shallow(<RenderVotingPage {...props} />);
-    expect(wrapper.find(Card)).toHaveLength(2);
-  });
   it('should render a Col in the antD form', () => {
     wrapper = shallow(<RenderVotingPage {...props} />);
     expect(wrapper.find(Col)).toHaveLength(2);
