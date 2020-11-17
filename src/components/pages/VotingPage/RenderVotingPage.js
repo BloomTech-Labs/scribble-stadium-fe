@@ -14,7 +14,7 @@ const RenderVotingPage = props => {
             <div className="image-and-check-container">
               <img
                 className="WritingandDrawingIcon"
-                src={props.faceoff.Submission1.ImgURL}
+                src={props.votes.Submission1.ImgURL}
                 alt="writing submission"
               />
             </div>
@@ -24,12 +24,12 @@ const RenderVotingPage = props => {
             <div className="image-and-check-container">
               <img
                 className="WritingandDrawingIcon"
-                src={props.faceoff.Submission2.ImgURL}
+                src={props.votes.Submission2.ImgURL}
                 alt="writing submission"
               />
             </div>
             <VotingForm
-              FaceoffID={props.faceoff.ID}
+              FaceoffID={props.votes.ID}
               MemberID={props.child.memberId}
             />
           </Col>
