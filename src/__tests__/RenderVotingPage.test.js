@@ -18,8 +18,7 @@ describe('<RenderVotingPage />', () => {
   let wrapper;
 
   const props = {
-    faceoff: 
-      {
+    votes: {
       ID: 0,
       Submission1: {
         ImgURL: '',
@@ -30,10 +29,10 @@ describe('<RenderVotingPage />', () => {
     },
     child: {
       memberId: 0,
-    }
+    },
   };
   it('Should render <Header />', () => {
-    wrapper = shallow(<RenderVotingPage {...props}  />);
+    wrapper = shallow(<RenderVotingPage {...props} />);
     expect(wrapper.find(Header)).toHaveLength(1);
   });
   it('should render a Row in the antD form', () => {

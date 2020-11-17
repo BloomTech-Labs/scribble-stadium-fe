@@ -4,8 +4,12 @@ import { useOktaAuth } from '@okta/okta-react';
 import RenderMatchUp from './RenderMatchUp';
 import { connect } from 'react-redux';
 
-import { squad, child } from '../../../state/actions';
-import { getChildSquad, getChildFaceoffs } from '../../../api';
+import { faceoffs, child, votes } from '../../../state/actions';
+import {
+  getChildSquad,
+  getFaceoffsForMatchup,
+  getFaceoffsForVoting,
+} from '../../../api';
 
 function MatchUpContainer({ LoadingComponent, ...props }) {
   const { authState, authService } = useOktaAuth();
@@ -13,7 +17,6 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
   // const [faceoffs, setFaceoffs] = useState(null);
-
 
   useEffect(() => {
     let isSubscribed = true;
@@ -36,20 +39,30 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
 
   useEffect(() => {
     getChildSquad(authState, props.child.id).then(squad => {
-      getChildFaceoffs(authState, squad.ID).then(allFaceoffs => {
+      getFaceoffsForMatchup(authState, squad.ID).then(allFaceoffs => {
         props.setMemberId(squad);
         props.setSquadFaceoffs(allFaceoffs);
       });
+
+      if (squad.ID % 2 === 0) {
+        getFaceoffsForVoting(authState, squad.ID - 1).then(faceoffs => {
+          props.setVotes(faceoffs);
+        });
+      } else {
+        getFaceoffsForVoting(authState, squad.ID + 1).then(faceoffs => {
+          props.setVotes(faceoffs);
+        });
+      }
     });
-  // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [authState]);
 
-   return (
+  return (
     <>
       {authState.isAuthenticated && !userInfo && (
         <LoadingComponent message="Loading..." />
       )}
-      {authState.isAuthenticated && userInfo && props.squad && (
+      {authState.isAuthenticated && userInfo && props.faceoffs && (
         <RenderMatchUp
           {...props}
           userInfo={userInfo}
@@ -63,10 +76,12 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
 export default connect(
   state => ({
     child: state.child,
-    squad: state.squad,
+    faceoffs: state.faceoffs,
+    votes: state.votes,
   }),
   {
-    setSquadFaceoffs: squad.setSquadFaceoffs,
+    setSquadFaceoffs: faceoffs.setSquadFaceoffs,
     setMemberId: child.setMemberId,
+    setVotes: votes.setVotes,
   }
 )(MatchUpContainer);
