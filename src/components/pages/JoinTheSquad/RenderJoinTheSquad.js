@@ -31,7 +31,7 @@ const RenderJoinTheSquad = props => {
 
   return (
     <>
-      <Header title="JOIN THE SQUAD" />
+      <Header title="JOIN THE SQUAD" displayMenu={true} />
       <div className="JoinSquadContainer">
         <Col className="joinSquad1" xs={24} sm={12}>
           <div className="imgContain1">
