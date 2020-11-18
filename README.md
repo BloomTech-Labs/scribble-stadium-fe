@@ -172,7 +172,7 @@ When contributing to this repository, please first discuss the change you wish t
 
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
-Check [this document]() for what's been done/worked on, and what needs to be done.  This will give you a good idea on where to start with your contributions.  **IMPORTANT!** Please update for the benefit of future developers.
+Check [this document](https://docs.google.com/document/d/16_5xD-CXISF9lwX15nUL0mCMfQDcITRjyfNiXzN4Zzk/edit?usp=sharing) for what's been done/worked on, and what needs to be done.  This will give you a good idea on where to start with your contributions.  **IMPORTANT!** Please update for the benefit of future developers.
 
 
 
