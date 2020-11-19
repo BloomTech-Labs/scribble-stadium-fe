@@ -10,6 +10,8 @@ You can find the deployed project at: [AWS Amplify](https://b.storysquad.dev/)
 
 [Frontend video](https://youtu.be/RwdSUOyeXG0)
 <br>
+[Progress/Starting point video](https://www.youtube.com/watch?v=fo_eAq-__RE)
+<br>
 [Backend video](https://youtu.be/K5k19qWKHbI)
 <br>
 [Product Roadmap](https://www.notion.so/Story-Squad-Roadmap-2682f21ae48b420cbb0caafa3f500b5e)
