@@ -61,15 +61,15 @@ const PointShare = props => {
     setShowModal(true);
   };
 
-  // ShatePointHandler - handler that sets the logic of each input number point value:
+  // SharePointHandler - handler that sets the logic of each input number point value:
   // maxValue - it returns the maximum value available for each input.
-  // pointsetter - it takes into account the min and max value on each input, and it will
+  // pointSetter - it takes into account the min and max value on each input, and it will
   // determine how many points are available to spend on the current input number field.
   // setTotalPoints - it keeps track of total points available
-  const sharePointHandler = ({ value, pointsetter, a, b, c }) => {
+  const sharePointHandler = ({ value, pointSetter, a, b, c }) => {
     const maxValue =
       100 - (Math.max(a, 10) + Math.max(b, 10) + Math.max(c, 10));
-    pointsetter(Math.min(value, maxValue));
+    pointSetter(Math.min(value, maxValue));
     setTotalPoints(Math.max(100 - (value + a + b + c), 0));
   };
 
@@ -147,7 +147,7 @@ const PointShare = props => {
                   onChange={value =>
                     sharePointHandler({
                       value,
-                      pointsetter: setIllustrationOnePoints,
+                      pointSetter: setIllustrationOnePoints,
                       a: storyTwoPoints,
                       b: storyOnePoints,
                       c: illustrationTwoPoints,
@@ -170,7 +170,7 @@ const PointShare = props => {
                   onChange={value =>
                     sharePointHandler({
                       value,
-                      pointsetter: setStoryOnePoints,
+                      pointSetter: setStoryOnePoints,
                       a: storyTwoPoints,
                       b: illustrationOnePoints,
                       c: illustrationTwoPoints,
@@ -197,7 +197,7 @@ const PointShare = props => {
                   onChange={value =>
                     sharePointHandler({
                       value,
-                      pointsetter: setIllustrationTwoPoints,
+                      pointSetter: setIllustrationTwoPoints,
                       a: storyTwoPoints,
                       b: illustrationOnePoints,
                       c: storyOnePoints,
@@ -220,7 +220,7 @@ const PointShare = props => {
                   onChange={value =>
                     sharePointHandler({
                       value,
-                      pointsetter: setStoryTwoPoints,
+                      pointSetter: setStoryTwoPoints,
                       a: storyOnePoints,
                       b: illustrationOnePoints,
                       c: illustrationTwoPoints,
