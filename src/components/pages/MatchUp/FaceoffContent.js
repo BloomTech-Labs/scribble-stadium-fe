@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import matchup_bolt from '../../../assets/images/match_up_images/matchup_bolt.svg';
 
-import { SubmissionViewerModal } from '../../common';
+// EmojiFeedback from Team D
+import { SubmissionViewerModal, EmojiFeedback } from '../../common';
 
 const FaceoffContent = props => {
   const [content, setContent] = useState(null);
@@ -15,18 +16,26 @@ const FaceoffContent = props => {
   return (
     <div className="faceoff">
       {content && (
-        <FaceoffSubDisplay sub={content.Submission1} type={content.Type} />
+        <FaceoffSubDisplay
+          sub={content.Submission1}
+          type={content.Type}
+          feedback={content.Emojis1}
+        />
       )}
       <img src={matchup_bolt} alt="lightning bolt" />
       {content && (
-        <FaceoffSubDisplay sub={content.Submission2} type={content.Type} />
+        <FaceoffSubDisplay
+          sub={content.Submission2}
+          type={content.Type}
+          feedback={content.Emojis2}
+        />
       )}
       {content && <div className="points">{content.Points}</div>}
     </div>
   );
 };
 
-const FaceoffSubDisplay = ({ sub, type }) => {
+const FaceoffSubDisplay = ({ sub, type, feedback }) => {
   const [modalContent, setModalContent] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -46,6 +55,9 @@ const FaceoffSubDisplay = ({ sub, type }) => {
       )}
       <div className="sub">
         <div className="child-info">
+          {feedback && feedback.Emoji && (
+            <EmojiFeedback emojis={feedback.Emoji} />
+          )}
           <img src={sub.AvatarURL} alt="text" />
           <span className="name">{sub.Name}</span>
         </div>
