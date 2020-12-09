@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; 
+import React, { useEffect, useState } from 'react';
 
 import {
   getCohorts,
@@ -99,6 +99,7 @@ const ModerationTest = props => {
                 </Select>
               </Form.Item>
               <Form.Item>
+                <Button type="reset">Reset Seeds</Button>
                 <Button type="primary">Load Submissions</Button>
                 <Button type="default">Remove</Button>
                 <Button type="default" onClick={cluster}>
