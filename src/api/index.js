@@ -409,6 +409,11 @@ const getChildGraph = async (authState, ChildID) => {
   return apiAuthGet(`/parent/viz?childId=${ChildID}`, getAuthHeader(authState));
 };
 
+const reset = async authState => {
+  console.log('It should work');
+  return apiAuthPut(`/reset/reset/`, null);
+};
+
 export {
   sleep,
   getExampleData,
@@ -435,4 +440,5 @@ export {
   postVotes,
   getGameVotes,
   getChildGraph,
+  reset,
 };

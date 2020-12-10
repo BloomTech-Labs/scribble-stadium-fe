@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import {
   getCohorts,
@@ -9,6 +10,8 @@ import {
   setResults,
 } from '../../../api/moderation';
 
+import { reset } from '../../../api/index';
+
 import { Button, Layout, PageHeader, Select, Form, Row, Card, Col } from 'antd';
 const { Content } = Layout;
 const { Option } = Select;
@@ -17,6 +20,7 @@ const ModerationTest = props => {
   const [cohorts, setCohorts] = useState([]);
   const [posts, setPosts] = useState({});
   const [form] = Form.useForm();
+  const { push } = useHistory();
 
   useEffect(() => {
     getCohorts().then(res => {
@@ -80,6 +84,10 @@ const ModerationTest = props => {
     });
   };
 
+  const homePageHandler = () => {
+    push('/child/dashboard');
+  };
+
   return (
     <Layout className="moderation-page">
       <PageHeader>
@@ -99,7 +107,12 @@ const ModerationTest = props => {
                 </Select>
               </Form.Item>
               <Form.Item>
-                <Button type="reset">Reset Seeds</Button>
+                <Button type="default" onClick={homePageHandler}>
+                  Back to Home Page
+                </Button>
+                <Button type="reset" onClick={reset}>
+                  Reset Seeds
+                </Button>
                 <Button type="primary">Load Submissions</Button>
                 <Button type="default">Remove</Button>
                 <Button type="default" onClick={cluster}>
