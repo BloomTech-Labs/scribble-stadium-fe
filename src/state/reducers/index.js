@@ -8,6 +8,7 @@ import { reducer as tasks } from './taskReducer';
 import { reducer as team } from './teamReducers';
 import { reducer as faceoffs } from './faceoffsReducer';
 import { reducer as votes } from './votesReducer';
+import { reducer as squad } from './squadReducer';
 
 export default combineReducers({
   child,
@@ -16,4 +17,5 @@ export default combineReducers({
   team,
   faceoffs,
   votes,
+  squad,
 });
