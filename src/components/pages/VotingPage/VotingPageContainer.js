@@ -35,21 +35,20 @@ function VotingPageContainer({ LoadingComponent, ...props }) {
   }, [memoAuthService]);
 
   useEffect(() => {
-    // if (!props.votes) return
-    console.log(props);
+    console.log(props.faceoffs);
     getGameVotes(
       authState,
       props.faceoffs[0].SquadID,
       props.child.memberId
     ).then(res => {
       if (res.length === 0) {
-        setVotes(props.faceoffs[3]);
+        setVotes(props.votes[3]);
       } else if (res.length === 1) {
-        setVotes(props.faceoffs[2]);
+        setVotes(props.votes[2]);
       } else if (res.length === 2) {
-        setVotes(props.faceoffs[1]);
+        setVotes(props.votes[1]);
       } else if (res.length === 3) {
-        setVotes(props.faceoffs[0]);
+        setVotes(props.votes[0]);
       } else {
         push('/child/dashboard');
       }

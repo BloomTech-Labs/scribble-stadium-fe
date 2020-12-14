@@ -3,6 +3,9 @@ import matchup_bolt from '../../../assets/images/match_up_images/matchup_bolt.sv
 
 // EmojiFeedback from Team D
 import { SubmissionViewerModal, EmojiFeedback } from '../../common';
+// import { connect } from 'react-redux';
+// import { day } from '../../../state/actions'
+// import { setDay } from '../../../state/actions/dayActions';
 
 const lock = 'https://labs28-b-storysquad.s3.amazonaws.com/lock.svg';
 
@@ -24,6 +27,8 @@ const FaceoffContent = props => {
           feedback={content.Emojis1}
           votesNeededToUnlock={props.votesNeededToUnlock}
           numberOfTimesVoted={props.numberOfTimesVoted}
+          dayNeededToUnlock={props.dayNeededToUnlock}
+          hourNeededToUnlock={props.hourNeededToUnlock}
         />
       )}
       <img src={matchup_bolt} alt="lightning bolt" />
@@ -34,6 +39,8 @@ const FaceoffContent = props => {
           feedback={content.Emojis2}
           votesNeededToUnlock={props.votesNeededToUnlock}
           numberOfTimesVoted={props.numberOfTimesVoted}
+          dayNeededToUnlock={props.dayNeededToUnlock}
+          hourNeededToUnlock={props.hourNeededToUnlock}
         />
       )}
       {content && <div className="points">{content.Points}</div>}
@@ -46,6 +53,10 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
   const [showModal, setShowModal] = useState(false);
   const [locked, setLocked] = useState(true);
 
+  const currentDate = new Date();
+  const currentDayOfTheWeek = currentDate.getDay();
+  const currentHour = currentDate.getHours();
+
   const openModal = content => {
     setModalContent(content);
     setShowModal(true);
@@ -54,7 +65,10 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
   useEffect(() => {
     if (
       props.votesNeededToUnlock &&
-      props.numberOfTimesVoted >= props.votesNeededToUnlock
+      props.numberOfTimesVoted >= props.votesNeededToUnlock &&
+      currentDayOfTheWeek >= props.dayNeededToUnlock &&
+      currentHour >= props.hourNeededToUnlock
+      // && props.currentDayOfTheWeek >= 4
     ) {
       setLocked(false);
     }
@@ -97,5 +111,27 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
     </>
   );
 };
+
+// const mapStateToProps = state => {
+//   return {
+//     currentDate: state.currentDate,
+//     currentDayOfTheWeek: state.currentDayOfTheWeek
+//   };
+// };
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     setDay: dispatch({ type: 'SET_DAY'})
+//   };
+// };
+// export default connect(mapStateToProps, mapDispatchToProps)(FaceoffContent);
+
+// export default connect(
+//   state => ({
+//     currentDate: state.currentDate,
+//     currentDayOfTheWeek: state.currentDayOfTheWeek,
+//     day: state.day
+//   }),
+//   {setDay}
+// )(FaceoffContent);
 
 export default FaceoffContent;

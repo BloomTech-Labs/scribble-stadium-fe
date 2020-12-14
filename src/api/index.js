@@ -320,22 +320,6 @@ const getFaceoffsForMatchup = async (authState, squadId) => {
   }
 };
 
-const getChildFaceoffs = async (authState, squadId) => {
-  try {
-    return apiAuthGet(
-      `/game/faceoffs?squadId=${squadId}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      return response.data;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
-  }
-};
-
 /**
  *
  * @param {Object} authState necessary for API functionality
@@ -448,7 +432,6 @@ export {
   getChildSquad,
   getFaceoffsForMatchup,
   getFaceoffsForVoting,
-  getChildFaceoffs,
   postVotes,
   getGameVotes,
   getChildGraph,
