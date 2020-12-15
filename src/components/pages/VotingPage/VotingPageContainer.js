@@ -47,8 +47,6 @@ function VotingPageContainer({ LoadingComponent, ...props }) {
         setVotes(props.votes[2]);
       } else if (res.length === 2) {
         setVotes(props.votes[1]);
-      } else if (res.length === 3) {
-        setVotes(props.votes[0]);
       } else {
         push('/child/dashboard');
       }
