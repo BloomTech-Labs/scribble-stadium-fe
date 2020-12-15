@@ -35,6 +35,7 @@ function VotingPageContainer({ LoadingComponent, ...props }) {
   }, [memoAuthService]);
 
   useEffect(() => {
+    console.log(props.faceoffs);
     getGameVotes(
       authState,
       props.faceoffs[0].SquadID,
@@ -46,8 +47,6 @@ function VotingPageContainer({ LoadingComponent, ...props }) {
         setVotes(props.votes[2]);
       } else if (res.length === 2) {
         setVotes(props.votes[1]);
-      } else if (res.length === 3) {
-        setVotes(props.votes[0]);
       } else {
         push('/child/dashboard');
       }
