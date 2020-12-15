@@ -4,12 +4,12 @@ import { useOktaAuth } from '@okta/okta-react';
 import RenderMatchUp from './RenderMatchUp';
 import { connect } from 'react-redux';
 
-import { faceoffs, child, votes } from '../../../state/actions';
+import { child, faceoffs, votes } from '../../../state/actions';
 import {
   getChildSquad,
   getFaceoffsForMatchup,
   getFaceoffsForVoting,
-} from '../../../api';
+} from '../../../api/index';
 
 function MatchUpContainer({ LoadingComponent, ...props }) {
   const { authState, authService } = useOktaAuth();
@@ -54,6 +54,7 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
         });
       }
     });
+
     // eslint-disable-next-line
   }, [authState]);
 
