@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react';
 import matchup_bolt from '../../../assets/images/match_up_images/matchup_bolt.svg';
 
 import { SubmissionViewerModal, EmojiFeedback } from '../../common';
-// import { connect } from 'react-redux';
-// import { day } from '../../../state/actions'
-// import { setDay } from '../../../state/actions/dayActions';
 
 const lock = 'https://labs28-b-storysquad.s3.amazonaws.com/lock.svg';
 
@@ -68,7 +65,6 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
       props.numberOfTimesVoted >= props.votesNeededToUnlock &&
       currentDayOfTheWeek >= props.dayNeededToUnlock &&
       currentHour >= props.hourNeededToUnlock
-      // && props.currentDayOfTheWeek >= 4
     ) {
       setLocked(false);
     }
@@ -111,27 +107,5 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
     </>
   );
 };
-
-// const mapStateToProps = state => {
-//   return {
-//     currentDate: state.currentDate,
-//     currentDayOfTheWeek: state.currentDayOfTheWeek
-//   };
-// };
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     setDay: dispatch({ type: 'SET_DAY'})
-//   };
-// };
-// export default connect(mapStateToProps, mapDispatchToProps)(FaceoffContent);
-
-// export default connect(
-//   state => ({
-//     currentDate: state.currentDate,
-//     currentDayOfTheWeek: state.currentDayOfTheWeek,
-//     day: state.day
-//   }),
-//   {setDay}
-// )(FaceoffContent);
 
 export default FaceoffContent;
