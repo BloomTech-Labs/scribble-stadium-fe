@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import matchup_bolt from '../../../assets/images/match_up_images/matchup_bolt.svg';
 
-// EmojiFeedback from Team D
 import { SubmissionViewerModal, EmojiFeedback } from '../../common';
 
 const FaceoffContent = props => {
   const [content, setContent] = useState(null);
+
   useEffect(() => {
     setTimeout(() => {
       setContent(props.content);
