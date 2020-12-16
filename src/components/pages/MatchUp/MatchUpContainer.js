@@ -39,10 +39,12 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
 
   useEffect(() => {
     getChildSquad(authState, props.child.id).then(squad => {
-      getFaceoffsForMatchup(authState, squad.ID).then(allFaceoffs => {
-        props.setMemberId(squad);
-        props.setSquadFaceoffs(allFaceoffs);
-      });
+      getFaceoffsForMatchup(authState, squad.ID, props.child.id).then(
+        allFaceoffs => {
+          props.setMemberId(squad);
+          props.setSquadFaceoffs(allFaceoffs);
+        }
+      );
 
       if (squad.ID % 2 === 0) {
         getFaceoffsForVoting(authState, squad.ID - 1).then(faceoffs => {
