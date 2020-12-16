@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import matchup_bolt from '../../../assets/images/match_up_images/matchup_bolt.svg';
 
-// EmojiFeedback from Team D
 import { SubmissionViewerModal, EmojiFeedback } from '../../common';
 // import { connect } from 'react-redux';
 // import { day } from '../../../state/actions'
@@ -11,6 +10,7 @@ const lock = 'https://labs28-b-storysquad.s3.amazonaws.com/lock.svg';
 
 const FaceoffContent = props => {
   const [content, setContent] = useState(null);
+
   useEffect(() => {
     setTimeout(() => {
       setContent(props.content);
