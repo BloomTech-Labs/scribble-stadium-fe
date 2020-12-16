@@ -1,7 +1,6 @@
-//From previous Team D
-
 import React, { useState, useEffect } from 'react';
 import { Modal } from 'antd';
+
 const EmojiCard = ({ emojiRow }) => {
   return (
     <div className="EmojiCard">
@@ -9,6 +8,7 @@ const EmojiCard = ({ emojiRow }) => {
     </div>
   );
 };
+
 const EmojiFeedback = props => {
   const [modalVisible, setModalVisible] = useState(false);
   const [emojis, setEmojis] = useState([]);
@@ -21,6 +21,7 @@ const EmojiFeedback = props => {
     setEmojis(emojiArr);
     console.log(emojiArr);
   }, [props]);
+
   return (
     <div className="EmojiFeedback">
       <button onClick={onClick}></button>
