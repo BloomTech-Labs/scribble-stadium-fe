@@ -47,9 +47,10 @@ const apiAuthPut = (endpoint, body, authHeader) => {
 
 const getProfileData = authState => {
   try {
-    return apiAuthGet('/profiles', getAuthHeader(authState)).then(
-      response => response.data
-    );
+    return apiAuthGet('/profiles', getAuthHeader(authState)).then(response => {
+      console.log(response);
+      return response.data;
+    });
   } catch (error) {
     return new Promise(() => {
       console.log(error);
