@@ -15,7 +15,6 @@ const VotingForm = props => {
     setValue(e.target.value);
   };
   const onFinish = () => {
-    console.log('AJ', value);
     const body = {
       Vote: value,
       MemberID: props.MemberID,
