@@ -35,7 +35,6 @@ function VotingPageContainer({ LoadingComponent, ...props }) {
   }, [memoAuthService]);
 
   useEffect(() => {
-    console.log(props.votes[0], props.faceoffs[0]);
     getGameVotes(
       authState,
       props.faceoffs[0].SquadID,

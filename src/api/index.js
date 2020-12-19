@@ -47,9 +47,10 @@ const apiAuthPut = (endpoint, body, authHeader) => {
 
 const getProfileData = authState => {
   try {
-    return apiAuthGet('/profiles', getAuthHeader(authState)).then(
-      response => response.data
-    );
+    return apiAuthGet('/profiles', getAuthHeader(authState)).then(response => {
+      console.log(response);
+      return response.data;
+    });
   } catch (error) {
     return new Promise(() => {
       console.log(error);
@@ -410,6 +411,11 @@ const getChildGraph = async (authState, ChildID) => {
   return apiAuthGet(`/parent/viz?childId=${ChildID}`, getAuthHeader(authState));
 };
 
+const reset = async authState => {
+  console.log('It should work');
+  return apiAuthPut(`/reset/reset/`, null);
+};
+
 export {
   sleep,
   getExampleData,
@@ -436,4 +442,5 @@ export {
   postVotes,
   getGameVotes,
   getChildGraph,
+  reset,
 };
