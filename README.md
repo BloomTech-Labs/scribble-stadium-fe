@@ -6,6 +6,10 @@
 
 You can find the deployed project at: [AWS Amplify](https://b.storysquad.dev/)
 
+## Current State Of The App
+
+see the latest work done on the app here: [Click Here](https://docs.google.com/spreadsheets/d/1ZdhfQEAsz3IhgVa8zMZ0JkuD6-oasDI4hplPFXZaXNQ/edit?usp=sharing)
+
 ## Project Overview
 
 [Frontend video](https://youtu.be/RwdSUOyeXG0)
@@ -215,3 +219,5 @@ See [Backend Documentation](https://story-squad-b-api.herokuapp.com/api-docs/) f
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
 ![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
+
+
