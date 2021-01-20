@@ -39,7 +39,7 @@ import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
-import { LeaderBoard } from './components/pages/Leaderboard';
+import { TrophyRoom } from './components/pages/TrophyRoom';
 
 // Gameification Components
 import { JoinTheSquad } from './components/pages/JoinTheSquad';
@@ -168,9 +168,9 @@ function App() {
           )}
         />
         <SecureRoute
-          path="/child/leaderboard"
+          path="/child/trophyroom"
           exact
-          component={() => <LeaderBoard />}
+          component={() => <TrophyRoom />}
         />
         <Route exact path="/moderation" component={ModerationTest} />
         <Route component={NotFoundPage} />

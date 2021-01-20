@@ -88,6 +88,10 @@ const ModerationTest = props => {
     push('/child/dashboard');
   };
 
+  const handleFaceoffs = e => {
+    push('/child/match-up');
+  };
+
   return (
     <Layout className="moderation-page">
       <PageHeader>
@@ -109,6 +113,9 @@ const ModerationTest = props => {
               <Form.Item>
                 <Button type="default" onClick={homePageHandler}>
                   Back to Home Page
+                </Button>
+                <Button type="default" onClick={handleFaceoffs}>
+                  Faceoffs / Matchups
                 </Button>
                 <Button type="reset" onClick={reset}>
                   Reset Seeds
