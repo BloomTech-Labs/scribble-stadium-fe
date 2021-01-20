@@ -13,6 +13,7 @@ const Data = [
   { name: 'Pam', score: 150 },
   { name: 'Opa', score: 10 },
   { name: 'Yan', score: 1500 },
+  { name: 'Yaraz', score: 502 },
 ];
 
 Data.sort((a, b) => {
@@ -20,18 +21,26 @@ Data.sort((a, b) => {
   return b.score - a.score;
 });
 
-const Leaderboard = props => {
+const Leaderboard = () => {
   return (
     <div>
       <Row>
-        <Col span={8}>Placement</Col>
-        <Col span={8}>Username</Col>
-        <Col span={8}>Score</Col>
+        <Col span={8}>
+          <h2>Placement</h2>
+        </Col>
+        <Col span={8}>
+          <h2>Username</h2>
+        </Col>
+        <Col span={8}>
+          <h2>Score</h2>
+        </Col>
       </Row>
-      {console.log(Data.length)}
-      {Data.map(({ placement, name, score }) => (
+      {
+        //*Index goes for however long the data is needs to be limited
+      }
+      {Data.map(({ name, score }, index) => (
         <Row>
-          {/* <Col span={8}>{placement}</Col> */}
+          <Col span={8}>{index + 1}</Col>
           <Col span={8}>{name}</Col>
           <Col span={8}>{score}</Col>
         </Row>
