@@ -21,12 +21,16 @@ const RenderChildDashboard = props => {
     push('/child/join');
   };
 
-  const handleFaceoffs = e => {
-    push('/child/match-up');
-  };
+  // const handleFaceoffs = e => {
+  //   push('/child/match-up');
+  // };
 
   const handleModerationPage = event => {
     push('/moderation');
+  };
+
+  const scores = e => {
+    push('/child/leaderboard');
   };
 
   return (
@@ -75,7 +79,7 @@ const RenderChildDashboard = props => {
               className="child-dash-img"
               src={trophy_room}
               alt="Trophy Room Button"
-              onClick={handleFaceoffs}
+              onClick={scores}
             />
           </Col>
         </Row>
