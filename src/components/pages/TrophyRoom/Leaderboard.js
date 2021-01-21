@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col } from 'antd';
 
 const Data = [
@@ -22,6 +22,8 @@ Data.sort((a, b) => {
 });
 
 const Leaderboard = () => {
+  const [num, setnum] = useState(10);
+
   return (
     <div>
       <Row>
@@ -38,13 +40,16 @@ const Leaderboard = () => {
       {
         //*Index goes for however long the data is needs to be limited
       }
-      {Data.map(({ name, score }, index) => (
+      {Data.slice(0, num).map(({ name, score }, index) => (
         <Row>
           <Col span={8}>{index + 1}</Col>
           <Col span={8}>{name}</Col>
           <Col span={8}>{score}</Col>
         </Row>
       ))}
+      <h1 onClick={() => setnum(5)}>5</h1>
+      <h1 onClick={() => setnum(10)}>10</h1>
+      <h1 onClick={() => setnum(50)}>50</h1>
     </div>
   );
 };
