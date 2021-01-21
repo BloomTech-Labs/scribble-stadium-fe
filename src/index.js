@@ -170,7 +170,9 @@ function App() {
         <SecureRoute
           path="/child/trophyroom"
           exact
-          component={() => <TrophyRoom />}
+          component={() => (
+            <TrophyRoom LoadingComponent={ChildLoadingComponent} />
+          )}
         />
         <Route exact path="/moderation" component={ModerationTest} />
         <Route component={NotFoundPage} />
