@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import { Header } from '../../common';
 import Leaderboard from './Leaderboard';
 
-const RenderTrophyRoom = props => {
-  //   const { push } = useHistory();
-  const [modalVisible, setModalVisible] = useState(true);
+import { Divider } from 'antd';
 
+const RenderTrophyRoom = props => {
   return (
     <>
-      <Header displayMenu={true} />
+      <Header displayMenu={true} title="Trophy Room" />
+      <h1>Leader Board</h1>
       <Leaderboard />
-      <h1>Test</h1>
+      <Divider />
+      <h2 className="h2">Achievements</h2>
+      <Divider />
+      <h2 className="h2">Inventory</h2>
     </>
   );
 };
