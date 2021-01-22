@@ -11,7 +11,7 @@ const RenderTrophyRoom = props => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalState, setModalState] = useState('');
   const [inventoryState, setInventoryState] = useState('');
-  const [achievementState, setAchievementState] = useState('');
+  // const [achievementState, setAchievementState] = useState('');
 
   const showAchievementsModal = () => {
     setIsModalVisible(true);
@@ -34,7 +34,7 @@ const RenderTrophyRoom = props => {
   return (
     <>
       <Header displayMenu={true} title="Trophy Room" />
-      <h1>Leader Board</h1>
+      <h2 className="h2">Leaderboard</h2>
       <Leaderboard />
       <Divider />
       <h2 className="h2" onClick={showAchievementsModal}>

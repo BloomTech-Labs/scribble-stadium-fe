@@ -58,11 +58,13 @@ const getProfileData = authState => {
     });
   }
 };
+// Getting data for leaderboard
 
 const getLeaderboard = authState => {
   try {
     return apiAuthGet('/leaderboard', getAuthHeader(authState)).then(
       response => {
+        console.log('FROM LEADERBOARD CALL', response);
         return response.data;
       }
     );
@@ -73,6 +75,7 @@ const getLeaderboard = authState => {
     });
   }
 };
+
 // Parent API Calls
 
 /**

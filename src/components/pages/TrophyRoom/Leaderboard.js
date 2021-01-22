@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col } from 'antd';
 import { Button } from '../../common';
 import { getLeaderboard } from '../../../api';
@@ -8,17 +8,18 @@ const Leaderboard = () => {
   const { authState } = useOktaAuth();
   const [Data, setDataInfo] = useState([]);
   const [num, setnum] = useState(10);
-  const [change, setChange] = useState(0);
+  const [change, setChange] = useState(0); //Needs to change there is a better way of doing this
 
   useEffect(() => {
+    //Getting data from backend for leaderboard
     getLeaderboard(authState).then(res => {
-      console.log(res);
-      res.Total_Points = res.WritingPoints + res.DrawingPoints;
+      console.log('DATA', res);
       setDataInfo(res);
     });
   }, [authState]);
 
   useEffect(() => {
+    //Needs to change there is a better way of doing this
     if (change === 0) {
       Data.sort((a, b) => {
         return b.Total_Points - a.Total_Points;
@@ -59,8 +60,8 @@ const Leaderboard = () => {
         </Col>
       </Row>
       {Data.slice(0, num).map(
-        ({ id, Name, Total_Points, WritingPoints, DrawingPoints }, index) => (
-          <Row key={id} justify="center">
+        ({ ID, Name, Total_Points, WritingPoints, DrawingPoints }, index) => (
+          <Row key={ID} justify="center">
             <Col span={4}>{index + 1}</Col>
             <Col span={4}>{Name}</Col>
             <Col span={4}>{WritingPoints}</Col>
@@ -72,6 +73,7 @@ const Leaderboard = () => {
       <h4>Sort By</h4>
       <Button handleClick={() => setChange(1)} buttonText="Total" />
       <Button handleClick={() => setChange(2)} buttonText="Drawing" />
+      {/* Needs to change there is a better way of doing this */}
       <Button handleClick={() => setChange(3)} buttonText="Writing" />
 
       <Button handleClick={() => setnum(num + 10)} buttonText="Show more" />
