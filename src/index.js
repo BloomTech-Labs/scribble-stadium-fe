@@ -4,7 +4,9 @@ import ReactDOM from 'react-dom';
 
 // Redux
 import { Provider } from 'react-redux';
-import store from './state';
+import { PersistGate } from 'redux-persist/integration/react';
+
+import { store, persistor } from './state';
 
 import {
   BrowserRouter as Router,
@@ -55,7 +57,9 @@ ReactDOM.render(
   <Router>
     <React.StrictMode>
       <Provider store={store}>
-        <App />
+        <PersistGate persistor={persistor}>
+          <App />
+        </PersistGate>
       </Provider>
     </React.StrictMode>
   </Router>,
