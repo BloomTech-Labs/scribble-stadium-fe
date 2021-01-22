@@ -1,41 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Row, Col } from 'antd';
 import { Button } from '../../common';
-
-const Data = [
-  // Test data
-  { name: 'Jack', score: 500, total: 494 },
-  { name: 'Matt', score: 429, total: 22 },
-  { name: 'Sam', score: 750, total: 512 },
-  { name: 'Liz', score: 720, total: 592 },
-  { name: 'Tim', score: 130, total: 2812 },
-  { name: 'Fizz', score: 590, total: 29182 },
-  { name: 'Alex', score: 40, total: 38212 },
-  { name: 'Pam', score: 150, total: 2910 },
-  { name: 'Opa', score: 10, total: 429 },
-  { name: 'Yan', score: 1500, total: 5032 },
-  { name: 'Yaraz', score: 502, total: 3202 },
-  { name: 'Ahri', score: 4800, total: 242 },
-  { name: 'Akali', score: 3150, total: 642 },
-  { name: 'Alistar', score: 1350, total: 202 },
-  { name: 'Amumu', score: 450, total: 520 },
-];
+import { getLeaderboard } from '../../../api';
+import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 
 const Leaderboard = () => {
+  const { authState } = useOktaAuth();
+  const [Data, setDataInfo] = useState([]);
   const [num, setnum] = useState(10);
-  const [sort, setSort] = useState(null);
+  const [change, setChange] = useState(0);
 
-  const Sort = e => {
-    if (sort === false) {
+  useEffect(() => {
+    getLeaderboard(authState).then(res => {
+      console.log(res);
+      res.Total_Points = res.WritingPoints + res.DrawingPoints;
+      setDataInfo(res);
+    });
+  }, [authState]);
+
+  useEffect(() => {
+    if (change === 0) {
       Data.sort((a, b) => {
-        return b.total - a.total;
-      });
-    } else {
-      Data.sort((a, b) => {
-        return b.score - a.score;
+        return b.Total_Points - a.Total_Points;
       });
     }
-  };
+    if (change === 1) {
+      Data.sort((a, b) => {
+        return b.Total_Points - a.Total_Points;
+      });
+    } else if (change === 2) {
+      Data.sort((a, b) => {
+        return b.WritingPoints - a.WritingPoints;
+      });
+    } else if (change === 3) {
+      Data.sort((a, b) => {
+        return b.DrawingPoints - a.DrawingPoints;
+      });
+    }
+  }, [Data, change]);
 
   return (
     <div className="leaderboard">
@@ -47,27 +49,32 @@ const Leaderboard = () => {
           <h2>Username</h2>
         </Col>
         <Col span={4}>
-          <h2>Score</h2>
+          <h2>Writing Points</h2>
+        </Col>
+        <Col span={4}>
+          <h2>Drawing Points</h2>
         </Col>
         <Col span={4}>
           <h2>Total</h2>
         </Col>
       </Row>
-      {
-        //*Index goes for however long the data is needs to be limited
-      }
-      {Data.slice(0, num).map(({ name, score, total }, index) => (
-        <Row justify="center">
-          <Col span={4}>{index + 1}</Col>
-          <Col span={4}>{name}</Col>
-          <Col span={4}>{score}</Col>
-          <Col span={4}>{total}</Col>
-        </Row>
-      ))}
-      <Button handleClick={() => setnum(10)} buttonText="15" />
-      <Button handleClick={() => setnum(50)} buttonText="50" />
-      <Button handleClick={() => Sort(setSort(true))} buttonText="Total" />
-      <Button handleClick={() => Sort(setSort(false))} buttonText="Score" />
+      {Data.slice(0, num).map(
+        ({ id, Name, Total_Points, WritingPoints, DrawingPoints }, index) => (
+          <Row key={id} justify="center">
+            <Col span={4}>{index + 1}</Col>
+            <Col span={4}>{Name}</Col>
+            <Col span={4}>{WritingPoints}</Col>
+            <Col span={4}>{DrawingPoints}</Col>
+            <Col span={4}>{Total_Points}</Col>
+          </Row>
+        )
+      )}
+      <h4>Sort By</h4>
+      <Button handleClick={() => setChange(1)} buttonText="Total" />
+      <Button handleClick={() => setChange(2)} buttonText="Drawing" />
+      <Button handleClick={() => setChange(3)} buttonText="Writing" />
+
+      <Button handleClick={() => setnum(num + 10)} buttonText="Show more" />
     </div>
   );
 };

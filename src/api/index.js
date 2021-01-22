@@ -59,6 +59,20 @@ const getProfileData = authState => {
   }
 };
 
+const getLeaderboard = authState => {
+  try {
+    return apiAuthGet('/leaderboard', getAuthHeader(authState)).then(
+      response => {
+        return response.data;
+      }
+    );
+  } catch (err) {
+    return new Promise(() => {
+      console.log(err);
+      return [];
+    });
+  }
+};
 // Parent API Calls
 
 /**
@@ -422,6 +436,7 @@ export {
   getProfileData,
   getDSData,
   apiAuthGet,
+  getLeaderboard,
   getStory,
   getAuthHeader,
   apiAuthPost,
