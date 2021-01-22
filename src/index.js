@@ -39,6 +39,7 @@ import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
+import { TrophyRoom } from './components/pages/TrophyRoom';
 
 // Gameification Components
 import { JoinTheSquad } from './components/pages/JoinTheSquad';
@@ -157,15 +158,20 @@ function App() {
         <SecureRoute
           path="/child/match-up"
           exact
-          component={() => (
-            <MatchUp LoadingComponent={ChildLoadingComponent} />
-          )}  
+          component={() => <MatchUp LoadingComponent={ChildLoadingComponent} />}
         />
         <SecureRoute
           path="/child/squad-vote"
           exact
           component={() => (
             <VotingPage LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <SecureRoute
+          path="/child/trophyroom"
+          exact
+          component={() => (
+            <TrophyRoom LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <Route exact path="/moderation" component={ModerationTest} />
