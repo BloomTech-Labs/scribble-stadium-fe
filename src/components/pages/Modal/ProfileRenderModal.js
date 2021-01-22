@@ -17,6 +17,7 @@ const ProfileRenderModal = props => {
   const { authState } = useOktaAuth();
   const [visible, setVisible] = useState(true);
   const [userInfo, setUserInfo] = useState([]);
+
   const [selected, setSelected] = useState(null);
   const [title, setTitle] = useState(titleText);
   const formRef = useRef(null);
