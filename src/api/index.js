@@ -64,7 +64,6 @@ const getLeaderboard = authState => {
   try {
     return apiAuthGet('/leaderboard', getAuthHeader(authState)).then(
       response => {
-        console.log('FROM LEADERBOARD CALL', response);
         return response.data;
       }
     );
