@@ -35,7 +35,7 @@ const RenderTrophyRoom = props => {
     <>
       <Header displayMenu={true} title="Trophy Room" />
       <h2 className="h2">Leaderboard</h2>
-      <Leaderboard />
+      <Leaderboard child={props.child} />
       <Divider />
       <h2 className="h2" onClick={showAchievementsModal}>
         Achievements
