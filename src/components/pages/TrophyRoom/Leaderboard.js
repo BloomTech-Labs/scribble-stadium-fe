@@ -7,36 +7,24 @@ import { useHistory } from 'react-router-dom';
 const Leaderboard = child => {
   const { authState } = useOktaAuth();
   const [data, setDataInfo] = useState([]);
-  const [test, setGetTest] = useState(null);
-  // const [index, setIndex] = useState([]);
-  const { push } = useHistory();
 
   useEffect(() => {
     //Getting data from backend for leaderboard
     getLeaderboard(authState).then(res => {
       setDataInfo(res);
     });
-    ischild();
   }, [authState]);
 
-  const ischild = child => {
-    //Checks if the child is correct with the one who is logged in
-    if (child === data.Name) {
-      setGetTest(true);
-    } else {
-      push('/');
-    }
-  };
-  // const index = [];
-  // useEffect(() => {
-  //   for (let i = 1; i >= data.length; i++) {
-  //     index.push(i);
-  //   }
-  // }, [setIndex]);
-  const columns = [
+  const index = [];
+  for (let i = 1; i <= data.length; i++) {
+    index.push({ key: i, index: i });
+  }
+
+  const writingTable = [
     {
       title: 'Placement',
-      // dataIndex: { index },
+      key: 'index',
+      dataIndex: 'index',
     },
     {
       title: 'Name',
@@ -44,44 +32,80 @@ const Leaderboard = child => {
       key: 'Name',
     },
     {
-      title: 'Writing Score',
+      title: 'Score',
       dataIndex: 'WritingPoints',
       key: 'WritingPoints',
-      // sorter: (a, b) => a.WritingPoints - b.WritingPoints,
-      sorter: {
-        compare: (a, b) => a.WritingPoints - b.WritingPoints,
-      },
+      defaultSortOrder: 'descend',
+      sorter: (a, b) => a.WritingPoints - b.WritingPoints,
+      sortDirections: ['ASC', 'DESC'],
+      showSorterTooltip: false,
+    },
+  ];
+  const drawingTable = [
+    {
+      title: 'Placement',
+      key: 'index',
+      dataIndex: 'index',
     },
     {
-      title: 'Drawing Score',
+      title: 'Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Score',
       dataIndex: 'DrawingPoints',
       key: 'DrawingPoints',
-      sorter: {
-        compare: (a, b) => a.DrawingPoints - b.DrawingPoints,
-      },
-    },
-    {
-      title: 'Total Score',
-      dataIndex: 'Total_Points',
-      key: 'Total_points',
-      sorter: {
-        compare: (a, b) => a.Total_Points - b.Total_Points,
-      },
+      defaultSortOrder: 'descend',
+      sorter: (a, b) => a.DrawingPoints - b.DrawingPoints,
+      sortDirections: ['ASC', 'DESC'],
+      showSorterTooltip: false,
     },
   ];
 
+  const totalsTable = [
+    {
+      title: 'Placement',
+      key: 'index',
+      dataIndex: 'index',
+    },
+    {
+      title: 'Name',
+      dataIndex: 'Name',
+      key: 'Name',
+    },
+    {
+      title: 'Score',
+      dataIndex: 'Total_Points',
+      key: 'Total_points',
+      defaultSortOrder: 'descend',
+      sorter: (a, b) => a.Total_Points - b.Total_Points,
+      sortDirections: ['ASC', 'DESC'],
+      showSorterTooltip: false,
+    },
+  ];
   return (
     <div className="leaderboard">
+      <h3>Overall Ranking</h3>
       <Table
-        rowClassName={(test ? 'test' : 'fail', 'parent')}
-        columns={columns}
-        key="index"
+        rowClassName={'parent'}
+        columns={totalsTable}
         dataSource={data}
-        // pagination={{
-        //   onChange(current) {
-        //     setIndex(current);
-        //   },
-        // }}
+        key="total"
+      />
+      <h3>Writing Ranking</h3>
+      <Table
+        rowClassName={'parent'}
+        columns={writingTable}
+        key="writing"
+        dataSource={data}
+      />
+      <h3>Drawing Ranking</h3>
+      <Table
+        rowClassName={'parent'}
+        columns={drawingTable}
+        dataSource={data}
+        key="drawing"
       />
     </div>
   );
