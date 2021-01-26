@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { useHistory } from 'react-router-dom';
-
-import RenderVotingPage from './RenderVotingPage';
 import { connect } from 'react-redux';
 
+import RenderVotingPage from './RenderVotingPage';
 import { getGameVotes } from '../../../api';
 
 function VotingPageContainer({ LoadingComponent, ...props }) {
@@ -35,6 +34,11 @@ function VotingPageContainer({ LoadingComponent, ...props }) {
   }, [memoAuthService]);
 
   useEffect(() => {
+    // if (child.votes_remaining > 0) {
+    //   setVotes(props.votes[3]); // Needs to update to get the assigned faceoff to vote
+    // } else {
+    //   push('/child/dashboard');
+    // }
     getGameVotes(
       authState,
       props.faceoffs[0].SquadID,

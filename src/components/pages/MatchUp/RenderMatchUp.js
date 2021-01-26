@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import { Header } from '../../common';
+import { connect } from 'react-redux';
 import { Row, Col, Button } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
+
+import { Header } from '../../common';
 import FaceoffContent from './FaceoffContent';
 import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
-import { getGameVotes } from '../../../api';
+import { getGameVotes, getChild } from '../../../api';
+
+import { child } from '../../../state/actions';
 
 const RenderMatchUp = props => {
   const { push } = useHistory();
@@ -28,6 +32,9 @@ const RenderMatchUp = props => {
   };
 
   useEffect(() => {
+    getChild(authState, props.child.memberId).then(child => {
+      props.setChild({ ...child });
+    });
     getGameVotes(
       authState,
       props.faceoffs[0].SquadID,
@@ -121,4 +128,12 @@ const RenderMatchUp = props => {
     </>
   );
 };
-export default RenderMatchUp;
+
+export default connect(
+  state => ({
+    child: state.child,
+  }),
+  {
+    setChild: child.setChild,
+  }
+)(RenderMatchUp);
