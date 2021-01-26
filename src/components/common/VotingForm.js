@@ -18,7 +18,8 @@ const VotingForm = props => {
     const body = {
       Vote: value,
       MemberID: props.MemberID,
-      FaceoffID: props.FaceoffID,
+      FaceoffID: props.faceoffToVote.ID,
+      // votes_count: props.faceoffToVote.votes_count + 1,
       subEmojis1,
       subEmojis2,
     };
@@ -39,11 +40,14 @@ const VotingForm = props => {
     >
       <Form.Item name="vote" valuePropName="checked">
         <Radio.Group onChange={onChange} value={value}>
-          {/*
-            Change values to submission ids
-          */}
-          <Radio className="left-radio" value={props.SubmissionIDs[0]} />
-          <Radio className="right-radio" value={props.SubmissionIDs[1]} />
+          <Radio
+            className="left-radio"
+            value={props.faceoffToVote.SubmissionID1}
+          />
+          <Radio
+            className="right-radio"
+            value={props.faceoffToVote.SubmissionID2}
+          />
         </Radio.Group>
       </Form.Item>
       <Form.Item>
