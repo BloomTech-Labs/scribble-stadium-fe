@@ -57,6 +57,11 @@ const RenderTrophyRoom = props => {
       >
         <div style={{ overflow: 'scroll' }}>
           <h3>Completed (Way to go!):</h3>
+          {/* {achievementState.map(achievement => {
+            if (achievement.completed === true) {
+              return <p>{achievement}</p>;
+            }
+          })} */}
           <p>Completed first Mission!</p>
           <p>Won a game!</p>
           <p>Got most points for drawing in a mission!</p>
@@ -66,7 +71,11 @@ const RenderTrophyRoom = props => {
           <p>Completed 5 missions in a row!</p>
           <p>Completed 10 Missions in a row!</p>
           <p>Most Colorful Drawing</p>
-          {/* Map over achievement state here */}
+          {/* {achievementState.map(achievement => {
+            if (achievement.completed === false) {
+              return <p>{achievement}</p>;
+            }
+          })} */}
         </div>
       </Modal>
       <Divider />
