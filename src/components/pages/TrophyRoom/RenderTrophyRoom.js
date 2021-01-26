@@ -8,27 +8,35 @@ import { Divider } from 'antd';
 import { Modal } from 'antd';
 
 const RenderTrophyRoom = props => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [modalState, setModalState] = useState('');
+  const [isModal1Visible, setIsModal1Visible] = useState(false);
+  const [isModal2Visible, setIsModal2Visible] = useState(false);
   const [inventoryState, setInventoryState] = useState('');
   const [achievementState, setAchievementState] = useState('');
 
   const showAchievementsModal = () => {
-    setIsModalVisible(true);
-    setModalState('child.achievements');
+    setIsModal1Visible(true);
+    setAchievementState('child.achievements');
   };
 
   const showInventoryModel = () => {
-    setIsModalVisible(true);
+    setIsModal2Visible(true);
     setInventoryState('child.inventory');
   };
 
-  const handleOk = () => {
-    setIsModalVisible(false);
+  const handle1Ok = () => {
+    setIsModal1Visible(false);
   };
 
-  const handleCancel = () => {
-    setIsModalVisible(false);
+  const handle1Cancel = () => {
+    setIsModal1Visible(false);
+  };
+
+  const handle2Ok = () => {
+    setIsModal2Visible(false);
+  };
+
+  const handle2Cancel = () => {
+    setIsModal2Visible(false);
   };
 
   return (
@@ -42,13 +50,17 @@ const RenderTrophyRoom = props => {
       </h2>
       <Modal
         title="Achievements"
-        visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
+        visible={isModal1Visible}
+        onOk={handle1Ok}
+        onCancel={handle1Cancel}
       >
-        <p>Achievement 1</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <p>Completed first Mission!</p>
+        <p>Won a game!</p>
+        <p>Got most points for drawing in a mission!</p>
+        <p>Got most points for writing in a mission!</p>
+        <p>Completed 3 missions in a row!</p>
+        <p>Completed 5 missions in a row!</p>
+        <p>Compelted 10 Missions in a row!</p>
         {/* Map over achievement state here */}
       </Modal>
       <Divider />
@@ -56,14 +68,14 @@ const RenderTrophyRoom = props => {
         Inventory
       </h2>
       <Modal
-        title="Inventory"
-        visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
+        title="Inventory List"
+        visible={isModal2Visible}
+        onOk={handle2Ok}
+        onCancel={handle2Cancel}
       >
-        <p>Achievement 1</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <p>Skins</p>
+        <p>Stickers</p>
+        <p>Collectibles</p>
         {/* Map over inventory state here */}
       </Modal>
     </>
