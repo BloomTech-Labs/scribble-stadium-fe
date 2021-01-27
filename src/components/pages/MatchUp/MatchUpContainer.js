@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 
 import { child, faceoffs, votes } from '../../../state/actions';
 import {
+  getGameVotes,
   getChildSquad,
   getFaceoffsForMatchup,
   getFaceoffsForVoting,
@@ -14,6 +15,7 @@ import {
 function MatchUpContainer({ LoadingComponent, ...props }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
+  const [canVote, setCanVote] = useState(true);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
   // const [faceoffs, setFaceoffs] = useState(null);
@@ -60,6 +62,20 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
     // eslint-disable-next-line
   }, [authState]);
 
+  useEffect(() => {
+    if (props.faceoffs && props.faceoffs.length > 0) {
+      getGameVotes(
+        authState,
+        props.faceoffs[0].SquadID,
+        props.child.memberId
+      ).then(res => {
+        if (res.length > 2) {
+          setCanVote(false);
+        }
+      });
+    }
+  }, [props.faceoffs]);
+
   return (
     <>
       {authState.isAuthenticated && !userInfo && (
@@ -70,6 +86,7 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
           {...props}
           userInfo={userInfo}
           authService={authService}
+          canVote={canVote}
         />
       )}
     </>

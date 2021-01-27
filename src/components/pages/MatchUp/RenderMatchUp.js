@@ -114,7 +114,11 @@ const RenderMatchUp = props => {
           Back
         </Button>
 
-        <Button className="vote-button" onClick={handleVote}>
+        <Button
+          className={'vote-button ' + (props.canVote ? '' : 'disabled')}
+          onClick={handleVote}
+          disabled={props.canVote ? false : true}
+        >
           Vote!
         </Button>
       </div>
