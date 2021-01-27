@@ -63,6 +63,7 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
   }, [authState]);
 
   useEffect(() => {
+    // TODO: Instead of the api call, check for votes-remaining value in child's object
     if (props.faceoffs && props.faceoffs.length > 0) {
       getGameVotes(
         authState,
