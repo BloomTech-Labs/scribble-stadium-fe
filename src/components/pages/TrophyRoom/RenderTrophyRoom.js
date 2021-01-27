@@ -8,35 +8,37 @@ import { Divider } from 'antd';
 import { Modal } from 'antd';
 
 const RenderTrophyRoom = props => {
-  const [isModal1Visible, setIsModal1Visible] = useState(false);
-  const [isModal2Visible, setIsModal2Visible] = useState(false);
+  const [isAchievementModalVisible, setIsAchievementModalVisible] = useState(
+    false
+  );
+  const [isInventoryModalVisible, setIsInventoryModalVisible] = useState(false);
   const [inventoryState, setInventoryState] = useState('');
   const [achievementState, setAchievementState] = useState('');
 
   const showAchievementsModal = () => {
-    setIsModal1Visible(true);
+    setIsAchievementModalVisible(true);
     setAchievementState('child.achievements');
   };
 
   const showInventoryModel = () => {
-    setIsModal2Visible(true);
+    setIsInventoryModalVisible(true);
     setInventoryState('child.inventory');
   };
 
-  const handle1Ok = () => {
-    setIsModal1Visible(false);
+  const handleAchievmentOk = () => {
+    setIsAchievementModalVisible(false);
   };
 
-  const handle1Cancel = () => {
-    setIsModal1Visible(false);
+  const handleAchievementCancel = () => {
+    setIsAchievementModalVisible(false);
   };
 
-  const handle2Ok = () => {
-    setIsModal2Visible(false);
+  const handleInventoryOk = () => {
+    setIsInventoryModalVisible(false);
   };
 
-  const handle2Cancel = () => {
-    setIsModal2Visible(false);
+  const handleInventoryCancel = () => {
+    setIsInventoryModalVisible(false);
   };
 
   return (
@@ -50,9 +52,9 @@ const RenderTrophyRoom = props => {
       </h2>
       <Modal
         title="Achievements"
-        visible={isModal1Visible}
-        onOk={handle1Ok}
-        onCancel={handle1Cancel}
+        visible={isAchievementModalVisible}
+        onOk={handleAchievmentOk}
+        onCancel={handleAchievementCancel}
         width={900}
       >
         <div style={{ overflow: 'scroll' }}>
@@ -84,9 +86,9 @@ const RenderTrophyRoom = props => {
       </h2>
       <Modal
         title="Inventory List"
-        visible={isModal2Visible}
-        onOk={handle2Ok}
-        onCancel={handle2Cancel}
+        visible={isInventoryModalVisible}
+        onOk={handleInventoryOk}
+        onCancel={handleInventoryCancel}
         style={{ margin: '0 auto' }}
       >
         <h3>Skins</h3>
