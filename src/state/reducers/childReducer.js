@@ -9,7 +9,6 @@ const initialState = {
   parentId: null,
   cohortId: null,
   memberId: null,
-  achievements: {},
 };
 
 export const reducer = (state = initialState, action) => {
