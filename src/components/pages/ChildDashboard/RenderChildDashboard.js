@@ -21,18 +21,18 @@ const RenderChildDashboard = props => {
     push('/child/join');
   };
 
-  const handleFaceoffs = e => {
-    push('/child/match-up');
-  };
-
   const handleModerationPage = event => {
     push('/moderation');
+  };
+
+  const handleTrophyRoom = e => {
+    push('/child/trophyroom');
   };
 
   return (
     <>
       <Header displayMenu={true} />
-      <InstructionsModal
+      <InstructionsModal //This is the pop up that happens on the child dashboard stop at one pop up
         modalVisible={modalVisible}
         handleCancel={() => {
           setModalVisible(false);
@@ -75,7 +75,7 @@ const RenderChildDashboard = props => {
               className="child-dash-img"
               src={trophy_room}
               alt="Trophy Room Button"
-              onClick={handleFaceoffs}
+              onClick={handleTrophyRoom}
             />
           </Col>
         </Row>

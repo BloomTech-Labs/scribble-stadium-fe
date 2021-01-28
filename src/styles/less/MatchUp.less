@@ -2,11 +2,11 @@
   position: relative;
 
   .question-icon {
-    font-size: 3rem;
-    color: white;
+    font-size: 2.1rem;
+    color: #6d6d6d;
     position: absolute;
-    top: 23%;
-    left: 95%;
+    top: 1.2%;
+    right: 4.5%;
   }
 
   .ant-row {
@@ -49,7 +49,7 @@
             img {
               margin-right: 0.5vw;
             }
-            .name{
+            .name {
               font-family: bangers;
               font-size: x-large;
             }
@@ -65,7 +65,7 @@
               width: 100%;
               height: 57%;
               border-radius: 20px;
-              border: 3px solid black; 
+              border: 3px solid black;
             }
           }
         }
@@ -91,23 +91,33 @@
 
   .back-button {
     .orangeButtonStyle();
+    border-color: #ddd;
     position: absolute;
     width: 7%;
     height: 6.5%;
     font-weight: 700;
-    left: 2vh;
-    bottom: 2vh;
+    left: 4vw;
+    top: -7vh;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   }
 
   .vote-button {
-    .orangeButtonStyle();
+    color: #fff;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+    border: 3px solid #ddd;
+    background-color: #20c997;
     position: absolute;
     width: 7%;
     height: 6.5%;
-    right: 2vh;
-    bottom: 2vh;
+    right: 4vw;
+    top: -7vh;
     font-weight: 700;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+
+    &:hover {
+      background-color: #4dd4ac;
+    }
   }
 }
