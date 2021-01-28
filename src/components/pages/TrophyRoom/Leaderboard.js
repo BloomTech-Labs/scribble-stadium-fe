@@ -2,29 +2,27 @@ import React, { useState, useEffect } from 'react';
 import { Table } from 'antd';
 import { getLeaderboard } from '../../../api';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
-import { useHistory } from 'react-router-dom';
 
-const Leaderboard = child => {
+const Leaderboard = () => {
   const { authState } = useOktaAuth();
   const [data, setDataInfo] = useState([]);
 
   useEffect(() => {
     //Getting data from backend for leaderboard
     getLeaderboard(authState).then(res => {
+      console.log(res);
       setDataInfo(res);
     });
   }, [authState]);
 
-  const index = [];
-  for (let i = 1; i <= data.length; i++) {
+  let index = [];
+  for (let i = 0; i <= data.length; i++) {
     index.push({ key: i, index: i });
   }
 
   const writingTable = [
     {
       title: 'Placement',
-      key: 'index',
-      dataIndex: 'index',
     },
     {
       title: 'Name',
@@ -91,21 +89,24 @@ const Leaderboard = child => {
         rowClassName={'parent'}
         columns={totalsTable}
         dataSource={data}
-        key="total"
+        rowKey="uid"
+        size="middle"
       />
       <h3>Writing Ranking</h3>
       <Table
         rowClassName={'parent'}
         columns={writingTable}
-        key="writing"
+        rowKey="uid"
         dataSource={data}
+        size="middle"
       />
       <h3>Drawing Ranking</h3>
       <Table
         rowClassName={'parent'}
         columns={drawingTable}
         dataSource={data}
-        key="drawing"
+        rowKey="uid"
+        size="middle"
       />
     </div>
   );
