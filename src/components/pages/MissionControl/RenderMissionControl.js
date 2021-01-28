@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { InstructionsModal } from '../../common';
 import { getMissionControlText } from '../../../utils/helpers';
+import BackButton from '../../common/BackButton';
 import draw_icon from '../../../assets/icons/draw_icon.svg';
 import read_icon from '../../../assets/icons/read_icon.svg';
 import write_icon from '../../../assets/icons/write_icon.svg';
@@ -69,7 +70,7 @@ const RenderMissionControl = props => {
 
   return (
     <>
-      <Header title="MISSION" />
+      <Header title="MISSION" displayMenu={true} />
       <InstructionsModal
         modalVisible={modalVisible}
         handleCancel={() => {
