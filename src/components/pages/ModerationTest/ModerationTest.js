@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 import {
   getCohorts,
@@ -13,10 +15,12 @@ import {
 import { reset } from '../../../api/index';
 
 import { Button, Layout, PageHeader, Select, Form, Row, Card, Col } from 'antd';
+import FormItem from 'antd/lib/form/FormItem';
 const { Content } = Layout;
 const { Option } = Select;
 
 const ModerationTest = props => {
+  const [startDate, setStartDate] = useState(new Date());
   const [cohorts, setCohorts] = useState([]);
   const [posts, setPosts] = useState({});
   const [form] = Form.useForm();
@@ -101,15 +105,6 @@ const ModerationTest = props => {
         <Content>
           <Form form={form}>
             <Form.Item className="inline-form">
-              <Form.Item name="cohort">
-                <Select placeholder="Select a Cohort" onChange={getPosts}>
-                  {cohorts.map(x => (
-                    <Option key={x.ID} value={x.ID}>
-                      Cohort {x.ID}
-                    </Option>
-                  ))}
-                </Select>
-              </Form.Item>
               <Form.Item>
                 <Button type="default" onClick={homePageHandler}>
                   Back to Home Page
@@ -131,6 +126,23 @@ const ModerationTest = props => {
                 <Button type="default" onClick={results}>
                   Generate Results
                 </Button>
+              </Form.Item>
+              <FormItem>
+                <span className="datePickerTxt">Change date and time to:</span>
+                <DatePicker
+                  selected={startDate}
+                  showTimeSelect
+                  onChange={date => setStartDate(date)}
+                />
+              </FormItem>
+              <Form.Item name="cohort">
+                <Select placeholder="Select a Cohort" onChange={getPosts}>
+                  {cohorts.map(x => (
+                    <Option key={x.ID} value={x.ID}>
+                      Cohort {x.ID}
+                    </Option>
+                  ))}
+                </Select>
               </Form.Item>
             </Form.Item>
           </Form>
