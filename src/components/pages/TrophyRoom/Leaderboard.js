@@ -20,93 +20,69 @@ const Leaderboard = () => {
     index.push({ key: i, index: i });
   }
 
-  const writingTable = [
+  const table = [
     {
-      title: 'Placement',
+      title: 'W/L',
+      children: [
+        {
+          title: 'Wins',
+          dataIndex: 'Wins',
+          width: 100,
+        },
+        {
+          title: 'Losses',
+          dataIndex: 'Losses',
+          width: 100,
+        },
+      ],
     },
     {
       title: 'Name',
       dataIndex: 'Name',
       key: 'Name',
+      width: 150,
     },
     {
-      title: 'Score',
+      title: 'Total Points',
+      dataIndex: 'Total_Points',
+      key: 'Total_points',
+      // defaultSortOrder: 'descend',
+      // sorter: (a, b) => a.Total_Points - b.Total_Points,
+      // sortDirections: ['ASC', 'DESC'],
+      // showSorterTooltip: false,
+      width: 100,
+    },
+    {
+      title: 'Writing Points',
       dataIndex: 'WritingPoints',
       key: 'WritingPoints',
-      defaultSortOrder: 'descend',
-      sorter: (a, b) => a.WritingPoints - b.WritingPoints,
-      sortDirections: ['ASC', 'DESC'],
-      showSorterTooltip: false,
-    },
-  ];
-  const drawingTable = [
-    {
-      title: 'Placement',
-      key: 'index',
-      dataIndex: 'index',
+      // defaultSortOrder: 'descend',
+      // sorter: (a, b) => a.WritingPoints - b.WritingPoints,
+      // sortDirections: ['ASC', 'DESC'],
+      // showSorterTooltip: false,
+      width: 100,
     },
     {
-      title: 'Name',
-      dataIndex: 'Name',
-      key: 'Name',
-    },
-    {
-      title: 'Score',
+      title: 'Drawing Points',
       dataIndex: 'DrawingPoints',
       key: 'DrawingPoints',
-      defaultSortOrder: 'descend',
-      sorter: (a, b) => a.DrawingPoints - b.DrawingPoints,
-      sortDirections: ['ASC', 'DESC'],
-      showSorterTooltip: false,
+      // defaultSortOrder: 'descend',
+      // sorter: (a, b) => a.DrawingPoints - b.DrawingPoints,
+      // sortDirections: ['ASC', 'DESC'],
+      // showSorterTooltip: false,
+      width: 100,
     },
   ];
 
-  const totalsTable = [
-    {
-      title: 'Placement',
-      key: 'index',
-      dataIndex: 'index',
-    },
-    {
-      title: 'Name',
-      dataIndex: 'Name',
-      key: 'Name',
-    },
-    {
-      title: 'Score',
-      dataIndex: 'Total_Points',
-      key: 'Total_points',
-      defaultSortOrder: 'descend',
-      sorter: (a, b) => a.Total_Points - b.Total_Points,
-      sortDirections: ['ASC', 'DESC'],
-      showSorterTooltip: false,
-    },
-  ];
   return (
     <div className="leaderboard">
-      <h3>Overall Ranking</h3>
+      <h2 className="h2">Leaderboard</h2>
       <Table
         rowClassName={'parent'}
-        columns={totalsTable}
-        dataSource={data}
-        rowKey="uid"
-        size="middle"
-      />
-      <h3>Writing Ranking</h3>
-      <Table
-        rowClassName={'parent'}
-        columns={writingTable}
+        columns={table}
         rowKey="uid"
         dataSource={data}
-        size="middle"
-      />
-      <h3>Drawing Ranking</h3>
-      <Table
-        rowClassName={'parent'}
-        columns={drawingTable}
-        dataSource={data}
-        rowKey="uid"
-        size="middle"
+        // size="medium"
       />
     </div>
   );

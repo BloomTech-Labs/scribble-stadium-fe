@@ -34,38 +34,41 @@ const RenderTrophyRoom = props => {
   return (
     <>
       <Header displayMenu={true} title="Trophy Room" />
-      <h2 className="h2">Leaderboard</h2>
-      <Leaderboard child={props.child} />
-      <Divider />
-      <h2 className="h2" onClick={showAchievementsModal}>
-        Achievements
-      </h2>
-      <Modal
-        title="Achievements"
-        visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        <p>Achievement 1</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        {/* Map over achievement state here */}
-      </Modal>
-      <Divider />
-      <h2 className="h2" onClick={showInventoryModel}>
-        Inventory
-      </h2>
-      <Modal
-        title="Inventory"
-        visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        <p>Achievement 1</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        {/* Map over inventory state here */}
-      </Modal>
+      <div className="trophy-container">
+        <Leaderboard child={props.child} />
+        <div className="custom-divider"></div>
+        <div className="modal-container">
+          <h2 className="h2" onClick={showAchievementsModal}>
+            Achievements
+          </h2>
+          <Modal
+            title="Achievements"
+            visible={isModalVisible}
+            onOk={handleOk}
+            onCancel={handleCancel}
+          >
+            <p>Achievement 1</p>
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+            {/* Map over achievement state here */}
+          </Modal>
+          <Divider />
+          <h2 className="h2" onClick={showInventoryModel}>
+            Inventory
+          </h2>
+          <Modal
+            title="Inventory"
+            visible={isModalVisible}
+            onOk={handleOk}
+            onCancel={handleCancel}
+          >
+            <p>Achievement 1</p>
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+            {/* Map over inventory state here */}
+          </Modal>
+        </div>
+      </div>
     </>
   );
 };
