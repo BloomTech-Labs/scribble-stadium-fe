@@ -15,12 +15,15 @@ const Leaderboard = () => {
     });
   }, [authState]);
 
-  let index = [];
-  for (let i = 0; i <= data.length; i++) {
-    index.push({ key: i, index: i });
-  }
+  // Testing for ranking/ placements for the table
+
+  // let index = [];
+  // for (let i = 0; i <= data.length; i++) {
+  //   index.push({ key: i, index: i });
+  // }
 
   const table = [
+    // Structre of the Table
     {
       title: 'W/L',
       children: [
@@ -46,30 +49,18 @@ const Leaderboard = () => {
       title: 'Total Points',
       dataIndex: 'Total_Points',
       key: 'Total_points',
-      // defaultSortOrder: 'descend',
-      // sorter: (a, b) => a.Total_Points - b.Total_Points,
-      // sortDirections: ['ASC', 'DESC'],
-      // showSorterTooltip: false,
       width: 100,
     },
     {
       title: 'Writing Points',
       dataIndex: 'WritingPoints',
       key: 'WritingPoints',
-      // defaultSortOrder: 'descend',
-      // sorter: (a, b) => a.WritingPoints - b.WritingPoints,
-      // sortDirections: ['ASC', 'DESC'],
-      // showSorterTooltip: false,
       width: 100,
     },
     {
       title: 'Drawing Points',
       dataIndex: 'DrawingPoints',
       key: 'DrawingPoints',
-      // defaultSortOrder: 'descend',
-      // sorter: (a, b) => a.DrawingPoints - b.DrawingPoints,
-      // sortDirections: ['ASC', 'DESC'],
-      // showSorterTooltip: false,
       width: 100,
     },
   ];
@@ -82,7 +73,6 @@ const Leaderboard = () => {
         columns={table}
         rowKey="uid"
         dataSource={data}
-        // size="medium"
       />
     </div>
   );
