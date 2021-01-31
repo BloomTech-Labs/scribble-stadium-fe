@@ -10,6 +10,7 @@ import { reducer as tasks } from './taskReducer';
 import { reducer as team } from './teamReducers';
 import { reducer as faceoffs } from './faceoffsReducer';
 import { reducer as votes } from './votesReducer';
+import { reducer as costume_date } from './dateReducer';
 
 const persistConfig = {
   key: 'root',
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   team,
   faceoffs,
   votes,
+  costume_date,
 });
 
 export default persistReducer(persistConfig, rootReducer);
