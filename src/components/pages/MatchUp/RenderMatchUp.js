@@ -13,9 +13,11 @@ const RenderMatchUp = props => {
   const { push } = useHistory();
   const [faceoffs, setFaceoffs] = useState([]);
   const [modalVisible, setModalVisible] = useState(true);
-  const [numberOfTimesVoted, setNumberOfTimesVoted] = useState(4);
   const { authState } = useOktaAuth();
   useEffect(() => {
+    if (!props.canVote) {
+      setModalVisible(false);
+    }
     setFaceoffs(props.faceoffs);
   }, [props]);
   const handleVote = e => {
@@ -27,16 +29,6 @@ const RenderMatchUp = props => {
     push('/child/dashboard');
   };
 
-  useEffect(() => {
-    getGameVotes(
-      authState,
-      props.faceoffs[0].SquadID,
-      props.child.memberId
-    ).then(res => {
-      setNumberOfTimesVoted(res.length);
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   return (
     <>
       <Header
@@ -51,16 +43,18 @@ const RenderMatchUp = props => {
           setModalVisible(true);
         }}
       />
-      <InstructionsModal
-        modalVisible={modalVisible}
-        handleCancel={() => {
-          setModalVisible(false);
-        }}
-        handleOk={() => {
-          setModalVisible(false);
-        }}
-        instructions={modalInstructions.matchUp}
-      />
+      {modalVisible && (
+        <InstructionsModal
+          modalVisible={modalVisible}
+          handleCancel={() => {
+            setModalVisible(false);
+          }}
+          handleOk={() => {
+            setModalVisible(false);
+          }}
+          instructions={modalInstructions.matchUp}
+        />
+      )}
       <div className="matchup-container">
         <Row className="toprow">
           <Col className="green-box" xs={24} sm={13}>
@@ -68,7 +62,7 @@ const RenderMatchUp = props => {
               <FaceoffContent
                 costume_date={props.costume_date}
                 content={faceoffs[0]}
-                numberOfTimesVoted={numberOfTimesVoted}
+                numberOfTimesVoted={props.numberOfTimesVoted}
                 votesNeededToUnlock={3}
                 dayNeededToUnlock={5}
                 hourNeededToUnlock={18}
@@ -80,7 +74,7 @@ const RenderMatchUp = props => {
               <FaceoffContent
                 costume_date={props.costume_date}
                 content={faceoffs[1]}
-                numberOfTimesVoted={numberOfTimesVoted}
+                numberOfTimesVoted={props.numberOfTimesVoted}
                 votesNeededToUnlock={3}
                 dayNeededToUnlock={4}
                 hourNeededToUnlock={6}
@@ -94,7 +88,7 @@ const RenderMatchUp = props => {
               <FaceoffContent
                 costume_date={props.costume_date}
                 content={faceoffs[2]}
-                numberOfTimesVoted={numberOfTimesVoted}
+                numberOfTimesVoted={props.numberOfTimesVoted}
                 votesNeededToUnlock={2}
                 dayNeededToUnlock={4}
                 hourNeededToUnlock={6}
@@ -106,7 +100,7 @@ const RenderMatchUp = props => {
               <FaceoffContent
                 costume_date={props.costume_date}
                 content={faceoffs[3]}
-                numberOfTimesVoted={numberOfTimesVoted}
+                numberOfTimesVoted={props.numberOfTimesVoted}
                 votesNeededToUnlock={1}
                 dayNeededToUnlock={4}
                 hourNeededToUnlock={6}

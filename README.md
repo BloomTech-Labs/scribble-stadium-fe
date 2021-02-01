@@ -4,24 +4,28 @@
 
 [<img src="https://avatars2.githubusercontent.com/t/4044276?s=280&v=4" width="200" />](https://avatars2.githubusercontent.com/t/4044276?s=280&v=4)
 
+Story Squad turns “reluctant readers” into authors and illustrators through a collaborative world-building game.
+<!-- Todo! Update this -->
 You can find the deployed project at: [AWS Amplify](https://b.storysquad.dev/)
 
 ## Current State Of The App
-
-see the latest work done on the app here: [Click Here](https://docs.google.com/spreadsheets/d/1ZdhfQEAsz3IhgVa8zMZ0JkuD6-oasDI4hplPFXZaXNQ/edit?usp=sharing)
+<!-- Todo! Update this -->
+Work done by labs30: TBD <br/>
+Work done by labs29: [Click Here](https://docs.google.com/spreadsheets/d/1ZdhfQEAsz3IhgVa8zMZ0JkuD6-oasDI4hplPFXZaXNQ/edit?usp=sharing)
 
 ## Project Overview
-
-[Frontend video](https://youtu.be/RwdSUOyeXG0)
+[How the App should work - A primer for devs](storysquadExplained.md)
+<br/>
+[Labs27 Frontend video](https://youtu.be/RwdSUOyeXG0)
 <br>
-[Progress/Starting point video](https://www.youtube.com/watch?v=fo_eAq-__RE)
+[Labs28 Progress/Starting point video](https://www.youtube.com/watch?v=fo_eAq-__RE)
 <br>
-[Backend video](https://youtu.be/K5k19qWKHbI)
+[Labs27 Backend video](https://youtu.be/K5k19qWKHbI)
 <br>
-[Product Roadmap](https://www.notion.so/Story-Squad-Roadmap-2682f21ae48b420cbb0caafa3f500b5e)
+[Labs26 Product Roadmap](https://www.notion.so/Story-Squad-Roadmap-2682f21ae48b420cbb0caafa3f500b5e)
 <br>
 [UX Design](https://www.figma.com/file/WaHXdLK2NASoFWYVMZLVNt/Story_Squad?node-id=962%3A211)
-<br>
+<br><!-- Todo! Update this -->
 [Architecture Layout](https://whimsical.com/428nXLpzshbbb32xF67Lu4)
 <br>
 
@@ -42,7 +46,7 @@ Story Squad is a paid service; parents are required to create the account for th
 | [<img src="https://avatars3.githubusercontent.com/u/7229865?s=400&u=52b967e0ec2561de13c1bc5f3aefaf2c3730ac4d&v=4" width = "100" />](https://github.com/bramirez96) | [<img src="https://avatars1.githubusercontent.com/u/53787633?s=400&u=2cec780b758237d3667575b2d2a013c7e2cbc33e&v=4" width = "100" />](https://github.com/Schrese) | [<img src="https://avatars3.githubusercontent.com/u/59833966?s=400&u=be9ac244947874fde1b5728981c84907cab11ffd&v=4" width = "100" />](https://github.com/Nick-Ohman) | [<img src="https://avatars0.githubusercontent.com/u/8883829?s=400&u=7b32022acbf71282b90193bdefec8e0dbf8e9d30&v=4" width = "100" />](https://github.com/JLC6290) | [<img src="https://avatars2.githubusercontent.com/u/55418328?s=400&u=0e3e63b3b07d6eeea143c6aab8034a5c6c899c52&v=4" width = "100" />](https://github.com/SandraCoburn) |
 |                                                                                Web                                                                                 |                                                                               Web                                                                                |                                                                                 Web                                                                                 |                                                                               Web                                                                               |                                                                                  Web                                                                                  |
 |                                      [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/bramirez96)                                       |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Schrese)                                       |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Nick-Ohman)                                       |                                       [<img src="https://github.com/favicon.ico" width="15">](https://github.com/JLC6290)                                       |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/SandraCoburn)                                       |
-|                    [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/bramirez96/)                     |                     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/schrese/)                     |                     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/nick-ohman/)                     |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jamesleeclark/)                  |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/sandra-borunda-coburn/)                 
+|                    [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/bramirez96/)                     |                     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/schrese/)                     |                     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/nick-ohman/)                     |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jamesleeclark/)                  |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/sandra-borunda-coburn/)
 <!-- <br> -->
 |                                                           [Dalton Miller](https://github.com/daltonmiller)                                                           |                                                           [Nate Cowley](https://github.com/natethegreat5413)                                                            |                                                            [Jorge Manzur](https://github.com/manzur1990)                                                            |                                                           [Emilio Ramirez](https://github.com/emilioramirezeguia)                                                           |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -62,15 +66,16 @@ Story Squad is a paid service; parents are required to create the account for th
 
 ### Key Features
 
+<!-- Todo! Update this -->
 - A Custom, Serialized Novel geared toward children in 3rd-6th grade
 - Parental Controls which allow parents to add and customize child accounts
-
+<!-- - Detailed breakdown of desired app functionality -->
 <br>
 
 ## Tech Stack
 
 ### Front end built using:
-
+<!-- Todo! Update this???? -->
 React
 
 - First Class Performance with Virtual DOM
@@ -95,7 +100,7 @@ Redux state management
 - Redux helps you write applications that behave consistently,
 - Centrilize your application's state and logic
 - The Redux DevTools make it easy to trace bugs
-
+<!-- Todo! Update this -->
 ### [Backend](https://github.com/Lambda-School-Labs/story-squad-be-b.git) built using:
 
 Express
@@ -131,7 +136,7 @@ Jest
 - Promotes consistent unit testing
 
 ## Installation Instructions
-
+<!-- Todo! Update this -->
 Clone repo
 
 ```
@@ -177,8 +182,8 @@ npm dev
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
-
-Check [this document](https://docs.google.com/document/d/16_5xD-CXISF9lwX15nUL0mCMfQDcITRjyfNiXzN4Zzk/edit?usp=sharing) for what's been done/worked on, and what needs to be done.  This will give you a good idea on where to start with your contributions.  **IMPORTANT!** Please update for the benefit of future developers.
+<!-- Todo! Update this -->
+Check [this document from labs28](https://docs.google.com/document/d/16_5xD-CXISF9lwX15nUL0mCMfQDcITRjyfNiXzN4Zzk/edit?usp=sharing) for what's been done/worked on, and what needs to be done.  This will give you a good idea on where to start with your contributions.  **IMPORTANT!** Please update for the benefit of future developers.
 
 
 

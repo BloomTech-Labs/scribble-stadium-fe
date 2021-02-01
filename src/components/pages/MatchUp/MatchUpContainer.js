@@ -16,6 +16,7 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   const [canVote, setCanVote] = useState(true);
+  const [numberOfTimesVoted, setNumberOfTimesVoted] = useState(3);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
   // const [faceoffs, setFaceoffs] = useState(null);
@@ -70,6 +71,7 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
         props.faceoffs[0].SquadID,
         props.child.memberId
       ).then(res => {
+        setNumberOfTimesVoted(res.length);
         if (res.length > 2) {
           setCanVote(false);
         }
@@ -88,6 +90,7 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
           userInfo={userInfo}
           authService={authService}
           canVote={canVote}
+          numberOfTimesVoted={numberOfTimesVoted}
         />
       )}
     </>
