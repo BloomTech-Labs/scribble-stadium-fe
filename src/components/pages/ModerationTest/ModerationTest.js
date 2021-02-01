@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+
+import { date } from '../../../state/actions';
 
 import {
   getCohorts,
@@ -96,6 +99,11 @@ const ModerationTest = props => {
     push('/child/match-up');
   };
 
+  const handleCostumeDateChange = date => {
+    setStartDate(date);
+    props.setDate(date);
+  };
+
   return (
     <Layout className="moderation-page">
       <PageHeader>
@@ -132,7 +140,7 @@ const ModerationTest = props => {
                 <DatePicker
                   selected={startDate}
                   showTimeSelect
-                  onChange={date => setStartDate(date)}
+                  onChange={handleCostumeDateChange}
                 />
               </FormItem>
               <Form.Item name="cohort">
@@ -175,4 +183,11 @@ const ModerationTest = props => {
   );
 };
 
-export default ModerationTest;
+export default connect(
+  state => ({
+    costume_date: state.date.costume_date,
+  }),
+  {
+    setDate: date.setDate,
+  }
+)(ModerationTest);

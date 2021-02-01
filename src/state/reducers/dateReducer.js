@@ -1,11 +1,11 @@
-import { costume_date } from '../actions';
+import { date } from '../actions';
 
-const initialState = null;
+const initialState = { costume_date: null };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case costume_date.SET_DATE:
-      return { costume_date: action.payload };
+    case date.SET_DATE:
+      return { ...state, costume_date: action.payload };
     default:
       return state;
   }

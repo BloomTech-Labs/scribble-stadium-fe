@@ -5,6 +5,6 @@ import * as tasks from './taskActions';
 import * as team from './teamActions';
 import * as faceoffs from './faceoffsActions';
 import * as votes from './votesActions';
-import * as costume_date from './dateAction';
+import * as date from './dateAction';
 
-export { global, child, parent, tasks, team, faceoffs, votes, costume_date };
+export { global, child, parent, tasks, team, faceoffs, votes, date };
