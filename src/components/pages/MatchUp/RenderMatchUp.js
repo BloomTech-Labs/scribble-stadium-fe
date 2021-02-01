@@ -66,6 +66,7 @@ const RenderMatchUp = props => {
           <Col className="green-box" xs={24} sm={13}>
             {faceoffs[0] && (
               <FaceoffContent
+                costume_date={props.costume_date}
                 content={faceoffs[0]}
                 numberOfTimesVoted={numberOfTimesVoted}
                 votesNeededToUnlock={3}
@@ -77,6 +78,7 @@ const RenderMatchUp = props => {
           <Col className="red-box" xs={24} sm={11}>
             {faceoffs[1] && (
               <FaceoffContent
+                costume_date={props.costume_date}
                 content={faceoffs[1]}
                 numberOfTimesVoted={numberOfTimesVoted}
                 votesNeededToUnlock={3}
@@ -90,6 +92,7 @@ const RenderMatchUp = props => {
           <Col className="yellow-box" xs={24} sm={11}>
             {faceoffs[2] && (
               <FaceoffContent
+                costume_date={props.costume_date}
                 content={faceoffs[2]}
                 numberOfTimesVoted={numberOfTimesVoted}
                 votesNeededToUnlock={2}
@@ -101,6 +104,7 @@ const RenderMatchUp = props => {
           <Col className="blue-box" xs={24} sm={13}>
             {faceoffs[3] && (
               <FaceoffContent
+                costume_date={props.costume_date}
                 content={faceoffs[3]}
                 numberOfTimesVoted={numberOfTimesVoted}
                 votesNeededToUnlock={1}

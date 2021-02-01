@@ -99,7 +99,7 @@ export default connect(
     child: state.child,
     faceoffs: state.faceoffs,
     votes: state.votes,
-    costume_date: state.costume_date,
+    costume_date: state.date.costume_date,
   }),
   {
     setSquadFaceoffs: faceoffs.setSquadFaceoffs,
