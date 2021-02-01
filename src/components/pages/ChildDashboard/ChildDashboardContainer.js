@@ -19,6 +19,7 @@ const ChildDashboardContainer = ({ LoadingComponent, ...props }) => {
       .then(info => {
         if (isSubscribed) {
           setUserInfo(info);
+          console.log('USER INFO', info);
         }
       })
       .catch(err => {
@@ -27,7 +28,6 @@ const ChildDashboardContainer = ({ LoadingComponent, ...props }) => {
       });
     return () => (isSubscribed = false);
   }, [memoAuthService]);
-
   return (
     <>
       {authState.isAuthenticated && !userInfo && (
