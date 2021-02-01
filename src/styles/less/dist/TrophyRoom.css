@@ -1,46 +1,31 @@
-@import '../less/variables.less';
-
-//Leaderboard table styles 
-
 .leaderboard {
-  width: 50%;
+  width: 65%;
 }
-
 .parent:nth-of-type(odd) {
   background-color: #faac45ef;
 }
-
 .ant-table-tbody {
   text-align: center;
 }
-
-.ant-table-tbody>tr.ant-table-row:hover>td {
+.ant-table-tbody > tr.ant-table-row:hover > td {
   background: unset;
 }
-
-.ant-table-row>td.ant-table-column-sort {
+.ant-table-row > td.ant-table-column-sort {
   background: unset;
 }
-
-.ant-table-thead>tr>th {
+.ant-table-thead > tr > th {
   background: #f4f4f4;
   text-align: center;
 }
-
 .ant-table-thead th.ant-table-column-has-sorters {
   cursor: auto;
 }
-
 .ant-table-thead th.ant-table-column-has-sorters:hover {
   background: #f4f4f4;
 }
-
 .ant-table-thead th.ant-table-column-has-sorters:hover {
   cursor: auto;
 }
-
-// Trophy room page styles 
-
 .h2 {
   color: #ff9100;
   text-shadow: -4px 0 #ffffff, 0 4px #ffffff, 4px 0 #ffffff, 0 -4px #ffffff;
@@ -52,20 +37,16 @@
   letter-spacing: 7px;
   margin: 0 0;
   padding: 15px 0px;
-
-  @media @mobile {
+}
+@media (max-width:360px) {
+  .h2 {
     font-size: 3rem;
   }
 }
-
 .trophy-container {
   display: flex;
-  // width: 95%;
   justify-content: center;
   margin: auto;
-  // @media screen and (@mobile){
-  //     flex-direction: column;
-  // }
 }
 .modal-container {
   display: flex;
@@ -73,13 +54,12 @@
   align-items: center;
   justify-content: center;
 }
-
 .custom-divider {
   margin: 0px 20px;
   width: 1px;
-
-  @media screen and (@mobile) {
+}
+@media screen and ((max-width:360px)) {
+  .custom-divider {
     visibility: hidden;
   }
 }
-
