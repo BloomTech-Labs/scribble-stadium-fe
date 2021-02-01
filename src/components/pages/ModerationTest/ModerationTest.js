@@ -99,7 +99,7 @@ const ModerationTest = props => {
     push('/child/match-up');
   };
 
-  const handleCostumeDateChange = date => {
+  const handleCustomDateChange = date => {
     setStartDate(date);
     props.setDate(date);
   };
@@ -140,7 +140,7 @@ const ModerationTest = props => {
                 <DatePicker
                   selected={startDate}
                   showTimeSelect
-                  onChange={handleCostumeDateChange}
+                  onChange={handleCustomDateChange}
                 />
               </FormItem>
               <Form.Item name="cohort">
@@ -185,7 +185,7 @@ const ModerationTest = props => {
 
 export default connect(
   state => ({
-    costume_date: state.date.costume_date,
+    custom_date: state.date.custom_date,
   }),
   {
     setDate: date.setDate,

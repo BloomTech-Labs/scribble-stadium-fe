@@ -19,7 +19,7 @@ const FaceoffContent = props => {
     <div className="faceoff">
       {content && (
         <FaceoffSubDisplay
-          costume_date={props.costume_date}
+          custom_date={props.custom_date}
           sub={content.Submission1}
           type={content.Type}
           feedback={content.Emojis1}
@@ -32,7 +32,7 @@ const FaceoffContent = props => {
       <img src={matchup_bolt} alt="lightning bolt" />
       {content && (
         <FaceoffSubDisplay
-          costume_date={props.costume_date}
+          custom_date={props.custom_date}
           sub={content.Submission2}
           type={content.Type}
           feedback={content.Emojis2}
@@ -52,7 +52,7 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
   const [showModal, setShowModal] = useState(false);
   const [locked, setLocked] = useState(true);
 
-  const currentDate = props.costume_date ? props.costume_date : new Date();
+  const currentDate = props.custom_date ? props.custom_date : new Date();
   const currentDayOfTheWeek = currentDate.getDay();
   const currentHour = currentDate.getHours();
 

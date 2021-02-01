@@ -102,7 +102,7 @@ export default connect(
     child: state.child,
     faceoffs: state.faceoffs,
     votes: state.votes,
-    costume_date: state.date.costume_date,
+    custom_date: state.date.custom_date,
   }),
   {
     setSquadFaceoffs: faceoffs.setSquadFaceoffs,
