@@ -11,7 +11,7 @@ import trophy_room from '../../../assets/images/child_dashboard_images/trophy_ro
 
 const RenderChildDashboard = props => {
   const { push } = useHistory();
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const handleAcceptMission = e => {
     push('/child/mission-control');
