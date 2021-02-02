@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 
 import { child, faceoffs, votes } from '../../../state/actions';
 import {
+  getChild,
   getGameVotes,
   getChildSquad,
   getFaceoffsForMatchup,
@@ -19,7 +20,13 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
   const [numberOfTimesVoted, setNumberOfTimesVoted] = useState(3);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
-  // const [faceoffs, setFaceoffs] = useState(null);
+
+  useEffect(() => {
+    getChild(authState, props.child.memberId).then(child => {
+      props.setChild({ ...child });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -107,5 +114,6 @@ export default connect(
     setSquadFaceoffs: faceoffs.setSquadFaceoffs,
     setMemberId: child.setMemberId,
     setVotes: votes.setVotes,
+    setChild: child.setChild,
   }
 )(MatchUpContainer);

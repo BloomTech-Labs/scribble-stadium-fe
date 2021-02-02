@@ -3,7 +3,7 @@ import { Button, Form, Radio } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
 import { useHistory } from 'react-router-dom';
 
-import { postVotes } from '../../api';
+import { postVotes, updateChildData } from '../../api';
 
 const VotingForm = props => {
   const { push } = useHistory();
@@ -17,12 +17,22 @@ const VotingForm = props => {
   const onFinish = () => {
     const body = {
       Vote: value,
-      MemberID: props.MemberID,
+      MemberID: props.child.memberId,
       FaceoffID: props.faceoffToVote.ID,
-      // votes_count: props.faceoffToVote.votes_count + 1,
+      VotesCasted: props.faceoffToVote.VotesCasted + 1,
       subEmojis1,
       subEmojis2,
     };
+
+    const child = {
+      Name: props.child.name,
+      ParentID: props.child.parentId,
+      CohortID: props.child.cohortId,
+      GradeLevel: props.child.gradeLevel,
+      VotesRemaining: props.child.VotesRemaining - 1,
+    };
+
+    updateChildData(authState, child, props.child.id);
     postVotes(authState, body).then(res => {
       push('/child/match-up');
     });

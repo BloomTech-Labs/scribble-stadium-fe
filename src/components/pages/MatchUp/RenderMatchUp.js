@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
-import { connect } from 'react-redux';
 import { Row, Col, Button } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
@@ -9,15 +7,11 @@ import { Header } from '../../common';
 import FaceoffContent from './FaceoffContent';
 import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
-import { getGameVotes, getChild } from '../../../api';
-
-import { child } from '../../../state/actions';
 
 const RenderMatchUp = props => {
   const { push } = useHistory();
   const [faceoffs, setFaceoffs] = useState([]);
   const [modalVisible, setModalVisible] = useState(true);
-  const { authState } = useOktaAuth();
   useEffect(() => {
     if (!props.canVote) {
       setModalVisible(false);
@@ -33,12 +27,6 @@ const RenderMatchUp = props => {
     push('/child/dashboard');
   };
 
-  useEffect(() => {
-    getChild(authState, props.child.memberId).then(child => {
-      props.setChild({ ...child });
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   return (
     <>
       <Header
@@ -130,11 +118,4 @@ const RenderMatchUp = props => {
   );
 };
 
-export default connect(
-  state => ({
-    child: state.child,
-  }),
-  {
-    setChild: child.setChild,
-  }
-)(RenderMatchUp);
+export default RenderMatchUp;

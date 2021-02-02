@@ -34,26 +34,26 @@ function VotingPageContainer({ LoadingComponent, ...props }) {
   }, [memoAuthService]);
 
   useEffect(() => {
-    // if (child.votes_remaining > 0) {
-    //   setVotes(props.votes[3]); // Needs to update to get the assigned faceoff to vote
-    // } else {
-    //   push('/child/dashboard');
-    // }
-    getGameVotes(
-      authState,
-      props.faceoffs[0].SquadID,
-      props.child.memberId
-    ).then(res => {
-      if (res.length === 0) {
-        setVotes(props.votes[3]);
-      } else if (res.length === 1) {
-        setVotes(props.votes[2]);
-      } else if (res.length === 2) {
-        setVotes(props.votes[1]);
-      } else {
-        push('/child/dashboard');
-      }
-    });
+    if (props.child.VotesRemaining > 0) {
+      setVotes(props.votes[3]); // Needs to update to get the assigned faceoff to vote
+    } else {
+      push('/child/dashboard');
+    }
+    // getGameVotes(
+    //   authState,
+    //   props.faceoffs[0].SquadID,
+    //   props.child.memberId
+    // ).then(res => {
+    //   if (res.length === 0) {
+    //     setVotes(props.votes[3]);
+    //   } else if (res.length === 1) {
+    //     setVotes(props.votes[2]);
+    //   } else if (res.length === 2) {
+    //     setVotes(props.votes[1]);
+    //   } else {
+    //     push('/child/dashboard');
+    //   }
+    // });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
