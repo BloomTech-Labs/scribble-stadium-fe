@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
+import { date } from '../../../state/actions';
 
 import {
   getCohorts,
@@ -13,10 +18,12 @@ import {
 import { reset } from '../../../api/index';
 
 import { Button, Layout, PageHeader, Select, Form, Row, Card, Col } from 'antd';
+import FormItem from 'antd/lib/form/FormItem';
 const { Content } = Layout;
 const { Option } = Select;
 
 const ModerationTest = props => {
+  const [startDate, setStartDate] = useState(new Date());
   const [cohorts, setCohorts] = useState([]);
   const [posts, setPosts] = useState({});
   const [form] = Form.useForm();
@@ -92,6 +99,11 @@ const ModerationTest = props => {
     push('/child/match-up');
   };
 
+  const handleCustomDateChange = date => {
+    setStartDate(date);
+    props.setDate(date);
+  };
+
   return (
     <Layout className="moderation-page">
       <PageHeader>
@@ -101,15 +113,6 @@ const ModerationTest = props => {
         <Content>
           <Form form={form}>
             <Form.Item className="inline-form">
-              <Form.Item name="cohort">
-                <Select placeholder="Select a Cohort" onChange={getPosts}>
-                  {cohorts.map(x => (
-                    <Option key={x.ID} value={x.ID}>
-                      Cohort {x.ID}
-                    </Option>
-                  ))}
-                </Select>
-              </Form.Item>
               <Form.Item>
                 <Button type="default" onClick={homePageHandler}>
                   Back to Home Page
@@ -131,6 +134,23 @@ const ModerationTest = props => {
                 <Button type="default" onClick={results}>
                   Generate Results
                 </Button>
+              </Form.Item>
+              <FormItem>
+                <span className="datePickerTxt">Change date and time to:</span>
+                <DatePicker
+                  selected={startDate}
+                  showTimeSelect
+                  onChange={handleCustomDateChange}
+                />
+              </FormItem>
+              <Form.Item name="cohort">
+                <Select placeholder="Select a Cohort" onChange={getPosts}>
+                  {cohorts.map(x => (
+                    <Option key={x.ID} value={x.ID}>
+                      Cohort {x.ID}
+                    </Option>
+                  ))}
+                </Select>
               </Form.Item>
             </Form.Item>
           </Form>
@@ -163,4 +183,11 @@ const ModerationTest = props => {
   );
 };
 
-export default ModerationTest;
+export default connect(
+  state => ({
+    custom_date: state.date.custom_date,
+  }),
+  {
+    setDate: date.setDate,
+  }
+)(ModerationTest);

@@ -21,6 +21,7 @@
     "eslint-plugin-react": "^7.20.6",
     "prettier": "^2.1.1",
     "react": "^16.13.1",
+    "react-datepicker": "^3.4.1",
     "react-dom": "^16.13.1",
     "react-image-picker": "^1.1.1",
     "react-pdf": "^5.0.0",
