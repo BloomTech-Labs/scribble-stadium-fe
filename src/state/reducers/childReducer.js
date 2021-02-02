@@ -1,4 +1,4 @@
-import { child, global } from '../actions'; 
+import { child, global } from '../actions';
 
 const initialState = {
   id: null,
@@ -9,6 +9,11 @@ const initialState = {
   parentId: null,
   cohortId: null,
   memberId: null,
+  VotesRemaining: null,
+  totalPoints: null,
+  wins: null,
+  losses: null,
+  achievements: null,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -23,11 +28,16 @@ export const reducer = (state = initialState, action) => {
         gradeLevel: action.payload.GradeLevel,
         parentId: action.payload.ParentID,
         cohortId: action.payload.CohortID,
+        wins: action.payload.Wins,
+        losses: action.payload.Losses,
+        totalPoints: action.payload.Total_Points,
+        achievements: action.payload.Achievements,
+        VotesRemaining: action.payload.VotesRemaining,
       };
     case child.SET_MEMBER_ID:
       return {
         ...state,
-        memberId: action.payload.MemberID
+        memberId: action.payload.MemberID,
       };
     case global.CLEAR_USERS:
       return initialState;
