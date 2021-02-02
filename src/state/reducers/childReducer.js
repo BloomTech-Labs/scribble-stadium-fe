@@ -9,6 +9,7 @@ const initialState = {
   parentId: null,
   cohortId: null,
   memberId: null,
+  achievements: {},
 };
 
 export const reducer = (state = initialState, action) => {
@@ -23,6 +24,7 @@ export const reducer = (state = initialState, action) => {
         gradeLevel: action.payload.GradeLevel,
         parentId: action.payload.ParentID,
         cohortId: action.payload.CohortID,
+        achievements: action.payload.achievements,
       };
     case child.SET_MEMBER_ID:
       return {
