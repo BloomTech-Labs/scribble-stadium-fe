@@ -69,7 +69,7 @@ const RenderMissionControl = props => {
 
   return (
     <>
-      <Header title="MISSION" />
+      <Header title="MISSION" displayMenu={true} />
       <InstructionsModal
         modalVisible={modalVisible}
         handleCancel={() => {
