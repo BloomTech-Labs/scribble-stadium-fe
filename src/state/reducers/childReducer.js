@@ -14,6 +14,7 @@ const initialState = {
   wins: null,
   losses: null,
   achievements: null,
+  Ballots: [],
 };
 
 export const reducer = (state = initialState, action) => {
@@ -33,6 +34,7 @@ export const reducer = (state = initialState, action) => {
         totalPoints: action.payload.Total_Points,
         achievements: action.payload.Achievements,
         VotesRemaining: action.payload.VotesRemaining,
+        Ballots: action.payload.Ballots,
       };
     case child.SET_MEMBER_ID:
       return {
