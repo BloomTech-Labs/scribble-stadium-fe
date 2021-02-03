@@ -17,7 +17,17 @@ import {
 
 import { reset } from '../../../api/index';
 
-import { Button, Layout, PageHeader, Select, Form, Row, Card, Col } from 'antd';
+import {
+  Button,
+  Layout,
+  PageHeader,
+  Select,
+  Form,
+  Row,
+  Card,
+  Col,
+  Divider,
+} from 'antd';
 import FormItem from 'antd/lib/form/FormItem';
 const { Content } = Layout;
 const { Option } = Select;
@@ -117,14 +127,22 @@ const ModerationTest = props => {
                 <Button type="default" onClick={homePageHandler}>
                   Back to Home Page
                 </Button>
+              </Form.Item>
+
+              <Divider orientation="left">Moderator Tools</Divider>
+              <p>
+                Actions an adult moderator should be able to take to run the
+                game and approve/flag stories. This is a work in progress.
+              </p>
+              <Form.Item>
                 <Button type="default" onClick={handleFaceoffs}>
-                  Faceoffs / Matchups
+                  Go to Faceoffs/Matchups
                 </Button>
                 <Button type="reset" onClick={reset}>
                   Reset Seeds
                 </Button>
-                <Button type="primary">Load Submissions</Button>
-                <Button type="default">Remove</Button>
+                <Button type="primary">Load Submissions(TBD)</Button>
+                <Button type="default">Remove(TBD)</Button>
                 <Button type="default" onClick={cluster}>
                   Generate Cluster
                 </Button>
@@ -135,14 +153,15 @@ const ModerationTest = props => {
                   Generate Results
                 </Button>
               </Form.Item>
-              <FormItem>
-                <span className="datePickerTxt">Change date and time to:</span>
-                <DatePicker
-                  selected={startDate}
-                  showTimeSelect
-                  onChange={handleCustomDateChange}
-                />
-              </FormItem>
+
+              <Divider orientation="left">Posts for moderation</Divider>
+              <p>
+                After students add submissions, are displayed here for a
+                moderator to read and approve or reject. Select a cohort to load
+                submissions. (Need to finish some functionality, see notes in
+                code).
+              </p>
+
               <Form.Item name="cohort">
                 <Select placeholder="Select a Cohort" onChange={getPosts}>
                   {cohorts.map(x => (
@@ -154,6 +173,7 @@ const ModerationTest = props => {
               </Form.Item>
             </Form.Item>
           </Form>
+
           <Row gutter={16}>
             {Object.keys(posts).map(x => {
               const cur = posts[x];
@@ -167,8 +187,14 @@ const ModerationTest = props => {
                     <Card>
                       <Card.Meta
                         title={`Status: ${cur.status || 'PENDING'}`}
-                        description={`Pages: ${Object.keys(cur.pages).length}`}
+                        // Why is this description broken??? Please fix.
+                        // description={`Pages: ${Object.keys(cur.pages).length}`}
                       />
+                      Drawing: {<img alt="Student Drawing" src={cur.Image} />}
+                      {/* Will need to update writing images displayed when student submits multiple pages of writing. I don't understand how backend is handling multiple pages yet.*/}
+                      Writing:{' '}
+                      {<img alt="Student Writing" src={cur.Pages[0]} />}
+                      {/* TODO: approve and reject need to also update backend somehow, not just redux store. */}
                       <Button onClick={() => approve(x)}>ACCEPT</Button>
                       <Button onClick={() => reject(x)}>REJECT</Button>
                     </Card>
@@ -177,6 +203,21 @@ const ModerationTest = props => {
               else return <></>;
             })}
           </Row>
+
+          <Divider orientation="left">Dev Tools</Divider>
+          <p>
+            Use these to simulate a child's progress quickly. These will update
+            the database as you submit. (NOTE: These are a work in progress
+            still & need functinality finished!!!)
+          </p>
+          <FormItem>
+            <span className="datePickerTxt">Change date and time to:</span>
+            <DatePicker
+              selected={startDate}
+              showTimeSelect
+              onChange={handleCustomDateChange}
+            />
+          </FormItem>
         </Content>
       </Layout>
     </Layout>
