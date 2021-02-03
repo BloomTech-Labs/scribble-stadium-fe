@@ -12,7 +12,7 @@ import { tasks } from '../../../state/actions';
 
 export const RenderWritingSub = props => {
   //Modal state
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
   const [modalText, setModalText] = useState('');
 
   const { push } = useHistory();
@@ -36,12 +36,15 @@ export const RenderWritingSub = props => {
         handleOk={() => {
           setModalVisible(false);
         }}
-        instructions={modalText || modalInstructions.writingSub}
+        instructions={modalText}
         style={{ fontSize: '1.5rem' }}
       />
       <div className="writing-sub-container">
-        <Row className="main-row">
+        {/* <Row className="main-row">
           <p>{props.tasks.story.writingPrompt}</p>
+        </Row> */}
+        <Row className="main-row">
+          <p>{modalInstructions.writingSub}</p>
         </Row>
         <div className="upload">
           <h1>Upload</h1>

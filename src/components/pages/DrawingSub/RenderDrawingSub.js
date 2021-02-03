@@ -35,12 +35,15 @@ export const RenderDrawingSub = props => {
           setModalVisible(false);
         }}
         style={{ fontSize: '1.5rem' }}
-        instructions={modalText || modalInstructions.drawingSub}
+        instructions={modalText}
       />
       <div className="writing-sub-container">
         <Row className="main-row">
-          <p>{props.tasks.story.drawingPrompt}</p>
+          <p>{modalInstructions.drawingSub}</p>
         </Row>
+        {/* <Row className="main-row">
+          <p>{props.tasks.story.drawingPrompt}</p>
+        </Row> */}
         <div className="upload">
           <h1 className="upload">Upload</h1>
           <UploadDocs
