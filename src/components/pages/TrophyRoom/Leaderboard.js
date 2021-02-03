@@ -28,6 +28,7 @@ const Leaderboard = () => {
       //Person is still able to sort data even with sorter tooltip set to false
       //Might not be worth using ant Table and just using colomns and Rows since you have more flexiblity and
       // more freedom to do what you want and set up data the way youu want it to be displayed
+      // Add Rankings to the table
       title: 'W/L',
       children: [
         {
