@@ -8,27 +8,37 @@ import { Divider } from 'antd';
 import { Modal } from 'antd';
 
 const RenderTrophyRoom = props => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [modalState, setModalState] = useState('');
+  const [isAchievementModalVisible, setIsAchievementModalVisible] = useState(
+    false
+  );
+  const [isInventoryModalVisible, setIsInventoryModalVisible] = useState(false);
   const [inventoryState, setInventoryState] = useState('');
-  // const [achievementState, setAchievementState] = useState('');
+  const [achievementState, setAchievementState] = useState('');
 
   const showAchievementsModal = () => {
-    setIsModalVisible(true);
-    setModalState('child.achievements');
+    setIsAchievementModalVisible(true);
+    setAchievementState('child.achievements');
   };
 
   const showInventoryModel = () => {
-    setIsModalVisible(true);
+    setIsInventoryModalVisible(true);
     setInventoryState('child.inventory');
   };
 
-  const handleOk = () => {
-    setIsModalVisible(false);
+  const handleAchievmentOk = () => {
+    setIsAchievementModalVisible(false);
   };
 
-  const handleCancel = () => {
-    setIsModalVisible(false);
+  const handleAchievementCancel = () => {
+    setIsAchievementModalVisible(false);
+  };
+
+  const handleInventoryOk = () => {
+    setIsInventoryModalVisible(false);
+  };
+
+  const handleInventoryCancel = () => {
+    setIsInventoryModalVisible(false);
   };
 
   return (
@@ -43,28 +53,48 @@ const RenderTrophyRoom = props => {
           </h2>
           <Modal
             title="Achievements"
-            visible={isModalVisible}
-            onOk={handleOk}
-            onCancel={handleCancel}
+            visible={isAchievementModalVisible}
+            onOk={handleAchievmentOk}
+            onCancel={handleAchievementCancel}
+            width={900}
           >
-            <p>Achievement 1</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            {/* Map over achievement state here */}
+            <div style={{ overflow: 'scroll' }}>
+              <h3>Completed (Way to go!):</h3>
+              {/* {achievementState.map(achievement => {
+            if (achievement.completed === true) {
+              return <p>{achievement}</p>;
+            }
+          })} */}
+              <p>Completed first Mission!</p>
+              <p>Won a game!</p>
+              <p>Got most points for drawing in a mission!</p>
+              <p>Got most points for writing in a mission!</p>
+              <p>Completed 3 missions in a row!</p>
+              <h3>Incomplete (Keep trying!):</h3>
+              <p>Completed 5 missions in a row!</p>
+              <p>Completed 10 Missions in a row!</p>
+              <p>Most Colorful Drawing</p>
+              {/* {achievementState.map(achievement => {
+            if (achievement.completed === false) {
+              return <p>{achievement}</p>;
+            }
+          })} */}
+            </div>
           </Modal>
           <Divider />
           <h2 className="h2" onClick={showInventoryModel}>
             Inventory
           </h2>
           <Modal
-            title="Inventory"
-            visible={isModalVisible}
-            onOk={handleOk}
-            onCancel={handleCancel}
+            title="Inventory List"
+            visible={isInventoryModalVisible}
+            onOk={handleInventoryOk}
+            onCancel={handleInventoryCancel}
+            style={{ margin: '0 auto' }}
           >
-            <p>Achievement 1</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
+            <h3>Skins</h3>
+            <h3>Stickers</h3>
+            <h3>Collectibles</h3>
             {/* Map over inventory state here */}
           </Modal>
         </div>
