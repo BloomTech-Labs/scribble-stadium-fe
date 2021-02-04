@@ -47,9 +47,10 @@ const radioStyle = {
 const devToolNotes = [
   "Use this to quickly adjust a child's progress. This will update the database as you submit. (NOTE: This is a work in progress still & need functionality finished to allow better developer testing of features over time!!!)",
   'After picking cohort, you should be allowed to choose the week, then the exact date in that week. These should somehow be interconnected, since every exact date is part of a speific week number depending on the cohort.',
-  'Bonus points if these autofill with the current cohort/week/date in the database.',
-  'See most up-to-date explanations in `StorySquadExplained.md` (linked in FE Readme) (also, please update the md file every month with more info)',
+  'Bonus points if these autopopulates with the cohort/week/date/progress currently in the database. But that might be overkill/stretch. Until then, be sure to have PGAdmin open to view current DB entries. (instructions in FE Readme.md',
   'Writing and Drawing submissions can be done by a student in either order, but they must both be completed for a student to progress to the next steps',
+  'Unlocking a faceoff means that student can see the opposing teams submission & whether or not the result of the faceoff has been decided. This means that a student must finish all 3 of their required votes  AND that other students must finish voting on all 4 of the faceoffs in order to see the big reveal. See Readme for more details. Also, as soon as the big reveal is finished, student should be able to choose to start next week. New week reading prompt/submissions are only accessible after a student has completely finished the current week.',
+  '**See most detailed explanation of game mechanics in `StorySquadExplained.md` (linked in FE Readme) (also, please update that md file every month with more info)**',
 ];
 
 const studentProgressSteps = [
@@ -294,28 +295,6 @@ const ModerationTest = props => {
                     return <li>{note}</li>;
                   })}
                 </ul>
-                {/* <p>
-                  Use these to simulate a child's progress quickly. These will
-                  update the database as you submit. (NOTE: These are a work in
-                  progress still & need functionality finished to allow better
-                  developer testing of features over time!!!)
-                </p>
-                <ul>
-                  <li>
-                    After picking cohort, you should be allowed to choose
-                    the week, then the exact date in that week. These should
-                    somehow be interconnected, since every exact date is part of
-                    a speific week number depending on the cohort.
-                  </li>
-                  <li>
-
-                  </li>
-                  <li>
-                    Bonus points if these autofill with the current
-                    cohort/week/date in the database.
-                  </li>
-                </ul>
-                <p>See most up-to-date explanations in "StorySquadExplained.md" (linked in FE Readme) (also, please update the md file every month with more info)</p> */}
               </Collapse.Panel>
             </Collapse>
             <br />
