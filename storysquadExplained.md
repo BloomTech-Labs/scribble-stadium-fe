@@ -11,7 +11,7 @@ Students that started at the same time will be placed in "cohorts." This will al
 
 ## Overview of week:
 
-(this is taken from a draft wireframe of the dev's `/moderation` page that is intended for devs to mock any needed steps)
+(This is from a draft wireframe of the dev's `/moderation` page that is intended for devs to quickly mock any needed steps. Note the numbered order of every step.)
 
 ![Draft of dev's moderation page](docs/draft-dev-moderation-page.png)
 
