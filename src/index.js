@@ -49,8 +49,9 @@ import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
 import { VotingPage } from './components/pages/VotingPage';
 
-// Note: for demo purposes ONLY
+// Note: for demo/developer purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
+import AdminDashboard from './components/pages/AdminDashboard';
 
 ReactDOM.render(
   //
@@ -179,6 +180,7 @@ function App() {
           )}
         />
         <Route exact path="/moderation" component={ModerationTest} />
+        <Route exact path="/admin" component={AdminDashboard} />
         <Route component={NotFoundPage} />
       </Switch>
     </Security>

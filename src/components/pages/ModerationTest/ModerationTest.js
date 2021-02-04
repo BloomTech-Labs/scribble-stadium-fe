@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -31,6 +31,7 @@ import {
   Divider,
   Collapse,
   Radio,
+  Alert,
 } from 'antd';
 
 // import Sider from 'antd/lib/layout/Sider';
@@ -45,7 +46,8 @@ const radioStyle = {
 };
 
 const devToolNotes = [
-  "Use this to quickly adjust a child's progress. This will update the database as you submit. (NOTE: This is a work in progress still & need functionality finished to allow better developer testing of features over time!!!)",
+  '(NOTE: This is a work in progress still & need functionality finished to allow better developer testing of features over time!!!)',
+  "DevTool Purpose: Use this to quickly adjust a child's progress. This will update the database as you submit & allow you to view the front-end at different stages of the week, as well as easily undo/redo student progress.",
   'After picking cohort, you should be allowed to choose the week, then the exact date in that week. These should somehow be interconnected, since every exact date is part of a speific week number depending on the cohort.',
   'Bonus points if these autopopulates with the cohort/week/date/progress currently in the database. But that might be overkill/stretch. Until then, be sure to have PGAdmin open to view current DB entries. (instructions in FE Readme.md',
   'Writing and Drawing submissions can be done by a student in either order, but they must both be completed for a student to progress to the next steps',
@@ -193,6 +195,15 @@ const ModerationTest = props => {
         </Sider> */}
 
         <Content>
+          <h1>
+            <Alert
+              message="THIS ROUTE/PAGE/FOLDER IS DEPRECIATED."
+              type="error"
+            />
+            THIS ROUTE IS DEPRECIATED. PLEASE USE/WORK ON{' '}
+            <Link to="/admin">`/admin`</Link> INSTEAD OF `/moderation`
+          </h1>
+          <h1></h1>
           <Form form={form} className="inline-form">
             <Button type="default" onClick={homePageHandler}>
               Back to Home Page

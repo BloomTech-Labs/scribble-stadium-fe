@@ -21,8 +21,8 @@ const RenderChildDashboard = props => {
     push('/child/join');
   };
 
-  const handleModerationPage = event => {
-    push('/moderation');
+  const handleAdminPage = event => {
+    push('/admin');
   };
 
   const handleTrophyRoom = e => {
@@ -57,7 +57,7 @@ const RenderChildDashboard = props => {
               className="child-dash-img"
               src={change_your_avatar}
               alt="Change Your Avatar Button"
-              onClick={handleModerationPage}
+              onClick={handleAdminPage}
             />
           </Col>
         </Row>
