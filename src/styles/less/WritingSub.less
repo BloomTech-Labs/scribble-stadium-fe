@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5%;
+  padding: 2.5% 5%;
+  text-align: center;
 
   .main-row {
     width: 80%;
@@ -12,16 +13,22 @@
     background-position: center;
     background-color: @conifer;
     border: 5px solid @header-nero;
-    padding: 2%;
-    text-align: center;
+    padding: 1.5%;
     font-size: 1.5rem;
+
+    span {
+      font-weight: bold;
+    }
+  }
+  .writing-sub-instruction {
+    width: 75%;
+    font-size: 1.3rem;
+    margin-top: 2rem;
     white-space: pre-wrap;
   }
   .upload {
     width: 80%;
-
-    padding: 2%;
-    text-align: center;
+    padding: 1.1% 2%;
     align-items: center;
     .ant-upload-picture-card-wrapper {
       display: flex;
@@ -45,7 +52,6 @@
     width: 100%;
     justify-content: flex-end;
     padding: 2%;
-    margin-bottom: 2%;
     form {
       width: 100%;
     }

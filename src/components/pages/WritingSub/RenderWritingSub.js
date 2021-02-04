@@ -40,12 +40,16 @@ export const RenderWritingSub = props => {
         style={{ fontSize: '1.5rem' }}
       />
       <div className="writing-sub-container">
-        {/* <Row className="main-row">
-          <p>{props.tasks.story.writingPrompt}</p>
-        </Row> */}
         <Row className="main-row">
-          <p>{modalInstructions.writingSub}</p>
+          {/* This will be the topic the user needs to write about. The dummy writingPrompt data in the seeds are just place holders for now and need to get updated */}
+          <p>
+            <span>Prompt: </span>
+            {props.tasks.story.writingPrompt}
+          </p>
         </Row>
+        <p className="writing-sub-instruction">
+          {modalInstructions.writingSub}
+        </p>
         <div className="upload">
           <h1>Upload</h1>
           <UploadDocs

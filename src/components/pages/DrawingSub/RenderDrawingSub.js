@@ -39,13 +39,17 @@ export const RenderDrawingSub = props => {
       />
       <div className="writing-sub-container">
         <Row className="main-row">
-          <p>{modalInstructions.drawingSub}</p>
+          {/* This will be the topic the user needs to draw. The dummy drawingPrompt data in the seeds are just place holders for now and need to get updated */}
+          <p>
+            <span>Prompt: </span>
+            {props.tasks.story.drawingPrompt}
+          </p>
         </Row>
-        {/* <Row className="main-row">
-          <p>{props.tasks.story.drawingPrompt}</p>
-        </Row> */}
+        <p className="writing-sub-instruction">
+          {modalInstructions.drawingSub}
+        </p>
         <div className="upload">
-          <h1 className="upload">Upload</h1>
+          <h1>Upload</h1>
           <UploadDocs
             submitButtonClassname="orange-submit-button"
             uploadButtonText="Choose files from your device"
