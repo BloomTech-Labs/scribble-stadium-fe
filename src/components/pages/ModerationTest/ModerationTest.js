@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+// import draft_dev_moderation_page from 'story-squad-fe-b/docs/draft-dev-moderation-page.png';
+// import draft_dev_moderation_page from '../../../../docs/draft-dev-moderation-page.png';
 
 import { date } from '../../../state/actions';
 
@@ -28,16 +30,63 @@ import {
   Col,
   Divider,
   Collapse,
+  Radio,
 } from 'antd';
-// import Form.Item from 'antd/lib/form/FormItem';
+
 // import Sider from 'antd/lib/layout/Sider';
 const { Content } = Layout;
 const { Option } = Select;
+
+//radioStyle copied straight from antD docs. is there a better way.
+const radioStyle = {
+  display: 'block',
+  // height: '30px',
+  // lineHeight: '30px',
+};
+
+const devToolNotes = [
+  "Use this to quickly adjust a child's progress. This will update the database as you submit. (NOTE: This is a work in progress still & need functionality finished to allow better developer testing of features over time!!!)",
+  'After picking cohort, you should be allowed to choose the week, then the exact date in that week. These should somehow be interconnected, since every exact date is part of a speific week number depending on the cohort.',
+  'Bonus points if these autofill with the current cohort/week/date in the database.',
+  'See most up-to-date explanations in `StorySquadExplained.md` (linked in FE Readme) (also, please update the md file every month with more info)',
+  'Writing and Drawing submissions can be done by a student in either order, but they must both be completed for a student to progress to the next steps',
+];
+
+const studentProgressSteps = [
+  {
+    days: 'Saturday-Wednesday',
+    description: 'Submissions',
+    steps: ['Finished Reading', 'Submitted Writing', 'Submitted Drawing'],
+  },
+  {
+    days: 'Thursday',
+    description: 'Teacher Moderation & DS',
+    steps: [
+      'Flag student submission',
+      'Assign Squad Scores on writings and drawings',
+      'Cluster Students to squads & matchup teams',
+    ],
+  },
+  {
+    days: 'Friday',
+    description: 'Bet, Vote, Reveal',
+    steps: [
+      "Student's 1st vote unlocks second locked faceoff",
+      "Student's 2nd vote unlocks third locked faceoff",
+      'Non-matchup students finish voting for first matchup & reveal results of first matchup',
+      'Non-matchup students finish voting for second matchup & reveal results of second matchup',
+      '1Non-matchup students finish voting for third matchup & reveal results of third matchup',
+      '1Non-matchup students finish voting for fourth matchup & big, final reveal can be viewed.',
+    ],
+  },
+];
 
 const ModerationTest = props => {
   const [startDate, setStartDate] = useState(new Date());
   const [cohorts, setCohorts] = useState([]);
   const [posts, setPosts] = useState({});
+  // set initial state from database (or intermediary function), instead of hardcoding
+  const [studentProgress, setStudentProgress] = useState(1);
   const [form] = Form.useForm();
   const { push } = useHistory();
 
@@ -116,6 +165,21 @@ const ModerationTest = props => {
     props.setDate(date);
   };
 
+  const onStudentProgressChange = e => {
+    console.log('radio checked', e.target.value);
+    setStudentProgress(e.target.value);
+  };
+
+  const submitStudentProgress = () => {
+    console.log(
+      'SubmitStudentProgress started running, but is empty. Please finish the functionality. studentProgress:------',
+      studentProgress
+    );
+    // use `studentProgress` to push changes to DB according to options selected. Possibly by manipulating seed data, and or having submissions ready to send out.
+  };
+
+  let counter = 0;
+
   return (
     <Layout className="moderation-page">
       {/* <Layout> */}
@@ -132,7 +196,6 @@ const ModerationTest = props => {
             <Button type="default" onClick={homePageHandler}>
               Back to Home Page
             </Button>
-
             <Divider orientation="left">
               <h2>Moderator Tools</h2>
             </Divider>
@@ -168,7 +231,6 @@ const ModerationTest = props => {
                 Generate Results
               </Button>
             </Form.Item>
-
             <Divider orientation="left">
               <h2>Posts for moderation</h2>
             </Divider>
@@ -192,7 +254,6 @@ const ModerationTest = props => {
                 ))}
               </Select>
             </Form.Item>
-
             <Row gutter={16}>
               {Object.keys(posts).map(x => {
                 const cur = posts[x];
@@ -223,40 +284,44 @@ const ModerationTest = props => {
                 else return <></>;
               })}
             </Row>
-
             <Divider orientation="left">
               <h2>Dev Tools</h2>
             </Divider>
             <Collapse>
               <Collapse.Panel header="Dev Notes" key="3">
-                <p>
+                <ul>
+                  {devToolNotes.map(note => {
+                    return <li>{note}</li>;
+                  })}
+                </ul>
+                {/* <p>
                   Use these to simulate a child's progress quickly. These will
                   update the database as you submit. (NOTE: These are a work in
                   progress still & need functionality finished to allow better
                   developer testing of features over time!!!)
                 </p>
-                <ol>
+                <ul>
                   <li>
-                    Ideally, you after picking cohort, you are allowed to choose
-                    the week, then the exact date in that week. They should
+                    After picking cohort, you should be allowed to choose
+                    the week, then the exact date in that week. These should
                     somehow be interconnected, since every exact date is part of
                     a speific week number depending on the cohort.
+                  </li>
+                  <li>
+
                   </li>
                   <li>
                     Bonus points if these autofill with the current
                     cohort/week/date in the database.
                   </li>
-                </ol>
-                <label>Here's</label>
-                <img
-                  alt="Early wireframe of devtools"
-                  src="docs/draft-dev-moderation-page.png"
-                />
+                </ul>
+                <p>See most up-to-date explanations in "StorySquadExplained.md" (linked in FE Readme) (also, please update the md file every month with more info)</p> */}
               </Collapse.Panel>
             </Collapse>
             <br />
             <Form.Item name="cohorts">
-              {/* Needs database to have multiple cohorts to be able to select a different cohort. */}
+              {/* Needs database to have multiple cohorts & weeks to be able to select a different cohort. */}
+              {/* Possibly use antDesign's Cascader to combine cohort, week, date into one component. */}
               <Select
                 placeholder="Select a Cohort"
                 // onChange={}
@@ -268,8 +333,8 @@ const ModerationTest = props => {
                 ))}
               </Select>
             </Form.Item>
-            <Form.Item>Week Picker here</Form.Item>
             <Form.Item>
+              <Button>Week Picker here (TBD)</Button>
               <span className="datePickerTxt">Change date and time to:</span>
               <DatePicker
                 selected={startDate}
@@ -277,6 +342,34 @@ const ModerationTest = props => {
                 onChange={handleCustomDateChange}
               />
             </Form.Item>
+            ** Choose how far along the week you want for the student's
+            progress: **
+            {studentProgressSteps.map(x => {
+              return (
+                <>
+                  <h3>{x.days}</h3>
+                  <h4>{x.description}</h4>
+                  <Form.Item>
+                    <Radio.Group
+                      onChange={onStudentProgressChange}
+                      value={studentProgress}
+                    >
+                      {x.steps.map(step => {
+                        counter += 1;
+                        return (
+                          <Radio style={radioStyle} value={counter}>
+                            {counter}) {step}
+                          </Radio>
+                        );
+                      })}
+                    </Radio.Group>
+                  </Form.Item>
+                </>
+              );
+            })}
+            <Button onClick={submitStudentProgress}>
+              Send Changes to DB (TBD)
+            </Button>
           </Form>
         </Content>
       </Layout>
