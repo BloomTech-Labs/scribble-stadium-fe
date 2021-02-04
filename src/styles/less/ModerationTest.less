@@ -1,4 +1,10 @@
 .moderation-page {
+  .react-datepicker {
+    min-width: 20.5rem;
+  }
+  .datePickerTxt {
+    margin-right: 1rem;
+  }
   .ant-page-header {
     background-color: #229;
     h1 {
@@ -13,10 +19,9 @@
     .inline-form {
       [class$='control-input-content'] {
         display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
+        flex-flow: row wrap;
+        justify-content: flex-start;
         .ant-form-item {
-          margin-bottom: 0;
           button {
             margin-left: 1.25vw;
           }

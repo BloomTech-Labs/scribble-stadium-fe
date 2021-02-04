@@ -15,9 +15,9 @@ export const modalInstructions = {
   missionControl2:
     "Great job! It's time to get creative. Click on one of the prompts.",
   writingSub:
-    'Once you finish writing your story, please take a picture of all your pages and upload them.  Tips: \nTake one photo per page. Find good Lighting and check your photo turns out clear. Make sure each page is straight and not cropped. After all pages are uploaded, click submit.',
+    'Once you finish writing your story, please take a picture of all your pages and upload them.\nTips: Take one photo per page. Find good Lighting and check your photo turns out clear. Make sure each page is straight and not cropped. After all pages are uploaded, click submit.',
   drawingSub:
-    'Once you finish your drawing, please take a picture of all your pages and upload them.  Tips: Take one photo per page. Find good Lighting and check your photo turns out clear. Make sure each page is straight and not cropped. After all pages are uploaded, click submit.',
+    'Once you finish your drawing, please take a picture of all your pages and upload them.\nTips: Take one photo per page. Find good Lighting and check your photo turns out clear. Make sure each page is straight and not cropped. After all pages are uploaded, click submit.',
   submissionComplete: 'Your Story has been submitted',
   missionControl3: "It's time to join your squad! Click next to continue",
   sharePoints:
