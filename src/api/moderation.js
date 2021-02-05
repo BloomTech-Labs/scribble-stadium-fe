@@ -42,7 +42,18 @@ export const setClusters = () => {
 
 export const setFaceoffs = () => {
   try {
-    return apiAuthPut('/mod/faceoffs').then(res => {
+    return apiAuthPut('/mod/faceoffs/squads').then(res => {
+      return res;
+    });
+  } catch (err) {
+    console.log(err);
+    return { err };
+  }
+};
+
+export const setVoteSeq = () => {
+  try {
+    return apiAuthPut('/mod/votesequence').then(res => {
       return res;
     });
   } catch (err) {

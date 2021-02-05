@@ -15,6 +15,7 @@ import {
   setClusters,
   setFaceoffs,
   setResults,
+  setVoteSeq,
 } from '../../../api/moderation';
 
 import { reset } from '../../../api/index';
@@ -145,6 +146,8 @@ const ModerationTest = props => {
   const faceoff = () => {
     setFaceoffs().then(res => {
       console.log(res);
+      // After faceoffs are set, we set the ballots
+      setVoteSeq();
     });
   };
 
