@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import RenderVotingPage from './RenderVotingPage';
-import { getGameVotes } from '../../../api';
 
 function VotingPageContainer({ LoadingComponent, ...props }) {
   const { push } = useHistory();
@@ -35,26 +34,10 @@ function VotingPageContainer({ LoadingComponent, ...props }) {
 
   useEffect(() => {
     if (props.child.VotesRemaining > 0) {
-      setVotes(props.votes[3]); // Needs to update to get the assigned faceoff to vote
+      setVotes(props.votes[props.child.VotesRemaining - 1]); // Needs to update to get the assigned faceoff to vote
     } else {
       push('/child/dashboard');
     }
-    // getGameVotes(
-    //   authState,
-    //   props.faceoffs[0].SquadID,
-    //   props.child.memberId
-    // ).then(res => {
-    //   if (res.length === 0) {
-    //     setVotes(props.votes[3]);
-    //   } else if (res.length === 1) {
-    //     setVotes(props.votes[2]);
-    //   } else if (res.length === 2) {
-    //     setVotes(props.votes[1]);
-    //   } else {
-    //     push('/child/dashboard');
-    //   }
-    // });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

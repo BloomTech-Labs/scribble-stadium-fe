@@ -56,14 +56,20 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
         }
       );
 
-      if (squad.ID % 2 === 0) {
-        getFaceoffsForVoting(authState, squad.ID - 1).then(faceoffs => {
-          props.setVotes(faceoffs);
-        });
-      } else {
-        getFaceoffsForVoting(authState, squad.ID + 1).then(faceoffs => {
-          props.setVotes(faceoffs);
-        });
+      if (
+        props.child.Ballots.length > 0 &&
+        props.child.VotesRemaining > 0 &&
+        props.votes.length === 0
+      ) {
+        for (let ballot of props.child.Ballots) {
+          getFaceoffsForVoting(authState, ballot[1]).then(faceoffs => {
+            for (let faceoff of faceoffs) {
+              if (faceoff.ID === ballot[0]) {
+                props.setVotes(faceoff);
+              }
+            }
+          });
+        }
       }
     });
 
