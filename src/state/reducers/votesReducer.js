@@ -1,11 +1,11 @@
 import { global, votes } from '../actions';
 
-const initialState = null;
+const initialState = [];
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case votes.SET_VOTES:
-      return [...action.payload];
+      return [...state, action.payload];
     case global.CLEAR_USERS:
       return initialState;
     default:

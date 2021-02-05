@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import { child, faceoffs, votes } from '../../../state/actions';
 import {
-  getGameVotes,
+  getChild,
   getChildSquad,
   getFaceoffsForMatchup,
   getFaceoffsForVoting,
@@ -16,10 +16,21 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   const [canVote, setCanVote] = useState(true);
-  const [numberOfTimesVoted, setNumberOfTimesVoted] = useState(3);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
-  // const [faceoffs, setFaceoffs] = useState(null);
+
+  useEffect(() => {
+    getChild(authState, props.child.memberId).then(child => {
+      props.setChild({ ...child });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (props.child.VotesRemaining === 0) {
+      setCanVote(false);
+    }
+  }, [props.child]);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -49,35 +60,25 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
         }
       );
 
-      if (squad.ID % 2 === 0) {
-        getFaceoffsForVoting(authState, squad.ID - 1).then(faceoffs => {
-          props.setVotes(faceoffs);
-        });
-      } else {
-        getFaceoffsForVoting(authState, squad.ID + 1).then(faceoffs => {
-          props.setVotes(faceoffs);
-        });
+      if (
+        props.child.Ballots.length > 0 &&
+        props.child.VotesRemaining > 0 &&
+        props.votes.length === 0
+      ) {
+        for (let ballot of props.child.Ballots) {
+          getFaceoffsForVoting(authState, ballot[1]).then(faceoffs => {
+            for (let faceoff of faceoffs) {
+              if (faceoff.ID === ballot[0]) {
+                props.setVotes(faceoff);
+              }
+            }
+          });
+        }
       }
     });
 
     // eslint-disable-next-line
   }, [authState]);
-
-  useEffect(() => {
-    // TODO: Instead of the api call, check for votes-remaining value in child's object
-    if (props.faceoffs && props.faceoffs.length > 0) {
-      getGameVotes(
-        authState,
-        props.faceoffs[0].SquadID,
-        props.child.memberId
-      ).then(res => {
-        setNumberOfTimesVoted(res.length);
-        if (res.length > 2) {
-          setCanVote(false);
-        }
-      });
-    }
-  }, [props.faceoffs]);
 
   return (
     <>
@@ -90,7 +91,7 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
           userInfo={userInfo}
           authService={authService}
           canVote={canVote}
-          numberOfTimesVoted={numberOfTimesVoted}
+          votesRemaining={props.child.VotesRemaining}
         />
       )}
     </>
@@ -108,5 +109,6 @@ export default connect(
     setSquadFaceoffs: faceoffs.setSquadFaceoffs,
     setMemberId: child.setMemberId,
     setVotes: votes.setVotes,
+    setChild: child.setChild,
   }
 )(MatchUpContainer);

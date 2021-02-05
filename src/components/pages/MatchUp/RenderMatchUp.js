@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
-import { Header } from '../../common';
 import { Row, Col, Button } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
+
+import { Header } from '../../common';
 import FaceoffContent from './FaceoffContent';
 import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
-import { getGameVotes } from '../../../api';
 
 const RenderMatchUp = props => {
   const { push } = useHistory();
   const [faceoffs, setFaceoffs] = useState([]);
   const [modalVisible, setModalVisible] = useState(true);
-  const { authState } = useOktaAuth();
   useEffect(() => {
     if (!props.canVote) {
       setModalVisible(false);
@@ -62,8 +60,8 @@ const RenderMatchUp = props => {
               <FaceoffContent
                 custom_date={props.custom_date}
                 content={faceoffs[0]}
-                numberOfTimesVoted={props.numberOfTimesVoted}
-                votesNeededToUnlock={3}
+                votesRemaining={props.votesRemaining}
+                votesNeededToUnlock={0}
                 dayNeededToUnlock={5}
                 hourNeededToUnlock={18}
               />
@@ -74,8 +72,8 @@ const RenderMatchUp = props => {
               <FaceoffContent
                 custom_date={props.custom_date}
                 content={faceoffs[1]}
-                numberOfTimesVoted={props.numberOfTimesVoted}
-                votesNeededToUnlock={3}
+                votesRemaining={props.votesRemaining}
+                votesNeededToUnlock={0}
                 dayNeededToUnlock={4}
                 hourNeededToUnlock={6}
               />
@@ -88,8 +86,8 @@ const RenderMatchUp = props => {
               <FaceoffContent
                 custom_date={props.custom_date}
                 content={faceoffs[2]}
-                numberOfTimesVoted={props.numberOfTimesVoted}
-                votesNeededToUnlock={2}
+                votesRemaining={props.votesRemaining}
+                votesNeededToUnlock={1}
                 dayNeededToUnlock={4}
                 hourNeededToUnlock={6}
               />
@@ -100,8 +98,8 @@ const RenderMatchUp = props => {
               <FaceoffContent
                 custom_date={props.custom_date}
                 content={faceoffs[3]}
-                numberOfTimesVoted={props.numberOfTimesVoted}
-                votesNeededToUnlock={1}
+                votesRemaining={props.votesRemaining}
+                votesNeededToUnlock={2}
                 dayNeededToUnlock={4}
                 hourNeededToUnlock={6}
               />
@@ -123,4 +121,5 @@ const RenderMatchUp = props => {
     </>
   );
 };
+
 export default RenderMatchUp;

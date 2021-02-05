@@ -97,6 +97,27 @@ const getChild = (authState, childId) => {
 };
 
 /**
+ * @param {Object} authState necessary for API functionality
+ * @param {Object} body child data
+ * @param {number} childId id of the child needed for information
+ * @return {Object} child information containing Name, PIN, IsDyslexic, CohortID, ParentID, AvatarID, and GradeLevelID
+ */
+const updateChildData = (authState, body, childId) => {
+  console.log(body);
+  try {
+    return apiAuthPut(`/child/${childId}`, body, getAuthHeader(authState)).then(
+      response => {
+        return response;
+      }
+    );
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+    });
+  }
+};
+
+/**
  *
  * @param {Object} authState necessary for API functionality
  * @param {Object} child object containing fields for Name, PIN, IsDyslexic, CohortID, ParentID, AvatarID, and GradeLevelID
@@ -446,6 +467,7 @@ export {
   postNewChild,
   getChildFormValues,
   getChildTasks,
+  updateChildData,
   postNewWritingSub,
   markAsRead,
   postNewDrawingSub,

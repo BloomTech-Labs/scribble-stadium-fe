@@ -34,7 +34,7 @@ const RenderVotingPage = props => {
             <EmojiPicker getChildState={setSubEmojis2} />
             <VotingForm
               faceoffToVote={props.votes}
-              MemberID={props.child.memberId}
+              child={props.child}
               subEmojis={{ subEmojis1, subEmojis2 }}
             />
           </Col>
