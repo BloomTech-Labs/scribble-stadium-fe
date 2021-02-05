@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import { child, faceoffs, votes } from '../../../state/actions';
 import {
   getChild,
-  getGameVotes,
   getChildSquad,
   getFaceoffsForMatchup,
   getFaceoffsForVoting,
@@ -17,7 +16,6 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   const [canVote, setCanVote] = useState(true);
-  const [numberOfTimesVoted, setNumberOfTimesVoted] = useState(3);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
 
@@ -27,6 +25,12 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (props.child.VotesRemaining === 0) {
+      setCanVote(false);
+    }
+  }, [props.child]);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -76,22 +80,6 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
     // eslint-disable-next-line
   }, [authState]);
 
-  useEffect(() => {
-    // TODO: Instead of the api call, check for votes-remaining value in child's object
-    if (props.faceoffs && props.faceoffs.length > 0) {
-      getGameVotes(
-        authState,
-        props.faceoffs[0].SquadID,
-        props.child.memberId
-      ).then(res => {
-        setNumberOfTimesVoted(res.length);
-        if (res.length > 2) {
-          setCanVote(false);
-        }
-      });
-    }
-  }, [props.faceoffs]);
-
   return (
     <>
       {authState.isAuthenticated && !userInfo && (
@@ -103,7 +91,7 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
           userInfo={userInfo}
           authService={authService}
           canVote={canVote}
-          numberOfTimesVoted={numberOfTimesVoted}
+          votesRemaining={props.child.VotesRemaining}
         />
       )}
     </>

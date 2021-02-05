@@ -60,8 +60,8 @@ const RenderMatchUp = props => {
               <FaceoffContent
                 custom_date={props.custom_date}
                 content={faceoffs[0]}
-                numberOfTimesVoted={props.numberOfTimesVoted}
-                votesNeededToUnlock={3}
+                votesRemaining={props.votesRemaining}
+                votesNeededToUnlock={0}
                 dayNeededToUnlock={5}
                 hourNeededToUnlock={18}
               />
@@ -72,8 +72,8 @@ const RenderMatchUp = props => {
               <FaceoffContent
                 custom_date={props.custom_date}
                 content={faceoffs[1]}
-                numberOfTimesVoted={props.numberOfTimesVoted}
-                votesNeededToUnlock={3}
+                votesRemaining={props.votesRemaining}
+                votesNeededToUnlock={0}
                 dayNeededToUnlock={4}
                 hourNeededToUnlock={6}
               />
@@ -86,8 +86,8 @@ const RenderMatchUp = props => {
               <FaceoffContent
                 custom_date={props.custom_date}
                 content={faceoffs[2]}
-                numberOfTimesVoted={props.numberOfTimesVoted}
-                votesNeededToUnlock={2}
+                votesRemaining={props.votesRemaining}
+                votesNeededToUnlock={1}
                 dayNeededToUnlock={4}
                 hourNeededToUnlock={6}
               />
@@ -98,8 +98,8 @@ const RenderMatchUp = props => {
               <FaceoffContent
                 custom_date={props.custom_date}
                 content={faceoffs[3]}
-                numberOfTimesVoted={props.numberOfTimesVoted}
-                votesNeededToUnlock={1}
+                votesRemaining={props.votesRemaining}
+                votesNeededToUnlock={2}
                 dayNeededToUnlock={4}
                 hourNeededToUnlock={6}
               />

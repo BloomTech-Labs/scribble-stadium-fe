@@ -24,7 +24,7 @@ const FaceoffContent = props => {
           type={content.Type}
           feedback={content.Emojis1}
           votesNeededToUnlock={props.votesNeededToUnlock}
-          numberOfTimesVoted={props.numberOfTimesVoted}
+          votesRemaining={props.votesRemaining}
           dayNeededToUnlock={props.dayNeededToUnlock}
           hourNeededToUnlock={props.hourNeededToUnlock}
         />
@@ -37,7 +37,7 @@ const FaceoffContent = props => {
           type={content.Type}
           feedback={content.Emojis2}
           votesNeededToUnlock={props.votesNeededToUnlock}
-          numberOfTimesVoted={props.numberOfTimesVoted}
+          votesRemaining={props.votesRemaining}
           dayNeededToUnlock={props.dayNeededToUnlock}
           hourNeededToUnlock={props.hourNeededToUnlock}
         />
@@ -64,7 +64,7 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
   useEffect(() => {
     if (
       props.votesNeededToUnlock &&
-      props.numberOfTimesVoted >= props.votesNeededToUnlock &&
+      props.votesRemaining >= props.votesNeededToUnlock &&
       currentDayOfTheWeek >= props.dayNeededToUnlock &&
       currentHour >= props.hourNeededToUnlock
     ) {

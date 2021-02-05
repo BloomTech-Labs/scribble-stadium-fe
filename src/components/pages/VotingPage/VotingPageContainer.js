@@ -38,7 +38,7 @@ function VotingPageContainer({ LoadingComponent, ...props }) {
     } else {
       push('/child/dashboard');
     }
-  }, []);
+  }, [props.child, props.votes, push]);
 
   return (
     <>
