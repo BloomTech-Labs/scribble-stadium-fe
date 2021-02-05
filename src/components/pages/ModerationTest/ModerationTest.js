@@ -146,8 +146,12 @@ const ModerationTest = props => {
   const faceoff = () => {
     setFaceoffs().then(res => {
       console.log(res);
-      // After faceoffs are set, we set the ballots
-      setVoteSeq();
+    });
+  };
+
+  const voteSeq = () => {
+    setVoteSeq().then(res => {
+      console.log(res);
     });
   };
 
@@ -241,6 +245,9 @@ const ModerationTest = props => {
               </Button>
               <Button type="default" onClick={faceoff}>
                 Generate Faceoffs
+              </Button>
+              <Button type="default" onClick={voteSeq}>
+                Generate Vote Sequence
               </Button>
               <Button type="default" onClick={results}>
                 Generate Results

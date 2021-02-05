@@ -8,6 +8,7 @@ import {
   setClusters,
   setFaceoffs,
   setResults,
+  setVoteSeq,
 } from '../../../api/moderation';
 
 import { reset } from '../../../api/index';
@@ -77,6 +78,12 @@ const ModerationTools = props => {
     });
   };
 
+  const voteSeq = () => {
+    setVoteSeq().then(res => {
+      console.log(res);
+    });
+  };
+
   // Moderator can begin the results stage
   const results = () => {
     setResults().then(res => {
@@ -120,6 +127,9 @@ const ModerationTools = props => {
         </Button>
         <Button type="default" onClick={faceoff}>
           Generate Faceoffs
+        </Button>
+        <Button type="default" onClick={voteSeq}>
+          Generate Vote Sequence
         </Button>
         <Button type="default" onClick={results}>
           Generate Results
