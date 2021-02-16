@@ -13,13 +13,27 @@ import {
 } from '../../../api/index';
 
 function MatchUpContainer({ LoadingComponent, ...props }) {
+  //ERRLOG: child id is not being passed into the params properly, cannot find child with ID of null
+  console.log('matchup component container props', props);
+
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   const [canVote, setCanVote] = useState(true);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
 
+  // ERRPATCH: create idchoice to set id to child id if member id not around
+  // let idChoice = ""
+
+  //   if (props.child.memberId){
+  //     idChoice = props.child.memberId
+  //   } else { idChoice = props.child.id}
+
   useEffect(() => {
+    // // ERRLOG: props.child.memberId is null in props.child object
+    // console.log("id choice", idChoice)
+    // console.log("props.chils.memberId", props.child.memberId)
+
     getChild(authState, props.child.memberId).then(child => {
       props.setChild({ ...child });
     });
@@ -60,6 +74,8 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
         }
       );
 
+      console.log('props.child in matchup container', props.child);
+      // ERRLOG: no length returning
       if (
         props.child.Ballots.length > 0 &&
         props.child.VotesRemaining > 0 &&
