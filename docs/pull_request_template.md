@@ -2,6 +2,11 @@
 
 Fixes #
 
+- What work was done?
+- Why was this work done?
+- What feature / user story is it for?
+- Any relevant links or images / screenshots
+
 ## Type of change
 
 Please delete options that are not relevant.
