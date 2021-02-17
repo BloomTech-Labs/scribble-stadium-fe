@@ -59,6 +59,14 @@ const FaceoffContent = props => {
 //      - ACTION TAKEN: replacing all "submission1" with "submissionID1" did not work
 
 const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
+  console.log('What is Sub ? -------------------', sub);
+  console.log('What is type ? -------------------', type);
+  console.log('What is feedback ? -------------------', feedback);
+  console.log(
+    'Look at props again now that we did stuff -------------------',
+    props
+  );
+
   const [modalContent, setModalContent] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [locked, setLocked] = useState(true);
@@ -85,6 +93,7 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  console.log('props -------------------', props);
 
   return (
     <>
@@ -101,7 +110,7 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
             <EmojiFeedback emojis={feedback.Emoji} />
           )}
           {/*       ERRLOG: sub is an undefined object currently, app cannot read  properties of undefined object */}
-          <img src={sub.AvatarURL} alt="text" />
+          <img src={props.AvatarUrl} alt="text" />
           <span className="name">{sub.Name}</span>
         </div>
         <div className="submission-preview">
