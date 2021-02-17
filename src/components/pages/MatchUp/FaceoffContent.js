@@ -24,7 +24,7 @@ const FaceoffContent = props => {
       {content && (
         <FaceoffSubDisplay
           custom_date={props.custom_date}
-          sub={content.Submission1}
+          sub={content.SubmissionID1}
           type={content.Type}
           feedback={content.Emojis1}
           votesNeededToUnlock={props.votesNeededToUnlock}
@@ -37,7 +37,7 @@ const FaceoffContent = props => {
       {content && (
         <FaceoffSubDisplay
           custom_date={props.custom_date}
-          sub={content.Submission2}
+          sub={content.SubmissionID2}
           type={content.Type}
           feedback={content.Emojis2}
           votesNeededToUnlock={props.votesNeededToUnlock}
@@ -110,7 +110,7 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
             <EmojiFeedback emojis={feedback.Emoji} />
           )}
           {/*       ERRLOG: sub is an undefined object currently, app cannot read  properties of undefined object */}
-          <img src={props.AvatarUrl} alt="text" />
+          <img src={sub.AvatarUrl} alt="text" />
           <span className="name">{sub.Name}</span>
         </div>
         <div className="submission-preview">
