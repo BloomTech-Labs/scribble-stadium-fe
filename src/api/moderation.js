@@ -42,7 +42,9 @@ export const setClusters = () => {
 
 export const setFaceoffs = () => {
   try {
-    return apiAuthPut('/mod/faceoffs/squads').then(res => {
+    // ERRLOG: /mod/faceoffs/squads not connected to backend API
+    // ERR ACTION TAKEN: delete squads from API route
+    return apiAuthPut('/mod/faceoffs/').then(res => {
       return res;
     });
   } catch (err) {

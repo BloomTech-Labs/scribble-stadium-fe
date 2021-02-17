@@ -15,6 +15,10 @@ const FaceoffContent = props => {
     // eslint-disable-next-line
   }, []);
 
+  // ERRLOG: content returning null
+  console.log('faceoff content content.submission1', content);
+  console.log('faceoff content props', props);
+
   return (
     <div className="faceoff">
       {content && (
@@ -47,10 +51,19 @@ const FaceoffContent = props => {
   );
 };
 
+//ERRLOG CURRENT: {sub} {type} and {feedback} not getting passed via props. also what voodoo is this subcomponent within a component?
+//      - *** NOTE *** even if content was being passed in, data wouldn't make sense:
+//                      - submission1 / submission2 / emojis1 / emojis2 doesn't exist as keys on content object
+//                      - might need to create a GET / call to api to get submission1 & submission2 objects with attached child data?
+//                      - according to DBeaver ER diagram,  there are no keys that match sub..1 / sub...2; closest is SubmissionID1 / SubmissionID2
+//      - ACTION TAKEN: replacing all "submission1" with "submissionID1" did not work
+
 const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
   const [modalContent, setModalContent] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [locked, setLocked] = useState(true);
+
+  console.log('faceoff content sub props', props);
 
   const currentDate = props.custom_date ? props.custom_date : new Date();
   const currentDayOfTheWeek = currentDate.getDay();
@@ -87,6 +100,7 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
           {feedback && feedback.Emoji && (
             <EmojiFeedback emojis={feedback.Emoji} />
           )}
+          {/*       ERRLOG: sub is an undefined object currently, app cannot read  properties of undefined object */}
           <img src={sub.AvatarURL} alt="text" />
           <span className="name">{sub.Name}</span>
         </div>

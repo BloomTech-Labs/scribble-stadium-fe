@@ -72,12 +72,14 @@ const ModerationTools = props => {
   };
 
   // Moderator can begin the faceoff stage
+  // ERRLOG: no data in response
   const faceoff = () => {
     setFaceoffs().then(res => {
       console.log(res);
     });
   };
 
+  //ERRLOG: no data in response
   const voteSeq = () => {
     setVoteSeq().then(res => {
       console.log(res);
