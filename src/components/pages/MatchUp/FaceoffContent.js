@@ -15,10 +15,6 @@ const FaceoffContent = props => {
     // eslint-disable-next-line
   }, []);
 
-  // ERRLOG: content returning null
-  console.log('faceoff content content.submission1', content);
-  console.log('faceoff content props', props);
-
   return (
     <div className="faceoff">
       {content && (
@@ -59,19 +55,9 @@ const FaceoffContent = props => {
 //      - ACTION TAKEN: replacing all "submission1" with "submissionID1" did not work
 
 const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
-  console.log('What is Sub ? -------------------', sub);
-  console.log('What is type ? -------------------', type);
-  console.log('What is feedback ? -------------------', feedback);
-  console.log(
-    'Look at props again now that we did stuff -------------------',
-    props
-  );
-
   const [modalContent, setModalContent] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [locked, setLocked] = useState(true);
-
-  console.log('faceoff content sub props', props);
 
   const currentDate = props.custom_date ? props.custom_date : new Date();
   const currentDayOfTheWeek = currentDate.getDay();
@@ -93,7 +79,6 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log('props -------------------', props);
 
   return (
     <>
