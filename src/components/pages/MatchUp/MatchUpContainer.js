@@ -14,7 +14,6 @@ import {
 
 function MatchUpContainer({ LoadingComponent, ...props }) {
   //ERRLOG: child id is not being passed into the params properly, cannot find child with ID of null
-  console.log('matchup component container props', props);
 
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
