@@ -10,7 +10,6 @@ const Leaderboard = () => {
   useEffect(() => {
     //Getting data from backend for leaderboard
     getLeaderboard(authState).then(res => {
-      console.log('res from getLeaderBoard', res);
       setDataInfo(res);
     });
   }, [authState]);
