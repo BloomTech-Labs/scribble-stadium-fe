@@ -17,7 +17,7 @@ const RenderVotingPage = props => {
               <img
                 className="WritingandDrawingIcon"
                 // ERRLOG: submission1 instead of submissionID1(??)
-                src={props.votes.SubmissionID1.ImgURL}
+                src={props.votes.Submission1.ImgURL}
                 alt="writing submission"
               />
               <EmojiPicker getChildState={setSubEmojis1} />
@@ -29,7 +29,7 @@ const RenderVotingPage = props => {
               <img
                 className="WritingandDrawingIcon"
                 // ERRLOG: submission2 instead of submissionID2(??)
-                src={props.votes.SubmissionID2.ImgURL}
+                src={props.votes.Submission2.ImgURL}
                 alt="writing submission"
               />
             </div>
