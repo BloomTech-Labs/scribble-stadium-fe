@@ -30,9 +30,6 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
 
   useEffect(() => {
     // // ERRLOG: props.child.memberId is null in props.child object
-    // console.log("id choice", idChoice)
-    // console.log("props.chils.memberId", props.child.memberId)
-
     getChild(authState, props.child.memberId).then(child => {
       props.setChild({ ...child });
     });
@@ -74,6 +71,9 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
       );
 
       console.log('props.child in matchup container', props.child);
+      if (!props.child.Ballots) {
+        return;
+      }
       // ERRLOG: no length returning
       if (
         props.child.Ballots.length > 0 &&
