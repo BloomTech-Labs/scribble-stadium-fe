@@ -42,7 +42,7 @@ export const setClusters = () => {
 
 export const setFaceoffs = () => {
   try {
-    return apiAuthPut('/mod/faceoffs/squads').then(res => {
+    return apiAuthPut('/mod/faceoffs/').then(res => {
       return res;
     });
   } catch (err) {
