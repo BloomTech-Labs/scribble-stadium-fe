@@ -367,7 +367,7 @@ const getFaceoffsForMatchup = async (authState, squadId, childId = null) => {
 const getFaceoffsForVoting = async (authState, squadId) => {
   try {
     return apiAuthGet(
-      `/game/faceoffs?squadId=${squadId}`,
+      `/game/faceoffs/squads/?squadId=${squadId}`,
       getAuthHeader(authState)
     ).then(response => {
       return response.data;
