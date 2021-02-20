@@ -91,7 +91,7 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
           {feedback && feedback.Emoji && (
             <EmojiFeedback emojis={feedback.Emoji} />
           )}
-          <img src={sub.AvatarUrl} alt="text" />
+          <img src={sub.AvatarURL} alt="text" />
           <span className="name">{sub.Name}</span>
         </div>
         <div className="submission-preview">
