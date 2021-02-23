@@ -6,23 +6,26 @@ import { SubmissionViewerModal, EmojiFeedback } from '../../common';
 const lock = 'https://labs28-b-storysquad.s3.amazonaws.com/lock.svg';
 
 const FaceoffContent = props => {
-  const [content, setContent] = useState(null);
+  // const [content, setContent] = useState(null);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setContent(props.content);
-    }, 1000);
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   console.log('props.content in FaceoffContent', props.content);
+
+  //   setContent(props.content);
+
+  //   // setTimeout(() => {
+  //   // }, 1000);
+  //   // eslint-disable-next-line
+  // }, [props.content]);
 
   return (
     <div className="faceoff">
-      {content && (
+      {props.content && (
         <FaceoffSubDisplay
           custom_date={props.custom_date}
-          sub={content.SubmissionID1}
-          type={content.Type}
-          feedback={content.Emojis1}
+          sub={props.content.Submission1}
+          type={props.content.Type}
+          feedback={props.content.Emojis1}
           votesNeededToUnlock={props.votesNeededToUnlock}
           votesRemaining={props.votesRemaining}
           dayNeededToUnlock={props.dayNeededToUnlock}
@@ -30,19 +33,19 @@ const FaceoffContent = props => {
         />
       )}
       <img src={matchup_bolt} alt="lightning bolt" />
-      {content && (
+      {props.content && (
         <FaceoffSubDisplay
           custom_date={props.custom_date}
-          sub={content.SubmissionID2}
-          type={content.Type}
-          feedback={content.Emojis2}
+          sub={props.content.Submission2}
+          type={props.content.Type}
+          feedback={props.content.Emojis2}
           votesNeededToUnlock={props.votesNeededToUnlock}
           votesRemaining={props.votesRemaining}
           dayNeededToUnlock={props.dayNeededToUnlock}
           hourNeededToUnlock={props.hourNeededToUnlock}
         />
       )}
-      {content && <div className="points">{content.Points}</div>}
+      {props.content && <div className="points">{props.content.Points}</div>}
     </div>
   );
 };
