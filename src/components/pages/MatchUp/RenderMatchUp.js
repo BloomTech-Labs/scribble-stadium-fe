@@ -16,11 +16,14 @@ const RenderMatchUp = props => {
     if (!props.canVote) {
       setModalVisible(false);
     }
+    console.log('props.faceoffs in RenderMatchUp', props.faceoffs);
+    console.log('props in RenderMatchUp', props);
+
     setFaceoffs(props.faceoffs);
   }, [props]);
   const handleVote = e => {
     e.preventDefault();
-    push('/child/squad-vote');
+    push('/child/match-up/squad-vote');
   };
   const back2Dash = e => {
     e.preventDefault();
