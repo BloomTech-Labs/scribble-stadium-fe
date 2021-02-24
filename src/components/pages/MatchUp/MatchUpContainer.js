@@ -28,17 +28,15 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
     });
 
     if (props.child.Ballots) {
-      if (
-        props.child.Ballots.length > 0 &&
-        props.child.VotesRemaining > 0 &&
-        props.votes.length === 0
-      ) {
+      if (props.child.Ballots.length > 0 && props.child.VotesRemaining > 0) {
         for (let ballot of props.child.Ballots) {
           getFaceoffsForVoting(authState, ballot[1]).then(faceoffs => {
             setUpdateFaceoffs(faceoffs);
-            for (let faceoff of faceoffs) {
-              if (faceoff.ID === ballot[0]) {
-                props.setVotes(faceoff);
+            if (props.votes.length === 0) {
+              for (let faceoff of faceoffs) {
+                if (faceoff.ID === ballot[0]) {
+                  props.setVotes(faceoff);
+                }
               }
             }
           });
@@ -77,8 +75,6 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
     getChildSquad(authState, props.child.id).then(squad => {
       getFaceoffsForMatchup(authState, squad.ID, props.child.id).then(
         allFaceoffs => {
-          console.log('allFaceoffs', allFaceoffs);
-
           props.setMemberId(squad);
           props.setSquadFaceoffs(allFaceoffs);
         }
