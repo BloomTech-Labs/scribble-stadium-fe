@@ -16,9 +16,6 @@ const RenderMatchUp = props => {
     if (!props.canVote) {
       setModalVisible(false);
     }
-    console.log('props.faceoffs in RenderMatchUp', props.faceoffs);
-    console.log('props in RenderMatchUp', props);
-
     setFaceoffs(props.faceoffs);
   }, [props]);
   const handleVote = e => {
