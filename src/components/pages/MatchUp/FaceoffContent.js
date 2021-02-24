@@ -6,18 +6,6 @@ import { SubmissionViewerModal, EmojiFeedback } from '../../common';
 const lock = 'https://labs28-b-storysquad.s3.amazonaws.com/lock.svg';
 
 const FaceoffContent = props => {
-  // const [content, setContent] = useState(null);
-
-  // useEffect(() => {
-  //   console.log('props.content in FaceoffContent', props.content);
-
-  //   setContent(props.content);
-
-  //   // setTimeout(() => {
-  //   // }, 1000);
-  //   // eslint-disable-next-line
-  // }, [props.content]);
-
   return (
     <div className="faceoff">
       {props.content && (
