@@ -1,5 +1,3 @@
-// note: we need to figure out how to bring in the CSS from code sandbox:
-
 import React, { useRef } from 'react';
 import { animated, useChain } from 'react-spring';
 import useCountdown from './AnimationComponents/useCountdown';
