@@ -20,10 +20,10 @@ const FaceoffReveal = () => {
   let screenWidth = window.screen.width;
 
   // instantiating dynamic variables for display
-  let topAvatarHeight = 50;
-  let crashAvatarHeight = 120;
-  let crashImageSize = 210;
-  let winnerImageSize = 180;
+  let topAvatarHeight = 0;
+  let crashAvatarHeight = 0;
+  let crashImageSize = 0;
+  let winnerImageSize = 0;
   let matchupType = 'Story';
   let userAvatar = '';
   let opponentAvatar = '';
@@ -36,22 +36,23 @@ const FaceoffReveal = () => {
   //      1. conifer -- #4a5a41
 
   //  determine dynamic variables
-  // {
-  //   screenWidth <= 600
-  //     ? ((topAvatarHeight = 30),
-  //       (crashAvatarHeight = 50),
-  //       (crashImageSize = 110),
-  //       (winnerImageSize = 110))
-  //     : screenWidth <= 991
-  //     ? ((topAvatarHeight = 40),
-  //       (crashAvatarHeight = 117),
-  //       (crashImageSize = 180),
-  //       (winnerImageSize = 150))
-  //     : ((topAvatarHeight = 50),
-  //       (crashAvatarHeight = 120),
-  //       (crashImageSize = 210),
-  //       (winnerImageSize = 180));
-  // }
+
+  if (screenWidth < 601) {
+    topAvatarHeight = 30;
+    crashAvatarHeight = 50;
+    crashImageSize = 110;
+    winnerImageSize = 110;
+  } else if (screenWidth < 992) {
+    topAvatarHeight = 40;
+    crashAvatarHeight = 117;
+    crashImageSize = 180;
+    winnerImageSize = 150;
+  } else {
+    topAvatarHeight = 50;
+    crashAvatarHeight = 120;
+    crashImageSize = 210;
+    winnerImageSize = 180;
+  }
 
   // matchup type = {object.matchup type}
   // avatar1 = {object.avatar1}

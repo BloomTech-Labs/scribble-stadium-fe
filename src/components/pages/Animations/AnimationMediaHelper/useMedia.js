@@ -11,9 +11,9 @@ const useMedia = query => {
     }
 
     const listener = () => setMatches(media.matches);
-    media.addListener(listener);
+    media.addEventListener(Animation, listener);
 
-    return () => media.removeListener(listener);
+    return () => media.removeEventListener(listener);
   }, [query]);
 
   // publish value for render
