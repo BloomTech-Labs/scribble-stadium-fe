@@ -10,7 +10,7 @@ import useEnlargeCenterToTopLeft from './AnimationComponents/useEnlargeCenterToT
 import useEnlargeCenterToTopRight from './AnimationComponents/useEnlargeCenterToTopRight';
 import useEnlargeCenter from './AnimationComponents/useEnlargeCenter';
 import useUpFromBottom from './AnimationComponents/useUpFromBottom';
-import useEnlargeVS from './AnimationComponents/useEnlargeVS';
+import useEnlargeVs from './AnimationComponents/useEnlargeVs';
 import useNameWinner from './AnimationComponents/useNameWinner';
 import useDivAppear from './AnimationComponents/useDivAppear';
 import useCounter from './AnimationComponents/useCounter';
@@ -102,7 +102,7 @@ const FaceoffReveal = () => {
   // ENLARGE TO TOP LEFT HOOKS
   const enlargeMoveLeftStyle = useEnlargeCenterToTopLeft(leftTeamRef);
   // ENLARGE TO TOP CENTER HOOKS
-  const enlargeVSStyle = useEnlargeVS(VSRef);
+  const enlargeVSStyle = useEnlargeVs(VSRef);
   // ENLARGE TO TOP RIGHT HOOKS
   const enlargeMoveRightStyle = useEnlargeCenterToTopRight(rightTeamRef);
   //ENLARGE CENTER HOOKS

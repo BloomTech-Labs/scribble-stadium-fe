@@ -1,5 +1,5 @@
 import { useSpring } from 'react-spring';
-import useMedia from '../mediaHelper/useMedia.js';
+import useMedia from '../AnimationMediaHelper/useMedia.js';
 
 const useEnlargeCenterToTopRight = ref => {
   const phoneScreen = useMedia('(max-width:600px)');
