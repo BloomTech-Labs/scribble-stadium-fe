@@ -59,7 +59,7 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
   useEffect(() => {
     if (
       props.votesNeededToUnlock &&
-      props.votesRemaining >= props.votesNeededToUnlock &&
+      props.votesNeededToUnlock >= props.votesRemaining &&
       currentDayOfTheWeek >= props.dayNeededToUnlock &&
       currentHour >= props.hourNeededToUnlock
     ) {
