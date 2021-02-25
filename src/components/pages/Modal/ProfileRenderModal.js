@@ -10,8 +10,7 @@ import { getProfileData } from '../../../api';
 import { Modal, Button, Form, Input } from 'antd';
 import Header from '../../common/Header';
 
-const titleText =
-  'So we can direct you to the right place, please let us know who you are.';
+const titleText = 'Please select your name';
 
 const ProfileRenderModal = props => {
   const { authState } = useOktaAuth();
