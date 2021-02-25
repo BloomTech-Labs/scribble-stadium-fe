@@ -10,7 +10,6 @@ const LandingPage = () => {
       <Header displayMenu={false} />
       <Row id="head-row">
         <Col span={16}>
-          <FaceoffReveal />
           <p>
             Story Squad is a game where imagination comes to play. It’s where
             generating ideas scores big.

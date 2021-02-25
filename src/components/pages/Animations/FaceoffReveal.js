@@ -1,5 +1,5 @@
 // note: we need to figure out how to bring in the CSS from code sandbox:
-//import "./styles.css";
+
 import React, { useRef } from 'react';
 import { animated, useChain } from 'react-spring';
 import useCountdown from './AnimationComponents/useCountdown';
@@ -17,13 +17,13 @@ import useCounter from './AnimationComponents/useCounter';
 
 const FaceoffReveal = () => {
   // determine screen size to adjust image height
-  const screenWidth = window.screen.width;
+  let screenWidth = window.screen.width;
 
   // instantiating dynamic variables for display
-  let topAvatarHeight = 0;
-  let crashAvatarHeight = 0;
-  let crashImageSize = 0;
-  let winnerImageSize = 0;
+  let topAvatarHeight = 50;
+  let crashAvatarHeight = 120;
+  let crashImageSize = 210;
+  let winnerImageSize = 180;
   let matchupType = 'Story';
   let userAvatar = '';
   let opponentAvatar = '';
@@ -35,23 +35,24 @@ const FaceoffReveal = () => {
   //      2. burnt-sienna -- #e97451
   //      1. conifer -- #4a5a41
 
-  // determine dynamic variables
-  //   {
-  //     screenWidth <= 600
-  //       ? ((topAvatarHeight = 30),
-  //         (crashAvatarHeight = 50),
-  //         (crashImageSize = 110),
-  //         (winnerImageSize = 110))
-  //       : screenWidth <= 991
-  //       ? ((topAvatarHeight = 40),
-  //         (crashAvatarHeight = 117),
-  //         (crashImageSize = 180),
-  //         (winnerImageSize = 150))
-  //       : ((topAvatarHeight = 50),
-  //         (crashAvatarHeight = 120),
-  //         (crashImageSize = 210),
-  //         (winnerImageSize = 180));
-  //   }
+  //  determine dynamic variables
+  // {
+  //   screenWidth <= 600
+  //     ? ((topAvatarHeight = 30),
+  //       (crashAvatarHeight = 50),
+  //       (crashImageSize = 110),
+  //       (winnerImageSize = 110))
+  //     : screenWidth <= 991
+  //     ? ((topAvatarHeight = 40),
+  //       (crashAvatarHeight = 117),
+  //       (crashImageSize = 180),
+  //       (winnerImageSize = 150))
+  //     : ((topAvatarHeight = 50),
+  //       (crashAvatarHeight = 120),
+  //       (crashImageSize = 210),
+  //       (winnerImageSize = 180));
+  // }
+
   // matchup type = {object.matchup type}
   // avatar1 = {object.avatar1}
   // avatar2 = {object.avatar2}
@@ -163,6 +164,7 @@ const FaceoffReveal = () => {
           src="https://freesvg.org/img/1339607732.png"
           height={crashAvatarHeight}
         />
+
         <animated.img
           className="crash-location"
           style={useRightDrawbackCrashStyle}
@@ -173,7 +175,7 @@ const FaceoffReveal = () => {
         <animated.img
           className="crash-location"
           style={enlargeCenterStyle}
-          src="https://freesvg.org/img/crash.png"
+          src="https://freesvg.org/img/1339607732.png"
           height={crashImageSize}
         />
         {/* winner's image: */}
@@ -192,15 +194,19 @@ const FaceoffReveal = () => {
         height={topAvatarHeight}
       />
       <animated.h1 style={enlargeVSStyle}>VS</animated.h1>
+
       <animated.img
         style={enlargeMoveRightStyle}
         src="https://freesvg.org/img/1339607732.png"
         height={topAvatarHeight}
       />
+
       {/* winner's name and points won: */}
       <div className="bottom-fixed">
         <div className="bot-of-bottom-fixed">
-          <animated.h1 style={nameWinnerStyle}>Brian Kubes</animated.h1>
+          <animated.h1 className="winner-headline" style={nameWinnerStyle}>
+            Brian Kubes
+          </animated.h1>
         </div>
         <animated.div className="top-of-bottom-fixed">
           <animated.h1 style={divAppearStyle1}>
