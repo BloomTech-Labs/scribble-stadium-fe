@@ -34,20 +34,20 @@ const FaceoffReveal = props => {
   let crashImageSize = 0;
   let winnerImageSize = 0;
   let vsHeight = 0;
-  let matchupType = 'Story';
+  let matchupType = dynamicInfo.Type;
   let userAvatar = dynamicInfo.Submission1.AvatarURL;
   let opponentAvatar = dynamicInfo.Submission2.AvatarURL;
+  // winnerUserName will be determined by "dynamicInfo.Winner"
   let winnerUserName = 'CAT-LADY';
-  let pointsAwarded = 60;
+  let pointsAwarded = dynamicInfo.Points;
   let dynamicBackgroundColor = '#438eac';
   //    hex codes:
   //      4. boston-blue -- #438eac
   //      3. bright-sun -- #ffde3b
   //      2. burnt-sienna -- #e97451
   //      1. conifer -- #4a5a41
-
-  //  determine dynamic variables
-
+  console.log('matchup type', matchupType);
+  //  determine dynamic sizing
   if (screenWidth < 601) {
     topAvatarHeight = 30;
     crashAvatarHeight = 50;
@@ -162,7 +162,6 @@ const FaceoffReveal = props => {
   ]);
 
   const goBacktoMatchup = event => {
-    setToggle(false);
     history.push('/child/match-up');
   };
 
