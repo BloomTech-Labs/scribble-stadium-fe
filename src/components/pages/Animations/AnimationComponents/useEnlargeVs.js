@@ -6,12 +6,12 @@ const useEnlargeVs = ref => {
     from: {
       position: 'absolute',
       opacity: 0,
-      transform: 'translate3d(0%, -10%, 0px) scale(2)',
+      transform: 'translate3d(0%, -5%, 0px) scale(7)',
     },
     to: [
       {
         opacity: 1,
-        transform: 'translate3d(0%, 250%, 0px) scale(1)',
+        transform: 'translate3d(0%, 320%, 0px) scale(3)',
       },
     ],
     ref: ref,

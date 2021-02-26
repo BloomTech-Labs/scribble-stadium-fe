@@ -20,7 +20,7 @@ const useCountdown = (ref, num) => {
       },
     ],
     config: {
-      duration: 1000,
+      duration: 800,
     },
     ref: ref,
   });

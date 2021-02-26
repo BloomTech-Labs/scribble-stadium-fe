@@ -22,6 +22,7 @@ const FaceoffReveal = () => {
   let crashAvatarHeight = 0;
   let crashImageSize = 0;
   let winnerImageSize = 0;
+  let vsHeight = 0;
   let matchupType = 'Story';
   let userAvatar = '';
   let opponentAvatar = '';
@@ -40,16 +41,19 @@ const FaceoffReveal = () => {
     crashAvatarHeight = 50;
     crashImageSize = 110;
     winnerImageSize = 110;
+    vsHeight = 30;
   } else if (screenWidth < 992) {
     topAvatarHeight = 40;
     crashAvatarHeight = 117;
     crashImageSize = 180;
     winnerImageSize = 150;
+    vsHeight = 40;
   } else {
     topAvatarHeight = 50;
     crashAvatarHeight = 120;
     crashImageSize = 210;
     winnerImageSize = 180;
+    vsHeight = 80;
   }
 
   // matchup type = {object.matchup type}
@@ -129,9 +133,15 @@ const FaceoffReveal = () => {
     leftDrawbackCrashRef,
   ]);
   useChain([
-    // this has a timer to delay start until leftDrawbackCrashRef starts
+    // first item has a delay start until leftDrawbackCrashRef starts
     rightDrawbackCrashRef,
+  ]);
+  useChain([
+    // first item has a delay start
     centerEnlargeRef,
+  ]);
+  useChain([
+    // first item has a delay start
     upFromBottomRef,
     nameWinnerRef,
     plusAppearRef,
@@ -160,43 +170,50 @@ const FaceoffReveal = () => {
         <animated.img
           className="crash-location"
           style={useLeftDrawbackCrashStyle}
-          src="https://freesvg.org/img/1339607732.png"
+          src="/animation/avatar1.png"
           height={crashAvatarHeight}
         />
 
         <animated.img
           className="crash-location"
           style={useRightDrawbackCrashStyle}
-          src="https://freesvg.org/img/1339607732.png"
+          src="/animation/avatar2.png"
           height={crashAvatarHeight}
         />
         {/* crash image: */}
         <animated.img
           className="crash-location"
           style={enlargeCenterStyle}
-          src="https://freesvg.org/img/1339607732.png"
+          src="/animation/crash.png"
           height={crashImageSize}
         />
         {/* winner's image: */}
         <animated.img
           className="crash-location"
-          src="https://freesvg.org/img/1339607732.png"
+          src="/animation/avatar1.png"
           alt="me"
           height={winnerImageSize}
           style={upFromBottomStyle}
+        />
+        {/* lightning bolt VS */}
+        <animated.img
+          className="vs"
+          style={enlargeVSStyle}
+          src="/animation/VS.png"
+          height={vsHeight}
         />
       </div>
       {/* intial avatar images to display at top: */}
       <animated.img
         style={enlargeMoveLeftStyle}
-        src="https://freesvg.org/img/1339607732.png"
+        // src="https://freesvg.org/img/1339607732.png"
+        src="/animation/avatar1.png"
         height={topAvatarHeight}
       />
-      <animated.h1 style={enlargeVSStyle}>VS</animated.h1>
 
       <animated.img
         style={enlargeMoveRightStyle}
-        src="https://freesvg.org/img/1339607732.png"
+        src="/animation/avatar2.png"
         height={topAvatarHeight}
       />
 
@@ -204,7 +221,7 @@ const FaceoffReveal = () => {
       <div className="bottom-fixed">
         <div className="bot-of-bottom-fixed">
           <animated.h1 className="winner-headline" style={nameWinnerStyle}>
-            Brian Kubes
+            Catlady
           </animated.h1>
         </div>
         <animated.div className="top-of-bottom-fixed">
