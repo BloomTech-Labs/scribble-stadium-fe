@@ -20,7 +20,7 @@ const RenderMatchUp = props => {
   }, [props]);
   const handleVote = e => {
     e.preventDefault();
-    push('/child/squad-vote');
+    push('/child/match-up/squad-vote');
   };
   const back2Dash = e => {
     e.preventDefault();
