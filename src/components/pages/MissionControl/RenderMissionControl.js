@@ -49,21 +49,21 @@ const RenderMissionControl = props => {
     return `checked=${e.target.checked}`;
   }
 
-  // redirects the user to the pdf of the story
+  // directs user to go in order; Read/Draw/Write
   const handleReadStory = e => {
     e.stopPropagation();
     push('/child/story');
-  };
-  const handleWrite = e => {
-    e.stopPropagation();
-    if (!hasWritten && hasRead) {
-      push('/child/writing-sub');
-    }
   };
   const handleDraw = e => {
     e.stopPropagation();
     if (!hasDrawn && hasRead) {
       push('/child/drawing-sub');
+    }
+  };
+  const handleWrite = e => {
+    e.stopPropagation();
+    if (!hasWritten && hasRead && hasDrawn) {
+      push('/child/writing-sub');
     }
   };
 
@@ -98,7 +98,26 @@ const RenderMissionControl = props => {
             </Col>
           </Col>
           <Col className="write-and-draw" xs={24} sm={12}>
-            <Row className="write" onClick={handleWrite}>
+            <Row className={hasRead ? 'draw' : 'draw-not'} onClick={handleDraw}>
+              <Checkbox
+                className="checking-box"
+                defaultChecked={false}
+                onChange={handleChecked}
+                isCompleted={hasDrawn}
+              />
+              <Col className="image-and-text-container">
+                <img
+                  className="WritingandDrawingIcon"
+                  src={draw_icon}
+                  alt="drawing icon"
+                />
+                <p className="mission-control-text">Draw</p>
+              </Col>
+            </Row>
+            <Row
+              className={hasDrawn ? 'write' : 'write-not'}
+              onClick={handleWrite}
+            >
               <Checkbox
                 className="checking-box"
                 defaultChecked={false}
@@ -113,22 +132,6 @@ const RenderMissionControl = props => {
                   alt="writing icon"
                 />
                 <p className="mission-control-text">Write</p>
-              </Col>
-            </Row>
-            <Row className="draw" onClick={handleDraw}>
-              <Checkbox
-                className="checking-box"
-                defaultChecked={false}
-                onChange={handleChecked}
-                isCompleted={hasDrawn}
-              />
-              <Col className="image-and-text-container">
-                <img
-                  className="WritingandDrawingIcon"
-                  src={draw_icon}
-                  alt="drawing icon"
-                />
-                <p className="mission-control-text">Draw</p>
               </Col>
             </Row>
           </Col>
