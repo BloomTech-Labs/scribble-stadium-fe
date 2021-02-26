@@ -13,7 +13,7 @@ const useMedia = query => {
     const listener = () => setMatches(media.matches);
     media.addEventListener(Animation, listener);
 
-    return () => media.removeEventListener(listener);
+    return () => media.removeEventListener(Animation, listener);
   }, [query]);
 
   // publish value for render

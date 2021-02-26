@@ -37,15 +37,16 @@
 
 .read {
   background: #b5d33d;
+  opacity: 75%;
   cursor: pointer;
   position: relative;
 }
 
-.read:hover {
-  background: lighten(@conifer, 10%);
+.read:hover { 
+  opacity: 100%;
 
   .mission-control-text {
-    font-size: 4.5rem;
+    font-size: 6.5rem;
   }
 }
 
@@ -79,14 +80,55 @@
   color: #292929;
 }
 
+.draw {
+  background: #fed23f;
+  opacity: 75%;
+  height: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.draw-not {
+  background: @suva-grey;
+  height: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.draw,
+.draw-not,
+.mission-control-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.draw:hover {
+  opacity: 100%;
+
+  .mission-control-text {
+    font-size: 6.5rem;
+  }
+}
+
 .write {
   background: #eb7d5b;
+  opacity: 75%;
+  height: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.write-not {
+  background: @suva-grey;
   height: 50%;
   position: relative;
   cursor: pointer;
 }
 
 .write,
+.write-not,
 .mission-control-text {
   display: flex;
   justify-content: center;
@@ -95,10 +137,10 @@
 }
 
 .write:hover {
-  background: lighten(@burnt-sienna, 10%);
+  opacity: 100%;
 
   .mission-control-text {
-    font-size: 4.5rem;
+    font-size: 6.5rem;
   }
 }
 
@@ -108,29 +150,6 @@
     max-height: 60%;
     margin-right: 7%;
     margin-top: 5%;
-  }
-}
-
-.draw {
-  background: #fed23f;
-  height: 50%;
-  position: relative;
-  cursor: pointer;
-}
-
-.draw,
-.mission-control-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.draw:hover {
-  background: lighten(@bright-sun, 10%);
-
-  .mission-control-text {
-    font-size: 4.5rem;
   }
 }
 

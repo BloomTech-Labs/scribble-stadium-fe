@@ -48,8 +48,8 @@ h1 {
   position: fixed;
   width: 80%;
   height: 18%;
-  bottom: 2%;
-  border: 2px solid green;
+  bottom: 3%;
+  // border: 2px solid green;
 }
 
 /* this is nested in 'bottom-fixed */
@@ -58,7 +58,7 @@ h1 {
   justify-content: center;
   position: relative;
   top: 0%;
-  border: 2px solid red;
+  // border: 2px solid red;
 }
 
 /* this is nested in 'bottom-fixed */
@@ -67,21 +67,26 @@ h1 {
   height: auto;
   position: absolute;
   bottom: 0%;
-  border: 2px solid orange;
+  // border: 2px solid orange;
 }
 
 .winner-headline {
-  margin: auto;
-  padding: auto;
+  font-size: 2rem;
 }
 
 @media only screen and (min-width: 601px) {
   h1 {
     font-size: 2rem;
   }
+  .winner-headline {
+    font-size: 3rem;
+  }
 }
 @media only screen and (min-width: 992px) {
   h1 {
     font-size: 3rem;
+  }
+  .winner-headline {
+    font-size: 4rem;
   }
 }
