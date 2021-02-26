@@ -42,6 +42,7 @@ import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 import { TrophyRoom } from './components/pages/TrophyRoom';
+import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
 // Gameification Components
 import { JoinTheSquad } from './components/pages/JoinTheSquad';
@@ -82,6 +83,7 @@ function App() {
   return (
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
+        <Route path="/scoreboard" component={FaceoffReveal} />
         <Route path="/login" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
