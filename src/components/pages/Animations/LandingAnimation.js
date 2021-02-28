@@ -120,7 +120,10 @@ const LandingAnimation = () => {
   ]);
 
   return (
-    <div className="App" style={{ backgroundColor: dynamicBackgroundColor }}>
+    <div
+      className="App"
+      style={{ backgroundColor: dynamicBackgroundColor, height: '100vh' }}
+    >
       <div className="fixed-box">
         {/* type of matchup (drawing/story) */}
         <animated.h1 style={welcomeBannerOnTopStyle}>
