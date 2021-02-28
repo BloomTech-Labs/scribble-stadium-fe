@@ -11,7 +11,11 @@ const useLightningBolt = ref => {
     to: [
       {
         opacity: 1,
-        transform: 'translate3d(0%, 500%, 0px) scale(1)',
+        transform: 'translate3d(0%, 20%, 0px) scale(1)',
+      },
+      {
+        opacity: 0,
+        transform: 'translate3d(0%, 20%, 0px) scale(1)',
       },
     ],
     ref: ref,

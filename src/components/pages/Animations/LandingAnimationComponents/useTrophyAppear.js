@@ -10,25 +10,25 @@ const useTrophyAppear = ref => {
     config: { mass: 10, tension: 480, friction: 100 },
     from: {
       opacity: 0,
-      transform: 'translate3d(0%, 1200%, 0px) scale(1)',
+      transform: 'translate3d(0%, 200%, 0px) scale(1)',
       position: 'absolute',
     },
     to: [
       {
         opacity: 1,
         transform: phoneScreen
-          ? 'translate3d(0%, 1200%, 0px) scale(2)'
+          ? 'translate3d(0%, 200%, 0px) scale(2)'
           : tabletScreen
-          ? 'translate3d(0%, 1200%, 0px) scale(3)'
-          : 'translate3d(0%, 1200%, 0px) scale(4)',
+          ? 'translate3d(0%, 200%, 0px) scale(3)'
+          : 'translate3d(0%, 200%, 0px) scale(4)',
       },
       {
         opacity: 1,
         transform: phoneScreen
-          ? 'translate3d(0%, 500%, 0px) scale(1)'
+          ? 'translate3d(0%, 60%, 0px) scale(1)'
           : tabletScreen
-          ? 'translate3d(0%, 600%, 0px) scale(2)'
-          : 'translate3d(0%, 600%, 0px) scale(2.5)',
+          ? 'translate3d(0%, 70%, 0px) scale(2)'
+          : 'translate3d(0%, 70%, 0px) scale(2.5)',
       },
     ],
     ref: ref,

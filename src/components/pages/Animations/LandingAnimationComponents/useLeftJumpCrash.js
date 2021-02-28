@@ -17,7 +17,7 @@ const useLeftJumpCrash = ref => {
       // },
       {
         opacity: 1,
-        transform: 'translate3d(0%, 0%, 0px) scale(2) rotate(90deg)',
+        transform: 'translate3d(0%, 150%, 0px) scale(2) rotate(90deg)',
       },
     ],
     ref: ref,

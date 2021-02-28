@@ -2,7 +2,7 @@ import { useSpring } from 'react-spring';
 
 const useRightJumpCrash = ref => {
   const spring = useSpring({
-    delay: 14500,
+    delay: 16000,
 
     from: {
       opacity: 0,
@@ -20,7 +20,7 @@ const useRightJumpCrash = ref => {
       // },
       {
         opacity: 1,
-        transform: 'translate3d(0%, 0%, 0px) scale(2) rotate(270deg)',
+        transform: 'translate3d(0%, 150%, 0px) scale(2) rotate(270deg)',
       },
     ],
 

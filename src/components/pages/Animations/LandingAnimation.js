@@ -149,13 +149,13 @@ const LandingAnimation = () => {
         <animated.img
           style={lightningStrikeStyle}
           src="/animation/plainLightningBolt.svg"
-          height={topAvatarHeight}
+          height="400"
         />
         {/* trophy appear */}
         <animated.img
           style={trophyAppearStyle}
           src="/animation/trophyCup.svg"
-          height={topAvatarHeight}
+          height="300"
         />
         {/* avatars jump at trophy: */}
         <animated.img
@@ -182,7 +182,7 @@ const LandingAnimation = () => {
           className="crash-location"
           src="/animation/championWithTrophy.svg"
           alt="me"
-          height={winnerImageSize}
+          height="350"
           style={upFromBottomStyle}
         />
       </div>

@@ -10,7 +10,7 @@ const useWinnerWithTrophy = ref => {
     },
     to: {
       opacity: 1,
-      transform: 'translate3d(0%, 0%, 0px) scale(1)',
+      transform: 'translate3d(0%, 40%, 0px) scale(1)',
     },
     ref: ref,
   });
