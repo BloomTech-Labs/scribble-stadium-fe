@@ -3,6 +3,7 @@ import { Row, Col } from 'antd';
 import { LoginContainer } from '../Login';
 import { Header } from '../../common';
 import FaceoffReveal from '../Animations/FaceoffReveal';
+import LandingAnimation from '../Animations/LandingAnimation';
 
 const LandingPage = () => {
   return (
@@ -10,6 +11,7 @@ const LandingPage = () => {
       <Header displayMenu={false} />
       <Row id="head-row">
         <Col span={16}>
+          <LandingAnimation />
           <p>
             Story Squad is a game where imagination comes to play. It’s where
             generating ideas scores big.
