@@ -20,7 +20,7 @@ const RenderMatchUp = props => {
   }, [props]);
   const handleVote = e => {
     e.preventDefault();
-    push('/child/squad-vote');
+    push('/child/match-up/squad-vote');
   };
   const back2Dash = e => {
     e.preventDefault();
@@ -61,7 +61,7 @@ const RenderMatchUp = props => {
                 custom_date={props.custom_date}
                 content={faceoffs[0]}
                 votesRemaining={props.votesRemaining}
-                votesNeededToUnlock={0}
+                votesNeededToUnlock={7}
                 dayNeededToUnlock={5}
                 hourNeededToUnlock={18}
               />
@@ -73,7 +73,7 @@ const RenderMatchUp = props => {
                 custom_date={props.custom_date}
                 content={faceoffs[1]}
                 votesRemaining={props.votesRemaining}
-                votesNeededToUnlock={0}
+                votesNeededToUnlock={7}
                 dayNeededToUnlock={4}
                 hourNeededToUnlock={6}
               />
@@ -87,7 +87,7 @@ const RenderMatchUp = props => {
                 custom_date={props.custom_date}
                 content={faceoffs[2]}
                 votesRemaining={props.votesRemaining}
-                votesNeededToUnlock={1}
+                votesNeededToUnlock={8}
                 dayNeededToUnlock={4}
                 hourNeededToUnlock={6}
               />
@@ -99,7 +99,7 @@ const RenderMatchUp = props => {
                 custom_date={props.custom_date}
                 content={faceoffs[3]}
                 votesRemaining={props.votesRemaining}
-                votesNeededToUnlock={2}
+                votesNeededToUnlock={9}
                 dayNeededToUnlock={4}
                 hourNeededToUnlock={6}
               />

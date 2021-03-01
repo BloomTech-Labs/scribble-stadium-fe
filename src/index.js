@@ -168,7 +168,7 @@ function App() {
           component={() => <MatchUp LoadingComponent={ChildLoadingComponent} />}
         />
         <SecureRoute
-          path="/child/squad-vote"
+          path="/child/match-up/squad-vote"
           exact
           component={() => (
             <VotingPage LoadingComponent={ChildLoadingComponent} />
