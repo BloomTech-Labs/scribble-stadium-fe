@@ -8,10 +8,12 @@ const useCrashEnlarge = ref => {
     },
     to: [
       {
+        config: { duration: 200 },
         opacity: 1,
         transform: 'translate3d(0%, 100%, 0px) scale(4)',
       },
       {
+        config: { duration: 200 },
         opacity: 1,
         transform: 'translate3d(0%, 100%, 0px) scale(3)',
       },

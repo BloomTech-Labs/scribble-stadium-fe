@@ -10,25 +10,27 @@ const useReadInLeft = ref => {
     config: { mass: 10, tension: 500, friction: 150 },
     from: {
       opacity: 0,
-      transform: 'translate3d(0%, 1200%, 0px) scale(1)',
+      transform: 'translate3d(-500%, 200%, 0px) scale(1)  rotate(355deg)',
       position: 'absolute',
     },
     to: [
       {
+        config: { duration: 200 },
         opacity: 1,
         transform: phoneScreen
-          ? 'translate3d(0%, 1200%, 0px) scale(2)'
+          ? 'translate3d(0%, 200%, 0px) scale(2)'
           : tabletScreen
-          ? 'translate3d(0%, 1200%, 0px) scale(3)'
-          : 'translate3d(0%, 1200%, 0px) scale(4)',
+          ? 'translate3d(-500%, 200%, 0px) scale(2)  rotate(0deg)'
+          : 'translate3d(-700%, 200%, 0px) scale(4)',
       },
       {
+        config: { duration: 200 },
         opacity: 1,
         transform: phoneScreen
           ? 'translate3d(-300%, 200%, 0px) scale(1)'
           : tabletScreen
-          ? 'translate3d(-500%, 300%, 0px) scale(2)'
-          : 'translate3d(-700%, 300%, 0px) scale(2.5)',
+          ? 'translate3d(-500%, 200%, 0px) scale(2)'
+          : 'translate3d(-700%, 200%, 0px) scale(2.5)',
       },
     ],
     ref: ref,

@@ -58,6 +58,12 @@ const LandingAnimation = () => {
 
   // creating references for animation
 
+  // "READ" text
+  const readTextRef = useRef();
+  // "WRITE" text
+  const writeTextRef = useRef();
+  // "DRAW" text
+  const drawTextRef = useRef();
   // ENLARGE "WELCOME TO STORY SQUAD" TO TOP REFS
   const storySquadBannerRef = useRef();
   // ENLARGE "READ" TO TOP LEFT REFS
@@ -82,7 +88,12 @@ const LandingAnimation = () => {
   // creating animation hooks
 
   // ENLARGE "WELCOME TO STORY SQUAD" TO TOP HOOKS
-  const welcomeBannerOnTopStyle = useWelcomeToStorySquad(storySquadBannerRef);
+  const welcomeBannerOnTopStyle1 = useWelcomeToStorySquad(readTextRef, 'READ!');
+  const welcomeBannerOnTopStyle2 = useWelcomeToStorySquad(
+    writeTextRef,
+    'WRITE!'
+  );
+  const welcomeBannerOnTopStyle3 = useWelcomeToStorySquad(drawTextRef, 'DRAW!');
   // ENLARGE "READ" TO TOP LEFT HOOKS
   const enlargeReadInLeftStyle = useReadInLeft(readInLeftRef);
   // ENLARGE "WRITE" TO TOP CENTER HOOKS
@@ -104,10 +115,16 @@ const LandingAnimation = () => {
 
   // bringing in useChain to connect the animations together
   useChain([
-    storySquadBannerRef, //"WELCOME TO STORY SQUAD"
+    // storySquadBannerRef, //"WELCOME TO STORY SQUAD"
     readInLeftRef, // "READ"
+    readTextRef,
+    // welcomeBannerOnTopStyle,
     writeInMiddleRef, // "WRITE"
+    writeTextRef,
+
     drawInRightRef, // "DRAW"
+    drawTextRef,
+
     lightningBoltStrikeRef, // LIGHTNING BOLT
     trophyAppearRef, // TROPHY APPEAR
     leftDrawbackCrashRef, // LEFT DRAWBACK
@@ -126,8 +143,14 @@ const LandingAnimation = () => {
     >
       <div className="fixed-box">
         {/* type of matchup (drawing/story) */}
-        <animated.h1 style={welcomeBannerOnTopStyle}>
-          Welcome to Story Squad!
+        <animated.h1 style={welcomeBannerOnTopStyle1}>
+          {welcomeBannerOnTopStyle1.text}
+        </animated.h1>
+        <animated.h1 style={welcomeBannerOnTopStyle2}>
+          {welcomeBannerOnTopStyle2.text}
+        </animated.h1>
+        <animated.h1 style={welcomeBannerOnTopStyle3}>
+          {welcomeBannerOnTopStyle3.text}
         </animated.h1>
         {/* Read, Write, Draw: */}
         <animated.img

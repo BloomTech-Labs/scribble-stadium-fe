@@ -6,14 +6,16 @@ const useLightningBolt = ref => {
     from: {
       position: 'absolute',
       opacity: 0,
-      transform: 'translate3d(0%, -10%, 0px) scale(2)',
+      transform: 'translate3d(0%, -10%, 0px) scale(1)',
     },
     to: [
       {
+        config: { duration: 400 },
         opacity: 1,
-        transform: 'translate3d(0%, 20%, 0px) scale(1)',
+        transform: 'translate3d(0%, 100%, 0px) scale(1)',
       },
       {
+        config: { duration: 200 },
         opacity: 0,
         transform: 'translate3d(0%, 20%, 0px) scale(1)',
       },

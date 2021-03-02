@@ -2,7 +2,7 @@ import { useSpring } from 'react-spring';
 
 const useWinnerWithTrophy = ref => {
   const spring = useSpring({
-    config: { mass: 80, tension: 1000, friction: 250 },
+    config: { mass: 80, tension: 1000, friction: 250, duration: 300 },
     from: {
       position: 'absolute',
       opacity: 0,
