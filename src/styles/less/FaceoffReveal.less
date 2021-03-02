@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  margin-top: 0;
+  box-sizing: border-box;
+  // border: 1px solid purple;
+}
+
+html,
+body {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.FaceoffReveal {
+  width: 100vw;
+  height: 100vh;
+  font-family: sans-serif;
+  text-align: center;
+  line-height: 1.4;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font-family: 'Bangers', cursive;
+  color: black;
+  // text-shadow: -4px 0 black, 4px 0 black, 4px 0 black, -4px 0 black;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+/* this box draws a border around the entire viewport */
+.fixed-box {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  // height: 100%;
+  // border: 1px solid orange;
+}
+
+.move-left-move-right {
+  z-index: 4;
+}
+
+/* this is nested in 'fixed-box' */
+.crash-location {
+  z-index: 3;
+  position: absolute;
+  top: 42%;
+  margin: 0;
+}
+
+.vs {
+  z-index: 2;
+  margin: 0;
+}
+
+/* fixed to bottom, contains winner name and points */
+.bottom-fixed {
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  width: 80%;
+  height: 18%;
+  // bottom: 3%;
+  margin-top: 90%;
+  padding: 0%;
+  // border: 2px solid green;
+}
+
+/* this is nested in 'bottom-fixed */
+.top-of-bottom-fixed {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 0%;
+  margin: 0%;
+  // border: 2px solid red;
+}
+
+/* this is nested in 'bottom-fixed */
+.bot-of-bottom-fixed {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 0%;
+  // border: 2px solid orange;
+}
+
+.winner-headline {
+  font-size: 3rem;
+}
+
+.resultsType {
+  z-index: 4;
+}
+
+.go-back-button {
+  z-index: 5;
+}
+
+@media only screen and (min-width: 601px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .winner-headline {
+    font-size: 3rem;
+  }
+  .bottom-fixed {
+    margin: 85%;
+  }
+}
+@media only screen and (min-width: 992px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .winner-headline {
+    font-size: 3rem;
+  }
+  .bottom-fixed {
+    margin-top: 50%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .fixed-box {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1380px) {
+  .bottom-fixed {
+    margin-top: 45%;
+  }
+}

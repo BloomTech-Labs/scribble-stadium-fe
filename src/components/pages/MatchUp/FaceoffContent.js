@@ -1,11 +1,24 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import matchup_bolt from '../../../assets/images/match_up_images/matchup_bolt.svg';
 
 import { SubmissionViewerModal, EmojiFeedback } from '../../common';
+import FaceoffReveal from '../Animations/FaceoffReveal';
 
 const lock = 'https://labs28-b-storysquad.s3.amazonaws.com/lock.svg';
 
 const FaceoffContent = props => {
+  const [toggle, setToggle] = useState(false);
+
+  const history = useHistory();
+
+  const revealWinner = event => {
+    setToggle(true);
+    history.push('/scoreboard', {
+      dynamicInfo: props.content,
+    });
+  };
+
   return (
     <div className="faceoff">
       {props.content && (
@@ -20,7 +33,7 @@ const FaceoffContent = props => {
           hourNeededToUnlock={props.hourNeededToUnlock}
         />
       )}
-      <img src={matchup_bolt} alt="lightning bolt" />
+      <img src={matchup_bolt} alt="lightning bolt" onClick={revealWinner} />
       {props.content && (
         <FaceoffSubDisplay
           custom_date={props.custom_date}
@@ -34,11 +47,17 @@ const FaceoffContent = props => {
         />
       )}
       {props.content && <div className="points">{props.content.Points}</div>}
+      {toggle ? (
+        <FaceoffReveal
+          animationDynamicContent={props.content}
+          setToggle={setToggle}
+        />
+      ) : null}
     </div>
   );
 };
 
-//ERRLOG CURRENT:  what voodoo is this subcomponent within a component?
+//ERRLOG CURRENT:
 //      - *** NOTE *** data doesn't make sense:
 //                      - emojis1 / emojis2 doesn't exist as keys on content object
 
