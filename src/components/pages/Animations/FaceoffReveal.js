@@ -201,7 +201,9 @@ const FaceoffReveal = props => {
           {useCountdownStyle1.number}
         </animated.h1>
         {/* type of matchup (drawing/story) */}
-        <animated.h1 style={shiftUpStyle}>{matchupType} Results...</animated.h1>
+        <animated.h1 style={shiftUpStyle} className="resultsType">
+          {matchupType} Results...
+        </animated.h1>
         {/* drawing back avatars to left & right: */}
         <animated.img
           className="crash-location"
@@ -278,7 +280,11 @@ const FaceoffReveal = props => {
           </animated.h1>
         </animated.div>
       </div>
-      <animated.h1 style={goBackButtonStyle} onClick={goBacktoMatchup}>
+      <animated.h1
+        style={goBackButtonStyle}
+        onClick={goBacktoMatchup}
+        className="go-back-button"
+      >
         go back
       </animated.h1>
     </div>
