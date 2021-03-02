@@ -34,6 +34,7 @@
     background-size: contain;
     background-position: center;
     background-color: @conifer;
+    opacity: 75%;
     cursor: pointer;
 
     img {
@@ -69,10 +70,10 @@
     justify-content: center;
     align-items: center;
     background: @burnt-sienna;
-
+    opacity: 75%;
     img {
-      max-width: 100%;
-      max-height: 100%;
+      max-width: 80%;
+      max-height: 80%;
     }
   }
 
@@ -81,11 +82,12 @@
     justify-content: center;
     align-items: center;
     background: @bright-sun;
+    opacity: 75%;
   }
 
   .adventure-passport img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 80%;
+    max-height: 80%;
     @media @mobile {
       margin-left: 10%;
     }
@@ -96,42 +98,46 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 75%;
 
     img {
-      max-width: 100%;
-      max-height: 100%;
+      max-width: 80%;
+      max-height: 80%;
     }
   }
 }
 
 .accept-mission:hover {
-  background-color: lighten(@conifer, 10%);
+  opacity: 100%;
 
   .accept-mission-text {
-    font-size: 3.7rem;
+    font-size: 4.5rem;
   }
 }
 
 .change-avatar:hover {
-  background-color: lighten(@burnt-sienna, 10%);
+  opacity: 100%;
 
-  .change-avatar-text {
-    font-size: 3.7rem;
+  img {
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 
 .adventure-passport:hover {
-  background-color: lighten(@bright-sun, 10%);
+  opacity: 100%;
 
-  .adventure-passport-text {
-    font-size: 3.7rem;
+  img {
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 
 .trophy-room:hover {
-  background-color: lighten(@boston-blue, 10%);
+  opacity: 100%;
 
-  .tropy-room-text {
-    font-size: 3.7rem;
+  img {
+    max-width: 100%;
+    max-height: 100%;
   }
 }
