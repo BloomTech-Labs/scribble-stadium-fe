@@ -2,18 +2,19 @@ import { useSpring } from 'react-spring';
 
 const useLeftDrawbackCrash = ref => {
   const spring = useSpring({
+    delay: 12300,
     from: {
       opacity: 0,
-      transform: 'translate3d(-5%, 0%, 0px) scale(1.5)',
+      transform: 'translate3d(-5%, 100%, 0px) scale(1.5)',
     },
     to: [
       {
         opacity: 1,
-        transform: 'translate3d(-300%, 0%, 0px) scale(1.5)',
+        transform: 'translate3d(-300%, 100%, 0px) scale(1.5)',
       },
       {
         opacity: 1,
-        transform: 'translate3d(0%, 0%, 0px) scale(1.5)',
+        transform: 'translate3d(0%, 100%, 0px) scale(1.5)',
       },
     ],
     ref: ref,

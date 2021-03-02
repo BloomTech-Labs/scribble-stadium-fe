@@ -2,6 +2,7 @@ import { useSpring } from 'react-spring';
 
 const useEnlargeVs = ref => {
   const spring = useSpring({
+    delay: 9500,
     config: { mass: 10, tension: 480, friction: 100 },
     from: {
       position: 'absolute',
@@ -15,9 +16,9 @@ const useEnlargeVs = ref => {
       },
 
       {
-        config: { duration: 3700 },
+        config: { duration: 2700 },
         opacity: 1,
-        transform: 'translate3d(0%, 320%, 0px) scale(3)',
+        transform: 'translate3d(0%, 320%, 0px) scale(2)',
       },
       {
         opacity: 0,

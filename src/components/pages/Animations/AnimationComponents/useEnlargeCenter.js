@@ -1,20 +1,24 @@
 import { useSpring } from 'react-spring';
+import useMedia from '../AnimationMediaHelper/useMedia.js';
 
 const useEnlargeCenter = ref => {
+  const phoneScreen = useMedia('(max-width:600px)');
+  const tabletScreen = useMedia('(min-width:601px)');
+
   const spring = useSpring({
-    delay: 15300,
+    delay: 13300,
     from: {
       opacity: 0,
-      transform: 'scale(1)',
+      transform: 'translate3d(0%, -35%, 0px) scale(1)',
     },
     to: [
       {
         opacity: 1,
-        transform: 'scale(6)',
+        transform: 'translate3d(0%, -35%, 0px) scale(6)',
       },
       {
         opacity: 1,
-        transform: 'scale(3.2)',
+        transform: 'translate3d(0%, -35%, 0px) scale(5)',
       },
     ],
     ref: ref,

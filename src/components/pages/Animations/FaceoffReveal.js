@@ -52,9 +52,9 @@ const FaceoffReveal = props => {
   console.log('matchup type', matchupType);
   //  determine dynamic sizing
   if (screenWidth < 601) {
-    topAvatarHeight = 30;
+    topAvatarHeight = 60;
     crashAvatarHeight = 50;
-    crashImageSize = 110;
+    crashImageSize = 210;
     winnerImageSize = 110;
     vsHeight = 30;
   } else if (screenWidth < 992) {
@@ -147,9 +147,19 @@ const FaceoffReveal = props => {
     countdownRef1,
     storyResultsRef,
     leftTeamRef,
+  ]);
+  useChain([
+    // first item has delay start until left team ref starts
     VSRef,
   ]);
-  useChain([rightTeamRef, leftDrawbackCrashRef]);
+  useChain([
+    // first item has delay start until left team ref starts
+    rightTeamRef,
+  ]);
+  useChain([
+    // first item has a delay start until leftDrawbackCrashRef starts
+    leftDrawbackCrashRef,
+  ]);
   useChain([
     // first item has a delay start until leftDrawbackCrashRef starts
     rightDrawbackCrashRef,
@@ -207,7 +217,7 @@ const FaceoffReveal = props => {
         <animated.img
           className="crash-location"
           style={enlargeCenterStyle}
-          src="/animation/crash.png"
+          src="/animation/crashSmallCrash.svg"
           height={crashImageSize}
         />
         {/* winner's image: */}
@@ -231,7 +241,6 @@ const FaceoffReveal = props => {
       <animated.img
         className="move-left-move-right"
         style={enlargeMoveLeftStyle}
-        // src="https://freesvg.org/img/1339607732.png"
         src={userAvatar}
         height={topAvatarHeight}
       />
