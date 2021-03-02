@@ -13,7 +13,7 @@ import useNameWinner from './AnimationComponents/useNameWinner';
 import useDivAppear from './AnimationComponents/useDivAppear';
 import useCounter from './AnimationComponents/useCounter';
 import { useHistory } from 'react-router-dom';
-import { child, faceoffs, votes } from '../../../state/actions';
+import useGoBackButton from './AnimationComponents/useGoBackButton';
 
 const FaceoffReveal = props => {
   const setToggle = props.setToggle;
@@ -40,12 +40,15 @@ const FaceoffReveal = props => {
   // winnerUserName will be determined by "dynamicInfo.Winner"
   let winnerUserName = 'CAT-LADY';
   let pointsAwarded = dynamicInfo.Points;
-  let dynamicBackgroundColor = '#438eac';
+  // dynamicBackgroundColor will be determined by which matchup is being animated--
+  // we may need to create a variable / key-value pair to track which faceoff is occurring
+  let backColorArray = ['#438eac', '#ffde3b', '#e97451', '#C9E952'];
+  let dynamicBackgroundColor = backColorArray[Math.floor(Math.random() * 4)];
   //    hex codes:
   //      4. boston-blue -- #438eac
   //      3. bright-sun -- #ffde3b
   //      2. burnt-sienna -- #e97451
-  //      1. conifer -- #4a5a41
+  //      1. conifer -- #C9E952
   console.log('matchup type', matchupType);
   //  determine dynamic sizing
   if (screenWidth < 601) {
@@ -101,6 +104,8 @@ const FaceoffReveal = props => {
   const textAppearRef = useRef();
   // NAME WINNER REF
   const nameWinnerRef = useRef();
+  // GO BACK BUTTON REF
+  const goBackRef = useRef();
 
   // creating animation hooks
   //COUNTDOWN HOOKS
@@ -132,6 +137,8 @@ const FaceoffReveal = props => {
   const divAppearStyle2 = useDivAppear(textAppearRef, 'points!');
   // NAME WINNER HOOK
   const nameWinnerStyle = useNameWinner(nameWinnerRef);
+  // GO BACK BUTTON HOOK
+  const goBackButtonStyle = useGoBackButton(goBackRef);
 
   // bringing in useChain to connect the animations together
   useChain([
@@ -159,6 +166,7 @@ const FaceoffReveal = props => {
     plusAppearRef,
     countPointsRef,
     textAppearRef,
+    goBackRef,
   ]);
 
   const goBacktoMatchup = event => {
@@ -256,6 +264,9 @@ const FaceoffReveal = props => {
           </animated.h1>
         </animated.div>
       </div>
+      <animated.h1 style={goBackButtonStyle} onClick={goBacktoMatchup}>
+        go back
+      </animated.h1>
     </div>
   );
 };
