@@ -35,15 +35,15 @@ h1 {
   display: flex;
   justify-content: center;
   position: relative;
-  // width: 100%;
   // height: 100%;
+  border: 1px solid orange;
 }
 
 .move-left-move-right {
   z-index: 4;
 }
 
-/* this is nested in 'center-top' */
+/* this is nested in 'fixed-box' */
 .crash-location {
   z-index: 3;
   position: absolute;
@@ -101,12 +101,29 @@ h1 {
   .winner-headline {
     font-size: 3rem;
   }
+  .bottom-fixed {
+    margin: 85%;
+  }
 }
 @media only screen and (min-width: 992px) {
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
   .winner-headline {
-    font-size: 4rem;
+    font-size: 3rem;
+  }
+  .bottom-fixed {
+    margin-top: 50%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .fixed-box {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1380px) {
+  .bottom-fixed {
+    margin-top: 45%;
   }
 }

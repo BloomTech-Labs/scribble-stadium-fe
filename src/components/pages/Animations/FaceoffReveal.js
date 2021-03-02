@@ -53,22 +53,22 @@ const FaceoffReveal = props => {
   //  determine dynamic sizing
   if (screenWidth < 601) {
     topAvatarHeight = 60;
-    crashAvatarHeight = 50;
+    crashAvatarHeight = 80;
     crashImageSize = 210;
     winnerImageSize = 110;
     vsHeight = 30;
   } else if (screenWidth < 992) {
-    topAvatarHeight = 40;
+    topAvatarHeight = 80;
     crashAvatarHeight = 117;
     crashImageSize = 180;
     winnerImageSize = 150;
     vsHeight = 40;
   } else {
-    topAvatarHeight = 50;
+    topAvatarHeight = 60;
     crashAvatarHeight = 120;
-    crashImageSize = 210;
+    crashImageSize = 130;
     winnerImageSize = 180;
-    vsHeight = 80;
+    vsHeight = 40;
   }
 
   // matchup type = {object.matchup type}
@@ -172,6 +172,9 @@ const FaceoffReveal = props => {
     // first item has a delay start
     upFromBottomRef,
     nameWinnerRef,
+  ]);
+  useChain([
+    // first item has a delay start
     plusAppearRef,
     countPointsRef,
     textAppearRef,
