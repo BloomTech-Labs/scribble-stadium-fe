@@ -148,9 +148,8 @@ const FaceoffReveal = props => {
     storyResultsRef,
     leftTeamRef,
     VSRef,
-    rightTeamRef,
-    leftDrawbackCrashRef,
   ]);
+  useChain([rightTeamRef, leftDrawbackCrashRef]);
   useChain([
     // first item has a delay start until leftDrawbackCrashRef starts
     rightDrawbackCrashRef,
@@ -228,7 +227,9 @@ const FaceoffReveal = props => {
         />
       </div>
       {/* intial avatar images to display at top: */}
+
       <animated.img
+        className="move-left-move-right"
         style={enlargeMoveLeftStyle}
         // src="https://freesvg.org/img/1339607732.png"
         src={userAvatar}
@@ -236,6 +237,7 @@ const FaceoffReveal = props => {
       />
 
       <animated.img
+        className="move-left-move-right"
         style={enlargeMoveRightStyle}
         src={opponentAvatar}
         height={topAvatarHeight}

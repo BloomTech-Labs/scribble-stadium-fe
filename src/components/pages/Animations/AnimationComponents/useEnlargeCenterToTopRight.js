@@ -6,6 +6,7 @@ const useEnlargeCenterToTopRight = ref => {
   const tabletScreen = useMedia('(min-width:601px)');
 
   const spring = useSpring({
+    delay: 11500,
     config: { mass: 10, tension: 500, friction: 150 },
     from: {
       position: 'absolute',

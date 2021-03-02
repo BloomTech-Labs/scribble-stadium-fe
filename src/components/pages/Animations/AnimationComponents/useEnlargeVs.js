@@ -13,10 +13,15 @@ const useEnlargeVs = ref => {
         opacity: 1,
         transform: 'translate3d(0%, 330%, 0px) scale(4)',
       },
-      // {
-      //   opacity: 1,
-      //   transform: 'translate3d(0%, 320%, 0px) scale(3)',
-      // }
+
+      {
+        config: { duration: 3700 },
+        opacity: 1,
+        transform: 'translate3d(0%, 320%, 0px) scale(3)',
+      },
+      {
+        opacity: 0,
+      },
     ],
     ref: ref,
   });
