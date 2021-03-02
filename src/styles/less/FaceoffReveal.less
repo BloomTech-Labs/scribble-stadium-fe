@@ -3,6 +3,7 @@
   padding: 0;
   margin-top: 0;
   box-sizing: border-box;
+  // border: 1px solid purple;
 }
 
 html,
@@ -26,7 +27,7 @@ body {
 }
 
 h1 {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
 }
 
 /* this box draws a border around the entire viewport */
@@ -34,24 +35,39 @@ h1 {
   display: flex;
   justify-content: center;
   position: relative;
-  // width: 100%;
   // height: 100%;
+  // border: 1px solid orange;
 }
 
-/* this is nested in 'center-top' */
+.move-left-move-right {
+  z-index: 4;
+}
+
+/* this is nested in 'fixed-box' */
 .crash-location {
+  z-index: 3;
   position: absolute;
   top: 42%;
+  margin: 0;
+}
+
+.vs {
+  z-index: 2;
+  margin: 0;
 }
 
 /* fixed to bottom, contains winner name and points */
 .bottom-fixed {
+  z-index: 4;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   position: fixed;
   width: 80%;
   height: 18%;
-  bottom: 3%;
+  // bottom: 3%;
+  margin-top: 90%;
+  padding: 0%;
   // border: 2px solid green;
 }
 
@@ -61,7 +77,7 @@ h1 {
   justify-content: center;
   position: relative;
   top: 0%;
-  margin: 2%;
+  margin: 0%;
   // border: 2px solid red;
 }
 
@@ -75,7 +91,15 @@ h1 {
 }
 
 .winner-headline {
-  font-size: 2rem;
+  font-size: 3rem;
+}
+
+.resultsType {
+  z-index: 4;
+}
+
+.go-back-button {
+  z-index: 5;
 }
 
 @media only screen and (min-width: 601px) {
@@ -85,12 +109,29 @@ h1 {
   .winner-headline {
     font-size: 3rem;
   }
+  .bottom-fixed {
+    margin: 85%;
+  }
 }
 @media only screen and (min-width: 992px) {
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
   .winner-headline {
-    font-size: 4rem;
+    font-size: 3rem;
+  }
+  .bottom-fixed {
+    margin-top: 50%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .fixed-box {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1380px) {
+  .bottom-fixed {
+    margin-top: 45%;
   }
 }

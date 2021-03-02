@@ -13,7 +13,7 @@ import useNameWinner from './AnimationComponents/useNameWinner';
 import useDivAppear from './AnimationComponents/useDivAppear';
 import useCounter from './AnimationComponents/useCounter';
 import { useHistory } from 'react-router-dom';
-import { child, faceoffs, votes } from '../../../state/actions';
+import useGoBackButton from './AnimationComponents/useGoBackButton';
 
 const FaceoffReveal = props => {
   const setToggle = props.setToggle;
@@ -40,32 +40,35 @@ const FaceoffReveal = props => {
   // winnerUserName will be determined by "dynamicInfo.Winner"
   let winnerUserName = 'CAT-LADY';
   let pointsAwarded = dynamicInfo.Points;
-  let dynamicBackgroundColor = '#438eac';
+  // dynamicBackgroundColor will be determined by which matchup is being animated--
+  // we may need to create a variable / key-value pair to track which faceoff is occurring
+  let backColorArray = ['#438eac', '#ffde3b', '#e97451', '#C9E952'];
+  let dynamicBackgroundColor = backColorArray[Math.floor(Math.random() * 4)];
   //    hex codes:
   //      4. boston-blue -- #438eac
   //      3. bright-sun -- #ffde3b
   //      2. burnt-sienna -- #e97451
-  //      1. conifer -- #4a5a41
+  //      1. conifer -- #C9E952
   console.log('matchup type', matchupType);
   //  determine dynamic sizing
   if (screenWidth < 601) {
-    topAvatarHeight = 30;
-    crashAvatarHeight = 50;
-    crashImageSize = 110;
+    topAvatarHeight = 60;
+    crashAvatarHeight = 80;
+    crashImageSize = 210;
     winnerImageSize = 110;
     vsHeight = 30;
   } else if (screenWidth < 992) {
-    topAvatarHeight = 40;
+    topAvatarHeight = 80;
     crashAvatarHeight = 117;
     crashImageSize = 180;
     winnerImageSize = 150;
     vsHeight = 40;
   } else {
-    topAvatarHeight = 50;
+    topAvatarHeight = 60;
     crashAvatarHeight = 120;
-    crashImageSize = 210;
+    crashImageSize = 130;
     winnerImageSize = 180;
-    vsHeight = 80;
+    vsHeight = 40;
   }
 
   // matchup type = {object.matchup type}
@@ -101,6 +104,8 @@ const FaceoffReveal = props => {
   const textAppearRef = useRef();
   // NAME WINNER REF
   const nameWinnerRef = useRef();
+  // GO BACK BUTTON REF
+  const goBackRef = useRef();
 
   // creating animation hooks
   //COUNTDOWN HOOKS
@@ -132,6 +137,8 @@ const FaceoffReveal = props => {
   const divAppearStyle2 = useDivAppear(textAppearRef, 'points!');
   // NAME WINNER HOOK
   const nameWinnerStyle = useNameWinner(nameWinnerRef);
+  // GO BACK BUTTON HOOK
+  const goBackButtonStyle = useGoBackButton(goBackRef);
 
   // bringing in useChain to connect the animations together
   useChain([
@@ -140,8 +147,17 @@ const FaceoffReveal = props => {
     countdownRef1,
     storyResultsRef,
     leftTeamRef,
+  ]);
+  useChain([
+    // first item has delay start until left team ref starts
     VSRef,
+  ]);
+  useChain([
+    // first item has delay start until left team ref starts
     rightTeamRef,
+  ]);
+  useChain([
+    // first item has a delay start until leftDrawbackCrashRef starts
     leftDrawbackCrashRef,
   ]);
   useChain([
@@ -156,9 +172,13 @@ const FaceoffReveal = props => {
     // first item has a delay start
     upFromBottomRef,
     nameWinnerRef,
+  ]);
+  useChain([
+    // first item has a delay start
     plusAppearRef,
     countPointsRef,
     textAppearRef,
+    goBackRef,
   ]);
 
   const goBacktoMatchup = event => {
@@ -181,7 +201,9 @@ const FaceoffReveal = props => {
           {useCountdownStyle1.number}
         </animated.h1>
         {/* type of matchup (drawing/story) */}
-        <animated.h1 style={shiftUpStyle}>{matchupType} Results...</animated.h1>
+        <animated.h1 style={shiftUpStyle} className="resultsType">
+          {matchupType} Results...
+        </animated.h1>
         {/* drawing back avatars to left & right: */}
         <animated.img
           className="crash-location"
@@ -200,7 +222,7 @@ const FaceoffReveal = props => {
         <animated.img
           className="crash-location"
           style={enlargeCenterStyle}
-          src="/animation/crash.png"
+          src="/animation/crashSmallCrash.svg"
           height={crashImageSize}
         />
         {/* winner's image: */}
@@ -220,14 +242,16 @@ const FaceoffReveal = props => {
         />
       </div>
       {/* intial avatar images to display at top: */}
+
       <animated.img
+        className="move-left-move-right"
         style={enlargeMoveLeftStyle}
-        // src="https://freesvg.org/img/1339607732.png"
         src={userAvatar}
         height={topAvatarHeight}
       />
 
       <animated.img
+        className="move-left-move-right"
         style={enlargeMoveRightStyle}
         src={opponentAvatar}
         height={topAvatarHeight}
@@ -256,6 +280,13 @@ const FaceoffReveal = props => {
           </animated.h1>
         </animated.div>
       </div>
+      <animated.h1
+        style={goBackButtonStyle}
+        onClick={goBacktoMatchup}
+        className="go-back-button"
+      >
+        go back
+      </animated.h1>
     </div>
   );
 };
