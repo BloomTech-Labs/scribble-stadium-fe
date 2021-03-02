@@ -12,8 +12,9 @@ const RenderMatchUp = props => {
   const { push } = useHistory();
   const [faceoffs, setFaceoffs] = useState([]);
   const [modalVisible, setModalVisible] = useState(true);
+
   useEffect(() => {
-    if (!props.canVote) {
+    if (props.child.VotesRemaining <= 9) {
       setModalVisible(false);
     }
     setFaceoffs(props.faceoffs);
@@ -34,6 +35,7 @@ const RenderMatchUp = props => {
         title="The Matchup"
         versus={true}
         pointsToWin={true}
+        votesRemaining={true}
       />
       <QuestionCircleOutlined
         className="question-icon"
@@ -116,6 +118,8 @@ const RenderMatchUp = props => {
           disabled={props.canVote ? false : true}
         >
           Vote!
+          <br />
+          {props.child.VotesRemaining} votes left
         </Button>
       </div>
     </>

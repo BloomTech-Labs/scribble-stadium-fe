@@ -1,3 +1,4 @@
+// Does not appear to be used. See comment in squadActions.js
 import { global, squad } from '../actions';
 
 const initialState = null;
