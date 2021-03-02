@@ -14,6 +14,7 @@ import {
   useHistory,
   Switch,
 } from 'react-router-dom';
+
 import { Security } from '@okta/okta-react';
 
 import 'antd/dist/antd.less';
@@ -83,7 +84,6 @@ function App() {
   return (
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
-        <Route path="/scoreboard" component={FaceoffReveal} />
         <Route path="/login" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
@@ -105,6 +105,9 @@ function App() {
             <ChildDashboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
+
+        <SecureRoute path="/scoreboard" component={FaceoffReveal} />
+
         <SecureRoute
           path="/child/mission-control"
           component={() => (

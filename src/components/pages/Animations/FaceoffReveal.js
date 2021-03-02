@@ -12,8 +12,19 @@ import useEnlargeVs from './AnimationComponents/useEnlargeVs';
 import useNameWinner from './AnimationComponents/useNameWinner';
 import useDivAppear from './AnimationComponents/useDivAppear';
 import useCounter from './AnimationComponents/useCounter';
+import { useHistory } from 'react-router-dom';
+import { child, faceoffs, votes } from '../../../state/actions';
 
-const FaceoffReveal = () => {
+const FaceoffReveal = props => {
+  const setToggle = props.setToggle;
+  // we need to bring in faceoff data from FaceoffContent / FaceoffSubDisplay
+  console.log(
+    'animation reveal props:',
+    props.history.location.state.dynamicInfo
+  );
+  const dynamicInfo = props.history.location.state.dynamicInfo;
+
+  const history = useHistory();
   // determine screen size to adjust image height
   let screenWidth = window.screen.width;
 
@@ -23,19 +34,20 @@ const FaceoffReveal = () => {
   let crashImageSize = 0;
   let winnerImageSize = 0;
   let vsHeight = 0;
-  let matchupType = 'Story';
-  let userAvatar = '';
-  let opponentAvatar = '';
-  let pointsAwarded = 60;
+  let matchupType = dynamicInfo.Type;
+  let userAvatar = dynamicInfo.Submission1.AvatarURL;
+  let opponentAvatar = dynamicInfo.Submission2.AvatarURL;
+  // winnerUserName will be determined by "dynamicInfo.Winner"
+  let winnerUserName = 'CAT-LADY';
+  let pointsAwarded = dynamicInfo.Points;
   let dynamicBackgroundColor = '#438eac';
   //    hex codes:
   //      4. boston-blue -- #438eac
   //      3. bright-sun -- #ffde3b
   //      2. burnt-sienna -- #e97451
   //      1. conifer -- #4a5a41
-
-  //  determine dynamic variables
-
+  console.log('matchup type', matchupType);
+  //  determine dynamic sizing
   if (screenWidth < 601) {
     topAvatarHeight = 30;
     crashAvatarHeight = 50;
@@ -149,6 +161,10 @@ const FaceoffReveal = () => {
     textAppearRef,
   ]);
 
+  const goBacktoMatchup = event => {
+    history.push('/child/match-up');
+  };
+
   return (
     <div
       className="FaceoffReveal"
@@ -170,14 +186,14 @@ const FaceoffReveal = () => {
         <animated.img
           className="crash-location"
           style={useLeftDrawbackCrashStyle}
-          src="/animation/avatar1.png"
+          src={userAvatar}
           height={crashAvatarHeight}
         />
 
         <animated.img
           className="crash-location"
           style={useRightDrawbackCrashStyle}
-          src="/animation/avatar2.png"
+          src={opponentAvatar}
           height={crashAvatarHeight}
         />
         {/* crash image: */}
@@ -190,7 +206,7 @@ const FaceoffReveal = () => {
         {/* winner's image: */}
         <animated.img
           className="crash-location"
-          src="/animation/avatar1.png"
+          src="/animation/Hero8.png"
           alt="me"
           height={winnerImageSize}
           style={upFromBottomStyle}
@@ -207,21 +223,25 @@ const FaceoffReveal = () => {
       <animated.img
         style={enlargeMoveLeftStyle}
         // src="https://freesvg.org/img/1339607732.png"
-        src="/animation/avatar1.png"
+        src={userAvatar}
         height={topAvatarHeight}
       />
 
       <animated.img
         style={enlargeMoveRightStyle}
-        src="/animation/avatar2.png"
+        src={opponentAvatar}
         height={topAvatarHeight}
       />
 
       {/* winner's name and points won: */}
       <div className="bottom-fixed">
         <div className="bot-of-bottom-fixed">
-          <animated.h1 className="winner-headline" style={nameWinnerStyle}>
-            Catlady
+          <animated.h1
+            className="winner-headline"
+            style={nameWinnerStyle}
+            onClick={goBacktoMatchup}
+          >
+            {winnerUserName}
           </animated.h1>
         </div>
         <animated.div className="top-of-bottom-fixed">
