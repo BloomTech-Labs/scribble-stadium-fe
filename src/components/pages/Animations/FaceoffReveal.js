@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import { animated, useChain } from 'react-spring';
+
 import useCountdown from './AnimationComponents/useCountdown';
 import useLeftDrawbackCrash from './AnimationComponents/useLeftDrawbackCrash';
 import useRightDrawbackCrash from './AnimationComponents/useRightDrawbackCrash';
@@ -12,7 +14,6 @@ import useEnlargeVs from './AnimationComponents/useEnlargeVs';
 import useNameWinner from './AnimationComponents/useNameWinner';
 import useDivAppear from './AnimationComponents/useDivAppear';
 import useCounter from './AnimationComponents/useCounter';
-import { useHistory } from 'react-router-dom';
 import useGoBackButton from './AnimationComponents/useGoBackButton';
 
 const FaceoffReveal = props => {

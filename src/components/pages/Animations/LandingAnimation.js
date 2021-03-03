@@ -45,13 +45,13 @@ const LandingAnimation = () => {
   } else if (screenWidth < 992) {
     topAvatarHeight = 40;
     crashAvatarHeight = 117;
-    crashImageSize = 180;
+    crashImageSize = 90;
     winnerImageSize = 150;
     vsHeight = 40;
   } else {
     topAvatarHeight = 50;
     crashAvatarHeight = 120;
-    crashImageSize = 210;
+    crashImageSize = 190;
     winnerImageSize = 180;
     vsHeight = 80;
   }
@@ -84,6 +84,8 @@ const LandingAnimation = () => {
   const crashEnlargeRef = useRef();
   // UP FROM BOTTOM WINNER REF
   const upFromBottomRef = useRef();
+  // "WIN!" text ref
+  const winTextRef = useRef();
 
   // creating animation hooks
 
@@ -94,6 +96,7 @@ const LandingAnimation = () => {
     'WRITE!'
   );
   const welcomeBannerOnTopStyle3 = useWelcomeToStorySquad(drawTextRef, 'DRAW!');
+  const welcomeBannerOnTopStyle4 = useWelcomeToStorySquad(winTextRef, 'WIN!');
   // ENLARGE "READ" TO TOP LEFT HOOKS
   const enlargeReadInLeftStyle = useReadInLeft(readInLeftRef);
   // ENLARGE "WRITE" TO TOP CENTER HOOKS
@@ -134,11 +137,12 @@ const LandingAnimation = () => {
     rightDrawbackCrashRef, // RIGHT DRAWBACK
     crashEnlargeRef, // CRASH CENTER
     upFromBottomRef, // WINNER WITH TROPHY
+    winTextRef, // "WIN!" text
   ]);
 
   return (
     <div
-      className="App"
+      className="landing-animation"
       style={{ backgroundColor: dynamicBackgroundColor, height: '100vh' }}
     >
       <div className="fixed-box">
@@ -208,6 +212,9 @@ const LandingAnimation = () => {
           height="350"
           style={upFromBottomStyle}
         />
+        <animated.h1 style={welcomeBannerOnTopStyle4} className="win-text">
+          {welcomeBannerOnTopStyle4.text}
+        </animated.h1>
       </div>
     </div>
   );

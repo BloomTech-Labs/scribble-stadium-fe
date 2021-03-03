@@ -3,11 +3,13 @@ import { useSpring } from 'react-spring';
 const useWelcomeToStorySquad = (ref, text) => {
   let positionVals = '';
   if (text === 'READ!') {
-    positionVals = 'translate3d(-235%, 20%, 0px) scale(1)';
+    positionVals = 'translate3d(-150%, 0%, 0px) scale(1)';
   } else if (text === 'WRITE!') {
-    positionVals = 'translate3d(0%, 20%, 0px) scale(1)';
+    positionVals = 'translate3d(60%, 0%, 0px) scale(1)';
+  } else if (text === 'DRAW!') {
+    positionVals = 'translate3d(250%, 0%, 0px) scale(1)';
   } else {
-    positionVals = 'translate3d(185%, 20%, 0px) scale(1)';
+    positionVals = 'translate3d(-75%, 325%, 0px) scale(1) rotate(345deg)';
   }
 
   const spring = useSpring({

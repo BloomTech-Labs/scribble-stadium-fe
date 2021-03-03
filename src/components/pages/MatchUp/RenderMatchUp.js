@@ -76,8 +76,6 @@ const RenderMatchUp = props => {
                 content={faceoffs[1]}
                 votesRemaining={props.votesRemaining}
                 votesNeededToUnlock={7}
-                dayNeededToUnlock={4}
-                hourNeededToUnlock={6}
               />
             )}
           </Col>
@@ -90,8 +88,6 @@ const RenderMatchUp = props => {
                 content={faceoffs[2]}
                 votesRemaining={props.votesRemaining}
                 votesNeededToUnlock={8}
-                dayNeededToUnlock={4}
-                hourNeededToUnlock={6}
               />
             )}
           </Col>
@@ -102,8 +98,6 @@ const RenderMatchUp = props => {
                 content={faceoffs[3]}
                 votesRemaining={props.votesRemaining}
                 votesNeededToUnlock={9}
-                dayNeededToUnlock={4}
-                hourNeededToUnlock={6}
               />
             )}
           </Col>
