@@ -342,10 +342,10 @@ const getChildSquad = async (authState, childId) => {
  * @param {number} squadId this will be received from 'getChildSquad' api call
  * @returns {Array} array of 4 objects (one for each child) containing information about their submissions
  */
-const getFaceoffsForMatchup = async (authState, squadId, childId = null) => {
+const getFaceoffsForMatchup = async (authState, squadId, childId) => {
   try {
     return apiAuthGet(
-      `/game/faceoffs?squadId=${squadId}&childId=${childId}`,
+      `/game/faceoffs/squads?squadId=${squadId}&childId=${childId}`,
       getAuthHeader(authState)
     ).then(response => {
       return response.data;
