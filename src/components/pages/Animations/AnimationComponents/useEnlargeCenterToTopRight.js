@@ -6,7 +6,7 @@ const useEnlargeCenterToTopRight = ref => {
   const tabletScreen = useMedia('(max-width:991px)');
 
   const spring = useSpring({
-    delay: 9500,
+    delay: 10500,
     config: { mass: 10, tension: 500, friction: 150 },
     from: {
       position: 'absolute',
@@ -28,11 +28,7 @@ const useEnlargeCenterToTopRight = ref => {
           ? 'translate3d(300%, 200%, 0px) scale(1.5)'
           : tabletScreen
           ? 'translate3d(475%, 200%, 0px) scale(1.5)'
-          : 'translate3d(1000%, 300%, 0px) scale(2.5)',
-      },
-      {
-        config: { duration: 700 },
-        opacity: 1,
+          : 'translate3d(1000%, 250%, 0px) scale(2)',
       },
       {
         opacity: 0,

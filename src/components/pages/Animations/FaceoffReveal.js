@@ -257,8 +257,26 @@ const FaceoffReveal = props => {
         height={topAvatarHeight}
       />
 
+      <animated.h1
+        style={goBackButtonStyle}
+        onClick={goBacktoMatchup}
+        className="go-back-button"
+      >
+        go back
+      </animated.h1>
       {/* winner's name and points won: */}
       <div className="bottom-fixed">
+        <div className="points-container">
+          <animated.h1 className="top-of-bottom-fixed" style={divAppearStyle1}>
+            {divAppearStyle1.text}
+          </animated.h1>
+          <animated.h1 className="top-of-bottom-fixed" style={countPointsStyle}>
+            {countPointsStyle.number.interpolate(val => Math.floor(val))}
+          </animated.h1>
+          <animated.h1 className="top-of-bottom-fixed" style={divAppearStyle2}>
+            {divAppearStyle2.text}
+          </animated.h1>
+        </div>
         <div className="bot-of-bottom-fixed">
           <animated.h1
             className="winner-headline"
@@ -268,25 +286,7 @@ const FaceoffReveal = props => {
             {winnerUserName}
           </animated.h1>
         </div>
-        <animated.div className="top-of-bottom-fixed">
-          <animated.h1 style={divAppearStyle1}>
-            {divAppearStyle1.text}
-          </animated.h1>
-          <animated.h1 className="top-of-bottom-fixed" style={countPointsStyle}>
-            {countPointsStyle.number.interpolate(val => Math.floor(val))}
-          </animated.h1>
-          <animated.h1 className="top-of-bottom-fixed" style={divAppearStyle2}>
-            {divAppearStyle2.text}
-          </animated.h1>
-        </animated.div>
       </div>
-      <animated.h1
-        style={goBackButtonStyle}
-        onClick={goBacktoMatchup}
-        className="go-back-button"
-      >
-        go back
-      </animated.h1>
     </div>
   );
 };

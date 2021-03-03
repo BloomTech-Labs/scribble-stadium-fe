@@ -58,6 +58,7 @@ h1 {
 
 /* fixed to bottom, contains winner name and points */
 .bottom-fixed {
+
   z-index: 4;
   display: flex;
   flex-direction: column;
@@ -65,27 +66,38 @@ h1 {
   position: fixed;
   width: 80%;
   height: 18%;
-  // bottom: 3%;
-  margin-top: 90%;
+  margin-top: 85vh;
   padding: 0%;
-  // border: 2px solid green;
+  // border: 2px solid red;
 }
 
+.points-container {
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  padding:0;
+  // border: 4px dotted blue;
+}
 /* this is nested in 'bottom-fixed */
 .top-of-bottom-fixed {
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
-  top: 0%;
-  margin: 0%;
-  // border: 2px solid red;
+  padding: 0;
+  line-height: 100%;
+  margin-top: 0%;
+  // border: 2px solid green;
 }
 
 /* this is nested in 'bottom-fixed */
 .bot-of-bottom-fixed {
   width: 100%;
   height: auto;
-  position: absolute;
+  position: relative;
+  line-height: 100%;
+  padding: 0;
   bottom: 0%;
   // border: 2px solid orange;
 }
@@ -108,30 +120,5 @@ h1 {
   }
   .winner-headline {
     font-size: 3rem;
-  }
-  .bottom-fixed {
-    margin: 85%;
-  }
-}
-@media only screen and (min-width: 992px) {
-  h1 {
-    font-size: 2rem;
-  }
-  .winner-headline {
-    font-size: 3rem;
-  }
-  .bottom-fixed {
-    margin-top: 50%;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .fixed-box {
-    width: 100%;
-  }
-}
-
-@media only screen and (min-width: 1380px) {
-  .bottom-fixed {
-    margin-top: 45%;
   }
 }

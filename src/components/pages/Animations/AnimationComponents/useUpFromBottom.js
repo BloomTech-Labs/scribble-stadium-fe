@@ -2,7 +2,7 @@ import { useSpring } from 'react-spring';
 
 const useUpFromBottom = ref => {
   const spring = useSpring({
-    delay: 15300,
+    delay: 14000,
     config: { mass: 80, tension: 1000, friction: 250 },
     from: {
       position: 'absolute',

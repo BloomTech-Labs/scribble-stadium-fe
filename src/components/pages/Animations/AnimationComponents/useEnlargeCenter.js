@@ -1,12 +1,13 @@
 import { useSpring } from 'react-spring';
 import useMedia from '../AnimationMediaHelper/useMedia.js';
 
+// This is the crash image component
 const useEnlargeCenter = ref => {
   const phoneScreen = useMedia('(max-width:600px)');
   const tabletScreen = useMedia('(min-width:601px)');
 
   const spring = useSpring({
-    delay: 13300,
+    delay: 13900,
     from: {
       opacity: 0,
       transform: 'translate3d(0%, -35%, 0px) scale(1)',

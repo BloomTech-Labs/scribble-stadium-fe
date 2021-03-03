@@ -7,11 +7,11 @@ const useGoBackButton = ref => {
 
   const spring = useSpring({
     from: {
-      opacity: 0,
+      opacity: 1,
       transform: phoneScreen
         ? 'translate3d(-200%, 0%, 0px) scale(1)'
         : tabletScreen
-        ? 'translate3d(-350%, 0%, 0px) scale(1)'
+        ? 'translate3d(-260%, 2%, 0px) scale(1)'
         : 'translate3d(-500%, 0%, 0px) scale(1)',
       position: 'absolute',
     },
