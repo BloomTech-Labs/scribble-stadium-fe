@@ -370,8 +370,6 @@ const getFaceoffsForVoting = async (authState, squadId) => {
       `/game/faceoffs/squads/?squadId=${squadId}`,
       getAuthHeader(authState)
     ).then(response => {
-      console.log('getFaceoffsForVoting', response.data);
-
       return response.data;
     });
   } catch (error) {
