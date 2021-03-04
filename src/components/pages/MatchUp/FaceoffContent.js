@@ -55,9 +55,11 @@ const FaceoffContent = props => {
   );
 };
 
-//ERRLOG CURRENT:
-//      - *** NOTE *** data doesn't make sense:
-//                      - emojis1 / emojis2 doesn't exist as keys on content object
+//ERRLOG CURRENT Labs31:
+//             - emojis1 only exist for the 4 users you have seeded in cohort 1
+//                     - This makes sense. You want to see your own feedback
+//             - emojis2 doesn't exist as keys on content object
+//                     - This also makes sense. You don't need to see other people's feedback - check with stakeholders                     - emojis1 / emojis2 doesn't exist as keys on content object
 
 const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
   const [modalContent, setModalContent] = useState(null);
