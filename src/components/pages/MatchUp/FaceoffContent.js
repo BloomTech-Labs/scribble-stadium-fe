@@ -16,8 +16,15 @@ const FaceoffContent = props => {
     setToggle(true);
     history.push('/scoreboard', {
       dynamicInfo: props.content,
+      backgroundColor: props.backgroundColor,
     });
   };
+
+  console.log(
+    'colors in faceoffcontent',
+    props.backgroundColor,
+    props.backTest
+  );
 
   return (
     <div className="faceoff">

@@ -62,6 +62,7 @@ const RenderMatchUp = props => {
               <FaceoffContent
                 custom_date={props.custom_date}
                 content={faceoffs[0]}
+                backgroundColor={'#C9E952'}
                 votesRemaining={props.votesRemaining}
                 votesNeededToUnlock={7}
                 dayNeededToUnlock={5}
@@ -74,6 +75,7 @@ const RenderMatchUp = props => {
               <FaceoffContent
                 custom_date={props.custom_date}
                 content={faceoffs[1]}
+                backgroundColor={'#e97451'}
                 votesRemaining={props.votesRemaining}
                 votesNeededToUnlock={7}
               />
@@ -86,6 +88,7 @@ const RenderMatchUp = props => {
               <FaceoffContent
                 custom_date={props.custom_date}
                 content={faceoffs[2]}
+                backgroundColor={'#ffde3b'}
                 votesRemaining={props.votesRemaining}
                 votesNeededToUnlock={8}
               />
@@ -96,6 +99,7 @@ const RenderMatchUp = props => {
               <FaceoffContent
                 custom_date={props.custom_date}
                 content={faceoffs[3]}
+                backgroundColor={'#438eac'}
                 votesRemaining={props.votesRemaining}
                 votesNeededToUnlock={9}
               />

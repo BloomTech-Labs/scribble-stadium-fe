@@ -20,8 +20,8 @@ const FaceoffReveal = props => {
   const setToggle = props.setToggle;
   // we need to bring in faceoff data from FaceoffContent / FaceoffSubDisplay
   console.log(
-    'animation reveal props:',
-    props.history.location.state.dynamicInfo
+    'animation background color:',
+    props.history.location.state.backgroundColor
   );
   const dynamicInfo = props.history.location.state.dynamicInfo;
 
@@ -43,14 +43,20 @@ const FaceoffReveal = props => {
   let pointsAwarded = dynamicInfo.Points;
   // dynamicBackgroundColor will be determined by which matchup is being animated--
   // we may need to create a variable / key-value pair to track which faceoff is occurring
-  let backColorArray = ['#438eac', '#ffde3b', '#e97451', '#C9E952'];
-  let dynamicBackgroundColor = backColorArray[Math.floor(Math.random() * 4)];
+  // let backColorArray = ['#438eac', '#ffde3b', '#e97451', '#C9E952'];
+  let dynamicBackgroundColor = props.history.location.state.backgroundColor;
   //    hex codes:
   //      4. boston-blue -- #438eac
   //      3. bright-sun -- #ffde3b
   //      2. burnt-sienna -- #e97451
   //      1. conifer -- #C9E952
   console.log('matchup type', matchupType);
+
+  // if avatar URL #9 is in play, then a few considerations:
+  // she is horizontal so must have a smaller height than her vertical opponents
+  // she needs to be flipped to fly forward facing if shes on the right side
+  // because she is wider, all of the placements that employ useMedia hook in animation components might be thrown off
+
   //  determine dynamic sizing
   if (screenWidth < 601) {
     topAvatarHeight = 60;
