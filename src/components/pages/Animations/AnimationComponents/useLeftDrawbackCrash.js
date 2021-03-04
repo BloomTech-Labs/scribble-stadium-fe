@@ -10,7 +10,7 @@ const useLeftDrawbackCrash = ref => {
     from: {
       opacity: 0,
       transform: phoneScreen
-        ? 'translate3d(-5%, 15%, 0px) scale(1.5)'
+        ? 'translate3d(-5%, 0%, 0px) scale(1.5)'
         : tabletScreen
         ? 'translate3d(-5%, 18%, 0px) scale(1.5)'
         : 'translate3d(-5%, 23%, 0px) scale(1.5)',
@@ -19,7 +19,7 @@ const useLeftDrawbackCrash = ref => {
       {
         opacity: 1,
         transform: phoneScreen
-          ? 'translate3d(-300%, 15%, 0px) scale(1.5)'
+          ? 'translate3d(-300%, 0%, 0px) scale(1.5)'
           : tabletScreen
           ? 'translate3d(-300%, 18%, 0px) scale(1.5)'
           : 'translate3d(-300%, 23%, 0px) scale(1.5)',
@@ -27,7 +27,7 @@ const useLeftDrawbackCrash = ref => {
       {
         opacity: 1,
         transform: phoneScreen
-          ? 'translate3d(0%, 15%, 0px) scale(1.5)'
+          ? 'translate3d(0%, 0%, 0px) scale(1.5)'
           : tabletScreen
           ? 'translate3d(0%, 18%, 0px) scale(1.5)'
           : 'translate3d(0%, 23%, 0px) scale(1.5)',
