@@ -1,4 +1,4 @@
-# Story Squad Team B
+# Story Squad Team A
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/0a3a11c6f1e83568a5cf/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/Labs26-StorySquad-FE-TeamB/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/0a3a11c6f1e83568a5cf/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/Labs26-StorySquad-FE-TeamB/test_coverage)
 
@@ -6,15 +6,17 @@
 
 Story Squad turns “reluctant readers” into authors and illustrators through a collaborative world-building game.
 <!-- Todo! Update this -->
-You can find the deployed project at: [AWS Amplify](https://b.storysquad.dev/)
+You can find the deployed project at: [AWS Amplify](https://a.storysquad.dev/)
 
 ## Current State Of The App
 <!-- Todo! Update this -->
-Work done by labs30: TBD <br/>
+Work done by labs31: https://docs.google.com/document/d/1xflyiel4FCX3RzOihrRYgGvTVqpv4kShAw-BrBhEOmQ/edit?ts=603e6e74 <br/>
 Work done by labs29: [Click Here](https://docs.google.com/spreadsheets/d/1ZdhfQEAsz3IhgVa8zMZ0JkuD6-oasDI4hplPFXZaXNQ/edit?usp=sharing)
 
 ## Project Overview
 [How the App should work - A primer for devs](storysquadExplained.md)
+<br/>
+[Labs31 Product Roadmap](https://www.notion.so/Roadmap-Story-Squad-Labs-31-6f774da319e34c238764765a864632a6)
 <br/>
 [Labs27 Frontend video](https://youtu.be/RwdSUOyeXG0)
 <br>
