@@ -17,6 +17,9 @@ import write_icon from '../../../assets/icons/write_icon.svg';
 const LandingAnimation = () => {
   // determine screen size to adjust image height
   let screenWidth = window.screen.width;
+  let availableScreen = window.screen.availWidth;
+
+  console.log('available scrren size', screenWidth, availableScreen);
 
   // instantiating dynamic variables for display
   let topAvatarHeight = 0;
@@ -39,20 +42,32 @@ const LandingAnimation = () => {
   if (screenWidth < 601) {
     topAvatarHeight = 30;
     crashAvatarHeight = 50;
-    crashImageSize = 110;
-    winnerImageSize = 110;
+    crashImageSize = 30;
+    winnerImageSize = 50;
     vsHeight = 30;
-  } else if (screenWidth < 992) {
-    topAvatarHeight = 40;
+  } else if (screenWidth < 740) {
+    topAvatarHeight = 30;
     crashAvatarHeight = 117;
-    crashImageSize = 90;
+    crashImageSize = 50;
+    winnerImageSize = 150;
+    vsHeight = 40;
+  } else if (screenWidth < 983) {
+    topAvatarHeight = 30;
+    crashAvatarHeight = 117;
+    crashImageSize = 110;
+    winnerImageSize = 150;
+    vsHeight = 40;
+  } else if (screenWidth < 1244) {
+    topAvatarHeight = 30;
+    crashAvatarHeight = 117;
+    crashImageSize = 150;
     winnerImageSize = 150;
     vsHeight = 40;
   } else {
     topAvatarHeight = 50;
     crashAvatarHeight = 120;
     crashImageSize = 190;
-    winnerImageSize = 180;
+    winnerImageSize = 350;
     vsHeight = 80;
   }
 
@@ -209,7 +224,7 @@ const LandingAnimation = () => {
           className="crash-location"
           src="/animation/championWithTrophy.svg"
           alt="me"
-          height="350"
+          height={winnerImageSize}
           style={upFromBottomStyle}
         />
         <animated.h1 style={welcomeBannerOnTopStyle4} className="win-text">
