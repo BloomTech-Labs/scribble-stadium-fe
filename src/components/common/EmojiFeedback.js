@@ -24,9 +24,14 @@ const EmojiFeedback = props => {
 
   return (
     <div className="EmojiFeedback">
-      <button onClick={onClick}></button>
+      <button onClick={onClick}>
+        {' '}
+        Emoji <br />
+        Feedback{' '}
+      </button>
       <Modal
         visible={modalVisible}
+        width={'70%'}
         onCancel={() => setModalVisible(false)}
         onOk={() => setModalVisible(false)}
         footer={null}
