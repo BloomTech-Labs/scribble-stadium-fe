@@ -2,8 +2,12 @@
 @import '~antd/lib/style/themes/default.less';
 
 #head-row {
-  min-width: 400px;
-  min-height: 70vh;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  min-width: 80%;
+  min-height: 30vh;
   .ant-col-16 {
     padding-left: 2%;
     padding-right: 2%;
@@ -86,5 +90,37 @@
   .auth-footer {
     font-size: 1rem;
     padding-top: 5%;
+  }
+}
+
+@media only screen and (min-width: 1243px) {
+  #head-row {
+    display: flex;
+    flex-direction: row;
+    min-width: 400px;
+    min-height: 70vh;
+    .ant-col-16 {
+      padding-left: 2%;
+      padding-right: 2%;
+      padding-top: 10.5vh;
+
+      p {
+        font-family: nunito, sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        color: @header-nero;
+        text-shadow: none;
+        text-align: left;
+        font-size: 2rem;
+      }
+    }
+
+    .ant-col-8 {
+      background: #fafafa;
+      display: flex;
+      justify-content: center;
+      padding: 10vh 2% 0;
+      min-height: 70vh;
+    }
   }
 }

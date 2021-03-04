@@ -17,9 +17,6 @@ import write_icon from '../../../assets/icons/write_icon.svg';
 const LandingAnimation = () => {
   // determine screen size to adjust image height
   let screenWidth = window.screen.width;
-  let availableScreen = window.screen.availWidth;
-
-  console.log('available scrren size', screenWidth, availableScreen);
 
   // instantiating dynamic variables for display
   let topAvatarHeight = 0;
@@ -39,6 +36,7 @@ const LandingAnimation = () => {
   //      1. conifer -- #C9E952
 
   //  determine dynamic sizing
+  // NOTE TO FUTURE DEVS: these sizings are not final, were made so that the crashImageSize would not interfere with right hand sign in. ideally we should stack these components for user flow / responsive design.
   if (screenWidth < 601) {
     topAvatarHeight = 30;
     crashAvatarHeight = 50;
