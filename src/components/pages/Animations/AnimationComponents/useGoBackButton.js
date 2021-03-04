@@ -9,10 +9,10 @@ const useGoBackButton = ref => {
     from: {
       opacity: 0,
       transform: phoneScreen
-        ? 'translate3d(-200%, 0%, 0px) scale(1)'
+        ? 'translate3d(-125%, 2%, 0px) scale(1)'
         : tabletScreen
-        ? 'translate3d(-350%, 0%, 0px) scale(1)'
-        : 'translate3d(-500%, 0%, 0px) scale(1)',
+        ? 'translate3d(-300%, 2%, 0px) scale(1)'
+        : 'translate3d(-620%, 2%, 0px) scale(1)',
       position: 'absolute',
     },
     to: {

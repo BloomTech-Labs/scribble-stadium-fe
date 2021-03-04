@@ -35,9 +35,7 @@ const FaceoffContent = props => {
           type={props.content.Type}
           feedback={props.content.Emojis1}
           votesNeededToUnlock={props.votesNeededToUnlock}
-          votesRemaining={props.votesRemaining}
-          dayNeededToUnlock={props.dayNeededToUnlock}
-          hourNeededToUnlock={props.hourNeededToUnlock}
+          mySquad="mySquad"
         />
       )}
       <img src={matchup_bolt} alt="lightning bolt" onClick={revealWinner} />
@@ -83,6 +81,18 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
   };
 
   useEffect(() => {
+    if (props.mySquad) {
+      setLocked(false);
+    }
+
+    if (
+      props.votesNeededToUnlock &&
+      props.votesNeededToUnlock >= props.votesRemaining &&
+      !props.dayNeededToUnlock
+    ) {
+      setLocked(false);
+    }
+
     if (
       props.votesNeededToUnlock &&
       props.votesNeededToUnlock >= props.votesRemaining &&

@@ -28,10 +28,10 @@ const useEnlargeCenterToTopLeft = ref => {
           ? 'translate3d(-300%, 200%, 0px) scale(1.5)'
           : tabletScreen
           ? 'translate3d(-475%, 200%, 0px) scale(1.5)'
-          : 'translate3d(-1000%, 300%, 0px) scale(2.5)',
+          : 'translate3d(-1000%, 250%, 0px) scale(2)',
       },
       {
-        config: { duration: 2700 },
+        config: { duration: 2800 },
         opacity: 1,
       },
       {

@@ -78,8 +78,6 @@ const RenderMatchUp = props => {
                 backgroundColor={'#e97451'}
                 votesRemaining={props.votesRemaining}
                 votesNeededToUnlock={7}
-                dayNeededToUnlock={4}
-                hourNeededToUnlock={6}
               />
             )}
           </Col>
@@ -93,8 +91,6 @@ const RenderMatchUp = props => {
                 backgroundColor={'#ffde3b'}
                 votesRemaining={props.votesRemaining}
                 votesNeededToUnlock={8}
-                dayNeededToUnlock={4}
-                hourNeededToUnlock={6}
               />
             )}
           </Col>
@@ -106,8 +102,6 @@ const RenderMatchUp = props => {
                 backgroundColor={'#438eac'}
                 votesRemaining={props.votesRemaining}
                 votesNeededToUnlock={9}
-                dayNeededToUnlock={4}
-                hourNeededToUnlock={6}
               />
             )}
           </Col>

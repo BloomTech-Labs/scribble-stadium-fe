@@ -13,12 +13,9 @@ import {
 } from '../../../api/index';
 
 function MatchUpContainer({ LoadingComponent, ...props }) {
-  //ERRLOG: child id is not being passed into the params properly, cannot find child with ID of null
-
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   const [canVote, setCanVote] = useState(true);
-  const [updateFaceoffs, setUpdateFaceoffs] = useState([]);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
 
@@ -31,7 +28,6 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
       if (props.child.Ballots.length > 0 && props.child.VotesRemaining > 0) {
         for (let ballot of props.child.Ballots) {
           getFaceoffsForVoting(authState, ballot[1]).then(faceoffs => {
-            setUpdateFaceoffs(faceoffs);
             if (props.votes.length === 0) {
               for (let faceoff of faceoffs) {
                 if (faceoff.ID === ballot[0]) {
@@ -96,7 +92,6 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
           authService={authService}
           canVote={canVote}
           votesRemaining={props.child.VotesRemaining}
-          faceoffs={updateFaceoffs}
         />
       )}
     </>

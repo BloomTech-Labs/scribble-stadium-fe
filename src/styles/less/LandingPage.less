@@ -48,6 +48,7 @@
     vertical-align: top;
     font-size: 1.5rem;
     font-family: nunito;
+    line-height: 2.7rem;
   }
 
   label {
@@ -58,8 +59,7 @@
   #okta-signin-username,
   #okta-signin-password {
     width: 100%;
-    padding-left: 3px;
-    height: 1.5rem;
+    padding-left: 8px;
     border: 1px solid @dim-grey;
     border-radius: 10px;
   }
@@ -69,7 +69,7 @@
     font-size: 1.5rem;
   }
 
-  .custom-checkbox {
+  .okta-form-input-error o-form-input-error o-form-explain .custom-checkbox {
     padding-bottom: 5%;
     label {
       font-size: 1.5rem;
@@ -83,7 +83,7 @@
     margin: 0 auto;
     height: 3rem;
     .button {
-      width: 50%;
+      width: 100%;
       border-radius: 14px;
       justify-content: center;
       cursor: pointer;
@@ -127,6 +127,21 @@
       justify-content: center;
       padding: 10vh 2% 0;
       min-height: 70vh;
+    }
+  }
+  #sign-in-widget {
+    .auth-header {
+      height: 0px;
+    }
+
+    .auth-content {
+      width: 100%;
+    }
+    h2 {
+      vertical-align: top;
+      font-size: 2.5rem;
+      font-family: nunito;
+      line-height: 2.7rem;
     }
   }
 }
