@@ -128,7 +128,7 @@ const DevTools = props => {
   return (
     <Form className="dev-tools">
       <h2 className="dev-title">Dev Tools</h2>
-      <Collapse className="dev-notes">
+      <Collapse style={{ width: '45%' }}>
         <Collapse.Panel header="Dev Notes" key="3">
           <ul>
             {devToolNotes.map((note, index) => {
@@ -142,6 +142,7 @@ const DevTools = props => {
         {/* Needs database to have multiple cohorts & weeks to be able to select a different cohort. */}
         {/* Possibly use antDesign's Cascader to combine cohort, week, date into one component. */}
         <Select
+          style={{ width: '45%' }}
           placeholder="Select a Cohort"
           // onChange={}
         >

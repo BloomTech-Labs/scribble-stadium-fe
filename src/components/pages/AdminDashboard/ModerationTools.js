@@ -99,10 +99,8 @@ const ModerationTools = props => {
 
   return (
     <Form form={form} className="inline-form">
-      <Divider orientation="left">
-        <h2>Moderator Tools</h2>
-      </Divider>
-      <Collapse style={{ width: '100%' }}>
+      <h2 className="moderator-title">Moderator Tools</h2>
+      <Collapse style={{ width: '45%' }} className="moderator-notes">
         <Collapse.Panel header="Notes & Instructions" key="1">
           <p>
             Actions an adult moderator should be able to take to run the game
@@ -118,7 +116,7 @@ const ModerationTools = props => {
           Go to Faceoffs/Matchups
         </Button>
       </Form.Item>
-      <Form.Item>
+      <Form.Item className="moderator-form">
         <Button type="reset" onClick={reset}>
           Reset Seeds
         </Button>
@@ -137,10 +135,8 @@ const ModerationTools = props => {
           Generate Results
         </Button>
       </Form.Item>
-      <Divider orientation="left">
-        <h2>Posts for moderation</h2>
-      </Divider>
-      <Collapse style={{ width: '100%' }}>
+      <h2 className="posts-title">Posts for Moderation</h2>
+      <Collapse style={{ width: '45%' }}>
         <Collapse.Panel header="Instructions" key="2">
           <p>
             After students add submissions, are displayed here for a moderator
@@ -151,7 +147,11 @@ const ModerationTools = props => {
       </Collapse>
       <br />
       <Form.Item name="cohort">
-        <Select placeholder="Select a Cohort" onChange={getPosts}>
+        <Select
+          style={{ width: '45%' }}
+          placeholder="Select a Cohort"
+          onChange={getPosts}
+        >
           {cohorts.map(x => (
             <Option key={x.ID} value={x.ID}>
               Cohort {x.ID}
