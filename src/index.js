@@ -54,13 +54,7 @@ import { VotingPage } from './components/pages/VotingPage';
 // Note: for demo/developer purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
 import AdminDashboard from './components/pages/AdminDashboard';
-import Saturday from './components/pages/AdminDashboard/DaysOfWeek/01_Saturday';
-import Sunday from './components/pages/AdminDashboard/DaysOfWeek/02_Sunday';
-import Monday from './components/pages/AdminDashboard/DaysOfWeek/03_Monday';
-import Tuesday from './components/pages/AdminDashboard/DaysOfWeek/04_Tuesday';
-import Wednesday from './components/pages/AdminDashboard/DaysOfWeek/05_Wednesday';
-import Thursday from './components/pages/AdminDashboard/DaysOfWeek/06_Thursday';
-import Friday from './components/pages/AdminDashboard/DaysOfWeek/07_Friday';
+import DayComponent from './components/pages/AdminDashboard/DevTools/DayComponent';
 
 ReactDOM.render(
   //
@@ -193,13 +187,7 @@ function App() {
         />
         <Route exact path="/moderation" component={ModerationTest} />
         <Route exact path="/admin" component={AdminDashboard} />
-        <Route exact path="/saturday" component={Saturday} />
-        <Route exact path="/sunday" component={Sunday} />
-        <Route exact path="/monday" component={Monday} />
-        <Route exact path="/tuesday" component={Tuesday} />
-        <Route exact path="/wednesday" component={Wednesday} />
-        <Route exact path="/thursday" component={Thursday} />
-        <Route exact path="/friday" component={Friday} />
+        <Route path="/dev/day/:dayID" component={DayComponent} />
         <Route component={NotFoundPage} />
       </Switch>
     </Security>
