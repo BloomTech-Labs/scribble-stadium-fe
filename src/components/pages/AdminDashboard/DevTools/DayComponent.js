@@ -1,11 +1,11 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Layout, Button } from 'antd';
-import dayData from './dayData';
+import { dayData } from './dayData';
 
 const { Header, Footer, Content } = Layout;
 
-const Saturday = props => {
+const DayComponent = props => {
   const { push } = useHistory();
 
   const adminDash = () => {
@@ -17,14 +17,17 @@ const Saturday = props => {
       <Header className="ant-page-header">
         <h1>Story Squad</h1>
       </Header>
-      {dayData.map(day => {
+      {dayData.map((day, dayID) => {
+        // if(dayID == id) {
+
+        // }
         return (
           <>
-            <h2>{day.dayName}</h2>
-            <h3>{day.dayNumber}</h3>
-            <h4>{day.dayStage}</h4>
+            <h2 key={dayID}>{day.dayName}</h2>
+            <h3 key={dayID}>{day.dayNumber}</h3>
+            <h4 key={dayID}>{day.stage}</h4>
             <Content>
-              <p>{day.content}</p>
+              <p key={dayID}>{day.content}</p>
             </Content>
           </>
         );
@@ -38,4 +41,4 @@ const Saturday = props => {
   );
 };
 
-export default Saturday;
+export default DayComponent;
