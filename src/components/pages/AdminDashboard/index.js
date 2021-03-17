@@ -5,7 +5,7 @@ import { Button, Layout, PageHeader } from 'antd';
 
 import ModerationTools from './ModerationTools';
 // import DevTools from './DevTools';
-import DevToolsNew from './DevToolsNew';
+import DevToolsNew from './DevTools/DevToolsNew';
 
 const { Content } = Layout;
 
