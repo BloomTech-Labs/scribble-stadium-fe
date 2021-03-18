@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 import { date } from '../../../state/actions';
 
-import { Button, Select, Form, Divider, Collapse, Radio } from 'antd';
+import { Button, Select, Form, Collapse, Radio } from 'antd';
 // import Sider from 'antd/lib/layout/Sider';
 
 import {
@@ -126,11 +126,9 @@ const DevTools = props => {
   let counter = 0;
 
   return (
-    <Form>
-      <Divider orientation="left">
-        <h2>Dev Tools</h2>
-      </Divider>
-      <Collapse>
+    <Form className="dev-tools">
+      <h2 className="dev-title">Dev Tools</h2>
+      <Collapse style={{ width: '45%' }}>
         <Collapse.Panel header="Dev Notes" key="3">
           <ul>
             {devToolNotes.map((note, index) => {
@@ -144,6 +142,7 @@ const DevTools = props => {
         {/* Needs database to have multiple cohorts & weeks to be able to select a different cohort. */}
         {/* Possibly use antDesign's Cascader to combine cohort, week, date into one component. */}
         <Select
+          style={{ width: '45%' }}
           placeholder="Select a Cohort"
           // onChange={}
         >
