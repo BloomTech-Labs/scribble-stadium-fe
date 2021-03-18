@@ -54,7 +54,7 @@ import { VotingPage } from './components/pages/VotingPage';
 // Note: for demo/developer purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
 import AdminDashboard from './components/pages/AdminDashboard';
-import DayComponentView from './components/pages/AdminDashboard/DevTools/DayComponentViewjs';
+import DayComponentView from './components/pages/AdminDashboard/DevTools/DayComponentView.js';
 
 ReactDOM.render(
   //
