@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { Menu, Dropdown, Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
@@ -7,11 +7,10 @@ import { DownOutlined } from '@ant-design/icons';
 import { dayData } from './dayData';
 
 const DevToolsNew = props => {
-  let { dayID } = useParams();
   const { push } = useHistory();
 
-  const dayHandler = () => {
-    push(`/dev/day/${dayID}`);
+  const dayHandler = e => {
+    push(`/dev/day/${e.target.name}`);
   };
 
   const dropdown = (
@@ -19,7 +18,7 @@ const DevToolsNew = props => {
       {dayData.map(day => {
         return (
           <Menu.Item>
-            <a target="_blank" onClick={dayHandler}>
+            <a target="_blank" name={day.dayID} onClick={dayHandler}>
               {day.dayName}
             </a>
           </Menu.Item>
