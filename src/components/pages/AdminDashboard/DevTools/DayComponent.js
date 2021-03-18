@@ -1,45 +1,32 @@
 import React from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Layout, Button } from 'antd';
-import { dayData } from './dayData';
 
-const { Header, Footer, Content } = Layout;
+const { Content } = Layout;
 
-const DayComponent = props => {
+const DayComponent = ({ day }) => {
   const { push } = useHistory();
-  const { dayID } = useParams();
 
-  const adminDash = () => {
-    push('/admin');
+  const handleSim = () => {
+    push(`${day.gameStageUrl}`);
   };
 
   return (
-    <Layout className="day-div">
-      <Header className="ant-page-header">
-        <h1>Story Squad</h1>
-      </Header>
-      {dayData.map(day => {
-        if (day.dayID == dayID) {
-          return (
-            <>
-              <h2 key={dayID}>{day.dayName}</h2>
-              <h3 key={dayID}>{day.dayNumber}</h3>
-              <h4 key={dayID}>{day.stage}</h4>
-              <Content>
-                <p key={dayID}>{day.content}</p>
-              </Content>
-              <Button style={{ width: '45%' }} to={day.gameStageUrl}>
-                Simulate Game Play
-              </Button>
-            </>
-          );
-        }
-      })}
-      <Button style={{ width: '45%' }} onClick={adminDash}>
-        Admin Dash
+    <div>
+      <h2>{day.dayName}</h2>
+      <h3>{day.dayNumber}</h3>
+      <h4>{day.stage}</h4>
+      <Content>
+        <p>{day.content}</p>
+      </Content>
+      <Button
+        style={{ width: '45%' }}
+        onClick={handleSim}
+        disabled={day.gameStageUrl == null}
+      >
+        Simulate Game Play
       </Button>
-      <Footer></Footer>
-    </Layout>
+    </div>
   );
 };
 
