@@ -28,11 +28,13 @@ const DayComponent = props => {
               <Content>
                 <p key={dayID}>{day.content}</p>
               </Content>
+              <Button style={{ width: '45%' }} to={day.gameStageUrl}>
+                Simulate Game Play
+              </Button>
             </>
           );
         }
       })}
-      <Button style={{ width: '45%' }}>Simulate Game Play</Button>
       <Button style={{ width: '45%' }} onClick={adminDash}>
         Admin Dash
       </Button>
