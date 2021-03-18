@@ -1,17 +1,35 @@
 .moderation-page {
+  display: flex;
   .dev-tools {
     padding-left: 15rem;
     padding-right: 15rem;
     padding-bottom: 3rem;
+
+    .ant-page-header {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      background-color: #229;
+      h1 {
+        color: white;
+        font-family: 'Bangers';
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .dev-tools-day {
+    margin: 25px 400px auto 400px;
+    text-align:justify;
+    h2, h3, h4 {
+      text-align: center;
+    }
   }
   .dev-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   .react-datepicker {
     min-width: 20.5rem;
-  }
-  .day-div {
-    padding: 10rem;
   }
   .datePickerTxt {
     margin-right: 1rem;
@@ -37,11 +55,11 @@
       padding-bottom: 3rem;
       
       .moderator-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
 
       .posts-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
         padding-top: 2.5rem;
       }
 
