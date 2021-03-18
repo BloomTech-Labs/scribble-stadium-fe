@@ -16,18 +16,18 @@ const DayComponentView = props => {
   };
 
   return (
-    <Layout className="day-div">
+    <Layout className="moderation-page">
       <Header className="ant-page-header">
         <h1>Story Squad</h1>
+        <Button style={{ width: '10%' }} onClick={adminDash}>
+          Admin Dash
+        </Button>
       </Header>
       {dayData.map(day => {
         if (day.dayID == dayID) {
-          return <DayComponent day={day} />;
+          return <DayComponent className="dev-tools-day" day={day} />;
         }
       })}
-      <Button style={{ width: '45%' }} onClick={adminDash}>
-        Admin Dash
-      </Button>
       <Footer></Footer>
     </Layout>
   );

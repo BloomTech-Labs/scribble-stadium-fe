@@ -12,15 +12,17 @@ const DayComponent = ({ day }) => {
   };
 
   return (
-    <div>
+    <div className="dev-tools-day">
       <h2>{day.dayName}</h2>
       <h3>{day.dayNumber}</h3>
       <h4>{day.stage}</h4>
       <Content>
-        <p>{day.content}</p>
+        <p>
+          <b>Stage Description:</b> {day.content}
+        </p>
       </Content>
       <Button
-        style={{ width: '45%' }}
+        style={{ width: '20%' }}
         onClick={handleSim}
         disabled={day.gameStageUrl == null}
       >

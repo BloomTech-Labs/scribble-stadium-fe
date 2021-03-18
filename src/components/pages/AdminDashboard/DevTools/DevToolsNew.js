@@ -31,8 +31,8 @@ const DevToolsNew = props => {
     <div className="dev-tools">
       <h2 className="dev-title">Developer Operations</h2>
       <p>
-        What day of the week would you like to test, see the stages / actions /
-        state, or learn more about?
+        Select a day to test and see the stages, phases, actions, and state
+        associated with that day.
       </p>
       <Dropdown overlay={dropdown}>
         <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
@@ -40,7 +40,9 @@ const DevToolsNew = props => {
         </a>
       </Dropdown>
       <span>
-        <Button type="dev-reset">Reset Game</Button>
+        <Button style={{ margin: '2%' }} type="dev-reset">
+          Reset Game
+        </Button>
       </span>
     </div>
   );
