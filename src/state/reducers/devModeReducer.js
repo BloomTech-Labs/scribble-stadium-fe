@@ -4,7 +4,7 @@ const initialState = {
   isDevModeActive: false,
 };
 
-export const devModeReducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_DEV_MODE:
       return {
