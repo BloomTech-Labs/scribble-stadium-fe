@@ -19,6 +19,7 @@ export const reducer = (state = initialState, action) => {
     case SET_DEV_MODE:
       return {
         ...state,
+        isDevModeActive: action.payload,
       };
     default:
       return state;
