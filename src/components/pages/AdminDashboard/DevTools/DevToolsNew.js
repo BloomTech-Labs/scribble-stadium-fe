@@ -1,16 +1,22 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { Menu, Dropdown, Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
 import { dayData } from './dayData';
+import { devMode } from '../../../../state/actions/index';
 
-const DevToolsNew = props => {
+const DevToolsNew = ({ devMode, setDevMode }) => {
   const { push } = useHistory();
 
   const dayHandler = e => {
     push(`/dev/day/${e.target.name}`);
+  };
+
+  const handleDevMode = () => {
+    setDevMode(!devMode.isDevModeActive);
   };
 
   const dropdown = (
@@ -34,6 +40,11 @@ const DevToolsNew = props => {
         Select a day to test and see the stages, phases, actions, and state
         associated with that day.
       </p>
+      <div>
+        <Button style={{ margin: '1rem' }} onClick={handleDevMode}>
+          {devMode.isDevModeActive ? 'Deactivate' : 'Activate'} developer mode
+        </Button>
+      </div>
       <Dropdown overlay={dropdown}>
         <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
           Select a day ... <DownOutlined />
@@ -48,4 +59,9 @@ const DevToolsNew = props => {
   );
 };
 
-export default DevToolsNew;
+export default connect(
+  state => ({
+    devMode: state.devMode,
+  }),
+  { setDevMode: devMode.setDevMode }
+)(DevToolsNew);
