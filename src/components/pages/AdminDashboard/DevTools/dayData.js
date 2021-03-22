@@ -44,6 +44,8 @@ export const dayData = [
       '2 kid users are put together to form a "Squad". A kid user does not do much interaction with the app at this stage. DS is doing most of the work behind the scenes in order to match kid users with other kid users at similar skill levels. Side quests are analyzed by DS. Side quests and drawings will receive a "squad score" by DS and be grouped with a student of similar skillset into a squad. Each squad will be matched with a similarly skilled squad to compete against in a matchup. The matchup refers to the overall squad-vs.-squad face-offs taking place, and will be displayed on the matchup page as 4 face-offs.',
     url: '/dev/day/4',
     gameStageUrl: null,
+    state: null,
+    stateChoices: null,
   },
   {
     dayID: 5,
@@ -54,6 +56,8 @@ export const dayData = [
       "Ex: There are two side quests and two pictures. Kid user 1 allocates his or her points in the following way: - 20 points to kid user 1's image - 30 points to kid user 1's side quest - 40 points to kid user 2's side quest - 10 points to kid user 2's image Kid user 1 divided his or her points based on how likely kid user 1 thought that specific side quest or image would match up against another users image or side quest. Kid user 2 allocates his or her points following the same thought process. Each submission must get a minimum of 10 points. If a student fails to allocate points, each submission defaults to 25 points per side quest and drawing.",
     url: '/dev/day/5',
     gameStageUrl: '/child/join',
+    state: null,
+    stateChoices: null,
   },
   {
     dayID: 6,
@@ -64,6 +68,8 @@ export const dayData = [
       'The Matchup Dashboard shows the face-offs from the previous round. The side quest with the greatest amount of points from Team A and the side quest with the greatest amount of points from Team B are put up against each other. The drawing with the greatest points from Team A and the drawing with the greatest points from Team B are put up against each other. The total points in this round will be equal to 400. A squad needs 200.5 points or more to win the Matchup. In this stage there are 100 points allocated in each of the kid users. The kid users give an alloted amount of points of their choice to both side quests and images.The drawing and the side quest with the greater amount of points moves on the the next stage in the game. Each user in the cochort gets served up 3 independent voting sessions on A vs B side quests or pictures from other matches within their cohort. Each A vs B pair gets served up 3x randomly to voters on the platform. These voters vote for the better of the side quest or drawing and leave emoji feedback that is routed back to each author and populated on the Matchup page.',
     url: '/dev/day/6',
     gameStageUrl: '/child/match-up',
+    state: null,
+    stateChoices: null,
   },
   {
     dayID: 7,
@@ -73,5 +79,7 @@ export const dayData = [
     content: 'Today at 3 PM is the big reveal and the winners are announced.',
     url: '/dev/day/7',
     gameStageUrl: '/child/match-up', // uncertain where the big reveal comes from
+    state: null,
+    stateChoices: null,
   },
 ];
