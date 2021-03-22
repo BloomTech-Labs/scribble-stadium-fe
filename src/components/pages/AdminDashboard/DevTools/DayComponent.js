@@ -21,11 +21,7 @@ const DayComponent = ({ day }) => {
           <b>Stage Description:</b> {day.content}
         </p>
       </Content>
-      <Button
-        style={{ width: '20%' }}
-        onClick={handleSim}
-        disabled={day.gameStageUrl == null}
-      >
+      <Button onClick={handleSim} disabled={day.gameStageUrl == null}>
         Simulate Game Play
       </Button>
     </div>
