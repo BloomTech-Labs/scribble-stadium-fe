@@ -24,13 +24,18 @@ const DayComponent = ({ day, devMode, setDevMode }) => {
       <h4>{day.stage}</h4>
       <Content>
         <p>{day.content}</p>
-        <button onClick={handleDevMode}>
+        <Button style={{ margin: '1rem' }} onClick={handleDevMode}>
           {devMode.isDevModeActive ? 'Deactivate' : 'Activate'} developer mode
-        </button>
+        </Button>
+        <Button
+          style={{ margin: '1rem' }}
+          onClick={handleSim}
+          disabled={day.gameStageUrl == null}
+        >
+          Simulate Game Play
+        </Button>
+        <Button style={{ margin: '1rem' }}>Update Database</Button>
       </Content>
-      <Button onClick={handleSim} disabled={day.gameStageUrl == null}>
-        Simulate Game Play
-      </Button>
     </div>
   );
 };
