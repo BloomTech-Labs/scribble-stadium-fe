@@ -1,20 +1,14 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Layout, Button } from 'antd';
-import { connect } from 'react-redux';
-import { devMode } from '../../../../state/actions/index';
 
 const { Content } = Layout;
 
-const DayComponent = ({ day, devMode, setDevMode }) => {
+const DayComponent = ({ day }) => {
   const { push } = useHistory();
 
   const handleSim = () => {
     push(`${day.gameStageUrl}`);
-  };
-
-  const handleDevMode = () => {
-    setDevMode(!devMode.isDevModeActive);
   };
 
   return (
@@ -24,9 +18,6 @@ const DayComponent = ({ day, devMode, setDevMode }) => {
       <h4>{day.stage}</h4>
       <Content>
         <p>{day.content}</p>
-        <Button style={{ margin: '1rem' }} onClick={handleDevMode}>
-          {devMode.isDevModeActive ? 'Deactivate' : 'Activate'} developer mode
-        </Button>
         <Button
           style={{ margin: '1rem' }}
           onClick={handleSim}
@@ -40,9 +31,4 @@ const DayComponent = ({ day, devMode, setDevMode }) => {
   );
 };
 
-export default connect(
-  state => ({
-    devMode: state.devMode,
-  }),
-  { setDevMode: devMode.setDevMode }
-)(DayComponent);
+export default DayComponent;
