@@ -19,9 +19,7 @@ const DayComponentView = props => {
     <Layout className="moderation-page">
       <Header className="ant-page-header">
         <h1>Story Squad</h1>
-        <Button style={{ width: '10%' }} onClick={adminDash}>
-          Admin Dash
-        </Button>
+        <Button onClick={adminDash}>Admin Dash</Button>
       </Header>
       {dayData.map(day => {
         if (day.dayID == dayID) {
