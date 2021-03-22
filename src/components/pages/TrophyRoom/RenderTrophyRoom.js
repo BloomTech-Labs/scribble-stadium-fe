@@ -50,7 +50,7 @@ const RenderTrophyRoom = props => {
     <>
       <Header displayMenu={true} title="Trophy Room" />
       <Button style={{ margin: '1rem' }} onClick={dashboard}>
-        Dashboard
+        Back to Child Dashboard
       </Button>
       <div className="trophy-container">
         <Leaderboard child={props.child} />
@@ -59,12 +59,12 @@ const RenderTrophyRoom = props => {
           <h2 className="h2" onClick={showAchievementsModal}>
             Achievements
           </h2>
-          <Modal
+          <div
             title="Achievements"
             visible={isAchievementModalVisible}
             onOk={handleAchievmentOk}
             onCancel={handleAchievementCancel}
-            width={900}
+            // width={900}
           >
             <div style={{ overflow: 'scroll' }}>
               <h3>Completed (Way to go!):</h3>
@@ -88,8 +88,9 @@ const RenderTrophyRoom = props => {
             }
           })} */}
             </div>
-          </Modal>
+          </div>
           <Divider />
+          {/* Add this to Change Your Avatar once it is implemented */}
           <h2 className="h2" onClick={showInventoryModel}>
             Inventory
           </h2>
