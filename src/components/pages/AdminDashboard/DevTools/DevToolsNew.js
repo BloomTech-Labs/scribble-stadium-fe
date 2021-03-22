@@ -41,27 +41,27 @@ const DevToolsNew = ({ devMode, setDevMode }) => {
         associated with that day.
       </p>
       <div>
-        <Button style={{ margin: '1rem' }} onClick={handleDevMode}>
+        <Button style={{ margin: '8px' }} onClick={handleDevMode}>
           {devMode.isDevModeActive ? 'Deactivate' : 'Activate'} developer mode
         </Button>
       </div>
       {devMode.isDevModeActive ? (
-        <Dropdown overlay={dropdown}>
+        <Dropdown style={{ margin: '8px' }} overlay={dropdown}>
           <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
             Select a day ... <DownOutlined />
           </a>
         </Dropdown>
       ) : (
-        <Dropdown disabled overlay={dropdown}>
+        <Dropdown style={{ margin: '8px' }} disabled overlay={dropdown}>
           <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
             Select a day ... <DownOutlined />
           </a>
         </Dropdown>
       )}
       <span>
-        <Button style={{ margin: '2%' }} type="dev-reset">
+        {/* <Button style={{ margin: '2%' }} type="dev-reset">
           Reset Game
-        </Button>
+        </Button> */}
       </span>
     </div>
   );
