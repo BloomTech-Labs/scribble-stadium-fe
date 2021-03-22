@@ -4,16 +4,21 @@ import Leaderboard from './Leaderboard';
 
 import { connect } from 'react-redux';
 
-import { Divider } from 'antd';
-import { Modal } from 'antd';
+import { Divider, Button, Modal } from 'antd';
+import { useHistory } from 'react-router-dom';
 
 const RenderTrophyRoom = props => {
+  const { push } = useHistory();
   const [isAchievementModalVisible, setIsAchievementModalVisible] = useState(
     false
   );
   const [isInventoryModalVisible, setIsInventoryModalVisible] = useState(false);
   const [inventoryState, setInventoryState] = useState('');
   const [achievementState, setAchievementState] = useState('');
+
+  const dashboard = () => {
+    push('/child/dashboard');
+  };
 
   const showAchievementsModal = () => {
     setIsAchievementModalVisible(true);
@@ -44,6 +49,9 @@ const RenderTrophyRoom = props => {
   return (
     <>
       <Header displayMenu={true} title="Trophy Room" />
+      <Button style={{ margin: '1rem' }} onClick={dashboard}>
+        Dashboard
+      </Button>
       <div className="trophy-container">
         <Leaderboard child={props.child} />
         <div className="custom-divider"></div>
