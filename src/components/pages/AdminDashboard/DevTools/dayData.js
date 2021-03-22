@@ -8,6 +8,8 @@ export const dayData = [
       'At 11AM every Saturday, the game is reset. A kid user reads the excerpt from the story for the week. Only when the kid user is finished reading the story for the week they are able to proceed to the next stage of the game.',
     url: '/dev/day/1',
     gameStageUrl: '/child/mission-control',
+    state: 'User has read?',
+    stateChoices: ['True', 'False'],
   },
   {
     dayID: 2,
@@ -18,6 +20,8 @@ export const dayData = [
       'Kid users are instructed to draw a picture of one sentece from the excerct of the story of the week. When the kid user uploads the image, they proceed to the next stage in the game.',
     url: '/dev/day/2',
     gameStageUrl: '/child/mission-control',
+    state: 'User has submitted a drawing?',
+    stateChoices: ['True', 'False'],
   },
   {
     dayID: 3,
@@ -28,6 +32,8 @@ export const dayData = [
       'Kid users are instructed to write a side quest (story) based off of the prompt given in the app. When the kid user uploads the image, they proceed to the next stage in the game. Monday at 11:59PM is the deadline for submissions. The image of the uploaded side quest is translated by a 3rd Party API implemented by DS.',
     url: '/dev/day/3',
     gameStageUrl: '/child/mission-control',
+    state: 'User has submitted a "side quest"?',
+    stateChoices: ['True', 'False'],
   },
   {
     dayID: 4,
