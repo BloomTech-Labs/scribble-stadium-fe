@@ -45,11 +45,19 @@ const DevToolsNew = ({ devMode, setDevMode }) => {
           {devMode.isDevModeActive ? 'Deactivate' : 'Activate'} developer mode
         </Button>
       </div>
-      <Dropdown overlay={dropdown}>
-        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-          Select a day ... <DownOutlined />
-        </a>
-      </Dropdown>
+      {devMode.isDevModeActive ? (
+        <Dropdown overlay={dropdown}>
+          <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+            Select a day ... <DownOutlined />
+          </a>
+        </Dropdown>
+      ) : (
+        <Dropdown disabled overlay={dropdown}>
+          <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+            Select a day ... <DownOutlined />
+          </a>
+        </Dropdown>
+      )}
       <span>
         <Button style={{ margin: '2%' }} type="dev-reset">
           Reset Game
