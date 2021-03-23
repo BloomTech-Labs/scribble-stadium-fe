@@ -1,6 +1,7 @@
 export const dayData = [
   {
     dayID: 1,
+    dayOfWeekIndex: 6, //used for findNextDayOfWeek
     dayName: 'Saturday',
     dayNumber: 'First Day of Game Play',
     stage: 'The Reading Stage',
@@ -11,6 +12,7 @@ export const dayData = [
   },
   {
     dayID: 2,
+    dayOfWeekIndex: 0,
     dayName: 'Sunday',
     dayNumber: 'Second Day of Game Play',
     stage: 'The Drawing Stage',
@@ -21,6 +23,7 @@ export const dayData = [
   },
   {
     dayID: 3,
+    dayOfWeekIndex: 1,
     dayName: 'Monday',
     dayNumber: 'Third Day of Game Play',
     stage: 'The Writing Stage',
@@ -31,6 +34,7 @@ export const dayData = [
   },
   {
     dayID: 4,
+    dayOfWeekIndex: 2,
     dayName: 'Tuesday',
     dayNumber: 'Fourth Day of Game Play',
     stage: 'Join a Squad Stage',
@@ -41,6 +45,7 @@ export const dayData = [
   },
   {
     dayID: 5,
+    dayOfWeekIndex: 3,
     dayName: 'Wednesday',
     dayNumber: 'Fifth Day of Game Play',
     stage: 'Point Share Stage',
@@ -51,6 +56,7 @@ export const dayData = [
   },
   {
     dayID: 6,
+    dayOfWeekIndex: 4,
     dayName: 'Thursday',
     dayNumber: 'Sixth Day of Game Play',
     stage: 'Matchup and Independent Voting Stage',
@@ -61,6 +67,7 @@ export const dayData = [
   },
   {
     dayID: 7,
+    dayOfWeekIndex: 5,
     dayName: 'Friday',
     dayNumber: 'Seventh and Last Day of Game Play',
     stage: 'Scoreboard Stage',

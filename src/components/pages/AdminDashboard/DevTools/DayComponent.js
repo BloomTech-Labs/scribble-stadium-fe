@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Layout, Button } from 'antd';
 import { connect } from 'react-redux';
-import { devMode } from '../../../../state/actions/index';
+import { devMode, date } from '../../../../state/actions/index';
 
 const { Content } = Layout;
 
-const DayComponent = ({ day, devMode, setDevMode }) => {
+const DayComponent = ({ day, devMode, setDevMode, setDate }) => {
   const { push } = useHistory();
 
   const handleSim = () => {
@@ -16,6 +16,19 @@ const DayComponent = ({ day, devMode, setDevMode }) => {
   const handleDevMode = () => {
     setDevMode(!devMode.isDevModeActive);
   };
+
+  const findNextDayOfWeek = selectedDay => {
+    let dayOfWeek = selectedDay;
+    let date = new Date();
+    let resultDate = new Date(date.getTime());
+    resultDate.setDate(date.getDate() + ((7 + dayOfWeek - date.getDay()) % 7));
+    console.log(resultDate);
+    return resultDate;
+  };
+
+  useEffect(() => {
+    setDate(findNextDayOfWeek(day.dayOfWeekIndex));
+  }, [day.dayOfWeekIndex]);
 
   return (
     <div>
@@ -42,6 +55,7 @@ const DayComponent = ({ day, devMode, setDevMode }) => {
 export default connect(
   state => ({
     devMode: state.devMode,
+    date: state.date,
   }),
-  { setDevMode: devMode.setDevMode }
+  { setDevMode: devMode.setDevMode, setDate: date.setDate }
 )(DayComponent);
