@@ -31,10 +31,10 @@ const DayComponent = ({ day }) => {
       <h4>{day.stage}</h4>
       <Content>
         <p>{day.content}</p>
-        <p>Select the game state you would like to see in play: {day.state}</p>
+        <p>Select the game state you would like to see in play:</p>
         {/* Add onChange handler in Radio.Group */}
         <Radio.Group value={gameState}>
-          {day.stateChoices.map(choices => {
+          {day.state.map(choices => {
             return (
               <Radio style={radioStyle} value={setGameState}>
                 {choices}
