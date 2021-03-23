@@ -1,12 +1,12 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { Button, Layout, PageHeader } from 'antd';
+import { Button, Layout } from 'antd';
 
 import ModerationTools from './ModerationTools';
 import DevToolsNew from './DevTools/DevToolsNew';
 
-const { Content } = Layout;
+const { Content, Header } = Layout;
 
 const AdminDashboard = props => {
   const { push } = useHistory();
@@ -17,16 +17,19 @@ const AdminDashboard = props => {
 
   return (
     <Layout className="moderation-page">
-      <PageHeader>
+      <Header className="ant-page-header">
         <h1>Story Squad</h1>
-      </PageHeader>
+        <Button type="default" onClick={homePageHandler}>
+          Back to Home Page
+        </Button>
+      </Header>
       <Layout>
         <Content>
-          <Button type="default" onClick={homePageHandler}>
-            Back to Home Page
-          </Button>
           <ModerationTools component={ModerationTools} />
-          <DevToolsNew component={DevToolsNew} />
+          <DevToolsNew
+            className="dev-tools-component"
+            component={DevToolsNew}
+          />
         </Content>
       </Layout>
     </Layout>
