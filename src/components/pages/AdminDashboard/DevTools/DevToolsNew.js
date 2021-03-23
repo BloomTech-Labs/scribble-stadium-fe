@@ -40,29 +40,24 @@ const DevToolsNew = ({ devMode, setDevMode }) => {
         Select a day to test and see the stages, phases, actions, and state
         associated with that day.
       </p>
-      <div>
+      <div className="dev-mode-buttons">
         <Button style={{ margin: '8px' }} onClick={handleDevMode}>
           {devMode.isDevModeActive ? 'Deactivate' : 'Activate'} developer mode
         </Button>
+        {devMode.isDevModeActive ? (
+          <Dropdown style={{ margin: '8px' }} overlay={dropdown}>
+            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+              Select a day ... <DownOutlined />
+            </a>
+          </Dropdown>
+        ) : (
+          <Dropdown style={{ margin: '8px' }} disabled overlay={dropdown}>
+            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+              Select a day ... <DownOutlined />
+            </a>
+          </Dropdown>
+        )}
       </div>
-      {devMode.isDevModeActive ? (
-        <Dropdown style={{ margin: '8px' }} overlay={dropdown}>
-          <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-            Select a day ... <DownOutlined />
-          </a>
-        </Dropdown>
-      ) : (
-        <Dropdown style={{ margin: '8px' }} disabled overlay={dropdown}>
-          <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-            Select a day ... <DownOutlined />
-          </a>
-        </Dropdown>
-      )}
-      <span>
-        {/* <Button style={{ margin: '2%' }} type="dev-reset">
-          Reset Game
-        </Button> */}
-      </span>
     </div>
   );
 };
