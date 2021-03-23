@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import { Button, Layout, PageHeader } from 'antd';
 
 import ModerationTools from './ModerationTools';
-// import DevTools from './DevTools';
 import DevToolsNew from './DevTools/DevToolsNew';
 
 const { Content } = Layout;
@@ -28,7 +27,6 @@ const AdminDashboard = props => {
           </Button>
           <ModerationTools component={ModerationTools} />
           <DevToolsNew component={DevToolsNew} />
-          {/* <DevTools component={DevTools} /> */}
         </Content>
       </Layout>
     </Layout>
