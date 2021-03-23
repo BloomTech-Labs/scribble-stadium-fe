@@ -1,16 +1,25 @@
 // istanbul ignore file
 import axios from 'axios';
 
-import { store } from '../state/index';
+/**
+ * This function determines the API Url for the application to hit
+ *    When devMode is activated, devMode is sent to localStorage
+ *    When devMode is deactivated, devMode is removed from localStorage
+ * If the application is in production and devMode true, API calls should shift to hit the dev DB
+ * If the application is in production and devMode false, API calls should shift to hit the production DB
+ * If the application is in DEVELOPMENT, API calls should always hit the local DB
+ * @returns `apiUrl`
+ */
+function getApiUrl() {
+  const devMode = localStorage.getItem('devMode');
 
-// import redux store
-let apiUrl;
+  let apiUrl = process.env.REACT_APP_API_URI;
 
-// subscribe to redux store, apiUrl updates on redux state changes
-store.subscribe(function () {
-  let state = store.getState();
-  apiUrl = state.environment.baseUrl;
-});
+  if (devMode) {
+    apiUrl = process.env.REACT_APP_DEV_MODE_DATABASE_ENDPOINT;
+  }
+  return apiUrl;
+}
 
 const sleep = time =>
   new Promise(resolve => {
@@ -44,15 +53,15 @@ const getDSData = (url, authState) => {
 };
 
 const apiAuthGet = (endpoint, authHeader) => {
-  console.log('here');
-  console.log('apiUrl: ', apiUrl);
-  return axios.get(`${apiUrl}${endpoint}`, { headers: authHeader });
+  // console.log('here');
+  // console.log('apiUrl: ', apiUrl);
+  return axios.get(`${getApiUrl()}${endpoint}`, { headers: authHeader });
 };
 const apiAuthPost = (endpoint, body, authHeader) => {
-  return axios.post(`${apiUrl}${endpoint}`, body, { headers: authHeader });
+  return axios.post(`${getApiUrl()}${endpoint}`, body, { headers: authHeader });
 };
 const apiAuthPut = (endpoint, body, authHeader) => {
-  return axios.put(`${apiUrl}${endpoint}`, body, { headers: authHeader });
+  return axios.put(`${getApiUrl()}${endpoint}`, body, { headers: authHeader });
 };
 
 const getProfileData = authState => {
