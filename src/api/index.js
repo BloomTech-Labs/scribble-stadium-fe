@@ -430,24 +430,6 @@ const getGameVotes = async (authState, squadId, memberId) => {
 /**
  *
  * @param {Object} authState necessary for API functionality
- * @param {Object} body the day the DB is being modified for
- * @returns ?????
- */
-
-const postSetDay = async (authState, body) => {
-  try {
-    return apiAuthPost('PLACEHOLDER', body, getAuthHeader(authState)).then(
-      res => res.data
-    );
-  } catch (err) {
-    console.log(err);
-    return [];
-  }
-};
-
-/**
- *
- * @param {Object} authState necessary for API functionality
  * @param {File, Array} body can either be one file or an array of files to upload
  * @returns {Array} the newly created avatar(s)
  */
