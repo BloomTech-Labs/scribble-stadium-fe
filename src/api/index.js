@@ -1,8 +1,16 @@
 // istanbul ignore file
 import axios from 'axios';
 
-// we will define a bunch of API calls here.
-const apiUrl = process.env.REACT_APP_API_URI;
+import { store } from '../state/index';
+
+// import redux store
+let apiUrl;
+
+// subscribe to redux store, apiUrl updates on redux state changes
+store.subscribe(function () {
+  let state = store.getState();
+  apiUrl = state.environment.baseUrl;
+});
 
 const sleep = time =>
   new Promise(resolve => {
@@ -36,6 +44,8 @@ const getDSData = (url, authState) => {
 };
 
 const apiAuthGet = (endpoint, authHeader) => {
+  console.log('here');
+  console.log('apiUrl: ', apiUrl);
   return axios.get(`${apiUrl}${endpoint}`, { headers: authHeader });
 };
 const apiAuthPost = (endpoint, body, authHeader) => {

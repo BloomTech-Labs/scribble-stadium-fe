@@ -17,10 +17,18 @@ export const setDevMode = boolean => dispatch => {
         payload: process.env.REACT_APP_DEV_MODE_DATABASE_ENDPOINT,
       });
     } else {
-      // replace null with production DB .env variable
-      dispatch({ type: SET_API_URL, payload: null });
+      dispatch({ type: SET_API_URL, payload: process.env.REACT_APP_API_URI });
     }
-  } else if (process.env.NODE_ENV === 'development') {
-    dispatch({ type: SET_API_URL, payload: process.env.REACT_APP_API_URI });
+  }
+
+  if (process.env.NODE_ENV === 'development') {
+    if (boolean === true) {
+      dispatch({
+        type: SET_API_URL,
+        payload: process.env.REACT_APP_DEV_MODE_DATABASE_ENDPOINT,
+      });
+    } else {
+      dispatch({ type: SET_API_URL, payload: process.env.REACT_APP_API_URI });
+    }
   }
 };
