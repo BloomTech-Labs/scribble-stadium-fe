@@ -2,12 +2,13 @@
 import axios from 'axios';
 
 /**
- * This function dynamically determines the API URL for the application to hit,
- * depending on NODE_ENV and localStorage. Note that:
- *    When devMode is activated, devMode is sent to localStorage
- *    When devMode is deactivated, devMode is removed from localStorage
+ * This function dynamically returns an API URL depending on NODE_ENV and localStorage,
+ * Note that:
+ *    This function is referenced in apiAuthPut, apiAuthPost, apiAuthGet,
+ *    which nearly every API call routes through. Meaning altering this changes nearly all API calls
  */
 function getApiUrl() {
+  // when devMode is toggled, it is added or removed from localStorage.  This checks to see if it is active
   const devMode = localStorage.getItem('devMode');
   /**
    * The following variable was initialized under the impression that REACT_APP_API_URI=localDB in 'development' and is productionDB in 'production'
