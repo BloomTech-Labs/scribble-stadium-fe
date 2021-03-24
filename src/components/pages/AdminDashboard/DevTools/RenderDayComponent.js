@@ -7,7 +7,7 @@ import DayComponent from './DayComponent';
 
 const { Header, Footer } = Layout;
 
-const DayComponentView = props => {
+const RenderDayComponent = props => {
   const { push } = useHistory();
   const { dayID } = useParams();
 
@@ -33,4 +33,4 @@ const DayComponentView = props => {
   );
 };
 
-export default DayComponentView;
+export default RenderDayComponent;
