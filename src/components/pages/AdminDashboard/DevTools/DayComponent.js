@@ -18,17 +18,18 @@ const DayComponent = ({ day, devMode, setDevMode, setDate }) => {
   };
 
   const findNextDayOfWeek = selectedDay => {
-    let dayOfWeek = selectedDay;
     let date = new Date();
     let resultDate = new Date(date.getTime());
-    resultDate.setDate(date.getDate() + ((7 + dayOfWeek - date.getDay()) % 7));
-    console.log(resultDate);
+    resultDate.setDate(
+      //.setDate is a JS date function NOT the setDate() action used by Redux
+      date.getDate() + ((7 + selectedDay - date.getDay()) % 7)
+    );
     return resultDate;
   };
 
   useEffect(() => {
-    setDate(findNextDayOfWeek(day.dayOfWeekIndex));
-  }, [day.dayOfWeekIndex]);
+    setDate(findNextDayOfWeek(day.findDayOfWeekReference));
+  }, [day.findDayOfWeekReference]);
 
   return (
     <div>
