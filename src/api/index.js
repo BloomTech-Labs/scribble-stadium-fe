@@ -454,6 +454,7 @@ const getGameVotes = async (authState, squadId, memberId) => {
  * @param {File, Array} body can either be one file or an array of files to upload
  * @returns {Array} the newly created avatar(s)
  */
+
 const postNewAvatar = async (authState, body) => {
   try {
     return apiAuthPost('/avatars', body, getAuthHeader(authState)).then(

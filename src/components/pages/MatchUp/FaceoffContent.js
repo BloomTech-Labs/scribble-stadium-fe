@@ -103,6 +103,7 @@ const FaceoffSubDisplay = ({ sub, type, feedback, ...props }) => {
     ) {
       setLocked(false);
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
