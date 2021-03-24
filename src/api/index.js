@@ -475,6 +475,7 @@ const reset = async authState => {
 };
 
 export {
+  getApiUrl,
   sleep,
   getExampleData,
   getProfileData,
