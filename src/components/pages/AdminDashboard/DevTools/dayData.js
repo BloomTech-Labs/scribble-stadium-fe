@@ -19,8 +19,10 @@ export const dayData = [
     dayName: 'Sunday',
     dayNumber: 'Second Day of Game Play',
     stage: 'The Drawing Stage',
+    asterik:
+      '*A user can complete the writing or drawing stage in any order they wish, as long as they upload both pieces of work before the deadline on Monday at 11:59PM*',
     content:
-      'Kid users are instructed to draw a picture of one sentece from the excerct of the story of the week. When the kid user uploads the image, they proceed to the next stage in the game.',
+      'Kid users are instructed to draw a picture of one sentence from the excerpt of the story of the week. When the kid user uploads the image, they proceed to the next stage in the game.',
     url: '/dev/day/2',
     gameStageUrl: '/child/mission-control',
     state: [
@@ -34,6 +36,8 @@ export const dayData = [
     dayName: 'Monday',
     dayNumber: 'Third Day of Game Play',
     stage: 'The Writing Stage',
+    asterik:
+      '*A user can complete the writing or drawing stage in any order they wish, as long as they upload both pieces of work before the deadline on Monday at 11:59PM*',
     content:
       'Kid users are instructed to write a side quest (story) based off of the prompt given in the app. When the kid user uploads the image, they proceed to the next stage in the game. Monday at 11:59PM is the deadline for submissions. The image of the uploaded side quest is translated by a 3rd Party API implemented by DS.',
     url: '/dev/day/3',
@@ -50,7 +54,7 @@ export const dayData = [
     dayNumber: 'Fourth Day of Game Play',
     stage: 'Join a Squad Stage',
     content:
-      '2 kid users are put together to form a "Squad". A kid user does not do much interaction with the app at this stage. DS is doing most of the work behind the scenes in order to match kid users with other kid users at similar skill levels. Side quests are analyzed by DS. Side quests and drawings will receive a "squad score" by DS and be grouped with a student of similar skillset into a squad. Each squad will be matched with a similarly skilled squad to compete against in a matchup. The matchup refers to the overall squad-vs.-squad face-offs taking place, and will be displayed on the matchup page as 4 face-offs.',
+      '2 kid users are put together to form a "Squad". A kid user does not do much interaction with the app at this stage. DS is doing most of the work behind the scenes in order to match kid users with other kid users at similar skill levels. Side quests are analyzed by DS. Side quests and drawings will receive a "squad score" by DS and be grouped with a student of similar skill set into a squad. Each squad will be matched with a similarly skilled squad to compete against in a matchup. The matchup refers to the overall squad-vs.-squad face-offs taking place, and will be displayed on the matchup page as 4 face-offs.',
     url: '/dev/day/4',
     gameStageUrl: null,
     state: [],
@@ -72,7 +76,7 @@ export const dayData = [
     dayNumber: 'Sixth Day of Game Play',
     stage: 'Matchup and Independent Voting Stage',
     content:
-      'The Matchup Dashboard shows the face-offs from the previous round. The side quest with the greatest amount of points from Team A and the side quest with the greatest amount of points from Team B are put up against each other. The drawing with the greatest points from Team A and the drawing with the greatest points from Team B are put up against each other. The total points in this round will be equal to 400. A squad needs 200.5 points or more to win the Matchup. In this stage there are 100 points allocated in each of the kid users. The kid users give an alloted amount of points of their choice to both side quests and images.The drawing and the side quest with the greater amount of points moves on the the next stage in the game. Each user in the cochort gets served up 3 independent voting sessions on A vs B side quests or pictures from other matches within their cohort. Each A vs B pair gets served up 3x randomly to voters on the platform. These voters vote for the better of the side quest or drawing and leave emoji feedback that is routed back to each author and populated on the Matchup page.',
+      'The Matchup Dashboard shows the face-offs from the previous round. The side quest with the greatest amount of points from Team A and the side quest with the greatest amount of points from Team B are put up against each other. The drawing with the greatest points from Team A and the drawing with the greatest points from Team B are put up against each other. The total points in this round will be equal to 400. A squad needs 200.5 points or more to win the Matchup. In this stage there are 100 points allocated in each of the kid users. The kid users give an allotted amount of points of their choice to both side quests and images.The drawing and the side quest with the greater amount of points moves on to the next stage in the game. Each user in the cohort gets served up 3 independent voting sessions on A vs B side quests or pictures from other matches within their cohort. Each A vs B pair gets served up 3x randomly to voters on the platform. These voters vote for the better of the side quest or drawing and leave emoji feedback that is routed back to each author and populated on the Matchup page.',
     url: '/dev/day/6',
     gameStageUrl: '/child/match-up',
     state: [],
