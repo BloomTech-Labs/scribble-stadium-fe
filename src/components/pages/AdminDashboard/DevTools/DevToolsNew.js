@@ -1,16 +1,22 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { Menu, Dropdown, Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
 import { dayData } from './dayData';
+import { devMode } from '../../../../state/actions/index';
 
-const DevToolsNew = props => {
+const DevToolsNew = ({ devMode, setDevMode }) => {
   const { push } = useHistory();
 
   const dayHandler = e => {
     push(`/dev/day/${e.target.name}`);
+  };
+
+  const handleDevMode = () => {
+    setDevMode(!devMode.isDevModeActive);
   };
 
   const dropdown = (
@@ -31,19 +37,34 @@ const DevToolsNew = props => {
     <div className="dev-tools">
       <h2 className="dev-title">Developer Operations</h2>
       <p>
-        What day of the week would you like to test, see the stages / actions /
-        state, or learn more about?
+        Select a day to test and see the stages, phases, actions, and state
+        associated with that day.
       </p>
-      <Dropdown overlay={dropdown}>
-        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-          Select a day ... <DownOutlined />
-        </a>
-      </Dropdown>
-      <span>
-        <Button type="dev-reset">Reset Game</Button>
-      </span>
+      <div className="dev-mode-buttons">
+        <Button style={{ margin: '8px' }} onClick={handleDevMode}>
+          {devMode.isDevModeActive ? 'Deactivate' : 'Activate'} developer mode
+        </Button>
+        {devMode.isDevModeActive ? (
+          <Dropdown style={{ margin: '8px' }} overlay={dropdown}>
+            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+              Select a day ... <DownOutlined />
+            </a>
+          </Dropdown>
+        ) : (
+          <Dropdown style={{ margin: '8px' }} disabled overlay={dropdown}>
+            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+              Select a day ... <DownOutlined />
+            </a>
+          </Dropdown>
+        )}
+      </div>
     </div>
   );
 };
 
-export default DevToolsNew;
+export default connect(
+  state => ({
+    devMode: state.devMode,
+  }),
+  { setDevMode: devMode.setDevMode }
+)(DevToolsNew);

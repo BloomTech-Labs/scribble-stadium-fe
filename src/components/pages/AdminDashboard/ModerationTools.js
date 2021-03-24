@@ -98,91 +98,103 @@ const ModerationTools = props => {
   };
 
   return (
-    <Form form={form} className="inline-form">
-      <h2 className="moderator-title">Moderator Tools</h2>
-      <Collapse style={{ width: '45%' }} className="moderator-notes">
-        <Collapse.Panel header="Notes & Instructions" key="1">
-          <p>
-            Actions an adult moderator should be able to take to run the game
-            and approve/flag stories. (This is a work in progress. also not sure
-            how "Reset Seeds" updates database & if it needs updating or is
-            finished.)
-          </p>
-        </Collapse.Panel>
-      </Collapse>
-      <br />
-      <Form.Item>
-        <Button type="default" onClick={handleFaceoffs}>
-          Go to Faceoffs/Matchups
-        </Button>
-      </Form.Item>
-      <Form.Item className="moderator-form">
-        <Button type="reset" onClick={reset}>
-          Reset Seeds
-        </Button>
-        <Button type="primary">Load Submissions(TBD)</Button>
-        <Button type="default">Remove(TBD)</Button>
-        <Button type="default" onClick={cluster}>
-          Generate Cluster
-        </Button>
-        <Button type="default" onClick={faceoff}>
-          Generate Faceoffs
-        </Button>
-        <Button type="default" onClick={voteSeq}>
-          Generate Vote Sequence
-        </Button>
-        <Button type="default" onClick={results}>
-          Generate Results
-        </Button>
-      </Form.Item>
-      <h2 className="posts-title">Posts for Moderation</h2>
-      <Collapse style={{ width: '45%' }}>
-        <Collapse.Panel header="Instructions" key="2">
-          <p>
-            After students add submissions, are displayed here for a moderator
-            to read and approve or reject. Select a cohort to load submissions.
-            (Need to finish some functionality, see notes in code).
-          </p>
-        </Collapse.Panel>
-      </Collapse>
-      <br />
-      <Form.Item name="cohort">
-        <Select
-          style={{ width: '45%' }}
-          placeholder="Select a Cohort"
-          onChange={getPosts}
-        >
-          {cohorts.map(x => (
-            <Option key={x.ID} value={x.ID}>
-              Cohort {x.ID}
-            </Option>
-          ))}
-        </Select>
-      </Form.Item>
-      <Row gutter={16}>
-        {Object.keys(posts).map(x => {
-          const cur = posts[x];
-          if (!cur.status || cur.status === 'CLEAR' || cur.status === 'PENDING')
-            return (
-              <Col span={6}>
-                <Card>
-                  <Card.Meta
-                    title={`Status: ${cur.status || 'PENDING'}`}
-                    description={`Pages: ${Object.keys(cur.Pages).length}`}
-                  />
-                  Drawing: {<img alt="Student Drawing" src={cur.Image} />}
-                  {/* Will need to update writing images displayed when student submits multiple pages of writing. I don't understand how backend is handling multiple pages yet.*/}
-                  Writing: {<img alt="Student Writing" src={cur.Pages[0]} />}
-                  {/* TODO: approve and reject need to also update backend somehow, not just redux store. */}
-                  <Button onClick={() => approve(x)}>ACCEPT</Button>
-                  <Button onClick={() => reject(x)}>REJECT</Button>
-                </Card>
-              </Col>
-            );
-          else return <></>;
-        })}
-      </Row>
-    </Form>
+    <div>
+      <h1>Admin Dashboard</h1>
+      <Form form={form} className="inline-form">
+        <h2 className="moderator-title">Moderator Tools</h2>
+        <Collapse style={{ width: '45%' }} className="moderator-notes">
+          <Collapse.Panel header="Notes & Instructions" key="1">
+            <p>
+              Actions an adult moderator should be able to take to run the game
+              and approve/flag stories. (This is a work in progress. also not
+              sure how "Reset Seeds" updates database & if it needs updating or
+              is finished.)
+            </p>
+          </Collapse.Panel>
+        </Collapse>
+        <br />
+        <Form.Item>
+          <Button type="default" onClick={handleFaceoffs}>
+            Go to Faceoffs/Matchups
+          </Button>
+        </Form.Item>
+        <Form.Item className="moderator-form">
+          <Button style={{ margin: '8px' }} type="reset" onClick={reset}>
+            Reset Seeds
+          </Button>
+          <Button style={{ margin: '8px' }} type="primary">
+            Load Submissions(TBD)
+          </Button>
+          <Button style={{ margin: '8px' }} type="default">
+            Remove(TBD)
+          </Button>
+          <Button style={{ margin: '8px' }} type="default" onClick={cluster}>
+            Generate Cluster
+          </Button>
+          <Button style={{ margin: '8px' }} type="default" onClick={faceoff}>
+            Generate Faceoffs
+          </Button>
+          <Button style={{ margin: '8px' }} type="default" onClick={voteSeq}>
+            Generate Vote Sequence
+          </Button>
+          <Button style={{ margin: '8px' }} type="default" onClick={results}>
+            Generate Results
+          </Button>
+        </Form.Item>
+        <h2 className="posts-title">Posts for Moderation</h2>
+        <Collapse style={{ width: '45%' }}>
+          <Collapse.Panel header="Instructions" key="2">
+            <p>
+              After students add submissions, are displayed here for a moderator
+              to read and approve or reject. Select a cohort to load
+              submissions. (Need to finish some functionality, see notes in
+              code).
+            </p>
+          </Collapse.Panel>
+        </Collapse>
+        <br />
+        <Form.Item name="cohort">
+          <Select
+            style={{ width: '45%' }}
+            placeholder="Select a Cohort"
+            onChange={getPosts}
+          >
+            {cohorts.map(x => (
+              <Option key={x.ID} value={x.ID}>
+                Cohort {x.ID}
+              </Option>
+            ))}
+          </Select>
+        </Form.Item>
+        <Row gutter={16}>
+          {Object.keys(posts).map(x => {
+            const cur = posts[x];
+            if (
+              !cur.status ||
+              cur.status === 'CLEAR' ||
+              cur.status === 'PENDING'
+            )
+              return (
+                <Col span={6}>
+                  <Card>
+                    <Card.Meta
+                      title={`Status: ${cur.status || 'PENDING'}`}
+                      description={`Pages: ${Object.keys(cur.Pages).length}`}
+                    />
+                    Drawing: {<img alt="Student Drawing" src={cur.Image} />}
+                    {/* Will need to update writing images displayed when student submits multiple pages of writing. I don't understand how backend is handling multiple pages yet.*/}
+                    Writing: {<img alt="Student Writing" src={cur.Pages[0]} />}
+                    {/* TODO: approve and reject need to also update backend somehow, not just redux store. */}
+                    <Button onClick={() => approve(x)}>ACCEPT</Button>
+                    <Button onClick={() => reject(x)}>REJECT</Button>
+                  </Card>
+                </Col>
+              );
+            else return <></>;
+          })}
+        </Row>
+      </Form>
+    </div>
   );
 };
 
