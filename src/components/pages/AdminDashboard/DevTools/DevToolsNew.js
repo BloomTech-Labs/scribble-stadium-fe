@@ -1,12 +1,14 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { Menu, Dropdown, Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
 import { dayData } from './dayData';
+import { devMode } from '../../../../state/actions/index';
 
-const DevToolsNew = () => {
+const DevToolsNew = ({ devMode, setDevMode }) => {
   const { push } = useHistory();
 
   const dayHandler = e => {
@@ -14,11 +16,7 @@ const DevToolsNew = () => {
   };
 
   const handleDevMode = () => {
-    if (localStorage.getItem('devMode')) {
-      localStorage.removeItem('devMode');
-    } else {
-      localStorage.setItem('devMode', true);
-    }
+    setDevMode(!devMode.isDevModeActive);
   };
 
   const dropdown = (
@@ -44,11 +42,10 @@ const DevToolsNew = () => {
       </p>
       <div>
         <Button style={{ margin: '8px' }} onClick={handleDevMode}>
-          {localStorage.getItem('devMode') ? 'Deactivate' : 'Activate'}{' '}
-          developer mode
+          {devMode.isDevModeActive ? 'Deactivate' : 'Activate'} developer mode
         </Button>
       </div>
-      {localStorage.getItem('devMode') ? (
+      {devMode.isDevModeActive ? (
         <Dropdown style={{ margin: '8px' }} overlay={dropdown}>
           <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
             Select a day ... <DownOutlined />
@@ -70,4 +67,9 @@ const DevToolsNew = () => {
   );
 };
 
-export default DevToolsNew;
+export default connect(
+  state => ({
+    devMode: state.devMode,
+  }),
+  { setDevMode: devMode.setDevMode }
+)(DevToolsNew);

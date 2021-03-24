@@ -11,6 +11,7 @@ import { reducer as team } from './teamReducers';
 import { reducer as faceoffs } from './faceoffsReducer';
 import { reducer as votes } from './votesReducer';
 import { reducer as date } from './dateReducer';
+import { reducer as devMode } from './devModeReducer';
 
 const persistConfig = {
   key: 'root',
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   faceoffs,
   votes,
   date,
+  devMode,
 });
 
 export default persistReducer(persistConfig, rootReducer);
