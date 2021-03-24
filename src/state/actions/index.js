@@ -6,6 +6,5 @@ import * as team from './teamActions';
 import * as faceoffs from './faceoffsActions';
 import * as votes from './votesActions';
 import * as date from './dateAction';
-import * as devMode from './devModeActions';
 
-export { global, child, parent, tasks, team, faceoffs, votes, date, devMode };
+export { global, child, parent, tasks, team, faceoffs, votes, date };

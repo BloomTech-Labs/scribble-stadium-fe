@@ -3,19 +3,16 @@ import axios from 'axios';
 
 /**
  * This function dynamically determines the API URL for the application to hit,
- * depending on NODE_ENV and localStorage
+ * depending on NODE_ENV and localStorage. Note that:
  *    When devMode is activated, devMode is sent to localStorage
  *    When devMode is deactivated, devMode is removed from localStorage
- *
- *    If the application is in production and devMode true, API calls should shift to hit the dev DB
- *    If the application is in production and devMode false, API calls should shift to hit the production DB
- *    If the application is in DEVELOPMENT, API calls should always hit the local DB
- * @returns `apiUrl`
  */
 function getApiUrl() {
   const devMode = localStorage.getItem('devMode');
-
-  // This following variable was created under the impression that REACT_APP_API_URI=local DB in 'development' and is production DB in 'production'
+  /**
+   * The following variable was initialized under the impression that REACT_APP_API_URI=localDB in 'development' and is productionDB in 'production'
+   * If this is not the case in the future, conditionals may need to be slightly reworked.
+   */
   let apiUrl = process.env.REACT_APP_API_URI;
 
   if (devMode && process.env.NODE_ENV === 'production') {
@@ -56,8 +53,6 @@ const getDSData = (url, authState) => {
 };
 
 const apiAuthGet = (endpoint, authHeader) => {
-  // console.log('here');
-  // console.log('apiUrl: ', apiUrl);
   return axios.get(`${getApiUrl()}${endpoint}`, { headers: authHeader });
 };
 const apiAuthPost = (endpoint, body, authHeader) => {
