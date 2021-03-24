@@ -54,7 +54,7 @@ import { VotingPage } from './components/pages/VotingPage';
 // Note: for demo/developer purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
 import AdminDashboard from './components/pages/AdminDashboard';
-import DayComponentView from './components/pages/AdminDashboard/DevTools/DayComponentView.js';
+import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
 
 ReactDOM.render(
   //
@@ -187,7 +187,7 @@ function App() {
         />
         <Route exact path="/moderation" component={ModerationTest} />
         <Route exact path="/admin" component={AdminDashboard} />
-        <Route path="/dev/day/:dayID" component={DayComponentView} />
+        <Route path="/dev/day/:dayID" component={RenderDayComponent} />
         <Route component={NotFoundPage} />
       </Switch>
     </Security>
