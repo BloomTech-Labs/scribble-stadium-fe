@@ -1,8 +1,29 @@
 // istanbul ignore file
 import axios from 'axios';
 
-// we will define a bunch of API calls here.
-const apiUrl = process.env.REACT_APP_API_URI;
+import { store } from '../state/index';
+
+/**
+ * This function dynamically returns an API URL depending on NODE_ENV and state
+ * State was used (as opposed to localStorage) so that UI can listen and change on devMode state toggle
+ * Nearly every API call utilizes this function through using apiAuthGet/apiAuthPost/apiAuthPut.
+ */
+function getApiUrl() {
+  // on function call, grabs current redux state to check devMode status
+  const state = store.getState();
+  const devMode = state.devMode.isDevModeActive;
+  let apiUrl = process.env.REACT_APP_API_URI;
+  /**
+   * apiUrl variable was initialized under the impression that REACT_APP_API_URI=localDB in 'development' and is productionDB in 'production'
+   * If this is not the case in the future, this logic will need to change slightly.
+   */
+  if (devMode && process.env.NODE_ENV === 'production') {
+    // if env = production and devMode active, use dev/staging DB, if env = production and devMode false, use production DB
+    apiUrl = process.env.REACT_APP_DEV_MODE_DATABASE_ENDPOINT;
+  }
+  // note that if environment is development then apiUrl should be the local db (not production or dev/staging DB)
+  return apiUrl;
+}
 
 const sleep = time =>
   new Promise(resolve => {
@@ -36,13 +57,13 @@ const getDSData = (url, authState) => {
 };
 
 const apiAuthGet = (endpoint, authHeader) => {
-  return axios.get(`${apiUrl}${endpoint}`, { headers: authHeader });
+  return axios.get(`${getApiUrl()}${endpoint}`, { headers: authHeader });
 };
 const apiAuthPost = (endpoint, body, authHeader) => {
-  return axios.post(`${apiUrl}${endpoint}`, body, { headers: authHeader });
+  return axios.post(`${getApiUrl()}${endpoint}`, body, { headers: authHeader });
 };
 const apiAuthPut = (endpoint, body, authHeader) => {
-  return axios.put(`${apiUrl}${endpoint}`, body, { headers: authHeader });
+  return axios.put(`${getApiUrl()}${endpoint}`, body, { headers: authHeader });
 };
 
 const getProfileData = authState => {
@@ -454,6 +475,7 @@ const reset = async authState => {
 };
 
 export {
+  getApiUrl,
   sleep,
   getExampleData,
   getProfileData,

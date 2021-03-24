@@ -23,7 +23,7 @@ const DevToolsNew = ({ devMode, setDevMode }) => {
     <Menu>
       {dayData.map(day => {
         return (
-          <Menu.Item>
+          <Menu.Item key={day.dayId}>
             <a target="_blank" name={day.dayID} onClick={dayHandler}>
               {day.dayName}
             </a>
