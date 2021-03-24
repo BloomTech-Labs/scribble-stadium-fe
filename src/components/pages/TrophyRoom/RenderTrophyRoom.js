@@ -59,7 +59,7 @@ const RenderTrophyRoom = props => {
           <h2 className="h2" onClick={showAchievementsModal}>
             Achievements
           </h2>
-          <div
+          <Modal
             title="Achievements"
             visible={isAchievementModalVisible}
             onOk={handleAchievmentOk}
@@ -88,7 +88,7 @@ const RenderTrophyRoom = props => {
             }
           })} */}
             </div>
-          </div>
+          </Modal>
           <Divider />
           {/* Add this to Change Your Avatar once it is implemented */}
           <h2 className="h2" onClick={showInventoryModel}>
