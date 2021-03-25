@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Layout, Button, Radio } from 'antd';
 
 import { tasks } from '../../../../../state/actions/index';
+import { date } from '../../../../../state/actions/index';
 
 const { Header, Content, Footer } = Layout;
 
-const SatMon = () => {
+const SatMon = ({ setDate }) => {
   const { push } = useHistory();
 
   const adminDash = () => {
@@ -16,9 +17,28 @@ const SatMon = () => {
 
   const gameStageUrl = '/child/mission-control';
 
+  const findDayOfWeekReference = 1;
+  // Saturday was 6
+  // Sunday was 0
+  // Monday was 1
+
   const handleSim = () => {
     push(`${gameStageUrl}`);
   };
+
+  const findNextDayOfWeek = selectedDay => {
+    let date = new Date();
+    let resultDate = new Date(date.getTime());
+    resultDate.setDate(
+      //.setDate is a JS date function NOT the setDate() action used by Redux
+      date.getDate() + ((7 + selectedDay - date.getDay()) % 7)
+    );
+    return resultDate;
+  };
+
+  useEffect(() => {
+    setDate(findNextDayOfWeek(findDayOfWeekReference));
+  }, [findDayOfWeekReference]);
 
   return (
     <Layout>
@@ -80,11 +100,13 @@ export default connect(
     hasRead: state.tasks.hasRead,
     hasWritten: state.tasks.hasWritten,
     hasDrawn: state.tasks.hasDrawn,
+    date: state.date,
   }),
   {
     setTasks: tasks.setTasks,
     setHasRead: tasks.setHasRead,
     setHasWritten: tasks.setHasWritten,
     setHasDrawn: tasks.setHasDrawn,
+    setDate: date.setDate,
   }
 )(SatMon);

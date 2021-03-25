@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Layout, Button, Radio } from 'antd';
 
+import { date } from '../../../../../state/actions/index';
+
 const { Header, Content, Footer } = Layout;
 
-const Wed = () => {
+const Wed = ({ setDate }) => {
   const { push } = useHistory();
 
   const adminDash = () => {
@@ -13,9 +16,25 @@ const Wed = () => {
 
   const gameStageUrl = '/child/join';
 
+  const findDayOfWeekReference = 3;
+
   const handleSim = () => {
     push(`${gameStageUrl}`);
   };
+
+  const findNextDayOfWeek = selectedDay => {
+    let date = new Date();
+    let resultDate = new Date(date.getTime());
+    resultDate.setDate(
+      //.setDate is a JS date function NOT the setDate() action used by Redux
+      date.getDate() + ((7 + selectedDay - date.getDay()) % 7)
+    );
+    return resultDate;
+  };
+
+  useEffect(() => {
+    setDate(findNextDayOfWeek(findDayOfWeekReference));
+  }, [findDayOfWeekReference]);
 
   return (
     <Layout>
@@ -60,4 +79,11 @@ const Wed = () => {
   );
 };
 
-export default Wed;
+export default connect(
+  state => ({
+    date: state.date,
+  }),
+  {
+    setDate: date.setDate,
+  }
+)(Wed);
