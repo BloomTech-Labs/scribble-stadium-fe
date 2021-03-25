@@ -15,7 +15,6 @@ const DevToolsNew = ({ devMode, setDevMode }) => {
   // };
 
   const handleSatMon = e => {
-    console.log('pushing to sat');
     push('/dev/day/1-3');
   };
 
