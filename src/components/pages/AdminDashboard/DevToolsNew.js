@@ -10,10 +10,6 @@ import { devMode } from '../../../state/actions/index';
 const DevToolsNew = ({ devMode, setDevMode }) => {
   const { push } = useHistory();
 
-  // const dayHandler = e => {
-  //   push(`/dev/day/${e.target.name}`);
-  // };
-
   const handleSatMon = e => {
     push('/dev/day/1-3');
   };
@@ -65,15 +61,6 @@ const DevToolsNew = ({ devMode, setDevMode }) => {
           Friday
         </a>
       </Menu.Item>
-      {/* {dayData.map(day => {
-        return (
-          <Menu.Item key={day.dayId}>
-            <a target="_blank" name={day.dayID} onClick={dayHandler}>
-              {day.dayName}
-            </a>
-          </Menu.Item>
-        );
-      })} */}
     </Menu>
   );
 
