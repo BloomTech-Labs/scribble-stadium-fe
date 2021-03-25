@@ -25,20 +25,18 @@ const RenderMissionControl = props => {
   const { authState } = useOktaAuth();
 
   /**
-   * On initial render, checks to see if tasks in state (hasRead, hasWritten, etc)
-   * if not (and if dev mode not active), calls getChildTasks -> getOrInitSubmission on backend
+   * On initial render, checks to see if tasks in state (id, hasRead, hasWritten, etc)
+   * if not, calls getChildTasks -> getOrInitSubmission on backend
    *    (returns a childs task data)
-   *    calls getStory regardless of if devMode is active or not.
+   * calls getStory
    */
   useEffect(() => {
     if (props.tasks.id === null) {
-      if (props.devMode.isDevModeActive === false) {
-        getChildTasks(authState, props.child.id, props.child.cohortId).then(
-          res => {
-            props.setTasks(res);
-          }
-        );
-      }
+      getChildTasks(authState, props.child.id, props.child.cohortId).then(
+        res => {
+          props.setTasks(res);
+        }
+      );
 
       getStory(authState, props.child.cohortId).then(res => {
         props.setSubmissionInformation(res);
