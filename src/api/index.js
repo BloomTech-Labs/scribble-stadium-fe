@@ -278,29 +278,29 @@ const markAsRead = async (authState, submissionId) => {
  * @param {boolean} hasWrittenStatus boolean value to set the targeted submission's hasWritten value to
  * @returns {object} empty object on success
  */
-const setAllTasks = async (
+const setAllTasks = (
   authState,
   submissionId,
   hasReadStatus,
   hasDrawnStatus,
   hasWrittenStatus
 ) => {
-  try {
-    return apiAuthPut(
-      `/submit/update-all/${submissionId}`,
-      {
-        hasRead: hasReadStatus,
-        hasDrawn: hasDrawnStatus,
-        hasWritten: hasWrittenStatus,
-      },
-      getAuthHeader(authState)
-    ).then(response => {
+  apiAuthPut(
+    `/submit/update-all/${submissionId}`,
+    {
+      hasRead: hasReadStatus,
+      hasDrawn: hasDrawnStatus,
+      hasWritten: hasWrittenStatus,
+    },
+    getAuthHeader(authState)
+  )
+    .then(response => {
       return response.data;
+    })
+    .catch(err => {
+      console.log(err);
+      return [];
     });
-  } catch (err) {
-    console.log(err);
-    return [];
-  }
 };
 
 // Gamification API Calls
