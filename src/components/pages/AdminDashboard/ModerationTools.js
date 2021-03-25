@@ -13,7 +13,7 @@ import {
 
 import { reset } from '../../../api/index';
 
-import { Button, Select, Form, Row, Card, Col, Divider, Collapse } from 'antd';
+import { Button, Select, Form, Row, Card, Col, Collapse } from 'antd';
 
 const { Option } = Select;
 
