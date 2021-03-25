@@ -2,12 +2,35 @@
   position: absolute;
   right: 150%;
   top: 90%;
+  .ant-radio-inner {
+    width: 40px;
+  height: 40px;
+  }
+  .ant-radio-inner::after {
+    top: 4px;
+    left: 4px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+  }
 }
 .right-radio {
   position: absolute;
   right: 45%;
   top: 90%;
+  .ant-radio-inner {
+    width: 40px;
+  height: 40px;
+  }
+  .ant-radio-inner::after {
+    top: 4px;
+    left: 4px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+  }
 }
+
 .votingSubmit-button {
   .orangeButtonStyle();
   position: absolute;
@@ -17,18 +40,4 @@
   font-weight: 700;
   width: 20%;
   height: 5vh;
-}
-
-// This styling changes the size of the radio buttons and is a global style
-// .ant-radio-inner {
-//   width: 40px;
-//   height: 40px;
-// }
-
-.ant-radio-inner::after {
-  top: 4px;
-  left: 4px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50px;
 }
