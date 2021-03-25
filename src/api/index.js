@@ -246,6 +246,8 @@ const postNewDrawingSub = async (authState, body, subId) => {
 
 /**
  * Returns an object identifying whether or not a child has completed their submission tasks
+ * Looks in DB for submission containing childId and storyID
+ *    if said submission exists, returns all submission data (id, childId, storyId, hasRead, hasDrawn, hasWritten, etc.)
  * @param {Object} authState
  * @param {number} childid id of whatever child is performing the tasks
  * @param {number} storyid id of the story of the week
@@ -286,6 +288,40 @@ const markAsRead = async (authState, submissionId) => {
       return [];
     });
   }
+};
+
+/**
+ *
+ * @param {*} authState
+ * @param {number} submissionId ID for back-end to identify which submission to modify. Each submission has only one corresponding child.
+ * @param {boolean} hasReadStatus boolean value to set the targeted submission's hasRead value to
+ * @param {boolean} hasDrawnStatus boolean value to set the targeted submission's hasDrawn value to
+ * @param {boolean} hasWrittenStatus boolean value to set the targeted submission's hasWritten value to
+ * @returns {object} empty object on success
+ */
+const setAllTasks = (
+  authState,
+  submissionId,
+  hasReadStatus,
+  hasDrawnStatus,
+  hasWrittenStatus
+) => {
+  apiAuthPut(
+    `/submit/update-all/${submissionId}`,
+    {
+      hasRead: hasReadStatus,
+      hasDrawn: hasDrawnStatus,
+      hasWritten: hasWrittenStatus,
+    },
+    getAuthHeader(authState)
+  )
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      console.log(err);
+      return [];
+    });
 };
 
 // Gamification API Calls
@@ -493,6 +529,7 @@ export {
   updateChildData,
   postNewWritingSub,
   markAsRead,
+  setAllTasks,
   postNewDrawingSub,
   getChild,
   postNewAvatar,
