@@ -295,7 +295,6 @@ const setAllTasks = async (
       },
       getAuthHeader(authState)
     ).then(response => {
-      console.log('response: ', response);
       return response.data;
     });
   } catch (err) {
