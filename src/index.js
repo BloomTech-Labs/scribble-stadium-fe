@@ -54,7 +54,13 @@ import { VotingPage } from './components/pages/VotingPage';
 // Note: for demo/developer purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
 import AdminDashboard from './components/pages/AdminDashboard';
-import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
+import SatMon from './components/pages/AdminDashboard/DevTools/DayComponents/01_Sat-Mon';
+import Tues from './components/pages/AdminDashboard/DevTools/DayComponents/04_Tues';
+import Wed from './components/pages/AdminDashboard/DevTools/DayComponents/05_Wed';
+import Thurs from './components/pages/AdminDashboard/DevTools/DayComponents/06_Thurs';
+import Fri from './components/pages/AdminDashboard/DevTools/DayComponents/07_Fri';
+
+// import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
 
 ReactDOM.render(
   //
@@ -187,7 +193,11 @@ function App() {
         />
         <Route exact path="/moderation" component={ModerationTest} />
         <Route exact path="/admin" component={AdminDashboard} />
-        <Route path="/dev/day/:dayID" component={RenderDayComponent} />
+        <Route exact path="/dev/day/1-3" component={SatMon} />
+        <Route exact path="/dev/day/4" component={Tues} />
+        <Route exact path="/dev/day/5" component={Wed} />
+        <Route exact path="/dev/day/6" component={Thurs} />
+        <Route exact path="/dev/day/7" component={Fri} />
         <Route component={NotFoundPage} />
       </Switch>
     </Security>
