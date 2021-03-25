@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { Button, Layout } from 'antd';
 
 import ModerationTools from './ModerationTools';
-import DevToolsNew from './DevTools/DevToolsNew';
+import DevToolsNew from './DevToolsNew';
 
 const { Content, Header } = Layout;
 
