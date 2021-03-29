@@ -115,13 +115,31 @@ const SatMon = ({ setDate }) => {
           <p>Select the game state you would like to see in play:</p>
           <div className="state-buttons">
             <Radio.Group>
-              <Radio className="radio-buttons" onChange={completeOneTask}>
+              <Radio
+                className="radio-buttons"
+                value={{ hasRead: false, hasDrawn: false, hasWritten: false }}
+              >
+                User has completed 0 tasks
+              </Radio>
+              <Radio
+                className="radio-buttons"
+                value={{ hasRead: true, hasDrawn: false, hasWritten: false }}
+                onChange={completeOneTask}
+              >
                 User has read
               </Radio>
-              <Radio className="radio-buttons" onChange={completedTwoTasks}>
+              <Radio
+                className="radio-buttons"
+                value={{ hasRead: true, hasDrawn: true, hasWritten: false }}
+                onChange={completedTwoTasks}
+              >
                 User has read and drawn
               </Radio>
-              <Radio className="radio-buttons" onChange={completedAllTasks}>
+              <Radio
+                className="radio-buttons"
+                value={{ hasRead: true, hasDrawn: true, hasWritten: true }}
+                onChange={completedAllTasks}
+              >
                 User has read, drawn, and written
               </Radio>
             </Radio.Group>
