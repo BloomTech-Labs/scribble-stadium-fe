@@ -14,15 +14,7 @@ import {
 
 const { Header, Content, Footer } = Layout;
 
-const SatMon = ({
-  setDate,
-  hasRead,
-  hasDrawn,
-  hasWritten,
-  submissionID,
-  storyId,
-  childId,
-}) => {
+const SatMon = ({ setDate }) => {
   const { authState } = useOktaAuth();
   const { push } = useHistory();
 
@@ -53,11 +45,17 @@ const SatMon = ({
   }, [findDayOfWeekReference]);
 
   const handleGetChildTasks = e => {
-    getChildTasks(authState, childId, storyId);
+    getChildTasks(authState, tasks.child_id, tasks.story_id);
   };
 
   const handleAllTasks = e => {
-    setAllTasks(authState, submissionID, hasRead, hasWritten, hasDrawn);
+    setAllTasks(
+      authState,
+      tasks.submissionID,
+      tasks.hasRead,
+      tasks.hasWritten,
+      tasks.hasDrawn
+    );
   };
 
   const onSimulate = e => {
@@ -117,13 +115,13 @@ const SatMon = ({
           <p>Select the game state you would like to see in play:</p>
           <div className="state-buttons">
             <Radio.Group>
-              <Radio className="radio-buttons" onClick={completeOneTask}>
+              <Radio className="radio-buttons" onChange={completeOneTask}>
                 User has read
               </Radio>
-              <Radio className="radio-buttons" onClick={completedTwoTasks}>
+              <Radio className="radio-buttons" onChange={completedTwoTasks}>
                 User has read and drawn
               </Radio>
-              <Radio className="radio-buttons" onClick={completedAllTasks}>
+              <Radio className="radio-buttons" onChange={completedAllTasks}>
                 User has read, drawn, and written
               </Radio>
             </Radio.Group>
@@ -146,12 +144,6 @@ export default connect(
   state => ({
     date: state.date,
     tasks: state.tasks,
-    childId: state.tasks.child_id,
-    storyId: state.tasks.story_id,
-    hasRead: state.tasks.hasRead,
-    hasDrawn: state.tasks.hasDrawn,
-    hasWritten: state.tasks.hasWritten,
-    submissionID: state.tasks.id,
   }),
   {
     setDate: date.setDate,
