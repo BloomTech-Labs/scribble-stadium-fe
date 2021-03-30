@@ -1,21 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import { Layout, Button, Radio } from 'antd';
 
 import DevModeHeader from '../../devModeHeader';
-import { date, tasks } from '../../../../../state/actions/index';
+import { date } from '../../../../../state/actions/index';
 import { setAllTasks, getChildTasks } from '../../../../../api/index';
-import {
-  setHasDrawn,
-  setHasRead,
-  setHasWritten,
-} from '../../../../../state/actions/taskActions';
 
 const { Header, Content, Footer } = Layout;
 
-const SatMon = ({ setDate }) => {
+const SatMon = ({ setDate, tasks, child }) => {
+  const initialRadioValues = {
+    hasRead: false,
+    hasDrawn: false,
+    hasWritten: false,
+  };
+
+  const [radioState, setRadioState] = useState(initialRadioValues);
   const { authState } = useOktaAuth();
   const { push } = useHistory();
 
@@ -26,10 +28,6 @@ const SatMon = ({ setDate }) => {
   const gameStageUrl = '/child/mission-control';
 
   const findDayOfWeekReference = 1;
-
-  // const handleSim = () => {
-  //   push(`${gameStageUrl}`);
-  // };
 
   const findNextDayOfWeek = selectedDay => {
     let date = new Date();
@@ -45,42 +43,29 @@ const SatMon = ({ setDate }) => {
     setDate(findNextDayOfWeek(findDayOfWeekReference));
   }, [findDayOfWeekReference]);
 
-  const handleGetChildTasks = e => {
-    getChildTasks(authState, tasks.child_id, tasks.story_id);
+  const onChange = e => {
+    e.preventDefault();
+    console.log('radio checked', e.target.checked);
+    console.log('value', e.target.value);
+    setRadioState(e.target.value);
+    console.log('radio state', radioState);
   };
 
-  const handleAllTasks = e => {
+  const handleGetChildTasks = async e => {
+    const res = await getChildTasks(authState, child.id, child.cohortId);
+    console.log(res);
     setAllTasks(
       authState,
-      tasks.id,
+      res.ID,
       tasks.hasRead,
       tasks.hasWritten,
       tasks.hasDrawn
     );
+    push('/child/mission-control');
   };
 
   const onSimulate = e => {
-    if (handleAllTasks() == []) {
-      handleGetChildTasks();
-    }
-  };
-
-  const completeOneTask = e => {
-    setHasRead(true);
-    setHasDrawn(false);
-    setHasWritten(false);
-  };
-
-  const completedTwoTasks = e => {
-    setHasRead(true);
-    setHasDrawn(true);
-    setHasWritten(false);
-  };
-
-  const completedAllTasks = e => {
-    setHasRead(true);
-    setHasDrawn(true);
-    setHasWritten(true);
+    handleGetChildTasks();
   };
 
   return (
@@ -116,35 +101,50 @@ const SatMon = ({ setDate }) => {
           </p>
           <p>Select the game state you would like to see in play:</p>
           <div className="state-buttons">
-            <Radio.Group>
+            <Radio.Group onChange={onChange} value={radioState}>
               <Radio
                 className="radio-buttons"
                 value={{ hasRead: false, hasDrawn: false, hasWritten: false }}
-                checked={false}
+                checked={
+                  radioState.hasRead === false &&
+                  radioState.hasDrawn === false &&
+                  radioState.hasWritten === false
+                }
+                // checked={true}
               >
                 User has completed 0 tasks
               </Radio>
               <Radio
                 className="radio-buttons"
                 value={{ hasRead: true, hasDrawn: false, hasWritten: false }}
-                onChange={completeOneTask}
-                checkd={false}
+                checked={
+                  radioState.hasRead === true &&
+                  radioState.hasDrawn === false &&
+                  radioState.hasWritten === false
+                }
+                // checked={false}
               >
                 User has read
               </Radio>
               <Radio
                 className="radio-buttons"
                 value={{ hasRead: true, hasDrawn: true, hasWritten: false }}
-                onChange={completedTwoTasks}
-                checked={false}
+                checked={
+                  radioState.hasRead === true &&
+                  radioState.hasDrawn === true &&
+                  radioState.hasWritten === false
+                }
               >
                 User has read and drawn
               </Radio>
               <Radio
                 className="radio-buttons"
                 value={{ hasRead: true, hasDrawn: true, hasWritten: true }}
-                onChange={completedAllTasks}
-                checked={false}
+                checked={
+                  radioState.hasRead === true &&
+                  radioState.hasDrawn === true &&
+                  radioState.hasWritten === true
+                }
               >
                 User has read, drawn, and written
               </Radio>
@@ -168,12 +168,9 @@ export default connect(
   state => ({
     date: state.date,
     tasks: state.tasks,
+    child: state.child,
   }),
   {
     setDate: date.setDate,
-    setTasks: tasks.setTasks,
-    setHasRead: tasks.setHasRead,
-    setHasWritten: tasks.setHasWritten,
-    setHasDrawn: tasks.setHasDrawn,
   }
 )(SatMon);
