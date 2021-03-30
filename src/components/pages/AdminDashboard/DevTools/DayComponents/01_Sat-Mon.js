@@ -51,7 +51,7 @@ const SatMon = ({ setDate }) => {
   const handleAllTasks = e => {
     setAllTasks(
       authState,
-      tasks.submissionID,
+      tasks.id,
       tasks.hasRead,
       tasks.hasWritten,
       tasks.hasDrawn
@@ -59,7 +59,7 @@ const SatMon = ({ setDate }) => {
   };
 
   const onSimulate = e => {
-    if (handleAllTasks() !== []) {
+    if (handleAllTasks() == []) {
       handleGetChildTasks();
     }
   };
@@ -118,7 +118,7 @@ const SatMon = ({ setDate }) => {
               <Radio
                 className="radio-buttons"
                 value={{ hasRead: false, hasDrawn: false, hasWritten: false }}
-                checked={true}
+                checked={false}
               >
                 User has completed 0 tasks
               </Radio>
