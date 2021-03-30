@@ -1,14 +1,21 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { useOktaAuth } from '@okta/okta-react';
 import { Layout, Button, Radio } from 'antd';
 
-import { tasks } from '../../../../../state/actions/index';
-import { date } from '../../../../../state/actions/index';
+import { date, tasks } from '../../../../../state/actions/index';
+import { setAllTasks, getChildTasks } from '../../../../../api/index';
+import {
+  setHasDrawn,
+  setHasRead,
+  setHasWritten,
+} from '../../../../../state/actions/taskActions';
 
 const { Header, Content, Footer } = Layout;
 
 const SatMon = ({ setDate }) => {
+  const { authState } = useOktaAuth();
   const { push } = useHistory();
 
   const adminDash = () => {
@@ -18,13 +25,10 @@ const SatMon = ({ setDate }) => {
   const gameStageUrl = '/child/mission-control';
 
   const findDayOfWeekReference = 1;
-  // Saturday was 6
-  // Sunday was 0
-  // Monday was 1
 
-  const handleSim = () => {
-    push(`${gameStageUrl}`);
-  };
+  // const handleSim = () => {
+  //   push(`${gameStageUrl}`);
+  // };
 
   const findNextDayOfWeek = selectedDay => {
     let date = new Date();
@@ -39,6 +43,44 @@ const SatMon = ({ setDate }) => {
   useEffect(() => {
     setDate(findNextDayOfWeek(findDayOfWeekReference));
   }, [findDayOfWeekReference]);
+
+  const handleGetChildTasks = e => {
+    getChildTasks(authState, tasks.child_id, tasks.story_id);
+  };
+
+  const handleAllTasks = e => {
+    setAllTasks(
+      authState,
+      tasks.submissionID,
+      tasks.hasRead,
+      tasks.hasWritten,
+      tasks.hasDrawn
+    );
+  };
+
+  const onSimulate = e => {
+    if (handleAllTasks() !== []) {
+      handleGetChildTasks();
+    }
+  };
+
+  const completeOneTask = e => {
+    setHasRead(true);
+    setHasDrawn(false);
+    setHasWritten(false);
+  };
+
+  const completedTwoTasks = e => {
+    setHasRead(true);
+    setHasDrawn(true);
+    setHasWritten(false);
+  };
+
+  const completedAllTasks = e => {
+    setHasRead(true);
+    setHasDrawn(true);
+    setHasWritten(true);
+  };
 
   return (
     <Layout>
@@ -73,15 +115,41 @@ const SatMon = ({ setDate }) => {
           <p>Select the game state you would like to see in play:</p>
           <div className="state-buttons">
             <Radio.Group>
-              <Radio className="radio-buttons">User has read</Radio>
-              <Radio className="radio-buttons">User has read and drawn</Radio>
-              <Radio className="radio-buttons">
+              <Radio
+                className="radio-buttons"
+                value={{ hasRead: false, hasDrawn: false, hasWritten: false }}
+                checked={true}
+              >
+                User has completed 0 tasks
+              </Radio>
+              <Radio
+                className="radio-buttons"
+                value={{ hasRead: true, hasDrawn: false, hasWritten: false }}
+                onChange={completeOneTask}
+                checkd={false}
+              >
+                User has read
+              </Radio>
+              <Radio
+                className="radio-buttons"
+                value={{ hasRead: true, hasDrawn: true, hasWritten: false }}
+                onChange={completedTwoTasks}
+                checked={false}
+              >
+                User has read and drawn
+              </Radio>
+              <Radio
+                className="radio-buttons"
+                value={{ hasRead: true, hasDrawn: true, hasWritten: true }}
+                onChange={completedAllTasks}
+                checked={false}
+              >
                 User has read, drawn, and written
               </Radio>
             </Radio.Group>
             <Button
               className="simulate-button"
-              onClick={handleSim}
+              onClick={onSimulate}
               disabled={gameStageUrl == null}
             >
               Simulate Game Play
@@ -96,17 +164,14 @@ const SatMon = ({ setDate }) => {
 
 export default connect(
   state => ({
-    tasks: state.tasks,
-    hasRead: state.tasks.hasRead,
-    hasWritten: state.tasks.hasWritten,
-    hasDrawn: state.tasks.hasDrawn,
     date: state.date,
+    tasks: state.tasks,
   }),
   {
+    setDate: date.setDate,
     setTasks: tasks.setTasks,
     setHasRead: tasks.setHasRead,
     setHasWritten: tasks.setHasWritten,
     setHasDrawn: tasks.setHasDrawn,
-    setDate: date.setDate,
   }
 )(SatMon);
