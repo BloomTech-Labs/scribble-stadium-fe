@@ -36,12 +36,12 @@ const SatMon = ({ setDate, child, devMode }) => {
 
   /**
    * On initial render, checks to see if devMode is in state
-   * if it is, calls getChildTasks
+   * if it is, calls getChildTasks to work around useEffect in RenderMissionControl
    */
   useEffect(() => {
-    // if (devMode.isDevModeActive === true) {
-    //   getChildTasks(authState, child.id, child.cohortId)
-    // };
+    if (devMode.isDevModeActive === true) {
+      getChildTasks(authState, child.id, child.cohortId);
+    }
   });
 
   const handleGetChildTasks = async e => {
