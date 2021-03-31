@@ -2,16 +2,17 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
+
 import { Layout, Button, Radio } from 'antd';
 
 import DevModeHeader from '../../devModeHeader';
-import { date, tasks } from '../../../../../state/actions/index';
-import { setAllTasks, getChildTasks } from '../../../../../api/index';
 import useTasksRadio from './useTasksRadio';
+import { date } from '../../../../../state/actions/index';
+import { setAllTasks, getChildTasks } from '../../../../../api/index';
 
 const { Header, Content, Footer } = Layout;
 
-const SatMon = ({ setDate, tasks, child }) => {
+const SatMon = ({ setDate, child, devMode }) => {
   const [radioTasks, value, setValue] = useTasksRadio(0);
   const { authState } = useOktaAuth();
   const { push } = useHistory();
@@ -34,21 +35,32 @@ const SatMon = ({ setDate, tasks, child }) => {
     setDate(findNextDayOfWeek(1));
   }, [1]);
 
+  /**
+   * On initial render, checks to see if devMode is in state
+   * if it is, calls getChildTasks
+   */
+  useEffect(() => {
+    // if (devMode.isDevModeActive === true) {
+    //   getChildTasks(authState, child.id, child.cohortId)
+    // };
+  });
+
   const handleGetChildTasks = async e => {
     const res = await getChildTasks(authState, child.id, child.cohortId);
+    console.log(res);
     setAllTasks(
       authState,
       res.ID,
-      tasks.hasRead,
-      tasks.hasWritten,
-      tasks.hasDrawn
+      radioTasks.hasRead,
+      radioTasks.hasWritten,
+      radioTasks.hasDrawn
     );
     push('/child/mission-control');
   };
 
   const onChange = e => {
     setValue(e.target.value);
-    console.log('tasks: ', radioTasks);
+    // console.log("tasks: ", radioTasks);
   };
 
   return (
@@ -108,11 +120,10 @@ const SatMon = ({ setDate, tasks, child }) => {
 export default connect(
   state => ({
     date: state.date,
-    tasks: state.tasks,
     child: state.child,
+    devMode: state.devMode,
   }),
   {
     setDate: date.setDate,
-    setTasks: tasks.setTasks,
   }
 )(SatMon);
