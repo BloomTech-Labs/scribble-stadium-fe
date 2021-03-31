@@ -2,22 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
-import { Layout, Button, Radio } from 'antd';
+import { Layout, Button, Radio, Col } from 'antd';
 
 import DevModeHeader from '../../devModeHeader';
 import { date } from '../../../../../state/actions/index';
 import { setAllTasks, getChildTasks } from '../../../../../api/index';
+import useTasksRadio from '../useTasksRadio';
 
 const { Header, Content, Footer } = Layout;
 
 const SatMon = ({ setDate, tasks, child }) => {
-  const initialRadioValues = {
-    hasRead: false,
-    hasDrawn: false,
-    hasWritten: false,
-  };
-
-  const [radioState, setRadioState] = useState(initialRadioValues);
+  const [radioTasks, value, setValue] = useTasksRadio(0);
   const { authState } = useOktaAuth();
   const { push } = useHistory();
 
@@ -44,11 +39,8 @@ const SatMon = ({ setDate, tasks, child }) => {
   }, [findDayOfWeekReference]);
 
   const onChange = e => {
-    e.preventDefault();
-    console.log('radio checked', e.target.checked);
-    console.log('value', e.target.value);
-    setRadioState(e.target.value);
-    console.log('radio state', radioState);
+    setValue(e.target.value);
+    console.log('tasks: ', radioTasks);
   };
 
   const handleGetChildTasks = async e => {
@@ -101,53 +93,11 @@ const SatMon = ({ setDate, tasks, child }) => {
           </p>
           <p>Select the game state you would like to see in play:</p>
           <div className="state-buttons">
-            <Radio.Group onChange={onChange} value={radioState}>
-              <Radio
-                className="radio-buttons"
-                value={{ hasRead: false, hasDrawn: false, hasWritten: false }}
-                checked={
-                  radioState.hasRead === false &&
-                  radioState.hasDrawn === false &&
-                  radioState.hasWritten === false
-                }
-                // checked={true}
-              >
-                User has completed 0 tasks
-              </Radio>
-              <Radio
-                className="radio-buttons"
-                value={{ hasRead: true, hasDrawn: false, hasWritten: false }}
-                checked={
-                  radioState.hasRead === true &&
-                  radioState.hasDrawn === false &&
-                  radioState.hasWritten === false
-                }
-                // checked={false}
-              >
-                User has read
-              </Radio>
-              <Radio
-                className="radio-buttons"
-                value={{ hasRead: true, hasDrawn: true, hasWritten: false }}
-                checked={
-                  radioState.hasRead === true &&
-                  radioState.hasDrawn === true &&
-                  radioState.hasWritten === false
-                }
-              >
-                User has read and drawn
-              </Radio>
-              <Radio
-                className="radio-buttons"
-                value={{ hasRead: true, hasDrawn: true, hasWritten: true }}
-                checked={
-                  radioState.hasRead === true &&
-                  radioState.hasDrawn === true &&
-                  radioState.hasWritten === true
-                }
-              >
-                User has read, drawn, and written
-              </Radio>
+            <Radio.Group onChange={onChange} value={value}>
+              <Radio value={0}>has completed 0 tasks</Radio>
+              <Radio value={1}>hasRead</Radio>
+              <Radio value={2}>hasRead and hasDrawn</Radio>
+              <Radio value={3}>hasRead, hasDrawn, and hasWritten</Radio>
             </Radio.Group>
             <Button
               className="simulate-button"
@@ -169,6 +119,9 @@ export default connect(
     date: state.date,
     tasks: state.tasks,
     child: state.child,
+    hasRead: state.tasks.hasRead,
+    hasWritten: state.tasks.hasWritten,
+    hasDrawn: state.tasks.hasDrawn,
   }),
   {
     setDate: date.setDate,
