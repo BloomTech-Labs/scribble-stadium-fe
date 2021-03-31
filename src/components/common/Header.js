@@ -9,7 +9,6 @@ import { global } from '../../state/actions';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import BackButton from '../common/BackButton';
 import PropTypes from 'prop-types';
-import DevModeHeader from '../pages/AdminDashboard/devModeHeader';
 
 const ChildMenu = props => {
   const { push } = useHistory();
@@ -75,7 +74,6 @@ const Header = ({
       {pointsToWin && (
         <h3 className="points-to-win">201 POINTS NEEDED TO WIN!</h3>
       )}
-      <DevModeHeader component={DevModeHeader} />
     </div>
   );
 };

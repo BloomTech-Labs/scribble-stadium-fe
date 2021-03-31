@@ -4,7 +4,7 @@ import { devMode } from '../../../state/actions/index';
 import styled from 'styled-components';
 
 const DevHeader = styled.header`
-  font-size: 50px;
+  font-size: 20px;
   background: red;
   text-align: center;
 `;

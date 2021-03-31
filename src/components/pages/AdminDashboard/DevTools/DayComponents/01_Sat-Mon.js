@@ -5,10 +5,9 @@ import { useOktaAuth } from '@okta/okta-react';
 
 import { Layout, Button, Radio } from 'antd';
 
-import DevModeHeader from '../../devModeHeader';
 import useTasksRadio from './useTasksRadio';
-import { date } from '../../../../../state/actions/index';
 import { setAllTasks, getChildTasks } from '../../../../../api/index';
+import { date } from '../../../../../state/actions/index';
 
 const { Header, Content, Footer } = Layout;
 
@@ -68,7 +67,6 @@ const SatMon = ({ setDate, child, devMode }) => {
         <h1>Story Squad</h1>
         <Button onClick={adminDash}>Back to Admin Dashboard</Button>
       </Header>
-      <DevModeHeader component={DevModeHeader} />
       <div className="dev-tools-day">
         <h2>Saturday / Sunday / Monday</h2>
         <h3>Game Play Days: 1, 2, and 3</h3>

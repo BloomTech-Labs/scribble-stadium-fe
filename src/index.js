@@ -59,6 +59,7 @@ import Tues from './components/pages/AdminDashboard/DevTools/DayComponents/04_Tu
 import Wed from './components/pages/AdminDashboard/DevTools/DayComponents/05_Wed';
 import Thurs from './components/pages/AdminDashboard/DevTools/DayComponents/06_Thurs';
 import Fri from './components/pages/AdminDashboard/DevTools/DayComponents/07_Fri';
+import DevModeHeader from './components/pages/AdminDashboard/devModeHeader';
 
 // import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
 
@@ -90,6 +91,7 @@ function App() {
 
   return (
     <Security {...config} onAuthRequired={authHandler}>
+      <DevModeHeader component={DevModeHeader} />
       <Switch>
         <Route path="/login" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />

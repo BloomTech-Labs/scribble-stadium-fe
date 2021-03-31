@@ -5,7 +5,6 @@ import { Button, Layout } from 'antd';
 
 import ModerationTools from './ModerationTools';
 import DevToolsNew from './DevToolsNew';
-import DevModeHeader from './devModeHeader.js';
 
 const { Content, Header } = Layout;
 
@@ -25,7 +24,6 @@ const AdminDashboard = props => {
           Back to Home Page
         </Button>
       </Header>
-      <DevModeHeader component={DevModeHeader} />
       <Layout>
         <Content>
           <ModerationTools component={ModerationTools} />
@@ -33,6 +31,7 @@ const AdminDashboard = props => {
             className="dev-tools-component"
             component={DevToolsNew}
           />
+          {/* <SetTime/> */}
         </Content>
       </Layout>
     </Layout>
