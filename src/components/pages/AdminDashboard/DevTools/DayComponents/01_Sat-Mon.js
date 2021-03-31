@@ -47,7 +47,6 @@ const SatMon = ({ setDate, child, devMode }) => {
 
   const handleGetChildTasks = async e => {
     const res = await getChildTasks(authState, child.id, child.cohortId);
-    console.log(res);
     setAllTasks(
       authState,
       res.ID,
