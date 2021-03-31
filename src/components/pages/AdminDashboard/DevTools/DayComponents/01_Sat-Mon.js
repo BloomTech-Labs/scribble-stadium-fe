@@ -41,15 +41,19 @@ const SatMon = ({ setDate, child, devMode }) => {
   });
 
   const handleGetChildTasks = async e => {
-    const res = await getChildTasks(authState, child.id, child.cohortId);
-    setAllTasks(
-      authState,
-      res.ID,
-      radioTasks.hasRead,
-      radioTasks.hasDrawn,
-      radioTasks.hasWritten
-    );
-    push('/child/mission-control');
+    try {
+      const res = await getChildTasks(authState, child.id, child.cohortId);
+      setAllTasks(
+        authState,
+        res.ID,
+        radioTasks.hasRead,
+        radioTasks.hasDrawn,
+        radioTasks.hasWritten
+      );
+      push('/child/mission-control');
+    } catch (err) {
+      console.log(err.message);
+    }
   };
 
   const onChange = e => {
