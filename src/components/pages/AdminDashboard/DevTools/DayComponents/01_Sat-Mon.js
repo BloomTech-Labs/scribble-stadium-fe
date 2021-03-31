@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
-import { Layout, Button, Radio, Col } from 'antd';
+import { Layout, Button, Radio } from 'antd';
 
 import DevModeHeader from '../../devModeHeader';
-import { date } from '../../../../../state/actions/index';
+import { date, tasks } from '../../../../../state/actions/index';
 import { setAllTasks, getChildTasks } from '../../../../../api/index';
-import useTasksRadio from '../useTasksRadio';
+import useTasksRadio from './useTasksRadio';
 
 const { Header, Content, Footer } = Layout;
 
@@ -20,10 +20,6 @@ const SatMon = ({ setDate, tasks, child }) => {
     push('/admin');
   };
 
-  const gameStageUrl = '/child/mission-control';
-
-  const findDayOfWeekReference = 1;
-
   const findNextDayOfWeek = selectedDay => {
     let date = new Date();
     let resultDate = new Date(date.getTime());
@@ -35,17 +31,11 @@ const SatMon = ({ setDate, tasks, child }) => {
   };
 
   useEffect(() => {
-    setDate(findNextDayOfWeek(findDayOfWeekReference));
-  }, [findDayOfWeekReference]);
-
-  const onChange = e => {
-    setValue(e.target.value);
-    console.log('tasks: ', radioTasks);
-  };
+    setDate(findNextDayOfWeek(1));
+  }, [1]);
 
   const handleGetChildTasks = async e => {
     const res = await getChildTasks(authState, child.id, child.cohortId);
-    console.log(res);
     setAllTasks(
       authState,
       res.ID,
@@ -56,8 +46,9 @@ const SatMon = ({ setDate, tasks, child }) => {
     push('/child/mission-control');
   };
 
-  const onSimulate = e => {
-    handleGetChildTasks();
+  const onChange = e => {
+    setValue(e.target.value);
+    console.log('tasks: ', radioTasks);
   };
 
   return (
@@ -93,17 +84,17 @@ const SatMon = ({ setDate, tasks, child }) => {
           </p>
           <p>Select the game state you would like to see in play:</p>
           <div className="state-buttons">
-            <Radio.Group onChange={onChange} value={value}>
+            <Radio.Group
+              onChange={onChange}
+              value={value}
+              className="radio-buttons"
+            >
               <Radio value={0}>has completed 0 tasks</Radio>
               <Radio value={1}>hasRead</Radio>
               <Radio value={2}>hasRead and hasDrawn</Radio>
               <Radio value={3}>hasRead, hasDrawn, and hasWritten</Radio>
             </Radio.Group>
-            <Button
-              className="simulate-button"
-              onClick={onSimulate}
-              disabled={gameStageUrl == null}
-            >
+            <Button className="simulate-button" onClick={handleGetChildTasks}>
               Simulate Game Play
             </Button>
           </div>
@@ -119,11 +110,9 @@ export default connect(
     date: state.date,
     tasks: state.tasks,
     child: state.child,
-    hasRead: state.tasks.hasRead,
-    hasWritten: state.tasks.hasWritten,
-    hasDrawn: state.tasks.hasDrawn,
   }),
   {
     setDate: date.setDate,
+    setTasks: tasks.setTasks,
   }
 )(SatMon);
