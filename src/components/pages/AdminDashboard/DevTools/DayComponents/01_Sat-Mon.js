@@ -5,7 +5,6 @@ import { Layout, Button, Radio } from 'antd';
 
 import { tasks } from '../../../../../state/actions/index';
 import { date } from '../../../../../state/actions/index';
-import DevModeHeader from '../../devModeHeader';
 
 const { Header, Content, Footer } = Layout;
 
@@ -40,14 +39,12 @@ const SatMon = ({ setDate }) => {
   useEffect(() => {
     setDate(findNextDayOfWeek(findDayOfWeekReference));
   }, [findDayOfWeekReference]);
-
   return (
     <Layout>
       <Header className="ant-page-header">
         <h1>Story Squad</h1>
         <Button onClick={adminDash}>Back to Admin Dashboard</Button>
       </Header>
-      <DevModeHeader component={DevModeHeader} />
       <div className="dev-tools-day">
         <h2>Saturday / Sunday / Monday</h2>
         <h3>Game Play Days: 1, 2, and 3</h3>
