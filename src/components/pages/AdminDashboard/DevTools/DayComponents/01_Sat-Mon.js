@@ -34,13 +34,9 @@ const SatMon = ({ setDate, child, devMode }) => {
     setDate(findNextDayOfWeek(1));
   }, [1]);
 
-  /**
-   * On initial render, checks to see if devMode is in state
-   * if it is, calls getChildTasks to work around useEffect in RenderMissionControl
-   */
   useEffect(() => {
-    if (devMode.isDevModeActive === true) {
-      getChildTasks(authState, child.id, child.cohortId);
+    if (devMode.isDevModeActive === false) {
+      push('/admin');
     }
   });
 
@@ -50,15 +46,14 @@ const SatMon = ({ setDate, child, devMode }) => {
       authState,
       res.ID,
       radioTasks.hasRead,
-      radioTasks.hasWritten,
-      radioTasks.hasDrawn
+      radioTasks.hasDrawn,
+      radioTasks.hasWritten
     );
     push('/child/mission-control');
   };
 
   const onChange = e => {
     setValue(e.target.value);
-    // console.log("tasks: ", radioTasks);
   };
 
   return (
