@@ -307,7 +307,7 @@ const setAllTasks = (
   hasWrittenStatus
 ) => {
   apiAuthPut(
-    `/submit/update-all/${submissionId}`,
+    `/dev/update-all/${submissionId}`,
     {
       hasRead: hasReadStatus,
       hasDrawn: hasDrawnStatus,
