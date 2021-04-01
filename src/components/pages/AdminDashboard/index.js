@@ -5,7 +5,6 @@ import { Button, Layout } from 'antd';
 
 import ModerationTools from './ModerationTools';
 import DevToolsNew from './DevToolsNew';
-
 const { Content, Header } = Layout;
 
 const AdminDashboard = props => {
@@ -31,7 +30,6 @@ const AdminDashboard = props => {
             className="dev-tools-component"
             component={DevToolsNew}
           />
-          {/* <SetTime/> */}
         </Content>
       </Layout>
     </Layout>

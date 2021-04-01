@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { Layout, Button, Radio } from 'antd';
 
 import { date } from '../../../../../state/actions';
+import SetTime from '../../SetTime';
 
 const { Header, Content, Footer } = Layout;
 
@@ -53,6 +54,7 @@ const Fri = ({ setDate }) => {
             <Radio.Group>
               <Radio className="radio-buttons"></Radio>
             </Radio.Group>
+            <SetTime />
             <Button
               className="simulate-button"
               onClick={handleSim}

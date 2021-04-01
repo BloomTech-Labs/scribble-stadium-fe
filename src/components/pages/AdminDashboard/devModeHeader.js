@@ -9,8 +9,6 @@ const DevHeader = styled.header`
   text-align: center;
 `;
 // This is the DevModeHeader this will be displayed on all pages when DevMode option is toggled
-// One thing to note as more components are added this will have to be updated with all the pages.
-// Along the line there might be an easier method to implement this
 const DevModeHeader = ({ devMode }) => {
   return (
     <div>
