@@ -54,6 +54,9 @@ const SetTime = ({ setHour }, props) => {
               <Option key={12} value={12}>
                 12pm
               </Option>
+              <Option key={15} value={15}>
+                3pm
+              </Option>
               <Option key={18} value={18}>
                 6pm
               </Option>
