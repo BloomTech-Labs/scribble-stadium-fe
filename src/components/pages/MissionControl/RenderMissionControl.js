@@ -31,7 +31,7 @@ const RenderMissionControl = props => {
    * calls getStory
    */
   useEffect(() => {
-    if (props.tasks.id === null) {
+    if (props.tasks.id === null || props.devMode.isDevModeActive) {
       getChildTasks(authState, props.child.id, props.child.cohortId).then(
         res => {
           props.setTasks(res);

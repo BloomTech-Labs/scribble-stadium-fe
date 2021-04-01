@@ -1,29 +1,23 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { useOktaAuth } from '@okta/okta-react';
+
 import { Layout, Button, Radio } from 'antd';
 
-import { tasks } from '../../../../../state/actions/index';
+import useTasksRadio from './useTasksRadio';
+import { setAllTasks, getChildTasks } from '../../../../../api/index';
 import { date } from '../../../../../state/actions/index';
 
 const { Header, Content, Footer } = Layout;
 
-const SatMon = ({ setDate }) => {
+const SatMon = ({ setDate, child, devMode }) => {
+  const [radioTasks, value, setValue] = useTasksRadio(0);
+  const { authState } = useOktaAuth();
   const { push } = useHistory();
 
   const adminDash = () => {
     push('/admin');
-  };
-
-  const gameStageUrl = '/child/mission-control';
-
-  const findDayOfWeekReference = 1;
-  // Saturday was 6
-  // Sunday was 0
-  // Monday was 1
-
-  const handleSim = () => {
-    push(`${gameStageUrl}`);
   };
 
   const findNextDayOfWeek = selectedDay => {
@@ -37,8 +31,35 @@ const SatMon = ({ setDate }) => {
   };
 
   useEffect(() => {
-    setDate(findNextDayOfWeek(findDayOfWeekReference));
-  }, [findDayOfWeekReference]);
+    setDate(findNextDayOfWeek(1));
+  }, [1]);
+
+  useEffect(() => {
+    if (devMode.isDevModeActive === false) {
+      push('/admin');
+    }
+  });
+
+  const handleGetChildTasks = async e => {
+    try {
+      const res = await getChildTasks(authState, child.id, child.cohortId);
+      setAllTasks(
+        authState,
+        res.ID,
+        radioTasks.hasRead,
+        radioTasks.hasDrawn,
+        radioTasks.hasWritten
+      );
+      push('/child/mission-control');
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  const onChange = e => {
+    setValue(e.target.value);
+  };
+
   return (
     <Layout>
       <Header className="ant-page-header">
@@ -71,18 +92,17 @@ const SatMon = ({ setDate }) => {
           </p>
           <p>Select the game state you would like to see in play:</p>
           <div className="state-buttons">
-            <Radio.Group>
-              <Radio className="radio-buttons">User has read</Radio>
-              <Radio className="radio-buttons">User has read and drawn</Radio>
-              <Radio className="radio-buttons">
-                User has read, drawn, and written
-              </Radio>
-            </Radio.Group>
-            <Button
-              className="simulate-button"
-              onClick={handleSim}
-              disabled={gameStageUrl == null}
+            <Radio.Group
+              onChange={onChange}
+              value={value}
+              className="radio-buttons"
             >
+              <Radio value={0}>has completed 0 tasks</Radio>
+              <Radio value={1}>hasRead</Radio>
+              <Radio value={2}>hasRead and hasDrawn</Radio>
+              <Radio value={3}>hasRead, hasDrawn, and hasWritten</Radio>
+            </Radio.Group>
+            <Button className="simulate-button" onClick={handleGetChildTasks}>
               Simulate Game Play
             </Button>
           </div>
@@ -95,17 +115,11 @@ const SatMon = ({ setDate }) => {
 
 export default connect(
   state => ({
-    tasks: state.tasks,
-    hasRead: state.tasks.hasRead,
-    hasWritten: state.tasks.hasWritten,
-    hasDrawn: state.tasks.hasDrawn,
     date: state.date,
+    child: state.child,
+    devMode: state.devMode,
   }),
   {
-    setTasks: tasks.setTasks,
-    setHasRead: tasks.setHasRead,
-    setHasWritten: tasks.setHasWritten,
-    setHasDrawn: tasks.setHasDrawn,
     setDate: date.setDate,
   }
 )(SatMon);
