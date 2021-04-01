@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import { Layout, Button, Radio } from 'antd';
 
 import { date } from '../../../../../state/actions/index';
-import DevModeHeader from '../../devModeHeader';
 
 const { Header, Content, Footer } = Layout;
 
@@ -43,7 +42,7 @@ const Tues = ({ setDate }) => {
         <h1>Story Squad</h1>
         <Button onClick={adminDash}>Back to Admin Dashboard</Button>
       </Header>
-      <DevModeHeader component={DevModeHeader} />
+
       <div className="dev-tools-day">
         <h2>Tuesday</h2>
         <h3>Game Play Day: 4</h3>

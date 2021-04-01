@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
-import { Layout, Button, Radio, Col } from 'antd';
 
-import DevModeHeader from '../../devModeHeader';
-import { date } from '../../../../../state/actions/index';
+import { Layout, Button, Radio } from 'antd';
+
+import useTasksRadio from './useTasksRadio';
 import { setAllTasks, getChildTasks } from '../../../../../api/index';
-import useTasksRadio from '../useTasksRadio';
+import { date } from '../../../../../state/actions/index';
 
 const { Header, Content, Footer } = Layout;
 
-const SatMon = ({ setDate, tasks, child }) => {
+const SatMon = ({ setDate, child, devMode }) => {
   const [radioTasks, value, setValue] = useTasksRadio(0);
   const { authState } = useOktaAuth();
   const { push } = useHistory();
@@ -19,10 +19,6 @@ const SatMon = ({ setDate, tasks, child }) => {
   const adminDash = () => {
     push('/admin');
   };
-
-  const gameStageUrl = '/child/mission-control';
-
-  const findDayOfWeekReference = 1;
 
   const findNextDayOfWeek = selectedDay => {
     let date = new Date();
@@ -35,29 +31,33 @@ const SatMon = ({ setDate, tasks, child }) => {
   };
 
   useEffect(() => {
-    setDate(findNextDayOfWeek(findDayOfWeekReference));
-  }, [findDayOfWeekReference]);
+    setDate(findNextDayOfWeek(1));
+  }, [1]);
+
+  useEffect(() => {
+    if (devMode.isDevModeActive === false) {
+      push('/admin');
+    }
+  });
+
+  const handleGetChildTasks = async e => {
+    try {
+      const res = await getChildTasks(authState, child.id, child.cohortId);
+      setAllTasks(
+        authState,
+        res.ID,
+        radioTasks.hasRead,
+        radioTasks.hasDrawn,
+        radioTasks.hasWritten
+      );
+      push('/child/mission-control');
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   const onChange = e => {
     setValue(e.target.value);
-    console.log('tasks: ', radioTasks);
-  };
-
-  const handleGetChildTasks = async e => {
-    const res = await getChildTasks(authState, child.id, child.cohortId);
-    console.log(res);
-    setAllTasks(
-      authState,
-      res.ID,
-      tasks.hasRead,
-      tasks.hasWritten,
-      tasks.hasDrawn
-    );
-    push('/child/mission-control');
-  };
-
-  const onSimulate = e => {
-    handleGetChildTasks();
   };
 
   return (
@@ -66,7 +66,6 @@ const SatMon = ({ setDate, tasks, child }) => {
         <h1>Story Squad</h1>
         <Button onClick={adminDash}>Back to Admin Dashboard</Button>
       </Header>
-      <DevModeHeader component={DevModeHeader} />
       <div className="dev-tools-day">
         <h2>Saturday / Sunday / Monday</h2>
         <h3>Game Play Days: 1, 2, and 3</h3>
@@ -93,17 +92,17 @@ const SatMon = ({ setDate, tasks, child }) => {
           </p>
           <p>Select the game state you would like to see in play:</p>
           <div className="state-buttons">
-            <Radio.Group onChange={onChange} value={value}>
+            <Radio.Group
+              onChange={onChange}
+              value={value}
+              className="radio-buttons"
+            >
               <Radio value={0}>has completed 0 tasks</Radio>
               <Radio value={1}>hasRead</Radio>
               <Radio value={2}>hasRead and hasDrawn</Radio>
               <Radio value={3}>hasRead, hasDrawn, and hasWritten</Radio>
             </Radio.Group>
-            <Button
-              className="simulate-button"
-              onClick={onSimulate}
-              disabled={gameStageUrl == null}
-            >
+            <Button className="simulate-button" onClick={handleGetChildTasks}>
               Simulate Game Play
             </Button>
           </div>
@@ -117,11 +116,8 @@ const SatMon = ({ setDate, tasks, child }) => {
 export default connect(
   state => ({
     date: state.date,
-    tasks: state.tasks,
     child: state.child,
-    hasRead: state.tasks.hasRead,
-    hasWritten: state.tasks.hasWritten,
-    hasDrawn: state.tasks.hasDrawn,
+    devMode: state.devMode,
   }),
   {
     setDate: date.setDate,
