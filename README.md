@@ -5,16 +5,17 @@
 [<img src="https://avatars2.githubusercontent.com/t/4044276?s=280&v=4" width="200" />](https://avatars2.githubusercontent.com/t/4044276?s=280&v=4)
 
 Story Squad turns “reluctant readers” into authors and illustrators through a collaborative world-building game.
-<!-- Todo! Update this -->
+
 You can find the deployed project at: [AWS Amplify](https://a.storysquad.dev/)
 
 ## Current State Of The App
-<!-- Todo! Update this -->
 Work done by Labs32: https://docs.google.com/document/d/1aSt8nd0Mg_2lcXzV9of9Bkd4DsLA-KMbRKVbyIDBnEc/edit
 Work done by labs29: [Click Here](https://docs.google.com/spreadsheets/d/1ZdhfQEAsz3IhgVa8zMZ0JkuD6-oasDI4hplPFXZaXNQ/edit?usp=sharing)
 
 ## Project Overview
 [How the App should work - A primer for devs](storysquadExplained.md)
+For Labs 33, please view the "Work done by Labs33" Google doc for a basic understanding of where we left off, game terminology, organization, set-up assistance, et cetera.  We also recommend reviewing the final product review, where we go into depth about some set-up, bugs, et cetera for the next cohort of developers.
+
 <br/>
 [Labs31 Product Roadmap](https://www.notion.so/Roadmap-Story-Squad-Labs-31-6f774da319e34c238764765a864632a6)
 <br/>
