@@ -3,53 +3,46 @@ _Last updated by Labs30 01.28.21_
 
 [Stakeholder Demo of Desired App]([https://docs.google.com/presentation/d/1DKJjCHwA_W9JCAaiofN5bwVCe7MvG8NMJVBSyzeR2qw/edit#slide=id.g814549c2e8_0_7](https://docs.google.com/presentation/d/1DKJjCHwA_W9JCAaiofN5bwVCe7MvG8NMJVBSyzeR2qw/edit#slide=id.g814549c2e8_0_7))
 
+Please note that Labs 33 has compiled a ABOUT_DEVELOPER_MODE.md file that can be read to learn about exploring the application, utilizing developer mode, and exposes some bugs that exist as of April 3rd, 2021.
+
 ## Notes
 
 Students that started at the same time will be placed in "cohorts." This will allow students to progress through a chapter book for their reading, and synchronizes the writing and drawing prompts for students in that cohort.
 
-# Student Steps:
-
 ## Overview of week:
 
-(This is from a draft wireframe of the dev's `/moderation` page that is intended for devs to quickly mock any needed steps. Note the numbered order of every step.)
+## Step 1 (Saturday - Monday: Read, draw, and write)
+Saturday marks the first day of a new game.  Students are to click on "Accept the Mission," and are sent to a screen with three "tasks." They must accomplish the tasks in the order of reading -> drawing -> writing. For drawing and writing, the tasks are intended to be "locked" until the previous task is completed. (i.e., drawing is locked until reading is finished, writing is locked until drawing is finished).  These tasks are intended to be available for the first 3 days (Sat - Mon). All students in the same cohort read the same assigned chapter/story.
 
-![Draft of dev's moderation page](docs/draft-dev-moderation-page.png)
+Note: 
+* All students in the same cohort read the same assigned chapter/story
+* students draw a picture based on a sentence in the story, and handwrite their own fictional story using the characters in the reading.
+* Upon completion of each task, the task should appear as "checked," and should make a datase query/queries (reading just queries that hasRead is true, the other two require a submission upload db query as well)
 
-## Step 1 (Monday: read chapter)
 
-All students in the same cohort read the same assigned chapter/story & click a button at the end to confirm they finished.
+## Step 2 (Tuesday: Moderation and Data-Science)
 
-1. Front end should display whether or not it has been read.
+On Tuesday, children are not given any particular task to do -- the day is reserved for moderation and data science clustering/etc.
+Writing and drawings will receive a "squad score" by DS & then be grouped with four students of similar skillsets.  From here, they are to be placed into teams of 2.  Each team of 2 is to go head-to-head for the remainder of the week.  Note that teams and face-offs are not revealed on Tuesday.
 
-## Step 2 (Monday-Wednesday: submissions, but only after finishing step1), (Thursday is mandatory teacher/adult review)
+## Step 3 (Wednesday)
 
-Draw & write
+On Wednesday, each child is introduced to their assigned teammate.  From here, the student reads through a "Squad Portfolio" of their work (and their teammate's).  Each student then invests/allocates points across the squad portfolio, like a "betting" phase.  Each student is intended to allocate points according to which "portfolio pieces" they think will win.  Each item must have a minimum of 10 points, and each student must spend 100 points total.  If points are NOT allocated, their points will be distributed evenly between the four portfolio pieces (25 points each).
 
-1. Students draw a picture based on a sentence in the story read & handwrite their own fictional story using the characters in the reading.
-2. Students then submit the drawing and writing in the app. After they are submitted, each task's respective checkboxes should change from unchecked to checked.
-3. On **Thursday**, stories are reviewed by a teacher and analyzed by DS. Writing and drawings will receive a "squad score" by DS & then be grouped with a student of similar skillset into a "team" (also called a "squad"). Each 2 person team/squad will be matched with a similarly skilled team to compete against in a "Weekly matchup." The "matchup" refers to the overall squad-vs.-squad "face-offs" taking place, and will be displayed on the matchup page as 4 face-offs.
+## Step 4 Thursday - Friday: voting, and suspense before the reveal, the big reveal)
 
-## Step 3 (Friday - Sunday: allotting/betting, voting, and suspense before the reveal)
+Thursday and Friday are nearly the same, with the exception that the big reveal is reserved for Friday afternoon. 
 
-Point Share Stage. The student reads through a "Squad portfolio" composed of their own work and the work of their teammate. Each student then invests/allocates 100 points across the squad portfolio. (Imagine it as a betting phase. Student bets points according to how they likely they think each writing/drawing is to win against a competing team's unknown submissions)
+On Thurs-Fri, matchups occur; each team is introduced to the opposing team.  Between each team's separate "Squad Portfolio," the highest-allocated items (of the same type) will face-off against each other.  i.e., a squad's highest-allocated drawing will be vs. the opposing squad's highest-allocated drawing, the second highest vs the second highest, and so forth.  For each of these "face-offs," the total allocated points (between the two items in the face-off) are at stake, i.e. if 50 points were allocated to each of the two top-drawings, then 100 points are at stake in their face-off.  For said face-offs, the winning piece will be determined through having outside-voters vote on the face-off. 
 
-Each submission gets a minimum of 10 points, and each student privately decides how to allocate the remaining 60 points according to their own thoughts on what is most likely to win the "face-off's". (teammate will do the same, and the competing team will likewise do the same for their work) A "face-off" is the individual competition between 2 pictures or 2 writings.
+3. Matchups will be displayed on a Matchup Dashboard, where the student can see their team matchups & the total points allocated to each matchup. Upon initially seeing this page, the student can view all of the submissions from their "Squad Portfolio," but can only the opposing team's lowest-point face-off submission.  As the student proceeds to vote on OTHER MATCHUPS they are gradually able to unlock seeing more of the opposing team's face-off submissions, as well as whether or not a winner has been decided yet. (This means that a student must finish their required votes AND that other students must finish voting on all 4 of the faceoffs in order to see the big reveal.).
 
-1. The point sharing page needs to ensure that exactly 100 points are allocated by every student, and if the student fails to allocate points, each automatically gets 25 points.
-2. After students submit their point-shares (bets), the face-offs are made.
-    - A team's picture with the highest point-allocation (bet) is paired with the opposing team's picture with the highest point allocation, and the total of all the points allocated on those 2 pictures is at stake on that pairing. The 2 remaining pictures will be matched & all the points invested in them will be at stake on that pairing.
-    - The process is the same for stories.
-3. Matchups will be displayed on a Matchup Dashboard, where the student can see their team matchups & the total points allocated to each matchup. Originally, the student can view all of the submissions in their "squad portfolio" & only the opposing team's submission from the lowest-point face-off.  As the student votes in the next step, they unlock the next 2 face-offs and can see more of the opposing team's submissions and if there has been a winner for each face-off yet. (This means that a student must finish all 3 of their required votes AND that other students must finish voting on all 4 of the faceoffs in order to see the big reveal.)
+Note that a student should never vote on their own team's matchups, only on unrelated teams.  Students should not know whose work they are voting for, will vote entirely on their own opinions on what is subjectively better, and can give emoji feedback.
 
-## Step 4 (Friday - Sunday, Voting.)
-
-Each student will vote on 3 face-offs for other teams. Note, a student will never vote for their own team's matchups, only for unrelated teams. Students should not know whose work they're voting for. Students will vote entirely on their own opinions on what is subjectively better and can give emoji feedback.
-
-- As mentioned previously, as a student votes on an external matchup's faceoff, they unlock the ability to see one more submission & result on their own matchup page.
-
+The big reveal is unique from the other reveals in that it not only requires the child to vote on a number of outside face-offs, but also becomes available after a certain hour on Friday.
 ## Reset to New Week
 
-TBD
+Questions to ask: does the reset occur after the big reveal on Friday, or should it wait until Saturday?  It seems that implementing a Saturday time-based reset would be easier to implement.
 
 ## Glossary of terms
 
