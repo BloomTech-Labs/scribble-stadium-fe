@@ -3,7 +3,7 @@ _Last updated by Labs30 01.28.21_
 
 [Stakeholder Demo of Desired App]([https://docs.google.com/presentation/d/1DKJjCHwA_W9JCAaiofN5bwVCe7MvG8NMJVBSyzeR2qw/edit#slide=id.g814549c2e8_0_7](https://docs.google.com/presentation/d/1DKJjCHwA_W9JCAaiofN5bwVCe7MvG8NMJVBSyzeR2qw/edit#slide=id.g814549c2e8_0_7))
 
-Please note that Labs 33 has compiled a ABOUT_DEVELOPER_MODE.md file that can be read to learn about exploring the application, utilizing developer mode, and exposes some bugs that exist as of April 3rd, 2021.
+Please note that Labs 32 has compiled a ABOUT_DEVELOPER_MODE.md file that can be read to learn about exploring the application, utilizing developer mode, and exposes some bugs that exist as of April 3rd, 2021.
 
 ## Notes
 
