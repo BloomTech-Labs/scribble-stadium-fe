@@ -14,7 +14,7 @@ Work done by labs29: [Click Here](https://docs.google.com/spreadsheets/d/1ZdhfQE
 
 ## Project Overview
 [How the App should work - A primer for devs](storysquadExplained.md)
-For Labs 33, please view the "Work done by Labs33" Google doc for a basic understanding of where we left off, game terminology, organization, set-up assistance, et cetera.  We also recommend reviewing the final product review, where we go into depth about some set-up, bugs, et cetera for the next cohort of developers.
+For Labs of April 2021, please view the "Work done by Labs32" Google doc for a basic understanding of where we left off, game terminology, organization, set-up assistance, et cetera.  We also recommend reviewing the final product review, where we go into depth about some set-up, bugs, et cetera for the next cohort of developers.
 
 <br/>
 [Labs31 Product Roadmap](https://www.notion.so/Roadmap-Story-Squad-Labs-31-6f774da319e34c238764765a864632a6)
