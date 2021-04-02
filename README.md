@@ -10,7 +10,7 @@ You can find the deployed project at: [AWS Amplify](https://a.storysquad.dev/)
 
 ## Current State Of The App
 <!-- Todo! Update this -->
-Work done by labs31: https://docs.google.com/document/d/1xflyiel4FCX3RzOihrRYgGvTVqpv4kShAw-BrBhEOmQ/edit?ts=603e6e74 <br/>
+Work done by Labs32: https://docs.google.com/document/d/1aSt8nd0Mg_2lcXzV9of9Bkd4DsLA-KMbRKVbyIDBnEc/edit
 Work done by labs29: [Click Here](https://docs.google.com/spreadsheets/d/1ZdhfQEAsz3IhgVa8zMZ0JkuD6-oasDI4hplPFXZaXNQ/edit?usp=sharing)
 
 ## Project Overview
