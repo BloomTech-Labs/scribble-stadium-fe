@@ -137,7 +137,7 @@ const RenderMissionControl = props => {
                   src={write_icon}
                   alt="writing icon"
                 />
-                <p className="mission-control-text">Write</p>
+                <p className="mission-control-text">Writer</p>
               </Col>
             </Row>
           </Col>
