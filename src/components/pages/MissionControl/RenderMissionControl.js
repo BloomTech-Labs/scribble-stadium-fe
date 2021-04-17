@@ -75,7 +75,7 @@ const RenderMissionControl = props => {
 
   return (
     <>
-      <Header title="MISSION" displayMenu={true} />
+      <Header title="MISSION CONTROL" displayMenu={true} />
       <InstructionsModal
         modalVisible={modalVisible}
         handleCancel={() => {
@@ -90,7 +90,7 @@ const RenderMissionControl = props => {
       />
       <div className="mission-container">
         <Row className="main-row">
-          <Col className="read" xs={24} sm={12} onClick={handleReadStory}>
+          <Col className="read" span={24} onClick={handleReadStory}>
             <Checkbox
               className="checking-box"
               defaultChecked={false}
@@ -103,7 +103,7 @@ const RenderMissionControl = props => {
               <p className="mission-control-text">Read</p>
             </Col>
           </Col>
-          <Col className="write-and-draw" xs={24} sm={12}>
+          <Col className="write-and-draw" span={24}>
             <Row className={hasRead ? 'draw' : 'draw-not'} onClick={handleDraw}>
               <Checkbox
                 className="checking-box"
@@ -137,7 +137,7 @@ const RenderMissionControl = props => {
                   src={write_icon}
                   alt="writing icon"
                 />
-                <p className="mission-control-text">Writer</p>
+                <p className="mission-control-text">Write</p>
               </Col>
             </Row>
           </Col>
