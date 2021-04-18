@@ -85,7 +85,6 @@ const RenderMissionControl = props => {
           setModalVisible(false);
         }}
         instructions={instructionText}
-        className="mission-control-modal"
         style={{ fontSize: '1.8rem' }}
         showOkButton={showButton}
       />

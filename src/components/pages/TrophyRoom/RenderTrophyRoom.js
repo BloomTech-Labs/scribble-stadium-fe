@@ -50,7 +50,7 @@ const RenderTrophyRoom = props => {
     <>
       <Header displayMenu={true} title="Trophy Room" />
       <Button style={{ margin: '1rem' }} onClick={dashboard}>
-        Back to Child Dashboard
+        Back to Child Dashboard!
       </Button>
       <div className="trophy-container">
         <Leaderboard child={props.child} />
