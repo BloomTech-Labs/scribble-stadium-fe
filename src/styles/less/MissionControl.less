@@ -2,13 +2,10 @@
 @import '~antd/lib/style/themes/default.less';
 @import 'variables.less';
 
-.flipping-book {
-border: 2px solid red;
-}
-
 .mission-container {
   height: 70vh;
 }
+
 .hero h1 {
   @media (orientation: landscape) {
   font-size: 4rem;
@@ -16,6 +13,9 @@ border: 2px solid red;
 }
 .main-row {
   height: 100%;
+  @media @mobile {
+    height: 80%;
+  }
 }
 
 .read .image-and-text-container {
@@ -61,7 +61,7 @@ border: 2px solid red;
   cursor: pointer;
   position: relative;
   @media @mobile {
-    height: 33%;
+    height: 44%;
   }
 }
 
@@ -110,7 +110,7 @@ border: 2px solid red;
   position: relative;
   cursor: pointer;
   @media @mobile {
-    height: 51%;
+    height: 69%;
   }
 }
 
@@ -145,7 +145,7 @@ border: 2px solid red;
   position: relative;
   cursor: pointer;
   @media @mobile {
-    height: 54%;
+    height: 68%;
   }
   @media (orientation: landscape) {
     height: 54%;
