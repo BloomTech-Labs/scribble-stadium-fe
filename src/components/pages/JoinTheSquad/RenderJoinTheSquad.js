@@ -62,7 +62,7 @@ const RenderJoinTheSquad = props => {
         <Col className="joinSquad2" xs={24} sm={12}>
           <div className="imgContain2">
             <p className="text2">
-              Hi! <br></br>My name is {props.team.child2.ChildName}!
+              Hi <br></br>My name is {props.team.child2.ChildName}!
             </p>
             <img className="wordBubble2" src={wordBubble} alt="word bubble" />
             <img
