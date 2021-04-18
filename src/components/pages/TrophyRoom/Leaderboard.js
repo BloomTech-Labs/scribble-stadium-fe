@@ -78,6 +78,7 @@ const Leaderboard = () => {
         columns={table}
         rowKey="uid"
         dataSource={data}
+        size="small"
       />
     </div>
   );

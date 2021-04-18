@@ -112,6 +112,15 @@ const RenderTrophyRoom = props => {
           </Modal>
         </div>
       </div>
+      <div className="tablet-mobile-button">
+        <Button
+          style={{ margin: '1rem' }}
+          className="back-btn-small-screens"
+          onClick={dashboard}
+        >
+          Back to Child Dashboard
+        </Button>
+      </div>
     </>
   );
 };
