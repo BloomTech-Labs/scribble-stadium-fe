@@ -13,12 +13,14 @@
   background: #b5d33d;
   display: flex;
   justify-content: center;
+  height: 100vh;
 }
 .joinSquad2 {
   background-color: #fed23f;
   height: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
 }
 
 .joinSquad1,
@@ -37,11 +39,11 @@
   }
 }
 
-.imgContain2 {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
+// .imgContain2 {
+//   display: flex;
+//   flex-direction: column;
+//   position: relative;
+// }
 .button {
   display: flex;
   justify-content: flex-end;
@@ -92,11 +94,11 @@ img {
   }
 }
 
-.wordBubble2 {
-  z-index: 3;
-  margin-left: -2%;
-  margin-top: 0%;
-}
+// .wordBubble2 {
+//   z-index: 3;
+//   margin-left: -2%;
+//   margin-top: 0%;
+// }
 
 .text {
   z-index: 4;
@@ -111,20 +113,20 @@ img {
     left: 0%;
   }
 }
-.text2 {
-  z-index: 4;
-  position: absolute;
-  margin-top: 8%;
-  margin-left: 41%;
-  font-family: 'Nunito', sans-serif;
-  font-size: 1rem;
-  font-weight: 900;
+// .text2 {
+//   z-index: 4;
+//   position: absolute;
+//   margin-top: 8%;
+//   margin-left: 41%;
+//   font-family: 'Nunito', sans-serif;
+//   font-size: 1rem;
+//   font-weight: 900;
 
-  @media @mobile {
-    top: 9%;
-    left: -9%;
-  }
-}
+//   @media @mobile {
+//     top: 9%;
+//     left: -9%;
+//   }
+// }
 
 .child1-avatar {
   z-index: 2;
@@ -144,7 +146,7 @@ img {
   height: 29vh;
   position: absolute;
   left: 43%;
-  top: 32%;
+  top: 55%;
 
   @media @mobile {
     left: 38%;
@@ -155,7 +157,7 @@ img {
 .back-button {
   .orangeButtonStyle();
   position: absolute;
-  width: 19%;
+  width: 29%;
   height: 6.5%;
   font-weight: 700;
   left: 2vh;
@@ -166,4 +168,10 @@ img {
     border-color: #eb7d5bbb;
     color: white;
   }
+}
+.sharePoints {
+  width: 35%;
+}
+.sharePoints span{
+  width: 100%;
 }
