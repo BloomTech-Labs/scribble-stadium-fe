@@ -1,13 +1,43 @@
 @import '../less/variables.less';
 
+// @media (orientation: landscape) {
+//   
+//   }
+
+// @media @mobile {
+
+// }
+
+// @media @tablet {
+//   
+// }
+
 //Leaderboard table styles
 
 .leaderboard {
   width: 50%;
+  @media @tablet {
+    width: 100%;
+  }
 }
-
 .parent:nth-of-type(odd) {
   background-color: #d1d1d1;
+}
+
+.hero h1{
+  @media @tablet {
+    font-size: 2.5rem;
+}
+}
+.back-btn {
+  @media @tablet {
+width: 30%;
+}
+}
+.back-btn span {
+  @media @tablet {
+font-size: .5rem;
+}
 }
 
 .ant-table-tbody {
@@ -55,7 +85,10 @@
   margin: 0 0;
   padding: 15px 0px;
   cursor: pointer;
-
+  @media @tablet {
+    width: 100%;
+    text-align: center;
+   }
   @media @mobile {
     font-size: 3rem;
   }
@@ -99,6 +132,10 @@
   width: 100%;
   justify-content: center;
   margin: auto;
+  @media @tablet {
+ flex-direction: column;
+ align-items:stretch; 
+}
   // @media screen and (@mobile){
   //     flex-direction: column;
   // }
