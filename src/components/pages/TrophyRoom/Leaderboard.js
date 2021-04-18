@@ -61,24 +61,26 @@ const Leaderboard = () => {
       dataIndex: 'WritingPoints',
       key: 'WritingPoints',
       width: 100,
+      responsive: ['sm'],
     },
     {
       title: 'Drawing Points',
       dataIndex: 'DrawingPoints',
       key: 'DrawingPoints',
       width: 100,
+      responsive: ['sm'],
     },
   ];
 
   return (
     <div className="leaderboard">
-      <h2 className="h2">Leaderboard</h2>
+      <h2 className="h2 leader_h2">Leaderboard</h2>
       <Table
         rowClassName={'parent'}
         columns={table}
         rowKey="uid"
         dataSource={data}
-        size="small"
+        size="middle"
       />
     </div>
   );

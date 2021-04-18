@@ -15,15 +15,19 @@
 //Leaderboard table styles
 
 .leaderboard {
-  width: 50%;
+  width: 75%;
   @media @tablet {
-    width: 100%;
+    width: 90%;
   }
 }
 .parent:nth-of-type(odd) {
   background-color: #d1d1d1;
 }
-
+.hero {
+  @media @mobile {
+    width: 100vw;
+  }
+}
 .hero h1{
   @media @tablet {
     font-size: 2.5rem;
@@ -68,7 +72,12 @@ display: none;
 .ant-table-tbody > tr.ant-table-row:hover > td {
   background: unset;
 }
+.table-col {
+  @media @mobile {
+    margin-left: -20%;
+  }
 
+}
 .ant-table-row > td.ant-table-column-sort {
   background: unset;
 }
@@ -90,14 +99,17 @@ display: none;
 .ant-table-thead th.ant-table-column-has-sorters:hover {
   cursor: auto;
 }
-
+.leader_h2 {
+  width: 100%;
+}
 // Trophy room page styles
 
 .h2 {
   color: #ff9100;
   text-shadow: -4px 0 #ffffff, 0 4px #ffffff, 4px 0 #ffffff, 0 -4px #ffffff;
-  text-align: left;
-  font-size: 3.5rem;
+  text-align: center;
+
+  font-size: 5rem;
   font-family: 'bangers';
   font-weight: bold;
   z-index: 1;
@@ -106,7 +118,7 @@ display: none;
   padding: 15px 0px;
   cursor: pointer;
   @media @tablet {
-    width: 100%;
+    font-size: 4rem;
     text-align: center;
    }
   @media @mobile {
@@ -147,8 +159,9 @@ display: none;
 }
 .trophy-container {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   justify-content: center;
   margin: auto;
@@ -206,3 +219,6 @@ display: none;
   text-align: center;
 }
 
+.parent {
+  border: 2px solid red;
+}
