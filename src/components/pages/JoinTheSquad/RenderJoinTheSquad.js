@@ -33,8 +33,8 @@ const RenderJoinTheSquad = props => {
     <>
       <Header title="JOIN THE SQUAD" displayMenu={true} />
       <div className="JoinSquadContainer">
-        <Col className="joinSquad1" xs={24} sm={12}>
-          <div className="imgContain1">
+        <Col className="joinSquad one" xs={24} sm={12}>
+          <div className="imgContain">
             <p className="text">
               Hi! <br></br>My name is {props.team.child1.ChildName}!
             </p>
@@ -43,38 +43,41 @@ const RenderJoinTheSquad = props => {
               src={wordBubbleright}
               alt="word bubble"
             />
-            <img
-              className="star"
-              src={Squadup}
-              alt="Blast Character Background"
-            />
-
-            <img
-              className="child1-avatar"
-              src={props.team.child1.AvatarURL}
-              alt="Child 1 Avatar"
-            />
+            <div className="star-avatar">
+              <img
+                className="star"
+                src={Squadup}
+                alt="Blast Character Background"
+              />
+              <img
+                className="child1-avatar"
+                src={props.team.child1.AvatarURL}
+                alt="Child 1 Avatar"
+              />
+            </div>
           </div>
           <Button className="back-button" onClick={home}>
             Back
           </Button>
         </Col>
-        <Col className="joinSquad2" xs={24} sm={12}>
-          <div className="imgContain1">
+        <Col className="joinSquad two" xs={24} sm={12}>
+          <div className="imgContain">
             <p className="text">
               Hi <br></br>My name is ? {props.team.child2.ChildName}!
             </p>
             <img className="wordBubble" src={wordBubble} alt="word bubble" />
-            <img
-              className="star"
-              src={Squadup}
-              alt="Blast Character Background"
-            />
-            <img
-              className="child2-avatar"
-              src={props.team.child2.AvatarURL}
-              alt="User's Avatar"
-            />
+            <div className="star-avatar">
+              <img
+                className="star"
+                src={Squadup}
+                alt="Blast Character Background"
+              />
+              <img
+                className="child2-avatar"
+                src={props.team.child2.AvatarURL}
+                alt="Child 2 Avatar"
+              />
+            </div>
           </div>
           <div className="button">
             <Button
