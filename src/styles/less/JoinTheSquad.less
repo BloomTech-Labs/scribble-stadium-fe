@@ -10,6 +10,10 @@
   @media @tablet {
 
   }
+  @media @mobile {
+    flex-direction: column;
+    
+  }
 }
 
 .joinSquad {
@@ -18,6 +22,10 @@
   flex-direction: column;
   align-items: flex-start;
   height: 71vh;
+  @media @mobile {
+    height: 20px;
+    // flex-direction: column-reverse;
+  }
 }
 
 .one {
@@ -36,6 +44,10 @@
   @media @tablet {
     padding-left: 5%;
     padding-bottom: 0%;
+  }
+  @media @mobile {
+    align-items: center;
+    height: 80%;
   }
 }
 
@@ -58,11 +70,11 @@
     border-color: #eb7d5bbb;
   }
   @media @mobile {
-    position: relative;
-    right: 56px;
-    bottom: 57.5vh;
-    height: 5vh;
-    width: 218px;
+    // position: relative;
+    // right: 56px;
+    // bottom: 57.5vh;
+    // height: 5vh;
+    // width: 218px;
   }
 }
 img {
@@ -75,7 +87,7 @@ img {
   position: inherit;
   bottom: 95px;
   @media @mobile {
-    height: 32vh;
+    //height: 32vh;
   }
 }
 
@@ -83,9 +95,9 @@ img {
   z-index: 3;
   // position: fixed;
   margin-left: 12%;
-  margin-top: 3%;
+  margin-top: 0%;
   @media @mobile {
-    margin-top: 33%;
+    //margin-top: 33%;
   }
 }
 
@@ -93,14 +105,14 @@ img {
 .text {
   z-index: 4;
   position: absolute;
-  margin-top: 25%;
+  margin-top: 15%;
   margin-left: 43%;
   font-family: 'Nunito', sans-serif;
   font-size: 1rem;
   font-weight: 900;
   @media @mobile {
-    top: 19%;
-    left: 0%;
+    // top: 19%;
+    // left: 0%;
   }
 }
 
@@ -154,6 +166,7 @@ position: absolute;
     color: white;
   }
 }
+
 .sharePoints {
   width: 35%;
 }

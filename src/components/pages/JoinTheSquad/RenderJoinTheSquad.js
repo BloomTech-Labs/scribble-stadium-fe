@@ -79,6 +79,7 @@ const RenderJoinTheSquad = props => {
               />
             </div>
           </div>
+
           <div className="button">
             <Button
               selection="#eb7d5bbb"
