@@ -49,7 +49,11 @@ const RenderTrophyRoom = props => {
   return (
     <>
       <Header displayMenu={true} title="Trophy Room" />
-      <Button style={{ margin: '1rem' }} onClick={dashboard}>
+      <Button
+        style={{ margin: '1rem' }}
+        className="back-btn"
+        onClick={dashboard}
+      >
         Back to Child Dashboard
       </Button>
       <div className="trophy-container">
@@ -107,6 +111,15 @@ const RenderTrophyRoom = props => {
             {/* Map over inventory state here */}
           </Modal>
         </div>
+      </div>
+      <div className="tablet-mobile-button">
+        <Button
+          style={{ margin: '1rem' }}
+          className="back-btn-small-screens"
+          onClick={dashboard}
+        >
+          Back to Child Dashboard
+        </Button>
       </div>
     </>
   );
