@@ -11,6 +11,12 @@ describe('childReducer test suite', () => {
     parentId: null,
     cohortId: null,
     memberId: null,
+    VotesRemaining: null,
+    totalPoints: null,
+    wins: null,
+    losses: null,
+    achievements: null,
+    Ballots: [],
   };
 
   it('should return the initial state with no actions passed in', () => {

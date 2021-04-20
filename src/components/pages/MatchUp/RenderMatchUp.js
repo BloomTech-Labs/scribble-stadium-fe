@@ -117,7 +117,7 @@ const RenderMatchUp = props => {
         >
           Vote!
           <br />
-          {props.child.VotesRemaining} votes left
+          {props.VotesRemaining} votes left
         </Button>
       </div>
     </>
