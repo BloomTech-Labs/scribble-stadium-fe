@@ -85,7 +85,7 @@ const RenderMissionControl = props => {
           setModalVisible(false);
         }}
         instructions={instructionText}
-        style={{ fontSize: '1.8rem' }}
+        style={{ fontSize: '3rem' }}
         showOkButton={showButton}
       />
       <div className="mission-container">
