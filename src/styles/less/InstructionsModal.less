@@ -11,14 +11,24 @@
     padding: 5%;
     min-width: 100%;
 
-    p {
-      font-size: 2.5rem;
-    }
     .accept-button {
       .orangeButtonStyle();
       position: absolute;
       right: 8%;
       top: 82.33%;
     }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .instructions-modal {
+    .ant-modal-content {
+        .accept-button {
+          width: 100px;
+        }
+    }
+  }
+  p {
+    font-size: 1.8rem !important;
   }
 }
