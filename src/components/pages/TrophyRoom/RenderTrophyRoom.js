@@ -16,6 +16,7 @@ const RenderTrophyRoom = props => {
   const [inventoryState, setInventoryState] = useState('');
   const [achievementState, setAchievementState] = useState('');
 
+  const [isStreakModalVisible, setIsStreakModalVisible] = useState(false);
   const dashboard = () => {
     push('/child/dashboard');
   };
@@ -44,6 +45,19 @@ const RenderTrophyRoom = props => {
 
   const handleInventoryCancel = () => {
     setIsInventoryModalVisible(false);
+  };
+
+  const handleStreakOk = () => {
+    setIsStreakModalVisible(false);
+  };
+
+  const handleStreakCancel = () => {
+    setIsStreakModalVisible(false);
+  };
+
+  const showStreakModel = () => {
+    setIsStreakModalVisible(true);
+    setInventoryState('child.streak');
   };
 
   return (
@@ -105,6 +119,21 @@ const RenderTrophyRoom = props => {
             <h3>Stickers</h3>
             <h3>Collectibles</h3>
             {/* Map over inventory state here */}
+          </Modal>
+          <Divider />
+          <h2 className="h2" onClick={showStreakModel}>
+            Current Streak
+          </h2>
+          <Modal
+            title="Current Streak"
+            visible={isStreakModalVisible}
+            onOk={handleStreakOk}
+            onCancel={handleStreakCancel}
+            style={{ margin: '0 auto' }}
+          >
+            <h3>Your current login week streak</h3>
+            {/* get child.streak from the child db */}
+            <h3>1</h3>
           </Modal>
         </div>
       </div>
