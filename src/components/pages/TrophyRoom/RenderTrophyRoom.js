@@ -15,6 +15,7 @@ const RenderTrophyRoom = props => {
   const [isInventoryModalVisible, setIsInventoryModalVisible] = useState(false);
   const [inventoryState, setInventoryState] = useState('');
   const [achievementState, setAchievementState] = useState('');
+  const [streakState, setStreakState] = useState('');
 
   const [isStreakModalVisible, setIsStreakModalVisible] = useState(false);
   const dashboard = () => {
@@ -57,7 +58,7 @@ const RenderTrophyRoom = props => {
 
   const showStreakModel = () => {
     setIsStreakModalVisible(true);
-    setInventoryState('child.streak');
+    setStreakState('child.streak');
   };
 
   return (
