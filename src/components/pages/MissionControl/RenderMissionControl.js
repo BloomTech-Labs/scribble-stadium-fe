@@ -87,6 +87,7 @@ const RenderMissionControl = props => {
         instructions={instructionText}
         style={{ fontSize: '1.8rem' }}
         showOkButton={showButton}
+        className="test"
       />
       <div className="mission-container">
         <Row className="main-row">
