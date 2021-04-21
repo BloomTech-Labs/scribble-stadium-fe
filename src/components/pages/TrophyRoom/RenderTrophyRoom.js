@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 
 import { Divider, Button, Modal } from 'antd';
 import { useHistory } from 'react-router-dom';
+import { child } from '../../../state/actions';
 
 const RenderTrophyRoom = props => {
   const { push } = useHistory();
@@ -16,8 +17,8 @@ const RenderTrophyRoom = props => {
   const [inventoryState, setInventoryState] = useState('');
   const [achievementState, setAchievementState] = useState('');
   const [streakState, setStreakState] = useState('');
-
   const [isStreakModalVisible, setIsStreakModalVisible] = useState(false);
+
   const dashboard = () => {
     push('/child/dashboard');
   };
@@ -126,15 +127,18 @@ const RenderTrophyRoom = props => {
             Current Streak
           </h2>
           <Modal
-            title="Current Streak"
+            title="Login Streak"
             visible={isStreakModalVisible}
             onOk={handleStreakOk}
             onCancel={handleStreakCancel}
             style={{ margin: '0 auto' }}
           >
-            <h3>Your current login week streak</h3>
+            <h3>
+              {`Your current login streak is ${child.streak} weeks! Keep up the great
+              work!`}
+            </h3>
             {/* get child.streak from the child db */}
-            <h3>1</h3>
+            <img src={require('./greatjob.gif')} alt="Great job!" />
           </Modal>
         </div>
       </div>
