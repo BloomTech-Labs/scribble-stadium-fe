@@ -17,18 +17,52 @@
       right: 8%;
       top: 82.33%;
     }
+    .ant-modal-body {
+      p {
+        font-size: 3rem;
+      }
+    }
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media @tablet {
+  .instructions-modal {
+    .ant-modal-content {
+        .accept-button {
+          width: 120px;
+        }
+        .ant-modal-body {
+          p {
+            font-size: 2.2rem;
+          }
+        }
+    }
+  }
+}
+
+@media @mobile {
   .instructions-modal {
     .ant-modal-content {
         .accept-button {
           width: 100px;
         }
+        .ant-modal-body {
+          p {
+            font-size: 1.8rem;
+          }
+        }
     }
   }
-  p {
-    font-size: 1.8rem !important;
+}
+
+@media @xs {
+  .instructions-modal {
+    .ant-modal-content {
+        .ant-modal-body {
+          p {
+            font-size: 1.4rem;
+          }
+        }
+    }
   }
 }
