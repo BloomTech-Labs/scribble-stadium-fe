@@ -37,7 +37,7 @@ const ParentNavSider = props => {
           <Link to="/parent/help">Help</Link>
         </Menu.Item>
         <Menu.Item onClick={switchUsers} key="switch">
-          Change User
+          Child Login
         </Menu.Item>
         <Menu.Item onClick={() => authService.logout()} key="logout">
           Log out
