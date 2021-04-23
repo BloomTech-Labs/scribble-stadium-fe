@@ -1,20 +1,9 @@
 import React, { useState } from 'react';
 import { Header } from '../../common';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 
 function SupportPageContainer(props) {
   const [modalVisible, setModalVisible] = useState(false);
-
-  // const SupportModal = props => {
-  //   // const {push} = useHistory();
-  //   const {
-  //     modalVisible,
-  //     style,
-  //     instructions,
-  //     showOkButton = false,
-  //     handleCancel,
-  //     handleOk,
-  //   } = props;
 
   return (
     <>
@@ -27,18 +16,13 @@ function SupportPageContainer(props) {
         width={'70%'}
         onCancel={() => setModalVisible(false)}
         zIndex={2000}
-        //onOk={handleOk}
         cancelButtonProps={{ disabled: true }}
-        footer="Submit"
+        //contact us via our social here
+        footer="Information on Socials"
         closeIcon="X"
       >
         <p>Contact Us</p>
-
-        {/* {showOkButton && (
-          <Button onClick={handleCancel} className="send-button">
-            I Accept!!!
-          </Button>
-        )} */}
+        {/* <ContactForm /> */}
       </Modal>
 
       <div className="container">
