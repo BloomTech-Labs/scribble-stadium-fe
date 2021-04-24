@@ -35,12 +35,7 @@ function ContactUs({ success, visible }) {
         <label>
           <p>Name</p>
         </label>
-        <input
-          type="text"
-          name="name"
-          className="contact-form-inputs"
-          required={true}
-        />
+        <input type="text" name="name" className="contact-form-inputs" />
         <label>
           <p>Email</p>
         </label>
