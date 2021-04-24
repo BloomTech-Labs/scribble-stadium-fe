@@ -28,7 +28,31 @@ const Leaderboard = () => {
     //Might not be worth using ant Table and just using colomns and Rows since you have more flexiblity and
     // more freedom to do what you want and set up data the way youu want it to be displayed
     // Add Rankings to the table
-
+    {
+      title: 'Rank',
+      dataIndex: 'Rank',
+      key: 'Rank',
+      width: 100,
+      defaultSortOrder: 'descend',
+    },
+    {
+      title: '',
+      dataIndex: 'Name',
+      render: () => (
+        <img
+          src="https://labs28-b-storysquad.s3.amazonaws.com/hero-3.svg"
+          alt="avatar"
+        />
+      ),
+      key: 'Name',
+      width: 150,
+    },
+    {
+      title: 'Name',
+      dataIndex: 'Name',
+      key: 'Name',
+      width: 150,
+    },
     {
       title: 'Wins',
       dataIndex: 'Wins',
@@ -43,17 +67,11 @@ const Leaderboard = () => {
       dataIndex: 'Losses',
       width: 100,
     },
-
-    {
-      title: 'Name',
-      dataIndex: 'Name',
-      key: 'Name',
-      width: 150,
-    },
     {
       title: 'Total Points',
       dataIndex: 'Total_Points',
       key: 'Total_points',
+
       width: 100,
     },
     {

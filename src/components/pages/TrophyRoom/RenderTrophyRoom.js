@@ -134,8 +134,7 @@ const RenderTrophyRoom = props => {
             style={{ margin: '0 auto' }}
           >
             <h3>
-              {`Your current login streak is ${child.streak} weeks! Keep up the great
-              work!`}
+              {`Your current login streak is ${child.Streaks} weeks! Keep up the great work!`}
             </h3>
             {/* get child.streak from the child db */}
             <img src={require('./greatjob.gif')} alt="Great job!" />
