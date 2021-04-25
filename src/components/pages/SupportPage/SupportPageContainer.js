@@ -1,38 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
+import RenderSupportPage from './RenderSupportPage';
 import { Header } from '../../common';
-import { Modal } from 'antd';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 function SupportPageContainer(props) {
-  const [modalVisible, setModalVisible] = useState(false);
+  //this function takes care of the success message displayed on the screen
+  //when the user hits submit to send the form data to a dedicated email addy
 
+  const toastifySuccess = () => {
+    toast('Form sent!', {
+      position: 'bottom-right',
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      className: 'submit-feedback success',
+      toastId: 'notifyToast',
+    });
+  };
   return (
     <>
       <Header title="Support" displayMenu={true} />
-
-      <Modal
-        className="Contact-modal"
-        visible={modalVisible}
-        keyboard={true}
-        width={'70%'}
-        onCancel={() => setModalVisible(false)}
-        zIndex={2000}
-        cancelButtonProps={{ disabled: true }}
-        //contact us via our social here
-        footer="Information on Socials"
-        closeIcon="X"
-      >
-        <p>Contact Us</p>
-        {/* <ContactForm /> */}
-      </Modal>
-
-      <div className="container">
-        <button className="FAQ">
-          <h3>FAQ</h3>
-        </button>
-        <button className="contact" onClick={() => setModalVisible(true)}>
-          <h3>Contact Us</h3>
-        </button>
-      </div>
+      <RenderSupportPage sucess={toastifySuccess} />
+      <ToastContainer />
     </>
   );
 }
