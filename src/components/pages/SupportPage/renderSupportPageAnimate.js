@@ -36,13 +36,14 @@ function RenderSupportPageAnimate({ success }) {
     // close the modal
     ContactClose();
   }
+  //state to handle displaying of elements
 
   const [show, setShow] = useState(false);
   const [showFAQ, setShowFAQ] = useState(false);
   const expand = React.createRef();
   const expandFAQ = React.createRef();
   const move = React.createRef();
-
+  //GSAP animations
   const Contact = () => {
     setShowFAQ(false);
     setShow(!show);
@@ -55,16 +56,16 @@ function RenderSupportPageAnimate({ success }) {
     });
     gsap.fromTo(
       expand.current,
-      // these effects expand an image in the center of the screen.
+      // these effects expand the contact form in the center of the screen.
       {
-        //this first set of curly brackets is the from co-ordinates
+        //this is the from co-ordinates
         y: 0,
         x: 0,
         scale: 0,
         opacity: 0,
       },
       {
-        //this first set of curly brackets is the from co-ordinates
+        //this is the to co-ordinates
         y: -100,
         x: 0,
         scale: 0.8,
@@ -83,16 +84,16 @@ function RenderSupportPageAnimate({ success }) {
     });
     gsap.fromTo(
       expand.current,
-      // these effects expand an image in the center of the screen.
+      // these effects shrink the contact form into the background.
       {
-        //this first set of curly brackets is the from co-ordinates
+        //this is the from co-ordinates
         y: -100,
         x: 0,
         scale: 0.8,
         opacity: 1,
       },
       {
-        //this first set of curly brackets is the from co-ordinates
+        //this is the to co-ordinates
         y: 0,
         x: 0,
         scale: 0,
@@ -114,16 +115,16 @@ function RenderSupportPageAnimate({ success }) {
     });
     gsap.fromTo(
       expandFAQ.current,
-      // these effects expand an image in the center of the screen.
+      // these effects expand the FAQ into the center of the screen.
       {
-        //this first set of curly brackets is the from co-ordinates
+        //this is the from co-ordinates
         y: 0,
         x: 0,
         scale: 0,
         opacity: 0,
       },
       {
-        //this first set of curly brackets is the from co-ordinates
+        //this is the to co-ordinates
         y: -100,
         x: 0,
         scale: 0.8,
