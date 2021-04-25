@@ -169,7 +169,7 @@ function RenderSupportPageAnimate({ success }) {
           <label>
             <p>Message</p>
           </label>
-          <textarea name="message" className="contact-form-message" />
+          <textarea name="message" className="contact-form-message" required />
           <div className="contact-button-container">
             <input
               type="submit"
