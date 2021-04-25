@@ -1,45 +1,118 @@
 @import '../less/variables.less';
 
-.container {
-    height: 40vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+.support-container {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
-.FAQ {
-    width: 33%;
-    height: 20vh;
-    border-radius: 14px;
-    justify-content: center;
-    cursor: pointer;
-    background: @button-blue;
-    border: none;
-    color: @white-smoke;
-    font-size: 1rem;
-  }
-  .contact {
-    width: 33%;
-    height: 20vh;
-    border-radius: 14px;
-    justify-content: center;
-    cursor: pointer;
-    background: @burnt-sienna;
-    border: none;
-    color: @white-smoke;
-    font-size: 1rem;
-  }
-  h3 {
-    color: #ffffff;
-    text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
-    text-align: center;
+.support-buttons-container {
+  z-index: 2;
+  height: 40vh;
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20%;
+}
+.FAQ-button {
+  width: 33%;
+  height: 20vh;
+  border-radius: 14px;
+  justify-content: center;
+  cursor: pointer;
+  background: @button-blue;
+  border: none;
+  color: @white-smoke;
+  font-size: 1rem;
+}
+.contact-button {
+  width: 33%;
+  height: 20vh;
+  border-radius: 14px;
+  justify-content: center;
+  cursor: pointer;
+  background: @burnt-sienna;
+  border: none;
+  color: @white-smoke;
+  font-size: 1rem;
+}
+h3 {
+  color: #ffffff;
+  text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+  text-align: center;
+  font-size: 3rem;
+  font-family: 'bangers';
+  font-weight: bold;
+  z-index: 1;
+  letter-spacing: 7px;
+  @media @mobile {
     font-size: 3rem;
-    font-family: 'bangers';
-    font-weight: bold;
-    z-index: 1;
-    letter-spacing: 7px;
-    @media @mobile {
-      font-size: 3rem;
-    }
   }
+}
+
+//Contact Form
+
+.Contact-Form-Container {
+  z-index: 0;
+  width: 50vw;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.contact-form-inputs {
+  width: 60%;
+  margin-bottom: 15px;
+  letter-spacing: 5px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.contact-form-message {
+  width: 60%;
+  height: 10vh;
+  font-weight: 300;
+  border-radius: 4px;
+}
+
+.contact-button-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.contact-form-submit-button {
+  width: 50%;
+  border-radius: 14px;
+  justify-content: center;
+  cursor: pointer;
+  background: @button-blue;
+  font-size: 1rem;
+  background: @white-smoke;
+  border: 3px solid @button-blue;
+  color: @button-blue;
+  box-shadow: 2px 1px 1px;
+  &:hover {
+    background: @button-blue;
+    color: @white-smoke;
+  }
+}
+
+//FAQ
+.FAQ-container {
+  z-index: 1;
+}
+.site-collapse-custom-collapse .site-collapse-custom-panel,
+.site-collapse-custom-collapse .site-collapse-custom-panel {
+  margin-bottom: 24px;
+  overflow: hidden;
+  background: #f7f7f7;
+  border: 0px;
+  border-radius: 2px;
+}
