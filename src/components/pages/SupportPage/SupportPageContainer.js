@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
-import RenderSupportPage from './RenderSupportPageModal';
-import { toast } from 'react-toastify';
+import React from 'react';
+import RenderSupportPage from './renderSupportPageAnimate';
+import RenderSupportPageModal from './RenderSupportPageModal';
+import { Header } from '../../common';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 function SupportPageContainer(props) {
   //this function takes care of the success message displayed on the screen
@@ -18,10 +21,12 @@ function SupportPageContainer(props) {
       toastId: 'notifyToast',
     });
   };
-
   return (
     <>
-      <RenderSupportPage success={toastifySuccess} />
+      <Header title="Support" displayMenu={true} />
+      {/* <RenderSupportPage sucess={toastifySuccess} /> */}
+      <RenderSupportPageModal sucess={toastifySuccess} />
+      <ToastContainer />
     </>
   );
 }

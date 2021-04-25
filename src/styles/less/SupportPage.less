@@ -1,13 +1,35 @@
 @import '../less/variables.less';
 
-.support-page-container {
+//Top Level Support Page Container
+
+.support-container {
   height: 70vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+
   background-color: @kashmir-blue;
+  
+}
+
+
+//Render Support Page Animate
+
+
+.support-container{
+
+//Contact Form
+
+.Contact-Form-Container{
+background-color: @white-smoke;
+border-radius: 25px;
+}
+
+
+
+
+
   .FAQ-button {
     width: 33%;
     height: 20vh;
@@ -44,6 +66,27 @@
     }
   }
 }
+
+
+.support-buttons-container{
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20%;
+}
+
+
+
+
+
+
+
+
+
+
+
+//Render Support Page Modal
 
 //Contact Form Modal Styling
 
@@ -100,3 +143,4 @@
     color: @white-smoke;
   }
 }
+
