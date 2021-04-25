@@ -1,34 +1,33 @@
 @import '../less/variables.less';
 
-//Top Level Support Page Container
 
-.support-container {
+//Animate Styles
+
+
+.support-container{
   height: 70vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
   background-color: @kashmir-blue;
+}
+
+.Contact-Form-Container {
   
+
 }
 
 
-//Render Support Page Animate
-
-
-.support-container{
-
-//Contact Form
-
-.Contact-Form-Container{
-background-color: @white-smoke;
-border-radius: 25px;
-}
-
-
-
-
+.support-buttons-container{
+  
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+  
 
   .FAQ-button {
     width: 33%;
@@ -68,25 +67,83 @@ border-radius: 25px;
 }
 
 
-.support-buttons-container{
-  width: 80vw;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Modal Styles
+.support-page-container {
+  height: 70vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 20%;
+  align-items: center;
+  gap: 20px;
+  background-color: @kashmir-blue;
+  .FAQ-button {
+    width: 33%;
+    height: 20vh;
+    border-radius: 14px;
+    justify-content: center;
+    cursor: pointer;
+    background: @button-blue;
+    border: none;
+    color: @white-smoke;
+    font-size: 1rem;
+  }
+  .contact-button {
+    width: 33%;
+    height: 20vh;
+    border-radius: 14px;
+    justify-content: center;
+    cursor: pointer;
+    background: @burnt-sienna;
+    border: none;
+    color: @white-smoke;
+    font-size: 1rem;
+  }
+  h3 {
+    color: #ffffff;
+    text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'bangers';
+    font-weight: bold;
+    z-index: 1;
+    letter-spacing: 7px;
+    @media @mobile {
+      font-size: 3rem;
+    }
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-//Render Support Page Modal
 
 //Contact Form Modal Styling
 
@@ -143,4 +200,3 @@ border-radius: 25px;
     color: @white-smoke;
   }
 }
-

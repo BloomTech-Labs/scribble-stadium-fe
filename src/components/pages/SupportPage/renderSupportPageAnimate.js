@@ -16,7 +16,7 @@ function RenderSupportPage({ success }) {
     TweenMax.to([FAQbutton, Contactbutton], 0.5, { css: { height: '10vh' } });
     TweenMax.staggerTo([FAQbutton, Contactbutton], 1, {
       x: 0,
-      y: 350,
+      y: 50,
       ease: Power3.easeIn,
     });
     input == 'contact-button'

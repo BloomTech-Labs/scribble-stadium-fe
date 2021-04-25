@@ -24,8 +24,8 @@ function SupportPageContainer(props) {
   return (
     <>
       <Header title="Support" displayMenu={true} />
-      {/* <RenderSupportPage sucess={toastifySuccess} /> */}
-      <RenderSupportPageModal sucess={toastifySuccess} />
+      <RenderSupportPage sucess={toastifySuccess} />
+      {/* <RenderSupportPageModal sucess={toastifySuccess} /> */}
       <ToastContainer />
     </>
   );

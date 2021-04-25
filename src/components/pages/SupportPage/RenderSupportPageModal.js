@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Header } from '../../common';
 import ContactUs from './ContactUsForm';
 import { ToastContainer } from 'react-toastify';
 import { Modal } from 'antd';
@@ -14,7 +13,6 @@ function RenderSupportPage({ success }) {
 
   return (
     <>
-      <Header title="Support" displayMenu={true} />
       <Modal
         className="Contact-modal"
         visible={modalVisible}
