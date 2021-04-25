@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import { Layout, Menu, Typography, Drawer, Button } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
+import {
+  MenuOutlined,
+  DesktopOutlined,
+  SettingOutlined,
+  QuestionOutlined,
+  UserSwitchOutlined,
+  LogoutOutlined,
+} from '@ant-design/icons';
 import { Link, useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
 import { global } from '../../state/actions';
 
-const { Header, Sider } = Layout;
 const { Title } = Typography;
 
 const ParentNavTopBar = props => {
@@ -34,7 +40,11 @@ const ParentNavTopBar = props => {
         <MenuOutlined />
       </Button>
       <Drawer
-        title="Welcome Back!"
+        title={
+          props.selected
+            ? props.selected.charAt(0).toUpperCase() + props.selected.slice(1)
+            : 'Welcome Back!'
+        }
         placement="right"
         closable={true}
         onClose={() => setDrawerIsVisible(false)}
@@ -45,19 +55,31 @@ const ParentNavTopBar = props => {
           mode="inline"
           defaultSelectedKeys={[props.selected]}
         >
-          <Menu.Item key="dashboard">
+          <Menu.Item key="dashboard" icon={<DesktopOutlined />}>
             <Link to="/parent/dashboard">Dashboard</Link>
           </Menu.Item>
-          <Menu.Item key="settings">
+          <Menu.Item key="settings" icon={<SettingOutlined />}>
             <Link to="/parent/settings">Parent Settings</Link>
           </Menu.Item>
-          <Menu.Item key="help">
+          <Menu.Item key="help" icon={<QuestionOutlined />}>
             <Link to="/parent/help">Help</Link>
           </Menu.Item>
-          <Menu.Item onClick={switchUsers} key="switch">
+          <Menu.Item
+            onClick={switchUsers}
+            key="switch"
+            icon={<UserSwitchOutlined />}
+          >
             Change User
           </Menu.Item>
-          <Menu.Item onClick={() => authService.logout()} key="logout">
+          <Menu.Item
+            onClick={() => {
+              authService.logout();
+              this.disabled = true;
+            }}
+            key="logout"
+            icon={<LogoutOutlined />}
+            style={{ borderRight: 'none' }}
+          >
             Log out
           </Menu.Item>
         </Menu>
