@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 
-function ContactUs({ success, visible }) {
+function ContactUs({ success, visible, userInfo }) {
   //This function takes care of sending the data captured in the
   // form to a dedicated email address.
   function sendEmail(e) {
@@ -35,11 +35,21 @@ function ContactUs({ success, visible }) {
         <label>
           <p>Name</p>
         </label>
-        <input type="text" name="name" className="contact-form-inputs" />
+        <input
+          type="text"
+          name="name"
+          className="contact-form-inputs"
+          defaultValue={userInfo.name}
+        />
         <label>
           <p>Email</p>
         </label>
-        <input type="email" name="email" className="contact-form-inputs" />
+        <input
+          type="email"
+          name="email"
+          className="contact-form-inputs"
+          defaultValue={userInfo.email}
+        />
         <label>
           <p>Subject</p>
         </label>

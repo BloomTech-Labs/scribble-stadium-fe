@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Header } from '../../common';
 import ContactUs from './ContactUsForm';
 import { ToastContainer } from 'react-toastify';
@@ -7,6 +8,10 @@ import 'react-toastify/dist/ReactToastify.min.css';
 
 function RenderSupportPage({ success }) {
   const [modalVisible, setModalVisible] = useState(false);
+
+  //access the parents information in the reducer so we can pre-populate the form with their name & email.
+  const userInfo = useSelector(state => state.parent);
+
   return (
     <>
       <Header title="Support" displayMenu={true} />
@@ -22,7 +27,11 @@ function RenderSupportPage({ success }) {
         closeIcon="X"
       >
         <h3>Contact Us</h3>
-        <ContactUs success={success} visible={() => setModalVisible(false)} />
+        <ContactUs
+          success={success}
+          visible={() => setModalVisible(false)}
+          userInfo={userInfo}
+        />
       </Modal>
 
       <div className="support-page-container">
