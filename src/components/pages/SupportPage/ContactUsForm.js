@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 
-function ContactUs({ success, visible, userInfo }) {
+function ContactUs({ success, contact, userInfo }) {
   //This function takes care of sending the data captured in the
   // form to a dedicated email address.
   function sendEmail(e) {
@@ -26,12 +26,15 @@ function ContactUs({ success, visible, userInfo }) {
     //display the success message
     success();
     // close the modal
-    visible();
   }
 
   return (
     <div>
-      <form className="Contact-Form-Container" onSubmit={sendEmail}>
+      <form
+        className="Contact-Form-Container"
+        onSubmit={sendEmail}
+        ref={el => (contact = el)}
+      >
         <label>
           <p>Name</p>
         </label>

@@ -1,115 +1,64 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { TweenMax, Power3 } from 'gsap';
-import ContactUsForm from './ContactUsForm';
+import React, { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import FAQ from './FAQ';
+import ContactUs from './ContactUsForm';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+import { FadeInAnimation } from './FadeInAnimation';
+import { TweenMax } from 'gsap/gsap-core';
+import { Power3 } from 'gsap/gsap-core';
 
-function RenderSupportPage({ success }) {
+function RenderSupportPageAnimate({ success }) {
+  const [expandEl, setExpandEl] = useState(false);
+  let contact = useRef(null);
   //access the parents information in the reducer so we can pre-populate the form with their name & email.
   const userInfo = useSelector(state => state.parent);
 
-  const [displayItem, setDisplayItem] = useState({ Form: false, Faq: false });
-  let FAQbutton = useRef(null);
-  let Contactbutton = useRef(null);
-  let Form = useRef(null);
-  const animate = input => {
-    TweenMax.to([FAQbutton, Contactbutton], 0.5, { css: { height: '10vh' } });
-    TweenMax.staggerTo([FAQbutton, Contactbutton], 1, {
-      x: 0,
-      y: 50,
-      ease: Power3.easeIn,
+  const expand = () => {
+    TweenMax.to(contact, 0.8, {
+      width: 200,
+      height: 200,
+      ease: Power3.easeOut,
     });
-    input == 'contact-button'
-      ? setDisplayItem({ Form: true, Faq: false })
-      : setDisplayItem({ Form: false, Faq: true });
+    setExpandEl(!expandEl);
+  };
+  const shrink = () => {
+    TweenMax.to(contact, 0.8, {
+      width: 0,
+      height: 0,
+      ease: Power3.easeOut,
+    });
+    setExpandEl(!expandEl);
   };
 
   return (
-    <div className="support-container">
-      {displayItem.Form ? (
-        <div
-          className="Contact-Form-Container"
-          ref={el => {
-            Form = el;
-          }}
-        >
-          <ContactUsForm success={success} userInfo={userInfo} />
-          <div className="support-buttons-container">
-            <button
-              className="FAQ-button"
-              ref={el => {
-                FAQbutton = el;
-              }}
-              onClick={animate}
-            >
-              <h3>FAQ</h3>
-            </button>
-            <button
-              className="contact-button"
-              ref={el => {
-                Contactbutton = el;
-              }}
-              onClick={() => animate('contact-button')}
-            >
-              <h3>Contact Us</h3>
-            </button>
-          </div>
+    <>
+      <div className="support-page-container">
+        <div className="contact-us-container">
+          <h3>Contact Us</h3>
+          <ContactUs
+            success={success}
+            userInfo={userInfo}
+            expand={expand}
+            shrink={shrink}
+            contact={contact}
+          />
         </div>
-      ) : displayItem.Faq ? (
-        <div
-          className="FAQ-Container"
-          ref={el => {
-            Form = el;
-          }}
-        >
-          <FAQ />
-          <div className="support-buttons-container">
-            <button
-              className="FAQ-button"
-              ref={el => {
-                FAQbutton = el;
-              }}
-              onClick={animate}
-            >
-              <h3>FAQ</h3>
-            </button>
-            <button
-              className="contact-button"
-              ref={el => {
-                Contactbutton = el;
-              }}
-              onClick={() => animate('contact-button')}
-            >
-              <h3>Contact Us</h3>
-            </button>
-          </div>
+
+        <div className="button-container">
+          <button className="FAQ-button">
+            <h3>FAQ</h3>
+          </button>
+          <button
+            className="contact-button"
+            onClick={expandEl ? shrink : expand}
+          >
+            <h3>Contact Us</h3>
+          </button>
         </div>
-      ) : (
-        <>
-          <div className="support-buttons-container">
-            <button
-              className="FAQ-button"
-              ref={el => {
-                FAQbutton = el;
-              }}
-              onClick={animate}
-            >
-              <h3>FAQ</h3>
-            </button>
-            <button
-              className="contact-button"
-              ref={el => {
-                Contactbutton = el;
-              }}
-              onClick={() => animate('contact-button')}
-            >
-              <h3>Contact Us</h3>
-            </button>
-          </div>
-        </>
-      )}
-    </div>
+      </div>
+      <ToastContainer />
+    </>
   );
 }
 
-export default RenderSupportPage;
+export default RenderSupportPageAnimate;

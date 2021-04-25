@@ -1,34 +1,29 @@
 @import '../less/variables.less';
 
-
-//Animate Styles
-
-
-.support-container{
+.support-page-container {
   height: 70vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
   background-color: @kashmir-blue;
 }
 
-.Contact-Form-Container {
-  
-
+.contact-us-container{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-
-.support-buttons-container{
-  
+.button-container{
   width: 80vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 10%;
-  
-
   .FAQ-button {
     width: 33%;
     height: 20vh;
@@ -67,83 +62,6 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Modal Styles
-.support-page-container {
-  height: 70vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  background-color: @kashmir-blue;
-  .FAQ-button {
-    width: 33%;
-    height: 20vh;
-    border-radius: 14px;
-    justify-content: center;
-    cursor: pointer;
-    background: @button-blue;
-    border: none;
-    color: @white-smoke;
-    font-size: 1rem;
-  }
-  .contact-button {
-    width: 33%;
-    height: 20vh;
-    border-radius: 14px;
-    justify-content: center;
-    cursor: pointer;
-    background: @burnt-sienna;
-    border: none;
-    color: @white-smoke;
-    font-size: 1rem;
-  }
-  h3 {
-    color: #ffffff;
-    text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
-    text-align: center;
-    font-size: 3rem;
-    font-family: 'bangers';
-    font-weight: bold;
-    z-index: 1;
-    letter-spacing: 7px;
-    @media @mobile {
-      font-size: 3rem;
-    }
-  }
-}
 
 //Contact Form Modal Styling
 
@@ -154,10 +72,33 @@
 }
 
 .Contact-Form-Container {
+  border: 2px solid red;
+  display: inline-flex;
   width: 50vw;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  flex: 1;
+  p {
+    
+      color: #939aff;
+      text-shadow: -4px 0 #ffffff, 0 4px #ffffff, 4px 0 #ffffff, 0 -4px #ffffff;
+      font-size: 1rem;
+      font-family: 'bangers';
+      letter-spacing: 1px;
+      z-index: 1;
+      text-align: center;
+  }
+  h3{
+    color: #ff9100;
+    text-shadow: -4px 0 #ffffff, 0 4px #ffffff, 4px 0 #ffffff, 0 -4px #ffffff;
+    font-size: 2rem;
+    font-family: 'bangers';
+    font-weight: bold;
+    letter-spacing: 2px;
+    z-index: 1;
+    text-align: center;
+  }
 }
 
 .contact-form-inputs {
