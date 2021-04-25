@@ -1,6 +1,7 @@
 import React from 'react';
 import RenderSupportPageAnimate from './renderSupportPageAnimate';
 // import RenderSupportPageModal from './RenderSupportPageModal';
+
 import { Header } from '../../common';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -24,7 +25,7 @@ function SupportPageContainer(props) {
   return (
     <>
       <Header title="Support" displayMenu={true} />
-      <RenderSupportPageAnimate sucess={toastifySuccess} />
+      <RenderSupportPageAnimate success={toastifySuccess} />
       {/* <RenderSupportPageModal sucess={toastifySuccess} /> */}
       <ToastContainer />
     </>
