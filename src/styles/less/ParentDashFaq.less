@@ -1,0 +1,51 @@
+@import '~antd/dist/antd.less';
+@import '~antd/lib/style/themes/default.less';
+@import 'variables.less';
+
+.title {
+  .titleStyle();
+}
+
+.container-parent-faq {
+  margin-bottom: 24px;
+  overflow: hidden;
+  min-height: 60vh;
+  background-color: @conifer;
+  border: 5px solid @header-nero;
+  background-size: 80% auto;
+  position: relative;
+  border-radius: 2px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  @media @mobile {
+    min-height: 40vh;
+  }
+
+  .panel-parent-faq {
+    font-family: nunito, sans-serif;
+    font-weight: 500;
+    font-size: 2.25rem;
+    @media @tablet {
+      font-size: 1.505rem;
+    }
+    @media @mobile {
+      font-size: 1.25rem;
+    }
+  }
+
+  p {
+    font-family: nunito, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: @header-nero;
+    text-shadow: none;
+    text-align: left;
+    font-size: 2rem;
+    @media @tablet {
+      font-size: 1.25rem;
+    }
+    @media @mobile {
+      font-size: 1rem;
+    }
+  }
+}
