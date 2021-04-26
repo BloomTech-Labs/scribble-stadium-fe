@@ -39,6 +39,7 @@ import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
 import { ParentDashFaq } from './components/pages/ParentDashFaq';
+import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
@@ -155,6 +156,10 @@ function App() {
           exact
           component={() => (
             <ParentDashFaq LoadingComponent={ParentLoadingComponent} />
+          path="/parent/support"
+          exact
+          component={() => (
+            <SupportPage LoadingComponent={ParentLoadingComponent} />
           )}
         />
         <SecureRoute

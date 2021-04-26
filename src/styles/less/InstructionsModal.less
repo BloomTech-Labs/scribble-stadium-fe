@@ -11,14 +11,58 @@
     padding: 5%;
     min-width: 100%;
 
-    p {
-      font-size: 2.5rem;
-    }
     .accept-button {
       .orangeButtonStyle();
       position: absolute;
       right: 8%;
       top: 82.33%;
+    }
+    .ant-modal-body {
+      p {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+@media @tablet {
+  .instructions-modal {
+    .ant-modal-content {
+        .accept-button {
+          width: 120px;
+        }
+        .ant-modal-body {
+          p {
+            font-size: 2.2rem;
+          }
+        }
+    }
+  }
+}
+
+@media @mobile {
+  .instructions-modal {
+    .ant-modal-content {
+        .accept-button {
+          width: 100px;
+        }
+        .ant-modal-body {
+          p {
+            font-size: 1.8rem;
+          }
+        }
+    }
+  }
+}
+
+@media @xs {
+  .instructions-modal {
+    .ant-modal-content {
+        .ant-modal-body {
+          p {
+            font-size: 1.4rem;
+          }
+        }
     }
   }
 }
