@@ -1,6 +1,6 @@
 import React from 'react';
-import RenderSupportPageAnimate from './renderSupportPageAnimate';
-// import RenderSupportPageModal from './RenderSupportPageModal';
+import RenderSupportPageAnimate from './RenderSupportPageAnimate';
+import RenderSupportPageModal from './RenderSupportPageModal';
 
 import { Header } from '../../common';
 import { toast, ToastContainer } from 'react-toastify';
@@ -25,9 +25,11 @@ function SupportPageContainer(props) {
   return (
     <>
       <Header title="Support" displayMenu={true} />
+      {/* single page with animations */}
       <RenderSupportPageAnimate success={toastifySuccess} />
-      {/* <RenderSupportPageModal sucess={toastifySuccess} /> */}
       <ToastContainer />
+      {/* Modal */}
+      {/* <RenderSupportPageModal success={toastifySuccess} /> */}
     </>
   );
 }

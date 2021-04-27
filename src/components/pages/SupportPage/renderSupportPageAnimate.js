@@ -182,41 +182,75 @@ function RenderSupportPageAnimate({ success }) {
         <div
           className="FAQ-container"
           ref={expandFAQ}
-          style={showFAQ ? null : { display: 'none' }}
+          style={showFAQ ? { width: '80vw' } : { display: 'none' }}
         >
           <Collapse
             bordered={false}
-            defaultActiveKey={['1']}
+            defaultActiveKey={['0']}
             expandIcon={({ isActive }) => (
               <CaretRightOutlined rotate={isActive ? 90 : 0} />
             )}
             className="site-collapse-custom-collapse"
           >
             <Panel
-              header="Question 1 goes here and this is just extra placeholder text?"
+              header={
+                <h3>
+                  Question 1 goes here and this is just extra placeholder text?
+                </h3>
+              }
               key="1"
               className="site-collapse-custom-panel"
             >
               <p>Answer for 1 goes here and of course more placeholder text.</p>
             </Panel>
             <Panel
-              header="Question 2 goes here and will there be more placeholder text
-          this time?"
+              header={
+                <h3>
+                  Question 2 goes here and this is just extra placeholder text?
+                </h3>
+              }
               key="2"
               className="site-collapse-custom-panel"
             >
               <p>
-                Answer for 2 goes here. Absolutely there will be more place-
-                holder text in this wireframe.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                mollitia, molestiae quas vel sint commodi repudiandae
+                consequuntur voluptatum laborum numquam blanditiis harum
+                quisquam eius sed odit fugiat iusto fuga praesentium optio,
+                eaque rerum! Provident similique accusantium nemo autem.
+                Veritatis obcaecati tenetur iure eius earum ut molestias
+                architecto voluptate aliquam nihil, eveniet aliquid culpa
+                officia aut! Impedit sit sunt quaerat, odit, tenetur error,
+                harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia.
+                Quo neque error repudiandae fuga? Ipsa laudantium molestias eos
+                sapiente officiis modi at sunt excepturi expedita sint?
               </p>
             </Panel>
             <Panel
-              header="Question 3 goes here but will the placeholder text ever stop?"
+              header={
+                <h3>
+                  Question 3 goes here and this is just extra placeholder text?
+                </h3>
+              }
               key="3"
               className="site-collapse-custom-panel"
             >
               <p>
                 Answer for 3 goes here. Unfortunately, this is where the place-
+                holder text has to stop.
+              </p>
+            </Panel>
+            <Panel
+              header={
+                <h3>
+                  Question 4 goes here and this is just extra placeholder text?
+                </h3>
+              }
+              key="4"
+              className="site-collapse-custom-panel"
+            >
+              <p>
+                Answer for 4 goes here. Unfortunately, this is where the place-
                 holder text has to stop.
               </p>
             </Panel>
