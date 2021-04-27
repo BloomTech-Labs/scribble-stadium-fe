@@ -38,6 +38,7 @@ import { MissionControl } from './components/pages/MissionControl';
 import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
+import { ParentDashFaq } from './components/pages/ParentDashFaq';
 import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
@@ -147,6 +148,13 @@ function App() {
           exact
           component={() => (
             <ParentDashboard LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
+        <SecureRoute
+          path="/parent/dashboard-faq"
+          exact
+          component={() => (
+            <ParentDashFaq LoadingComponent={ParentLoadingComponent} />
           )}
         />
         <SecureRoute
