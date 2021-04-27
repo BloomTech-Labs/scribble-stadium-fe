@@ -47,9 +47,8 @@ const ParentNavTopBar = props => {
         }
         placement="right"
         closable={true}
-        onClose={() => setDrawerIsVisible(false)}
         visible={drawerIsVisible}
-        style={{ position: 'absolute', right: '0' }}
+        onClose={() => setDrawerIsVisible(false)}
       >
         <Menu
           className="menu"
@@ -79,7 +78,6 @@ const ParentNavTopBar = props => {
             }}
             key="logout"
             icon={<LogoutOutlined />}
-            style={{ borderRight: 'none' }}
           >
             Log out
           </Menu.Item>
