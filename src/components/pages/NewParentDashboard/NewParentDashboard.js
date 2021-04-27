@@ -9,7 +9,7 @@ export default function NewParentDashboard(props) {
     return(
         <Layout>
             <PageHeader style={{color:"hotpink", fontSize:'5rem'}}>Parent Dashboard</PageHeader>
-            <Menu id="parentDB">L
+            <Menu id="parentDB">
                 <div>  
                     <Button>Child Progress/Dashboard</Button>
                 </div>
