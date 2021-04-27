@@ -156,6 +156,9 @@ function App() {
           exact
           component={() => (
             <ParentDashFaq LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
+        <SecureRoute
           path="/parent/support"
           exact
           component={() => (
