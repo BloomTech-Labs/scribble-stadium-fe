@@ -49,6 +49,7 @@ const ParentNavTopBar = props => {
         closable={true}
         onClose={() => setDrawerIsVisible(false)}
         visible={drawerIsVisible}
+        style={{ position: 'absolute', right: '0' }}
       >
         <Menu
           className="menu"
