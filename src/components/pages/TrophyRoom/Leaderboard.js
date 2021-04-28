@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Table } from 'antd';
 import { getLeaderboard } from '../../../api';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import { connect } from 'react-redux';
 
-const Leaderboard = () => {
+const Leaderboard = props => {
   const { authState } = useOktaAuth();
   const [data, setDataInfo] = useState([]);
 
@@ -11,6 +12,8 @@ const Leaderboard = () => {
     //Getting data from backend for leaderboard
     getLeaderboard(authState).then(res => {
       setDataInfo(res);
+      console.log(res);
+      console.log();
     });
   }, [authState]);
 
@@ -35,16 +38,29 @@ const Leaderboard = () => {
       width: 100,
       defaultSortOrder: 'descend',
     },
+    // {
+    //   title: '',
+    //   dataIndex: 'AvatarID',
+    //   render: () => (
+    //     <img
+    //       src={`https://labs28-b-storysquad.s3.amazonaws.com/hero-1.svg
+    //   `}
+    //       alt="avatar"
+    //     />
+    //   ),
+    //   key: 'AvatarID',
+    //   width: 150,
+    // },
     {
-      title: '',
-      dataIndex: 'Name',
-      render: () => (
+      title: 'AID',
+      dataIndex: 'AvatarID',
+      render: theAvatarID => (
         <img
-          src="https://labs28-b-storysquad.s3.amazonaws.com/hero-3.svg"
-          alt="avatar"
+          src={`https://labs28-b-storysquad.s3.amazonaws.com/hero-${theAvatarID}.svg`}
+          alt="Avatar"
         />
       ),
-      key: 'Name',
+      key: 'AvatarID',
       width: 150,
     },
     {
@@ -101,4 +117,9 @@ const Leaderboard = () => {
   );
 };
 
-export default Leaderboard;
+export default connect(
+  state => ({
+    child: state.child,
+  }),
+  {}
+)(Leaderboard);
