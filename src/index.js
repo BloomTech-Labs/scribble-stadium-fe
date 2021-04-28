@@ -63,6 +63,7 @@ import Thurs from './components/pages/AdminDashboard/DevTools/DayComponents/06_T
 import Fri from './components/pages/AdminDashboard/DevTools/DayComponents/07_Fri';
 import DevModeHeader from './components/pages/AdminDashboard/devModeHeader';
 import { ParentDashboardFaq } from './components/pages/ParentDashFaq';
+import GalleryContainer from './components/pages/Gallery/GalleryContainer';
 
 // import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
 
@@ -115,6 +116,13 @@ function App() {
           path="/child/dashboard"
           component={() => (
             <ChildDashboard LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+
+        <SecureRoute
+          path="/child/gallery"
+          component={() => (
+            <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}
         />
 
