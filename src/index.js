@@ -150,20 +150,20 @@ function App() {
             <ParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
+
         <SecureRoute
           path="/parent/dashboard-faq"
           exact
           component={() => (
             <ParentDashFaq LoadingComponent={ParentLoadingComponent} />
           )}
-        />
-        <SecureRoute
           path="/parent/support"
           exact
           component={() => (
             <SupportPage LoadingComponent={ParentLoadingComponent} />
           )}
         />
+
         <SecureRoute
           path="/parent/help"
           exact
