@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, Typography } from 'antd';
 
-import ParentNavSider from '../../common/ParentNavSider';
+import ParentNavTopBar from '../../common/ParentNavTopBar';
 
 const { Title } = Typography;
 
@@ -9,7 +9,7 @@ const Help = props => {
   return (
     <>
       <Layout className="parent-dashboard">
-        <ParentNavSider selected="help" />
+        <ParentNavTopBar selected="help" />
 
         <Layout>
           <div className="Contact">
