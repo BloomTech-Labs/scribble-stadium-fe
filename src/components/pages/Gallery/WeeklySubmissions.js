@@ -5,11 +5,13 @@ const WeeklySubmissions = () => {
   return (
     <>
       <div>
-        <h2>Week</h2>
+        <h2 className="h3">Week</h2>
         <h3>View Prompt</h3>
       </div>
-      <img />
-      <img />
+      <div className="weekly-sub-container">
+        <div className="sub-container"></div>
+        <div className="sub-container"></div>
+      </div>
     </>
   );
 };

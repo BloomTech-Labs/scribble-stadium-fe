@@ -14,14 +14,11 @@ const GalleryContainer = () => {
 
   return (
     <>
-      <Header title="MY GALLERY" displayMenu={true} />
-      <Button
-        style={{ margin: '1rem' }}
-        className="back-btn"
-        onClick={leaderboard}
-      >
+      <Header title="STORY SQUAD" displayMenu={true} />
+      <Button style={{ margin: '1rem' }} onClick={leaderboard}>
         Back to Leaderboard
       </Button>
+      <h2 className="h2">My Gallery</h2>
       <WeeklySubmissions />
     </>
   );
