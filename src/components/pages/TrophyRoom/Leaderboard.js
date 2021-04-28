@@ -38,21 +38,8 @@ const Leaderboard = props => {
       width: 100,
       defaultSortOrder: 'descend',
     },
-    // {
-    //   title: '',
-    //   dataIndex: 'AvatarID',
-    //   render: () => (
-    //     <img
-    //       src={`https://labs28-b-storysquad.s3.amazonaws.com/hero-1.svg
-    //   `}
-    //       alt="avatar"
-    //     />
-    //   ),
-    //   key: 'AvatarID',
-    //   width: 150,
-    // },
     {
-      title: 'AID',
+      title: '',
       dataIndex: 'AvatarID',
       render: theAvatarID => (
         <img
