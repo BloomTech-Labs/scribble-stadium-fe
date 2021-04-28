@@ -39,6 +39,7 @@ import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
 import { ParentDashFaq } from './components/pages/ParentDashFaq';
+import { ParentContactUs } from './components/pages/ParentDashContactUs';
 import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
@@ -62,7 +63,6 @@ import Wed from './components/pages/AdminDashboard/DevTools/DayComponents/05_Wed
 import Thurs from './components/pages/AdminDashboard/DevTools/DayComponents/06_Thurs';
 import Fri from './components/pages/AdminDashboard/DevTools/DayComponents/07_Fri';
 import DevModeHeader from './components/pages/AdminDashboard/devModeHeader';
-import { ParentDashboardFaq } from './components/pages/ParentDashFaq';
 
 // import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
 
@@ -151,13 +151,21 @@ function App() {
             <ParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
-
+        <SecureRoute
+          path="/parent/dashboard-contact"
+          exact
+          component={() => (
+            <ParentContactUs LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
         <SecureRoute
           path="/parent/dashboard-faq"
           exact
           component={() => (
             <ParentDashFaq LoadingComponent={ParentLoadingComponent} />
           )}
+        />
+        <SecureRoute
           path="/parent/support"
           exact
           component={() => (
