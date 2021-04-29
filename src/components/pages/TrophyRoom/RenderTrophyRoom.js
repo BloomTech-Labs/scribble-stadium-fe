@@ -48,7 +48,7 @@ const RenderTrophyRoom = props => {
 
   return (
     <>
-      <Header displayMenu={true} title="Trophy Room" />
+      <Header displayMenu={true} title="STORY SQUAD" />
       <Button
         style={{ margin: '1rem' }}
         className="back-btn"
