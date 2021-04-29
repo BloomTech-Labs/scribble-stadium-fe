@@ -13,7 +13,6 @@ export default function NewParentDashboard(props) {
                 <div>  
                     <Button>Child Progress/Dashboard</Button>
                 </div>
-                {/* Need to figure out how to put link in a onclick for the button */}
                 <div>
                     <Button> 
                         <Link to="/parent/settings">Settings</Link>

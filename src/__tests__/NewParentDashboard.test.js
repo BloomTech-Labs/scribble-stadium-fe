@@ -40,9 +40,4 @@ describe('<NewParentDashboard /> test suite', () => {
         render(<ParentComponent parent={{ children: [] }} />);
         expect(screen.getByText(/Parent Dashboard/i)).toBeInTheDocument();
     });
-
-    // test('The new Parent Dashboard renders successfully', () => {
-    //     const { dashboard } = render(<NewParentDashboard />);
-    //     expect(dashboard.querySelector('#parentDB')).toBeTruthy();
-    // });
 });
