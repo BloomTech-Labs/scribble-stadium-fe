@@ -72,10 +72,7 @@ const ParentNavTopBar = props => {
             Change User
           </Menu.Item>
           <Menu.Item
-            onClick={() => {
-              authService.logout();
-              this.disabled = true;
-            }}
+            onClick={() => authService.logout()}
             key="logout"
             icon={<LogoutOutlined />}
           >
