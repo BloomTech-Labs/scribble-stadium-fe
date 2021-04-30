@@ -3,6 +3,7 @@ import { useOktaAuth } from '@okta/okta-react';
 
 import RenderParentDashboard from './RenderParentDashboard';
 import { connect } from 'react-redux';
+import Footer from '../../common/Footer';
 
 function ParentDashboardContainer({ LoadingComponent, ...props }) {
   const { authState, authService } = useOktaAuth();
@@ -41,6 +42,7 @@ function ParentDashboardContainer({ LoadingComponent, ...props }) {
           authService={authService}
         />
       )}
+      <Footer />
     </>
   );
 }
