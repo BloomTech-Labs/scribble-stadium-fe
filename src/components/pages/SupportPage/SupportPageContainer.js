@@ -25,10 +25,12 @@ function SupportPageContainer(props) {
   return (
     <>
       <Header title="Support" displayMenu={true} />
-      {/* single page with animations */}
+      {/* single page with animations - comment this out and 
+      uncomment the RenderSupportPageModal on line 33 to see the alternative iteration of this display */}
       <RenderSupportPageAnimate success={toastifySuccess} />
       <ToastContainer />
-      {/* Modal */}
+      {/* This line of code can be un-commented to show how the elements can be rendered in the second
+       iteration of the contact form => Modal */}
       {/* <RenderSupportPageModal success={toastifySuccess} /> */}
     </>
   );

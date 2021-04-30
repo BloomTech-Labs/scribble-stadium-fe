@@ -110,7 +110,7 @@ function RenderSupportPageAnimate({ success }) {
       y: 220,
       scale: 0.6,
       borderRadius: 70,
-      duration: 2,
+      duration: 1,
       ease: 'bounce',
     });
     gsap.fromTo(
@@ -129,7 +129,7 @@ function RenderSupportPageAnimate({ success }) {
         x: 0,
         scale: 0.8,
         opacity: 1,
-        duration: 2,
+        duration: 1,
       }
     );
   };
