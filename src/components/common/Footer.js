@@ -5,24 +5,47 @@ import {
   TwitterOutlined,
 } from '@ant-design/icons';
 import SSLogo from '../../assets/images/SSLogo.png';
+import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import emailjs from 'emailjs-com';
+import { ToastContainer } from 'react-toastify';
 
 function Footer(props) {
+  //this function takes care of the success message displayed on the screen
+  //when the user hits submit to send the form data to a dedicated email addy
+
+  const toastifySuccess = () => {
+    toast('Form sent!', {
+      position: 'bottom-right',
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      className: 'submit-feedback success',
+      toastId: 'notifyToast',
+    });
+  };
+
   return (
     <div className="footerContainer">
       <div className="one">
         <AddressDetailsAndNewsletter />
       </div>
       <div className="two">
-        <ContactForm />
+        <ContactForm success={toastifySuccess} />
       </div>
       <div className="three">
         <Socials />
       </div>
+      <ToastContainer />
     </div>
   );
 }
 
 function AddressDetailsAndNewsletter(props) {
+  //access the parents information in the reducer so we can pre-populate the form with their name & email.
+  const userInfo = useSelector(state => state.parent);
   return (
     <div className="footer-address-container">
       <div className="address-info">
@@ -52,7 +75,7 @@ function AddressDetailsAndNewsletter(props) {
             type="email"
             name="email"
             placeholder="Email"
-            //   defaultValue={userInfo.email}
+            defaultValue={userInfo.email}
           />
           <div class="item contact-button">
             <input
@@ -67,10 +90,38 @@ function AddressDetailsAndNewsletter(props) {
   );
 }
 
-function ContactForm(props) {
+function ContactForm({ success }) {
+  //access the parents information in the reducer so we can pre-populate the form with their name & email.
+  const userInfo = useSelector(state => state.parent);
+
+  //This function takes care of sending the data captured in the
+  // form to a dedicated email address.
+  function sendEmail(e) {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        e.target,
+        process.env.REACT_APP_USER_ID
+      )
+      .then(
+        result => {
+          console.log(result.text);
+        },
+        error => {
+          console.log(error.text);
+        }
+      );
+    //reset the form values
+    e.target.reset();
+    //display the success message
+    success();
+  }
+
   return (
     <div>
-      <form>
+      <form onSubmit={sendEmail}>
         <div class="formContainer">
           <div class="item header">
             <h2>Contact Us</h2>
@@ -85,7 +136,7 @@ function ContactForm(props) {
               className="nameInput"
               type="text"
               name="name"
-              //defaultValue={userInfo.name}
+              defaultValue={userInfo.name}
             />
           </div>
           <div class="item email">
@@ -98,7 +149,7 @@ function ContactForm(props) {
               className="emailInput"
               type="email"
               name="email"
-              //   defaultValue={userInfo.email}
+              defaultValue={userInfo.email}
             />
           </div>
           <div class="item message">
