@@ -2,70 +2,105 @@ import React from 'react';
 
 function Footer(props) {
   return (
-    <div>
-      <footer className="parent-dash-footer">
-        <div className="footer-1-container">
-          <div className="address-info">
-            <div class="contact-details">
-              <h6>Contact details</h6>
-              <p>
-                <i class="" aria-hidden="true"></i> 01234 567890
-              </p>
-              <p>
-                <a href="#">
-                  <i class="f" aria-hidden="true"></i> Contact us
-                </a>
-              </p>
-              <p>
-                <i class="" aria-hidden="true"></i>
-                Street, City, County, Country
-              </p>
-            </div>
+    <div className="footerContainer">
+      <div className="footer-1-container">
+        <div className="address-info">
+          <div class="contact-details">
+            <p>
+              <i class="" aria-hidden="true">
+                Story Squad LLC
+                <br />
+                2100 Sesame Street
+                <br />
+                Fun City
+                <br />
+                North Funland
+                <br />
+                USA
+              </i>
+            </p>
           </div>
-          <div className="newsletter"></div>
         </div>
-        <div className="footer-contact-us-form">
-          <h2>Contact Us</h2>
-          <form onSubmit={null}>
-            <div className="input-container">
-              <label>
-                <p>Name</p>
-              </label>
-              <input
-                className="inputs"
-                type="text"
-                name="name"
-                //   defaultValue={userInfo.name}
-              />
-            </div>
-            <div className="input-container">
-              <label>
-                <p>Email</p>
-              </label>
-              <input
-                className="inputs"
-                type="email"
-                name="email"
-                //   defaultValue={userInfo.email}
-              />
-            </div>
-            <div className="input-container">
-              <label>
-                <p>Message</p>
-              </label>
-              <textarea className="inputs message" name="message" />
-            </div>
-            <div className="footer-contact-button-container">
-              <input
-                type="submit"
-                value="Send"
-                className="footer-contact-form-submit-button"
-              />
-            </div>
-          </form>
+        <div className="newsletter">
+          <div>
+            <label>
+              <p>Sign up for our newsletter</p>
+            </label>
+            <input
+              className="newsletterInput"
+              type="email"
+              name="email"
+              placeholder="Email"
+              //   defaultValue={userInfo.email}
+            />
+          </div>
         </div>
-        <div className="socials"></div>
-      </footer>
+      </div>
+      <form>
+        <div class="formContainer">
+          <div class="item header">
+            <h2>Contact Us</h2>
+          </div>
+          <div class="item name">
+            <label>
+              <p>Name</p>
+            </label>
+          </div>
+          <div class="item nameInput">
+            <input
+              className="nameInput"
+              type="text"
+              name="name"
+              //defaultValue={userInfo.name}
+            />
+          </div>
+          <div class="item email">
+            <label>
+              <p>Email</p>
+            </label>
+          </div>
+          <div class="item emailInput">
+            <input
+              className="emailInput"
+              type="email"
+              name="email"
+              //   defaultValue={userInfo.email}
+            />
+          </div>
+          <div class="item message">
+            <label>
+              <p>Message</p>
+            </label>
+          </div>
+          <div class="item messageInput">
+            <textarea className="messageInput" name="message" />
+          </div>
+          <div class="item contact-button">
+            <input
+              type="submit"
+              value="Send"
+              className="footer-contact-form-submit-button"
+            />
+          </div>
+        </div>
+      </form>
+      <div className="socials">
+        <div class="contact-details">
+          <p>
+            <i class="" aria-hidden="true">
+              Story Squad LLC
+              <br />
+              2100 Sesame Street
+              <br />
+              Fun City
+              <br />
+              North Funland
+              <br />
+              USA
+            </i>
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
