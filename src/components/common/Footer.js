@@ -26,29 +26,34 @@ function Footer(props) {
         </div>
         <div className="footer-contact-us-form">
           <h2>Contact Us</h2>
-          <form className="footer-Contact-Form-Container" onSubmit={null}>
-            <div className="input-container-1">
+          <form onSubmit={null}>
+            <div className="input-container">
+              <label>
+                <p>Name</p>
+              </label>
               <input
-                placeholder="Name"
+                className="inputs"
                 type="text"
                 name="name"
-                className="footer-contact-form-inputs"
                 //   defaultValue={userInfo.name}
               />
+            </div>
+            <div className="input-container">
+              <label>
+                <p>Email</p>
+              </label>
               <input
-                placeholder="Email"
+                className="inputs"
                 type="email"
                 name="email"
-                className="footer-contact-form-inputs"
                 //   defaultValue={userInfo.email}
               />
             </div>
-            <div className="input-container-2">
-              <textarea
-                placeholder="Message"
-                name="message"
-                className="footer-contact-form-message"
-              />
+            <div className="input-container">
+              <label>
+                <p>Message</p>
+              </label>
+              <textarea className="inputs message" name="message" />
             </div>
             <div className="footer-contact-button-container">
               <input
