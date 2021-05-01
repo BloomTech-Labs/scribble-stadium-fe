@@ -3,6 +3,16 @@ import React from 'react';
 function Footer(props) {
   return (
     <div className="footerContainer">
+      <AddressDetailsAndNewsletter />
+      <ContactForm />
+      <Socials />
+    </div>
+  );
+}
+
+function AddressDetailsAndNewsletter(props) {
+  return (
+    <div>
       <div className="footer-1-container">
         <div className="address-info">
           <div class="contact-details">
@@ -36,6 +46,13 @@ function Footer(props) {
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function ContactForm(props) {
+  return (
+    <div>
       <form>
         <div class="formContainer">
           <div class="item header">
@@ -84,22 +101,27 @@ function Footer(props) {
           </div>
         </div>
       </form>
-      <div className="socials">
-        <div class="contact-details">
-          <p>
-            <i class="" aria-hidden="true">
-              Story Squad LLC
-              <br />
-              2100 Sesame Street
-              <br />
-              Fun City
-              <br />
-              North Funland
-              <br />
-              USA
-            </i>
-          </p>
-        </div>
+    </div>
+  );
+}
+
+function Socials(props) {
+  return (
+    <div className="socials">
+      <div class="contact-details">
+        <p>
+          <i class="" aria-hidden="true">
+            Story Squad LLC
+            <br />
+            2100 Sesame Street
+            <br />
+            Fun City
+            <br />
+            North Funland
+            <br />
+            USA
+          </i>
+        </p>
       </div>
     </div>
   );
