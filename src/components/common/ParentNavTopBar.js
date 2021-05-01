@@ -19,7 +19,7 @@ const ParentMenu = props => {
   };
 
   return (
-    <Menu {...props}>
+    <Menu>
       <Menu.Item key="1" onClick={switchUsers}>
         Change User
       </Menu.Item>
@@ -40,14 +40,18 @@ const ParentNavTopBar = props => {
       </a>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <span className="welcome-back-msg">
-          Welcome back, {props.parent.name ? props.parent.name : 'User'}
+          Welcome back, {props.parent && props.parent.name}
         </span>
         <Dropdown
           overlay={<ParentMenu clearUsers={props.clearUsers} />}
           trigger={['click', 'hover']}
           placement="bottomCenter"
         >
-          <a className="parent-avatar" onClick={e => e.preventDefault()}>
+          <a
+            className="parent-avatar"
+            data-testid="parent-avatar"
+            onClick={e => e.preventDefault()}
+          >
             <img src={parent_avatar} alt="Dropdown Menu" />
           </a>
         </Dropdown>
