@@ -12,19 +12,20 @@ const { Title } = Typography;
 const ParentMenu = props => {
   const { push } = useHistory();
   const { authService } = useOktaAuth();
+  const { clearUsers, ...rest } = props;
 
   const switchUsers = e => {
-    props.clearUsers();
+    clearUsers();
     push('/');
   };
 
   return (
-    <Menu>
+    <Menu {...rest}>
       <Menu.Item key="1" onClick={switchUsers}>
         Change User
       </Menu.Item>
       <Menu.Item key="2" onClick={() => authService.logout()}>
-        Log Out
+        Logout
       </Menu.Item>
     </Menu>
   );
