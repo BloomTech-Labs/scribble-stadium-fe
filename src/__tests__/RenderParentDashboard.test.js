@@ -34,61 +34,31 @@ const Component = props => {
 };
 
 describe('<ParentDashboard /> test suite', () => {
-  test('Dashboard Nav', () => {
+  test('Welcome back Nav', () => {
     render(<Component parent={{ children: [] }} />);
 
-    const hamburgerBtn = screen.getByRole('button', { class: 'ant-btn' });
-    fireEvent(
-      hamburgerBtn,
-      new MouseEvent('click', { bubbles: true, cancelable: true })
-    );
-
-    // The nav will display 'Dashboard' at least twice, so expect to see that amount of elements or more.
-    expect(screen.getAllByText(/Dashboard/i).length >= 2).toBeTruthy();
+    expect(screen.getByText(/Welcome back/i)).toBeInTheDocument();
   });
 
-  test('Help Nav', () => {
-    render(<Component parent={{ children: [] }} />);
-
-    const hamburgerBtn = screen.getByRole('button', { class: 'ant-btn' });
-    fireEvent(
-      hamburgerBtn,
-      new MouseEvent('click', { bubbles: true, cancelable: true })
-    );
-
-    expect(screen.getByText(/Help/i)).toBeInTheDocument();
-  });
-  test('Parent Settings Nav', () => {
-    render(<Component parent={{ children: [] }} />);
-
-    const hamburgerBtn = screen.getByRole('button', { class: 'ant-btn' });
-    fireEvent(
-      hamburgerBtn,
-      new MouseEvent('click', { bubbles: true, cancelable: true })
-    );
-
-    expect(screen.getByText(/Parent Settings/i)).toBeInTheDocument();
-  });
   test('Change user Nav', () => {
     render(<Component parent={{ children: [] }} />);
 
-    const hamburgerBtn = screen.getByRole('button', { class: 'ant-btn' });
     fireEvent(
-      hamburgerBtn,
+      screen.getByTestId('parent-avatar'),
       new MouseEvent('click', { bubbles: true, cancelable: true })
     );
 
     expect(screen.getByText(/Change User/i)).toBeInTheDocument();
   });
-  test('Log out Nav', () => {
+
+  test('Logout Nav', () => {
     render(<Component parent={{ children: [] }} />);
 
-    const hamburgerBtn = screen.getByRole('button', { class: 'ant-btn' });
     fireEvent(
-      hamburgerBtn,
+      screen.getByTestId('parent-avatar'),
       new MouseEvent('click', { bubbles: true, cancelable: true })
     );
 
-    expect(screen.getByText(/log out/i)).toBeInTheDocument();
+    expect(screen.getByText(/Logout/i)).toBeInTheDocument();
   });
 });
