@@ -1,89 +1,66 @@
-import React, { useState } from 'react';
-import { Layout, Menu, Typography, Drawer, Button } from 'antd';
-import {
-  MenuOutlined,
-  DesktopOutlined,
-  SettingOutlined,
-  QuestionOutlined,
-  UserSwitchOutlined,
-  LogoutOutlined,
-} from '@ant-design/icons';
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react';
+import { Typography, Menu, Dropdown } from 'antd';
+import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
 import { global } from '../../state/actions';
 
+import parent_avatar from '../../assets/icons/parent_avatar.svg';
+
 const { Title } = Typography;
 
-const ParentNavTopBar = props => {
-  const { authService } = useOktaAuth();
+const ParentMenu = props => {
   const { push } = useHistory();
+  const { authService } = useOktaAuth();
+
   const switchUsers = e => {
     props.clearUsers();
     push('/');
   };
 
-  const [drawerIsVisible, setDrawerIsVisible] = useState(false);
+  return (
+    <Menu {...props}>
+      <Menu.Item key="1" onClick={switchUsers}>
+        Change User
+      </Menu.Item>
+      <Menu.Item key="2" onClick={() => authService.logout()}>
+        Log Out
+      </Menu.Item>
+    </Menu>
+  );
+};
 
+const ParentNavTopBar = props => {
   return (
     <nav className="parent-nav-top-bar" theme="light">
       <a href="">
-        <Title
-          className="title"
-          style={{ color: '#0267C1', margin: 0 }}
-          level={1}
-        >
+        <Title className="title navbar-logo" style={{ margin: 0 }} level={1}>
           STORY SQUAD
         </Title>
       </a>
-      <Button onClick={() => setDrawerIsVisible(true)}>
-        <MenuOutlined />
-      </Button>
-      <Drawer
-        title={
-          props.selected
-            ? props.selected.charAt(0).toUpperCase() + props.selected.slice(1)
-            : 'Welcome Back!'
-        }
-        placement="right"
-        closable={true}
-        visible={drawerIsVisible}
-        onClose={() => setDrawerIsVisible(false)}
-      >
-        <Menu
-          className="menu"
-          mode="inline"
-          defaultSelectedKeys={[props.selected]}
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <span className="welcome-back-msg">
+          Welcome back, {props.parent.name ? props.parent.name : 'User'}
+        </span>
+        <Dropdown
+          overlay={<ParentMenu clearUsers={props.clearUsers} />}
+          trigger={['click', 'hover']}
+          placement="bottomCenter"
         >
-          <Menu.Item key="dashboard" icon={<DesktopOutlined />}>
-            <Link to="/parent/dashboard">Dashboard</Link>
-          </Menu.Item>
-          <Menu.Item key="settings" icon={<SettingOutlined />}>
-            <Link to="/parent/settings">Parent Settings</Link>
-          </Menu.Item>
-          <Menu.Item key="help" icon={<QuestionOutlined />}>
-            <Link to="/parent/help">Help</Link>
-          </Menu.Item>
-          <Menu.Item
-            onClick={switchUsers}
-            key="switch"
-            icon={<UserSwitchOutlined />}
-          >
-            Change User
-          </Menu.Item>
-          <Menu.Item
-            onClick={() => authService.logout()}
-            key="logout"
-            icon={<LogoutOutlined />}
-          >
-            Log out
-          </Menu.Item>
-        </Menu>
-      </Drawer>
+          <a className="parent-avatar" onClick={e => e.preventDefault()}>
+            <img src={parent_avatar} alt="Dropdown Menu" />
+          </a>
+        </Dropdown>
+      </div>
     </nav>
   );
 };
 
-export default connect(null, {
-  clearUsers: global.clearUsers,
-})(ParentNavTopBar);
+export default connect(
+  state => ({
+    parent: state.parent,
+  }),
+  {
+    clearUsers: global.clearUsers,
+  }
+)(ParentNavTopBar);
