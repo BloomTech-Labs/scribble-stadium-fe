@@ -6,7 +6,6 @@ import {
 } from '@ant-design/icons';
 import SSLogo from '../../assets/images/SSLogo.png';
 import { toast } from 'react-toastify';
-import { useSelector } from 'react-redux';
 import emailjs from 'emailjs-com';
 import { ToastContainer } from 'react-toastify';
 
@@ -44,8 +43,6 @@ function Footer(props) {
 }
 
 function AddressDetailsAndNewsletter(props) {
-  //access the parents information in the reducer so we can pre-populate the form with their name & email.
-  const userInfo = useSelector(state => state.parent);
   return (
     <div className="footer-address-container">
       <div className="address-info">
@@ -75,7 +72,6 @@ function AddressDetailsAndNewsletter(props) {
             type="email"
             name="email"
             placeholder="Email"
-            defaultValue={userInfo.email}
           />
           <div class="item contact-button">
             <input
@@ -91,9 +87,6 @@ function AddressDetailsAndNewsletter(props) {
 }
 
 function ContactForm({ success }) {
-  //access the parents information in the reducer so we can pre-populate the form with their name & email.
-  const userInfo = useSelector(state => state.parent);
-
   //This function takes care of sending the data captured in the
   // form to a dedicated email address.
   function sendEmail(e) {
@@ -132,12 +125,7 @@ function ContactForm({ success }) {
             </label>
           </div>
           <div class="item nameInput">
-            <input
-              className="nameInput"
-              type="text"
-              name="name"
-              defaultValue={userInfo.name}
-            />
+            <input className="nameInput" type="text" name="name" />
           </div>
           <div class="item email">
             <label>
@@ -145,12 +133,7 @@ function ContactForm({ success }) {
             </label>
           </div>
           <div class="item emailInput">
-            <input
-              className="emailInput"
-              type="email"
-              name="email"
-              defaultValue={userInfo.email}
-            />
+            <input className="emailInput" type="email" name="email" />
           </div>
           <div class="item message">
             <label>
