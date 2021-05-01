@@ -1,47 +1,64 @@
 import React from 'react';
+import {
+  FacebookOutlined,
+  GooglePlusOutlined,
+  TwitterOutlined,
+} from '@ant-design/icons';
+import SSLogo from '../../assets/images/SSLogo.png';
 
 function Footer(props) {
   return (
     <div className="footerContainer">
-      <AddressDetailsAndNewsletter />
-      <ContactForm />
-      <Socials />
+      <div className="one">
+        <AddressDetailsAndNewsletter />
+      </div>
+      <div className="two">
+        <ContactForm />
+      </div>
+      <div className="three">
+        <Socials />
+      </div>
     </div>
   );
 }
 
 function AddressDetailsAndNewsletter(props) {
   return (
-    <div>
-      <div className="footer-1-container">
-        <div className="address-info">
-          <div class="contact-details">
-            <p>
-              <i class="" aria-hidden="true">
-                Story Squad LLC
-                <br />
-                2100 Sesame Street
-                <br />
-                Fun City
-                <br />
-                North Funland
-                <br />
-                USA
-              </i>
-            </p>
-          </div>
+    <div className="footer-address-container">
+      <div className="address-info">
+        <div class="contact-details">
+          <p>
+            <i class="" aria-hidden="true">
+              Story Squad LLC
+              <br />
+              2100 Sesame Street
+              <br />
+              Fun City
+              <br />
+              North Funland
+              <br />
+              USA
+            </i>
+          </p>
         </div>
-        <div className="newsletter">
-          <div>
-            <label>
-              <p>Sign up for our newsletter</p>
-            </label>
+      </div>
+      <div className="newsletter">
+        <div>
+          <label>
+            <p>Sign up for our newsletter</p>
+          </label>
+          <input
+            className="newsletterInput"
+            type="email"
+            name="email"
+            placeholder="Email"
+            //   defaultValue={userInfo.email}
+          />
+          <div class="item contact-button">
             <input
-              className="newsletterInput"
-              type="email"
-              name="email"
-              placeholder="Email"
-              //   defaultValue={userInfo.email}
+              type="submit"
+              value="Send"
+              className="newsletter-submit-button"
             />
           </div>
         </div>
@@ -108,20 +125,17 @@ function ContactForm(props) {
 function Socials(props) {
   return (
     <div className="socials">
-      <div class="contact-details">
-        <p>
-          <i class="" aria-hidden="true">
-            Story Squad LLC
-            <br />
-            2100 Sesame Street
-            <br />
-            Fun City
-            <br />
-            North Funland
-            <br />
-            USA
-          </i>
-        </p>
+      <img
+        src={SSLogo}
+        alt="Story-Squad-logo"
+        style={{ width: '120px', borderRadius: '20px' }}
+      />
+      <p>Find us on your favorite social media platform</p>
+
+      <div className="icons-list">
+        <FacebookOutlined className="socialIcons" />
+        <GooglePlusOutlined className="socialIcons" />
+        <TwitterOutlined className="socialIcons" />
       </div>
     </div>
   );

@@ -2,31 +2,68 @@
 
 .footerContainer {
   background-color: @suva-grey;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(17, 1fr);
+  padding: 1rem;
+  .one {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .two {
+    grid-column-start: 4;
+    grid-column-end: 12;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .three {
+    grid-column-start: 14;
+    grid-column-end: 17;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    text-align: right;
+  }
 }
 
-
-.footer-1-container{
-  padding: 25px;
+.footer-address-container {
+  .newsletter {
+    p {
+      margin-bottom: 5px;
+    }
+  }
+  .newsletter-submit-button {
+    width: 93%;
+    border-radius: 5px;
+    justify-content: center;
+    cursor: pointer;
+    background: @button-blue;
+    font-size: 1rem;
+    background: @white-smoke;
+    border: 3px solid @button-blue;
+    color: @button-blue;
+    box-shadow: 2px 1px 1px;
+    &:hover {
+      background: @button-blue;
+      color: @white-smoke;
+    }
+  }
 }
 
 //form styles
 .formContainer {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  padding: 20px;
-  width: 40vw;
-}
-.header {
-  grid-column-start: 1;
+  width: 50vw;
+  .header {
+    grid-column-start: 2;
     grid-column-end: 6;
     grid-row-start: 1;
     grid-row-end: 1;
     text-align: center;
-}
-.name {
-  grid-column-start: 2;
+  }
+  .name {
+    grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 2;
@@ -35,86 +72,103 @@
       font-size: 1rem;
       margin-right: 10px;
     }
-}
-.nameInput {
-  grid-column-start: 3;
+  }
+  .nameInput {
+    grid-column-start: 3;
     grid-column-end: 6;
     grid-row-start: 2;
     grid-row-end: 2;
     width: 95%;
-}
-.email {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 3;
-  grid-row-end: 3;
-  text-align: right;
-  p {
-    font-size: 1rem;
-    margin-right: 10px;
   }
-}
-.emailInput {
-  grid-column-start: 3;
-  grid-column-end: 6;
-  grid-row-start: 3;
-  grid-row-end: 3;
-  width: 95%;
-}
-.message {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 5;
-  grid-row-end: 6;
-  text-align: right;
-  p {
-    font-size: 1rem;
-    margin-right: 10px;
+  .email {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    text-align: right;
+    p {
+      font-size: 1rem;
+      margin-right: 10px;
+    }
   }
-}
-.messageInput {
-  grid-column-start: 3;
-  grid-column-end: 6;
-  grid-row-start: 4;
-  grid-row-end: 8;
-  width: 95%;
-  height: 90%;
-}
-.contact-button {
-grid-column-start: 2;
-grid-column-end: 6;
-grid-row-start: 8;
-grid-row-end: 8;
-}
-.final {
-  grid-column-start: 1;
-  grid-column-end: 6;
-  grid-row-start: 9;
-  grid-row-end: 9;
-  height: 20px
-}
+  .emailInput {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    width: 95%;
+  }
+  .message {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    text-align: right;
+    p {
+      font-size: 1rem;
+      margin-right: 10px;
+    }
+  }
+  .messageInput {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 8;
+    width: 95%;
+    height: 90%;
+  }
+  .contact-button {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 8;
+    grid-row-end: 8;
+    width: 90%;
+    justify-self: end;
+  }
+  .final {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 9;
+    grid-row-end: 9;
+    height: 20px;
+  }
 
-.footer-contact-form-submit-button {
-  width: 93%;
-  border-radius: 5px;
-  justify-content: center;
-  cursor: pointer;
-  background: @button-blue;
-  font-size: 1rem;
-  background: @white-smoke;
-  border: 3px solid @button-blue;
-  color: @button-blue;
-  box-shadow: 2px 1px 1px;
-  &:hover {
+  .footer-contact-form-submit-button {
+    width: 92.5%;
+    // margin-right: 20px;
+    border-radius: 5px;
+    justify-content: center;
+    cursor: pointer;
     background: @button-blue;
-    color: @white-smoke;
+    font-size: 1rem;
+    background: @white-smoke;
+    border: 3px solid @button-blue;
+    color: @button-blue;
+    box-shadow: 2px 1px 1px;
+    &:hover {
+      background: @button-blue;
+      color: @white-smoke;
+    }
   }
 }
-
 
 //Socials styling
 
 .socials {
-  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  p {
+    margin-top: 10px;
+  }
+  .icons-list{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+.socialIcons {
+  font-size: 3.5em;
 }
-
+}
