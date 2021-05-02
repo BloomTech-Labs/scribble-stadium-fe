@@ -13,10 +13,17 @@ const ParentDashboard = props => {
     <>
       <Layout className="parent-dashboard">
         <Layout>
-          <header style={{ backgroundColor: '#9BE1DF' }}>
+          <header
+            style={{
+              backgroundColor: '#9BE1DF',
+              display: 'flex',
+              justifyContent: 'flexEnd',
+            }}
+          >
             <Title className="title" style={{ color: 'white' }} level={1}>
               STORY SQUAD
             </Title>
+            <h2>Welcome Back </h2>
           </header>
           <div className="children-container">
             <Layout className="children" style={{ flexFlow: 'row wrap' }}>

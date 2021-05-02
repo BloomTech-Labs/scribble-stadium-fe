@@ -35,21 +35,11 @@ function ContactUs({ success, visible, userInfo }) {
         <label>
           <p>Name</p>
         </label>
-        <input
-          type="text"
-          name="name"
-          className="contact-form-inputs"
-          defaultValue={userInfo.name}
-        />
+        <input type="text" name="name" className="contact-form-inputs" />
         <label>
           <p>Email</p>
         </label>
-        <input
-          type="email"
-          name="email"
-          className="contact-form-inputs"
-          defaultValue={userInfo.email}
-        />
+        <input type="email" name="email" className="contact-form-inputs" />
         <label>
           <p>Subject</p>
         </label>
