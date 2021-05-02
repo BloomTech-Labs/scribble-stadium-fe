@@ -9,7 +9,7 @@ const Help = props => {
   return (
     <>
       <Layout className="parent-dashboard">
-        <ParentNavTopBar selected="help" />
+        <ParentNavTopBar />
 
         <Layout>
           <div className="Contact">

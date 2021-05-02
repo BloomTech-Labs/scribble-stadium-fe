@@ -12,7 +12,7 @@ const ParentDashboard = props => {
   return (
     <>
       <Layout className="parent-dashboard">
-        <ParentNavTopBar selected="dashboard" />
+        <ParentNavTopBar />
 
         <Layout>
           <Title className="title" style={{ color: '#0267C1' }} level={1}>
