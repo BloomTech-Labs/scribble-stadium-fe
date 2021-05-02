@@ -6,7 +6,7 @@ import RenderParentDashboard from '../components/pages/ParentDashboard/RenderPar
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 const mockStore = configureStore([]);
-const store = mockStore();
+const store = mockStore({ parent: { name: 'Dillan Harris' } });
 
 afterEach(() => {
   cleanup();
