@@ -12,12 +12,12 @@ const ParentDashboard = props => {
   return (
     <>
       <Layout className="parent-dashboard">
-        <ParentNavSider selected="dashboard" />
-
         <Layout>
-          <Title className="title" style={{ color: '#0267C1' }} level={1}>
-            STORY SQUAD
-          </Title>
+          <header style={{ backgroundColor: '#9BE1DF' }}>
+            <Title className="title" style={{ color: 'white' }} level={1}>
+              STORY SQUAD
+            </Title>
+          </header>
           <div className="children-container">
             <Layout className="children" style={{ flexFlow: 'row wrap' }}>
               {props.parent.children.map((child, i) => (
