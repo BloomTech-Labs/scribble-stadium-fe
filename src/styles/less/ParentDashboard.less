@@ -1,71 +1,147 @@
 @import '~antd/dist/antd.less';
 @import '~antd/lib/style/themes/default.less';
 
-.parent-dashboard {
-  margin: 0;
-  .ant-menu-item-selected {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-  }
-  .logo {
-    .logoStyle();
-  }
-  .welcome {
-    .welcomeStyle();
-  }
-  .children {
-    display: flex;
-    width: 100%;
-    justify-content: flex-start;
-    padding: 0 2%;
-    background-color: #fff;
-    .ant-card {
-      display: flex;
-      flex-flow: column nowrap;
-      align-items: center;
-      position: relative;
-      background-color: #6ceae6;
-      height: 30vh;
-      margin: 0 2.5vw 2.5vh 0;
-      padding: 16px;
-      width: 45%;
-      border-radius: 14px;
-      justify-content: center;
-      text-align: center;
+.parent-dash-header {
+  background-color: #9be1df;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  height: 6vh;
+}
 
-      h2 {
-        align-self: center;
-      }
-      .ant-card-body,
-      .ant-layout {
-        background: none;
-      }
-      img {
-        size: 40%;
-        height: 22vh;
-        padding: 10%;
-      }
-      button {
-        border-radius: 15px;
-        box-sizing: border-box;
-        width: 100%;
-        height: 5vh;
-        text-align: center;
-        font-size: 0.8rem;
-      }
-      .child-info {
-        display: flex;
-        flex-flow: row nowrap;
-        flex-grow: 1;
-      }
-    }
-  }
+.title {
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
 
-  .title {
-    .titleStyle();
-  }
+.welcome-back-text {
+  grid-column-start: 8;
+  grid-column-end: 10;
+  width: 100%;
+  padding: 20px;
+}
 
-  .ant-layout-sider {
-    .siderStyle();
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 50px);
+}
+
+.progress-charts-text {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+.empty-stats-box {
+  grid-column-start: 3;
+  grid-column-end: 8;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  width: 60vw;
+  height: 40vh;
+  border-radius: 25px;
+  background-color: #e5e5e5;
+}
+.master-children-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(8, 50px);
+}
+
+.children-container-1 {
+  width: 35vw;
+  grid-column-start: 3;
+  grid-column-end: 6;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  .players-text {
+    grid-column-start: 8;
+    grid-column-end: 10;
+  }
+  
+}
+.children {
+  img {
+    border-radius: 25px;
+    width: 80%;
   }
 }
+
+.children-container-2 {
+  width: 35vw;
+  grid-column-start: 6;
+  grid-column-end: 10;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+// .parent-dashboard {
+//   margin: 0;
+//   .ant-menu-item-selected {
+//     border-top: 1px solid black;
+//     border-bottom: 1px solid black;
+//   }
+//   .logo {
+//     .logoStyle();
+//   }
+//   .welcome {
+//     .welcomeStyle();
+//   }
+//   .children {
+//     display: flex;
+//     width: 100%;
+//     justify-content: flex-start;
+//     padding: 0 2%;
+//     background-color: #fff;
+//     .ant-card {
+//       display: flex;
+//       flex-flow: column nowrap;
+//       align-items: center;
+//       position: relative;
+//       background-color: #6ceae6;
+//       height: 30vh;
+//       margin: 0 2.5vw 2.5vh 0;
+//       padding: 16px;
+//       width: 45%;
+//       border-radius: 14px;
+//       justify-content: center;
+//       text-align: center;
+
+//       h2 {
+//         align-self: center;
+//       }
+//       .ant-card-body,
+//       .ant-layout {
+//         background: none;
+//       }
+//       img {
+//         size: 40%;
+//         height: 22vh;
+//         padding: 10%;
+//       }
+//       button {
+//         border-radius: 15px;
+//         box-sizing: border-box;
+//         width: 100%;
+//         height: 5vh;
+//         text-align: center;
+//         font-size: 0.8rem;
+//       }
+//       .child-info {
+//         display: flex;
+//         flex-flow: row nowrap;
+//         flex-grow: 1;
+//       }
+//     }
+//   }
+
+//   .title {
+//     .titleStyle();
+//   }
+
+//   .ant-layout-sider {
+//     .siderStyle();
+//   }
+// }
