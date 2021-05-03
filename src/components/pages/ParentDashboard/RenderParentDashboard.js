@@ -3,7 +3,8 @@ import { Layout, Typography, Card } from 'antd';
 import { Link } from 'react-router-dom';
 import { Collapse } from 'antd';
 import { PlusCircleFilled } from '@ant-design/icons';
-import ChildCard from '../../common/ChildCard';
+import { useInView } from 'react-intersection-observer';
+
 import { CaretRightOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
 import tempImg from './temp-img.png';
