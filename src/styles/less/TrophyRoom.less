@@ -1,23 +1,69 @@
 @import '../less/variables.less';
 
+
 //Leaderboard table styles
 
 .leaderboard {
-  width: 50%;
+  width: 75%;
+  @media @tablet {
+    width: 90%;
+  }
 }
-
 .parent:nth-of-type(odd) {
   background-color: #d1d1d1;
 }
-
+.hero {
+  @media @mobile {
+    width: 100vw;
+  }
+}
+.hero h1{
+  @media @tablet {
+    font-size: 2.5rem;
+}
+}
+.back-btn {
+  @media @tablet {
+width: 30%;
+}
+}
+.back-btn {
+  @media @tablet {
+display: none;
+}
+@media @mobile {
+  display: none;
+  }
+}
+.tablet-mobile-button {
+display: none;
+@media @tablet {
+  width: 100%;
+  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+}
+.ant-table-content {
+  @media @tablet {
+    width: 100%;
+  }
+}
 .ant-table-tbody {
   text-align: center;
+
 }
 
 .ant-table-tbody > tr.ant-table-row:hover > td {
   background: unset;
 }
+.table-col {
+  @media @mobile {
+    margin-left: -20%;
+  }
 
+}
 .ant-table-row > td.ant-table-column-sort {
   background: unset;
 }
@@ -39,14 +85,17 @@
 .ant-table-thead th.ant-table-column-has-sorters:hover {
   cursor: auto;
 }
-
+.leader_h2 {
+  width: 100%;
+}
 // Trophy room page styles
 
 .h2 {
   color: #ff9100;
   text-shadow: -4px 0 #ffffff, 0 4px #ffffff, 4px 0 #ffffff, 0 -4px #ffffff;
-  text-align: left;
-  font-size: 3.5rem;
+  text-align: center;
+
+  font-size: 5rem;
   font-family: 'bangers';
   font-weight: bold;
   z-index: 1;
@@ -54,7 +103,10 @@
   margin: 0 0;
   padding: 15px 0px;
   cursor: pointer;
-
+  @media @tablet {
+    font-size: 4rem;
+    text-align: center;
+   }
   @media @mobile {
     font-size: 3rem;
   }
@@ -93,14 +145,16 @@
 }
 .trophy-container {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   justify-content: center;
   margin: auto;
-  // @media screen and (@mobile){
-  //     flex-direction: column;
-  // }
+  @media @tablet {
+ flex-direction: column;
+ align-items:center; 
+}
 }
 .modal-container {
   display: flex;
@@ -149,4 +203,8 @@
   letter-spacing: 1px;
   z-index: 1;
   text-align: center;
+}
+
+.parent {
+  border: 2px solid red;
 }
