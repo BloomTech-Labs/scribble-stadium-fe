@@ -1,7 +1,21 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
+import { useScroll } from '../ParentDashboard/useScroll';
+import { motion } from 'framer-motion';
 
 function ContactUs({ success, visible, userInfo }) {
+  const [element, controls] = useScroll();
+  const scrollReveal = {
+    hidden: { opacity: 0, scale: 1.2, transition: { duration: 0.5 } },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   //This function takes care of sending the data captured in the
   // form to a dedicated email address.
   function sendEmail(e) {
@@ -30,7 +44,14 @@ function ContactUs({ success, visible, userInfo }) {
   }
 
   return (
-    <div>
+    <motion.div
+      className="contact-form-container"
+      variants={scrollReveal}
+      animate={controls}
+      initial="hidden"
+      ref={element}
+    >
+      <h1>Contact Us</h1>
       <form className="Contact-Form-Container" onSubmit={sendEmail}>
         <div className="input-containers">
           <label>
@@ -65,7 +86,7 @@ function ContactUs({ success, visible, userInfo }) {
           />
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 }
 

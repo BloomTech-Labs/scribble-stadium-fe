@@ -81,16 +81,16 @@
   width: 35vw;
   grid-column-start: 3;
   grid-column-end: 6;
-  grid-row-start: 9;
-  grid-row-end: 10;
+  grid-row-start: 10;
+  grid-row-end: 11;
 }
 
 .children-container-4 {
   width: 35vw;
   grid-column-start: 6;
   grid-column-end: 10;
-  grid-row-start: 9;
-  grid-row-end: 10;
+  grid-row-start: 10;
+  grid-row-end: 11;
 }
 
 .FAQ-container {
@@ -99,17 +99,17 @@
   flex-direction: column;
   align-items: center;
   h3{
-    color: #ff9100;
+    // color: #ff9100;
     text-shadow: -4px 0 #ffffff, 0 4px #ffffff, 4px 0 #ffffff, 0 -4px #ffffff;
     font-size: 2rem;
     font-family: 'bangers';
-    font-weight: bold;
+    font-weight: lighter;
     letter-spacing: 2px;
     z-index: 1;
-    //text-align: center;
   }
   p {
     font-size: 1rem;
+    width: 80vw;
   }
 } 
 
@@ -122,6 +122,193 @@
   justify-content: center;
   align-items: center;
 }
+
+// footer styles
+
+@import '../less/variables.less';
+
+.footerContainer {
+  background-color: @suva-grey;
+  display: grid;
+  grid-template-columns: repeat(17, 1fr);
+  padding: 1rem;
+  .one {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .two {
+    grid-column-start: 4;
+    grid-column-end: 12;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .three {
+    grid-column-start: 14;
+    grid-column-end: 17;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    text-align: right;
+  }
+}
+
+.footer-address-container {
+  .contact-details {
+    p {
+      margin-bottom: 0px;
+    }
+  }
+  .newsletter {
+    p {
+      margin-bottom: 10px;
+    }
+  }
+  .newsletterInput {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+  .newsletter-submit-button {
+    width: 80%;
+    border-radius: 5px;
+    justify-content: center;
+    cursor: pointer;
+    background: @button-blue;
+    font-size: 1rem;
+    background: @white-smoke;
+    border: 3px solid @button-blue;
+    color: @button-blue;
+    box-shadow: 2px 1px 1px;
+    &:hover {
+      background: @button-blue;
+      color: @white-smoke;
+    }
+  }
+}
+
+//form styles
+.formContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 50vw;
+  .header {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    text-align: center;
+  }
+  .name {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    text-align: right;
+    p {
+      font-size: 1rem;
+      margin-right: 10px;
+    }
+  }
+  .nameInput {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    width: 100%;
+  }
+  .email {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    text-align: right;
+    p {
+      font-size: 1rem;
+      margin-right: 10px;
+    }
+  }
+  .emailInput {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    width: 100%;
+  }
+  .message {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    text-align: right;
+    p {
+      font-size: 1rem;
+      margin-right: 10px;
+    }
+  }
+  .messageInput {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 8;
+    width: 100%;
+    height: 90%;
+  }
+  .contact-button {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 8;
+    grid-row-end: 8;
+    width: 95%;
+    justify-self: end;
+  }
+  .final {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 9;
+    grid-row-end: 9;
+    height: 20px;
+  }
+
+  .footer-contact-form-submit-button {
+    width: 100%;
+    border-radius: 5px;
+    justify-content: center;
+    cursor: pointer;
+    background: @button-blue;
+    font-size: 1rem;
+    background: @white-smoke;
+    border: 3px solid @button-blue;
+    color: @button-blue;
+    box-shadow: 2px 1px 1px;
+    &:hover {
+      background: @button-blue;
+      color: @white-smoke;
+    }
+  }
+}
+
+//Socials styling
+
+.socials {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  p {
+    margin-top: 10px;
+  }
+  .icons-list{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+.socialIcons {
+  font-size: 3.5em;
+}
+}
+
+
 
 
 
