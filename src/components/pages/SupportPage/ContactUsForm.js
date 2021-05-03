@@ -32,22 +32,31 @@ function ContactUs({ success, visible, userInfo }) {
   return (
     <div>
       <form className="Contact-Form-Container" onSubmit={sendEmail}>
-        <label>
-          <p>Name</p>
-        </label>
-        <input type="text" name="name" className="contact-form-inputs" />
-        <label>
-          <p>Email</p>
-        </label>
-        <input type="email" name="email" className="contact-form-inputs" />
-        <label>
-          <p>Subject</p>
-        </label>
-        <input type="text" name="subject" className="contact-form-inputs" />
-        <label>
-          <p>Message</p>
-        </label>
-        <textarea name="message" className="contact-form-message" />
+        <div className="input-containers">
+          <label>
+            <p>Name</p>
+          </label>
+          <input type="text" name="name" className="contact-form-inputs" />
+        </div>
+
+        <div className="input-containers">
+          <label>
+            <p>Email</p>
+          </label>
+          <input type="email" name="email" className="contact-form-inputs" />
+        </div>
+        <div className="input-containers">
+          <label>
+            <p>Subject</p>
+          </label>
+          <input type="text" name="subject" className="contact-form-inputs" />
+        </div>
+        <div className="input-containers">
+          <label>
+            <p>Message</p>
+          </label>
+          <textarea name="message" className="contact-form-message" />
+        </div>
         <div className="contact-button-container">
           <input
             type="submit"

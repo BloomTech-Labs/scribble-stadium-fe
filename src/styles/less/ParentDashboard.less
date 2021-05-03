@@ -47,7 +47,7 @@
 .master-children-container {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(8, 50px);
+  grid-template-rows: repeat(16, 50px);
 }
 
 .children-container-1 {
@@ -76,6 +76,54 @@
   grid-row-start: 3;
   grid-row-end: 3;
 }
+
+.children-container-3 {
+  width: 35vw;
+  grid-column-start: 3;
+  grid-column-end: 6;
+  grid-row-start: 9;
+  grid-row-end: 10;
+}
+
+.children-container-4 {
+  width: 35vw;
+  grid-column-start: 6;
+  grid-column-end: 10;
+  grid-row-start: 9;
+  grid-row-end: 10;
+}
+
+.FAQ-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h3{
+    color: #ff9100;
+    text-shadow: -4px 0 #ffffff, 0 4px #ffffff, 4px 0 #ffffff, 0 -4px #ffffff;
+    font-size: 2rem;
+    font-family: 'bangers';
+    font-weight: bold;
+    letter-spacing: 2px;
+    z-index: 1;
+    //text-align: center;
+  }
+  p {
+    font-size: 1rem;
+  }
+} 
+
+
+.contact-form-container {
+  background-color: #F6F5F0;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
 
 // .parent-dashboard {
 //   margin: 0;
