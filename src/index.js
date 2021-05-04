@@ -157,7 +157,8 @@ function App() {
           path="/parent/dashboard"
           exact
           component={() => (
-            <ParentDashboard LoadingComponent={ParentLoadingComponent} />
+            // <ParentDashboard LoadingComponent={ParentLoadingComponent} /> This is the old Parent Dashboard
+            <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
 

@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 import { PlusCircleFilled } from '@ant-design/icons';
 import ChildCard from '../../common/ChildCard';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
+import ProgressCharts from '../ProgressCharts/ProgressCharts';
 
 
-const ParentDashboard = props => {
+const NewParentDashboard = props => {
   return (
     <>
       <Layout className="parent-dashboard">
@@ -15,28 +16,9 @@ const ParentDashboard = props => {
 
         <Layout>
           <div className="progress-container">
-            <ProgressCharts/>
+            <ProgressCharts />
           </div>
-          <div className="children-container">
-            <Layout className="children" style={{ flexFlow: 'row wrap' }}>
-              {props.parent.children.map((child, i) => (
-                <ChildCard
-                  key={child.ID}
-                  id={child.ID}
-                  name={child.Name}
-                  AvatarURL={child.AvatarURL}
-                  update="PROGRESS"
-                />
-              ))}
-              <Card>
-                <h2>
-                  <Link to="/parent/add-child">
-                    <PlusCircleFilled /> Add a Child
-                  </Link>
-                </h2>
-              </Card>
-            </Layout>
-          </div>
+
         </Layout>
       </Layout>
     </>
