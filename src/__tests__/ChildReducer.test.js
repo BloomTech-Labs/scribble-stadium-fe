@@ -47,19 +47,22 @@ describe('childReducer test suite', () => {
       gradeLevel: '3',
       parentId: 1,
       cohortId: 1,
-      memberId: null, 
+      memberId: null,
     });
   });
 
   it('should update the member id', () => {
-    const action = { type: child.SET_MEMBER_ID, payload: {
-      ...initialState, 
-      MemberID: 1
-    } };
+    const action = {
+      type: child.SET_MEMBER_ID,
+      payload: {
+        ...initialState,
+        MemberID: 1,
+      },
+    };
     const state = reducer(initialState, action);
     expect(state).toEqual({
-      ...initialState, 
-      memberId: 1
+      ...initialState,
+      memberId: 1,
     });
   });
 

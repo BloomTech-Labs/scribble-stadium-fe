@@ -38,6 +38,8 @@ import { MissionControl } from './components/pages/MissionControl';
 import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
+import { ParentDashFaq } from './components/pages/ParentDashFaq';
+import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
@@ -60,6 +62,8 @@ import Wed from './components/pages/AdminDashboard/DevTools/DayComponents/05_Wed
 import Thurs from './components/pages/AdminDashboard/DevTools/DayComponents/06_Thurs';
 import Fri from './components/pages/AdminDashboard/DevTools/DayComponents/07_Fri';
 import DevModeHeader from './components/pages/AdminDashboard/devModeHeader';
+import { ParentDashboardFaq } from './components/pages/ParentDashFaq';
+import GalleryContainer from './components/pages/Gallery/GalleryContainer';
 
 // import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
 
@@ -115,6 +119,13 @@ function App() {
           )}
         />
 
+        <SecureRoute
+          path="/child/gallery"
+          component={() => (
+            <GalleryContainer LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+
         <SecureRoute path="/scoreboard" component={FaceoffReveal} />
 
         <SecureRoute
@@ -148,6 +159,20 @@ function App() {
             <ParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
+
+        <SecureRoute
+          path="/parent/dashboard-faq"
+          exact
+          component={() => (
+            <ParentDashFaq LoadingComponent={ParentLoadingComponent} />
+          )}
+          path="/parent/support"
+          exact
+          component={() => (
+            <SupportPage LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
+
         <SecureRoute
           path="/parent/help"
           exact

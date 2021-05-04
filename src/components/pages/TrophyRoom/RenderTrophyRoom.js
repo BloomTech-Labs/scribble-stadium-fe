@@ -64,8 +64,12 @@ const RenderLeaderboard = props => {
 
   return (
     <>
-      <Header displayMenu={true} title="Trophy Room" />
-      <Button style={{ margin: '1rem' }} onClick={dashboard}>
+      <Header displayMenu={true} title="STORY SQUAD" />
+      <Button
+        style={{ margin: '1rem' }}
+        className="back-btn"
+        onClick={dashboard}
+      >
         Back to Child Dashboard
       </Button>
       <div className="trophy-container">
@@ -140,6 +144,15 @@ const RenderLeaderboard = props => {
             <img src={require('./greatjob.gif')} alt="Great job!" />
           </Modal>
         </div>
+      </div>
+      <div className="tablet-mobile-button">
+        <Button
+          style={{ margin: '1rem' }}
+          className="back-btn-small-screens"
+          onClick={dashboard}
+        >
+          Back to Child Dashboard
+        </Button>
       </div>
     </>
   );

@@ -23,13 +23,16 @@ const ChildMenu = props => {
       <Menu.Item key="1">
         <Link to="/child/dashboard">Home</Link>
       </Menu.Item>
-      <Menu.Item key="2" disabled={true}>
+      <Menu.Item key="2">
+        <Link to="/child/gallery">My Gallery</Link>
+      </Menu.Item>
+      <Menu.Item key="3" disabled={true}>
         Help
       </Menu.Item>
-      <Menu.Item key="3" onClick={switchUsers}>
+      <Menu.Item key="4" onClick={switchUsers}>
         Change User
       </Menu.Item>
-      <Menu.Item key="4" onClick={() => authService.logout()}>
+      <Menu.Item key="5" onClick={() => authService.logout()}>
         Log Out
       </Menu.Item>
     </Menu>
