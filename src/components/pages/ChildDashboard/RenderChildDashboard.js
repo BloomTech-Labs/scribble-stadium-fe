@@ -7,7 +7,7 @@ import { modalInstructions } from '../../../utils/helpers';
 
 import adventure_passport from '../../../assets/images/child_dashboard_images/adventure_passport.svg';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
-import leaderboard_icon from '../../../assets/images/child_dashboard_images/leaderboard_icon.jpg';
+import leaderboard_icon from '../../../assets/images/child_dashboard_images/leaderboard_icon.png';
 
 const RenderChildDashboard = props => {
   const { push } = useHistory();

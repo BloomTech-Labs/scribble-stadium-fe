@@ -23,7 +23,8 @@
   .accept-mission,
   .change-avatar,
   .adventure-passport,
-  .trophy-room {
+  .trophy-room,
+  .leaderboard {
     border: 5px solid @header-nero;
     height: 35vh;
   }
@@ -104,17 +105,17 @@
       max-width: 80%;
       max-height: 80%;
     }
-    .leaderboard {
-      background: @boston-blue;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 75%;
+  }
 
-      img {
-        max-width: 80%;
-        max-height: 80%;
-      }
+  .leaderboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: @boston-blue;
+    opacity: 75%;
+    img {
+      max-width: 80%;
+      max-height: 80%;
     }
   }
 }
@@ -146,6 +147,15 @@
 }
 
 .trophy-room:hover {
+  opacity: 100%;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.leaderboard:hover {
   opacity: 100%;
 
   img {
