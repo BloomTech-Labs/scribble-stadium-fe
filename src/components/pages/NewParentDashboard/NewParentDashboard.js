@@ -6,27 +6,5 @@ import { Layout, Button, PageHeader, Menu, Typography } from 'antd';
 // Styling still needs work on this page
 export default function NewParentDashboard(props) {
     
-    return(
-        <Layout>
-            <PageHeader style={{color:"hotpink", fontSize:'5rem'}}>Parent Dashboard</PageHeader>
-            <Menu id="parentDB">
-                <div>  
-                    <Button>Child Progress/Dashboard</Button>
-                </div>
-                <div>
-                    <Button> 
-                        <Link to="/parent/settings">Settings</Link>
-                    </Button>
-                </div>
-                <div>
-                    <Button>
-                        <Link to="/parent/help">Help</Link>
-                    </Button>
-                </div>
-                <div id="logout">
-                    <Logout/> 
-                </div>
-            </Menu>
-        </Layout>
-    )
+    // Container to contain all of the components for the parent dashboard
 }
