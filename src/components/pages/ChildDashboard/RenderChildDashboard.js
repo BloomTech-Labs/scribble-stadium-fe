@@ -7,7 +7,7 @@ import { modalInstructions } from '../../../utils/helpers';
 
 import adventure_passport from '../../../assets/images/child_dashboard_images/adventure_passport.svg';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
-import trophy_room from '../../../assets/images/child_dashboard_images/trophy_room.svg';
+import leaderboard_icon from '../../../assets/images/child_dashboard_images/leaderboard_icon.jpg';
 
 const RenderChildDashboard = props => {
   const { push } = useHistory();
@@ -25,8 +25,8 @@ const RenderChildDashboard = props => {
     push('/admin');
   };
 
-  const handleTrophyRoom = e => {
-    push('/child/trophyroom');
+  const handleLeaderboard = e => {
+    push('/child/leaderboard');
   };
 
   return (
@@ -70,12 +70,13 @@ const RenderChildDashboard = props => {
               onClick={handleJoinSquad}
             />
           </Col>
-          <Col className="trophy-room" xs={24} sm={13}>
+          <Col className="leaderboard" xs={24} sm={13}>
             <img
               className="child-dash-img"
-              src={trophy_room}
-              alt="Trophy Room Button"
-              onClick={handleTrophyRoom}
+              // This icon will need to be changed to an inhouse icon, this is just imported as a placeholder //
+              src={leaderboard_icon}
+              alt="Leaderboard Button"
+              onClick={handleLeaderboard}
             />
           </Col>
         </Row>

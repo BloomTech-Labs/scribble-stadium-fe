@@ -8,7 +8,7 @@ import { Divider, Button, Modal } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { child } from '../../../state/actions';
 
-const RenderTrophyRoom = props => {
+const RenderLeaderboard = props => {
   const { push } = useHistory();
   const [isAchievementModalVisible, setIsAchievementModalVisible] = useState(
     false
@@ -151,4 +151,4 @@ export default connect(
     tasks: state.tasks,
   }),
   {}
-)(RenderTrophyRoom);
+)(RenderLeaderboard);
