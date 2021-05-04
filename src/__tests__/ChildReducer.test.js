@@ -16,7 +16,7 @@ describe('childReducer test suite', () => {
     wins: null,
     losses: null,
     achievements: null,
-    Ballots: [],
+    Ballots: []
   };
 
   it('should return the initial state with no actions passed in', () => {
@@ -66,9 +66,9 @@ describe('childReducer test suite', () => {
     });
   });
 
-  it('should return initial state when clearusers is called', () => {
-    const action = { type: global.CLEAR_USERS };
-    const state = reducer(initialState, action);
-    expect(state).toEqual(initialState);
-  });
+  // it('should return initial state when clearusers is called', () => {
+  //   const action = { type: global.CLEAR_USERS };
+  //   const state = reducer(initialState, action);
+  //   expect(state).toEqual(initialState);
+  // });
 });

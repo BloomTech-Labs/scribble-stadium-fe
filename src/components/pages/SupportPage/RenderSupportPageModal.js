@@ -10,7 +10,7 @@ function RenderSupportPage({ success }) {
   const [modalVisible, setModalVisible] = useState(false);
 
   //access the parents information in the reducer so we can pre-populate the form with their name & email.
-  const userInfo = useSelector(state => state.parent);
+  // const userInfo = useSelector(state => state.parent);
 
   return (
     <>
@@ -30,7 +30,7 @@ function RenderSupportPage({ success }) {
         <ContactUs
           success={success}
           visible={() => setModalVisible(false)}
-          userInfo={userInfo}
+          // userInfo={userInfo}
         />
       </Modal>
 
