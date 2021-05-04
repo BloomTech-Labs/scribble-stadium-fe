@@ -2,13 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Table } from 'antd';
 import { getLeaderboard } from '../../../api';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
-const Leaderboard = () => {
+import { connect } from 'react-redux';
+
+const Leaderboard = props => {
+
   const { authState } = useOktaAuth();
   const [data, setDataInfo] = useState([]);
   useEffect(() => {
     //Getting data from backend for leaderboard
     getLeaderboard(authState).then(res => {
       setDataInfo(res);
+      console.log(res);
+      console.log();
     });
   }, [authState]);
 
@@ -17,24 +22,24 @@ const Leaderboard = () => {
     //Person is still able to sort data even with sorter tooltip set to false
     //Might not be worth using ant Table and just using colomns and Rows since you have more flexiblity and
     // more freedom to do what you want and set up data the way youu want it to be displayed
-
+    // Add Rankings to the table
     {
       title: 'Rank',
+      dataIndex: 'Rank',
       key: 'Rank',
-      render: (text, record, index) => index + 1,
       width: 100,
       defaultSortOrder: 'descend',
     },
     {
       title: '',
-      dataIndex: 'Name',
-      render: () => (
+      dataIndex: 'AvatarID',
+      render: theAvatarID => (
         <img
-          src="https://labs28-b-storysquad.s3.amazonaws.com/hero-3.svg"
-          alt="avatar"
+          src={`https://labs28-b-storysquad.s3.amazonaws.com/hero-${theAvatarID}.svg`}
+          alt="Avatar"
         />
       ),
-      key: 'Name',
+      key: 'AvatarID',
       width: 150,
     },
     {
@@ -43,18 +48,11 @@ const Leaderboard = () => {
       key: 'Name',
       width: 150,
     },
+
     {
-      title: 'Wins',
-      dataIndex: 'Wins',
-      width: 100,
-      defaultSortOrder: 'descend',
-      sorter: (a, b) => a.Wins - b.Wins,
-      sortDirections: ['ASC', 'DESC'],
-      showSorterTooltip: false,
-    },
-    {
-      title: 'Losses',
-      dataIndex: 'Losses',
+      title: 'Total Points',
+      dataIndex: 'Total_Points',
+      key: 'Total_points',
       width: 100,
     },
     {
@@ -91,4 +89,10 @@ const Leaderboard = () => {
     </div>
   );
 };
-export default Leaderboard;
+
+export default connect(
+  state => ({
+    child: state.child,
+  }),
+  {}
+)(Leaderboard);
