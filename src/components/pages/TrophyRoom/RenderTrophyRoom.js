@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 
 import { Divider, Button, Modal } from 'antd';
 import { useHistory } from 'react-router-dom';
+import { child } from '../../../state/actions';
 
 const RenderTrophyRoom = props => {
   const { push } = useHistory();
@@ -15,6 +16,8 @@ const RenderTrophyRoom = props => {
   const [isInventoryModalVisible, setIsInventoryModalVisible] = useState(false);
   const [inventoryState, setInventoryState] = useState('');
   const [achievementState, setAchievementState] = useState('');
+  const [streakState, setStreakState] = useState('');
+  const [isStreakModalVisible, setIsStreakModalVisible] = useState(false);
 
   const dashboard = () => {
     push('/child/dashboard');
@@ -46,10 +49,27 @@ const RenderTrophyRoom = props => {
     setIsInventoryModalVisible(false);
   };
 
+  const handleStreakOk = () => {
+    setIsStreakModalVisible(false);
+  };
+
+  const handleStreakCancel = () => {
+    setIsStreakModalVisible(false);
+  };
+
+  const showStreakModel = () => {
+    setIsStreakModalVisible(true);
+    setStreakState('child.streak');
+  };
+
   return (
     <>
-      <Header displayMenu={true} title="Trophy Room" />
-      <Button style={{ margin: '1rem' }} onClick={dashboard}>
+      <Header displayMenu={true} title="STORY SQUAD" />
+      <Button
+        style={{ margin: '1rem' }}
+        className="back-btn"
+        onClick={dashboard}
+      >
         Back to Child Dashboard
       </Button>
       <div className="trophy-container">
@@ -106,7 +126,33 @@ const RenderTrophyRoom = props => {
             <h3>Collectibles</h3>
             {/* Map over inventory state here */}
           </Modal>
+          <Divider />
+          <h2 className="h2" onClick={showStreakModel}>
+            Current Streak
+          </h2>
+          <Modal
+            title="Login Streak"
+            visible={isStreakModalVisible}
+            onOk={handleStreakOk}
+            onCancel={handleStreakCancel}
+            style={{ margin: '0 auto' }}
+          >
+            <h3>
+              {`Your current login streak is ${child.Streaks} weeks! Keep up the great work!`}
+            </h3>
+            {/* get child.streak from the child db */}
+            <img src={require('./greatjob.gif')} alt="Great job!" />
+          </Modal>
         </div>
+      </div>
+      <div className="tablet-mobile-button">
+        <Button
+          style={{ margin: '1rem' }}
+          className="back-btn-small-screens"
+          onClick={dashboard}
+        >
+          Back to Child Dashboard
+        </Button>
       </div>
     </>
   );

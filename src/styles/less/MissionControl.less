@@ -6,20 +6,31 @@
   height: 70vh;
 }
 
+.hero h1 {
+  @media (orientation: landscape) {
+  font-size: 4rem;
+  }
+}
 .main-row {
   height: 100%;
+  @media @mobile {
+    height: 80%;
+  }
 }
 
 .read .image-and-text-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  @media (orientation: landscape) {
+    margin-top: 2%;
+  }
   @media @tablet {
     margin-top: 5%;
   }
   @media @mobile {
-    margin-top: 5%;
+    margin-top: 3%;
+    width: 10%;
   }
 }
 
@@ -27,12 +38,21 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  @media @mobile {
+    width: 20%;
+  }
+  @media (orientation: landscape) {
+    margin-top: 1%;
+  }
 }
 
 .draw .image-and-text-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media @mobile {
+    width: 20%;
+  }
 }
 
 .read {
@@ -40,13 +60,16 @@
   opacity: 75%;
   cursor: pointer;
   position: relative;
+  @media @mobile {
+    height: 44%;
+  }
 }
 
-.read:hover { 
+.read:hover {
   opacity: 100%;
 
   .mission-control-text {
-    font-size: 6.5rem;
+    font-size: 4.5rem;
   }
 }
 
@@ -86,6 +109,9 @@
   height: 50%;
   position: relative;
   cursor: pointer;
+  @media @mobile {
+    height: 69%;
+  }
 }
 
 .draw-not {
@@ -108,7 +134,7 @@
   opacity: 100%;
 
   .mission-control-text {
-    font-size: 6.5rem;
+    font-size: 4.5rem;
   }
 }
 
@@ -118,6 +144,12 @@
   height: 50%;
   position: relative;
   cursor: pointer;
+  @media @mobile {
+    height: 68%;
+  }
+  @media (orientation: landscape) {
+    height: 54%;
+  }
 }
 
 .write-not {
@@ -140,7 +172,7 @@
   opacity: 100%;
 
   .mission-control-text {
-    font-size: 6.5rem;
+    font-size: 4.5rem;
   }
 }
 
@@ -155,6 +187,7 @@
 
 p.mission-control-text {
   margin-bottom: 0;
+  width: 100%;
 }
 
 .mission-control-text a {

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { PlusCircleFilled } from '@ant-design/icons';
 import ChildCard from '../../common/ChildCard';
 import ParentNavSider from '../../common/ParentNavSider';
+import ParentNavTopBar from '../../common/ParentNavTopBar';
 import ProgressCharts from '../../pages/ProgressCharts/ProgressCharts';
 
 const { Title } = Typography;
@@ -14,9 +15,12 @@ const ParentDashboard = props => {
     <>
       <Layout className="parent-dashboard">
         <Layout>
-          <Title className="title" style={{ color: '#0267C1' }} level={1}>
-            STORY SQUAD
-          </Title>
+          {/* <Title className="title" style={{ color: '#0267C1' }} level={1}>
+            Dashboard
+          </Title> */}
+          <div>
+            <ParentNavTopBar/>
+          </div>
           <div className="progress-container">
             <ProgressCharts/>
           </div>
