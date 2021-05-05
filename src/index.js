@@ -45,7 +45,7 @@ import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
-import { TrophyRoom } from './components/pages/TrophyRoom';
+import { Leaderboard } from './components/pages/Leaderboard';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
 // Gameification Components
@@ -214,10 +214,10 @@ function App() {
           )}
         />
         <SecureRoute
-          path="/child/trophyroom"
+          path="/child/leaderboard"
           exact
           component={() => (
-            <TrophyRoom LoadingComponent={ChildLoadingComponent} />
+            <Leaderboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <Route exact path="/moderation" component={ModerationTest} />

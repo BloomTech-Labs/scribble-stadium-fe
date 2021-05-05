@@ -9,7 +9,7 @@ const GalleryContainer = () => {
   const { push } = useHistory();
 
   const leaderboard = () => {
-    push('/child/trophyroom');
+    push('/child/leaderboard');
   };
 
   return (
