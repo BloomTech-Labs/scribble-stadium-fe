@@ -29,7 +29,7 @@ const Leaderboard = props => {
     {
       title: 'Rank',
       key: 'Rank',
-      render: (text, record, index) => index + 1,
+      render: (text, record, index) => '#' + (index + 1),
       width: 100,
       defaultSortOrder: 'descend',
     },
@@ -91,7 +91,14 @@ const Leaderboard = props => {
 
   return (
     <div className="leaderboard">
-      <h2 className="h2">Leaderboard</h2>
+      <div className="content-box">
+        <div className="shaped">
+          <div className="dark">
+            <h2 className="h2">Leaderboard</h2>
+          </div>
+        </div>
+      </div>
+
       <Table
         rowClassName={'parent'}
         columns={table}
