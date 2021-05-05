@@ -1,7 +1,3 @@
-@import '../less/variables.less';
-
-//Leaderboard table styles
-
 .leaderboard {
   width: 75%;
   @media @tablet {
@@ -9,7 +5,7 @@
   }
 }
 .parent:nth-of-type(odd) {
-  background-color: #d1d1d1;
+  background-color: @white-smoke;
 }
 .hero {
   @media @mobile {
@@ -51,10 +47,9 @@
 }
 .ant-table-tbody {
   text-align: center;
-  font-family: 'bangers';
+  font-family: 'atma';
   font-size: 1.4rem;
 }
-
 .ant-table-tbody > tr.ant-table-row:hover > td {
   background: unset;
 }
@@ -66,22 +61,20 @@
 .ant-table-row > td.ant-table-column-sort {
   background: unset;
 }
-
 .ant-table-thead > tr > th {
+  background: @white-smoke;
   text-align: center;
+  vertical-align: top;
   font-family: 'atma';
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
-
 .ant-table-thead th.ant-table-column-has-sorters {
   cursor: auto;
 }
-
 .ant-table-thead th.ant-table-column-has-sorters:hover {
-  background: #f4f4f4;
+  background: @white-smoke;
 }
-
 .ant-table-thead th.ant-table-column-has-sorters:hover {
   cursor: auto;
 }
@@ -89,16 +82,12 @@
   width: 100%;
 }
 // Trophy room page styles
-
 .h2 {
-  // text-shadow: -4px 0 #ffffff, 0 4px #ffffff, 4px 0 #ffffff, 0 -4px #ffffff;
   text-align: center;
-
   font-size: 4rem;
   font-family: 'atma';
   font-weight: bold;
   z-index: 1;
-  letter-spacing: 7px;
   margin: 0 0;
   padding: 15px 0px;
   cursor: pointer;
@@ -111,26 +100,22 @@
   }
 }
 .content-box {
-  filter: drop-shadow(-12px 4px 3px grey) drop-shadow(12px 4px 3px grey);
+  filter: drop-shadow(-12px 4px 2px @suva-grey) drop-shadow(12px 4px 3px grey);
 }
-
 .dark {
-  background-color: black;
+  background-color: @header-nero;
   & > * {
-    color: white;
+    color: @white-smoke;
   }
   margin-bottom: 3rem;
 }
-
 .shaped {
   clip-path: polygon(1% 2%, 95% 2%, 100% 94%, 0% 100%);
 }
-
 // wrap a .content-box.shaped with this to give it a shadow
 // .shaped-shadow-container {
 //   filter: drop-shadow($size-shadow-large $gray);
 // }
-
 .ant-modal-title {
   color: #ff9100;
   text-shadow: -4px 0 #ffffff, 0 4px #ffffff, 4px 0 #ffffff, 0 -4px #ffffff;
@@ -141,7 +126,6 @@
   z-index: 1;
   letter-spacing: 7px;
 }
-
 .ant-modal-body h3 {
   color: #ff9100;
   text-shadow: -4px 0 #ffffff, 0 4px #ffffff, 4px 0 #ffffff, 0 -4px #ffffff;
@@ -152,7 +136,6 @@
   z-index: 1;
   text-align: center;
 }
-
 .ant-modal-body p {
   color: #939aff;
   text-shadow: -4px 0 #ffffff, 0 4px #ffffff, 4px 0 #ffffff, 0 -4px #ffffff;
@@ -164,7 +147,6 @@
 }
 .trophy-container {
   display: flex;
-
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -182,16 +164,13 @@
   justify-content: center;
   // width: 50%;
 }
-
 .custom-divider {
   margin: 0px 20px;
   width: 1px;
-
   @media screen and (@mobile) {
     visibility: hidden;
   }
 }
-
 .ant-modal-title {
   color: #ff9100;
   text-shadow: -4px 0 #ffffff, 0 4px #ffffff, 4px 0 #ffffff, 0 -4px #ffffff;
@@ -202,7 +181,6 @@
   z-index: 1;
   letter-spacing: 7px;
 }
-
 .ant-modal-body h3 {
   color: #ff9100;
   text-shadow: -4px 0 #ffffff, 0 4px #ffffff, 4px 0 #ffffff, 0 -4px #ffffff;
@@ -213,7 +191,6 @@
   z-index: 1;
   text-align: center;
 }
-
 .ant-modal-body p {
   color: #939aff;
   text-shadow: -4px 0 #ffffff, 0 4px #ffffff, 4px 0 #ffffff, 0 -4px #ffffff;
@@ -223,7 +200,6 @@
   z-index: 1;
   text-align: center;
 }
-
 .parent {
   border: 2px solid red;
 }
