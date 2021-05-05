@@ -1,1 +1,1 @@
-export { default as NewParentDashboard } from './NewParentDashboard';
+export { default as NewParentDashboard } from './NewParentDashboardContainer';
