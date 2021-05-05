@@ -10,7 +10,9 @@ const WeeklySubmissions = () => {
           <h3 className="h3"> View Prompt </h3>
         </span>
         <span className="submissions">
-          <div className="sub-container"></div>
+          <div className="sub-container">
+            <div className="gallery-submission"></div>
+          </div>
           <div className="sub-container"></div>
         </span>
       </div>
