@@ -1,6 +1,5 @@
 @import '../less/variables.less';
 
-
 //Leaderboard table styles
 
 .leaderboard {
@@ -17,32 +16,32 @@
     width: 100vw;
   }
 }
-.hero h1{
+.hero h1 {
   @media @tablet {
     font-size: 2.5rem;
-}
-}
-.back-btn {
-  @media @tablet {
-width: 30%;
-}
+  }
 }
 .back-btn {
   @media @tablet {
-display: none;
+    width: 30%;
+  }
 }
-@media @mobile {
-  display: none;
+.back-btn {
+  @media @tablet {
+    display: none;
+  }
+  @media @mobile {
+    display: none;
   }
 }
 .tablet-mobile-button {
-display: none;
-@media @tablet {
-  width: 100%;
-  display: inline-block;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: none;
+  @media @tablet {
+    width: 100%;
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 .ant-table-content {
@@ -52,7 +51,6 @@ display: none;
 }
 .ant-table-tbody {
   text-align: center;
-
 }
 
 .ant-table-tbody > tr.ant-table-row:hover > td {
@@ -62,7 +60,6 @@ display: none;
   @media @mobile {
     margin-left: -20%;
   }
-
 }
 .ant-table-row > td.ant-table-column-sort {
   background: unset;
@@ -92,10 +89,10 @@ display: none;
 
 .h2 {
   color: #ff9100;
-  text-shadow: -4px 0 #ffffff, 0 4px #ffffff, 4px 0 #ffffff, 0 -4px #ffffff;
+  // text-shadow: -4px 0 #ffffff, 0 4px #ffffff, 4px 0 #ffffff, 0 -4px #ffffff;
   text-align: center;
 
-  font-size: 5rem;
+  font-size: 4rem;
   font-family: 'bangers';
   font-weight: bold;
   z-index: 1;
@@ -106,11 +103,32 @@ display: none;
   @media @tablet {
     font-size: 4rem;
     text-align: center;
-   }
+  }
   @media @mobile {
     font-size: 3rem;
   }
 }
+.content-box {
+  filter: drop-shadow(-6px 4px grey) drop-shadow(6px 0px grey)
+    drop-shadow(0px 4px grey);
+}
+
+.dark {
+  background-color: black;
+  & > * {
+    color: white;
+  }
+  margin-bottom: 3rem;
+}
+
+.shaped {
+  clip-path: polygon(0.5% 0%, 95% 2%, 100% 94%, 0% 100%);
+}
+
+// wrap a .content-box.shaped with this to give it a shadow
+// .shaped-shadow-container {
+//   filter: drop-shadow($size-shadow-large $gray);
+// }
 
 .ant-modal-title {
   color: #ff9100;
@@ -145,16 +163,16 @@ display: none;
 }
 .trophy-container {
   display: flex;
-  
+
   flex-direction: column;
   align-items: center;
   width: 100%;
   justify-content: center;
   margin: auto;
   @media @tablet {
- flex-direction: column;
- align-items:center; 
-}
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .modal-container {
   display: flex;
