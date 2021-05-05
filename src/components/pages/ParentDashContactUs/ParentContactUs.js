@@ -1,11 +1,32 @@
 import React from 'react';
 import Header from '../../common/Header';
 import { Layout, Typography, Form, Input, Button } from 'antd';
+import emailjs from 'emailjs-com';
 
 const { Title } = Typography;
 const { TextArea } = Input;
 
 const ParentContactUs = () => {
+  function sendEmail(e) {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        e.target,
+        process.env.REACT_APP_USER_ID
+      )
+      .then(
+        result => {
+          console.log(result.text);
+        },
+        error => {
+          console.log(error.text);
+        }
+      );
+    //reset the form values
+    e.target.reset();
+  }
   return (
     <>
       <Header displayMenu={false} />
@@ -15,46 +36,22 @@ const ParentContactUs = () => {
         </Title>
         <div id="contact" className="block contactBlock">
           <div className="container-fluid">
-            {/* <div className="titleHolder">
-          <h2>Get in Touch</h2>
-          <p>Dolore nam rerum obcaecati fugit odio nobis Molestiae rerum</p>
-        </div> */}
-
             <Form
               name="normal_login"
               className="login-form"
               initialValues={{ remember: true }}
+              onSubmit={sendEmail}
             >
-              <Form.Item
-                name="fullname"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please enter your full name!',
-                  },
-                ]}
-              >
+              <Form.Item name="name" type="text">
                 <Input placeholder="Full Name" />
               </Form.Item>
-              <Form.Item
-                name="email"
-                rules={[
-                  {
-                    type: 'email',
-                    message: 'The input is not valid E-mail!',
-                  },
-                  {
-                    required: true,
-                    message: 'Please input your E-mail!',
-                  },
-                ]}
-              >
+              <Form.Item name="email" type="email">
                 <Input placeholder="Email Address" />
               </Form.Item>
               <Form.Item name="telephone">
                 <Input placeholder="Phone (Optional)" />
               </Form.Item>
-              <Form.Item name="subject">
+              <Form.Item name="subject" type="text">
                 <Input placeholder="Subject" />
               </Form.Item>
               <Form.Item name="message">
@@ -62,10 +59,12 @@ const ParentContactUs = () => {
               </Form.Item>
               <Form.Item>
                 <Button
-                  type="default"
+                  type="submit"
                   htmlType="submit"
                   className="my-button"
                   size="large"
+                  value="Send Message"
+                  onSubmit={sendEmail}
                 >
                   Submit
                 </Button>
