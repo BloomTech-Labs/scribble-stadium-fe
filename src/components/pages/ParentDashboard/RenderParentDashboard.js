@@ -14,7 +14,7 @@ import { useAnimation } from 'framer-motion';
 const { Title } = Typography;
 
 const ParentDashboard = props => {
-  const [element, view] = useInView({ threshold: 0.3 });
+  const [element, view] = useInView({ threshold: 0.3, triggerOnce: 'true' });
   const userInfo = useSelector(state => state.parent);
   const expandFAQ = React.createRef();
 
@@ -45,7 +45,7 @@ const ParentDashboard = props => {
             <Title className="title" style={{ color: 'white' }} level={1}>
               STORY SQUAD
             </Title>
-            <h4 className="welcome-back-text">Welcome Back {userInfo.name} </h4>
+            <h4 className="welcome-back-text">Welcome Back </h4>
           </header>
 
           <div className="stats-container">
