@@ -1,10 +1,10 @@
 import React from 'react';
 import { Layout, Card } from 'antd';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
-import ProgressCharts from '../ProgressCharts/ProgressCharts';
+import NewProgressCharts from '../../common/NewProgressCharts';
 
 
-const NewParentDashboard = props => {
+const RenderNewParentDashboard = props => {
   return (
     <>
       <Layout className="parent-dashboard">
@@ -12,7 +12,7 @@ const NewParentDashboard = props => {
 
         <Layout>
           <div className="progress-container">
-            <ProgressCharts />
+            <NewProgressCharts />
           </div>
 
         </Layout>
@@ -21,4 +21,4 @@ const NewParentDashboard = props => {
   );
 };
 
-export default NewParentDashboard;
+export default RenderNewParentDashboard;

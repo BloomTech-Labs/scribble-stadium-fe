@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-export default function ProgressCharts(props) {
+export default function NewProgressCharts(props) {
     return (
         <div className="ProgressContainer">
             <div>
