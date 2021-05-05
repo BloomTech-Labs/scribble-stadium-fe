@@ -37,7 +37,8 @@
     }
   }
   #okta-signin-username,
-  #okta-signin-password {
+  #okta-signin-password,
+  #account-recovery-username {
     width: 375px;
     padding-left: 8px;
     border: 1px solid #C8D4E1;
@@ -45,9 +46,27 @@
     padding: 2.3% 0;
   }
   #okta-signin-username:focus,
-  #okta-signin-password:focus {
+  #okta-signin-password:focus,
+  #account-recovery-username:focus {
     outline:none;
     border: 1px solid #7B8794;
+  }
+  a.email-button {
+    height: 3rem;
+    width: 375px;
+    border-radius: 25px;
+    justify-content: center;
+    cursor: pointer;
+    background: #8CE2E0;
+    border: none;
+    color: #2D2A2B;
+    font-family: 'mulish', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
   }
   .o-form-input-name-username,
   .o-form-input-name-password {
@@ -110,7 +129,8 @@
 @media @mobile {
   #sign-in-widget {
     #okta-signin-username,
-    #okta-signin-password {
+    #okta-signin-password,
+    #account-recovery-username {
       width: 275px;
     }
     .o-form-button-bar {
@@ -119,6 +139,10 @@
         font-size: 0.9rem;
         width: 275px;
       }
+    }
+    a.email-button {
+      font-size: 0.9rem;
+      width: 275px;
     }
     .auth-footer {
       font-size: 0.85rem;
