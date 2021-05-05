@@ -12,8 +12,8 @@
         padding-bottom: 20px;
         width: 300px;
         height: 150px;
-        transform: skew(-15deg);
-        box-shadow: 10px 5px grey;
+        clip-path: polygon(0.5% 0%, 95% 2%, 100% 94%, 0% 100%);
+        filter: drop-shadow(20px 5px lightgrey) drop-shadow(-20px 1px lightgrey);
         text-align: center;
 
     }
@@ -33,8 +33,8 @@
         .sub-container {
             height: 100%;
             width: 45%;
-            border: solid black 40px;
-            justify-content: space-between;
+            border: solid black 20px;
+            justify-content: space-around;
 
         }
 
