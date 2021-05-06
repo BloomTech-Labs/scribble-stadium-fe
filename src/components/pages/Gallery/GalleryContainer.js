@@ -9,7 +9,7 @@ const GalleryContainer = () => {
   const { push } = useHistory();
 
   const leaderboard = () => {
-    push('/child/trophyroom');
+    push('/child/leaderboard');
   };
 
   return (
@@ -18,7 +18,14 @@ const GalleryContainer = () => {
       <Button style={{ margin: '1rem' }} onClick={leaderboard}>
         Back to Leaderboard
       </Button>
-      <h2 className="h2">My Gallery</h2>
+      <div className="content-box">
+        <div className="shaped">
+          <div className="dark">
+            <h2 className="h2">My Gallery</h2>
+          </div>
+        </div>
+      </div>
+
       <WeeklySubmissions />
     </>
   );

@@ -38,13 +38,14 @@ import { MissionControl } from './components/pages/MissionControl';
 import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
+import { NewParentDashboard } from './components/pages/NewParentDashboard';
 import { ParentDashFaq } from './components/pages/ParentDashFaq';
 import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
-import { TrophyRoom } from './components/pages/TrophyRoom';
+import { Leaderboard } from './components/pages/Leaderboard';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
 // Gameification Components
@@ -156,7 +157,8 @@ function App() {
           path="/parent/dashboard"
           exact
           component={() => (
-            <ParentDashboard LoadingComponent={ParentLoadingComponent} />
+            // <ParentDashboard LoadingComponent={ParentLoadingComponent} /> This is the old Parent Dashboard
+            <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
 
@@ -212,10 +214,10 @@ function App() {
           )}
         />
         <SecureRoute
-          path="/child/trophyroom"
+          path="/child/leaderboard"
           exact
           component={() => (
-            <TrophyRoom LoadingComponent={ChildLoadingComponent} />
+            <Leaderboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <Route exact path="/moderation" component={ModerationTest} />

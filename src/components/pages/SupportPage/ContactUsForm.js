@@ -39,7 +39,7 @@ function ContactUs({ success, visible, userInfo }) {
           type="text"
           name="name"
           className="contact-form-inputs"
-          defaultValue={userInfo.name}
+          // defaultValue={userInfo.name}
         />
         <label>
           <p>Email</p>
@@ -48,7 +48,7 @@ function ContactUs({ success, visible, userInfo }) {
           type="email"
           name="email"
           className="contact-form-inputs"
-          defaultValue={userInfo.email}
+          // defaultValue={userInfo.email}
         />
         <label>
           <p>Subject</p>

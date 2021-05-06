@@ -4,13 +4,17 @@ import { connect } from 'react-redux';
 const WeeklySubmissions = () => {
   return (
     <>
-      <div>
-        <h2 className="h3">Week</h2>
-        <h3>View Prompt</h3>
-      </div>
       <div className="weekly-sub-container">
-        <div className="sub-container"></div>
-        <div className="sub-container"></div>
+        <span className="label">
+          <h3 className="h3">Week</h3>
+          <h3 className="h3"> View Prompt </h3>
+        </span>
+        <span className="submissions">
+          <div className="sub-container">
+            <div className="gallery-submission"></div>
+          </div>
+          <div className="sub-container"></div>
+        </span>
       </div>
     </>
   );
