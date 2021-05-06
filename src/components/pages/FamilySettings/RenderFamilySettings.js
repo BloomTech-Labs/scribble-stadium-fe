@@ -6,8 +6,6 @@ import { Layout, Form, Input, Button, Typography } from 'antd';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import ChildCard from '../../common/ChildCard';
 
-import AccountSettingsForm from './AccountSettingsForm';
-
 import { connect } from 'react-redux';
 
 const { Title } = Typography;
@@ -49,7 +47,6 @@ const FamilySettings = props => {
 
         <Layout className="settings-form">
           <h2 className="h2-family-settings">Change Email or Password</h2>
-          <AccountSettingsForm></AccountSettingsForm>
           <Form
             {...layoutSettings}
             form={form}
