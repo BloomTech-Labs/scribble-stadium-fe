@@ -1,20 +1,20 @@
 import React from 'react';
 import Header from '../../common/Header';
-import { Layout, Typography, Form, Input, Button } from 'antd';
+import { Layout, Typography } from 'antd';
 import emailjs from 'emailjs-com';
 
 const { Title } = Typography;
-const { TextArea } = Input;
 
 const ParentContactUs = () => {
   function sendEmail(e) {
     e.preventDefault();
+
     emailjs
       .sendForm(
-        process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
+        'service_ghtt1eb',
+        'template_pk79pf6',
         e.target,
-        process.env.REACT_APP_USER_ID
+        'user_pcz2czADtm5ala9BrkUqS'
       )
       .then(
         result => {
@@ -24,9 +24,8 @@ const ParentContactUs = () => {
           console.log(error.text);
         }
       );
-    //reset the form values
-    e.target.reset();
   }
+
   return (
     <>
       <Header displayMenu={false} />
@@ -34,43 +33,40 @@ const ParentContactUs = () => {
         <Title className="title" style={{ color: '#0267C1' }} level={1}>
           Contact Us
         </Title>
-        <div id="contact" className="block contactBlock">
-          <div className="container-fluid">
-            <Form
-              name="normal_login"
-              className="login-form"
-              initialValues={{ remember: true }}
-              onSubmit={sendEmail}
-            >
-              <Form.Item name="name" type="text">
-                <Input placeholder="Full Name" />
-              </Form.Item>
-              <Form.Item name="email" type="email">
-                <Input placeholder="Email Address" />
-              </Form.Item>
-              <Form.Item name="telephone">
-                <Input placeholder="Phone (Optional)" />
-              </Form.Item>
-              <Form.Item name="subject" type="text">
-                <Input placeholder="Subject" />
-              </Form.Item>
-              <Form.Item name="message">
-                <TextArea placeholder="Message" />
-              </Form.Item>
-              <Form.Item>
-                <Button
-                  type="submit"
-                  htmlType="submit"
-                  className="my-button"
-                  size="large"
-                  value="Send Message"
-                  onSubmit={sendEmail}
-                >
-                  Submit
-                </Button>
-              </Form.Item>
-            </Form>
-          </div>
+        <div className="container">
+          <form className="containerForm" onSubmit={sendEmail}>
+            <div className="singleItem">
+              <label>
+                <p>Name</p>
+              </label>
+              <input type="text" name="name" />
+            </div>
+
+            <div className="singleItem">
+              <label>
+                <p>Email</p>
+              </label>
+              <input type="email" name="email" />
+            </div>
+
+            <div className="singleItem">
+              <label>
+                <p>Subject</p>
+              </label>
+              <input type="text" name="subject" />
+            </div>
+
+            <div className="singleItem">
+              <label>
+                <p>Message</p>
+              </label>
+              <textarea name="message" />
+            </div>
+
+            <div className="btn">
+              <input type="submit" value="Submit" />
+            </div>
+          </form>
         </div>
       </Layout>
     </>

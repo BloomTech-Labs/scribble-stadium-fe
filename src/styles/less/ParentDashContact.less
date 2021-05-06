@@ -6,41 +6,63 @@
   .titleStyle();
 }
 
-body {
-  font-size: 16px;
-  line-height: 1.6;
-  color: rgb(17, 12, 26);
-  overflow-x: hidden;
-}
-
-.container-fluid {
-  margin: 0 auto;
-  max-width: 800px;
+.container {
+  margin: 50px auto;
+  width: 90%;
   padding: 20px 15px;
   background-color: #9be1df;
   color: #262626;
+  box-shadow: 1px 1px 4px 1px lightgray;
 }
 
-.ant-layout {
-  background: #fff !important;
+.container label {
+  display: block;
+  width: 100%;
+  letter-spacing: 0.1 rem;
+  font-style: italic;
+  margin-bottom: 3px;
+  font-weight: 600;
+  font-size: 16px;
 }
 
-.contactBlock .ant-form {
-  max-width: 700px;
-  margin: auto;
+.container input,
+.container textarea {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  border: none;
+  position: relative;
+  z-index: 1;
+  box-shadow: 1px 1px 4px 1px rgb(58, 57, 57);
 }
-
-.contactBlock .ant-form textarea {
-  min-height: 120px;
+.container textarea {
   height: 120px;
 }
 
-.my-button {
-  background-color: #fff !important;
-  color: #262626 !important;
-  border: none;
-  font-weight: 500;
+.container input:focus,
+.container textarea:focus {
+  box-shadow: 1px 1px 4px 1px rgb(49, 170, 240);
+}
+
+.singleItem {
+  margin: 10px auto;
+  margin-right: 20px;
+  padding: 10px;
+}
+
+.btn {
+  width: 100%;
   text-align: center;
-  display: block;
-  margin: auto;
+}
+.btn input {
+  width: 150px;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  outline: none;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  margin-top: 5px;
+  font-weight: 500;
 }
