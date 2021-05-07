@@ -17,6 +17,7 @@ describe('childReducer test suite', () => {
     losses: null,
     achievements: null,
     Ballots: [],
+    Streaks: 'test',
   };
 
   it('should return the initial state with no actions passed in', () => {

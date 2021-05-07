@@ -38,6 +38,7 @@ import { MissionControl } from './components/pages/MissionControl';
 import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
+import {NewParentDashboard} from './components/pages/NewParentDashboard'
 import { ParentDashFaq } from './components/pages/ParentDashFaq';
 import { ParentContactUs } from './components/pages/ParentDashContactUs';
 import { SupportPage } from './components/pages/SupportPage';
@@ -45,7 +46,7 @@ import { ParentSettings } from './components/pages/FamilySettings';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
-import { TrophyRoom } from './components/pages/TrophyRoom';
+import { Leaderboard } from './components/pages/Leaderboard';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
 // Gameification Components
@@ -63,6 +64,11 @@ import Wed from './components/pages/AdminDashboard/DevTools/DayComponents/05_Wed
 import Thurs from './components/pages/AdminDashboard/DevTools/DayComponents/06_Thurs';
 import Fri from './components/pages/AdminDashboard/DevTools/DayComponents/07_Fri';
 import DevModeHeader from './components/pages/AdminDashboard/devModeHeader';
+
+
+import { ParentDashboardFaq } from './components/pages/ParentDashFaq';
+import GalleryContainer from './components/pages/Gallery/GalleryContainer';
+
 
 // import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
 
@@ -118,6 +124,13 @@ function App() {
           )}
         />
 
+        <SecureRoute
+          path="/child/gallery"
+          component={() => (
+            <GalleryContainer LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+
         <SecureRoute path="/scoreboard" component={FaceoffReveal} />
 
         <SecureRoute
@@ -148,7 +161,8 @@ function App() {
           path="/parent/dashboard"
           exact
           component={() => (
-            <ParentDashboard LoadingComponent={ParentLoadingComponent} />
+            // <ParentDashboard LoadingComponent={ParentLoadingComponent} /> This is the old Parent Dashboard
+            <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
         <SecureRoute
@@ -212,10 +226,10 @@ function App() {
           )}
         />
         <SecureRoute
-          path="/child/trophyroom"
+          path="/child/leaderboard"
           exact
           component={() => (
-            <TrophyRoom LoadingComponent={ChildLoadingComponent} />
+            <Leaderboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <Route exact path="/moderation" component={ModerationTest} />

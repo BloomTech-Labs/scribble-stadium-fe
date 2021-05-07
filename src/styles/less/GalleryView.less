@@ -1,0 +1,46 @@
+.weekly-sub-container {
+    height: 70vh;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5% 5%;
+
+    .label {
+        background-color: @header-nero;
+        padding-bottom: 20px;
+        width: 300px;
+        height: 150px;
+        clip-path: polygon(1% 2%, 95% 2%, 100% 94%, 0% 100%);
+        filter: drop-shadow(20px 5px @suva-grey) drop-shadow(-20px 1px @suva-grey);
+    }
+
+    .h3 {
+        color: #FBFBFB;
+        font-size: 2.5rem;
+        font-family: 'atma';
+    }
+
+    .submissions {
+        display: flex;
+        flex-direction: row;
+        height: 70vh;
+        width: 100%;
+
+        .sub-container {
+            height: 440px;
+            width: 630px;
+            margin-top:20px;
+            justify-content: space-around;
+            border: 70px solid transparent;
+            border-image: url('../../assets/images/gallery/galleryFrames.svg') 30 round;
+
+            .gallery-submission {
+                border-radius: -50px;
+            }
+
+        }
+
+    }
+
+
+}
