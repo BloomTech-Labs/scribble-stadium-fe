@@ -20,7 +20,7 @@ export default function NewChildCard(props) {
         <Card>
           <h2>
             <Link to="/parent/add-child">
-              <PlusCircleFilled /> Add a Child!
+              <PlusCircleFilled /> Add a Child
             </Link>
           </h2>
         </Card>
