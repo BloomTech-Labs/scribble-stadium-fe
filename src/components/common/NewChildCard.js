@@ -1,30 +1,29 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PlusCircleFilled } from '@ant-design/icons';
-import { Layout, Card } from 'antd';
+import { Layout } from 'antd';
 
 export default function NewChildCard(props) {
-  console.log('This is on the NewChildCard component', props);
+  console.log('This is on the NewChildCard component', props.props);
   return (
     <div>
-      <Layout className="children" style={{ flexFlow: 'row wrap' }}>
+      <div className="children">
         {props.props.parent.children.map((child, i) => (
-          <div
-            key={child.ID}
-            id={child.ID}
-            name={child.Name}
-            AvatarURL={child.AvatarURL}
-            update="PROGRESS"
-          />
+          <div className="outerContainer">
+            <div className="childrenContainer">
+              <h3>{child.Name}</h3>
+              <h4>Cohort #</h4>
+              <p>{child.CohortID}</p>
+              <h4>Total Pts</h4>
+              <p>Total Points Here</p>
+              <h4>Wins</h4>
+              <p>{child.Wins}</p>
+              <h4>Losses</h4>
+              <p>{child.Losses}</p>
+            </div>
+          </div>
         ))}
-        <Card>
-          <h2>
-            <Link to="/parent/add-child">
-              <PlusCircleFilled /> Add a Child
-            </Link>
-          </h2>
-        </Card>
-      </Layout>
+      </div>
     </div>
   );
 }
@@ -33,3 +32,4 @@ export default function NewChildCard(props) {
 // players container will also house the add player(put) and edit player
 // Avatar situated to the left bottom of the card
 // from top to bottom "status: matchup, mission accomplished, etc" , week# , total points, wins, losses
+//AvatarURL, CohortID, GradeLevel, ID, IsDyslexic, Name, PIN, ParentID, type: "Child"
