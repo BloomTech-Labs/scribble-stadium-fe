@@ -38,6 +38,7 @@ import { MissionControl } from './components/pages/MissionControl';
 import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
+import {NewParentDashboard} from './components/pages/NewParentDashboard'
 import { ParentDashFaq } from './components/pages/ParentDashFaq';
 import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
@@ -156,7 +157,8 @@ function App() {
           path="/parent/dashboard"
           exact
           component={() => (
-            <ParentDashboard LoadingComponent={ParentLoadingComponent} />
+            // <ParentDashboard LoadingComponent={ParentLoadingComponent} /> This is the old Parent Dashboard
+            <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
 
