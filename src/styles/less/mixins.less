@@ -11,16 +11,22 @@
 }
 
 .titleStyle() {
-  text-align: center;
-  font-family: 'bangers';
-  color: #0267c1;
+  display: inline-block;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 100%;
+  letter-spacing: -0.5px;
+  color: #535353;
   background: none;
-  margin-top: 2%;
 }
+
 .siderStyle() {
   height: 100vh;
   border-right: 2px solid gray;
 }
+
 .orangeButtonStyle() {
   width: 180px;
   height: 45px;
@@ -34,5 +40,21 @@
     background-color: lighten(@burnt-sienna, 10%);
   }
 }
-.matchupBoxesStyle() {
+
+.blueButtonStyle() {
+  color: #4B5151;
+  background-color: #8CE2E0;
+  border-radius: 16px;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  outline: none;
+  border: none;
+
+  &:hover {
+    // color: black;
+    box-shadow: 0px 2px 7px 3px rgba(0,0,0,0.38);
+  }
 }
