@@ -38,10 +38,11 @@ import { MissionControl } from './components/pages/MissionControl';
 import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
-import {NewParentDashboard} from './components/pages/NewParentDashboard'
+import { NewParentDashboard } from './components/pages/NewParentDashboard';
 import { ParentDashFaq } from './components/pages/ParentDashFaq';
 import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
+import { EditPlayers } from './components/pages/EditPlayers';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
@@ -151,6 +152,12 @@ function App() {
           path="/parent/add-child"
           component={() => (
             <AddChild LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
+        <SecureRoute
+          path="/parent/edit-players"
+          component={() => (
+            <EditPlayers LoadingComponent={ParentLoadingComponent} />
           )}
         />
         <SecureRoute
