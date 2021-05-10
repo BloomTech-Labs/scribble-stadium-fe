@@ -13,6 +13,7 @@ import Header from '../../common/Header';
 const titleText = 'Please select your name';
 
 const ProfileRenderModal = props => {
+  console.log(props);
   const { authState } = useOktaAuth();
   const [visible, setVisible] = useState(true);
   const [userInfo, setUserInfo] = useState([]);

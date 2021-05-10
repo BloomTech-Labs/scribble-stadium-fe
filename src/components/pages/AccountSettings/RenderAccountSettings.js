@@ -1,13 +1,27 @@
-import React, { useRef, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Modal, Button, Input, Form } from 'antd';
-//import PinForm from './PinForm';
+import { useOktaAuth } from '@okta/okta-react';
+import bc from 'bcryptjs';
+import { getProfileData } from '../../../api';
 
-function RenderAccountSettings(props) {
+function RenderAccountSettings({ user }) {
+  const { authState } = useOktaAuth();
+  const [userInfo, setUserInfo] = useState([]);
   const [form] = Form.useForm();
   const [unlock, setUnlock] = useState(true);
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState(user);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const formRef = useRef(null);
+
+  //Grab the parents userInfo so we can validate their information (pin)
+  useEffect(() => {
+    getProfileData(authState).then(res => {
+      setUserInfo(res);
+    });
+  }, [authState]);
+  const parentInfo = userInfo.filter(user => user.type == 'Parent');
+
+  //These functions handle's exiting the modal once it is activated
   const handleOk = () => {
     setIsModalVisible(false);
   };
@@ -16,17 +30,25 @@ function RenderAccountSettings(props) {
     setIsModalVisible(false);
   };
 
+  // this function toggles the opacity and disabled prop of the editFormsAndButtonsContainer
+  // allowing the user to see that they can now access the elements to update their account
+
   const handleUnlock = () => {
     setUnlock(!unlock);
   };
+
+  // this function handles the pin form functionality
   const handleInput = e => {
-    e.preventDefault();
     const input = e.target;
     //check if data was inputted if so move
     //the cursor to the next box
     if (input.nextElementSibling && input.value) {
       input.nextElementSibling.focus();
     }
+  };
+
+  const handleFinalInput = () => {
+    formRef.current.submit();
   };
 
   return (
@@ -47,34 +69,29 @@ function RenderAccountSettings(props) {
         }}
       >
         <h4>Enter Pin</h4>
-        <form name="verify">
+        <Form name="verify" onFinish={handleFinalInput} ref={formRef}>
           <div className="pinFormInputs">
-            <input
+            <Input
               type="text"
               name="n1"
               maxlength="1"
               onChange={e => handleInput(e)}
             />
-            <input
+            <Input
               type="text"
               name="n2"
               maxlength="1"
               onChange={e => handleInput(e)}
             />
-            <input
+            <Input
               type="text"
               name="n3"
               maxlength="1"
               onChange={e => handleInput(e)}
             />
-            <input
-              type="text"
-              name="n4"
-              maxlength="1"
-              onChange={e => handleInput(e)}
-            />
+            <Input type="text" name="n4" maxlength="1" />
           </div>
-        </form>
+        </Form>
       </Modal>
       <div className="textAndButtonContainer">
         <div className="editText">
