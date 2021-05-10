@@ -3,15 +3,14 @@ import { Modal, Button, Input, Form } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
 import bc from 'bcryptjs';
 import { getProfileData } from '../../../api';
-import { ConsoleSqlOutlined } from '@ant-design/icons';
 
 function RenderAccountSettings() {
   const { authState } = useOktaAuth();
   const [form] = Form.useForm();
+  const formRef = useRef(null);
   const [unlock, setUnlock] = useState(true);
   const [userInfo, setUserInfo] = useState();
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const formRef = useRef(null);
 
   //Grab the parents userInfo so we can validate their information (pin)
   useEffect(() => {
@@ -34,42 +33,29 @@ function RenderAccountSettings() {
     setIsModalVisible(false);
   };
 
-  // this function toggles the opacity and disabled prop of the editFormsAndButtonsContainer
+  // this function runs once the user has inputted the correct pin.
+  //It toggles the opacity and disabled prop of the editFormsAndButtonsContainer
   // allowing the user to see that they can now access the elements to update their account
 
-  const handleUnlock = () => {
+  const onFinish = values => {
     setUnlock(!unlock);
   };
 
-  // this function handles the pin form functionality
-  const handleInput = e => {
-    const input = e.target;
-    //check if data was inputted if so move
-    //the cursor to the next box
-    if (input.nextElementSibling && input.value) {
-      input.nextElementSibling.focus();
-    }
-  };
-
-  const onFinish = values => {
-    console.log(values);
-  };
-
-  const blurOnFourChars = e => {
-    if (e.target.value.length === 1) {
+  const submitOnFourChars = e => {
+    if (e.target.value.length === 4) {
       formRef.current.submit();
     }
-    console.log(formRef.current);
   };
+
   return (
     <div className="accountSettingsContainer">
       <Modal
         visible={isModalVisible}
         okText="Unlock"
-        onOk={handleOk}
+        onOk={unlock ? null : handleOk}
         okType="default"
         onCancel={handleCancel}
-        afterClose={handleUnlock}
+        afterClose={form.resetFields()}
         centered="true"
         width="25vw"
         bodyStyle={{
@@ -79,19 +65,11 @@ function RenderAccountSettings() {
         }}
       >
         <h4>Enter Pin</h4>
-        {/* <div className="pinFormInputs"> */}
-        <Form
-          name="verify"
-          form={form}
-          onFinish={onFinish}
-          ref={formRef}
-          className="pinFormInputs"
-        >
+        <Form name="verify" form={form} onFinish={onFinish} ref={formRef}>
           <Form.Item
             name="pin"
             validateTrigger="onSubmit"
             hasFeedback
-            noStyle="true"
             rules={[
               {
                 required: true,
@@ -100,50 +78,23 @@ function RenderAccountSettings() {
               ({ getFieldValue }) => ({
                 validator(rule, value) {
                   const x = bc.compareSync(value, userInfo.PIN);
-                  if (x) {
+                  if (x == true) {
                     return Promise.resolve();
+                  } else {
+                    return Promise.reject('Incorrect PIN!');
                   }
-                  return Promise.reject('Incorrect PIN!');
                 },
               }),
             ]}
           >
-            <Input maxLength={1} onChange={e => handleInput(e)} />
-            <Input maxLength={1} onChange={e => handleInput(e)} />
-            <Input maxLength={1} onChange={e => handleInput(e)} />
-            <Input maxLength={1} onChange={blurOnFourChars} />
+            <Input
+              autoFocus={true}
+              maxLength={4}
+              onChange={submitOnFourChars}
+              autoComplete="off"
+              size="large"
+            />
           </Form.Item>
-
-          {/* <Form.Item
-            name="pin"
-              noStyle="true"
-              validateTrigger="onSubmit"
-              hasFeedback
-              rules={[
-                {
-                  required: true,
-                  message: 'Incorrect PIN!',
-                },
-                ({ getFieldValue }) => ({
-                  validator(rule, value) {
-                    {
-                      console.log(value);
-                    }
-                    
-                    const x = bc.compareSync(value, userInfo.PIN);
-                    if (x) {
-                      return Promise.resolve();
-                    }
-                    return Promise.reject('Incorrect PIN!');
-                  },
-                }),
-              ]}
-            >
-              <Input maxLength={1} onChange={e => handleInput(e)} />
-              <Input maxLength={1} onChange={e => handleInput(e)} />
-              <Input maxLength={1} onChange={e => handleInput(e)} />
-              <Input maxLength={1} onChange={blurOnFourChars} />
-            </Form.Item> */}
         </Form>
       </Modal>
       <div className="textAndButtonContainer">
@@ -157,6 +108,7 @@ function RenderAccountSettings() {
           <Button
             className="lockUnlockButton"
             onClick={() => setIsModalVisible(true)}
+            value="UNLOCK"
           >
             UNLOCK
           </Button>
@@ -175,22 +127,7 @@ function RenderAccountSettings() {
         className="editFormsAndButtonsContainer"
         style={unlock ? { opacity: '.3' } : null}
       >
-        <div className="placeholderInput">
-          <input placeholder="INPUT"></input>
-          <button>SUBMIT</button>
-        </div>
-        <div className="placeholderInput">
-          <input placeholder="INPUT"></input>
-          <button>SUBMIT</button>
-        </div>
-        <div className="placeholderInput">
-          <input placeholder="INPUT"></input>
-          <button>SUBMIT</button>
-        </div>
-        <div className="placeholderInput">
-          <input placeholder="INPUT"></input>
-          <button>SUBMIT</button>
-        </div>
+        {/* THIS IS WHERE THE CONPONENTS WILL BE BROUGHT IN */}
       </div>
     </div>
   );

@@ -6,9 +6,24 @@
 }
 
 .textAndButtonContainer {
-  display: flex;
-  justify-content: space-between;
-  padding: 25px;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  gap: 10px;
+}
+.editText {
+    padding: 20px;
+    grid-column-start: 5;
+    grid-column-end: 10;
+}
+.unlockButton {
+    padding: 20px;
+    grid-column-start: 10;
+    grid-column-end: 11;
+}
+.lockButton {
+    padding: 20px;
+    grid-column-start: 10;
+    grid-column-end: 11;
 }
 
 .editFormsAndButtonsContainer {
@@ -38,23 +53,7 @@
         background-color: #8ce2e0;
     }
 }
-.pinFormInputs {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(4, 1fr);
-    margin-bottom: 10px;
-  }
-  .pinFormItem {
-      border: 1px solid red;
-  }
+
   
-  .pinFormInputs > * {
-    border: 1px solid black;
-    border-radius: 20px;
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-    font-size: 20px;
-    line-height: 1;
-  }
+
   
