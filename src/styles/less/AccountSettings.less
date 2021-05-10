@@ -1,14 +1,14 @@
 @import 'variables.less';
 
 .accountSettingsContainer {
-  background-color: #F5F5F6;
-height: 40vh;
+  background-color: #f5f5f6;
+  height: 40vh;
 }
 
 .textAndButtonContainer {
-    display: flex;
-    justify-content: space-between;
-    padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
 }
 
 .editFormsAndButtonsContainer {
@@ -19,6 +19,39 @@ height: 40vh;
   justify-content: center;
   align-items: center;
 }
-.placeholderInput {
-    padding: 20px;
+.lockUnlockButton {
+  background-color: #8ce2e0;
+  width: 10vw;
+  border-radius: 20px;
 }
+.placeholderInput {
+  padding: 20px;
+}
+
+
+.ant-modal-footer {
+    text-align: center;
+    .ant-btn {
+        width: 10vw;
+    }
+    .ant-btn-default {
+        background-color: #8ce2e0;
+    }
+}
+.pinFormInputs {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 10px;
+  }
+  
+  .pinFormInputs > * {
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 1;
+  }
+  
