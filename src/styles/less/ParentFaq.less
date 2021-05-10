@@ -1,0 +1,66 @@
+@import '~antd/dist/antd.less';
+@import '~antd/lib/style/themes/default.less';
+@import 'variables.less';
+
+.title {
+  .titleStyle();
+}
+
+*html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #fff;
+}
+.card {
+  width: 66%;
+  background-color: lightgray;
+  position: relative;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 16px;
+  font-size: 24px;
+  font-family: 'open-sans';
+  font-weight: 600;
+  color: #4b5151;
+}
+.ant-card-head-title {
+  font-size: clamp(1.25rem, 2.2vw, 2rem);
+  font-weight: 500;
+}
+
+.ant-card-body {
+  letter-spacing: inherit;
+  /* font-size: clamp(1rem, 2vw, 1.5rem); */
+  font-size: 18px;
+  line-height: 28px;
+  background-color: lightgray;
+  font-weight: 400;
+  font-family: Open Sans;
+  color: #2d2a2b;
+  border-radius: 16px;
+}
+
+.ant-btn {
+  background: #f5f5f5;
+  /* Text/Dark Gray */
+  border: 0.5px solid #4b5151;
+  box-sizing: border-box;
+  border-radius: 16px;
+  margin: 10px;
+  font-size: 18px;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  justify-items: center;
+}
+
+.ant-btn-default {
+  background-color: #f5f5f5;
+}
