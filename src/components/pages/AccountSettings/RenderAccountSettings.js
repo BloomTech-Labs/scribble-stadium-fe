@@ -3,29 +3,33 @@ import { Modal, Button, Input, Form } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
 import bc from 'bcryptjs';
 import { getProfileData } from '../../../api';
+import { ConsoleSqlOutlined } from '@ant-design/icons';
 
-function RenderAccountSettings({ user }) {
+function RenderAccountSettings() {
   const { authState } = useOktaAuth();
-  const [userInfo, setUserInfo] = useState([]);
   const [form] = Form.useForm();
   const [unlock, setUnlock] = useState(true);
-  const [selected, setSelected] = useState(user);
+  const [userInfo, setUserInfo] = useState();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const formRef = useRef(null);
 
   //Grab the parents userInfo so we can validate their information (pin)
   useEffect(() => {
     getProfileData(authState).then(res => {
-      setUserInfo(res);
+      res.map(user => {
+        if (user.type == 'Parent') {
+          setUserInfo(user);
+        }
+      });
+      //   setUserInfo(res.filter(user => user.type == 'Parent'));
     });
   }, [authState]);
-  const parentInfo = userInfo.filter(user => user.type == 'Parent');
 
   //These functions handle's exiting the modal once it is activated
   const handleOk = () => {
     setIsModalVisible(false);
+    form.resetFields();
   };
-
   const handleCancel = () => {
     setIsModalVisible(false);
   };
@@ -47,10 +51,16 @@ function RenderAccountSettings({ user }) {
     }
   };
 
-  const handleFinalInput = () => {
-    formRef.current.submit();
+  const onFinish = values => {
+    console.log(values);
   };
 
+  const blurOnFourChars = e => {
+    if (e.target.value.length === 1) {
+      formRef.current.submit();
+    }
+    console.log(formRef.current);
+  };
   return (
     <div className="accountSettingsContainer">
       <Modal
@@ -69,28 +79,71 @@ function RenderAccountSettings({ user }) {
         }}
       >
         <h4>Enter Pin</h4>
-        <Form name="verify" onFinish={handleFinalInput} ref={formRef}>
-          <div className="pinFormInputs">
-            <Input
-              type="text"
-              name="n1"
-              maxlength="1"
-              onChange={e => handleInput(e)}
-            />
-            <Input
-              type="text"
-              name="n2"
-              maxlength="1"
-              onChange={e => handleInput(e)}
-            />
-            <Input
-              type="text"
-              name="n3"
-              maxlength="1"
-              onChange={e => handleInput(e)}
-            />
-            <Input type="text" name="n4" maxlength="1" />
-          </div>
+        {/* <div className="pinFormInputs"> */}
+        <Form
+          name="verify"
+          form={form}
+          onFinish={onFinish}
+          ref={formRef}
+          className="pinFormInputs"
+        >
+          <Form.Item
+            name="pin"
+            validateTrigger="onSubmit"
+            hasFeedback
+            noStyle="true"
+            rules={[
+              {
+                required: true,
+                message: 'Incorrect PIN!',
+              },
+              ({ getFieldValue }) => ({
+                validator(rule, value) {
+                  const x = bc.compareSync(value, userInfo.PIN);
+                  if (x) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject('Incorrect PIN!');
+                },
+              }),
+            ]}
+          >
+            <Input maxLength={1} onChange={e => handleInput(e)} />
+            <Input maxLength={1} onChange={e => handleInput(e)} />
+            <Input maxLength={1} onChange={e => handleInput(e)} />
+            <Input maxLength={1} onChange={blurOnFourChars} />
+          </Form.Item>
+
+          {/* <Form.Item
+            name="pin"
+              noStyle="true"
+              validateTrigger="onSubmit"
+              hasFeedback
+              rules={[
+                {
+                  required: true,
+                  message: 'Incorrect PIN!',
+                },
+                ({ getFieldValue }) => ({
+                  validator(rule, value) {
+                    {
+                      console.log(value);
+                    }
+                    
+                    const x = bc.compareSync(value, userInfo.PIN);
+                    if (x) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject('Incorrect PIN!');
+                  },
+                }),
+              ]}
+            >
+              <Input maxLength={1} onChange={e => handleInput(e)} />
+              <Input maxLength={1} onChange={e => handleInput(e)} />
+              <Input maxLength={1} onChange={e => handleInput(e)} />
+              <Input maxLength={1} onChange={blurOnFourChars} />
+            </Form.Item> */}
         </Form>
       </Modal>
       <div className="textAndButtonContainer">
