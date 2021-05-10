@@ -12,41 +12,40 @@ const ParentFaqContainer = () => {
           <Row className="card">
             <Col span={16} className="col-btn">
               <Row>
-                <h4>FREQUENTLY ASKED QUESTIONS</h4>
+                <h4 style={{ color: '#878D93', fontWeight: '700' }}>
+                  FREQUENTLY ASKED QUESTIONS
+                </h4>
               </Row>
               <div className="btn-group">
                 <Row>
-                  <Button
-                    type="default"
-                    style={{ backgroundColor: 'lightgray' }}
-                  >
+                  <Button type="default" style={{ backgroundColor: '#fbfbfb' }}>
                     Game Play
                   </Button>
-                  <Button
-                    type="default"
-                    style={{ backgroundColor: 'lightgray' }}
-                  >
+                  <Button type="default" style={{ backgroundColor: '#fbfbfb' }}>
                     Child Profile Management
                   </Button>
                 </Row>
                 <Row>
-                  <Button
-                    type="default"
-                    style={{ backgroundColor: 'lightgray' }}
-                  >
+                  <Button type="default" style={{ backgroundColor: '#fbfbfb' }}>
                     Account Setting
                   </Button>
-                  <Button
-                    type="default"
-                    style={{ backgroundColor: 'lightgray' }}
-                  >
+                  <Button type="default" style={{ backgroundColor: '#fbfbfb' }}>
                     Technical Support
                   </Button>
                 </Row>
               </div>
             </Col>
-            <Col span={8}>
-              <img alt="example" src={img1} />
+            <Col
+              span={8}
+              type="flex"
+              style={{ alignItems: 'center' }}
+              justify="center"
+            >
+              <img
+                style={{ position: 'absolute', overflow: 'scroll' }}
+                alt="example"
+                src={img1}
+              />
             </Col>
           </Row>
         </div>
