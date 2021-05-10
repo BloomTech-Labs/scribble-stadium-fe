@@ -11,9 +11,11 @@ const WeeklySubmissions = () => {
         </span>
         <span className="submissions">
           <div className="sub-container">
+            <div></div>
+          </div>
+          <div className="sub-container">
             <div className="gallery-submission"></div>
           </div>
-          <div className="sub-container"></div>
         </span>
       </div>
     </>

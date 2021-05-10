@@ -18,15 +18,16 @@ const GalleryContainer = () => {
       <Button style={{ margin: '1rem' }} onClick={leaderboard}>
         Back to Leaderboard
       </Button>
-      <div className="content-box">
-        <div className="shaped">
-          <div className="dark">
-            <h2 className="h2">My Gallery</h2>
+      <div style={{ width: '75%', margin: '0 auto' }}>
+        <div className="content-box">
+          <div className="shaped">
+            <div className="dark">
+              <h2 className="h2">My Gallery</h2>
+            </div>
           </div>
         </div>
+        <WeeklySubmissions />
       </div>
-
-      <WeeklySubmissions />
     </>
   );
 };

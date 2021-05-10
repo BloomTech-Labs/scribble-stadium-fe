@@ -27,15 +27,23 @@
         width: 100%;
 
         .sub-container {
-            height: 440px;
-            width: 630px;
-            margin-top:20px;
+            height: 750px;
+            width: 49%;
+            margin-top: 20px;
             justify-content: space-around;
-            border: 70px solid transparent;
-            border-image: url('../../assets/images/gallery/galleryFrames.svg') 30 round;
+            background-image: url("../../assets/images/gallery/gallery-frames.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
 
             .gallery-submission {
-                border-radius: -50px;
+                border-radius: 30px;
+                width: 79%;
+                height: 40%;
+                z-index: 2;
+                background: lightblue;
+                margin: 0 auto;
+                position: inherit;
             }
 
         }
