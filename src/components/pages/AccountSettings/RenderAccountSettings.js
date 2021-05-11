@@ -3,12 +3,14 @@ import { Modal, Button, Input, Form } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
 import bc from 'bcryptjs';
 import { getProfileData } from '../../../api';
+import PinInput from 'react-pin-input';
 
 function RenderAccountSettings() {
   const { authState } = useOktaAuth();
   const [form] = Form.useForm();
   const formRef = useRef(null);
   const [unlock, setUnlock] = useState(true);
+  const [error, setError] = useState(false);
   const [userInfo, setUserInfo] = useState();
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -20,7 +22,6 @@ function RenderAccountSettings() {
           setUserInfo(user);
         }
       });
-      //   setUserInfo(res.filter(user => user.type == 'Parent'));
     });
   }, [authState]);
 
@@ -38,13 +39,8 @@ function RenderAccountSettings() {
   // allowing the user to see that they can now access the elements to update their account
 
   const onFinish = values => {
+    console.log('hit');
     setUnlock(!unlock);
-  };
-
-  const submitOnFourChars = e => {
-    if (e.target.value.length === 4) {
-      formRef.current.submit();
-    }
   };
 
   return (
@@ -66,35 +62,26 @@ function RenderAccountSettings() {
       >
         <h4>Enter Pin</h4>
         <Form name="verify" form={form} onFinish={onFinish} ref={formRef}>
-          <Form.Item
-            name="pin"
-            validateTrigger="onSubmit"
-            hasFeedback
-            rules={[
-              {
-                required: true,
-                message: 'Incorrect PIN!',
-              },
-              ({ getFieldValue }) => ({
-                validator(rule, value) {
-                  const x = bc.compareSync(value, userInfo.PIN);
-                  if (x == true) {
-                    return Promise.resolve();
-                  } else {
-                    return Promise.reject('Incorrect PIN!');
-                  }
-                },
-              }),
-            ]}
-          >
-            <Input
-              autoFocus={true}
-              maxLength={4}
-              onChange={submitOnFourChars}
-              autoComplete="off"
-              size="large"
-            />
-          </Form.Item>
+          <PinInput
+            length={4}
+            initialValue=""
+            onChange={(value, index) => {}}
+            type="numeric"
+            inputMode="number"
+            style={{ padding: '10px', borderRadius: '20px' }}
+            inputStyle={{ borderRadius: '15px' }}
+            inputFocusStyle={{ borderColor: 'blue' }}
+            onComplete={(value, index) => {
+              const x = bc.compareSync(value, userInfo.PIN);
+              if (x == true) {
+                onFinish();
+              } else {
+                setError(true);
+              }
+            }}
+            autoSelect={true}
+          />
+          <p style={error ? null : { display: 'none' }}>Incorrect PIN!</p>
         </Form>
       </Modal>
       <div className="textAndButtonContainer">
