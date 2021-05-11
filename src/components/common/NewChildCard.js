@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PlusCircleFilled } from '@ant-design/icons';
-import { Layout } from 'antd';
+import { Card, Button,Layout } from 'antd';
 
 export default function NewChildCard(props) {
   console.log('This is on the NewChildCard component', props.props);
@@ -9,8 +9,9 @@ export default function NewChildCard(props) {
     <div>
       <div className="children">
         {props.props.parent.children.map((child, i) => (
-          <div className="outerContainer">
+          <Card>
             <div className="childrenContainer">
+              <img src={child.AvatarURL} alt="avatar"/>
               <h3>{child.Name}</h3>
               <h4>Cohort #</h4>
               <p>{child.CohortID}</p>
@@ -21,7 +22,7 @@ export default function NewChildCard(props) {
               <h4>Losses</h4>
               <p>{child.Losses}</p>
             </div>
-          </div>
+          </Card>
         ))}
       </div>
     </div>
