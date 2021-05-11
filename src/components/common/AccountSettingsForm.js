@@ -3,38 +3,54 @@ import { LockOutlined, MailOutlined } from '@ant-design/icons';
 
 function AccountSettingsForm() {
   return (
-    <div>
-      <form>
-        <div class="acct-settings-form-header">
-          <h2>ACCOUNT SETTINGS</h2>
-        </div>
-        <label>
-          <p class="acct-settings-form-label">Email Address</p>
-        </label>
-        <div class="acct-settings-input-container">
-          <div class="icon-container">
-            <MailOutlined style={{ fontSize: '150%' }} />
+    <div class="backdrop">
+      <form class="acct-settings-form">
+        <div class="form-half">
+          <label>
+            <p class="acct-settings-form-label">Email Address</p>
+          </label>
+
+          <div class="icon-input-and-button-container">
+            <div class="icon-and-input-container">
+              <div class="icon-container">
+                <MailOutlined style={{ fontSize: '150%' }} />
+              </div>
+              <input
+                class="acct-settings-input"
+                type="text"
+                name="email"
+                placeholder="caroline@gmail.com"
+              />
+            </div>
+
+            <div class="edit-button-container">
+              <button class="edit-button">Change email</button>
+            </div>
           </div>
-          <input
-            class="acct-settings-input"
-            type="text"
-            name="email"
-            placeholder="caroline@gmail.com"
-          />
         </div>
-        <label>
-          <p class="acct-settings-form-label">Password</p>
-        </label>
-        <div class="acct-settings-input-container">
-          <div class="icon-container">
-            <LockOutlined style={{ fontSize: '150%' }} />
+
+        <div class="form-half">
+          <label>
+            <p class="acct-settings-form-label">Password</p>
+          </label>
+
+          <div class="icon-input-and-button-container">
+            <div class="icon-and-input-container">
+              <div class="icon-container">
+                <LockOutlined style={{ fontSize: '150%' }} />
+              </div>
+              <input
+                class="acct-settings-input"
+                type="text"
+                name="password"
+                placeholder="• • • • • • • • • • • •"
+              />
+            </div>
+
+            <div class="edit-button-container">
+              <button class="edit-button">Change password</button>
+            </div>
           </div>
-          <input
-            class="acct-settings-input"
-            type="text"
-            name="password"
-            placeholder="• • • • • • • • • • • •"
-          />
         </div>
       </form>
     </div>

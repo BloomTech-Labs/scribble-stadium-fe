@@ -1,43 +1,206 @@
-.acct-settings-form-header {
-    // margin: 40px 0 50px 0;
-    margin: 5% 0 8% 0;
-    font-size: .85rem;
-    font-style: normal;
-    font-weight: bold;
-    line-height: 100%;
-    text-transform: uppercase;
+// .backdrop {
+//     background:#F5F5F5;
+//     height: 70vh;
+//     @media screen and (max-width: 379px) {
+//         background: none;
+//     }
+// }
+
+// .acct-settings-form {
+//     width: 50%;
+//     height: 50vh;
+//     margin: 12% auto;
+//     border: 1px solid #F5F5F5;
+//     // @media screen and (min-width: 1440px) {
+//     //     border: 1px solid green;
+//     // }
+//     @media screen and (max-width: 1024px) {
+//         width: 70%;
+//     }
+//     @media screen and (max-width: 379px) {
+//         border: none;
+//     }
+// }
+
+// .acct-settings-form-label {
+//     margin-left: 1%;
+//     font-style: normal;
+//     font-weight: bold;
+//     font-size: 0.75rem;
+//     line-height: 100%;
+//     color: #333D3E;
+//     text-transform: capitalize;
+//     @media screen and (max-width: 379px) {
+//         margin-top: 10vh;
+//     }
+// }
+
+// .icon-input-and-button-container {
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     justify-content: space-between;
+//     padding: 1.6%;
+//     height: 5.5vh;
+//     background: #FFFFFF;
+//     border: 0.5px solid #7B8794;
+//     box-sizing: border-box;
+//     border-radius: 16px;
+//     margin: -.8% 0 4.5% 0;
+//     @media screen and (max-width: 379px) {
+//         flex-direction: column;
+//         margin-bottom: 10vh;
+//     }
+// }
+
+// .icon-and-input-container {
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     justify-content: flex-start;
+//     width: 15vw;
+//     border: 1px solid purple;
+//     @media screen and (max-width: 375px) {
+//         margin-right: 50vw;
+//     }
+// }
+
+// .icon-container {
+//     width: 2vw;
+//     @media screen and (max-width: 379px) {
+//         margin-right: 5vw;
+//     }
+//     border: solid 1px blue;
+// }
+
+// .acct-settings-input {
+//     border: none;
+//     font-size: 1rem;
+//     margin-left: .5vw;
+//     @media screen and (max-width: 1024px) {
+//         margin-left: 1vw;
+//     }
+// }
+
+// .lock-button-container {
+//     display: flex;
+//     justify-content: center;
+//     background: #9BE1DF;
+    
+//     border-radius: 16px;
+//     height: 5.5vh;
+//     width: 14vw;
+//     align-items: center;
+// }
+
+// .lock-button {
+//     border: none;
+//     background: #9BE1DF;
+// }
+
+// .edit-button-container {
+//     display: flex;
+//     justify-content: center;
+//     background:#F5F5F5;
+//     border: 0.5px solid #7B8794;
+//     border-radius: 16px;
+//     height: 5.5vh;
+//     width: 14vw;
+//     align-items: center;
+//     margin-right: -.8vw;
+//     @media screen and (max-width: 1024px) {
+//         margin-right: -1.1vw;
+//     }
+//     @media screen and (max-width: 379px) {
+//         width: 75%;
+//         margin: 3vh 12vh 0 0;
+//         padding: 2.65vh;
+//     }
+// }
+
+// .edit-button {
+//     border: none;
+//     background:#F5F5F5;
+// }
+
+.backdrop {
+    @media screen and (min-width: 1024px) {
+        background:#F5F5F5;
+        height: 70vh;
+    }
+}
+
+.acct-settings-form {
+    width: 83%;
+    margin: 0 10% 10% 7%;
+    border: 1px solid green;
+    box-sizing: border-box;
+    height: 52vh;
+}
+
+.form-half {
+    border: 1px solid yellow;
+    height: 26vh;
 }
 
 .acct-settings-form-label {
-    width: 15%;
-    margin-left: 1%;
+    margin: 8vh 0 1vh 2vw;
     font-style: normal;
     font-weight: bold;
     font-size: 0.75rem;
     line-height: 100%;
-    color: #333D3E;
+    color: #4B5151;
     text-transform: capitalize;
+    border: 1px solid red;
 }
 
-.acct-settings-input-container {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+.icon-input-and-button-container {
+    align-items: center;
+    //justify-content: space-between;
     padding: 1.6%;
-    width: 63%;
+    height: 7vh;
     background: #FFFFFF;
     border: 0.5px solid #7B8794;
-    box-sizing: border-box;
-    border-radius: 5px;
-    // margin: -5px 0 30px 0;
+    border-radius: 14px;
     margin: -.8% 0 4.5% 0;
 }
 
+.icon-and-input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid purple;
+}
+
 .icon-container {
-    width: 8%;
+    margin-right: 1.5vw;
+    border: solid 1px blue;
 }
 
 .acct-settings-input {
     border: none;
     font-size: 1rem;
+    margin-left: .5vw;
+    @media screen and (max-width: 1024px) {
+        margin-left: 1vw;
+    }
+}
+
+.edit-button-container {
+    display: flex;
+    justify-content: center;
+    background:#F5F5F5;
+    border: 0.5px solid #7B8794;
+    border-radius: 14px;
+    height: 5.5vh;
+    align-items: center;
+    width: 75%;
+    margin-top: 4vh;
+    padding: 2.65vh;
+}
+
+.edit-button {
+    border: none;
+    background:#F5F5F5;
 }
