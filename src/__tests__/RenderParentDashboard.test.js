@@ -40,7 +40,7 @@ describe('<ParentDashboard /> test suite', () => {
     expect(screen.getByText(/Welcome back/i)).toBeInTheDocument();
   });
 
-  test('Change user Nav', () => {
+  test.skip('Change user Nav', () => {
     render(<Component parent={{ children: [] }} />);
 
     fireEvent(
@@ -51,7 +51,7 @@ describe('<ParentDashboard /> test suite', () => {
     expect(screen.getByText(/Change User/i)).toBeInTheDocument();
   });
 
-  test('Logout Nav', () => {
+  test.skip('Logout Nav', () => {
     render(<Component parent={{ children: [] }} />);
 
     fireEvent(
