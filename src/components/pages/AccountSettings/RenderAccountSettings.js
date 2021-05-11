@@ -39,7 +39,6 @@ function RenderAccountSettings() {
   // allowing the user to see that they can now access the elements to update their account
 
   const onFinish = values => {
-    console.log('hit');
     setUnlock(!unlock);
   };
 
