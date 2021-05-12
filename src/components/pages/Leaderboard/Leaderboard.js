@@ -66,7 +66,7 @@ const Leaderboard = props => {
       width: 100,
     },
     {
-      title: 'Total Points',
+      title: 'Team Total Points',
       dataIndex: 'Total_Points',
       key: 'Total_points',
       width: 100,
@@ -85,6 +85,12 @@ const Leaderboard = props => {
       title: 'Drawing Points',
       dataIndex: 'DrawingPoints',
       key: 'DrawingPoints',
+      width: 100,
+    },
+    {
+      title: 'Squad Points',
+      dataIndex: 'SquadPoints',
+      key: 'SquadPoints',
       width: 100,
     },
   ];
