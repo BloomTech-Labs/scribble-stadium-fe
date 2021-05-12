@@ -16,10 +16,10 @@
   font-style: normal;
   font-weight: 700;
   text-transform: uppercase;
-  line-height: 100%;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
   color: #535353;
   background: none;
+  margin-bottom: 0;
 }
 
 .siderStyle() {
@@ -42,9 +42,13 @@
 }
 
 .blueButtonStyle() {
+  width: 160px;
+  height: 40px;
+
   color: #4B5151;
   background-color: #8CE2E0;
   border-radius: 16px;
+  font-size: 1.2rem;
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 600;
@@ -53,8 +57,19 @@
   outline: none;
   border: none;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .anticon {
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding: 0;
+    height: 20px;
+  }
+
   &:hover {
-    // color: black;
     box-shadow: 0px 2px 7px 3px rgba(0,0,0,0.38);
+    color: #8CE2E0;
+    background-color: #4B5151;
   }
 }
