@@ -3,16 +3,33 @@
 @import 'global.less';
 @import 'variables.less';
 
-.outerContainer{
-  background-color:@new-turquoise;
-  width:230px;
-  margin-right:2%;
-  margin-bottom:2%;
-  padding:2%;
-  border-radius: 10px;
-}
-.children{
-  width:95vw;
+.newChild{
+  width:100%;
   display:flex;
   flex-wrap: wrap;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  padding: 2%;
+  .ant-card {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color:@new-turquoise;
+    margin: 0 2.5vw 2.5vh 0;
+    padding: 8px;
+    width: 45%;
+    border-radius: 14px;
+    justify-content: center;
+    text-align: left;
+  .ant-card-body,
+  .ant-layout {
+    background: none;
+    }
+    h2 {
+      font-family: 'Bangers';
+      font-weight: 900;
+      font-size: 35px;
+      -webkit-text-stroke: 0.5px white;
+    }
+  }
 }
