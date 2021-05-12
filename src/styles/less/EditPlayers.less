@@ -5,22 +5,54 @@
     .top-section {
         display: flex;
         justify-content: space-between;
-        width: 80%;
+        align-items: center;
+        width: 75%;
+        max-width: 800px;
         margin: 0 auto;
         margin-top: 20px;
         margin-bottom: 55px;
+        .title {
+            .titleStyle();
+        }
         button {
             .blueButtonStyle();
-            width: 160px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            .anticon {
-                font-weight: bold;
-                font-size: 1.25rem;
+        }
+    }
+    .children {
+        width: 75%;
+        max-width: 800px;
+        margin: 0 auto;
+        flex-flow: column;
+        align-items: center;
+        .child-card-form {
+            background-color: #F5F5F5;
+            width: 100%;
+            padding: 0;
+            margin-right: 0;
+            padding: 3%;
+            .ant-card-body {
+                width: 100%;
                 padding: 0;
-                height: 20px;
+                .card-top {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    .delete-btn {
+                        .blueButtonStyle();
+                        background-color: #FBFBFB;
+                        border: 1px solid #7E8484;
+                        display: inline-block;
+                    }
+                    .avatar-img {
+                        width: 115px;
+                        height: 115px;
+                        padding: 1%;
+                        clip-path: circle();
+                        background-color: white;
+                    }
+                }
             }
         }
     }
