@@ -30,7 +30,6 @@ function ProfileModalContainer({ LoadingComponent, ...props }) {
       });
     return () => (isSubscribed = false);
   }, [memoAuthService]);
-
   return (
     <>
       {authState.isAuthenticated && !userInfo && (

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { PlusCircleFilled } from '@ant-design/icons';
 import ChildCard from '../../common/ChildCard';
-import ParentNavTopBar from '../../common/ParentNavTopBar';
+import ParentNavSider from '../../common/ParentNavSider';
 
 const { Title } = Typography;
 
@@ -12,11 +12,11 @@ const ParentDashboard = props => {
   return (
     <>
       <Layout className="parent-dashboard">
-        <ParentNavTopBar />
+        <ParentNavSider selected="dashboard" />
 
         <Layout>
           <Title className="title" style={{ color: '#0267C1' }} level={1}>
-            Dashboard
+            STORY SQUAD
           </Title>
           <div className="children-container">
             <Layout className="children" style={{ flexFlow: 'row wrap' }}>

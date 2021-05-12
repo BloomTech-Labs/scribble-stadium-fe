@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout, Card } from 'antd';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import NewProgressCharts from '../../common/NewProgressCharts';
-import AccountSettingsForm from '../../common/AccountSettingsForm';
+import AccountSettings from '../AccountSettings/AccountSettingsContainer';
 
 const RenderNewParentDashboard = props => {
   return (
@@ -15,7 +15,7 @@ const RenderNewParentDashboard = props => {
             <NewProgressCharts />
           </div>
           <div>
-            <AccountSettingsForm />
+            <AccountSettings />
           </div>
         </Layout>
       </Layout>
