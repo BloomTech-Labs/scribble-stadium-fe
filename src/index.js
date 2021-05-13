@@ -38,7 +38,8 @@ import { MissionControl } from './components/pages/MissionControl';
 import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
-import {NewParentDashboard} from './components/pages/NewParentDashboard'
+import { ParentFaq } from './components/pages/ParentFaq';
+import { NewParentDashboard } from './components/pages/NewParentDashboard';
 import { ParentDashFaq } from './components/pages/ParentDashFaq';
 import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
@@ -63,7 +64,6 @@ import Wed from './components/pages/AdminDashboard/DevTools/DayComponents/05_Wed
 import Thurs from './components/pages/AdminDashboard/DevTools/DayComponents/06_Thurs';
 import Fri from './components/pages/AdminDashboard/DevTools/DayComponents/07_Fri';
 import DevModeHeader from './components/pages/AdminDashboard/devModeHeader';
-import { ParentDashboardFaq } from './components/pages/ParentDashFaq';
 import GalleryContainer from './components/pages/Gallery/GalleryContainer';
 
 // import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
@@ -172,6 +172,14 @@ function App() {
           exact
           component={() => (
             <SupportPage LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
+
+        <SecureRoute
+          path="/parent/faq"
+          exact
+          component={() => (
+            <ParentFaq LoadingComponent={ParentLoadingComponent} />
           )}
         />
 

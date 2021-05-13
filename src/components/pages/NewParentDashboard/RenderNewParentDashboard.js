@@ -5,6 +5,7 @@ import { PlusCircleFilled } from '@ant-design/icons';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import NewProgressCharts from '../../common/NewProgressCharts';
 import NewChildCard from '../../common/NewChildCard';
+import AccountSettings from '../AccountSettings/AccountSettingsContainer';
 
 const RenderNewParentDashboard = props => {
   return (
@@ -16,8 +17,12 @@ const RenderNewParentDashboard = props => {
           <div className="progress-container">
             <NewProgressCharts />
           </div>
+
           <div className="child-container">
             <NewChildCard props={props} />
+          </div>
+          <div>
+            <AccountSettings />
           </div>
         </Layout>
       </Layout>

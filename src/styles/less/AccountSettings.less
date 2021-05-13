@@ -1,0 +1,52 @@
+@import 'variables.less';
+
+.accountSettingsContainer {
+  background-color: #f5f5f6;
+  height: 40vh;
+}
+.textAndButtonContainer {
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  gap: 10px;
+}
+.editText {
+    padding: 20px;
+    grid-column-start: 5;
+    grid-column-end: 8;
+}
+.unlockButton {
+    padding: 20px;
+    grid-column-start: 9;
+    grid-column-end: 11;
+}
+.lockButton {
+    padding: 20px;
+    grid-column-start: 10;
+    grid-column-end: 11;
+}
+.editFormsAndButtonsContainer {
+  width: 100vw;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.lockUnlockButton {
+  background-color: #8ce2e0;
+  width: 10vw;
+  border-radius: 20px;
+}
+.ant-modal-footer {
+    text-align: center;
+    .ant-btn {
+        width: 10vw;
+    }
+    .ant-btn-default {
+        background-color: #8ce2e0;
+    }
+}
+
+  
+
+  
