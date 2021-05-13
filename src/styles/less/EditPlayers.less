@@ -27,7 +27,7 @@
         .child-card-form {
             background-color: #F5F5F5;
             width: 100%;
-            padding: 0;
+            height: 465px;
             margin-right: 0;
             padding: 3%;
             .ant-card-body {
@@ -39,11 +39,24 @@
                     flex-direction: row;
                     justify-content: space-between;
                     align-items: center;
+                    .edit-btn {
+                        .blueButtonStyle();
+                        width: 100px;
+                        display: inline-block;
+
+                        background-color: #F5F5F5;
+                        border: 1px solid #7E8484;
+
+                        position: absolute;
+                        left: 100px;
+                        top: 100px;
+                    }
                     .delete-btn {
                         .blueButtonStyle();
+                        display: inline-block;
+
                         background-color: #FBFBFB;
                         border: 1px solid #7E8484;
-                        display: inline-block;
                     }
                     .avatar-img {
                         width: 115px;
@@ -52,6 +65,10 @@
                         clip-path: circle();
                         background-color: white;
                     }
+                }
+                .save-btn {
+                    .blueButtonStyle();
+                    width: 315px;
                 }
             }
         }
