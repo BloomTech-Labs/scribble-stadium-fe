@@ -1,17 +1,8 @@
 import React from 'react';
 
-
-export default function NewChildCard(props){
-
-        return(
-                <div>
-                kid card
-                
-                </div>
-        )
+export default function NewChildCard(props) {
+  return <div>kid card</div>;
 }
-
-
 
 //Players container will hold kid cards
 // players container will also house the add player(put) and edit player
