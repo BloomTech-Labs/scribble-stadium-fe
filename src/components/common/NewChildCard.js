@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { PlusCircleFilled } from '@ant-design/icons';
-import { Layout } from 'antd';
+import { Card, Button, Layout } from 'antd';
 
 import { connect } from 'react-redux';
 
@@ -22,22 +22,30 @@ function NewChildCard(props) {
   // console.log('This is on the NewChildCard component', props.props);
   return (
     <div>
-      <div className="children">
+      <div className="newChild">
         {props.props.parent.children.map((child, i) => (
-          <div className="outerContainer">
+          <Card>
             <div className="childrenContainer">
-              <h3>{child.Name}</h3>
-              <h4>Cohort #</h4>
-              <p>{child.CohortID}</p>
-              <h4>Total Pts</h4>
-
-              <p>Total Points here</p>
-              <h4>Wins</h4>
-              <p>{child.Wins}</p>
-              <h4>Losses</h4>
-              <p>{child.Losses}</p>
+              {/* This is hard coded right now, once data is ready, can replace it */}
+              <h4>Status: Matchup</h4>
+              <div className="avatarContainer">
+                <div className="avatarbackground">
+                  <img src={child.AvatarURL} alt="avatar" />
+                </div>
+                <h2>{child.Name}</h2>
+              </div>
+              <div className="stats">
+                <p>{child.CohortID}</p>
+                <h4>Week #</h4>
+                <p>Total Points Here</p>
+                <h4>Total Pts</h4>
+                <p>{child.Wins}</p>
+                <h4>Wins</h4>
+                <p>{child.Losses}</p>
+                <h4>Losses</h4>
+              </div>
             </div>
-          </div>
+          </Card>
         ))}
       </div>
     </div>
