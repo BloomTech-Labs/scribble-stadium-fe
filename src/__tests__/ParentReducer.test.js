@@ -6,7 +6,7 @@ describe('parentReducer test suite', () => {
     id: null,
     name: null,
     email: null,
-    children: []
+    children: [],
   };
 
   it('should return the initial state with no actions passed in', () => {
@@ -22,7 +22,7 @@ describe('parentReducer test suite', () => {
         ID: 1,
         Name: 'someone',
         Email: 'someone@somewhere.com',
-        children: []
+        children: [],
       },
     };
     const state = reducer(initialState, action);
@@ -30,7 +30,7 @@ describe('parentReducer test suite', () => {
       id: 1,
       name: 'someone',
       email: 'someone@somewhere.com',
-      children: []
+      children: [],
     });
   });
 
