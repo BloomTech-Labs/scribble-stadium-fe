@@ -2,8 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { Layout, Form, Input, Button, Typography } from 'antd';
-import { PlusCircleOutlined } from '@ant-design/icons';
+import { Layout, Typography } from 'antd';
 
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import ChildForm from '../../common/ChildForm';
@@ -21,11 +20,10 @@ const EditPlayers = props => {
           <Title className="title" level={2}>
             Edit Players
           </Title>
-          <Button icon={<PlusCircleOutlined />}>Add Player</Button>
         </div>
         <Layout className="children">
           {props.parent.children.map(child => (
-            <ChildForm name={child.Name} AvatarURL={child.AvatarURL} />
+            <ChildForm key={child.ID} {...child} />
           ))}
         </Layout>
       </Layout>
