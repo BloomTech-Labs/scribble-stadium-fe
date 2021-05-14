@@ -76,7 +76,7 @@ function RenderAccountSettings() {
             onComplete={(value, index) => {
               const x = bc.compareSync(value, userInfo.PIN);
               if (x == true) {
-                onFinish(value);
+                onFinish();
               } else {
                 setError(true);
               }
