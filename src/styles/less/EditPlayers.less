@@ -97,6 +97,7 @@
                             font-weight: 700;
                             font-size: 0.8rem;
                             color: #4B5151;
+                            margin-left: 10px;
                             ::after {
                                 display: none;
                             }
@@ -119,6 +120,57 @@
                     .blueButtonStyle();
                     width: 315px;
                 }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:550px) {
+    .edit-players {
+        .top-section {
+            margin-bottom: 15px;
+        }
+        .children {
+            width: 90%;
+            .child-card-form {
+                .ant-card-body {
+                    .card-top {
+                        margin-bottom: 20px;
+                        .avatar-container {
+                            margin-left: 8px;
+                            margin-top: 8px;
+                        }
+                        .avatar-img {
+                            width: 105px;
+                            height: 105px;
+                        }
+                        .delete-btn {
+                            width: 50px;
+                            span[role="img"] + span {
+                                // Targets the span element after the span with role of img
+                                display: none;
+                            }
+                        }
+                    }
+                    .ant-form {
+                        flex-flow: column;
+                        align-items: center;
+                        div.col {
+                            width: 100%;
+                        }
+                        .ant-form-item {
+                            width: 100%;
+                        }
+                        .ant-form-item-label {
+                            padding: 0;
+                        }
+                    }
+                    .card-bottom {
+                        margin-top: 20px;
+                        justify-content: center;
+                    }
+                }
+
             }
         }
     }
