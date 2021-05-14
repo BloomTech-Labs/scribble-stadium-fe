@@ -9,8 +9,8 @@
         width: 75%;
         max-width: 800px;
         margin: 0 auto;
-        margin-top: 20px;
-        margin-bottom: 55px;
+        margin-top: 10px;
+        margin-bottom: 37px;
         .title {
             .titleStyle();
         }
@@ -27,29 +27,48 @@
         .child-card-form {
             background-color: #F5F5F5;
             width: 100%;
-            height: 465px;
+            height: fit-content;
             margin-right: 0;
-            padding: 3%;
+            margin-bottom: 30px;
+            padding: 3% 5%;
             .ant-card-body {
                 width: 100%;
                 padding: 0;
+                display: flex;
+                flex-flow: column;
+                height: 100%;
+                justify-content: space-between;
                 .card-top {
                     width: 100%;
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
-                    align-items: center;
+                    margin-bottom: 30px;
+                    .avatar-container {
+                        margin-left: 20px;
+                        position: relative;
+                    }
+                    .avatar-img {
+                        width: 115px;
+                        height: 115px;
+                        min-width: 115px;
+                        padding: 1%;
+                        clip-path: circle();
+                        background-color: white;
+                    }
                     .edit-btn {
                         .blueButtonStyle();
-                        width: 100px;
+                        width: 35px;
+                        height: 35px;
                         display: inline-block;
 
                         background-color: #F5F5F5;
                         border: 1px solid #7E8484;
+                        border-radius: 50%;
 
                         position: absolute;
-                        left: 100px;
-                        top: 100px;
+                        left: 81px;
+                        top: 0;
                     }
                     .delete-btn {
                         .blueButtonStyle();
@@ -58,13 +77,43 @@
                         background-color: #FBFBFB;
                         border: 1px solid #7E8484;
                     }
-                    .avatar-img {
-                        width: 115px;
-                        height: 115px;
-                        padding: 1%;
-                        clip-path: circle();
-                        background-color: white;
+                }
+                .ant-form {
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: space-between;
+                    div.col {
+                        width: 50%;
+                        display: flex;
+                        flex-flow: column;
+                        height: 180px;
+                        justify-content: space-around;
                     }
+                    .ant-row.ant-form-item {
+                        flex-flow: column;
+                        .ant-form-item-label {
+                            text-align: start;
+                            font-family: 'Open Sans';
+                            font-weight: 700;
+                            font-size: 0.8rem;
+                            color: #4B5151;
+                            ::after {
+                                display: none;
+                            }
+                        }
+                        input {
+                            .inputStyle();
+                        }
+                        input.pin {
+                            letter-spacing: 8px;
+                        }
+                    }
+                }
+                .card-bottom {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    margin-top: 30px;
                 }
                 .save-btn {
                     .blueButtonStyle();
