@@ -28,28 +28,47 @@ function NewChildCard(props) {
       <div className="newChild">
         {props.props.parent.children.map((child, i) => (
           <Card key={i}>
-            <div className="childrenContainer">
+            <div className="inner">
               {/* This is hard coded right now, once data is ready, can replace it */}
-              <h4>Status: Matchup</h4>
-              <div className="avatarContainer">
-                <div className="avatarbackground">
+              <div className="statusContainer">
+                <h4>Status: Matchup</h4>
+              </div>
+              <div className="innerChildContainer">
+                <div className="avContainer">
                   <img
                     src={child.AvatarURL}
                     alt="avatar"
                     className="avBackground"
                   />
+                  <h2>{child.Name}</h2>
                 </div>
-                <h2>{child.Name}</h2>
-              </div>
-              <div className="stats">
-                <p>{child.CohortID}</p>
-                <h4>Week #</h4>
-                <p>{MockDataTotalPoints}</p>
-                <h4>Total Pts</h4>
-                <p>{MockDataWins}</p>
-                <h4>Wins</h4>
-                <p>{MockDataLosses}</p>
-                <h4>Losses</h4>
+
+                <div className="statContainer">
+                  <div className="statBox">
+                    <div className="statBoxBackground">
+                      <p>{child.CohortID}</p>
+                    </div>
+                    <h4>Week #</h4>
+                  </div>
+                  <div className="statBox">
+                    <div className="statBoxBackground">
+                      <p>{MockDataTotalPoints}</p>
+                    </div>
+                    <h4>Total Pts</h4>
+                  </div>
+                  <div className="statBox">
+                    <div className="statBoxBackground">
+                      <p>{MockDataWins}</p>
+                    </div>
+                    <h4>Wins</h4>
+                  </div>
+                  <div className="statBox">
+                    <div className="statBoxBackground">
+                      <p>{MockDataLosses}</p>
+                    </div>
+                    <h4>Losses</h4>
+                  </div>
+                </div>
               </div>
             </div>
           </Card>
