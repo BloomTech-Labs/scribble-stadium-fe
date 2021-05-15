@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Button, Card, Form, Input } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
+import { useOktaAuth } from '@okta/okta-react';
+
+import { updateChildData, getChild } from '../../api';
+
 function ChildForm(props) {
+  const { authState } = useOktaAuth();
   const [form] = Form.useForm();
   const [isSaveBtnDisabled, setIsSaveBtnDisabled] = useState(() => true);
 
@@ -14,9 +19,27 @@ function ChildForm(props) {
   };
 
   const onFinish = values => {
-    console.log('Submitted:');
     console.log(values);
+    updateChildData(
+      authState,
+      {
+        ...values,
+      },
+      props.ID
+    )
+      .then(res => {
+        getChild(authState, res).then(child => {
+          props.setChildren({ ...child });
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
+
+  useEffect(() => {
+    console.log(props);
+  }, []);
 
   return (
     <Card className="child-card-form" bordered={false}>
@@ -34,10 +57,10 @@ function ChildForm(props) {
         <Form
           form={form}
           initialValues={{
-            name: props.Name,
-            characterName: props.CharacterName,
-            email: props.Email,
-            pin: '0000',
+            Name: props.Name,
+            CharacterName: props.CharacterName,
+            Email: props.Email,
+            PIN: '0000',
           }}
           name="control-hooks"
           layout="inline"
@@ -45,18 +68,18 @@ function ChildForm(props) {
           onFinish={onFinish}
         >
           <div className="col">
-            <Form.Item name="characterName" label="Character Name">
+            <Form.Item name="CharacterName" label="Character Name">
               <Input />
             </Form.Item>
-            <Form.Item name="pin" label="PIN">
+            <Form.Item name="PIN" label="PIN">
               <Input type="password" className="pin" />
             </Form.Item>
           </div>
           <div className="col">
-            <Form.Item name="name" label="Name">
+            <Form.Item name="Name" label="Name">
               <Input />
             </Form.Item>
-            <Form.Item name="email" label="Email Address">
+            <Form.Item name="Email" label="Email Address">
               <Input />
             </Form.Item>
           </div>
