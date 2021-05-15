@@ -35,9 +35,9 @@ function ChildForm(props) {
           form={form}
           initialValues={{
             name: props.Name,
-            characterName: 'Pinky Winky',
+            characterName: props.CharacterName,
+            email: props.Email,
             pin: '0000',
-            email: 'placeholder@maildrop.cc',
           }}
           name="control-hooks"
           layout="inline"
