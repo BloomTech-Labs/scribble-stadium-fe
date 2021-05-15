@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Card } from 'antd';
+import { Layout } from 'antd';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import NewProgressCharts from '../../common/NewProgressCharts';
 import AccountSettings from '../AccountSettings/AccountSettingsContainer';
@@ -7,7 +7,7 @@ import AccountSettings from '../AccountSettings/AccountSettingsContainer';
 const RenderNewParentDashboard = props => {
   return (
     <>
-      <Layout className="parent-dashboard">
+      <Layout className="newparent-dashboard">
         <ParentNavTopBar />
 
         <Layout>
