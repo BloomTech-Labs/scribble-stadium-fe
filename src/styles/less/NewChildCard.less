@@ -4,32 +4,100 @@
 @import 'variables.less';
 
 .newChild{
-  width:100%;
+  width:80vw;
   display:flex;
   flex-wrap: wrap;
-  margin-right: 2%;
-  margin-bottom: 2%;
+  margin:0 auto;
   padding: 2%;
+  max-width:95vw;
   .ant-card {
     display: flex;
     align-items: center;
     position: relative;
     background-color:@new-turquoise;
-    margin: 0 2.5vw 2.5vh 0;
-    padding: 8px;
-    width: 45%;
-    border-radius: 14px;
+    margin: 1% auto;
+    width: 30vw;
+    min-width: 20vw;
+    max-width: 40vw;
+    border-radius: 20px;
     justify-content: center;
     text-align: left;
   .ant-card-body,
   .ant-layout {
     background: none;
+    padding:3% 2%;
+    width:95%;
+    font-family:'Open Sans';
+    color:@dark-gray;
     }
     h2 {
       font-family: 'Bangers';
+      color:@header-nero;
       font-weight: 900;
-      font-size: 35px;
-      -webkit-text-stroke: 0.5px white;
+      font-size: 2rem;
+      text-align:center;
+      -webkit-text-stroke: 0.3px white;
     }
   }
+}
+
+.avContainer{
+ margin:2% 4%;
+}
+.avBackground{
+  width:150px;
+  height:150px;
+  background-color:white;
+  border-radius:70%;
+  opacity:0.9;
+  padding:2%;
+}
+.statBox{
+  border-radius: 5px;
+  padding:2%;
+  margin:2%;
+
+  p{
+    padding:4%;
+    font-weight:700;
+    text-align: center;
+  }
+  h4{
+    margin:-2%;
+    font-weight:600;
+    text-align:center;
+  }
+}
+.statContainer{
+  display: flex;
+  flex-wrap: wrap;
+  width:45%;
+  margin:2%;
+
+}
+.statusContainer{
+  background-color:@light-gray;
+  border-radius:10px;
+  width:90%;
+  margin:2% auto;
+
+  h4{
+    text-align: center;
+    padding:1%;
+    font-weight:700;
+
+  }
+}
+.inner{
+  width:100%;
+}
+.innerChildContainer{
+  display:flex;
+  justify-content: center;
+}
+.statBoxBackground{
+  background-color:@light-gray;
+  border-radius:8px;
+  width:80px;
+  height:40px;
 }
