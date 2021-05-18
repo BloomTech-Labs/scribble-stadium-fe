@@ -19,27 +19,26 @@ function ChildForm(props) {
   };
 
   const onFinish = values => {
-    console.log(values);
-    updateChildData(
-      authState,
-      {
-        ...values,
-      },
-      props.ID
-    )
+    const changes = values;
+
+    // IF the PIN has not changed, do not reset it.
+    if (changes.PIN === '0000') {
+      delete changes.PIN;
+    }
+
+    updateChildData(authState, { ...values }, props.ID)
       .then(res => {
-        getChild(authState, res).then(child => {
-          props.setChildren({ ...child });
+        setIsSaveBtnDisabled(() => true);
+
+        getChild(authState, props.ID).then(child => {
+          console.log(child);
+          props.updateChild({ ...child });
         });
       })
       .catch(err => {
         console.log(err);
       });
   };
-
-  useEffect(() => {
-    console.log(props);
-  }, []);
 
   return (
     <Card className="child-card-form" bordered={false}>
