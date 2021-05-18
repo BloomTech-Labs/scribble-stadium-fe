@@ -99,7 +99,7 @@ function RenderAccountSettings() {
             onClick={() => setIsModalVisible(true)}
             value="UNLOCK"
           >
-            UNLOCK
+            UNLOCK WITH PIN
           </Button>
         </div>
 
