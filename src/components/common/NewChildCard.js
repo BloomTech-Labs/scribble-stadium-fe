@@ -12,17 +12,6 @@ function NewChildCard(props) {
   const MockDataWins = 5;
   const MockDataLosses = 10;
   const MockDataTotalPoints = 8675309;
-  //       const { authState } = useOktaAuth();
-  //       const [data, setDataInfo] = useState([]);
-
-  //       useEffect(() => {
-  //       //Getting data from backend for leaderboard
-  //       getLeaderboard(authState).then(res => {
-  //       setDataInfo(res);
-  //       });
-  //       }, [authState]);
-  //       console.log("IS it saving here?", data)
-  // console.log('This is on the NewChildCard component', props.props);
   return (
     <div>
       <div className="newChild">
