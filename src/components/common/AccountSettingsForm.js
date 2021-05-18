@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
 
+import changePasswordModal from './changePasswordModal';
+import { is } from '@babel/types';
+
 function AccountSettingsForm({ disabled }) {
   const [value, setValue] = useState({ email: '', password: '' });
 
@@ -15,9 +18,7 @@ function AccountSettingsForm({ disabled }) {
   };
 
   return (
-    //<div class="backdrop">
     <form class="acct-settings-form" onSubmit={e => handleSubmit(e)}>
-      {/*<div class="form-half">*/}
       <label>
         <p class="email-label">Email Address</p>
       </label>
@@ -44,9 +45,7 @@ function AccountSettingsForm({ disabled }) {
           </button>
         </div>
       </div>
-      {/*</div>*/}
 
-      {/*<div class="form-half">*/}
       <label>
         <p class="password-label">Password</p>
       </label>
@@ -73,9 +72,8 @@ function AccountSettingsForm({ disabled }) {
           </button>
         </div>
       </div>
-      {/*</div>*/}
+      <changePasswordModal />
     </form>
-    //</div>
   );
 }
 
