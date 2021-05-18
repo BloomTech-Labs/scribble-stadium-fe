@@ -17,7 +17,6 @@ const RenderNewParentDashboard = props => {
           <div className="progress-container">
             <NewProgressCharts />
           </div>
-
           <div className="child-container">
             <NewChildCard props={props} />
           </div>

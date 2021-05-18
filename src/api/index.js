@@ -96,6 +96,19 @@ const getLeaderboard = authState => {
   }
 };
 
+const getChildCard = authState => {
+  try {
+    return apiAuthGet('/child/:id', getAuthHeader(authState)).then(response => {
+      return response.data;
+    });
+  } catch (err) {
+    return new Promise(() => {
+      console.log(err);
+      return [];
+    });
+  }
+};
+
 // Parent API Calls
 
 /**

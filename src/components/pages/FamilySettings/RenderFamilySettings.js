@@ -3,8 +3,9 @@ import { useHistory } from 'react-router-dom';
 
 import { Layout, Form, Input, Button, Typography } from 'antd';
 
-import ParentNavSider from '../../common//ParentNavSider';
+import ParentNavTopBar from '../../common/ParentNavTopBar';
 import ChildCard from '../../common/ChildCard';
+
 import { connect } from 'react-redux';
 
 const { Title } = Typography;
@@ -29,7 +30,7 @@ const FamilySettings = props => {
 
   return (
     <Layout className="parent-dashboard add-child">
-      <ParentNavSider selected="settings" />
+      <ParentNavTopBar selected="settings" />
       <Layout className="content">
         <Title className="title" style={{ color: '#0267C1' }} level={1}>
           Settings

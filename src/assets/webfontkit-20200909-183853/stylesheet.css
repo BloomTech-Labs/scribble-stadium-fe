@@ -10,3 +10,12 @@
     font-style: normal;
 
 }
+
+@font-face {
+    font-family: 'atmasemibold';
+    src: url('Atma-SemiBold.woff2') format('woff2'),
+         url('Atma-SemiBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

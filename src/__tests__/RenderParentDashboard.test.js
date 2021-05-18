@@ -1,16 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen, cleanup, fireEvent } from '@testing-library/react';
 import RenderParentDashboard from '../components/pages/ParentDashboard/RenderParentDashboard';
 
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 const mockStore = configureStore([]);
-const store = mockStore();
+const store = mockStore({ parent: { name: 'Dillan Harris' } });
 
 afterEach(() => {
   cleanup();
 });
+
 jest.mock('@okta/okta-react', () => ({
   useOktaAuth: () => {
     return {
@@ -33,26 +34,31 @@ const Component = props => {
 };
 
 describe('<ParentDashboard /> test suite', () => {
-  test('Welcome Back', () => {
+  test('Welcome back Nav', () => {
     render(<Component parent={{ children: [] }} />);
-    expect(screen.getByText(/Welcome Back/i)).toBeInTheDocument();
+
+    expect(screen.getByText(/Welcome back/i)).toBeInTheDocument();
   });
 
-  test('Dashboard Nav', () => {
+  test.skip('Change user Nav', () => {
     render(<Component parent={{ children: [] }} />);
-    expect(screen.getByText(/Dashboard/i)).toBeInTheDocument();
+
+    fireEvent(
+      screen.getByTestId('parent-avatar'),
+      new MouseEvent('click', { bubbles: true, cancelable: true })
+    );
+
+    expect(screen.getByText(/Change User/i)).toBeInTheDocument();
   });
 
-  test('Help Nav', () => {
+  test.skip('Logout Nav', () => {
     render(<Component parent={{ children: [] }} />);
-    expect(screen.getByText(/Help/i)).toBeInTheDocument();
-  });
-  test('Parent Settings Nav', () => {
-    render(<Component parent={{ children: [] }} />);
-    expect(screen.getByText(/Parent Settings/i)).toBeInTheDocument();
-  });
-  test('Log out Nav', () => {
-    render(<Component parent={{ children: [] }} />);
-    expect(screen.getByText(/log out/i)).toBeInTheDocument();
+
+    fireEvent(
+      screen.getByTestId('parent-avatar'),
+      new MouseEvent('click', { bubbles: true, cancelable: true })
+    );
+
+    expect(screen.getByText(/Logout/i)).toBeInTheDocument();
   });
 });
