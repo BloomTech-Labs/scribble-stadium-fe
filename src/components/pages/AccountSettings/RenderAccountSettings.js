@@ -117,6 +117,8 @@ function RenderAccountSettings() {
       >
         <AccountSettingsForm disabled={unlock} />
       </div>
+      <Button disabled={unlock}>Edit Credit Card Info</Button>
+      <Button disabled={unlock}>Edit Subscription Plan</Button>
     </div>
   );
 }
