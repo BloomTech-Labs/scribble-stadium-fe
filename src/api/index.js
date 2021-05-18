@@ -519,6 +519,23 @@ const getChildGraph = async (authState, ChildID) => {
   return apiAuthGet(`/parent/viz?childId=${ChildID}`, getAuthHeader(authState));
 };
 
+const getGallerySubmissionsById = authState => {
+  try {
+    return apiAuthGet(`/gallery`, getAuthHeader(authState)).then(response => {
+      return response.data;
+    });
+  } catch (err) {
+    return new Promise(() => {
+      console.log(err);
+      return [];
+    });
+  }
+};
+
+const getGallery = async authState => {
+  return apiAuthGet('/gallary', getAuthHeader(authState));
+};
+
 const reset = async authState => {
   console.log('It should work');
   return apiAuthPut(`/reset/reset/`, null);
@@ -554,5 +571,7 @@ export {
   postVotes,
   getGameVotes,
   getChildGraph,
+  getGallerySubmissionsById,
+  getGallery,
   reset,
 };
