@@ -9,7 +9,6 @@ function ParentLoadingComponent(props) {
 
   return (
     <div className="parent-loader">
-      <ParentNavSider key={null} />
       <Layout>
         <Spin
           indicator={<SmileFilled className="spinner" spin />}
