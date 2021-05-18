@@ -52,5 +52,6 @@ export default connect(
   }),
   {
     updateChild: parent.updateChild,
+    removeChild: parent.removeChild,
   }
 )(EditPlayersContainer);
