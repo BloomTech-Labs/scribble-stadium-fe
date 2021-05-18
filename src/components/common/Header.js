@@ -18,13 +18,14 @@ const ChildMenu = props => {
     props.clearUsers();
     push('/');
   };
+
   return (
     <Menu {...props}>
       <Menu.Item key="1">
         <Link to="/child/dashboard">Home</Link>
       </Menu.Item>
       <Menu.Item key="2">
-        <Link to="/child/gallery">My Gallery</Link>
+        <Link to="/gallery/:id">My Gallery</Link>
       </Menu.Item>
       <Menu.Item key="3" disabled={true}>
         Help

@@ -120,7 +120,14 @@ function App() {
         />
 
         <SecureRoute
-          path="/child/gallery"
+          path="/gallery"
+          component={() => (
+            <GalleryContainer LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+
+        <SecureRoute
+          path="/gallery/:id"
           component={() => (
             <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}

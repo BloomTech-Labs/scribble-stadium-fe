@@ -1,6 +1,7 @@
 .weekly-sub-container {
-    height: 70vh;
-    width: 95%;
+    max-height: 500px;
+    min-height: 250px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 2.5% 5%;
@@ -19,36 +20,34 @@
         font-size: 2.5rem;
         font-family: 'atma';
     }
+}
 
-    .submissions {
-        display: flex;
-        flex-direction: row;
-        height: 70vh;
-        width: 100%;
+.submissions {
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+    width: 100%;
 
-        .sub-container {
-            height: 750px;
-            width: 49%;
-            margin-top: 20px;
-            justify-content: space-around;
-            background-image: url("../../assets/images/gallery/gallery-frames.svg");
-            background-position: center;
-            background-repeat: no-repeat;
-            z-index: 1;
+    .sub-container {
+        height: 100%;
+        width: 45%;
+        background-image: url("../../assets/images/gallery/gallery-frames.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0 auto;
 
-            .gallery-submission {
-                border-radius: 30px;
-                width: 80%;
-                height: 150px;
-                z-index: 2;
-                background: lightblue;
-                margin: 0 auto;
-                position: inherit;
-            }
-
+        .gallery-submission {
+            display: flex;
+            border-radius: 25px;
+            min-height: 75px;
+            max-height: 175px;
+            background-size: contain;
+            align-content: center;
+            margin: 8% auto;
         }
 
     }
 
-
 }
+
+
