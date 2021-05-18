@@ -7,3 +7,9 @@ export const SET_CHILDREN = 'SET_CHILDREN';
 export const setChildren = childData => dispatch => {
   dispatch({ type: SET_CHILDREN, payload: childData });
 };
+
+export const UPDATE_CHILD = 'UPDATE_CHILD';
+export const updateChild = childData => dispatch => {
+  dispatch({ type: UPDATE_CHILD, payload: childData });
+};
+
