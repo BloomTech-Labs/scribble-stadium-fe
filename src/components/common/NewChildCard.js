@@ -43,7 +43,7 @@ function NewChildCard(props) {
                     <div className="statBoxBackground">
                       <p>{MockDataTotalPoints}</p>
                     </div>
-                    <h4>Total Pts</h4>
+                    <h4>Total Pts.</h4>
                   </div>
                   <div className="statBox">
                     <div className="statBoxBackground">
