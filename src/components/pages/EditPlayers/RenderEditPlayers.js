@@ -1,6 +1,5 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 import { Layout, Typography } from 'antd';
 
@@ -23,7 +22,7 @@ const EditPlayers = props => {
         </div>
         <Layout className="children">
           {props.parent.children.map(child => (
-            <ChildForm key={child.ID} {...child} />
+            <ChildForm {...props} key={child.ID} {...child} />
           ))}
         </Layout>
       </Layout>
@@ -31,9 +30,4 @@ const EditPlayers = props => {
   );
 };
 
-export default connect(
-  state => ({
-    parent: state.parent,
-  }),
-  {}
-)(EditPlayers);
+export default EditPlayers;
