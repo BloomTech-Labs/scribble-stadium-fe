@@ -1,6 +1,18 @@
 @import '~antd/dist/antd.less';
 @import '~antd/lib/style/themes/default.less';
 
+.avatar-select-modal {
+    .image_picker {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    .ant-btn {
+        .blueButtonStyle();
+        margin: 0 auto;
+    }
+}
+
 .edit-players {
     .top-section {
         display: flex;
@@ -31,6 +43,7 @@
             margin-right: 0;
             margin-bottom: 30px;
             padding: 3% 5%;
+
             .ant-card-body {
                 width: 100%;
                 padding: 0;

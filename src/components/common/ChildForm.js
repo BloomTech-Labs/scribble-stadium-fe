@@ -1,16 +1,52 @@
 import React, { useEffect, useState } from 'react';
-
-import { Button, Card, Form, Input } from 'antd';
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-
 import { useOktaAuth } from '@okta/okta-react';
 
-import { updateChildData, getChild } from '../../api';
+import { Button, Card, Form, Input, Modal } from 'antd';
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import ImagePicker from 'react-image-picker';
+
+import { updateChildData, getChild, getChildFormValues } from '../../api';
 
 function ChildForm(props) {
   const { authState } = useOktaAuth();
   const [form] = Form.useForm();
+
+  const [isModalOpen, setIsModalOpen] = useState(() => false);
   const [isSaveBtnDisabled, setIsSaveBtnDisabled] = useState(() => true);
+  const [avatars, setAvatars] = useState(() => []);
+  const [selectedImage, setSelectedImage] = useState(() => {
+    return {
+      AvatarURL: props.AvatarURL,
+      ID: props.AvatarID,
+      value: props.AvatarID,
+    };
+  });
+
+  useEffect(() => {
+    console.log(props);
+
+    // Fetch available avatars from API
+    getChildFormValues(authState).then(data => {
+      setAvatars(() => data[0]);
+
+      console.log(data[0]);
+    });
+  }, [authState]);
+
+  const onEditBtnClick = () => {
+    setIsModalOpen(() => true);
+  };
+
+  const pickHandler = image => {
+    setSelectedImage(() => {
+      return {
+        AvatarURL: image.src,
+        ID: image.value,
+        value: image.value,
+      };
+    });
+    setIsSaveBtnDisabled(() => false);
+  };
 
   const onChange = () => {
     if (isSaveBtnDisabled) {
@@ -26,12 +62,15 @@ function ChildForm(props) {
       delete changes.PIN;
     }
 
-    updateChildData(authState, { ...values }, props.ID)
+    updateChildData(
+      authState,
+      { ...values, AvatarID: selectedImage.ID },
+      props.ID
+    )
       .then(res => {
         setIsSaveBtnDisabled(() => true);
 
         getChild(authState, props.ID).then(child => {
-          console.log(child);
           props.updateChild({ ...child });
         });
       })
@@ -42,11 +81,37 @@ function ChildForm(props) {
 
   return (
     <Card className="child-card-form" bordered={false}>
+      <Modal
+        visible={isModalOpen}
+        onCancel={() => setIsModalOpen(() => false)}
+        onOk={() => setIsModalOpen(() => false)}
+        cancelButtonProps={{ style: { display: 'none' } }}
+        okText="SELECT"
+        className="avatar-select-modal"
+        width="90%"
+        centered={true}
+      >
+        <ImagePicker
+          images={avatars.map(avtr => ({
+            src: avtr.AvatarURL,
+            value: avtr.ID,
+          }))}
+          onPick={pickHandler}
+        />
+      </Modal>
       <div className="card-top">
         <div className="avatar-container">
-          <img src={props.AvatarURL} alt="avatar" className="avatar-img" />
+          <img
+            src={selectedImage.AvatarURL}
+            alt="avatar"
+            className="avatar-img"
+          />
           {/* This button allows parents to change their kid's avatar */}
-          <Button icon={<EditOutlined />} className="edit-btn" />
+          <Button
+            icon={<EditOutlined />}
+            className="edit-btn"
+            onClick={onEditBtnClick}
+          />
         </div>
         <Button icon={<DeleteOutlined />} className="delete-btn">
           Delete
