@@ -13,3 +13,7 @@ export const updateChild = childData => dispatch => {
   dispatch({ type: UPDATE_CHILD, payload: childData });
 };
 
+export const REMOVE_CHILD = 'REMOVE_CHILD';
+export const removeChild = childID => dispatch => {
+  dispatch({ type: REMOVE_CHILD, payload: childID });
+};
