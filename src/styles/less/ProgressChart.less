@@ -5,22 +5,39 @@
 
 .ProgressBox{
     background-color:lightgray;
-    border-radius:10px;
+    border-radius:14px;
     height:55vh;
     margin:0 auto;
     color:white;
     font-size:15pt;
     @media @mobile {
-        height: 40vh;
-        width: 47vh;
+        height: 30vh;
+        padding: 1%;
+        width: 87vw;
+        max-width: 85vw;
     }
 
+    h4{
+        font-size:1.2rem;
+        text-align: center;
+    }
 
 }
 .ProgressContainer{
     width:45vw;
     margin:30px auto;
+    font-family:'Open Sans';
     @media @mobile {
-        margin: 35px;
+        width:95vw;
+        margin:0 auto;
+    }
+    h2{ 
+        font-weight:700;
+        text-transform: uppercase;
+        @media @mobile{
+            margin-left:5%;
+            margin-top:2%;
+            padding:1%;
+        }
     }
 }

@@ -1,0 +1,145 @@
+@import '~antd/dist/antd.less';
+@import '~antd/lib/style/themes/default.less';
+@import 'global.less';
+@import 'variables.less';
+
+.newChild{
+  width:80vw;
+  display:flex;
+  flex-wrap: wrap;
+  margin:0 auto;
+  padding: 2%;
+  max-width:95vw;
+  @media @mobile {
+    flex-direction: column;
+    padding:1%;
+    width:100vw;
+    max-width:100vw;
+  }
+  .ant-card {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color:@new-turquoise;
+    margin: 1% auto;
+    width: 30vw;
+    min-width: 20vw;
+    max-width: 40vw;
+    border-radius: 20px;
+    justify-content: center;
+    text-align: left;
+    @media @mobile {
+      width:85vw;
+      max-width:95vw;
+
+    }
+  .ant-card-body,
+  .ant-layout {
+    background: none;
+    padding:3% 2%;
+    width:95%;
+    font-family:'Open Sans';
+    color:@dark-gray;
+    }
+    h2 {
+      font-family: 'Bangers';
+      color:@header-nero;
+      font-weight: 400;
+      font-size: 2rem;
+      text-align:center;
+      -webkit-text-stroke: 0.3px white;
+      @media @mobile {
+        font-size: 1.4rem;
+        // text-shadow: -1px 1px 0 #fff;
+        // -webkit-text-stroke: 0.01px white;
+      }
+    }
+  }
+}
+
+.avContainer{
+ margin:2% 4%;
+ @media @mobile{
+   margin:0px;
+ }
+}
+.avBackground{
+  width:150px;
+  height:150px;
+  background-color:white;
+  border-radius:70%;
+  opacity:0.9;
+  padding:2%;
+  @media @mobile{
+    width:100px;
+    height:100px;
+  }
+}
+.statBox{
+  border-radius: 5px;
+  padding:2%;
+  margin:2%;
+  height:50px;
+  @media @mobile {
+    padding:3%;
+    display:flex;
+    flex-wrap:wrap;
+  }
+
+  p{
+    padding:4%;
+    font-weight:700;
+    text-align: center;
+  }
+  h4{
+    margin:-3%;
+    font-weight:500;
+    font-size:0.8rem;
+    text-align:center;
+  }
+}
+.statContainer{
+  display: flex;
+  flex-wrap: wrap;
+  width:45%;
+  margin:2%;
+  @media @mobile {
+    padding:3%;
+    display:flex;
+    flex-wrap:wrap;
+    margin:1%;
+    flex-direction:row;
+    
+  }
+
+}
+.statusContainer{
+  background-color:@light-gray;
+  border-radius:10px;
+  width:90%;
+  margin:2% auto;
+
+  h4{
+    text-align: center;
+    padding:1%;
+    font-weight:700;
+
+  }
+}
+.inner{
+  width:100%;
+}
+.innerChildContainer{
+  display:flex;
+  justify-content: center;
+
+}
+.statBoxBackground{
+  background-color:@light-gray;
+  border-radius:8px;
+  width:80px;
+  height:40px;
+  @media @mobile{
+    width:40px;
+  }
+}

@@ -9,7 +9,7 @@ export default function NewProgressCharts(props) {
       <div className="ProgressBoxContainer">
         <div className="ProgressBox">
           <br />
-          Progress Chart will be displayed here!
+          <h4>Progress Chart will be displayed here!</h4>
           <br />
           <br />
         </div>
