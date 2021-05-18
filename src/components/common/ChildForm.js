@@ -2,10 +2,32 @@ import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
 import { Button, Card, Form, Input, Modal } from 'antd';
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import {
+  DeleteOutlined,
+  EditOutlined,
+  ExclamationCircleOutlined,
+} from '@ant-design/icons';
 import ImagePicker from 'react-image-picker';
 
-import { updateChildData, getChild, getChildFormValues } from '../../api';
+import {
+  updateChildData,
+  deleteChild,
+  getChild,
+  getChildFormValues,
+} from '../../api';
+
+const { confirm } = Modal;
+
+function showConfirmDelete(onDelete) {
+  confirm({
+    title: 'Are you sure?',
+    icon: <ExclamationCircleOutlined />,
+    content: "Are you sure you want to delete this child's profile?",
+    onOk() {
+      onDelete();
+    },
+  });
+}
 
 function ChildForm(props) {
   const { authState } = useOktaAuth();
@@ -79,6 +101,20 @@ function ChildForm(props) {
       });
   };
 
+  const onDelete = () => {
+    deleteChild(authState, props.ID)
+      .then(res => {
+        props.removeChild(props.ID);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  const onDeleteBtnClick = () => {
+    showConfirmDelete(onDelete);
+  };
+
   return (
     <Card className="child-card-form" bordered={false}>
       <Modal
@@ -99,6 +135,7 @@ function ChildForm(props) {
           onPick={pickHandler}
         />
       </Modal>
+      <Modal></Modal>
       <div className="card-top">
         <div className="avatar-container">
           <img
@@ -113,7 +150,11 @@ function ChildForm(props) {
             onClick={onEditBtnClick}
           />
         </div>
-        <Button icon={<DeleteOutlined />} className="delete-btn">
+        <Button
+          icon={<DeleteOutlined />}
+          className="delete-btn"
+          onClick={onDeleteBtnClick}
+        >
           Delete
         </Button>
       </div>

@@ -9,8 +9,6 @@ import ChildForm from '../../common/ChildForm';
 const { Title } = Typography;
 
 const EditPlayers = props => {
-  const { push } = useHistory();
-
   return (
     <Layout className="parent-dashboard edit-players">
       <ParentNavTopBar />
