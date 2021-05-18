@@ -39,6 +39,7 @@ function RenderAccountSettings() {
 
   const onFinish = value => {
     setUnlock(!unlock);
+    setIsModalVisible(!isModalVisible);
   };
   let pin;
 
@@ -46,9 +47,6 @@ function RenderAccountSettings() {
     <div className="accountSettingsContainer">
       <Modal
         visible={isModalVisible}
-        okText="Unlock"
-        onOk={unlock ? null : handleOk}
-        okType="default"
         onCancel={handleCancel}
         afterClose={() => pin.clear()}
         centered="true"
@@ -66,7 +64,6 @@ function RenderAccountSettings() {
             ref={p => (pin = p)}
             initialValue=""
             secret={true}
-            onChange={(value, index) => {}}
             type="numeric"
             inputMode="number"
             focus={true}
