@@ -36,6 +36,7 @@ function ChildForm(props) {
   const [isModalOpen, setIsModalOpen] = useState(() => false);
   const [isSaveBtnDisabled, setIsSaveBtnDisabled] = useState(() => true);
   const [avatars, setAvatars] = useState(() => []);
+  const [isError, setIsError] = useState(() => false);
   const [selectedImage, setSelectedImage] = useState(() => {
     return {
       AvatarURL: props.AvatarURL,
@@ -45,8 +46,6 @@ function ChildForm(props) {
   });
 
   useEffect(() => {
-    console.log(props);
-
     // Fetch available avatars from API
     getChildFormValues(authState).then(data => {
       setAvatars(() => data[0]);
@@ -84,6 +83,10 @@ function ChildForm(props) {
       delete changes.PIN;
     }
 
+    if (isSaveBtnDisabled) {
+      return;
+    }
+
     updateChildData(
       authState,
       { ...values, AvatarID: selectedImage.ID },
@@ -98,6 +101,7 @@ function ChildForm(props) {
       })
       .catch(err => {
         console.log(err);
+        setIsError(() => true);
       });
   };
 
@@ -108,6 +112,7 @@ function ChildForm(props) {
       })
       .catch(err => {
         console.log(err);
+        setIsError(() => true);
       });
   };
 
@@ -135,7 +140,6 @@ function ChildForm(props) {
           onPick={pickHandler}
         />
       </Modal>
-      <Modal></Modal>
       <div className="card-top">
         <div className="avatar-container">
           <img
@@ -173,22 +177,60 @@ function ChildForm(props) {
           onFinish={onFinish}
         >
           <div className="col">
-            <Form.Item name="CharacterName" label="Character Name">
+            <Form.Item
+              name="CharacterName"
+              label="Character Name"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your character's name",
+                },
+              ]}
+              on
+            >
               <Input />
             </Form.Item>
-            <Form.Item name="PIN" label="PIN">
+            <Form.Item
+              name="PIN"
+              label="PIN"
+              rules={[
+                { required: true, message: 'Please input your PIN' },
+                {
+                  type: 'string',
+                  min: 4,
+                  max: 4,
+                  message: 'The input is not a valid PIN',
+                },
+              ]}
+            >
               <Input type="password" className="pin" />
             </Form.Item>
           </div>
           <div className="col">
-            <Form.Item name="Name" label="Name">
+            <Form.Item
+              name="Name"
+              label="Name"
+              rules={[{ required: true, message: 'Please input your name' }]}
+            >
               <Input />
             </Form.Item>
-            <Form.Item name="Email" label="Email Address">
+            <Form.Item
+              name="Email"
+              label="Email Address"
+              rules={[
+                { required: true, message: 'Please input your email address' },
+                { type: 'email', message: 'The input is not a valid email' },
+              ]}
+            >
               <Input />
             </Form.Item>
           </div>
           <div className="card-bottom">
+            {isError && (
+              <div>
+                <span>There has been an error. Please try again</span>
+              </div>
+            )}
             <Button
               htmlType="submit"
               className="save-btn"
