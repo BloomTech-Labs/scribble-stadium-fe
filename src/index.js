@@ -231,7 +231,7 @@ function App() {
             <Leaderboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <Route
+        <SecureRoute
           path="/child/audiobook"
           exact
           component={() => (
