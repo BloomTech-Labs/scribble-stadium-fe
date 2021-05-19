@@ -39,7 +39,6 @@ import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
 
-
 import { ParentFaq } from './components/pages/ParentFaq';
 
 import { NewParentDashboard } from './components/pages/NewParentDashboard';
@@ -125,7 +124,14 @@ function App() {
         />
 
         <SecureRoute
-          path="/child/gallery"
+          path="/gallery"
+          component={() => (
+            <GalleryContainer LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+
+        <SecureRoute
+          path="/gallery/:id"
           component={() => (
             <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}
