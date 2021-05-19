@@ -573,6 +573,7 @@ export {
   postNewChild,
   getChildFormValues,
   getChildTasks,
+  getChildCard,
   updateChildData,
   deleteChild,
   postNewWritingSub,
