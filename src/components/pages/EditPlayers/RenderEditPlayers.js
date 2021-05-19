@@ -1,9 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 
 import { Layout, Typography } from 'antd';
 
 import ParentNavTopBar from '../../common/ParentNavTopBar';
+import ParentDashboardBack from '../../common/ParentDashboardBack';
 import ChildForm from '../../common/ChildForm';
 
 const { Title } = Typography;
@@ -14,6 +14,7 @@ const EditPlayers = props => {
       <ParentNavTopBar />
       <Layout className="content">
         <div className="top-section">
+          <ParentDashboardBack />
           <Title className="title" level={2}>
             Edit Players
           </Title>
