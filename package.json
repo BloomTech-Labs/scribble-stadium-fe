@@ -56,9 +56,7 @@
     "storybook": "start-storybook",
     "deploy-storybook": "storybook-to-ghpages"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
+  
   "lint-staged": {
     "**/*.js": [
       "eslint --fix",
