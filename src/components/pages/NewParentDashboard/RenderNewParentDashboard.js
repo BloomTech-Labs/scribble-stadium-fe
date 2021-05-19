@@ -7,15 +7,19 @@ import NewProgressCharts from '../../common/NewProgressCharts';
 import NewChildCard from '../../common/NewChildCard';
 import AccountSettings from '../AccountSettings/AccountSettingsContainer';
 
-const RenderNewParentDashboard = props => {
+export default function RenderNewParentDashboard(props) {
   return (
-    <>
+    <div>
       <Layout className="newparent-dashboard">
         <ParentNavTopBar />
 
         <Layout>
           <div className="progress-container">
             <NewProgressCharts />
+          </div>
+          <div className="Players">
+            <h2>Players</h2>
+            <button>Add Player</button> <button>Edit Players</button>
           </div>
           <div className="child-container">
             <NewChildCard props={props} />
@@ -25,8 +29,6 @@ const RenderNewParentDashboard = props => {
           </div>
         </Layout>
       </Layout>
-    </>
+    </div>
   );
-};
-
-export default RenderNewParentDashboard;
+}
