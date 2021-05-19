@@ -40,7 +40,7 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { ParentDashboard } from './components/pages/ParentDashboard';
 
 import { ParentFaq } from './components/pages/ParentFaq';
-
+import { ParentContact } from './components/pages/ParentContactUs';
 import { NewParentDashboard } from './components/pages/NewParentDashboard';
 import { ParentDashFaq } from './components/pages/ParentDashFaq';
 import { SupportPage } from './components/pages/SupportPage';
@@ -189,6 +189,13 @@ function App() {
           exact
           component={() => (
             <ParentFaq LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
+        <SecureRoute
+          path="/parent/contact"
+          exact
+          component={() => (
+            <ParentContact LoadingComponent={ParentLoadingComponent} />
           )}
         />
 
