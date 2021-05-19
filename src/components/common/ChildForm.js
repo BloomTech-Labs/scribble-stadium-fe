@@ -49,8 +49,6 @@ function ChildForm(props) {
     // Fetch available avatars from API
     getChildFormValues(authState).then(data => {
       setAvatars(() => data[0]);
-
-      console.log(data[0]);
     });
   }, [authState]);
 
