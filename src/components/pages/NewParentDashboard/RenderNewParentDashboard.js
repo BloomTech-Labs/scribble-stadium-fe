@@ -5,6 +5,7 @@ import { PlusCircleFilled } from '@ant-design/icons';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import NewProgressCharts from '../../common/NewProgressCharts';
 import NewChildCard from '../../common/NewChildCard';
+//import RenderEditPlayers from '../../pages/EditPlayers/RenderEditPlayers';
 import AccountSettings from '../AccountSettings/AccountSettingsContainer';
 
 export default function RenderNewParentDashboard(props) {
@@ -19,7 +20,8 @@ export default function RenderNewParentDashboard(props) {
           </div>
           <div className="Players">
             <h2>Players</h2>
-            <button>Add Player</button> <button>Edit Players</button>
+            <button>Add Player</button>{' '}
+            <button /*onClick={RenderEditPlayers}*/>Edit Players</button>
           </div>
           <div className="child-container">
             <NewChildCard props={props} />
