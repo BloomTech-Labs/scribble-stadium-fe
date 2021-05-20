@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
-import ParentNavSider from '../../common/ParentNavSider';
+import ParentNavTopBar from '../../common/ParentNavTopBar';
+import ParentDashboardBack from '../../common/ParentDashboardBack';
+import ChildForm from '../../common/ChildForm';
 
 import { useHistory } from 'react-router-dom';
 import { getChildFormValues } from '../../../api';
@@ -61,103 +63,18 @@ const RenderAddChild = props => {
   };
 
   return (
-    <Layout className="add-child">
-      <Modal
-        visible={modalIsOpen}
-        onCancel={() => setModalIsOpen(false)}
-        onOk={() => setModalIsOpen(false)}
-        cancelButtonProps={{ style: { display: 'none' } }}
-        className="avatar-select-modal"
-        width="90%"
-      >
-        <ImagePicker
-          images={avatars.map(img => ({ src: img.AvatarURL, value: img.ID }))}
-          onPick={pickHandler}
-        />
-      </Modal>
-      <ParentNavSider selected="dashboard" />
-
-      <Layout className="child-content">
-        <Title className="title" style={{ color: '#0267C1' }} level={1}>
-          Settings
-        </Title>
-
-        <Form form={form} name="add-child" onFinish={onFinish}>
-          <div className="form-inline">
-            <div className="avatar-select">
-              <Button
-                icon={selectedImage ? null : <PlusOutlined />}
-                onClick={() => setModalIsOpen(true)}
-              >
-                {selectedImage ? (
-                  <img src={selectedImage.src} alt="Selected avatar" />
-                ) : (
-                  'Select Avatar'
-                )}
-              </Button>
-            </div>
-            <div className="form-elements">
-              <Form.Item
-                name="Name"
-                rules={[
-                  { required: true, message: 'Please input your Username!' },
-                ]}
-              >
-                <Input placeholder="User Name" />
-              </Form.Item>
-              <Form.Item name="GradeLevelID" rules={[{ required: true }]}>
-                <Select placeholder="Select a grade:" allowClear>
-                  {gradeLevels.map(g => {
-                    return (
-                      <Option key={g.ID} value={g.ID}>
-                        {g.GradeLevel}
-                      </Option>
-                    );
-                  })}
-                </Select>
-              </Form.Item>
-            </div>
-          </div>
-          <Form.Item
-            name="PIN"
-            rules={[
-              { len: 4, message: 'PIN must be 4 digits!' },
-              { required: true },
-            ]}
-          >
-            <Input placeholder="Set PIN" autoComplete="off" />
-          </Form.Item>
-          <Form.Item
-            name="ConfirmPIN"
-            rules={[
-              { required: true, message: 'Please confirm your PIN!' },
-              ({ getFieldValue }) => ({
-                validator(rule, value) {
-                  if (!value || getFieldValue('PIN') === value)
-                    return Promise.resolve();
-                  return Promise.reject('The two PINs must match!');
-                },
-              }),
-            ]}
-          >
-            <Input placeholder="Confirm PIN" autoComplete="off" />
-          </Form.Item>
-          <div className="form-inline">
-            <Form.Item
-              initialValue={false}
-              name="IsDyslexic"
-              label="Dyslexia"
-              valuePropName="checked"
-            >
-              <Switch checkedChildren="Yes" unCheckedChildren="No" />
-            </Form.Item>
-            <Form.Item>
-              <Button type="primary" size="large" htmlType="submit">
-                Add a Child
-              </Button>
-            </Form.Item>
-          </div>
-        </Form>
+    <Layout className="parent-dashboard add-child">
+      <ParentNavTopBar />
+      <Layout className="content">
+        <div className="top-section">
+          <ParentDashboardBack />
+          <Title className="title" level={2}>
+            Edit Players
+          </Title>
+        </div>
+        <Layout className="children">
+          <ChildForm {...props} newChild={true} />
+        </Layout>
       </Layout>
     </Layout>
   );
