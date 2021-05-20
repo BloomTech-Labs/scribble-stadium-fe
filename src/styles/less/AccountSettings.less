@@ -12,19 +12,51 @@
   gap: 10px;
 }
 .editText {
-    padding: 20px;
-    grid-column-start: 5;
-    grid-column-end: 8;
+  padding: 20px;
+  grid-column-start: 5;
+  grid-column-end: 9;
+  font-size: 1.8rem;
+  @media @mobile {
+    grid-column-start: 1;
+    grid-column-end: 14;
+    font-size: 1.6rem;
+    margin-bottom: -50px;
+  }
 }
 .unlockButton {
-    padding: 20px;
-    grid-column-start: 9;
-    grid-column-end: 11;
+  padding: 20px;
+  grid-column-start: 9;
+  grid-column-end: 11;
+  @media @tablet {
+  }
+  .ant-btn {
+    background-color: #8ce2e0;
+    @media @mobile {
+      width: 50vw;
+    }
+  }
+  @media @mobile {
+    grid-column-start: 1;
+    grid-column-end: 9;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
 }
+
 .lockButton {
-    padding: 20px;
-    grid-column-start: 10;
-    grid-column-end: 11;
+  padding: 20px;
+  grid-column-start: 9;
+  grid-column-end: 11;
+  .ant-btn {
+    background-color: #8ce2e0;
+  @media @mobile {
+      width: 50vw;
+    }
+    grid-column-start: 1;
+    grid-column-end: 9;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
 }
 .editFormsAndButtonsContainer {
   width: 100vw;
@@ -35,22 +67,46 @@
   align-items: center;
 }
 .lockUnlockButton {
-  background-color: #8ce2e0;
-  width: 10vw;
+  width: 13vw;
   border-radius: 20px;
+  @media @mobile {
+    border: 4px solid red;
+    grid-column-start: 1;
+    grid-column-end: 9;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
 }
-.ant-modal-footer {
-    text-align: center;
-    .ant-btn {
-        width: 10vw;
-    }
-    .ant-btn-default {
-        background-color: #8ce2e0;
-    }
-}
-.settings-buttons-cotainer {
-  border: 1px solid red;
-}
-  
 
-  
+.ant-modal-body {
+  @media @mobile {
+    width: 80vw;
+  }
+}
+.ant-modal-content {
+  @media @mobile {
+    width: 80vw;
+    margin-left: -100px;
+  }
+}
+
+.ant-modal-footer {
+  text-align: center;
+  .ant-btn-primary{
+    display: none;
+  }
+  @media @mobile {
+    width: 80vw;
+  }
+  .ant-btn {
+    width: 10vw;
+    margin-right: -150px;
+    @media @mobile {
+      width: 25vw;
+    }
+  }
+  .ant-btn-default {
+    background-color: #8ce2e0;
+  }
+}
+

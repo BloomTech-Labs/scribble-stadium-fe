@@ -37,8 +37,9 @@ import { LandingPage } from './components/pages/LandingPage';
 import { MissionControl } from './components/pages/MissionControl';
 import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
-import { ParentFaq } from './components/pages/ParentFaq';
 
+import { ParentFaq } from './components/pages/ParentFaq';
+import { ParentContact } from './components/pages/ParentContact';
 import { NewParentDashboard } from './components/pages/NewParentDashboard';
 import { ParentDashFaq } from './components/pages/ParentDashFaq';
 import { SupportPage } from './components/pages/SupportPage';
@@ -49,7 +50,6 @@ import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 import { Leaderboard } from './components/pages/Leaderboard';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
-
 
 // Gameification Components
 import { JoinTheSquad } from './components/pages/JoinTheSquad';
@@ -106,7 +106,9 @@ function App() {
         <SecureRoute
           path="/"
           exact
-          component={() => <NewParentDashboard LoadingComponent={ParentLoadingComponent} />}
+          component={() => (
+            <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
+          )}
         />
         <SecureRoute
           path="/child/story"
@@ -194,6 +196,13 @@ function App() {
           exact
           component={() => (
             <ParentFaq LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
+        <SecureRoute
+          path="/parent/contact"
+          exact
+          component={() => (
+            <ParentContact LoadingComponent={ParentLoadingComponent} />
           )}
         />
 
