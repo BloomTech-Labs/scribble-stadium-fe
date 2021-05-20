@@ -37,8 +37,9 @@ import { LandingPage } from './components/pages/LandingPage';
 import { MissionControl } from './components/pages/MissionControl';
 import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
-import { ParentFaq } from './components/pages/ParentFaq';
 
+import { ParentFaq } from './components/pages/ParentFaq';
+import { ParentContact } from './components/pages/ParentContact';
 import { NewParentDashboard } from './components/pages/NewParentDashboard';
 import { ParentDashFaq } from './components/pages/ParentDashFaq';
 import { SupportPage } from './components/pages/SupportPage';
@@ -195,6 +196,13 @@ function App() {
           exact
           component={() => (
             <ParentFaq LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
+        <SecureRoute
+          path="/parent/contact"
+          exact
+          component={() => (
+            <ParentContact LoadingComponent={ParentLoadingComponent} />
           )}
         />
 
