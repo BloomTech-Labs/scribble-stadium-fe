@@ -45,7 +45,7 @@ const ParentNavTopBar = props => {
         </span>
         <Dropdown
           overlay={<ParentMenu clearUsers={props.clearUsers} />}
-          trigger={['click', 'hover']}
+          trigger={['hover']}
           placement="bottomCenter"
         >
           <a
