@@ -66,7 +66,7 @@ const ParentContactContainer = () => {
         <div className="form-main">
           <Row className="card">
             <form className="contact-form-container" onSubmit={handleSubmit}>
-              <Row className="form-input">
+              <Row className="form-inputs">
                 <Col>
                   <label for="name">Name</label>
                   <br />
@@ -74,7 +74,7 @@ const ParentContactContainer = () => {
                     type="text"
                     name="name"
                     id="name"
-                    className="contact-form-inputs"
+                    className="contact-form-input"
                     value={name}
                     onChange={e => setName(e.target.value)}
                   />
@@ -86,7 +86,7 @@ const ParentContactContainer = () => {
                     type="email"
                     name="email"
                     id="email"
-                    className="contact-form-inputs"
+                    className="contact-form-input"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                   />
@@ -108,7 +108,7 @@ const ParentContactContainer = () => {
                 <input
                   type="submit"
                   value="SEND MESSAGE"
-                  className="contact-form-submit-button"
+                  className="contact-form-submit-btn"
                 />
               </Row>
             </form>
