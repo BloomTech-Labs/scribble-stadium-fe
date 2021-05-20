@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const GamemodeButton = props => {
-  return (
-    <>
-      <div>
-        <button>Read</button>
-      </div>
-      <div>
-        <button>Write</button>
-      </div>
-      <div>
-        <button>Draw</button>
-      </div>
-    </>
-  );
-};
-
-export default GamemodeButton;
+export default class GamemodeButton extends Component {
+  render() {
+    return (
+      <>
+        <div>
+          <button>Read</button>
+        </div>
+        <div>
+          <button>Write</button>
+        </div>
+        <div>
+          <button>Draw</button>
+        </div>
+      </>
+    );
+  }
+}

@@ -1,26 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import history from './history';
-import { Link, Router, Switch } from 'react-router-dom';
+import { Link, Router, Route, Switch } from 'react-router-dom';
 import GamemodeButton from './GamemodeButton';
+import { render } from 'react-dom';
 
-const Gamemode = props => {
-  const singlePlay = () => {
-    console.log(history);
-  };
+const singlePlay = () => {
+  history.push('/gamemode/single');
 
-  return (
-    <Switch>
-      <Router history={history}>
-        <Link path="/gamemode/single">
-          <button onClick={() => history.push('/gamemode/single')}>
-            {' '}
-            Single Player
-          </button>
-        </Link>
-      </Router>
-    </Switch>
-  );
+  console.log(history);
 };
 
+export default class Gamemode extends Component {
+  render() {
+    return (
+      <Switch>
+        <Router history={history}>
+          <Link to="/gamemode/single">
+            <button onClick={singlePlay}> Single Player</button>
+            <Route path="/gamemode/single" component={GamemodeButton} />
+          </Link>
+        </Router>
+      </Switch>
+    );
+  }
+}
+
 // export default connect()(Gamemode);
-export default Gamemode;

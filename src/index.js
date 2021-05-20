@@ -105,7 +105,7 @@ function App() {
       <DevModeHeader component={DevModeHeader} />
       <Switch>
         <Route path="/gamemode" component={Gamemode} />
-        <Route exact path="/gamemode/single" component={GamemodeButton} />
+        <Route path="/gamemode/single" component={GamemodeButton} />
         <Route path="/login" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
