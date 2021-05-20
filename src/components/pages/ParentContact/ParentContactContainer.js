@@ -98,7 +98,7 @@ const ParentContactContainer = () => {
                 <textarea
                   id="message"
                   name="message"
-                  className="contact-form-message"
+                  className="contact-form-textarea"
                   placeholder="Write your message here"
                   value={message}
                   onChange={e => setMessage(e.target.value)}
