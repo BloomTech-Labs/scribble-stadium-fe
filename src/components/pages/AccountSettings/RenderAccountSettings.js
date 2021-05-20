@@ -114,6 +114,10 @@ function RenderAccountSettings() {
         style={unlock ? { opacity: '.3' } : null}
       >
         <AccountSettingsForm disabled={unlock} />
+        <div classname="settings-buttons-cotainer">
+          <Button disabled={unlock}>Edit Credit Card Info</Button>
+          <Button disabled={unlock}>Edit Subscription Plan</Button>
+        </div>
       </div>
     </div>
   );
