@@ -1,24 +1,54 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 // import history from './history';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Link, Route } from 'react-router-dom';
 import GamemodeButton from './GamemodeButton';
+
 import { render } from 'react-dom';
 
 const Gamemode = () => {
   const { push, location } = useHistory();
+  const [sP, setsP] = useState(false);
   //   history.push('/gamemode/single');
+  const ff = () => {
+    if (location.pathname === '/gamemode/single' && sP === true) {
+      push('/gamemode');
+      setsP(false);
+    } else if (location.pathname === '/gamemode' && sP === false) {
+      push('/gamemode/single');
+      setsP(true);
+    }
+  };
+
+  //   useEffect(() => {
+
+  //     ff();
+  //   }, []);
+
   const singled = () => {
-    push('/gamemode/single');
+    if (location.pathname === '/gamemode/single' && sP === true) {
+      push('/gamemode');
+      setsP(false);
+    } else if (location.pathname === '/gamemode' && sP === false) {
+      push('/gamemode/single');
+      setsP(true);
+    }
   };
 
   //   console.log(history);
   return (
-    <Link to="/gamemode/single">
-      <button onClick={singled}> Single Player</button>
-      <Route path="/gamemode/single" component={GamemodeButton} />
-    </Link>
+    (sP && (
+      <Link to="/gamemode">
+        <button onClick={singled}> Single Player</button>
+        <Route path="/gamemode" component={GamemodeButton} />
+      </Link>
+    )) || (
+      <Link to="/gamemode/single">
+        <button onClick={singled}> Single Player</button>
+        <Route path="/gamemode/single" component={GamemodeButton} />
+      </Link>
+    )
   );
 };
 export default connect()(Gamemode);
