@@ -4,7 +4,6 @@ import { PlusCircleFilled } from '@ant-design/icons';
 import { Card, Button, Layout } from 'antd';
 
 import { connect } from 'react-redux';
-
 import { getLeaderboard } from '../../api';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 
