@@ -10,7 +10,7 @@ const { Title } = Typography;
 
 const EditPlayers = props => {
   return (
-    <Layout className="parent-dashboard edit-players">
+    <Layout className="edit-players">
       <ParentNavTopBar />
       <Layout className="content">
         <div className="top-section">
