@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { PlusCircleFilled } from '@ant-design/icons';
+import { PlusCircleOutlined, EditOutlined } from '@ant-design/icons';
 import { Card, Button, Layout } from 'antd';
 
 import { connect } from 'react-redux';
@@ -13,6 +13,17 @@ function NewChildCard(props) {
   const MockDataTotalPoints = 309;
   return (
     <div>
+      <div className="Players">
+        <h2>Players</h2>
+        <button>
+          <PlusCircleOutlined /> Add Player
+        </button>
+        {props.props.parent.children ? (
+          <button>
+            <EditOutlined /> Edit Players
+          </button>
+        ) : null}
+      </div>
       <div className="newChild">
         {props.props.parent.children.map((child, i) => (
           <Card key={i}>

@@ -9,7 +9,6 @@ import NewChildCard from '../../common/NewChildCard';
 import AccountSettings from '../AccountSettings/AccountSettingsContainer';
 import { connect } from 'react-redux';
 import { setParent } from '../../../state/actions/parentActions';
-import { PlusCircleOutlined, EditOutlined } from '@ant-design/icons';
 
 const RenderNewParentDashboard = props => {
   const { authState } = useOktaAuth();
@@ -23,7 +22,6 @@ const RenderNewParentDashboard = props => {
       });
     });
   }, [setParent, authState]);
-
   return (
     <div>
       <Layout className="newparent-dashboard">
@@ -32,15 +30,6 @@ const RenderNewParentDashboard = props => {
         <Layout>
           <div className="progress-container">
             <NewProgressCharts />
-          </div>
-          <div className="Players">
-            <h2>Players</h2>
-            <button>
-              <PlusCircleOutlined /> Add Player
-            </button>
-            <button /*onClick={RenderEditPlayers}*/>
-              <EditOutlined /> Edit Players
-            </button>
           </div>
           <div className="child-container">
             <NewChildCard props={props} />
