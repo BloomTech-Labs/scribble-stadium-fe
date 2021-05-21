@@ -8,6 +8,17 @@ Story Squad turns “reluctant readers” into authors and illustrators through 
 <!-- Todo! Update this -->
 You can find the deployed project at: [AWS Amplify](https://a.storysquad.dev/)
 
+## Setting up the App
+Front End:
+- npm install
+- add a new .env file with the info provided by your TPL
+- npm start
+- -open localhost:3000
+Back End
+- npm install
+- add a new .env file with the info provided by your TPL (if you are using something other than Docker (like Postgres), add it to your backend .env file instead of the docker url
+- npm start
+
 ## Current State Of The App
 <!-- Todo! Update this -->
 Work done by Labs32: https://docs.google.com/document/d/1aSt8nd0Mg_2lcXzV9of9Bkd4DsLA-KMbRKVbyIDBnEc/edit
