@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
 import { Button, Card, Form, Input, Modal } from 'antd';
+import Parent_Avatar from '../../assets/icons/parent_avatar.svg';
+
 import {
   DeleteOutlined,
   EditOutlined,
@@ -12,6 +14,7 @@ import ImagePicker from 'react-image-picker';
 import {
   updateChildData,
   deleteChild,
+  postNewChild,
   getChild,
   getChildFormValues,
 } from '../../api';
@@ -76,31 +79,64 @@ function ChildForm(props) {
   const onFinish = values => {
     const changes = values;
 
-    // IF the PIN has not changed, do not reset it.
-    if (changes.PIN === '0000') {
-      delete changes.PIN;
-    }
-
-    if (isSaveBtnDisabled) {
-      return;
-    }
-
-    updateChildData(
-      authState,
-      { ...values, AvatarID: selectedImage.ID },
-      props.ID
-    )
-      .then(res => {
-        setIsSaveBtnDisabled(() => true);
-
-        getChild(authState, props.ID).then(child => {
-          props.updateChild({ ...child });
-        });
+    if (props.newChild) {
+      postNewChild(authState, {
+        ...values,
+        AvatarID: selectedImage.ID,
+        ParentID: props.parent.id,
+        GradeLevelID: 1,
+        IsDyslexic: false,
+        // CohortID should be updated to latest Cohort, eventually
+        CohortID: 1,
+        Total_Points: 0,
+        Wins: 0,
+        Losses: 0,
+        Ballots: {},
+        VotesRemaining: 10,
+        Achievements: {},
+        Streaks: 0,
       })
-      .catch(err => {
-        console.log(err);
-        setIsError(() => true);
-      });
+        .then(res => {
+          form.resetFields();
+          setSelectedImage(() => {
+            return {
+              AvatarURL: null,
+            };
+          });
+        })
+        .catch(err => {
+          console.log(err.response);
+          setIsError(() => true);
+        });
+    } else {
+      // newChild prop not provided--this means that we are updating a child instead
+
+      if (isSaveBtnDisabled) {
+        return;
+      }
+
+      // IF the PIN has not changed, do not reset it.
+      if (changes.PIN === '0000') {
+        delete changes.PIN;
+      }
+
+      updateChildData(
+        authState,
+        { ...values, AvatarID: selectedImage.ID },
+        props.ID
+      )
+        .then(res => {
+          setIsSaveBtnDisabled(() => true);
+
+          getChild(authState, props.ID).then(child => {
+            props.updateChild({ ...child });
+          });
+        })
+        .catch(err => {
+          console.log(err);
+          setIsError(() => true);
+        });
+    }
   };
 
   const onDelete = () => {
@@ -141,7 +177,7 @@ function ChildForm(props) {
       <div className="card-top">
         <div className="avatar-container">
           <img
-            src={selectedImage.AvatarURL}
+            src={selectedImage.AvatarURL || Parent_Avatar}
             alt="avatar"
             className="avatar-img"
           />
@@ -152,21 +188,23 @@ function ChildForm(props) {
             onClick={onEditBtnClick}
           />
         </div>
-        <Button
-          icon={<DeleteOutlined />}
-          className="delete-btn"
-          onClick={onDeleteBtnClick}
-        >
-          Delete
-        </Button>
+        {!props.newChild && (
+          <Button
+            icon={<DeleteOutlined />}
+            className="delete-btn"
+            onClick={onDeleteBtnClick}
+          >
+            Delete
+          </Button>
+        )}
       </div>
       <div className="card-center">
         <Form
           form={form}
           initialValues={{
-            Name: props.Name,
-            CharacterName: props.CharacterName,
-            Email: props.Email,
+            Name: props.Name || '',
+            CharacterName: props.CharacterName || '',
+            Email: props.Email || '',
             PIN: '0000',
           }}
           name="control-hooks"
@@ -234,7 +272,7 @@ function ChildForm(props) {
               className="save-btn"
               disabled={isSaveBtnDisabled}
             >
-              Save Changes
+              {props.newChild ? 'Add Player' : 'Save Changes'}
             </Button>
           </div>
         </Form>
