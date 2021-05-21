@@ -9,7 +9,11 @@ import { render } from 'react-dom';
 
 const GamemodeButton = ({ ...props }) => {
   const { push, location } = useHistory();
-  const [rwd, setsRwd] = useState({ read: false, write: false, draw: false });
+  const [rwd, setsRwd] = useState({
+    read: false,
+    write: false,
+    draw: false,
+  });
   //   history.push('/gamemode/single');
   const propInit = () => {
     props.child.gamemode = {
@@ -24,24 +28,35 @@ const GamemodeButton = ({ ...props }) => {
     propInit();
   }, []);
 
+  const sread = () => {
+    setsRwd({ read: true, write: false, draw: false });
+    singled();
+  };
   const singled = () => {
     if (location.pathname === '/gamemode/single') {
       props.child.gamemode = {
-        mode: 'select',
-        read: null,
-        write: null,
-        draw: null,
+        mode: 'single',
+        read: rwd.read,
+        write: rwd.write,
+        draw: rwd.draw,
       };
-
+      push('/gamemode/single');
       console.log('nal', props.child);
-    } else {
+    } else if (
+      (location.pathname === '/gamemode' && setsRwd.read == true) ||
+      setsRwd.write ||
+      setsRwd.draw
+    ) {
       props.child.gamemode = {
         mode: 'single',
-        read: false,
-        write: false,
-        draw: false,
+        read: rwd.read,
+        write: rwd.write,
+        draw: rwd.draw,
       };
+      push('/gamemode/single');
       console.log('nal else ', props.child);
+    } else {
+      push('gamemode/single');
     }
   };
 
@@ -51,7 +66,10 @@ const GamemodeButton = ({ ...props }) => {
   return (
     <>
       <div>
-        <button>Read</button>
+        <Link to="/gamemode/single">
+          <button onClick={sread}>Read</button>
+          <Route path="/gamemode/single" component={GamemodeButton} />
+        </Link>
       </div>
       <div>
         <button>Write</button>
