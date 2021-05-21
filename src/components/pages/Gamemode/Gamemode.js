@@ -44,7 +44,7 @@ const Gamemode = ({ ...props }) => {
         write: null,
         draw: null,
       };
-      console.log(props.child);
+      console.log('nal elif', props.child);
       setsP(true);
     }
   };
@@ -53,14 +53,17 @@ const Gamemode = ({ ...props }) => {
   return (
     (sP && (
       <Link to="/gamemode">
+        <button onClick={singled}>Goback to Menu</button>
         <Route path="/gamemode" component={GamemodeButton} />
-        <button onClick={singled}> Single Player</button>
       </Link>
     )) || (
-      <Link to="/gamemode/single">
-        <button onClick={singled}> Single Player</button>
-        <Route path="/gamemode/single" component={GamemodeButton} />
-      </Link>
+      <div>
+        <button>Multiplayer</button>
+        <Link to="/gamemode/single">
+          <button onClick={singled}>Single Player</button>
+          <Route path="/gamemode/single" component={GamemodeButton} />
+        </Link>
+      </div>
     )
   );
 };
