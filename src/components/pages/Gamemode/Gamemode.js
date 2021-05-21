@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import history from './history';
 import { connect } from 'react-redux';
+import { tasks } from '../../../state/actions';
 import { useHistory } from 'react-router-dom';
 import { Link, Route } from 'react-router-dom';
 import GamemodeButton from './GamemodeButton';
@@ -30,6 +31,7 @@ const Gamemode = () => {
     if (location.pathname === '/gamemode/single' && sP === true) {
       push('/gamemode');
       setsP(false);
+      console.log('nal', this.state.hasRead);
     } else if (location.pathname === '/gamemode' && sP === false) {
       push('/gamemode/single');
       setsP(true);
@@ -51,5 +53,12 @@ const Gamemode = () => {
     )
   );
 };
-export default connect()(Gamemode);
+export default connect(
+  state => ({
+    hasRead: state.tasks.hasRead,
+  }),
+  {
+    setTasks: tasks.setTasks.hasRead,
+  }
+)(Gamemode);
 // export default connect()(Gamemode);
