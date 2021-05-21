@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Menu, Dropdown } from 'antd';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
 import { global } from '../../state/actions';
@@ -40,12 +40,20 @@ const ParentNavTopBar = props => {
         </Title>
       </a>
       <div style={{ display: 'flex', alignItems: 'center' }}>
+        <Link
+          to={{
+            pathname: '/parent/faq',
+          }}
+        >
+          <span className="welcome-back-msg">FAQ</span>
+        </Link>
+        <span className="welcome-back-msg">Contact Us |</span>
         <span className="welcome-back-msg">
           {props.parent && `Welcome back, ${props.parent.name}`}
         </span>
         <Dropdown
           overlay={<ParentMenu clearUsers={props.clearUsers} />}
-          trigger={['click', 'hover']}
+          trigger={['hover']}
           placement="bottomCenter"
         >
           <a
