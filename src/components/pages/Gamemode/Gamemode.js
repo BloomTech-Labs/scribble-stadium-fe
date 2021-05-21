@@ -31,8 +31,13 @@ const Gamemode = ({ ...props }) => {
 
   //   console.log(history);
   const clicker = () => {
-    props.child.gamemode = 'single';
-    console.log(props.child.gamemode);
+    props.child.gamemode = {
+      mode: 'single',
+      read: null,
+      write: null,
+      draw: null,
+    };
+    console.log(props.child);
   };
   return (
     <div>
