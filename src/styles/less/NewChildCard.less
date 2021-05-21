@@ -5,20 +5,10 @@
 
 .Players {
   display: flex;
-  flex-wrap: wrap;
+  width: 68vw;
+  margin: 0 auto;
+  
 
-  h2 {
-    font-weight: 700;
-    text-transform: uppercase;
-    width: 68vw;
-    font-family: 'Open Sans';
-
-    @media @mobile {
-      margin-left: 5%;
-      margin-top: 2%;
-      padding: 1%;
-    }
-  }
 
   button {
     background-color: #8CE2E0;
@@ -37,6 +27,20 @@
   }
 }
 
+.playheading {
+  flex-grow: 4;
+   h2 {
+     font-weight: 700;
+     text-transform: uppercase;
+     font-family: 'Open Sans';
+
+     @media @mobile {
+       margin-left: 5%;
+       margin-top: 2%;
+       padding: 1%;
+     }
+   }
+}
 .newChild{
   width:80vw;
   display:flex;
@@ -71,7 +75,7 @@
   .ant-layout {
     background: none;
     padding:3% 2%;
-    width:95%;
+    width:100%;
     font-family:'Open Sans';
     color:@dark-gray;
     }
@@ -176,4 +180,7 @@
   @media @mobile{
     width:40px;
   }
+}
+.addPlayerButton{
+  margin-right:2%;
 }

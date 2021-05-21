@@ -14,12 +14,14 @@ function NewChildCard(props) {
   return (
     <div>
       <div className="Players">
-        <h2>Players</h2>
-        <button>
+        <div className="playheading">
+          <h2>Players</h2>
+        </div>
+        <button className="addPlayerButton">
           <PlusCircleOutlined /> Add Player
         </button>
         {props.props.parent.children ? (
-          <button>
+          <button className="editPlayerButton">
             <EditOutlined /> Edit Players
           </button>
         ) : null}

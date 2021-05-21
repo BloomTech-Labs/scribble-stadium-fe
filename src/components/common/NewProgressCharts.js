@@ -3,7 +3,7 @@ import React from 'react';
 export default function NewProgressCharts(props) {
   return (
     <div className="ProgressContainer">
-      <div>
+      <div className="ProgressHeader">
         <h2>Progress Charts</h2>
       </div>
       <div className="ProgressBoxContainer">
