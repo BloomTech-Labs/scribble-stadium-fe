@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { PlusCircleFilled } from '@ant-design/icons';
 import { Card, Button, Layout } from 'antd';
-
 import { connect } from 'react-redux';
-import cat from '../../assets/images/cat.svg';
 import { getLeaderboard } from '../../api';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
-import { OmitProps } from 'antd/lib/transfer/ListBody';
+import cat from '../../assets/images/cat.svg';
 
 function NewChildCard(props) {
   const MockDataWins = 5;
@@ -16,16 +14,14 @@ function NewChildCard(props) {
   const noChildren = false;
   if (props.props.parent.children.length < 1) {
     noChildren = true;
-    console.log('Children', noChildren);
   }
-  const emptyChildren = [];
   return (
     <div>
       <div className="newChild">
         {noChildren === true ? (
           <div className="noPlayers">
             <p>No Players Added Yet.</p>
-            <img src={cat} />
+            <img src={cat} alt="No Players Added Yet!"/>
           </div>
         ) : (
           props.props.parent.children.map((child, i) => (
@@ -86,9 +82,3 @@ export default connect(
   }),
   {}
 )(NewChildCard);
-
-// Players container will hold kid cards
-// players container will also house the add player(put) and edit player
-// Avatar tuated to the left bottom of the card
-// from top to bottom "status: matchup, mission accomplished, etc" , week# , total points, wins, losses
-// AvatarURL, CohortID, GradeLevel, ID, IsDyslexic, Name, PIN, ParentID, type: "Child" is what comes from the Props/Parent API call
