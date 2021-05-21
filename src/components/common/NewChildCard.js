@@ -5,7 +5,6 @@ import { Card, Button, Layout } from 'antd';
 import { connect } from 'react-redux';
 import { getLeaderboard } from '../../api';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
-
 import cat from '../../assets/images/cat.svg';
 
 function NewChildCard(props) {
@@ -22,7 +21,7 @@ function NewChildCard(props) {
         {noChildren === true ? (
           <div className="noPlayers">
             <p>No Players Added Yet.</p>
-            <img src={cat} />
+            <img src={cat} alt="No Players Added Yet!" />
           </div>
         ) : (
           props.props.parent.children.map((child, i) => (
