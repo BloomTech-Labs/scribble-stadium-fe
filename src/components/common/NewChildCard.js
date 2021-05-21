@@ -4,7 +4,7 @@ import { PlusCircleFilled } from '@ant-design/icons';
 import { Card, Button, Layout } from 'antd';
 
 import { connect } from 'react-redux';
-
+import cat from '../../assets/images/cat.svg';
 import { getLeaderboard } from '../../api';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 
@@ -14,6 +14,7 @@ function NewChildCard(props) {
   const MockDataTotalPoints = 8675309;
   return (
     <div>
+      <img src={cat} alt="Freaking cat dude" />
       <div className="newChild">
         {props.props.parent.children.map((child, i) => (
           <Card key={i}>
