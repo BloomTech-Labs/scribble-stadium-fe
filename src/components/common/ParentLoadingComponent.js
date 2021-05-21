@@ -3,7 +3,6 @@ import { Layout, Spin } from 'antd';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-
 function ParentLoadingComponent(props) {
   const { message } = props;
 

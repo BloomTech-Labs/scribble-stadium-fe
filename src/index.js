@@ -67,6 +67,7 @@ import Thurs from './components/pages/AdminDashboard/DevTools/DayComponents/06_T
 import Fri from './components/pages/AdminDashboard/DevTools/DayComponents/07_Fri';
 import DevModeHeader from './components/pages/AdminDashboard/devModeHeader';
 import GalleryContainer from './components/pages/Gallery/GalleryContainer';
+import { AudioBook } from './components/pages/AudioBook';
 
 // import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
 
@@ -249,6 +250,13 @@ function App() {
           exact
           component={() => (
             <Leaderboard LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <SecureRoute
+          path="/child/audiobook"
+          exact
+          component={() => (
+            <AudioBook LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <Route exact path="/moderation" component={ModerationTest} />
