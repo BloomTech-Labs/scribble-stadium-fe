@@ -63,13 +63,13 @@ const RenderAddChild = props => {
   };
 
   return (
-    <Layout className="parent-dashboard add-child">
+    <Layout className="add-child">
       <ParentNavTopBar />
       <Layout className="content">
         <div className="top-section">
           <ParentDashboardBack />
           <Title className="title" level={2}>
-            Edit Players
+            Add Player
           </Title>
         </div>
         <Layout className="children">
