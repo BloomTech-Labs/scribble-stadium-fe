@@ -4,7 +4,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import bc from 'bcryptjs';
 import { getProfileData } from '../../../api';
 import PinInput from 'react-pin-input';
-import AccountSettingsForm from '../../common/AccountSettingsForm.js';
+import AccountSettingsForm from '../AccountSettingsForm/AccountSettingsForm';
 
 function RenderAccountSettings() {
   const { authState } = useOktaAuth();
