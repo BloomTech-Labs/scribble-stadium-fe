@@ -83,30 +83,36 @@ function RenderAccountSettings() {
           <p style={error ? null : { display: 'none' }}>Incorrect PIN!</p>
         </Form>
       </Modal>
+
       <div className="textAndButtonContainer">
         <div className="editText">
           <h3>Edit Account Settings</h3>
         </div>
-        <div
-          className="unlockButton"
-          style={unlock ? null : { display: 'none' }}
-        >
-          <Button
-            className="lockUnlockButton"
-            onClick={() => setIsModalVisible(true)}
-            value="UNLOCK"
+        <div className="buttonArea">
+          <div
+            className="unlockButton"
+            style={unlock ? null : { display: 'none' }}
           >
-            UNLOCK WITH PIN
-          </Button>
-        </div>
+            <button
+              className="lockUnlockButton"
+              onClick={() => setIsModalVisible(true)}
+              value="UNLOCK"
+            >
+              UNLOCK WITH PIN
+            </button>
+          </div>
 
-        <div className="lockButton" style={unlock ? { display: 'none' } : null}>
-          <Button
-            className="lockUnlockButton"
-            onClick={() => setUnlock(!unlock)}
+          <div
+            className="lockButton"
+            style={unlock ? { display: 'none' } : null}
           >
-            LOCK
-          </Button>
+            <button
+              className="lockUnlockButton"
+              onClick={() => setUnlock(!unlock)}
+            >
+              LOCK
+            </button>
+          </div>
         </div>
       </div>
       <div
@@ -115,8 +121,12 @@ function RenderAccountSettings() {
       >
         <AccountSettingsForm disabled={unlock} />
         <div classname="settings-buttons-cotainer">
-          <Button disabled={unlock}>Edit Credit Card Info</Button>
-          <Button disabled={unlock}>Edit Subscription Plan</Button>
+          <button className="plainButton" disabled={unlock}>
+            Edit Credit Card Info
+          </button>
+          <button className="plainButton" disabled={unlock}>
+            Edit Subscription Plan
+          </button>
         </div>
       </div>
     </div>
