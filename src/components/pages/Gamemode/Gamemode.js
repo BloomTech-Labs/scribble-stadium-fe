@@ -13,17 +13,26 @@ const Gamemode = ({ ...props }) => {
   const [sP, setsP] = useState(false);
   //   history.push('/gamemode/single');
   const propInit = () => {
-    props.child.gamemode = {
-      mode: 'select',
-      read: null,
-      write: null,
-      draw: null,
-    };
+    if (props.child.gamemode.read !== null) {
+      props.child.gamemode = {
+        mode: 'single',
+        read: props.child.gamemode.read,
+        write: null,
+        draw: null,
+      };
+    } else {
+      props.child.gamemode = {
+        mode: 'select',
+        read: null,
+        write: null,
+        draw: null,
+      };
+    }
   };
 
   useEffect(() => {
     propInit();
-  }, []);
+  }, [sP]);
 
   const singled = () => {
     if (location.pathname === '/gamemode/single' && sP === true) {
@@ -40,9 +49,9 @@ const Gamemode = ({ ...props }) => {
       push('/gamemode/single');
       props.child.gamemode = {
         mode: 'single',
-        read: null,
-        write: null,
-        draw: null,
+        read: props.child.gamemode.read,
+        write: props.child.gamemode.write,
+        draw: props.child.gamemode.draw,
       };
       console.log('nal elif', props.child);
       setsP(true);
@@ -51,7 +60,7 @@ const Gamemode = ({ ...props }) => {
 
   //   console.log(history);
   return (
-    (sP && (
+    (sP && props.child.gamemode.mode === 'select' && (
       <Link to="/gamemode">
         <button onClick={singled}>Goback to Menu</button>
         <Route path="/gamemode" component={GamemodeButton} />
@@ -64,7 +73,10 @@ const Gamemode = ({ ...props }) => {
           <Route path="/gamemode/single" component={GamemodeButton} />
         </Link>
       </div>
-    )
+    ) ||
+    (props.child.gamemode.mode === 'single' && (
+      <Route path="/gamemode/single" component={GamemodeButton} />
+    ))
   );
 };
 export default connect(

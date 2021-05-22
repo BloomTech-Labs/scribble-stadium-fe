@@ -16,48 +16,46 @@ const GamemodeButton = ({ ...props }) => {
   });
   //   history.push('/gamemode/single');
   const propInit = () => {
-    props.child.gamemode = {
-      mode: props.child.gamemode.mode,
-      read: false,
-      write: false,
-      draw: false,
-    };
+    if (props.child.gamemode.read !== null) {
+      props.child.gamemode = {
+        mode: 'single',
+        read: rwd.read,
+        write: null,
+        draw: null,
+      };
+    } else {
+      props.child.gamemode = {
+        mode: props.child.gamemode.mode,
+        read: rwd.read,
+        write: false,
+        draw: false,
+      };
+    }
   };
 
   useEffect(() => {
     propInit();
-  }, []);
+  }, [rwd]);
 
   const sread = () => {
     setsRwd({ read: true, write: false, draw: false });
     singled();
   };
   const singled = () => {
-    if (location.pathname === '/gamemode/single') {
-      props.child.gamemode = {
-        mode: 'single',
-        read: rwd.read,
-        write: rwd.write,
-        draw: rwd.draw,
-      };
-      push('/gamemode/single');
-      console.log('nal', props.child);
-    } else if (
-      (location.pathname === '/gamemode' && setsRwd.read == true) ||
-      setsRwd.write ||
-      setsRwd.draw
-    ) {
-      props.child.gamemode = {
-        mode: 'single',
-        read: rwd.read,
-        write: rwd.write,
-        draw: rwd.draw,
-      };
-      push('/gamemode/single');
-      console.log('nal else ', props.child);
-    } else {
-      push('gamemode/single');
-    }
+    props.child.gamemode = {
+      mode: 'single',
+      read: rwd.read,
+      write: rwd.write,
+      draw: rwd.draw,
+    };
+    // push('/gamemode/single');
+    console.log('nal', props.child);
+
+    // push('/gamemode/single');
+    console.log('nal else ', props.child);
+  };
+  const forceUpdateHandler = () => {
+    this.forceUpdate();
   };
 
   //   console.log(history);
@@ -66,10 +64,7 @@ const GamemodeButton = ({ ...props }) => {
   return (
     <>
       <div>
-        <Link to="/gamemode/single">
-          <button onClick={sread}>Read</button>
-          <Route path="/gamemode/single" component={GamemodeButton} />
-        </Link>
+        <button onClick={sread}>Read</button>
       </div>
       <div>
         <button>Write</button>
