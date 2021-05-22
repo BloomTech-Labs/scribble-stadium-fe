@@ -1,10 +1,13 @@
 import React from 'react';
+
+import { MemoryRouter } from 'react-router';
+
 import { Link, Route } from 'react-router-dom';
 import { render, cleanup } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { Gamemode } from '../components/pages/Gamemode';
-import { configure, shallow } from 'enzyme';
+import { configure, shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { tasks, global } from '../state/actions';
 import { reducer } from '../state/reducers/taskReducer';
@@ -21,7 +24,7 @@ describe('history mock', () => {
   });
 });
 
-describe('taskReducer test suite', () => {
+describe('taskReducer test suite with gamemode', () => {
   const initialState = {
     id: null,
     child_id: null,
@@ -160,3 +163,35 @@ describe('taskReducer test suite', () => {
     });
   });
 });
+
+describe('routes using memory router', () => {
+  it('should show Home component for / router (using memory router)', () => {
+    const component = mount(
+      <MemoryRouter initialentries="{['/']}">
+        {' '}
+        <Gamemode />
+      </MemoryRouter>
+    );
+    expect(component.find(Gamemode)).toHaveLength(1);
+  });
+
+  it('should show No match component for route not defined', () => {
+    const component = mount(
+      <MemoryRouter initialEntries="{['/unknown']}">
+        <Gamemode />
+      </MemoryRouter>
+    );
+    expect(component.find(Gamemode)).toHaveLength(1);
+  });
+});
+
+// test('loads a profile list', () => {
+//     const data = [{ id: '1234', name: 'item' }];
+//     const { getByText, debug } = render(
+//       <Router>
+//         <RenderProfileListPage data={data} />
+//       </Router>
+//     );
+//     const element = getByText(/item/i);
+//     expect(element.textContent).toBe(data[0].name);
+//   });
