@@ -16,21 +16,21 @@ function AccountSettingsForm({ disabled }) {
 
   return (
     //<div class="backdrop">
-    <form class="acct-settings-form" onSubmit={e => handleSubmit(e)}>
+    <form className="acct-settings-form" onSubmit={e => handleSubmit(e)}>
       {/*<div class="form-half">*/}
       <label>
-        <p class="email-label">Email Address</p>
+        <p className="email-label">Email Address</p>
       </label>
 
-      <div class="icon-input-and-button-container">
-        <div class="icon-and-input-container">
-          <div class="icon-container">
+      <div className="icon-input-and-button-container">
+        <div className="icon-and-input-container">
+          <div className="icon-container">
             <MailOutlined style={{ fontSize: '150%' }} />
           </div>
           <input
             onChange={e => onChange(e)}
             disabled={disabled ? true : false}
-            class="acct-settings-input"
+            className="acct-settings-input"
             type="text"
             name="email"
             placeholder="caroline@gmail.com"
@@ -38,8 +38,8 @@ function AccountSettingsForm({ disabled }) {
           />
         </div>
 
-        <div class="edit-button-container">
-          <button class="edit-button" disabled={disabled ? true : false}>
+        <div className="edit-button-container">
+          <button className="edit-button" disabled={disabled ? true : false}>
             Change email
           </button>
         </div>
@@ -48,18 +48,18 @@ function AccountSettingsForm({ disabled }) {
 
       {/*<div class="form-half">*/}
       <label>
-        <p class="password-label">Password</p>
+        <p className="password-label">Password</p>
       </label>
 
-      <div class="icon-input-and-button-container">
-        <div class="icon-and-input-container">
-          <div class="icon-container">
+      <div className="icon-input-and-button-container">
+        <div className="icon-and-input-container">
+          <div className="icon-container">
             <LockOutlined style={{ fontSize: '150%' }} />
           </div>
           <input
             onChange={e => onChange(e)}
             disabled={disabled ? true : false}
-            class="acct-settings-input"
+            className="acct-settings-input"
             type="text"
             name="password"
             placeholder="• • • • • • • • • • • •"
@@ -67,8 +67,8 @@ function AccountSettingsForm({ disabled }) {
           />
         </div>
 
-        <div class="edit-button-container">
-          <button class="edit-button" disabled={disabled ? true : false}>
+        <div className="edit-button-container">
+          <button className="edit-button" disabled={disabled ? true : false}>
             Change password
           </button>
         </div>
