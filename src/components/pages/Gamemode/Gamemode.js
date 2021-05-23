@@ -19,6 +19,7 @@ const Gamemode = ({ ...props }) => {
         read: props.child.gamemode.read,
         write: null,
         draw: null,
+        sp: true,
       };
     } else {
       props.child.gamemode = {
@@ -26,13 +27,14 @@ const Gamemode = ({ ...props }) => {
         read: null,
         write: null,
         draw: null,
+        sp: false,
       };
     }
   };
 
   useEffect(() => {
     propInit();
-  }, [sP]);
+  }, [props]);
 
   const singled = () => {
     if (location.pathname === '/gamemode/single' && sP === true) {
@@ -42,6 +44,7 @@ const Gamemode = ({ ...props }) => {
         read: null,
         write: null,
         draw: null,
+        sp: !props.child.gamemode.sp,
       };
       setsP(false);
       console.log('nal', props.child);
@@ -52,6 +55,7 @@ const Gamemode = ({ ...props }) => {
         read: props.child.gamemode.read,
         write: props.child.gamemode.write,
         draw: props.child.gamemode.draw,
+        sp: !props.child.gamemode.sp,
       };
       console.log('nal elif', props.child);
       setsP(true);

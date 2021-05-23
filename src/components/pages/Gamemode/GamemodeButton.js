@@ -22,6 +22,7 @@ const GamemodeButton = ({ ...props }) => {
         read: rwd.read,
         write: null,
         draw: null,
+        sp: true,
       };
     } else {
       props.child.gamemode = {
@@ -29,6 +30,7 @@ const GamemodeButton = ({ ...props }) => {
         read: rwd.read,
         write: false,
         draw: false,
+        sp: false,
       };
     }
   };
@@ -47,16 +49,15 @@ const GamemodeButton = ({ ...props }) => {
       read: rwd.read,
       write: rwd.write,
       draw: rwd.draw,
+      sp: true,
     };
     // push('/gamemode/single');
-    console.log('nal', props.child);
-
     // push('/gamemode/single');
     console.log('nal else ', props.child);
   };
-  const forceUpdateHandler = () => {
-    this.forceUpdate();
-  };
+  // const forceUpdateHandler = () => {
+  //   this.forceUpdate();
+  // };
 
   //   console.log(history);
 
