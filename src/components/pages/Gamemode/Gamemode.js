@@ -19,8 +19,8 @@ const Gamemode = ({ ...props }) => {
         props.child.gamemode = {
           mode: 'single',
           read: props.child.gamemode.read,
-          write: null,
-          draw: null,
+          write: props.child.gamemode.write,
+          draw: props.child.gamemode.draw,
           sp: true,
         };
       } else {
@@ -61,9 +61,8 @@ const Gamemode = ({ ...props }) => {
     }
   };
 
-  //   console.log(history);
-  return (
-    (sP && props.child.gamemode.mode === 'select' && (
+  /*
+(sP && props.child.gamemode.mode === 'select' && (
       <Link to="/gamemode">
         <div>
           <button onClick={singled}>Goback to Menu</button>
@@ -71,6 +70,10 @@ const Gamemode = ({ ...props }) => {
         </div>
       </Link>
     )) ||
+  */
+
+  //   console.log(history);
+  return (
     (!sP && props.child.gamemode.mode === 'single' && (
       <Link to="/gamemode/single">
         <div>

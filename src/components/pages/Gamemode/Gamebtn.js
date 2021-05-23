@@ -19,7 +19,7 @@ const Gamebtn = props => {
 export default Gamebtn;
 
 Gamebtn.propTypes = {
-  read: PropTypes.bool.isRequired,
+  read: PropTypes.bool,
   buttonText: PropTypes.string.isRequired,
   classType: PropTypes.string,
   disabled: PropTypes.string,

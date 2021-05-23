@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 // import history from './history';
 import { connect } from 'react-redux';
 import { tasks } from '../../../state/actions';
-import { useHistory } from 'react-router-dom';
-import { Link, Route } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
+import { Link, Route, useHistory } from 'react-router-dom';
 import Gamebtn from './Gamebtn';
 
 import { render } from 'react-dom';
@@ -39,6 +39,23 @@ const GamemodeButton = ({ ...props }) => {
     };
     propInit();
   }, [rwd, props.child]);
+
+  // useEffect(() =>{
+  //   const inofit = () =>{
+  //       if(props.child.gamemode.read === true || rwd.read === true){
+
+  //           render()(
+  //               <>
+  //               <div>
+  //                 flaps
+  //               </div>
+  //               </>
+  //           );
+
+  //       }
+  //   };
+  //   inofit();
+  // }, [rwd,props.child]);
 
   const sread = e => {
     const ff = e.target.textContent;
@@ -121,6 +138,7 @@ const GamemodeButton = ({ ...props }) => {
   return (
     <>
       <div>
+        <button>Single Player Mode</button>
         <button
           onClick={e => {
             sread(e);
@@ -147,6 +165,15 @@ const GamemodeButton = ({ ...props }) => {
           Draw
         </button>
       </div>
+
+      {rwd.read && <h1>RREEAADD PIC SOON</h1>}
+      {rwd.write && <h1>WWRIITTE PIC SOON</h1>}
+      {rwd.draw && <h1>DDRRAAWW PIC SOON</h1>}
+      {rwd.read || rwd.write || rwd.draw ? (
+        <button>Playboss</button>
+      ) : (
+        <div></div>
+      )}
     </>
   );
 };
