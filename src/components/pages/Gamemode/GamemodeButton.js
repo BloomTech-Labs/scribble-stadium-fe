@@ -23,14 +23,14 @@ const GamemodeButton = ({ ...props }) => {
         props.child.gamemode = {
           mode: 'single',
           read: rwd.read,
-          write: null,
-          draw: null,
+          write: rwd.write,
+          draw: rwd.draw,
           sp: true,
         };
       } else {
         props.child.gamemode = {
           mode: props.child.gamemode.mode,
-          read: null,
+          read: false,
           write: false,
           draw: false,
           sp: false,
@@ -40,18 +40,64 @@ const GamemodeButton = ({ ...props }) => {
     propInit();
   }, [rwd, props.child]);
 
-  const sread = () => {
-    setsRwd({ read: !rwd.read, write: false, draw: false });
-    props.child.gamemode = {
-      mode: 'single',
-      read: rwd.read,
-      write: rwd.write,
-      draw: rwd.draw,
-      sp: true,
-    };
+  const sread = e => {
+    const ff = e.target.textContent;
+    switch (ff) {
+      case 'Read': {
+        setsRwd({ read: !rwd.read, write: rwd.write, draw: rwd.draw });
+        props.child.gamemode = {
+          mode: 'single',
+          read: !props.child.gamemode.read,
+          write: rwd.write,
+          draw: rwd.draw,
+          sp: true,
+        };
+
+        console.log('nalread ', props.child.gamemode);
+        break;
+      }
+      case 'Write': {
+        setsRwd({ read: rwd.read, write: !rwd.write, draw: rwd.draw });
+        props.child.gamemode = {
+          mode: 'single',
+          read: rwd.read,
+          write: !props.child.gamemode.write,
+          draw: rwd.draw,
+          sp: true,
+        };
+        console.log('nalwrirte ', props.child.gamemode);
+
+        break;
+      }
+      case 'Draw': {
+        setsRwd({ read: rwd.read, write: rwd.write, draw: !rwd.draw });
+        props.child.gamemode = {
+          mode: 'single',
+          read: rwd.read,
+          write: rwd.write,
+          draw: !props.child.gamemode.draw,
+          sp: true,
+        };
+        console.log('naldraw ', props.child.gamemode);
+        break;
+      }
+      default: {
+        // setsRwd({ read: !rwd.read, write: !rwd.write, draw: rwd.draw });
+        props.child.gamemode = {
+          mode: 'single-defaulted',
+          read: props.child.gamemode.read,
+          write: props.child.gamemode.write,
+          draw: props.child.gamemode.draw,
+          sp: false,
+        };
+        console.log('naldefault ', props.child.gamemode);
+        break;
+      }
+    }
+
     // push('/gamemode/single');
     // push('/gamemode/single');
-    console.log('naaaaal ', props.child);
+    // console.log('zzzz ',props.child.gamemode);
   };
   const singled = r => {
     props.child.gamemode = {
@@ -76,18 +122,30 @@ const GamemodeButton = ({ ...props }) => {
     <>
       <div>
         <button
-          onClick={() => {
-            sread();
+          onClick={e => {
+            sread(e);
           }}
         >
           Read
         </button>
       </div>
       <div>
-        <button>Write</button>
+        <button
+          onClick={e => {
+            sread(e);
+          }}
+        >
+          Write
+        </button>
       </div>
       <div>
-        <button>Draw</button>
+        <button
+          onClick={e => {
+            sread(e);
+          }}
+        >
+          Draw
+        </button>
       </div>
     </>
   );
