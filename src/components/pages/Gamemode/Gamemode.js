@@ -13,7 +13,7 @@ const Gamemode = ({ ...props }) => {
   const [sP, setsP] = useState(false);
   //   history.push('/gamemode/single');
   const propInit = () => {
-    if (props.child.gamemode.read !== null) {
+    if (props.child.gamemode != null) {
       props.child.gamemode = {
         mode: 'single',
         read: props.child.gamemode.read,
@@ -60,15 +60,13 @@ const Gamemode = ({ ...props }) => {
 
   //   console.log(history);
   return (
-    (props.child.gamemode.mode === 'single' && (
-      <Route path="/gamemode/single" component={GamemodeButton} />
-    )) ||
-    (sP && props.child.gamemode.mode === 'select' ? (
+    (sP && props.child.gamemode.mode === 'select' && (
       <Link to="/gamemode">
         <button onClick={singled}>Goback to Menu</button>
         <Route path="/gamemode" component={GamemodeButton} />
       </Link>
-    ) : (
+    )) ||
+    (!sP && props.child.gamemode.mode == 'single' && (
       <div>
         <button>Multiplayer</button>
         <Link to="/gamemode/single">
@@ -76,6 +74,9 @@ const Gamemode = ({ ...props }) => {
           <Route path="/gamemode/single" component={GamemodeButton} />
         </Link>
       </div>
+    )) ||
+    (props.child.gamemode != null && props.child.gamemode.mode === 'single' && (
+      <Route path="/gamemode/single" component={GamemodeButton} />
     ))
   );
 };
