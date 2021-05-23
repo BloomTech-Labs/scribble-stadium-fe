@@ -67,13 +67,13 @@ const Gamemode = ({ ...props }) => {
       </Link>
     )) ||
     (!sP && props.child.gamemode.mode == 'single' && (
-      <div>
-        <button>Multiplayer</button>
-        <Link to="/gamemode/single">
+      <Link to="/gamemode/single">
+        <div>
+          <button>Multiplayer</button>
           <button onClick={singled}>Single Player</button>
           <Route path="/gamemode/single" component={GamemodeButton} />
-        </Link>
-      </div>
+        </div>
+      </Link>
     )) ||
     (props.child.gamemode != null && props.child.gamemode.mode === 'single' && (
       <Route path="/gamemode/single" component={GamemodeButton} />

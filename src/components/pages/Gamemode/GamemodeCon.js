@@ -8,7 +8,7 @@ import GamemodeButton from './GamemodeButton';
 
 import { render } from 'react-dom';
 
-const Gamemode = ({ ...props }) => {
+const GamemodeCon = ({ ...props }) => {
   const { push, location } = useHistory();
   // const [sP, setsP] = useState(false);
   //   history.push('/gamemode/single');
@@ -52,5 +52,5 @@ export default connect(
     votes: state.votes,
   }),
   {}
-)(Gamemode);
+)(GamemodeCon);
 // export default connect()(Gamemode);
