@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 // import history from './history';
+import { Header } from '../../common';
+import { Row, Col } from 'antd';
 import { connect } from 'react-redux';
 import { tasks } from '../../../state/actions';
 // import { useHistory } from 'react-router-dom';
-import Gamemode from './Gamemode';
+import { Gamemode } from './index';
 import { Link, Route, useHistory } from 'react-router-dom';
 import Gamebtn from './Gamebtn';
 
@@ -15,6 +17,7 @@ const GamemodeButton = ({ ...props }) => {
     read: false,
     write: false,
     draw: false,
+    mode: 'single',
   });
   const [sP, setsP] = useState(true);
   //   history.push('/gamemode/single');
@@ -95,7 +98,12 @@ const GamemodeButton = ({ ...props }) => {
         break;
       }
       case 'Play Boss': {
-        setsRwd({ read: rwd.read, write: rwd.write, draw: rwd.draw });
+        setsRwd({
+          read: rwd.read,
+          write: rwd.write,
+          draw: rwd.draw,
+          mode: 'boss',
+        });
         props.child.gamemode = {
           mode: 'boss',
           read: rwd.read,
@@ -151,70 +159,74 @@ const GamemodeButton = ({ ...props }) => {
   //   console.log(history);
   return (
     <>
-      <div>
-        {sP === false ||
-          props.child.gamemode.sp === false ||
-          (props.child.gamemode.mode === 'select' && (
-            <Route path="/gamemode" component={Gamemode} />
-          ))}
-
-        <button
-          onClick={e => {
-            sread(e);
-          }}
-        >
-          Read
-        </button>
-      </div>
-      <div>
-        <button
-          onClick={e => {
-            sread(e);
-          }}
-        >
-          Write
-        </button>
-      </div>
-      <div>
-        <button
-          onClick={e => {
-            sread(e);
-          }}
-        >
-          Draw
-        </button>
-      </div>
-
-      {rwd.read && <h1>READ</h1>}
-      {rwd.write && <h1>WRITE</h1>}
-      {rwd.draw && <h1>DRAW</h1>}
-      {rwd.read || rwd.write || rwd.draw ? (
-        <button
-          onClick={e => {
-            sread(e);
-          }}
-        >
-          Play Boss
-        </button>
-      ) : (
+      <Header displayMenu={true} />
+      <div className="dash-container">
         <div>
-          {sP && (
-            <Link to="/gamemode">
-              <button
-                onClick={e => {
-                  singled();
-                }}
-              >
-                Single Player Mode
-              </button>
-              {sP === false ||
-                (props.child.gamemode.mode === 'select' && (
-                  <Route path="/gamemode" component={Gamemode} />
-                ))}
-            </Link>
-          )}
+          <button
+            onClick={e => {
+              sread(e);
+            }}
+          >
+            Read
+          </button>
         </div>
-      )}
+        <div>
+          <button
+            onClick={e => {
+              sread(e);
+            }}
+          >
+            Write
+          </button>
+        </div>
+        <div>
+          <button
+            onClick={e => {
+              sread(e);
+            }}
+          >
+            Draw
+          </button>
+        </div>
+
+        {rwd.read && <h1>READ</h1>}
+        {rwd.write && <h1>WRITE</h1>}
+        {rwd.draw && <h1>DRAW</h1>}
+        {rwd.read || rwd.write || rwd.draw ? (
+          <Link to="/boss">
+            <button
+              onClick={e => {
+                sread(e);
+              }}
+            >
+              Play Boss
+            </button>
+          </Link>
+        ) : (
+          <div>
+            {sP && (
+              <Link to="/gamemode">
+                <button
+                  onClick={e => {
+                    singled();
+                  }}
+                >
+                  Single Player Mode
+                </button>
+                {sP === false ||
+                  (props.child.gamemode.mode === 'select' && (
+                    <Route path="/gamemode" component={Gamemode} />
+                  ))}
+              </Link>
+            )}
+            {sP === false ||
+              props.child.gamemode.sp === false ||
+              (props.child.gamemode.mode === 'select' && (
+                <Route path="/gamemode" component={Gamemode} />
+              ))}
+          </div>
+        )}
+      </div>
     </>
   );
 };

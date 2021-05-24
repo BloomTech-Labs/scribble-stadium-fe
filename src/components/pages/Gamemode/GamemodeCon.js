@@ -75,38 +75,11 @@ const GamemodeCon = ({ ...props }) => {
 
   //   console.log(history);
   return (
-    // (props.child.gamemode !== null &&
-    //   props.child.gamemode.mode === 'select' && (
-    //     <Route path="/gamemode" component={Gamemode} />
-    //   ))||
-
-    // (props.child.gamemode.mode.sp === false && props.child.gamemode.mode === 'select' && (
-    //   <Link to="/gamemode">
-    //     <div>
-    //       <button onClick={singled}>Goback to Menu</button>
-    //       <Route path="/gamemode" component={<Gamemode {...props}/>} />
-    //     </div>
-    //   </Link>
-    // )) ||
-    <Switch>
-      <Router>
-        {!sP && props.child.gamemode.mode === 'select' && (
-          <Link to="/gamemode/single">
-            <div>
-              <button onClick={singled}>Single Player</button>
-              <Route path="/gamemode/single" component={GamemodeButton} />
-            </div>
-          </Link>
-        )}
-        {props.child.gamemode.mode === 'single' && (
-          <Route path="/gamemode/single" component={GamemodeButton} />
-        )}
-
-        {props.child.gamemode.mode === 'select' && (
-          <Route path="/gamemode" component={Gamemode} />
-        )}
-      </Router>
-    </Switch>
+    <>
+      <div>
+        <h1>Boss</h1>
+      </div>
+    </>
   );
 };
 export default connect(
