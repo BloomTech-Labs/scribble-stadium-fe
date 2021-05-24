@@ -46,6 +46,8 @@ const GamemodeButton = ({ ...props }) => {
     const inofit = () => {
       if (props.child.gamemode.sp === false) {
         setsP(false);
+      } else {
+        setsP(true);
       }
     };
     inofit();
@@ -92,6 +94,19 @@ const GamemodeButton = ({ ...props }) => {
         console.log('naldraw ', props.child.gamemode);
         break;
       }
+      case 'Play Boss': {
+        setsRwd({ read: rwd.read, write: rwd.write, draw: rwd.draw });
+        props.child.gamemode = {
+          mode: 'boss',
+          read: rwd.read,
+          write: rwd.write,
+          draw: rwd.draw,
+          sp: true,
+        };
+        push('/gamemode/boss');
+        console.log('nal boss ', props.child.gamemode);
+        break;
+      }
       default: {
         // setsRwd({ read: !rwd.read, write: !rwd.write, draw: rwd.draw });
         props.child.gamemode = {
@@ -111,6 +126,7 @@ const GamemodeButton = ({ ...props }) => {
     // console.log('zzzz ',props.child.gamemode);
   };
   const singled = r => {
+    setsP(false);
     // e.preventDefault();
     rwd.read = false;
     rwd.draw = false;
@@ -136,25 +152,11 @@ const GamemodeButton = ({ ...props }) => {
   return (
     <>
       <div>
-        {sP && (
-          <Link to="/gamemode">
-            <button
-              onClick={e => {
-                singled();
-              }}
-            >
-              Single Player Mode
-            </button>
-            {!sP && location.pathname('/gamemode/single') && (
-              <Route
-                path="/gamemode"
-                component={
-                  <Gamemode id={props.id} {...props} singled={props.singled} />
-                }
-              />
-            )}
-          </Link>
-        )}
+        {sP === false ||
+          props.child.gamemode.sp === false ||
+          (props.child.gamemode.mode === 'select' && (
+            <Route path="/gamemode" component={Gamemode} />
+          ))}
 
         <button
           onClick={e => {
@@ -183,13 +185,35 @@ const GamemodeButton = ({ ...props }) => {
         </button>
       </div>
 
-      {rwd.read && <h1>RREEAADD PIC SOON</h1>}
-      {rwd.write && <h1>WWRIITTE PIC SOON</h1>}
-      {rwd.draw && <h1>DDRRAAWW PIC SOON</h1>}
+      {rwd.read && <h1>READ</h1>}
+      {rwd.write && <h1>WRITE</h1>}
+      {rwd.draw && <h1>DRAW</h1>}
       {rwd.read || rwd.write || rwd.draw ? (
-        <button>Playboss</button>
+        <button
+          onClick={e => {
+            sread(e);
+          }}
+        >
+          Play Boss
+        </button>
       ) : (
-        <div></div>
+        <div>
+          {sP && (
+            <Link to="/gamemode">
+              <button
+                onClick={e => {
+                  singled();
+                }}
+              >
+                Single Player Mode
+              </button>
+              {sP === false ||
+                (props.child.gamemode.mode === 'select' && (
+                  <Route path="/gamemode" component={Gamemode} />
+                ))}
+            </Link>
+          )}
+        </div>
       )}
     </>
   );

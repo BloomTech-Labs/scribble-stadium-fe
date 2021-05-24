@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { tasks } from '../../../state/actions';
 import { useHistory } from 'react-router-dom';
-import { Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import GamemodeButton from './GamemodeButton';
-
+import GamemodeCon from './GamemodeCon';
 import { render } from 'react-dom';
 
 const Gamemode = ({ ...props }) => {
@@ -29,12 +29,12 @@ const Gamemode = ({ ...props }) => {
           read: null,
           write: null,
           draw: null,
-          sp: false,
+          sp: null,
         };
       }
     };
     propInit();
-  }, [props]);
+  }, [props, location]);
 
   const singled = () => {
     if (location.pathname === '/gamemode/single' && sP === true) {
@@ -75,18 +75,33 @@ const Gamemode = ({ ...props }) => {
 
   //   console.log(history);
   return (
-    (!sP && props.child.gamemode.mode === 'select' && (
-      <Link to="/gamemode/single">
-        <div>
-          <button onClick={singled}>Single Player</button>
+    // (props.child.gamemode !== null &&
+    //   props.child.gamemode.mode === 'select' && (
+    //     <Route path="/gamemode" component={Gamemode} />
+    //   ))||
+
+    // (props.child.gamemode.mode.sp === false && props.child.gamemode.mode === 'select' && (
+    //   <Link to="/gamemode">
+    //     <div>
+    //       <button onClick={singled}>Goback to Menu</button>
+    //       <Route path="/gamemode" component={<Gamemode {...props}/>} />
+    //     </div>
+    //   </Link>
+    // )) ||
+    <Switch>
+      <Router>
+        {!sP && props.child.gamemode.mode === 'select' && (
+          <Link to="/gamemode/single">
+            <div>
+              <button onClick={singled}>Single Player</button>
+            </div>
+          </Link>
+        )}
+        {props.child.gamemode.sp && props.child.gamemode.mode === 'single' && (
           <Route path="/gamemode/single" component={GamemodeButton} />
-        </div>
-      </Link>
-    )) ||
-    (props.child.gamemode !== null &&
-      props.child.gamemode.mode === 'single' && (
-        <Route path="/gamemode/single" component={GamemodeButton} />
-      ))
+        )}
+      </Router>
+    </Switch>
   );
 };
 export default connect(
