@@ -150,11 +150,19 @@ cd story-squad-fe-b/
 Install Dependencies
 
 ```
-npm install
+## Setting up the App
+Front End:
+- npm install
+- add a new .env file with the info provided by your TPL
+- npm start
+- -open localhost:3000
+Back End
+- npm install
+- add a new .env file with the info provided by your TPL (if you are using something other than Docker (like Postgres), add it to your backend .env file instead of the docker url
+- npm start
 ```
 
 Run Test
-
 ```
 npm test
 ```
@@ -165,7 +173,6 @@ Follow backend [set up guides](https://github.com/Lambda-School-Labs/story-squad
 <br>
 <br>
 Run the application locally
-
 ```
 npm dev
 ```
@@ -228,3 +235,7 @@ See [Backend Documentation](https://story-squad-b-api.herokuapp.com/api-docs/) f
 ![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
 
 
+#Follow up notes for next cohort
+Note for the Parent Dashboard “Change email” and “Change password” modals: 
+- The modals are to have a lockout feature that disables and obscures their buttons with an opacity styling. This feature is still pending completion. 
+- Also, the modal’s “Cancel” and “Save” buttons themselves still lack functionality (the latter of which will need to be added with Okta).

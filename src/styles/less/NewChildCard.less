@@ -3,6 +3,44 @@
 @import 'global.less';
 @import 'variables.less';
 
+.Players {
+  display: flex;
+  width: 68vw;
+  margin: 0 auto;
+  
+
+
+  button {
+    background-color: #8CE2E0;
+    height: 40px;
+    width: 160px;
+    left: 0px;
+    top: 0px;
+    border-radius: 16px;
+    border: white;
+    color: #4B5151;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+  }
+}
+
+.playheading {
+  flex-grow: 4;
+   h2 {
+     font-weight: 700;
+     text-transform: uppercase;
+     font-family: 'Open Sans';
+
+     @media @mobile {
+       margin-left: 5%;
+       margin-top: 2%;
+       padding: 1%;
+     }
+   }
+}
 .newChild{
   width:80vw;
   display:flex;
@@ -37,7 +75,7 @@
   .ant-layout {
     background: none;
     padding:3% 2%;
-    width:95%;
+    width:100%;
     font-family:'Open Sans';
     color:@dark-gray;
     }
@@ -139,7 +177,7 @@
   border-radius:8px;
   width:80px;
   height:40px;
-  @media @mobile{
-    width:40px;
-  }
+}
+.noPlayers{
+  margin:2% 15%;
 }
