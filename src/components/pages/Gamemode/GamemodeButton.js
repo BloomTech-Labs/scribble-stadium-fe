@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import history from './history';
 import { Header } from '../../common';
-import { Row, Col } from 'antd';
+import { Row, Col, Button } from 'antd';
 import { connect } from 'react-redux';
 import { tasks } from '../../../state/actions';
 // import { useHistory } from 'react-router-dom';
@@ -161,71 +161,76 @@ const GamemodeButton = ({ ...props }) => {
     <>
       <Header displayMenu={true} />
       <div className="dash-container">
-        <div>
-          <button
-            onClick={e => {
-              sread(e);
-            }}
-          >
+        <Row>
+          <Col className="adventure-passport" xs={4} sm={10} onClick={sread}>
             Read
-          </button>
-        </div>
-        <div>
-          <button
-            onClick={e => {
-              sread(e);
-            }}
-          >
+          </Col>
+          {rwd.read && (
+            <Col className="accept-mission" xs={4} sm={14} onClick={sread}>
+              <h1>READ</h1>
+            </Col>
+          )}
+        </Row>
+        <Row>
+          <Col className="adventure-passport" xs={4} sm={10} onClick={sread}>
             Write
-          </button>
-        </div>
-        <div>
-          <button
-            onClick={e => {
-              sread(e);
-            }}
-          >
+          </Col>
+          {rwd.write && (
+            <Col className="accept-mission" xs={4} sm={14} onClick={sread}>
+              <h1>WRITE</h1>
+            </Col>
+          )}
+        </Row>
+        <Row>
+          <Col className="adventure-passport" xs={4} sm={10} onClick={sread}>
             Draw
-          </button>
-        </div>
+          </Col>
+          {rwd.draw && (
+            <Col className="accept-mission" xs={4} sm={14} onClick={sread}>
+              <h1>DRAW</h1>
+            </Col>
+          )}
+        </Row>
 
-        {rwd.read && <h1>READ</h1>}
-        {rwd.write && <h1>WRITE</h1>}
-        {rwd.draw && <h1>DRAW</h1>}
-        {rwd.read || rwd.write || rwd.draw ? (
-          <Link to="/boss">
-            <button
-              onClick={e => {
-                sread(e);
-              }}
-            >
-              Play Boss
-            </button>
-          </Link>
-        ) : (
-          <div>
-            {sP && (
-              <Link to="/gamemode">
-                <button
-                  onClick={e => {
-                    singled();
-                  }}
+        <Row className="bottomrow">
+          <Col className="adventure-passport" xs={2} sm={24}>
+            {rwd.read || rwd.write || rwd.draw ? (
+              <Link to="/boss">
+                <Button
+                  style={{ margin: '20%' }}
+                  type="default"
+                  onClick={sread}
                 >
-                  Single Player Mode
-                </button>
+                  Play Boss
+                </Button>
+              </Link>
+            ) : (
+              <div>
+                {sP && (
+                  <Link to="/gamemode">
+                    <Button
+                      style={{ margin: '20%' }}
+                      type="default"
+                      onClick={sread}
+                    >
+                      Single Player Mode
+                    </Button>
+
+                    {sP === false ||
+                      (props.child.gamemode.mode === 'select' && (
+                        <Route path="/gamemode" component={Gamemode} />
+                      ))}
+                  </Link>
+                )}
                 {sP === false ||
+                  props.child.gamemode.sp === false ||
                   (props.child.gamemode.mode === 'select' && (
                     <Route path="/gamemode" component={Gamemode} />
                   ))}
-              </Link>
+              </div>
             )}
-            {sP === false ||
-              props.child.gamemode.sp === false ||
-              (props.child.gamemode.mode === 'select' && (
-                <Route path="/gamemode" component={Gamemode} />
-              ))}
-          </div>
-        )}
+          </Col>
+        </Row>
       </div>
     </>
   );
