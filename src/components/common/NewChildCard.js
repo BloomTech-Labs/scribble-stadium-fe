@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { PlusCircleFilled } from '@ant-design/icons';
+import { PlusCircleOutlined, EditOutlined } from '@ant-design/icons';
 import { Card, Button, Layout } from 'antd';
 import { connect } from 'react-redux';
 import { getLeaderboard } from '../../api';
@@ -17,6 +17,19 @@ function NewChildCard(props) {
   }
   return (
     <div>
+      <div className="Players">
+        <div className="playheading">
+          <h2>Players</h2>
+        </div>
+        <button className="addPlayerButton">
+          <PlusCircleOutlined /> Add Player
+        </button>
+        {props.props.parent.children ? (
+          <button className="editPlayerButton">
+            <EditOutlined /> Edit Players
+          </button>
+        ) : null}
+      </div>
       <div className="newChild">
         {noChildren === true ? (
           <div className="noPlayers">
