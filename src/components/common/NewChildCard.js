@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { PlusCircleOutlined, EditOutlined } from '@ant-design/icons';
-import { Card, Button, Layout } from 'antd';
+import { Card } from 'antd';
 import { connect } from 'react-redux';
-import RenderEditPlayers from '../pages/EditPlayers/RenderEditPlayers';
-import { getLeaderboard } from '../../api';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import cat from '../../assets/images/cat.svg';
 
 function NewChildCard(props) {
