@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { tasks } from '../../../state/actions';
 // import { useHistory } from 'react-router-dom';
+import Gamemode from './Gamemode';
 import { Link, Route, useHistory } from 'react-router-dom';
 import Gamebtn from './Gamebtn';
 
@@ -15,47 +16,40 @@ const GamemodeButton = ({ ...props }) => {
     write: false,
     draw: false,
   });
+  const [sP, setsP] = useState(true);
   //   history.push('/gamemode/single');
 
+  // useEffect(() => {
+  //   const propInit = () => {
+  //     if (props.child.gamemode !== null) {
+  //       props.child.gamemode = {
+  //         mode: 'single',
+  //         read: rwd.read,
+  //         write: rwd.write,
+  //         draw: rwd.draw,
+  //         sp: sP,
+  //       };
+  //     } else {
+  //       props.child.gamemode = {
+  //         mode: 'select',
+  //         read: false,
+  //         write: false,
+  //         draw: false,
+  //         sp: false,
+  //       };
+  //     }
+  //   };
+  //   propInit();
+  // }, [rwd, props.child]);
+
   useEffect(() => {
-    const propInit = () => {
-      if (props.child.gamemode.read !== null) {
-        props.child.gamemode = {
-          mode: 'single',
-          read: rwd.read,
-          write: rwd.write,
-          draw: rwd.draw,
-          sp: true,
-        };
-      } else {
-        props.child.gamemode = {
-          mode: props.child.gamemode.mode,
-          read: false,
-          write: false,
-          draw: false,
-          sp: false,
-        };
+    const inofit = () => {
+      if (props.child.gamemode.sp === false) {
+        setsP(false);
       }
     };
-    propInit();
-  }, [rwd, props.child]);
-
-  // useEffect(() =>{
-  //   const inofit = () =>{
-  //       if(props.child.gamemode.read === true || rwd.read === true){
-
-  //           render()(
-  //               <>
-  //               <div>
-  //                 flaps
-  //               </div>
-  //               </>
-  //           );
-
-  //       }
-  //   };
-  //   inofit();
-  // }, [rwd,props.child]);
+    inofit();
+  }, [sP, props.child]);
 
   const sread = e => {
     const ff = e.target.textContent;
@@ -117,14 +111,18 @@ const GamemodeButton = ({ ...props }) => {
     // console.log('zzzz ',props.child.gamemode);
   };
   const singled = r => {
+    // e.preventDefault();
+    rwd.read = false;
+    rwd.draw = false;
+    rwd.write = false;
     props.child.gamemode = {
-      mode: 'single',
-      read: r,
-      write: rwd.write,
-      draw: rwd.draw,
-      sp: true,
+      mode: 'select',
+      read: false,
+      write: false,
+      draw: false,
+      sp: false,
     };
-    // push('/gamemode/single');
+    push('/gamemode');
     // push('/gamemode/single');
     console.log('nal else ', props.child);
   };
@@ -138,7 +136,26 @@ const GamemodeButton = ({ ...props }) => {
   return (
     <>
       <div>
-        <button>Single Player Mode</button>
+        {sP && (
+          <Link to="/gamemode">
+            <button
+              onClick={e => {
+                singled();
+              }}
+            >
+              Single Player Mode
+            </button>
+            {!sP && location.pathname('/gamemode/single') && (
+              <Route
+                path="/gamemode"
+                component={
+                  <Gamemode id={props.id} {...props} singled={props.singled} />
+                }
+              />
+            )}
+          </Link>
+        )}
+
         <button
           onClick={e => {
             sread(e);

@@ -15,13 +15,13 @@ const Gamemode = ({ ...props }) => {
 
   useEffect(() => {
     const propInit = () => {
-      if (props.child.gamemode !== null) {
+      if (props.child.gamemode !== null && location.pathname === '/gamemode') {
         props.child.gamemode = {
-          mode: 'single',
+          mode: 'select',
           read: props.child.gamemode.read,
           write: props.child.gamemode.write,
           draw: props.child.gamemode.draw,
-          sp: true,
+          sp: false,
         };
       } else {
         props.child.gamemode = {
@@ -33,6 +33,7 @@ const Gamemode = ({ ...props }) => {
         };
       }
     };
+    propInit();
   }, [props]);
 
   const singled = () => {
@@ -74,7 +75,7 @@ const Gamemode = ({ ...props }) => {
 
   //   console.log(history);
   return (
-    (!sP && props.child.gamemode.mode === 'single' && (
+    (!sP && props.child.gamemode.mode === 'select' && (
       <Link to="/gamemode/single">
         <div>
           <button onClick={singled}>Single Player</button>
