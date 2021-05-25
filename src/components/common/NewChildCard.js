@@ -1,31 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { PlusCircleOutlined, EditOutlined } from '@ant-design/icons';
-import { Card, Button, Layout } from 'antd';
+import { Card } from 'antd';
 import { connect } from 'react-redux';
-import { getLeaderboard } from '../../api';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import cat from '../../assets/images/cat.svg';
 
 function NewChildCard(props) {
+  const { push } = useHistory();
   const MockDataWins = 5;
   const MockDataLosses = 10;
   const MockDataTotalPoints = 309;
-  const noChildren = false;
+  let noChildren = false;
   if (props.props.parent.children.length < 1) {
     noChildren = true;
   }
+  const editPlayerPush = e => {
+    push('/parent/edit-players');
+  };
+  const addPlayerPush = e => {
+    push('/parent/add-child');
+  };
+
   return (
-    <div>
+    <div className="newChildCardContainer">
       <div className="Players">
         <div className="playheading">
           <h2>Players</h2>
         </div>
-        <button className="addPlayerButton">
+        <button className="addPlayerButton" onClick={addPlayerPush}>
           <PlusCircleOutlined /> Add Player
         </button>
         {props.props.parent.children ? (
-          <button className="editPlayerButton">
+          <button className="editPlayerButton" onClick={editPlayerPush}>
             <EditOutlined /> Edit Players
           </button>
         ) : null}
