@@ -3,10 +3,23 @@
 @import 'global.less';
 @import 'variables.less';
 
+.childCardButtons{
+  display:flex;
+  @media @mobileLarge{
+    margin-bottom:3%;
+    justify-content: space-evenly;
+  }
+
+}
 .Players {
   display: flex;
   width: 68vw;
   margin: -2% auto;
+  @media @mobileLarge{
+    width:85vw;
+    flex-direction:column;
+
+  }
   
 
 
@@ -24,19 +37,26 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 150%;
+    @media @mobileLarge{
+      height:55px;
+    }
   }
 }
 
 .playheading {
   flex-grow: 4;
+  @media @mobileLarge{  
+      flex-grow:2;
+      margin-right:2%;
+  }
+
    h2 {
      font-weight: 700;
      text-transform: uppercase;
      font-family: 'Open Sans';
      font-size:1.7rem;
 
-     @media @mobile {
-       margin-left: 5%;
+     @media @mobileLarge {
        margin-top: 2%;
        padding: 1%;
      }
@@ -49,7 +69,7 @@
   margin:0 auto;
   padding: 2%;
   max-width:95vw;
-  @media @mobile {
+  @media @mobileLarge {
     flex-direction: column;
     padding:1%;
     width:100vw;
@@ -67,9 +87,9 @@
     border-radius: 20px;
     justify-content: center;
     text-align: left;
-    @media @mobile {
+    @media @mobileLarge {
       width:85vw;
-      max-width:95vw;
+      max-width:405px;
 
     }
   .ant-card-body,
@@ -87,10 +107,9 @@
       font-size: 2rem;
       text-align:center;
       -webkit-text-stroke: 0.3px white;
-      @media @mobile {
+      @media @mobileLarge {
         font-size: 1.4rem;
-        // text-shadow: -1px 1px 0 #fff;
-        // -webkit-text-stroke: 0.01px white;
+        
       }
     }
   }
@@ -99,7 +118,21 @@
 .avContainer{
  margin:2% 4%;
  @media @mobile{
-   margin:0px;
+   margin-left:0%;
+ }
+ @media @mobileLarge{
+   margin-left:5%;
+   margin-right:0%;
+ }
+ 
+ h2{ 
+   @media @mobile{
+     padding:1%;
+   }
+   @media @mobileLarge{
+     padding:3%;
+   }
+  
  }
 }
 .avBackground{
@@ -109,20 +142,21 @@
   border-radius:70%;
   opacity:0.9;
   padding:2%;
-  @media @mobile{
+  
+  @media @mobileLarge {
     width:100px;
     height:100px;
+    margin-left:2%;
   }
+  
 }
 .statBox{
   border-radius: 5px;
   padding:2%;
   margin:2%;
   height:50px;
-  @media @mobile {
-    padding:3%;
-    display:flex;
-    flex-wrap:wrap;
+  @media @mobileLarge {
+    padding:2%;
   }
 
   p{
@@ -141,15 +175,17 @@
   display: flex;
   flex-wrap: wrap;
   width:45%;
-  margin:2%;
-  @media @mobile {
-    padding:3%;
-    display:flex;
-    flex-wrap:wrap;
-    margin:1%;
-    flex-direction:row;
-    
+  margin:2%;  
+  @media @mobile{
+    padding:1%;
+    margin:0px;
   }
+  @media @mobileLarge {
+    margin:1%;
+    width:300px;
+    justify-content:space-evenly;
+  }
+
 
 }
 .statusContainer{
@@ -157,6 +193,9 @@
   border-radius:10px;
   width:90%;
   margin:2% auto;
+  @media @mobileLarge {
+    
+  }
 
   h4{
     text-align: center;
@@ -171,6 +210,9 @@
 .innerChildContainer{
   display:flex;
   justify-content: center;
+  @media @mobileLarge{
+    justify-content:space-between;
+  }
 
 }
 .statBoxBackground{
@@ -178,6 +220,11 @@
   border-radius:8px;
   width:80px;
   height:40px;
+  @media @mobileLarge{
+    width:50px;
+    font-size:0.9rem;
+    height:30px;
+  }
 }
 .noPlayers{
   margin:2% 15%;

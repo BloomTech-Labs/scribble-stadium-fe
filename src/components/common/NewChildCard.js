@@ -27,14 +27,16 @@ function NewChildCard(props) {
         <div className="playheading">
           <h2>Players</h2>
         </div>
-        <button className="addPlayerButton" onClick={addPlayerPush}>
-          <PlusCircleOutlined /> Add Player
-        </button>
-        {props.props.parent.children ? (
-          <button className="editPlayerButton" onClick={editPlayerPush}>
-            <EditOutlined /> Edit Players
+        <div className="childCardButtons">
+          <button className="addPlayerButton" onClick={addPlayerPush}>
+            <PlusCircleOutlined /> Add Player
           </button>
-        ) : null}
+          {props.props.parent.children ? (
+            <button className="editPlayerButton" onClick={editPlayerPush}>
+              <EditOutlined /> Edit Players
+            </button>
+          ) : null}
+        </div>
       </div>
       <div className="newChild">
         {noChildren === true ? (
