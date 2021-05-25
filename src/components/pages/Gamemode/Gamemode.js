@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import history from './history';
+import { Header } from '../../common';
+import { Row, Col, Button } from 'antd';
 import { connect } from 'react-redux';
 import { tasks } from '../../../state/actions';
 import { useHistory } from 'react-router-dom';
@@ -90,16 +92,33 @@ const Gamemode = ({ ...props }) => {
     // )) ||
     <Switch>
       <Router>
-        {!sP && props.child.gamemode.mode === 'select' && (
-          <Link to="/gamemode/single">
-            <div>
-              <button onClick={singled}>Single Player</button>
-            </div>
-          </Link>
-        )}
-        {props.child.gamemode.sp && props.child.gamemode.mode === 'single' && (
-          <Route path="/gamemode/single" component={GamemodeButton} />
-        )}
+        <>
+          <Header />
+          <div className="dash-container">
+            <Row>
+              <Col className="adventure-passport" xs={16} sm={24}>
+                {!sP && props.child.gamemode.mode === 'select' && (
+                  <Link to="/gamemode/single">
+                    <div>
+                      <Button type="default" onClick={singled}>
+                        Single Player
+                      </Button>
+                      <Route
+                        path="/gamemode/single"
+                        component={GamemodeButton}
+                      />
+                    </div>
+                  </Link>
+                )}
+              </Col>
+            </Row>
+
+            {props.child.gamemode.sp &&
+              props.child.gamemode.mode === 'single' && (
+                <Route path="/gamemode/single" component={GamemodeButton} />
+              )}
+          </div>
+        </>
       </Router>
     </Switch>
   );
