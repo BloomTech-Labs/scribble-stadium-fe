@@ -118,7 +118,7 @@ const GamemodeButton = ({ ...props }) => {
       default: {
         // setsRwd({ read: !rwd.read, write: !rwd.write, draw: rwd.draw });
         props.child.gamemode = {
-          mode: 'single-defaulted',
+          mode: 'select',
           read: props.child.gamemode.read,
           write: props.child.gamemode.write,
           draw: props.child.gamemode.draw,

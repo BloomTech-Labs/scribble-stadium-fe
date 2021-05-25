@@ -93,10 +93,10 @@ const Gamemode = ({ ...props }) => {
     <Switch>
       <Router>
         <>
-          {!props.child.gamemode.sp && props.child.gamemode.mode === 'select' && (
+          {props.child.gamemode.mode === 'select' && !props.child.gamemode.sp && (
             <div className="dash-container">
               <Header />
-              &&
+
               <Row>
                 <Col className="adventure-passport" xs={16} sm={24}>
                   {!sP && props.child.gamemode.mode === 'select' && (
