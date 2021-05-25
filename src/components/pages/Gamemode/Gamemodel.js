@@ -6,11 +6,11 @@ import { connect } from 'react-redux';
 import { tasks } from '../../../state/actions';
 import { useHistory } from 'react-router-dom';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-import GamemodeButton from './GamemodeButton';
+import GamemodeBtnl from './GamemodeBtnl';
 import GamemodeCon from './GamemodeCon';
 import render from 'react-dom';
 
-const Gamemode = ({ ...props }) => {
+const Gamemodel = ({ ...props }) => {
   const { push, location } = useHistory();
   const [sP, setsP] = useState(false);
   //   history.push('/gamemode/single');
@@ -66,10 +66,8 @@ const Gamemode = ({ ...props }) => {
   const trig = () => {
     return (
       <div>
-        <Button type="default" onClick={singled}>
-          Single Player
-        </Button>
-        <Route path="/gamemode/single" component={GamemodeButton} />
+        <button onClick={singled}>Success Player</button>
+        <Route path="/gamemode/single" {...props} component={GamemodeBtnl} />
       </div>
     );
   };
@@ -109,25 +107,8 @@ const Gamemode = ({ ...props }) => {
     <Switch>
       <Router>
         <>
-          {props.child.gamemode.mode === 'select' && !props.child.gamemode.sp && (
-            <div className="dash-container">
-              <Header />
-
-              <Row>
-                <Col className="adventure-passport" xs={16} sm={24}>
-                  {!sP && props.child.gamemode.mode === 'select' && (
-                    <Link to="/gamemode/single">{trig()};</Link>
-                  )}
-                </Col>
-              </Row>
-            </div>
-          )}
-          {props.child.gamemode === null && reini()}
-
-          {props.child.gamemode.sp &&
-            props.child.gamemode.mode === 'single' && (
-              <Route path="/gamemode/single" component={GamemodeButton} />
-            )}
+          <Header />
+          {trig()}
         </>
       </Router>
     </Switch>
@@ -138,5 +119,5 @@ export default connect(
     child: state.child,
   }),
   {}
-)(Gamemode);
+)(Gamemodel);
 // export default connect()(Gamemode);
