@@ -4,42 +4,71 @@
 @import 'variables.less';
 
 .accountSettingsContainer {
-  @media screen and (min-width: 750px) {
-    background-color: #f5f5f6;
-    height: 80vh;
-    margin:0 auto;
-  }
+   background-color: #f5f5f6;
+   height: 70vh;
+   margin:0 auto; 
+   @media @mobileLarge{
+     width:100vw;
+     background-color: transparent;
+   }
 }
 .textAndButtonContainer {
   display: flex;
   justify-content:space-around;
   width:68vw;
   margin:0 auto;
+ 
+  @media @mobileLarge{
+    width:95vw;
+    margin:0 auto;
+    padding-top:3%;
+    flex-direction:column;
+    background-color:transparent;
+  }
+  @media @tablet{
+    justify-content:space-around;
+    
+  }
 }
 .editText {
   padding: 20px;
-  font-size: 1.5rem;;
+  font-size: 1.5rem;
   flex-grow:4;
   
+  @media @mobileLarge{
+    flex-grow:1;
+    padding:20px;
+    font-size:1.3rem;
+  }
+  
   .buttonArea{
-    width:50%;
+    width:100%;
   }
   h3 {
     font-family: 'Open Sans';
     font-weight: 700;
     text-transform: uppercase;
-  }
-  @media @mobile {
-  
-    font-size: 1.3rem;
-    margin-bottom: -50px;
+    @media @tablet{
+      font-size:1.1rem;
+    }
+    @media @mobileLarge{
+      font-size:1.2rem;
+      margin:0%;
+    }
   }
 }
 .unlockButton {
   padding: 20px;
   margin-left:50%;
   width:30vw;
-  @media @tablet {
+  @media @mobileLarge {
+    padding:0px;
+    margin:0%;
+  }
+  @media @tablet{
+    padding:0%;
+    padding-top:5%;
+    margin-left:25%;
   }
   .ant-btn {
     background-color: #8ce2e0;
@@ -55,6 +84,10 @@
   padding: 20px;
   margin-left:50%;
   width:30vw;
+  @media @mobileLarge {
+    padding:20px;
+    margin:0%;
+  }
   .ant-btn {
     background-color: #8ce2e0;
     border:0px;
@@ -67,7 +100,7 @@
 .editFormsAndButtonsContainer {
   height: 30vh;
   display: flex;
-  width:68vw;
+  width:100vw;
   margin:0 auto;
   flex-direction: column;
   justify-content: center;
@@ -75,6 +108,12 @@
 }
 .lockUnlockButton {
   border-radius: 20px;
+  @media @mobileLarge {
+    margin-left: 15%;
+  }
+  @media @tablet{
+  margin:0%;
+  }
 }
 
 .ant-modal-body {
@@ -118,8 +157,9 @@ button{
     border-radius: 16px;
     border: 0px;
     color: @dark-gray;
-    font-family: Open Sans;
+    font-family: 'Open Sans';
     font-style: normal;
+
     font-weight: 600;
     font-size: 16px;
     line-height: 150%;
@@ -134,11 +174,12 @@ button{
     border-radius: 20px;
     border: 1px solid @dark-gray;
     color: @dark-gray;
-    font-family: Open Sans;
+    font-family: 'Open Sans';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 150%;
+    
 }
 .settings-buttons-container{
   display:flex;
@@ -146,4 +187,10 @@ button{
   justify-content:flex-start;
   width:68vw;
   margin:0 auto;
+  padding-bottom:10%;
+  @media @mobileLarge{
+    width:88vw;
+    margin-top:30%;
+    padding-bottom:25%;
+  }
 }

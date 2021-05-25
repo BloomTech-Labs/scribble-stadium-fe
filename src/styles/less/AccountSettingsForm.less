@@ -6,14 +6,19 @@
 .acct-settings-form {
     box-sizing: border-box;
     height: 45vh;
-    @media screen and (min-width: 750px) {
-        width: 717px;
-        height: 28vh;
+    width:68vw;
+    margin:0 auto;
+    @media @mobileLarge{
+        height:80vh;
+        margin-top:15px;
+        width:87vw;
+        margin:0 auto;
     }
+   
 }
 
 .email-label {
-    margin: -10%;
+    margin: 12vh 0 1vh 1.5vw;
     font-style: normal;
     font-weight: bold;
     font-size: 0.75rem;
@@ -47,6 +52,14 @@
     border: 0.5px solid #7B8794;
     border-radius: 14px;
     margin: -.8% 0 4.5% 0;
+    @media @mobileLarge {
+        width: 85vw;
+    }
+
+    @media @tablet {
+        width: 70vw;
+    }
+
     @media screen and (min-width: 750px) {
         display: flex;
         height: 6vh;
@@ -70,7 +83,6 @@
 .acct-settings-input {
     border: none;
     font-size: 1rem;
-    margin-left: 0;
 }
 
 .edit-button-container {
@@ -81,9 +93,9 @@
     border-radius: 14px;
     height: 5.5vh;
     align-items: center;
-    width: 55%;
+    width: 56%;
     margin-top: 2.5vh;
-    margin-left: -2%;
+    margin-left: 5%;
     padding: 2.65vh;
     @media screen and (min-width: 750px) {
         border-radius: 14px;
@@ -97,12 +109,20 @@
     @media screen and (min-width: 1440px) {
         margin-right: -.9vw;
     }
+    @media @mobileLarge{
+        width:65%;
+        margin-left:-5px;
+    }
 }
 
 .edit-button {
     border: none;
     background:#F5F5F5;
     width: 100%;
+    @media @mobileLarge{
+        font-size:1rem;
+        height:25px;
+    }
 }
 
 // Change Password and Change Email MODAL rulesets below

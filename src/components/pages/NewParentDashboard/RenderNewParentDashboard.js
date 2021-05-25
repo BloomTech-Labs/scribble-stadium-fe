@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Layout, Button } from 'antd';
-
+import { Layout } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
 import { getProfileData } from '../../../api';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import NewProgressCharts from '../../common/NewProgressCharts';
 import NewChildCard from '../../common/NewChildCard';
-//import RenderEditPlayers from '../../pages/EditPlayers/RenderEditPlayers';
 import AccountSettings from '../AccountSettings/AccountSettingsContainer';
 import { connect } from 'react-redux';
 import { setParent } from '../../../state/actions/parentActions';
