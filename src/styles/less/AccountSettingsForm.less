@@ -1,5 +1,9 @@
+@import '~antd/dist/antd.less';
+@import '~antd/lib/style/themes/default.less';
+@import 'global.less';
+@import 'variables.less';
+
 .acct-settings-form {
-    width: 83%;
     box-sizing: border-box;
     height: 45vh;
     @media screen and (min-width: 750px) {
@@ -9,7 +13,7 @@
 }
 
 .email-label {
-    margin: 1vh 0 1vh 1.5vw;
+    margin: -10%;
     font-style: normal;
     font-weight: bold;
     font-size: 0.75rem;
@@ -37,6 +41,7 @@
 .icon-input-and-button-container {
     align-items: center;
     padding: 1.6%;
+    width: 63vw;
     height: 6vh;
     background: #FFFFFF;
     border: 0.5px solid #7B8794;
@@ -65,7 +70,7 @@
 .acct-settings-input {
     border: none;
     font-size: 1rem;
-    margin-left: .5%;
+    margin-left: 0;
 }
 
 .edit-button-container {
