@@ -93,31 +93,34 @@ const Gamemode = ({ ...props }) => {
     <Switch>
       <Router>
         <>
-          <Header />
-          <div className="dash-container">
-            <Row>
-              <Col className="adventure-passport" xs={16} sm={24}>
-                {!sP && props.child.gamemode.mode === 'select' && (
-                  <Link to="/gamemode/single">
-                    <div>
-                      <Button type="default" onClick={singled}>
-                        Single Player
-                      </Button>
-                      <Route
-                        path="/gamemode/single"
-                        component={GamemodeButton}
-                      />
-                    </div>
-                  </Link>
-                )}
-              </Col>
-            </Row>
+          {!props.child.gamemode.sp && props.child.gamemode.mode === 'select' && (
+            <div className="dash-container">
+              <Header />
+              &&
+              <Row>
+                <Col className="adventure-passport" xs={16} sm={24}>
+                  {!sP && props.child.gamemode.mode === 'select' && (
+                    <Link to="/gamemode/single">
+                      <div>
+                        <Button type="default" onClick={singled}>
+                          Single Player
+                        </Button>
+                        <Route
+                          path="/gamemode/single"
+                          component={GamemodeButton}
+                        />
+                      </div>
+                    </Link>
+                  )}
+                </Col>
+              </Row>
+            </div>
+          )}
 
-            {props.child.gamemode.sp &&
-              props.child.gamemode.mode === 'single' && (
-                <Route path="/gamemode/single" component={GamemodeButton} />
-              )}
-          </div>
+          {props.child.gamemode.sp &&
+            props.child.gamemode.mode === 'single' && (
+              <Route path="/gamemode/single" component={GamemodeButton} />
+            )}
         </>
       </Router>
     </Switch>

@@ -162,32 +162,62 @@ const GamemodeButton = ({ ...props }) => {
       <Header displayMenu={true} />
       <div className="dash-container">
         <Row>
-          <Col className="adventure-passport" xs={4} sm={10} onClick={sread}>
-            Read
+          <Col
+            className="adventure-passport landing-animation"
+            xs={4}
+            sm={10}
+            onClick={sread}
+          >
+            <h1 className="win-text">Read</h1>
           </Col>
           {rwd.read && (
-            <Col className="accept-mission" xs={4} sm={14} onClick={sread}>
-              <h1>READ</h1>
+            <Col
+              className="accept-mission-ga1 landing-animation"
+              xs={4}
+              sm={14}
+              onClick={sread}
+            >
+              <h1 className="win-text1">READ</h1>
             </Col>
           )}
         </Row>
         <Row>
-          <Col className="adventure-passport" xs={4} sm={10} onClick={sread}>
-            Write
+          <Col
+            className="adventure-passport landing-animation"
+            xs={4}
+            sm={10}
+            onClick={sread}
+          >
+            <h1 className="win-text">Write</h1>
           </Col>
           {rwd.write && (
-            <Col className="accept-mission" xs={4} sm={14} onClick={sread}>
-              <h1>WRITE</h1>
+            <Col
+              className="accept-mission-ga1 landing-animation"
+              xs={4}
+              sm={14}
+              onClick={sread}
+            >
+              <h1 className="win-text1">WRITE</h1>
             </Col>
           )}
         </Row>
         <Row>
-          <Col className="adventure-passport" xs={4} sm={10} onClick={sread}>
-            Draw
+          <Col
+            className="adventure-passport landing-animation"
+            xs={4}
+            sm={10}
+            onClick={sread}
+          >
+            <h1 className="win-text">Draw</h1>
           </Col>
           {rwd.draw && (
-            <Col className="accept-mission" xs={4} sm={14} onClick={sread}>
-              <h1>DRAW</h1>
+            <Col
+              className="accept-mission-ga1 landing-animation"
+              xs={4}
+              sm={14}
+              onClick={sread}
+            >
+              <h1 className="win-text1">DRAW</h1>
             </Col>
           )}
         </Row>

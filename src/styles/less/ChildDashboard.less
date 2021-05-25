@@ -20,7 +20,7 @@
     }
   }
 
-  .accept-mission,
+  .accept-mission,.accept-mission-ga1,
   .change-avatar,
   .adventure-passport,
   .trophy-room,
@@ -36,6 +36,25 @@
     background-position: center;
     background-color: @conifer;
     opacity: 75%;
+    cursor: pointer;
+
+    img {
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  
+// Gamemode could use backend read write examples intohere
+  .accept-mission-ga1 {
+    background: url('../../assets/images/child_dashboard_images/accept_the_mission.svg')
+      no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: @conifer;
+    opacity: 100%;
     cursor: pointer;
 
     img {
