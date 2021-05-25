@@ -47,7 +47,9 @@ const ParentNavTopBar = props => {
         >
           <span className="welcome-back-msg">FAQ</span>
         </Link>
+       
         <span className="welcome-back-msg">Contact Us |</span>
+        
         <span className="welcome-back-msg">
           {props.parent && `Welcome back, ${props.parent.name}`}
         </span>

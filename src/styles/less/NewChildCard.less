@@ -22,7 +22,6 @@
   }
   
 
-
   button {
     background-color: #8CE2E0;
     height: 40px;
@@ -32,8 +31,9 @@
     border-radius: 16px;
     border: white;
     color: #4B5151;
-    font-family: Open Sans;
+    font-family: 'Open Sans';
     font-style: normal;
+    text-transform: uppercase;
     font-weight: 600;
     font-size: 16px;
     line-height: 150%;
@@ -68,7 +68,8 @@
   flex-wrap: wrap;
   margin:0 auto;
   padding: 2%;
-  max-width:95vw;
+  justify-content:space-between;
+  max-width:80vw;
   @media @mobileLarge {
     flex-direction: column;
     padding:1%;
@@ -78,13 +79,11 @@
   .ant-card {
     display: flex;
     align-items: center;
-    position: relative;
     background-color:@new-turquoise;
     margin: 1% auto;
-    width: 30vw;
-    min-width: 20vw;
-    max-width: 40vw;
+    width: 490px;
     border-radius: 20px;
+    height:265px;
     justify-content: center;
     text-align: left;
     @media @mobileLarge {
@@ -103,10 +102,11 @@
     h2 {
       font-family: 'Bangers';
       color:@header-nero;
-      font-weight: 400;
-      font-size: 2rem;
+      font-weight: 700;
+      margin-top:-3%;
+      font-size: 1.5rem;
       text-align:center;
-      -webkit-text-stroke: 0.3px white;
+      -webkit-text-stroke: 0.1px white;
       @media @mobileLarge {
         font-size: 1.4rem;
         
@@ -116,7 +116,8 @@
 }
 
 .avContainer{
- margin:2% 4%;
+ width:195px;
+ margin-left:15px;
  @media @mobile{
    margin-left:0%;
  }
@@ -152,9 +153,9 @@
 }
 .statBox{
   border-radius: 5px;
-  padding:2%;
+  padding:1%;
   margin:2%;
-  height:50px;
+  height:55px;
   @media @mobileLarge {
     padding:2%;
   }
@@ -162,6 +163,7 @@
   p{
     padding:4%;
     font-weight:700;
+    font-size:1.5rem;
     text-align: center;
   }
   h4{
@@ -174,8 +176,10 @@
 .statContainer{
   display: flex;
   flex-wrap: wrap;
-  width:45%;
-  margin:2%;  
+  height:175px;
+  justify-content:space-evenly;
+  width:245px;
+  margin-left:10px; 
   @media @mobile{
     padding:1%;
     margin:0px;
@@ -192,7 +196,7 @@
   background-color:@light-gray;
   border-radius:10px;
   width:90%;
-  margin:2% auto;
+  margin:4% auto;
   @media @mobileLarge {
     
   }
@@ -206,9 +210,13 @@
 }
 .inner{
   width:100%;
+  margin:0%;
 }
 .innerChildContainer{
   display:flex;
+  margin:0 auto;
+  width:480px;
+  height:195px;
   justify-content: center;
   @media @mobileLarge{
     justify-content:space-between;
