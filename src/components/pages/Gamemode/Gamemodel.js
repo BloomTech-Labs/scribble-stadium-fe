@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { tasks } from '../../../state/actions';
 import { useHistory } from 'react-router-dom';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-import GamemodeBtnl from './GamemodeBtnl';
+import GamemodeButton from './GamemodeButton';
 import GamemodeCon from './GamemodeCon';
 import render from 'react-dom';
 
@@ -28,10 +28,10 @@ const Gamemodel = ({ ...props }) => {
       } else {
         props.child.gamemode = {
           mode: 'select',
-          read: null,
-          write: null,
-          draw: null,
-          sp: null,
+          read: false,
+          write: false,
+          draw: false,
+          sp: false,
         };
       }
     };
@@ -66,8 +66,10 @@ const Gamemodel = ({ ...props }) => {
   const trig = () => {
     return (
       <div>
-        <button onClick={singled}>Success Player</button>
-        <Route path="/gamemode/single" {...props} component={GamemodeBtnl} />
+        <Button type="default" onClick={singled}>
+          Single Player
+        </Button>
+        <Route {...props} path="/gamemode/single" component={GamemodeButton} />
       </div>
     );
   };
@@ -107,8 +109,29 @@ const Gamemodel = ({ ...props }) => {
     <Switch>
       <Router>
         <>
-          <Header />
-          {trig()}
+          {props.child.gamemode.mode === 'select' && !props.child.gamemode.sp && (
+            <div className="dash-container">
+              <Header />
+
+              <Row>
+                <Col className="adventure-passport" xs={16} sm={24}>
+                  {!sP && props.child.gamemode.mode === 'select' && (
+                    <Link to="/gamemode/single">{trig()}</Link>
+                  )}
+                </Col>
+              </Row>
+            </div>
+          )}
+          {props.child.gamemode === null && reini()}
+
+          {props.child.gamemode.sp &&
+            props.child.gamemode.mode === 'single' && (
+              <Route
+                {...props}
+                path="/gamemode/single"
+                component={GamemodeButton}
+              />
+            )}
         </>
       </Router>
     </Switch>

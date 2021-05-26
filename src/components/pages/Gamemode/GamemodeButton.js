@@ -4,6 +4,7 @@ import { Header } from '../../common';
 import { Row, Col, Button } from 'antd';
 import { connect } from 'react-redux';
 import { tasks } from '../../../state/actions';
+import YourMissionComp from './YourMissionComp';
 // import { useHistory } from 'react-router-dom';
 import { Gamemode } from './index';
 import { Link, Route, useHistory } from 'react-router-dom';
@@ -160,113 +161,7 @@ const GamemodeButton = ({ ...props }) => {
   //   console.log(history);
   return (
     <>
-      <Header displayMenu={true} />
-      <div className="dash-container">
-        <Row>
-          <Col
-            className="adventure-passport landing-animation"
-            xs={4}
-            sm={10}
-            onClick={sread}
-          >
-            <h1 className="win-text">Read</h1>
-          </Col>
-          {rwd.read && (
-            <Col
-              className="accept-mission-ga1 landing-animation"
-              xs={4}
-              sm={14}
-              onClick={sread}
-            >
-              <h1 className="win-text1">READ</h1>
-            </Col>
-          )}
-        </Row>
-        <Row>
-          <Col
-            className="adventure-passport landing-animation"
-            xs={4}
-            sm={10}
-            onClick={sread}
-          >
-            <h1 className="win-text">Write</h1>
-          </Col>
-          {rwd.write && (
-            <Col
-              className="accept-mission-ga1 landing-animation"
-              xs={4}
-              sm={14}
-              onClick={sread}
-            >
-              <h1 className="win-text1">WRITE</h1>
-            </Col>
-          )}
-        </Row>
-        <Row>
-          <Col
-            className="adventure-passport landing-animation"
-            xs={4}
-            sm={10}
-            onClick={sread}
-          >
-            <h1 className="win-text">Draw</h1>
-          </Col>
-          {rwd.draw && (
-            <Col
-              className="accept-mission-ga1 landing-animation"
-              xs={4}
-              sm={14}
-              onClick={sread}
-            >
-              <h1 className="win-text1">DRAW</h1>
-            </Col>
-          )}
-        </Row>
-
-        <Row className="bottomrow">
-          <Col className="adventure-passport" xs={2} sm={24}>
-            {rwd.read || rwd.write || rwd.draw ? (
-              <Link to="/boss">
-                <Button
-                  style={{ margin: '20%' }}
-                  type="default"
-                  onClick={sread}
-                >
-                  Play Boss
-                </Button>
-              </Link>
-            ) : (
-              <div>
-                {sP && (
-                  <Link to="/gamemode">
-                    <Button
-                      style={{ margin: '20%' }}
-                      type="default"
-                      onClick={sread}
-                    >
-                      Single Player Mode
-                    </Button>
-
-                    {sP === false ||
-                      (props.child.gamemode.mode === 'select' && (
-                        <Route
-                          {...props}
-                          path="/gamemode/"
-                          component={Gamemode}
-                        />
-                      ))}
-                  </Link>
-                )}
-                {sP === false ||
-                  props.child.gamemode.sp === false ||
-                  (props.child.gamemode.mode === 'select' && (
-                    <Route {...props} path="/gamemode/" component={Gamemode} />
-                  ))}
-              </div>
-            )}
-          </Col>
-        </Row>
-      </div>
+      <YourMissionComp {...props} />
     </>
   );
 };
