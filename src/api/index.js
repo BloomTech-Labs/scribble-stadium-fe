@@ -96,6 +96,21 @@ const getLeaderboard = authState => {
   }
 };
 
+const getSquadPoints = authState => {
+  try {
+    return apiAuthGet('/squadpoints', getAuthHeader(authState)).then(
+      response => {
+        return response.data;
+      }
+    );
+  } catch (err) {
+    return new Promise(() => {
+      console.log(err);
+      return [];
+    });
+  }
+};
+
 const getChildCard = authState => {
   try {
     return apiAuthGet('/child/:id', getAuthHeader(authState)).then(response => {
@@ -574,4 +589,5 @@ export {
   getGallerySubmissionsById,
   getGallery,
   reset,
+  getSquadPoints,
 };
