@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Menu, Dropdown } from 'antd';
+import { Typography, Menu, Dropdown, Button } from 'antd';
 import { Link, useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
@@ -35,28 +35,23 @@ const ParentNavTopBar = props => {
   return (
     <nav className="parent-nav-top-bar" theme="light">
       <Link to="/parent/dashboard">
-        <a href="">
-          <Title className="title navbar-logo" style={{ margin: 0 }} level={1}>
-            STORY SQUAD
-          </Title>
-        </a>
+        <Title className="title navbar-logo" level={1}>
+          STORY SQUAD
+        </Title>
       </Link>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Link
-          to={{
-            pathname: '/parent/faq',
-          }}
-        >
-          <span className="welcome-back-msg">FAQ</span>
-        </Link>
-        <Link
-          to={{
-            pathname: '/parent/contact',
-          }}
-        >
-          <span className="welcome-back-msg">Contact Us |</span>
-        </Link>
-
+      <div className="nav-right">
+        <div className="link-container">
+          <Link to="/parent/faq">
+            <Button className="play-game-btn">PLAY GAME</Button>
+          </Link>
+          <Link to="/parent/faq">
+            <span>FAQ</span>
+          </Link>
+          <Link to="/parent/contact">
+            <span>CONTACT US</span>
+          </Link>
+        </div>
+        <div className="straight-bar"></div>
         <span className="welcome-back-msg">
           {props.parent && `Welcome back, ${props.parent.name}`}
         </span>

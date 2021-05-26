@@ -1,8 +1,9 @@
 import React from 'react';
-import { Collapse, Layout, Card, Row, Col, Button } from 'antd';
+import { Collapse, Layout, Card, Row, Col } from 'antd';
 import { CaretRightOutlined } from '@ant-design/icons';
 import img1 from './img1.png';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
+import ParentDashboardBack from '../../common/ParentDashboardBack';
 
 const { Panel } = Collapse;
 
@@ -12,6 +13,9 @@ const ParentFaqContainer = () => {
       <Layout className="parent-dashboard">
         <ParentNavTopBar />
         <div className='"site-card-border-less-wrapper"'>
+          <div style={{ width: '66%', margin: '0 auto' }}>
+            <ParentDashboardBack />
+          </div>
           <Row className="card">
             <Col span={16} className="col-btn">
               <Row>
