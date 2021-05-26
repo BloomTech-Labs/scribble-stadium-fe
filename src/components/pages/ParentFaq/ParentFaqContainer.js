@@ -21,20 +21,14 @@ const ParentFaqContainer = () => {
               </Row>
               <div className="btn-group">
                 <Row>
-                  <Button type="default" style={{ backgroundColor: '#fbfbfb' }}>
-                    Game Play
-                  </Button>
-                  <Button type="default" style={{ backgroundColor: '#fbfbfb' }}>
+                  <a href="#game-play">Game Play</a>
+                  <a href="#child-profile-management">
                     Child Profile Management
-                  </Button>
+                  </a>
                 </Row>
                 <Row>
-                  <Button type="default" style={{ backgroundColor: '#fbfbfb' }}>
-                    Account Setting
-                  </Button>
-                  <Button type="default" style={{ backgroundColor: '#fbfbfb' }}>
-                    Technical Support
-                  </Button>
+                  <a href="#account-settings">Account Settings</a>
+                  <a href="#tech-support">Technical Support</a>
                 </Row>
               </div>
             </Col>
@@ -54,7 +48,12 @@ const ParentFaqContainer = () => {
         </div>
 
         <div className="site-card-border-less-wrapper">
-          <Card title="Game Play + Content" className="card" bordered={false}>
+          <Card
+            title="Game Play + Content"
+            className="card"
+            id="game-play"
+            bordered={false}
+          >
             <Collapse
               bordered={false}
               defaultActiveKey={['1']}
@@ -183,6 +182,7 @@ const ParentFaqContainer = () => {
             title="Child Profile Management"
             className="card"
             bordered={false}
+            id="child-profile-management"
           >
             <Collapse
               bordered={false}
@@ -279,7 +279,12 @@ const ParentFaqContainer = () => {
           </Card>
         </div>
         <div className="site-card-border-less-wrapper">
-          <Card title="Account Settings" className="card" bordered={false}>
+          <Card
+            title="Account Settings"
+            className="card"
+            bordered={false}
+            id="account-settings"
+          >
             <Collapse
               bordered={false}
               defaultActiveKey={['1']}
@@ -320,7 +325,12 @@ const ParentFaqContainer = () => {
           </Card>
         </div>
         <div className="site-card-border-less-wrapper">
-          <Card title="Technical Support" className="card" bordered={false}>
+          <Card
+            title="Technical Support"
+            className="card"
+            bordered={false}
+            id="tech-support"
+          >
             <Collapse
               bordered={false}
               defaultActiveKey={['1']}

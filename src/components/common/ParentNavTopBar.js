@@ -34,11 +34,13 @@ const ParentMenu = props => {
 const ParentNavTopBar = props => {
   return (
     <nav className="parent-nav-top-bar" theme="light">
-      <a href="">
-        <Title className="title navbar-logo" style={{ margin: 0 }} level={1}>
-          STORY SQUAD
-        </Title>
-      </a>
+      <Link to="/parent/dashboard">
+        <a href="">
+          <Title className="title navbar-logo" style={{ margin: 0 }} level={1}>
+            STORY SQUAD
+          </Title>
+        </a>
+      </Link>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <Link
           to={{
@@ -54,8 +56,7 @@ const ParentNavTopBar = props => {
         >
           <span className="welcome-back-msg">Contact Us |</span>
         </Link>
-        
-        
+
         <span className="welcome-back-msg">
           {props.parent && `Welcome back, ${props.parent.name}`}
         </span>
