@@ -1,15 +1,24 @@
+@import '~antd/dist/antd.less';
+@import '~antd/lib/style/themes/default.less';
+@import 'global.less';
+@import 'variables.less';
+
 .acct-settings-form {
-    width: 83%;
     box-sizing: border-box;
     height: 45vh;
-    @media screen and (min-width: 750px) {
-        width: 717px;
-        height: 28vh;
+    width:68vw;
+    margin:0 auto;
+    @media @mobileLarge{
+        height:80vh;
+        margin-top:15px;
+        width:87vw;
+        margin:0 auto;
     }
+   
 }
 
 .email-label {
-    margin: 1vh 0 1vh 1.5vw;
+    margin: 12vh 0 1vh 1.5vw;
     font-style: normal;
     font-weight: bold;
     font-size: 0.75rem;
@@ -37,11 +46,20 @@
 .icon-input-and-button-container {
     align-items: center;
     padding: 1.6%;
+    width: 63vw;
     height: 6vh;
     background: #FFFFFF;
     border: 0.5px solid #7B8794;
     border-radius: 14px;
     margin: -.8% 0 4.5% 0;
+    @media @mobileLarge {
+        width: 85vw;
+    }
+
+    @media @tablet {
+        width: 70vw;
+    }
+
     @media screen and (min-width: 750px) {
         display: flex;
         height: 6vh;
@@ -65,7 +83,6 @@
 .acct-settings-input {
     border: none;
     font-size: 1rem;
-    margin-left: .5%;
 }
 
 .edit-button-container {
@@ -76,9 +93,9 @@
     border-radius: 14px;
     height: 5.5vh;
     align-items: center;
-    width: 55%;
+    width: 56%;
     margin-top: 2.5vh;
-    margin-left: -2%;
+    margin-left: 5%;
     padding: 2.65vh;
     @media screen and (min-width: 750px) {
         border-radius: 14px;
@@ -92,9 +109,131 @@
     @media screen and (min-width: 1440px) {
         margin-right: -.9vw;
     }
+    @media @mobileLarge{
+        width:65%;
+        margin-left:-5px;
+    }
+
 }
 
 .edit-button {
     border: none;
     background:#F5F5F5;
+    width: 100%;
+    @media @mobileLarge{
+        font-size:1rem;
+        height:25px;
+    }
+}
+
+// Change Password and Change Email MODAL rulesets below
+
+.email-modal-form {
+    width: 107%;
+    box-sizing: border-box;
+    height: 17vh;
+    @media screen and (min-width: 750px) {
+        width: 350px;
+        margin-bottom: -2.5vh;
+    }
+}
+
+.password-modal-form {
+    width: 107%;
+    box-sizing: border-box;
+    height: 45vh;
+    @media screen and (min-width: 750px) {
+        width: 350px;
+        margin-bottom: -2.5vh;
+    }
+}
+
+.modal-header-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 2vh 0 3vh 0;
+    @media screen and (min-width: 750px) {
+        margin-bottom: 2vh;
+    }
+}
+
+.password-modal-label {
+    margin: 4vh 0 1vh 1.5vw;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 100%;
+    color: #4B5151;
+    text-transform: capitalize;
+    @media screen and (min-width: 750px) {
+        margin: 4vh 0 1.25vh .5vw;
+    }
+}
+
+.modal-icon-input-and-button-container {
+    align-items: center;
+    padding: 3.25%;
+    height: 7vh;
+    background: #FFFFFF;
+    border: 0.5px solid #7B8794;
+    border-radius: 14px;
+    @media screen and (min-width: 750px) {
+        display: flex;
+        height: 6vh;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.modal-buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 107%;
+    @media screen and (min-width: 750px) {
+        width: 350px;
+    }
+}
+
+.modal-cancel-button-container {
+    display: flex;
+    justify-content: center;
+    background: #FFFFFF;
+    border: 0.5px solid #7B8794;
+    border-radius: 14px;
+    height: 6vh;
+    align-items: center;
+    width: 46%;
+    margin: 1.7vh 0 1.3vh 0;
+    padding: 2.65vh;
+    .modal-cancel-button {
+        border: none;
+        font-weight: 600;
+        background: #FFFFFF;
+    }
+}
+
+.modal-save-button-container {
+    display: flex;
+    justify-content: center;
+    background: #8CE2E0;
+    border-radius: 14px;
+    height: 6vh;
+    align-items: center;
+    width: 46%;
+    margin: 1.7vh 0 1.3vh 0;
+    padding: 2.65vh;
+    .modal-save-button {
+        border: none;
+        background: #8CE2E0;;
+        font-weight: 600;
+    }
+} 
+
+.ant-modal-content {
+    @media screen and (min-width: 750px) {
+        margin: auto;
+        width: 650px;
+    }
 }

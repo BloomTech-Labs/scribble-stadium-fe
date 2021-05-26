@@ -65,6 +65,9 @@ const apiAuthPost = (endpoint, body, authHeader) => {
 const apiAuthPut = (endpoint, body, authHeader) => {
   return axios.put(`${getApiUrl()}${endpoint}`, body, { headers: authHeader });
 };
+const apiAuthDelete = (endpoint, authHeader) => {
+  return axios.delete(`${getApiUrl()}${endpoint}`, { headers: authHeader });
+};
 
 const getProfileData = authState => {
   try {
@@ -155,6 +158,20 @@ const updateChildData = (authState, body, childId) => {
   console.log(body);
   try {
     return apiAuthPut(`/child/${childId}`, body, getAuthHeader(authState)).then(
+      response => {
+        return response;
+      }
+    );
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+    });
+  }
+};
+
+const deleteChild = (authState, childId) => {
+  try {
+    return apiAuthDelete(`/child/${childId}`, getAuthHeader(authState)).then(
       response => {
         return response;
       }
@@ -571,7 +588,9 @@ export {
   postNewChild,
   getChildFormValues,
   getChildTasks,
+  getChildCard,
   updateChildData,
+  deleteChild,
   postNewWritingSub,
   markAsRead,
   setAllTasks,

@@ -1,0 +1,190 @@
+@import '~antd/dist/antd.less';
+@import '~antd/lib/style/themes/default.less';
+
+.avatar-select-modal {
+    .image_picker {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    .ant-btn {
+        .blueButtonStyle();
+        margin: 0 auto;
+    }
+}
+
+.edit-players, .add-child {
+    .parent-back-button {
+        .parent-back-button();
+    }
+    .top-section {
+        width: 75%;
+        max-width: 800px;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 37px;
+        .title {
+            .titleStyle();
+            display: block;
+        }
+    }
+    .children {
+        width: 75%;
+        max-width: 800px;
+        margin: 0 auto;
+        flex-flow: column;
+        align-items: center;
+        .child-card-form {
+            background-color: #F5F5F5;
+            width: 100%;
+            height: fit-content;
+            margin-right: 0;
+            margin-bottom: 30px;
+            padding: 3% 5%;
+
+            .ant-card-body {
+                width: 100%;
+                padding: 0;
+                display: flex;
+                flex-flow: column;
+                height: 100%;
+                justify-content: space-between;
+                background-color: #F5F5F5;
+                .card-top {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    margin-bottom: 30px;
+                    .avatar-container {
+                        margin-left: 20px;
+                        position: relative;
+                    }
+                    .avatar-img {
+                        width: 115px;
+                        height: 115px;
+                        min-width: 115px;
+                        padding: 1%;
+                        clip-path: circle();
+                        background-color: white;
+                    }
+                    .edit-btn {
+                        .blueButtonStyle();
+                        width: 35px;
+                        height: 35px;
+                        display: inline-block;
+
+                        background-color: #F5F5F5;
+                        border: 1px solid #7E8484;
+                        border-radius: 50%;
+
+                        position: absolute;
+                        left: 81px;
+                        top: 0;
+                    }
+                    .delete-btn {
+                        .blueButtonStyle();
+                        display: inline-block;
+
+                        background-color: #FBFBFB;
+                        border: 1px solid #7E8484;
+                    }
+                }
+                .ant-form {
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: space-between;
+                    div.col {
+                        width: 50%;
+                        display: flex;
+                        flex-flow: column;
+                        height: 180px;
+                        justify-content: space-around;
+                    }
+                    .ant-row.ant-form-item {
+                        flex-flow: column;
+                        .ant-form-item-label {
+                            text-align: start;
+                            font-family: 'Open Sans';
+                            font-weight: 700;
+                            font-size: 0.8rem;
+                            color: #4B5151;
+                            margin-left: 10px;
+                            ::after {
+                                display: none;
+                            }
+                        }
+                        input {
+                            .inputStyle();
+                        }
+                        input.pin {
+                            letter-spacing: 8px;
+                            font-size: 2rem;
+                        }
+                    }
+                }
+                .card-bottom {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    margin-top: 30px;
+                }
+                .save-btn {
+                    .blueButtonStyle();
+                    width: 315px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:550px) {
+    .edit-players {
+        .top-section {
+            margin-bottom: 15px;
+        }
+        .children {
+            width: 90%;
+            .child-card-form {
+                .ant-card-body {
+                    .card-top {
+                        margin-bottom: 20px;
+                        .avatar-container {
+                            margin-left: 8px;
+                            margin-top: 8px;
+                        }
+                        .avatar-img {
+                            width: 105px;
+                            height: 105px;
+                        }
+                        .delete-btn {
+                            width: 50px;
+                            span[role="img"] + span {
+                                // Targets the span element after the span with role of img
+                                display: none;
+                            }
+                        }
+                    }
+                    .ant-form {
+                        flex-flow: column;
+                        align-items: center;
+                        div.col {
+                            width: 100%;
+                        }
+                        .ant-form-item {
+                            width: 100%;
+                        }
+                        .ant-form-item-label {
+                            padding: 0;
+                        }
+                    }
+                    .card-bottom {
+                        margin-top: 20px;
+                        justify-content: center;
+                    }
+                }
+
+            }
+        }
+    }
+}

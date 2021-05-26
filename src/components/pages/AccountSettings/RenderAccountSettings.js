@@ -1,15 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Modal, Button, Input, Form } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Modal, Button, Form } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
 import bc from 'bcryptjs';
 import { getProfileData } from '../../../api';
 import PinInput from 'react-pin-input';
-import AccountSettingsForm from '../../common/AccountSettingsForm.js';
+import AccountSettingsForm from '../AccountSettingsForm/AccountSettingsForm';
 
 function RenderAccountSettings() {
   const { authState } = useOktaAuth();
-  const [form] = Form.useForm();
-  const formRef = useRef(null);
+
   const [unlock, setUnlock] = useState(true);
   const [error, setError] = useState(false);
   const [userInfo, setUserInfo] = useState();
@@ -29,7 +28,6 @@ function RenderAccountSettings() {
   //These functions handle's exiting the modal once it is activated
   const handleOk = () => {
     setIsModalVisible(false);
-    form.resetFields();
   };
   const handleCancel = () => {
     setIsModalVisible(false);
@@ -39,20 +37,18 @@ function RenderAccountSettings() {
   //It toggles the opacity and disabled prop of the editFormsAndButtonsContainer
   // allowing the user to see that they can now access the elements to update their account
 
-  const onFinish = values => {
+  const onFinish = value => {
     setUnlock(!unlock);
-    form.resetFields();
+    setIsModalVisible(!isModalVisible);
   };
+  let pin;
 
   return (
     <div className="accountSettingsContainer">
       <Modal
         visible={isModalVisible}
-        okText="Unlock"
-        onOk={unlock ? null : handleOk}
-        okType="default"
         onCancel={handleCancel}
-        afterClose={form.resetFields()}
+        afterClose={() => pin.clear()}
         centered="true"
         width="25vw"
         bodyStyle={{
@@ -62,13 +58,15 @@ function RenderAccountSettings() {
         }}
       >
         <h4>Enter Pin</h4>
-        <Form name="verify" form={form} onFinish={onFinish} ref={formRef}>
+        <Form name="verify" onFinish={onFinish} initialValues="">
           <PinInput
             length={4}
+            ref={p => (pin = p)}
             initialValue=""
-            onChange={(value, index) => {}}
+            secret={true}
             type="numeric"
             inputMode="number"
+            focus={true}
             style={{ padding: '10px', borderRadius: '20px' }}
             inputStyle={{ borderRadius: '15px' }}
             inputFocusStyle={{ borderColor: 'blue' }}
@@ -85,30 +83,36 @@ function RenderAccountSettings() {
           <p style={error ? null : { display: 'none' }}>Incorrect PIN!</p>
         </Form>
       </Modal>
+
       <div className="textAndButtonContainer">
         <div className="editText">
           <h3>Edit Account Settings</h3>
         </div>
-        <div
-          className="unlockButton"
-          style={unlock ? null : { display: 'none' }}
-        >
-          <Button
-            className="lockUnlockButton"
-            onClick={() => setIsModalVisible(true)}
-            value="UNLOCK"
+        <div className="buttonArea">
+          <div
+            className="unlockButton"
+            style={unlock ? null : { display: 'none' }}
           >
-            UNLOCK
-          </Button>
-        </div>
+            <button
+              className="lockUnlockButton"
+              onClick={() => setIsModalVisible(true)}
+              value="UNLOCK"
+            >
+              UNLOCK WITH PIN
+            </button>
+          </div>
 
-        <div className="lockButton" style={unlock ? { display: 'none' } : null}>
-          <Button
-            className="lockUnlockButton"
-            onClick={() => setUnlock(!unlock)}
+          <div
+            className="lockButton"
+            style={unlock ? { display: 'none' } : null}
           >
-            LOCK
-          </Button>
+            <button
+              className="lockUnlockButton"
+              onClick={() => setUnlock(!unlock)}
+            >
+              LOCK
+            </button>
+          </div>
         </div>
       </div>
       <div
@@ -116,6 +120,23 @@ function RenderAccountSettings() {
         style={unlock ? { opacity: '.3' } : null}
       >
         <AccountSettingsForm disabled={unlock} />
+      </div>
+      <div className="settings-buttons-container">
+        <button
+          className="plainButton"
+          style={unlock ? { opacity: '.3' } : null}
+          disabled={unlock}
+        >
+          Edit Credit Card Info
+        </button>
+        <br />
+        <button
+          className="plainButton"
+          style={unlock ? { opacity: '.3' } : null}
+          disabled={unlock}
+        >
+          Edit Subscription Plan
+        </button>
       </div>
     </div>
   );

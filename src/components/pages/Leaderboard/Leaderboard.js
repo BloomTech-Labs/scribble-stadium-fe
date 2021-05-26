@@ -38,6 +38,7 @@ const Leaderboard = props => {
   // You may want to consider using something other than ant design in order to create the table as it is very limited as for as editing goes and may pose issues bringing in data from both the child table and the points table that is needed for the Squad points display.
 
   // In a future release once the gallery component is pulling in all necessary data the stakeholders would like a link from each childs name to their respective gallery.
+
   const table = [
     // Structure of the Table
     {
