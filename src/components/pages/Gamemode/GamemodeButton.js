@@ -7,7 +7,8 @@ import { tasks } from '../../../state/actions';
 // import { useHistory } from 'react-router-dom';
 import { Gamemode } from './index';
 import { Link, Route, useHistory } from 'react-router-dom';
-import Gamebtn from './Gamebtn';
+// import Gamebtn from './Gamebtn';
+import { GamemodeCon } from './GamemodeCon';
 
 import { render } from 'react-dom';
 
@@ -248,14 +249,18 @@ const GamemodeButton = ({ ...props }) => {
 
                     {sP === false ||
                       (props.child.gamemode.mode === 'select' && (
-                        <Route path="/gamemode" component={Gamemode} />
+                        <Route
+                          {...props}
+                          path="/gamemode/"
+                          component={Gamemode}
+                        />
                       ))}
                   </Link>
                 )}
                 {sP === false ||
                   props.child.gamemode.sp === false ||
                   (props.child.gamemode.mode === 'select' && (
-                    <Route path="/gamemode" component={Gamemode} />
+                    <Route {...props} path="/gamemode/" component={Gamemode} />
                   ))}
               </div>
             )}

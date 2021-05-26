@@ -28,10 +28,10 @@ const Gamemode = ({ ...props }) => {
       } else {
         props.child.gamemode = {
           mode: 'select',
-          read: null,
-          write: null,
-          draw: null,
-          sp: null,
+          read: false,
+          write: false,
+          draw: false,
+          sp: false,
         };
       }
     };
@@ -69,7 +69,7 @@ const Gamemode = ({ ...props }) => {
         <Button type="default" onClick={singled}>
           Single Player
         </Button>
-        <Route path="/gamemode/single" component={GamemodeButton} />
+        <Route {...props} path="/gamemode/single" component={GamemodeButton} />
       </div>
     );
   };
@@ -116,7 +116,7 @@ const Gamemode = ({ ...props }) => {
               <Row>
                 <Col className="adventure-passport" xs={16} sm={24}>
                   {!sP && props.child.gamemode.mode === 'select' && (
-                    <Link to="/gamemode/single">{trig()};</Link>
+                    <Link to="/gamemode/single">{trig()}</Link>
                   )}
                 </Col>
               </Row>
@@ -126,7 +126,11 @@ const Gamemode = ({ ...props }) => {
 
           {props.child.gamemode.sp &&
             props.child.gamemode.mode === 'single' && (
-              <Route path="/gamemode/single" component={GamemodeButton} />
+              <Route
+                {...props}
+                path="/gamemode/single"
+                component={GamemodeButton}
+              />
             )}
         </>
       </Router>
