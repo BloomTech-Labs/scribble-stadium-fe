@@ -1,0 +1,245 @@
+/* Selected it all */
+Ag
+Font 
+Open Sans
+Weight 
+400
+Style 
+normal
+Size 
+48px
+Line height 
+65.37px
+#F8C894
+#8C4E36
+#965A7D
+#1A1A1A
+#693C30
+37 more
+/* Hook */
+
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+transform: matrix(0, 1, 1, 0, 0, 0);
+
+
+/* Curved / Middle */
+
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 100%;
+bottom: -100%;
+
+transform: matrix(1, 0, 0, -1, 0, 0);
+
+
+/* header/tablet */
+
+
+position: absolute;
+width: 1024px;
+height: 182px;
+left: 0px;
+top: 0px;
+
+
+
+/* Write */
+
+
+position: absolute;
+width: 1024px;
+height: 539px;
+left: 0px;
+top: 341px;
+
+
+
+/* board/mission */
+
+
+position: absolute;
+width: 723px;
+height: 315px;
+left: 150px;
+top: 196px;
+
+
+
+/* Footer/Tablet */
+
+
+position: absolute;
+width: 1024px;
+height: 80px;
+left: 0px;
+top: 1187px;
+
+
+
+/* Line */
+
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+border: 4px solid #1A1A1A;
+border-radius: 24px;
+
+
+/* End / Circle */
+
+
+position: absolute;
+width: 16px;
+height: 16px;
+left: 16px;
+bottom: -8px;
+
+transform: matrix(-1, 0, 0, 1, 0, 0);
+
+
+/* Continue drawing */
+
+
+position: absolute;
+width: 398px;
+height: 65px;
+
+font-family: Open Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 48px;
+line-height: 65px;
+
+color: #000000;
+
+
+
+
+
+/*Top part below header */
+#1A1A1A
+#333D3E
+/* Write */
+
+
+position: absolute;
+width: 1024px;
+height: 539px;
+left: 0px;
+top: 341px;
+
+
+
+/* board/mission */
+
+
+position: absolute;
+width: 723px;
+height: 315px;
+left: 150px;
+top: 196px;
+
+
+
+/* Line */
+
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+border: 4px solid #1A1A1A;
+border-radius: 24px;
+
+
+/*Buttons inside */
+Ag
+Heading2-medium
+Font 
+Bangers
+Weight 
+400
+Style 
+normal
+Size 
+42px
+Line height 
+44.69px
+Letter 
+5%
+Text/White
+#FBFBFB
+/* steps */
+
+
+position: absolute;
+width: 83px;
+height: 108px;
+left: 99px;
+top: 152px;
+
+
+
+/* steps */
+
+
+position: absolute;
+width: 89px;
+height: 108px;
+left: 307px;
+top: 152px;
+
+
+
+/* steps */
+
+
+position: absolute;
+width: 97px;
+height: 108px;
+left: 524px;
+top: 152px;
+
+opacity: 0.3;
+
+
+/* Your Mission */
+
+
+position: absolute;
+left: 34.44%;
+right: 34.58%;
+top: 20%;
+bottom: 65.71%;
+
+/* Heading2-medium */
+
+font-family: Bangers;
+font-style: normal;
+font-weight: normal;
+font-size: 42px;
+line-height: 45px;
+/* identical to box height */
+
+letter-spacing: 0.05em;
+
+/* Text/White */
+
+color: #FBFBFB;
+
+
+
