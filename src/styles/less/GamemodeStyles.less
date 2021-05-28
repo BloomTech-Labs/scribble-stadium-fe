@@ -1,6 +1,7 @@
 
 
 #missioncon{
+    margin:auto;
     width:100%;
     height: 100%;
     background: pink;
@@ -13,7 +14,7 @@
     justify-content: center;
     align-items: center;
     width:70%;
-    height: 100%;
+    height: 40em;
     background-color: yellow;
 }
 .rectangle12B5{
@@ -23,21 +24,34 @@
     justify-content: center;
     align-items: center;
     width:80%;
+    height:100%;
 }
 .rectangle125{
-    /* Rectangle 125 */
+    /* Rectangle 125 tab & desktop first */
     
-display: flex;
-flex-direction: column;
-/* Text/Black */
-
-width:8rem;
-// height:100%;
-background: #2D2A2B;
-transform: matrix(1, -0.02, 0.03, 1, 0, 0);
+    display: flex;
+    flex-direction: column;
+    /* Text/Black */
+    min-width: 408px;
+    min-height: 288px;
+    width:8rem;
+    height:20em;
+    background: #2D2A2B;
+    transform: matrix(1, -0.02, 0.03, 1, 0, 0);
 }
 
+.gamemodebtncolclass{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+    // margin-left:1rem;
+    // margin-right:1rem;   
+    // width:45%;
+    // height:100%;
 
+}
 .your-mission{
     
     /* Your Mission */
@@ -47,6 +61,7 @@ transform: matrix(1, -0.02, 0.03, 1, 0, 0);
     /* Heading2-medium */
 
     h1{
+        margin-top:1.7rem;
         font-family: Bangers;
         font-style: normal;
         font-weight: normal;
@@ -62,9 +77,62 @@ transform: matrix(1, -0.02, 0.03, 1, 0, 0);
     }
 }
 
+// Butttons
 
 
- 
+.read-button-font{
+    /* Read */
+
+    margin:auto;
+    // position: absolute;
+    // left: 0%;
+    // right: 0%;
+    // top: 46.3%;
+    // bottom: 0%;
+
+    font-family: Atma;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 58px;
+    letter-spacing: 0.05em;
+
+    /* Text/White */
+
+    color: #FBFBFB;
+}
+#mission-read-button{
+
+    /* Lime Green */
+    border-radius:50%;
+    background: #C6FD7E;
+    margin:auto;
+    width:100%;
+    height:100%;
+    color:#2D2A2B;
+    }
+
+#mission-write-button{
+    /* Orange */
+    border-radius: 50%;
+    background: #FF845D;
+
+    margin:auto;
+    width:100%;
+    height:100%;
+    color:#2D2A2B;
+}
+
+#mission-draw-button{
+    /* Yellow */
+    border-radius:50%;
+    margin:auto;
+    width:100%;
+    height:100%;
+    color:#2D2A2B;
+    background: #FFD854;
+}
+
 
 
  

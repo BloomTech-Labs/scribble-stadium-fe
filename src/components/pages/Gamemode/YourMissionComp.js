@@ -160,19 +160,26 @@ const YourMissionComp = ({ ...props }) => {
   //   console.log(history);
   return (
     <>
-      <div>
+      <div id="missioncon">
         <Row className="rectangle125-box">
           <Col className="your-mission rectangle125">
             <h1>Your Mission</h1>
-            <Row className="rectangle12B5">
-              <Col className="rectangle125">
-                <button id="mission-read-button">Read</button>
+            <Row className="rectangle12B5 read-button-font">
+              {
+                // Number when button not clicked
+                // or Check mark when clicked
+              }
+              <Col className="gamemodebtncolclass">
+                <button id="mission-read-button">1</button>
+                <p className="read-button-font">Read</p>
               </Col>
-              <Col className="rectangle125">
-                <button id="mission-write-button">Write</button>
+              <Col className="gamemodebtncolclass">
+                <button id="mission-write-button">2</button>
+                <p className="read-button-font">Write</p>
               </Col>
-              <Col className="rectangle125">
-                <button id="mission-draw-button">Draw</button>
+              <Col className="gamemodebtncolclass">
+                <button id="mission-draw-button">3</button>
+                <p className="read-button-font">Draw</p>
               </Col>
             </Row>
           </Col>
