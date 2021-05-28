@@ -160,7 +160,8 @@ const YourMissionComp = ({ ...props }) => {
   //   console.log(history);
   return (
     <>
-      <div id="missioncon">
+      <Header />
+      <div>
         <Row className="rectangle125-box">
           <Col className="your-mission rectangle125">
             <h1>Your Mission</h1>
@@ -185,6 +186,7 @@ const YourMissionComp = ({ ...props }) => {
           </Col>
         </Row>
       </div>
+      <div className="rectangle130"></div>
     </>
   );
 };
