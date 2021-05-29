@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import history from './history';
+import LightingKid from '../../../assets/images/gamemodeimg/LightingKid.png';
 import { Header } from '../../common';
 import { Row, Col, Button } from 'antd';
 import { connect } from 'react-redux';
@@ -188,8 +189,8 @@ const YourMissionComp = ({ ...props }) => {
       </div>
       <div className="rectangle130">
         <Row className="btmRow">
-          <Col className="img-lightingKid-col">
-            <img src="../../../assets/images/gamemodeimg/LightingKid.png" />
+          <Col>
+            <img src={LightingKid} />
           </Col>
           <Col>
             <h1 className="dont4get">DON'T FORGET!</h1>
