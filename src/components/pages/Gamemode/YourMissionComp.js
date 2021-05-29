@@ -193,16 +193,17 @@ const YourMissionComp = ({ ...props }) => {
             <img src={LightingKid} />
           </Col>
           <Col>
-            <h1 className="dont4get">DON'T FORGET!</h1>
-            <p className="dont4get-p">
+            <h1 className="dont4get1">DON'T FORGET!</h1>
+
+            <p className="dont4get-p1">
               When you're finished drawing, snap a photo and upload your
               masterpiece.
             </p>
-            <button className="kids-story-upload kids-story-upload-font">
+            <button className="1kids-story-upload kids-story-upload-font">
               Upload you're drawing
             </button>
-            <p className="id-rather-choose-another-choice-font">
-              I'd rather write
+            <p className="1id-rather-choose-another-choice-font">
+              I'd rather draw
             </p>
           </Col>
         </Row>
