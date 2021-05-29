@@ -34,7 +34,7 @@ import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
 import { DrawingSub } from './components/pages/DrawingSub';
 import { Gamemode } from './components/pages/Gamemode';
-import GamemodeButton from './components/pages/Gamemode/GamemodeButton';
+import { GamemodeButton } from './components/pages/Gamemode';
 
 import { Help } from './components/pages/Help';
 import { LandingPage } from './components/pages/LandingPage';

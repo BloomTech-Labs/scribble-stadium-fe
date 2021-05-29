@@ -187,11 +187,13 @@ const YourMissionComp = ({ ...props }) => {
           </Col>
         </Row>
       </div>
+      {
+        // End Your Mission BUtton Bar
+        //Begin Read orange or Write yellow Background colors
+      }
       <div className="rectangle130">
         <Row className="btmRow">
-          <Col>
-            <img src={LightingKid} />
-          </Col>
+          <img src={LightingKid} />
           <Col>
             <h1 className="dont4get">DON'T FORGET!</h1>
 
