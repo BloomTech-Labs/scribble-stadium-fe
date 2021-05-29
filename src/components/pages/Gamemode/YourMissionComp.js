@@ -187,9 +187,23 @@ const YourMissionComp = ({ ...props }) => {
         </Row>
       </div>
       <div className="rectangle130">
-        <Row>
-          <Col>Picturehere</Col>
-          <Col>You did it and upload component here</Col>
+        <Row className="btmRow">
+          <Col className="img-lightingKid-col">
+            <img src="../../../assets/images/gamemodeimg/LightingKid.png" />
+          </Col>
+          <Col>
+            <h1 className="dont4get">DON'T FORGET!</h1>
+            <p className="dont4get-p">
+              When you're finished drawing, snap a photo and upload your
+              masterpiece.
+            </p>
+            <button className="kids-story-upload kids-story-upload-font">
+              Upload you're drawing
+            </button>
+            <p className="id-rather-choose-another-choice-font">
+              I'd rather write
+            </p>
+          </Col>
         </Row>
       </div>
     </>
