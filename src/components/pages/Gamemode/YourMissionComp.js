@@ -186,7 +186,12 @@ const YourMissionComp = ({ ...props }) => {
           </Col>
         </Row>
       </div>
-      <div className="rectangle130"></div>
+      <div className="rectangle130">
+        <Row>
+          <Col>Picturehere</Col>
+          <Col>You did it and upload component here</Col>
+        </Row>
+      </div>
     </>
   );
 };
