@@ -163,7 +163,7 @@ const YourMissionComp = ({ ...props }) => {
     <>
       <Header />
       <div>
-        <Thrashbar {...props} />
+        <Thrashbar props={props} />
       </div>
       {
         // End Your Mission BUtton Bar

@@ -14,37 +14,11 @@ import { GamemodeCon } from './GamemodeCon';
 // import { render } from 'react-dom';
 
   
-function singled(){
-  // setsP(false);
-  // e.preventDefault();
-  // rwd.read = false;
-  // rwd.draw = false;
-  // rwd.write = false;
-  // props.child.gamemode = {
-  //   mode: 'select',
-  //   read: false,
-  //   write: false,
-  //   draw: false,
-  //   sp: false,
-  // };
-  // push('/gamemode');
-  // // push('/gamemode/single');
-  // console.log('nal else ', props.child);
-};
+
 
 
 class Thrashbar extends React.Component {
-  constructor({...props}){
-    super(props);
-    this.state ={
-      read: false,
-      write: false,
-      draw: false,
-      mode: 'single',
-      sP: true
-    };
-    // this.singled = this.singled.bind;
-}
+
   // const [sP, setsP] = useState(true);
   //   history.push('/gamemode/single');
 
@@ -166,6 +140,42 @@ class Thrashbar extends React.Component {
   //   console.log(history);
 
   //   console.log(history);
+
+  constructor(...props){
+    super(...props);
+    this.state ={
+      child:{
+        gamemode:{
+          mode: 'single',
+          read: false,
+          write: false,
+          draw: false,
+          sp: true
+        }
+      }
+    };
+    this.singled = this.singled.bind(this);
+}
+
+
+   singled(){
+     console.log('fly');
+    // setsP(false);
+    // e.preventDefault();
+    // rwd.read = false;
+    // rwd.draw = false;
+    // rwd.write = false;
+    // props.child.gamemode = {
+    //   mode: 'select',
+    //   read: false,
+    //   write: false,
+    //   draw: false,
+    //   sp: false,
+    // };
+    // push('/gamemode');
+    // // push('/gamemode/single');
+    // console.log('nal else ', props.child);
+  };
 render(){
   return (
   
@@ -181,7 +191,7 @@ render(){
               }
               <Col className="gamemodebtncolclass">
                 <button onClick={() =>{
-                  singled();
+                  this.singled();
                 }} id="mission-read-button">1</button>
                 <p className="read-button-font">Read</p>
               </Col>
