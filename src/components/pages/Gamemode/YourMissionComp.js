@@ -12,7 +12,7 @@ import { Link, Route, useHistory } from 'react-router-dom';
 import { GamemodeCon } from './GamemodeCon';
 
 import { render } from 'react-dom';
-
+import Thrashbar from './Thrashbar';
 const YourMissionComp = ({ ...props }) => {
   const { push, location } = useHistory();
   const [rwd, setsRwd] = useState({
@@ -163,29 +163,7 @@ const YourMissionComp = ({ ...props }) => {
     <>
       <Header />
       <div>
-        <Row className="rectangle125-box">
-          <Col className="your-mission rectangle125">
-            <h1>Your Mission</h1>
-            <Row className="rectangle12B5 read-button-font">
-              {
-                // Number when button not clicked
-                // or Check mark when clicked
-              }
-              <Col className="gamemodebtncolclass">
-                <button id="mission-read-button">1</button>
-                <p className="read-button-font">Read</p>
-              </Col>
-              <Col className="gamemodebtncolclass">
-                <button id="mission-write-button">2</button>
-                <p className="read-button-font">Write</p>
-              </Col>
-              <Col className="gamemodebtncolclass">
-                <button id="mission-draw-button">3</button>
-                <p className="read-button-font">Draw</p>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
+        <Thrashbar {...props} />
       </div>
       {
         // End Your Mission BUtton Bar
