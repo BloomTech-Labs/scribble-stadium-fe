@@ -9,7 +9,7 @@ import YourMissionComp from './YourMissionComp';
 import { Gamemode } from './index';
 import { Link, Route, useHistory } from 'react-router-dom';
 // import Gamebtn from './Gamebtn';
-import { GamemodeCon } from './GamemodeCon';
+// import { GamemodeCon } from './GamemodeCon';
 
 import { render } from 'react-dom';
 
@@ -60,8 +60,9 @@ const GamemodeButton = ({ ...props }) => {
 
   const sread = e => {
     const ff = e.target.textContent;
+    console.log(ff + 'gamemodebuttonsread');
     switch (ff) {
-      case 'Read': {
+      case '1': {
         setsRwd({ read: !rwd.read, write: rwd.write, draw: rwd.draw });
         props.child.gamemode = {
           mode: 'single',
@@ -74,7 +75,7 @@ const GamemodeButton = ({ ...props }) => {
         console.log('nalread ', props.child.gamemode);
         break;
       }
-      case 'Write': {
+      case '2': {
         setsRwd({ read: rwd.read, write: !rwd.write, draw: rwd.draw });
         props.child.gamemode = {
           mode: 'single',
@@ -87,7 +88,7 @@ const GamemodeButton = ({ ...props }) => {
 
         break;
       }
-      case 'Draw': {
+      case '3': {
         setsRwd({ read: rwd.read, write: rwd.write, draw: !rwd.draw });
         props.child.gamemode = {
           mode: 'single',
@@ -150,7 +151,7 @@ const GamemodeButton = ({ ...props }) => {
     };
     push('/gamemode');
     // push('/gamemode/single');
-    console.log('nal else ', props.child);
+    console.log('nal gamemodebutton else ', props.child);
   };
   // const forceUpdateHandler = () => {
   //   this.forceUpdate();
@@ -161,7 +162,7 @@ const GamemodeButton = ({ ...props }) => {
   //   console.log(history);
   return (
     <>
-      <YourMissionComp {...props} singled={singled} />
+      <YourMissionComp {...props} sread={sread} />
     </>
   );
 };

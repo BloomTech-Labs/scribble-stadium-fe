@@ -58,7 +58,7 @@ const YourMissionComp = ({ ...props }) => {
     inofit();
   }, [sP, props.child]);
 
-  const sread = e => {
+  const fsread = e => {
     const ff = e.target.textContent;
     switch (ff) {
       case 'Read': {
@@ -150,7 +150,7 @@ const YourMissionComp = ({ ...props }) => {
     };
     push('/gamemode');
     // push('/gamemode/single');
-    console.log('nal else ', props.child);
+    console.log('nal mission else ', props.child);
   };
   // const forceUpdateHandler = () => {
   //   this.forceUpdate();
@@ -163,7 +163,12 @@ const YourMissionComp = ({ ...props }) => {
     <>
       <Header />
       <div>
-        <Thrashbar props={props} singled={singled} />
+        <Thrashbar
+          props={props}
+          sread={e => {
+            props.sread(e);
+          }}
+        />
       </div>
       {
         // End Your Mission BUtton Bar

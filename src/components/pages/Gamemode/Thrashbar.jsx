@@ -160,7 +160,7 @@ class Thrashbar extends React.Component {
 
    singled(){
      console.log('fly');
-     this.props.singled();
+     this.props.sread();
     // setsP(false);
     // e.preventDefault();
     // rwd.read = false;
@@ -191,17 +191,21 @@ render(){
                 // or Check mark when clicked
               }
               <Col className="gamemodebtncolclass">
-                <button onClick={() =>{
-                  this.singled();
+                <button onClick={(e) =>{
+                  this.props.sread(e);
                 }} id="mission-read-button">1</button>
                 <p className="read-button-font">Read</p>
               </Col>
               <Col className="gamemodebtncolclass">
-                <button id="mission-write-button">2</button>
+                <button onClick={(e) =>{
+                  this.props.sread(e);
+                }} id="mission-write-button">2</button>
                 <p className="read-button-font">Write</p>
               </Col>
               <Col className="gamemodebtncolclass">
-                <button  id="mission-draw-button">3</button>
+                <button onClick={(e) =>{
+                  this.props.sread(e);
+                }}  id="mission-draw-button">3</button>
                 <p className="read-button-font">Draw</p>
               </Col>
             </Row>
