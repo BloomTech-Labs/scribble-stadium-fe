@@ -161,7 +161,7 @@ const GamemodeButton = ({ ...props }) => {
   //   console.log(history);
   return (
     <>
-      <YourMissionComp {...props} />
+      <YourMissionComp {...props} singled={singled} />
     </>
   );
 };

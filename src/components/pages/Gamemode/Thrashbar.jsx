@@ -160,6 +160,7 @@ class Thrashbar extends React.Component {
 
    singled(){
      console.log('fly');
+     this.props.singled();
     // setsP(false);
     // e.preventDefault();
     // rwd.read = false;
