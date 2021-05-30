@@ -51,7 +51,20 @@ const GamemodeButton = ({ ...props }) => {
     const inofit = () => {
       if (props.child.gamemode.sp === false) {
         setsP(false);
+        setsRwd({
+          read: props.child.gamemode.read,
+          write: props.child.gamemode.write,
+          draw: props.child.gamemode.draw,
+          mode: props.child.gamemode.mode,
+        });
       } else {
+        setsRwd({
+          read: props.child.gamemode.read,
+          write: props.child.gamemode.write,
+          draw: props.child.gamemode.draw,
+          mode: props.child.gamemode.mode,
+        });
+        console.log('readrwd', rwd);
         setsP(true);
       }
     };
@@ -60,7 +73,8 @@ const GamemodeButton = ({ ...props }) => {
 
   const sread = e => {
     const ff = e.target.textContent;
-    console.log(ff + 'gamemodebuttonsread');
+    console.log(ff + rwd.read + rwd.write + rwd.draw + 'gamemodebuttonsread');
+
     switch (ff) {
       case '1': {
         setsRwd({ read: !rwd.read, write: rwd.write, draw: rwd.draw });
@@ -136,6 +150,7 @@ const GamemodeButton = ({ ...props }) => {
     // push('/gamemode/single');
     // console.log('zzzz ',props.child.gamemode);
   };
+
   const singled = r => {
     setsP(false);
     // e.preventDefault();
@@ -160,9 +175,34 @@ const GamemodeButton = ({ ...props }) => {
   //   console.log(history);
 
   //   console.log(history);
+  const pdw = () => {
+    const ff = 'pdw ';
+    if (props.child.gamemode.draw === undefined) {
+      props.child.gamemode.draw = false;
+      setsRwd({ draw: false });
+    }
+    if (props.child.gamemode.read === undefined) {
+      props.child.gamemode.read = false;
+      setsRwd({ read: false });
+    }
+    if (props.child.gamemode.write) {
+      setsRwd({ rwd: !props.child.gamemode.write });
+      props.child.gamemode.write = !props.child.gamemode.write;
+    } else if (!props.child.gamemode.write) {
+      props.child.gamemode.write = !props.child.gamemode.write;
+      setsRwd({ rwd: !props.child.gamemode.write });
+    }
+
+    // console.log(state);
+    console.log(props.child.gamemode);
+  };
   return (
     <>
-      <YourMissionComp {...props} sread={sread} />
+      {rwd.write ? (
+        <YourMissionComp {...props} pdw={pdw} sread={sread} />
+      ) : (
+        <YourMissionComp {...props} pdw={pdw} sread={sread} />
+      )}
     </>
   );
 };
