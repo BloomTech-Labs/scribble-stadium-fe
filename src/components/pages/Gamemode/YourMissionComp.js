@@ -174,7 +174,13 @@ const YourMissionComp = ({ ...props }) => {
         // End Your Mission BUtton Bar
         //Begin Read orange or Write yellow Background colors
       }
-      <div className="rectangle130">
+      <div
+        className={
+          props.child.gamemode.write === true
+            ? 'rectangle130-yellow'
+            : 'rectangle130'
+        }
+      >
         <Row className="btmRow">
           <img src={LightingKid} />
           <Col>
@@ -188,7 +194,9 @@ const YourMissionComp = ({ ...props }) => {
               Upload you're drawing
             </button>
             <p className="id-rather-choose-another-choice-font">
-              I'd rather draw
+              {props.child.gamemode.write
+                ? "I'd rather write"
+                : "I'd rather draw"}
             </p>
           </Col>
         </Row>
