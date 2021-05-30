@@ -152,6 +152,7 @@ const GamemodeButton = ({ ...props }) => {
   };
 
   const singled = r => {
+    // GOes back to previous menu
     setsP(false);
     // e.preventDefault();
     rwd.read = false;
@@ -166,7 +167,7 @@ const GamemodeButton = ({ ...props }) => {
     };
     push('/gamemode');
     // push('/gamemode/single');
-    console.log('nal gamemodebutton else ', props.child);
+    console.log('nal gamemodebutton goback ', props.child);
   };
   // const forceUpdateHandler = () => {
   //   this.forceUpdate();
@@ -176,7 +177,7 @@ const GamemodeButton = ({ ...props }) => {
 
   //   console.log(history);
   const pdw = () => {
-    const ff = 'pdw ';
+    // const ff = 'pdw ';
     if (props.child.gamemode.draw === undefined) {
       props.child.gamemode.draw = false;
       setsRwd({ draw: false });
@@ -191,6 +192,9 @@ const GamemodeButton = ({ ...props }) => {
     } else if (!props.child.gamemode.write) {
       props.child.gamemode.write = !props.child.gamemode.write;
       setsRwd({ rwd: !props.child.gamemode.write });
+    } else {
+      props.child.gamemode.write = false;
+      setsRwd({ rwd: false });
     }
 
     // console.log(state);
