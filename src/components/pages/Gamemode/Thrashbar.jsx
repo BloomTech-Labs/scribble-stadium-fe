@@ -1,15 +1,15 @@
 import React, { useState, useEffect, Component } from 'react';
 // import history from './history';
-import LightingKid from '../../../assets/images/gamemodeimg/LightingKid.png';
-import { Header } from '../../common';
+// import LightingKid from '../../../assets/images/gamemodeimg/LightingKid.png';
+// import { Header } from '../../common';
 import { Row, Col, Button } from 'antd';
 import { connect } from 'react-redux';
-import { tasks } from '../../../state/actions';
+// import { tasks } from '../../../state/actions';
 // import { useHistory } from 'react-router-dom';
-import { Gamemode } from './index';
-import { Link, Route, useHistory } from 'react-router-dom';
-// import Gamebtn from './Gamebtn';
-import { GamemodeCon } from './GamemodeCon';
+// import { Gamemode } from './index';
+// import { Link, Route, useHistory } from 'react-router-dom';
+// // import Gamebtn from './Gamebtn';
+// import { GamemodeCon } from './GamemodeCon';
 
 // import { render } from 'react-dom';
 
