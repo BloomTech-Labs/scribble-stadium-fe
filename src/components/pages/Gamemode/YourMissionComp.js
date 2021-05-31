@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react';
-// import history from './history';
+
 import LightingKid from '../../../assets/images/gamemodeimg/LightingKid.png';
 import { Header } from '../../common';
 import { Row, Col, Button } from 'antd';
 import { connect } from 'react-redux';
 import UploaderComp from './UploaderComp';
 import { tasks } from '../../../state/actions';
-// import { useHistory } from 'react-router-dom';
 import { Gamemode } from './index';
 import { Link, Route, useHistory } from 'react-router-dom';
-// import Gamebtn from './Gamebtn';
-import { GamemodeCon } from './GamemodeCon';
-
 import { render } from 'react-dom';
 import Thrashbar from './Thrashbar';
 const YourMissionComp = ({ ...props }) => {
@@ -83,4 +79,3 @@ export default connect(
   }),
   {}
 )(YourMissionComp);
-// export default connect()(Gamemode);

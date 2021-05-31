@@ -1,17 +1,7 @@
 import React, { useState, useEffect } from 'react';
-// import history from './history';
-import { Header } from '../../common';
-import { Row, Col, Button } from 'antd';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { tasks } from '../../../state/actions';
 import YourMissionComp from './YourMissionComp';
-// import { useHistory } from 'react-router-dom';
-import { Gamemode } from './index';
-import { Link, Route, useHistory } from 'react-router-dom';
-// import Gamebtn from './Gamebtn';
-// import { GamemodeCon } from './GamemodeCon';
-
-import { render } from 'react-dom';
 
 const GamemodeButton = ({ ...props }) => {
   const { push, location } = useHistory();
@@ -22,30 +12,6 @@ const GamemodeButton = ({ ...props }) => {
     mode: 'single',
   });
   const [sP, setsP] = useState(true);
-  //   history.push('/gamemode/single');
-
-  // useEffect(() => {
-  //   const propInit = () => {
-  //     if (props.child.gamemode !== null) {
-  //       props.child.gamemode = {
-  //         mode: 'single',
-  //         read: rwd.read,
-  //         write: rwd.write,
-  //         draw: rwd.draw,
-  //         sp: sP,
-  //       };
-  //     } else {
-  //       props.child.gamemode = {
-  //         mode: 'select',
-  //         read: false,
-  //         write: false,
-  //         draw: false,
-  //         sp: false,
-  //       };
-  //     }
-  //   };
-  //   propInit();
-  // }, [rwd, props.child]);
 
   useEffect(() => {
     const inofit = () => {
@@ -133,7 +99,6 @@ const GamemodeButton = ({ ...props }) => {
         break;
       }
       default: {
-        // setsRwd({ read: !rwd.read, write: !rwd.write, draw: rwd.draw });
         props.child.gamemode = {
           mode: 'select',
           read: props.child.gamemode.read,
@@ -145,10 +110,6 @@ const GamemodeButton = ({ ...props }) => {
         break;
       }
     }
-
-    // push('/gamemode/single');
-    // push('/gamemode/single');
-    // console.log('zzzz ',props.child.gamemode);
   };
 
   const singled = r => {
@@ -166,18 +127,11 @@ const GamemodeButton = ({ ...props }) => {
       sp: false,
     };
     push('/gamemode');
-    // push('/gamemode/single');
+
     console.log('nal gamemodebutton goback ', props.child);
   };
-  // const forceUpdateHandler = () => {
-  //   this.forceUpdate();
-  // };
 
-  //   console.log(history);
-
-  //   console.log(history);
   const pdw = () => {
-    // const ff = 'pdw ';
     if (props.child.gamemode.draw === undefined) {
       props.child.gamemode.draw = false;
       setsRwd({ draw: false });
@@ -197,7 +151,6 @@ const GamemodeButton = ({ ...props }) => {
       setsRwd({ rwd: false });
     }
 
-    // console.log(state);
     console.log(props.child.gamemode);
   };
   return (
@@ -216,4 +169,3 @@ export default connect(
   }),
   {}
 )(GamemodeButton);
-// export default connect()(Gamemode);

@@ -1,17 +1,8 @@
 import React, { useState, useEffect, Component } from 'react';
-// import history from './history';
-// import LightingKid from '../../../assets/images/gamemodeimg/LightingKid.png';
-// import { Header } from '../../common';
+
 import { Row, Col, Button } from 'antd';
 import { connect } from 'react-redux';
-// import { tasks } from '../../../state/actions';
-// import { useHistory } from 'react-router-dom';
-// import { Gamemode } from './index';
-// import { Link, Route, useHistory } from 'react-router-dom';
-// // import Gamebtn from './Gamebtn';
-// import { GamemodeCon } from './GamemodeCon';
 
-// import { render } from 'react-dom';
 
   
 
@@ -41,21 +32,7 @@ class Thrashbar extends React.Component {
    singled(){
      console.log('fly');
      this.props.sread();
-    // setsP(false);
-    // e.preventDefault();
-    // rwd.read = false;
-    // rwd.draw = false;
-    // rwd.write = false;
-    // props.child.gamemode = {
-    //   mode: 'select',
-    //   read: false,
-    //   write: false,
-    //   draw: false,
-    //   sp: false,
-    // };
-    // push('/gamemode');
-    // // push('/gamemode/single');
-    // console.log('nal else ', props.child);
+
   };
 render(){
   return (
@@ -98,11 +75,11 @@ render(){
   );
 }
 }
-// export default Thrashbar;
+
 export default connect(
   state => ({
     child: state.child,
   }),
   {}
 )(Thrashbar);
-// export default connect()(Thrashbar);
+

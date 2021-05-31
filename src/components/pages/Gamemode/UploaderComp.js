@@ -1,29 +1,13 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
+
 import 'antd/dist/antd.css';
-// import './index.css';
+
 import { Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 
-import { Row, Col, Button } from 'antd';
 import { connect } from 'react-redux';
-import { tasks } from '../../../state/actions';
-// import { useHistory } from 'react-router-dom';
-// import { Gamemode } from './index';
-// import { Link, Route, useHistory } from 'react-router-dom';
-// import Gamebtn from './Gamebtn';
-// import { GamemodeCon } from './GamemodeCon';
 
-import { render } from 'react-dom';
-import Thrashbar from './Thrashbar';
 const UploaderComp = ({ ...props }) => {
-  // const { push, location } = useHistory();
-  // const [rwd, setsRwd] = useState({
-  //   read: false,
-  //   write: false,
-  //   draw: false,
-  //   mode: 'single',
-  // });
   const { Dragger } = Upload;
 
   const props1 = {
@@ -67,4 +51,3 @@ export default connect(
   }),
   {}
 )(UploaderComp);
-// export default connect()(Gamemode);

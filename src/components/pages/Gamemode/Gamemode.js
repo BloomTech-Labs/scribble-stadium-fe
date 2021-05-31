@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
-// import history from './history';
+
 import { Header } from '../../common';
 import { Row, Col, Button } from 'antd';
 import { connect } from 'react-redux';
-import { tasks } from '../../../state/actions';
+
 import { useHistory } from 'react-router-dom';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import GamemodeButton from './GamemodeButton';
-import GamemodeCon from './GamemodeCon';
-import render from 'react-dom';
 
 const Gamemode = ({ ...props }) => {
   const { push, location } = useHistory();
   const [sP, setsP] = useState(false);
-  //   history.push('/gamemode/single');
 
   useEffect(() => {
     const propInit = () => {
@@ -99,7 +96,7 @@ const Gamemode = ({ ...props }) => {
     props.child.gamemode.write = false;
     props.child.gamemode.draw = false;
   };
-  /*
+  /* If you need a go back menu
 (sP && props.child.gamemode.mode === 'select' && (
       <Link to="/gamemode">
         <div>
@@ -110,21 +107,7 @@ const Gamemode = ({ ...props }) => {
     )) ||
   */
 
-  //   console.log(history);
   return (
-    // (props.child.gamemode !== null &&
-    //   props.child.gamemode.mode === 'select' && (
-    //     <Route path="/gamemode" component={Gamemode} />
-    //   ))||
-
-    // (props.child.gamemode.mode.sp === false && props.child.gamemode.mode === 'select' && (
-    //   <Link to="/gamemode">
-    //     <div>
-    //       <button onClick={singled}>Goback to Menu</button>
-    //       <Route path="/gamemode" component={<Gamemode {...props}/>} />
-    //     </div>
-    //   </Link>
-    // )) ||
     <Switch>
       <Router>
         <>
@@ -162,4 +145,3 @@ export default connect(
   }),
   {}
 )(Gamemode);
-// export default connect()(Gamemode);
