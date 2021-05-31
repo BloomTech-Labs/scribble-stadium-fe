@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import UploadDocs from '../../common/UploadDocs';
 import LightingKid from '../../../assets/images/gamemodeimg/LightingKid.png';
 import { Header } from '../../common';
 import { Row, Col, Button } from 'antd';
@@ -54,7 +54,7 @@ const YourMissionComp = ({ ...props }) => {
               {props.child.gamemode.write
                 ? 'Upload your writing'
                 : 'Upload your drawing'}
-              <UploaderComp props={props} />
+              <UploadDocs props={props} />
             </div>
             <div
               onClick={() => {
