@@ -54,10 +54,12 @@ const YourMissionComp = ({ ...props }) => {
               When you're finished drawing, snap a photo and upload your
               masterpiece.
             </p>
-            <button className="kids-story-upload kids-story-upload-font">
-              Upload you're drawing
+            <div className="kids-story-upload kids-story-upload-font">
+              {props.child.gamemode.write
+                ? 'Upload your writing'
+                : 'Upload your drawing'}
               <UploaderComp props={props} />
-            </button>
+            </div>
             <div
               onClick={() => {
                 props.pdw();

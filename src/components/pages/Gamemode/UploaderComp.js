@@ -47,7 +47,7 @@ const UploaderComp = ({ ...props }) => {
   };
 
   return (
-    <Dragger {...props1}>
+    <Dragger {...props}>
       <p className="ant-upload-drag-icon">
         <InboxOutlined />
       </p>

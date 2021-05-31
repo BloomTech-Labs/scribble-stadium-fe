@@ -25,6 +25,26 @@ const Gamemode = ({ ...props }) => {
           draw: props.child.gamemode.draw,
           sp: false,
         };
+        const props1 = {
+          name: 'file',
+          multiple: true,
+          action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+          onChange(info) {
+            const { status } = info.file;
+            if (status !== 'uploading') {
+              console.log(info.file, info.fileList);
+            }
+            if (status === 'done') {
+              message.success(`${info.file.name} file uploaded successfully.`);
+            } else if (status === 'error') {
+              message.error(`${info.file.name} file upload failed.`);
+            }
+          },
+          onDrop(e) {
+            console.log('Dropped files', e.dataTransfer.files);
+          },
+        };
+        props.child = props1;
       } else {
         props.child.gamemode = {
           mode: 'select',
@@ -43,20 +63,19 @@ const Gamemode = ({ ...props }) => {
       push('/gamemode');
       props.child.gamemode = {
         mode: 'select',
-        read: null,
-        write: null,
-        draw: null,
+        read: false,
+        write: false,
+        draw: false,
         sp: false,
       };
       setsP(false);
       console.log('nal', props.child);
     } else if (location.pathname === '/gamemode' && sP === false) {
       push('/gamemode/single');
+
       props.child.gamemode = {
         mode: 'single',
-        read: props.child.gamemode.read,
-        write: props.child.gamemode.write,
-        draw: props.child.gamemode.draw,
+
         sp: true,
       };
       console.log('nal elif', props.child);
