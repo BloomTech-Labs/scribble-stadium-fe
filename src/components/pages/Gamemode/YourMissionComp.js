@@ -54,7 +54,7 @@ const YourMissionComp = ({ ...props }) => {
               {props.child.gamemode.write
                 ? 'Upload your writing'
                 : 'Upload your drawing'}
-              <UploadDocs props={props} />
+              <UploadDocs {...props} />
             </div>
             <div
               onClick={() => {
