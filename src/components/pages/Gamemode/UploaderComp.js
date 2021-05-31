@@ -6,7 +6,7 @@ import { Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 
 import { connect } from 'react-redux';
-
+// Refuses to work properly without errors showingup though there are props
 const UploaderComp = ({ ...props }) => {
   const { Dragger } = Upload;
 
