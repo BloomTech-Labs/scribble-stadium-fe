@@ -122,9 +122,18 @@ const GamemodeButton = ({ ...props }) => {
       default: {
         props.child.gamemode = {
           mode: 'select',
-          read: props.child.gamemode.read,
-          write: props.child.gamemode.write,
-          draw: props.child.gamemode.draw,
+          read:
+            props.child.gamemode.read !== null
+              ? props.child.gamemode.read
+              : false,
+          write:
+            props.child.gamemode.write !== null
+              ? props.child.gamemode.write
+              : false,
+          draw:
+            props.child.gamemode.draw !== null
+              ? props.child.gamemode.draw
+              : false,
           sp: false,
         };
         console.log('naldefault ', props.child.gamemode);
@@ -157,11 +166,7 @@ const GamemodeButton = ({ ...props }) => {
   };
   return (
     <>
-      {rwd.write ? (
-        <YourMissionComp {...props} pdw={pdw} sread={sread} />
-      ) : (
-        <YourMissionComp {...props} pdw={pdw} sread={sread} />
-      )}
+      <YourMissionComp {...props} pdw={pdw} sread={sread} />
     </>
   );
 };
