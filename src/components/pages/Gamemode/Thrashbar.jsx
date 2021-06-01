@@ -28,10 +28,97 @@ class Thrashbar extends React.Component {
     this.singled = this.singled.bind(this);
 }
 
+componentDidUpdate(prevProps,prevState) {
+  // Typical usage (don't forget to compare props):
+  if (this.props.child.gamemode.read !== prevProps.child.gamemode.read) {
+     prevProps.child.gamemode.read = this.props.child.gamemode.read;
+    console.log('prevprop',prevProps,this.props.child.gamemode.read);
 
-   singled(){
-     console.log('fly');
-     this.props.sread();
+  }
+
+  if (this.state.child.gamemode.read !== prevState.child.gamemode.read) {
+      prevState.child.gamemode.read = this.state.child.gamemode.read;
+    console.log('prevstate',prevState.child.gamemode.read+'prevethis'+this.props.child.gamemode.read);
+    // this.forceUpdate();
+  }
+}
+
+// componentDidMount() {
+//   console.log('inthrash');
+//   if (
+    
+//     this.props.child.gamemode.read != null  
+//   ) {
+//     console.log('inthrash',this.state.child.gamemode.read);
+//     this.setState({ child:{
+//       gamemode:{
+//         mode: 'single',
+//         read: this.props.child.gamemode.read,
+//         write: false,
+//         draw: false,
+//         sp: true
+//       }
+//     }  });
+//     console.log('inthrash',this.state.child.gamemode.read);
+//   }else{
+//     console.log('inthrash');
+//     this.setState( { child:{
+//       gamemode:{
+//         mode: 'single',
+//         read: false,
+//         write: false,
+//         draw: false,
+//         sp: true
+//       }
+//     }  });
+//   }
+//   // at this point you can query the browser DOM
+//   // (even tho most of the time you DONT want to do this)
+//   // componentdidmount 
+// }
+
+
+
+// componentDidUpdate(prevProps, prevState) {
+//   // similar to useEffect
+//   // we have to manually check for certain props or state changes
+//   // no dependency array in cDU :(
+//     console.log('inthrash');
+//   if (
+    
+//     prevProps.child.gamemode !== this.state.child.gamemode
+//   ) {
+//     console.log('inthrash');
+//     this.setState({ child:{
+//       gamemode:{
+//         mode: 'single',
+//         read: false,
+//         write: false,
+//         draw: false,
+//         sp: true
+//       }
+//     }  });
+//   }else{
+//     console.log('inthrash');
+//     // this.setState( { child:{
+//     //   gamemode:{
+//     //     mode: null,
+//     //     read: null,
+//     //     write: null,
+//     //     draw: null,
+//     //     sp: null
+//     //   }
+//     // }  });
+//   }
+// }
+
+
+   singled(e){
+
+      this.props.sread(e);
+    
+     
+     
 
   };
 render(){
@@ -46,22 +133,35 @@ render(){
               {
                 // Number when button not clicked
                 // or Check mark when clicked
+
               }
-              <Col className="gamemodebtncolclass">
-                <button onClick={(e) =>{
-                  this.props.sread(e);
-                }} id="mission-read-button">1</button>
+              <Col 
+                 className="gamemodebtncolclass">
+                <button  
+                style={  this.state.child.gamemode.read || this.props.child.gamemode.read ? {opacity:'40% '} :  {opacity:'100% '}} 
+                
+                  onClick={(e) =>{
+                 
+                    this.singled(e) ;
+                
+                  }}
+              
+                  
+                
+                
+
+                 id="mission-read-button" >1</button>
                 <p className="read-button-font">Read</p>
               </Col>
               <Col className="gamemodebtncolclass">
                 <button onClick={(e) =>{
-                  this.props.sread(e);
+                  this.singled(e);
                 }} id="mission-write-button">2</button>
                 <p className="read-button-font">Write</p>
               </Col>
               <Col className="gamemodebtncolclass">
                 <button onClick={(e) =>{
-                  this.props.sread(e);
+                  this.singled(e);
                 }}  id="mission-draw-button">3</button>
                 <p className="read-button-font">Draw</p>
               </Col>

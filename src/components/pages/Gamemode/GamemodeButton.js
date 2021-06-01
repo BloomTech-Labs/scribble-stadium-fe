@@ -41,6 +41,7 @@ const GamemodeButton = ({ ...props }) => {
   );
 
   const sread = e => {
+    console.log('nal flying from sread gamemodebutton component', e[3]);
     const ff = e.target.textContent;
     console.log(ff + rwd.read + rwd.write + rwd.draw + 'gamemodebuttonsread');
 
