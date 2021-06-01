@@ -29,7 +29,7 @@ class Thrashbar extends React.Component {
 }
 
 componentDidUpdate(prevProps,prevState) {
-  // Typical usage (don't forget to compare props):
+  // Read
   if (this.props.child.gamemode.read !== prevProps.child.gamemode.read) {
      prevProps.child.gamemode.read = this.props.child.gamemode.read;
     console.log('prevprop',prevProps,this.props.child.gamemode.read);
@@ -41,6 +41,30 @@ componentDidUpdate(prevProps,prevState) {
     console.log('prevstate',prevState.child.gamemode.read+'prevethis'+this.props.child.gamemode.read);
     // this.forceUpdate();
   }
+// Write
+  if (this.props.child.gamemode.write !== prevProps.child.gamemode.write) {
+    prevProps.child.gamemode.write = this.props.child.gamemode.write;
+   console.log('prevprop',prevProps,this.props.child.gamemode.write);
+
+ }
+
+ if (this.state.child.gamemode.write !== prevState.child.gamemode.write) {
+     prevState.child.gamemode.write = this.state.child.gamemode.write;
+   console.log('prevstate',prevState.child.gamemode.write+'prevethis'+this.props.child.gamemode.write);
+   // this.forceUpdate();
+ }
+// Draw
+ if (this.props.child.gamemode.draw !== prevProps.child.gamemode.draw) {
+  prevProps.child.gamemode.draw = this.props.child.gamemode.draw;
+ console.log('prevprop',prevProps,this.props.child.gamemode.draw);
+
+}
+
+if (this.state.child.gamemode.draw !== prevState.child.gamemode.draw) {
+   prevState.child.gamemode.draw = this.state.child.gamemode.draw;
+ console.log('prevstate',prevState.child.gamemode.draw+'prevethis'+this.props.child.gamemode.draw);
+ // this.forceUpdate();
+}
 }
 
 // componentDidMount() {
@@ -138,7 +162,9 @@ render(){
               <Col 
                  className="gamemodebtncolclass">
                 <button  
-                style={  this.state.child.gamemode.read || this.props.child.gamemode.read ? {opacity:'40% '} :  {opacity:'100% '}} 
+                style={  this.state.child.gamemode.read || 
+                  this.props.child.gamemode.read ?
+                   {opacity:'40% '} :  {opacity:'100% '}} 
                 
                   onClick={(e) =>{
                  
@@ -154,13 +180,21 @@ render(){
                 <p className="read-button-font">Read</p>
               </Col>
               <Col className="gamemodebtncolclass">
-                <button onClick={(e) =>{
+                <button 
+                style={  this.state.child.gamemode.write || 
+                  this.props.child.gamemode.write ?
+                   {opacity:'40% '} :  {opacity:'100% '}} 
+                onClick={(e) =>{
                   this.singled(e);
                 }} id="mission-write-button">2</button>
                 <p className="read-button-font">Write</p>
               </Col>
               <Col className="gamemodebtncolclass">
-                <button onClick={(e) =>{
+                <button
+                style={  this.state.child.gamemode.draw || 
+                  this.props.child.gamemode.draw ?
+                   {opacity:'40% '} :  {opacity:'100% '}} 
+                onClick={(e) =>{
                   this.singled(e);
                 }}  id="mission-draw-button">3</button>
                 <p className="read-button-font">Draw</p>
