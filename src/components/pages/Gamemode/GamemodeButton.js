@@ -13,29 +13,32 @@ const GamemodeButton = ({ ...props }) => {
   });
   const [sP, setsP] = useState(true);
 
-  useEffect(() => {
-    const inofit = () => {
-      if (props.child.gamemode.sp === false) {
-        setsP(false);
-        setsRwd({
-          read: props.child.gamemode.read,
-          write: props.child.gamemode.write,
-          draw: props.child.gamemode.draw,
-          mode: props.child.gamemode.mode,
-        });
-      } else {
-        setsRwd({
-          read: props.child.gamemode.read,
-          write: props.child.gamemode.write,
-          draw: props.child.gamemode.draw,
-          mode: props.child.gamemode.mode,
-        });
-        console.log('readrwd', rwd);
-        setsP(true);
-      }
-    };
-    inofit();
-  }, [sP, props.child]);
+  useEffect(
+    rwd => {
+      const inofit = rwd => {
+        if (props.child.gamemode.sp === false) {
+          setsP(false);
+          setsRwd({
+            read: props.child.gamemode.read,
+            write: props.child.gamemode.write,
+            draw: props.child.gamemode.draw,
+            mode: props.child.gamemode.mode,
+          });
+        } else {
+          setsRwd({
+            read: props.child.gamemode.read,
+            write: props.child.gamemode.write,
+            draw: props.child.gamemode.draw,
+            mode: props.child.gamemode.mode,
+          });
+          console.log('readrwd', rwd);
+          setsP(true);
+        }
+      };
+      inofit(rwd);
+    },
+    [sP, props.child]
+  );
 
   const sread = e => {
     const ff = e.target.textContent;
@@ -46,9 +49,12 @@ const GamemodeButton = ({ ...props }) => {
         setsRwd({ read: !rwd.read, write: rwd.write, draw: rwd.draw });
         props.child.gamemode = {
           mode: 'single',
-          read: !props.child.gamemode.read,
-          write: rwd.write,
-          draw: rwd.draw,
+          read:
+            props.child.gamemode.read !== null
+              ? !props.child.gamemode.read
+              : false,
+          write: rwd.write ? rwd.write : false,
+          draw: rwd.draw ? rwd.draw : false,
           sp: true,
         };
 
@@ -59,9 +65,12 @@ const GamemodeButton = ({ ...props }) => {
         setsRwd({ read: rwd.read, write: !rwd.write, draw: rwd.draw });
         props.child.gamemode = {
           mode: 'single',
-          read: rwd.read,
-          write: !props.child.gamemode.write,
-          draw: rwd.draw,
+          read: rwd.read ? rwd.read : false,
+          write:
+            props.child.gamemode.write !== null
+              ? !props.child.gamemode.write
+              : false,
+          draw: rwd.draw ? rwd.draw : false,
           sp: true,
         };
         console.log('nalwrirte ', props.child.gamemode);
@@ -72,9 +81,12 @@ const GamemodeButton = ({ ...props }) => {
         setsRwd({ read: rwd.read, write: rwd.write, draw: !rwd.draw });
         props.child.gamemode = {
           mode: 'single',
-          read: rwd.read,
-          write: rwd.write,
-          draw: !props.child.gamemode.draw,
+          read: rwd.read ? rwd.read : false,
+          write: rwd.write ? rwd.write : false,
+          draw:
+            props.child.gamemode.draw !== null
+              ? !props.child.gamemode.draw
+              : false,
           sp: true,
         };
         console.log('naldraw ', props.child.gamemode);
@@ -82,16 +94,25 @@ const GamemodeButton = ({ ...props }) => {
       }
       case 'Play Boss': {
         setsRwd({
-          read: rwd.read,
-          write: rwd.write,
-          draw: rwd.draw,
+          read: rwd.read !== null ? rwd.read : false,
+          write: rwd.write !== null ? rwd.write : false,
+          draw: rwd.draw !== null ? rwd.draw : false,
           mode: 'boss',
         });
         props.child.gamemode = {
           mode: 'boss',
-          read: rwd.read,
-          write: rwd.write,
-          draw: rwd.draw,
+          read:
+            props.child.gamemode.read !== null
+              ? props.child.gamemode.read
+              : false,
+          write:
+            props.child.gamemode.write !== null
+              ? props.child.gamemode.write
+              : false,
+          draw:
+            props.child.gamemode.draw !== null
+              ? props.child.gamemode.draw
+              : false,
           sp: true,
         };
         push('/gamemode/boss');
@@ -110,25 +131,6 @@ const GamemodeButton = ({ ...props }) => {
         break;
       }
     }
-  };
-
-  const singled = r => {
-    // GOes back to previous menu
-    setsP(false);
-    // e.preventDefault();
-    rwd.read = false;
-    rwd.draw = false;
-    rwd.write = false;
-    props.child.gamemode = {
-      mode: 'select',
-      read: false,
-      write: false,
-      draw: false,
-      sp: false,
-    };
-    push('/gamemode');
-
-    console.log('nal gamemodebutton goback ', props.child);
   };
 
   const pdw = () => {
