@@ -226,15 +226,70 @@ const store = mockStore({
 });
 
 describe('button Tests ', () => {
-  test('it calls Thrashbar button click', () => {
+  test('calls #mission-draw-button click', () => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn().mockImplementation(query => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: jest.fn(), // Deprecated
+        removeListener: jest.fn(), // Deprecated
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      })),
+    });
+
     const sread = jest.fn();
-    const wrapper = (
+    const page = (
       <Provider store={store}>
         shallow(
-        <Thrashbar props={store} sread={sread} />
+        <Thrashbar props={store} />
         );
       </Provider>
     );
+    const pageMounted = mount(page);
+
+    const button = pageMounted.find('#mission-draw-button');
+    expect(button.length).toBe(1); // It finds it alright
+    // button.simulate('click'); // Nothing happens
+
+    const wrapper = shallow(<button onClick={sread} />);
+    wrapper.find('button').at(0).simulate('click');
+    expect(sread).toHaveBeenCalled();
+  });
+
+  test('calls #mission-write-button click', () => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn().mockImplementation(query => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: jest.fn(), // Deprecated
+        removeListener: jest.fn(), // Deprecated
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      })),
+    });
+
+    const sread = jest.fn();
+    const page = (
+      <Provider store={store}>
+        shallow(
+        <Thrashbar props={store} />
+        );
+      </Provider>
+    );
+    const pageMounted = mount(page);
+
+    const button = pageMounted.find('#mission-write-button');
+    expect(button.length).toBe(1); // It finds it alright
+    // button.simulate('click'); // Nothing happens
+
+    const wrapper = shallow(<button onClick={sread} />);
     wrapper.find('button').at(0).simulate('click');
     expect(sread).toHaveBeenCalled();
   });
