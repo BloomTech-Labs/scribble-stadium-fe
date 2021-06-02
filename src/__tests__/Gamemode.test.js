@@ -255,8 +255,9 @@ describe('button Tests ', () => {
     expect(button.length).toBe(1); // It finds it alright
     // button.simulate('click'); // Nothing happens
 
-    const wrapper = shallow(<button onClick={sread} />);
+    const wrapper = shallow(<button onClick={sread}>3</button>);
     wrapper.find('button').at(0).simulate('click');
+    expect(wrapper.text()).toEqual('3');
     expect(sread).toHaveBeenCalled();
   });
 
@@ -289,8 +290,9 @@ describe('button Tests ', () => {
     expect(button.length).toBe(1); // It finds it alright
     // button.simulate('click'); // Nothing happens
 
-    const wrapper = shallow(<button onClick={sread} />);
+    const wrapper = shallow(<button onClick={sread}>2</button>);
     wrapper.find('button').at(0).simulate('click');
+    expect(wrapper.text()).toEqual('2');
     expect(sread).toHaveBeenCalled();
   });
 });
@@ -310,13 +312,3 @@ describe('routes using memory router', () => {
     );
   });
 });
-// test('loads a profile list', () => {
-//     const data = [{ id: '1234', name: 'item' }];
-//     const { getByText, debug } = render(
-//       <Router>
-//         <RenderProfileListPage data={data} />
-//       </Router>
-//     );
-//     const element = getByText(/item/i);
-//     expect(element.textContent).toBe(data[0].name);
-//   });
