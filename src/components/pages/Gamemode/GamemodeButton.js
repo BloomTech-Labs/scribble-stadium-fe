@@ -6,10 +6,14 @@ import YourMissionComp from './YourMissionComp';
 const GamemodeButton = ({ ...props }) => {
   const { push, location } = useHistory();
   const [rwd, setsRwd] = useState({
-    read: false,
-    write: false,
-    draw: false,
-    mode: 'single',
+    read:
+      props.child.gamemode.read !== null ? props.child.gamemode.read : false,
+    write:
+      props.child.gamemode.write !== null ? props.child.gamemode.write : false,
+    draw:
+      props.child.gamemode.draw !== null ? props.child.gamemode.draw : false,
+    mode:
+      props.child.gamemode.mode !== null ? props.child.gamemode.mode : 'single',
   });
   const [sP, setsP] = useState(true);
 
@@ -19,19 +23,43 @@ const GamemodeButton = ({ ...props }) => {
         if (props.child.gamemode.sp === false) {
           setsP(false);
           setsRwd({
-            read: props.child.gamemode.read,
-            write: props.child.gamemode.write,
-            draw: props.child.gamemode.draw,
-            mode: props.child.gamemode.mode,
+            read:
+              props.child.gamemode.read !== null
+                ? props.child.gamemode.read
+                : false,
+            write:
+              props.child.gamemode.write !== null
+                ? props.child.gamemode.write
+                : false,
+            draw:
+              props.child.gamemode.draw !== null
+                ? props.child.gamemode.draw
+                : false,
+            mode:
+              props.child.gamemode.mode !== null
+                ? props.child.gamemode.mode
+                : false,
           });
         } else {
           setsRwd({
-            read: props.child.gamemode.read,
-            write: props.child.gamemode.write,
-            draw: props.child.gamemode.draw,
-            mode: props.child.gamemode.mode,
+            read:
+              props.child.gamemode.read !== null
+                ? props.child.gamemode.read
+                : false,
+            write:
+              props.child.gamemode.write !== null
+                ? props.child.gamemode.write
+                : false,
+            draw:
+              props.child.gamemode.draw !== null
+                ? props.child.gamemode.draw
+                : false,
+            mode:
+              props.child.gamemode.mode !== null
+                ? props.child.gamemode.mode
+                : false,
           });
-          console.log('readrwd', rwd);
+          console.log('gamebutton useeffect rwd', rwd);
           setsP(true);
         }
       };
@@ -47,7 +75,11 @@ const GamemodeButton = ({ ...props }) => {
 
     switch (ff) {
       case '1': {
-        setsRwd({ read: !rwd.read, write: rwd.write, draw: rwd.draw });
+        setsRwd({
+          read: rwd !== null ? !rwd.read : false,
+          write: rwd.write !== null ? rwd.write : false,
+          draw: rwd.draw !== null ? rwd.draw : false,
+        });
         props.child.gamemode = {
           mode: 'single',
           read:
@@ -59,11 +91,15 @@ const GamemodeButton = ({ ...props }) => {
           sp: true,
         };
 
-        console.log('nalread ', props.child.gamemode);
+        console.log('nalread gamemodebutton ', props.child.gamemode);
         break;
       }
       case '2': {
-        setsRwd({ read: rwd.read, write: !rwd.write, draw: rwd.draw });
+        setsRwd({
+          read: rwd.read !== null ? rwd.read : false,
+          write: rwd.write !== null ? !rwd.write : false,
+          draw: rwd.draw !== null ? rwd.draw : false,
+        });
         props.child.gamemode = {
           mode: 'single',
           read: rwd.read ? rwd.read : false,
@@ -80,7 +116,11 @@ const GamemodeButton = ({ ...props }) => {
         break;
       }
       case '3': {
-        setsRwd({ read: rwd.read, write: rwd.write, draw: !rwd.draw });
+        setsRwd({
+          read: rwd.read !== null ? rwd.read : false,
+          write: rwd.write !== null ? rwd.write : false,
+          draw: rwd.draw !== null ? !rwd.draw : false,
+        });
         props.child.gamemode = {
           mode: 'single',
           read: rwd.read ? rwd.read : false,
@@ -146,8 +186,10 @@ const GamemodeButton = ({ ...props }) => {
   };
 
   const pdw = () => {
-    // Basic initiatinos when they are undefined
-    if (props.child.gamemode.draw === undefined) {
+    // Basic initiatinos when they are undefined &
+    // is for the I'd rather draw or write text
+    /*
+if (props.child.gamemode.draw === undefined) {
       props.child.gamemode.draw = false;
       setsRwd({ draw: false });
     } else if (!props.child.gamemode.draw) {
@@ -167,6 +209,55 @@ const GamemodeButton = ({ ...props }) => {
     } else if (!props.child.gamemode.write) {
       props.child.gamemode.write = !props.child.gamemode.write;
       setsRwd({ write: !props.child.gamemode.write });
+    } else {
+      props.child.gamemode.write = false;
+      setsRwd({ write: false });
+    }
+*/
+
+    // Draw
+    if (props.child.gamemode.draw === undefined) {
+      props.child.gamemode.draw = false;
+      setsRwd({ draw: false });
+    } else if (
+      props.child.gamemode.draw !== null &&
+      props.child.gamemode.draw === false &&
+      rwd.draw !== null
+    ) {
+      props.child.gamemode.draw = !props.child.gamemode.draw;
+      setsRwd({ draw: !rwd.draw });
+    } else {
+      props.child.gamemode.draw = false;
+      setsRwd({ draw: false });
+    }
+
+    // Read
+    if (props.child.gamemode.read === undefined) {
+      props.child.gamemode.read = false;
+      setsRwd({ read: false });
+    } else if (
+      props.child.gamemode.read !== null &&
+      props.child.gamemode.read === false &&
+      rwd.read !== null
+    ) {
+      props.child.gamemode.read = !props.child.gamemode.read;
+      setsRwd({ read: !rwd.read });
+    } else {
+      props.child.gamemode.read = false;
+      setsRwd({ read: false });
+    }
+
+    // Write
+    if (props.child.gamemode.write === undefined) {
+      setsRwd({ write: !props.child.gamemode.write });
+      props.child.gamemode.write = !props.child.gamemode.write;
+    } else if (
+      props.child.gamemode.write !== null &&
+      props.child.gamemode.write === false &&
+      rwd.write !== null
+    ) {
+      props.child.gamemode.write = !props.child.gamemode.write;
+      setsRwd({ write: !rwd.write });
     } else {
       props.child.gamemode.write = false;
       setsRwd({ write: false });

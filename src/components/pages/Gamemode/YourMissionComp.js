@@ -21,7 +21,7 @@ const YourMissionComp = ({ ...props }) => {
 
   return (
     <>
-      <Header />
+      <Header displayMenu={true} />
       <div>
         <Thrashbar
           props={props}
