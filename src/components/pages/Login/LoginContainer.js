@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import OktaSignIn from '@okta/okta-signin-widget';
 
 import { config } from '../../../utils/oktaConfig';
+import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
+// import './_LoginContainerStyled.less';
+
+import Header from '../../common/Header';
 
 const LoginContainer = () => {
   useEffect(() => {
@@ -49,7 +53,14 @@ const LoginContainer = () => {
     );
   }, []);
 
-  return <div id="sign-in-widget" />;
+  return (
+    <>
+      <Header displayMenu={false} />
+      <div>
+        <div id="sign-in-widget" />
+      </div>
+    </>
+  );
 };
 
 export default LoginContainer;
