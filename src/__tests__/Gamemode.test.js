@@ -6,7 +6,7 @@ import { render, cleanup } from '@testing-library/react';
 import configureMockStore from 'redux-mock-store';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import { Gamemode } from '../components/pages/Gamemode';
+import { Gamemode, Thrashbar } from '../components/pages/Gamemode';
 import { configure, shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { tasks, global } from '../state/actions';
@@ -223,6 +223,21 @@ const store = mockStore({
     storyTitle: '',
     storyUrl: null,
   },
+});
+
+describe('button Tests ', () => {
+  test('it calls Thrashbar button click', () => {
+    const sread = jest.fn();
+    const wrapper = (
+      <Provider store={store}>
+        shallow(
+        <Thrashbar props={store} sread={sread} />
+        );
+      </Provider>
+    );
+    wrapper.find('button').at(0).simulate('click');
+    expect(sread).toHaveBeenCalled();
+  });
 });
 
 afterEach(cleanup);
