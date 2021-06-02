@@ -68,7 +68,8 @@ const GamemodeButton = ({ ...props }) => {
           mode: 'single',
           read: rwd.read ? rwd.read : false,
           write:
-            props.child.gamemode.write !== null
+            props.child.gamemode.write !== null &&
+            props.child.gamemode.draw === false
               ? !props.child.gamemode.write
               : false,
           draw: rwd.draw ? rwd.draw : false,
@@ -85,7 +86,8 @@ const GamemodeButton = ({ ...props }) => {
           read: rwd.read ? rwd.read : false,
           write: rwd.write ? rwd.write : false,
           draw:
-            props.child.gamemode.draw !== null
+            props.child.gamemode.draw !== null &&
+            props.child.gamemode.write === false
               ? !props.child.gamemode.draw
               : false,
           sp: true,
@@ -144,7 +146,14 @@ const GamemodeButton = ({ ...props }) => {
   };
 
   const pdw = () => {
+    // Basic initiatinos when they are undefined
     if (props.child.gamemode.draw === undefined) {
+      props.child.gamemode.draw = false;
+      setsRwd({ draw: false });
+    } else if (!props.child.gamemode.draw) {
+      props.child.gamemode.draw = !props.child.gamemode.draw;
+      setsRwd({ draw: !props.child.gamemode.draw });
+    } else {
       props.child.gamemode.draw = false;
       setsRwd({ draw: false });
     }
@@ -153,14 +162,14 @@ const GamemodeButton = ({ ...props }) => {
       setsRwd({ read: false });
     }
     if (props.child.gamemode.write) {
-      setsRwd({ rwd: !props.child.gamemode.write });
+      setsRwd({ write: !props.child.gamemode.write });
       props.child.gamemode.write = !props.child.gamemode.write;
     } else if (!props.child.gamemode.write) {
       props.child.gamemode.write = !props.child.gamemode.write;
-      setsRwd({ rwd: !props.child.gamemode.write });
+      setsRwd({ write: !props.child.gamemode.write });
     } else {
       props.child.gamemode.write = false;
-      setsRwd({ rwd: false });
+      setsRwd({ write: false });
     }
 
     console.log(props.child.gamemode);
