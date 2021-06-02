@@ -29,18 +29,21 @@ class Thrashbar extends React.Component {
 }
 
 componentDidUpdate(prevProps,prevState) {
-  // Read
-  if (this.props.child.gamemode.read !== prevProps.child.gamemode.read) {
-     prevProps.child.gamemode.read = this.props.child.gamemode.read;
-    console.log('prevprop',prevProps,this.props.child.gamemode.read);
+  // // Read
+  // if (this.props.child.gamemode.read !== prevProps.child.gamemode.read) {
+  //    prevProps.child.gamemode.read = this.props.child.gamemode.read;
+  //   console.log('prevprop',prevProps,this.props.child.gamemode.read);
 
-  }
+  // }
 
-  if (this.state.child.gamemode.read !== prevState.child.gamemode.read) {
-      prevState.child.gamemode.read = this.state.child.gamemode.read;
-    console.log('prevstate',prevState.child.gamemode.read+'prevethis'+this.props.child.gamemode.read);
-    // this.forceUpdate();
-  }
+  // if (this.state.child.gamemode.read !== prevState.child.gamemode.read) {
+  //     prevState.child.gamemode.read = this.state.child.gamemode.read;
+  //   console.log('prevstate',prevState.child.gamemode.read+'prevethis'+this.props.child.gamemode.read);
+  //   // this.forceUpdate();
+  // }
+  this.props.child.gamemode.read = true;
+  prevProps.child.gamemode.read = true;
+  prevState.child.gamemode.read = true;
 // Write
   if (this.props.child.gamemode.write !== prevProps.child.gamemode.write) {
     prevProps.child.gamemode.write = this.props.child.gamemode.write;
