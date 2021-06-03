@@ -1,7 +1,7 @@
 /* overiding border and background */
 .rhap_container {
-    background-color: transparent !important;
-    box-shadow: none !important;
+    background-color: transparent;
+    box-shadow: none;
   }
   
   /* overiding progress bar colors and volume */
@@ -9,13 +9,13 @@
   .rhap_download-progress,
   .rhap_progress-filled,
   .rhap_progress-bar-show-download {
-    background-color: dodgerblue !important;
+    background-color: dodgerblue;
   }
   
   .rhap_volume-bar,
   .rhap_progress-indicator,
   .rhap_volume-indicator {
-    background: dodgerblue !important;
+    background: dodgerblue;
   }
   
   
