@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import UploaderComp from './UploaderComp';
 import { tasks } from '../../../state/actions';
 import { Gamemode } from './index';
+import { postNewDrawingSub } from '../../../api/index';
 import { Link, Route, useHistory } from 'react-router-dom';
 import { render } from 'react-dom';
 import Thrashbar from './Thrashbar';
@@ -19,6 +20,7 @@ const YourMissionComp = ({ ...props }) => {
     mode: 'single',
   });
   const fxd = () => {
+    // Properly defines the gamemode props and state
     if (props.child.gamemode.write) {
       props.child.gamemode.write = true;
       rwd.write = true;
@@ -36,6 +38,14 @@ const YourMissionComp = ({ ...props }) => {
       props.child.gamemode.read = true;
       rwd.read = true;
     }
+  };
+  const setSubmitted = () => {
+    // props.child.gamemode.mode='boss';
+    rwd.mode = 'boss';
+  };
+  const handleSubmit = () => {
+    props.child.gamemode.mode = 'boss';
+    // rwd.mode='boss';
   };
   return (
     <>
@@ -68,7 +78,19 @@ const YourMissionComp = ({ ...props }) => {
             </p>
             <div className="kids-story-upload kids-story-upload-font">
               {rwd.write ? 'Upload your writing' : 'Upload your drawing'}
-              <UploadDocs {...props} />
+              <UploadDocs
+                {...props}
+                submitButtonClassname="orange-submit-button"
+                uploadButtonText="Choose files from your device"
+                uploadButtonClassname="uploadButton"
+                fileName="drawing"
+                apiAxios={postNewDrawingSub}
+                submissionId={'3jf'}
+                storyId={'str3'}
+                setSubmitted={setSubmitted}
+                maxLength={1}
+                handleSubmit={handleSubmit}
+              />
             </div>
             <div
               onClick={() => {
