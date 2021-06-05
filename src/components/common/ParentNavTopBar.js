@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography, Menu, Dropdown } from 'antd';
-import { useHistory } from 'react-router-dom';
+import { Typography, Menu, Dropdown, Button } from 'antd';
+import { Link, useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
 import { global } from '../../state/actions';
@@ -34,18 +34,30 @@ const ParentMenu = props => {
 const ParentNavTopBar = props => {
   return (
     <nav className="parent-nav-top-bar" theme="light">
-      <a href="">
-        <Title className="title navbar-logo" style={{ margin: 0 }} level={1}>
+      <Link to="/parent/dashboard">
+        <Title className="title navbar-logo" level={1}>
           STORY SQUAD
         </Title>
-      </a>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      </Link>
+      <div className="nav-right">
+        <div className="link-container">
+          <Link to="/parent/faq">
+            <Button className="play-game-btn">PLAY GAME</Button>
+          </Link>
+          <Link to="/parent/faq">
+            <span>FAQ</span>
+          </Link>
+          <Link to="/parent/contact">
+            <span>CONTACT US</span>
+          </Link>
+        </div>
+        <div className="straight-bar"></div>
         <span className="welcome-back-msg">
           {props.parent && `Welcome back, ${props.parent.name}`}
         </span>
         <Dropdown
           overlay={<ParentMenu clearUsers={props.clearUsers} />}
-          trigger={['click', 'hover']}
+          trigger={['hover']}
           placement="bottomCenter"
         >
           <a

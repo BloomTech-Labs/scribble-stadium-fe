@@ -3,15 +3,24 @@
 
 .parent-dashboard {
   margin: 0;
-  .ant-menu-item-selected {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+  .title {
+    .titleStyle();
   }
-  .logo {
-    .logoStyle();
+  .heading-section {
+    width: 69vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
   }
-  .welcome {
-    .welcomeStyle();
+  .link-container {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 360px;
+    button {
+      .blueButtonStyle();
+      margin: 0;
+      width: 168px;
+    }
   }
   .children {
     display: flex;
@@ -60,12 +69,17 @@
       }
     }
   }
+}
 
-  .title {
-    .titleStyle();
-  }
-
-  .ant-layout-sider {
-    .siderStyle();
+@media @tablet {
+  .parent-dashboard {
+    .heading-section {
+      flex-direction: column;
+      margin-bottom: 20px;
+      .link-container {
+        width: 100%;
+        justify-content: space-around;
+      }
+    }
   }
 }

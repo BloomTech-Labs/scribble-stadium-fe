@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
 
+import ChangePasswordModal from './ChangePasswordModal';
+import ChangeEmailModal from './ChangeEmailModal';
+
 function AccountSettingsForm({ disabled }) {
   const [value, setValue] = useState({ email: '', password: '' });
 
+  const [emailModalVisible, setEmailModalVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
+
   const handleSubmit = e => {
     e.preventDefault();
-    setValue({ email: '', password: '' });
-    console.log('submitted');
   };
 
   const onChange = e => {
@@ -15,9 +19,7 @@ function AccountSettingsForm({ disabled }) {
   };
 
   return (
-    //<div class="backdrop">
     <form className="acct-settings-form" onSubmit={e => handleSubmit(e)}>
-      {/*<div class="form-half">*/}
       <label>
         <p className="email-label">Email Address</p>
       </label>
@@ -39,14 +41,20 @@ function AccountSettingsForm({ disabled }) {
         </div>
 
         <div className="edit-button-container">
-          <button className="edit-button" disabled={disabled ? true : false}>
+          <button
+            className="edit-button"
+            disabled={disabled ? true : false}
+            onClick={() => setEmailModalVisible(true)}
+          >
             Change email
           </button>
+          <ChangeEmailModal
+            emailModalVisible={emailModalVisible}
+            setEmailModalVisible={setEmailModalVisible}
+          />
         </div>
       </div>
-      {/*</div>*/}
 
-      {/*<div class="form-half">*/}
       <label>
         <p className="password-label">Password</p>
       </label>
@@ -68,14 +76,17 @@ function AccountSettingsForm({ disabled }) {
         </div>
 
         <div className="edit-button-container">
-          <button className="edit-button" disabled={disabled ? true : false}>
+          <button
+            className="edit-button"
+            disabled={disabled ? true : false}
+            onClick={() => setVisible(true)}
+          >
             Change password
           </button>
+          <ChangePasswordModal visible={visible} setVisible={setVisible} />
         </div>
       </div>
-      {/*</div>*/}
     </form>
-    //</div>
   );
 }
 
