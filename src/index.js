@@ -33,8 +33,6 @@ import {
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
 import { DrawingSub } from './components/pages/DrawingSub';
-import { Gamemode } from './components/pages/Gamemode';
-import { GamemodeButton } from './components/pages/Gamemode';
 
 import { Help } from './components/pages/Help';
 import { LandingPage } from './components/pages/LandingPage';
@@ -105,7 +103,6 @@ function App() {
     <Security {...config} onAuthRequired={authHandler}>
       <DevModeHeader component={DevModeHeader} />
       <Switch>
-        <Route path="/gamemode/single" component={GamemodeButton} />
         <Route path="/login" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
