@@ -104,7 +104,6 @@ function App() {
     <Security {...config} onAuthRequired={authHandler}>
       <DevModeHeader component={DevModeHeader} />
       <Switch>
-        <Route exact path="/gamemode" component={Gamemode} />
         <Route path="/gamemode/single" component={GamemodeButton} />
         <Route path="/login" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />
