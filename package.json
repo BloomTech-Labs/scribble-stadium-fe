@@ -61,6 +61,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  
   "lint-staged": {
     "**/*.js": [
       "eslint --fix",

@@ -7,6 +7,13 @@ describe('childReducer test suite', () => {
     name: null,
     isDyslexic: null,
     avatarUrl: null,
+    gamemode: {
+      mode: null,
+      read: null,
+      write: null,
+      draw: null,
+      sp: null,
+    },
     gradeLevel: null,
     parentId: null,
     cohortId: null,
