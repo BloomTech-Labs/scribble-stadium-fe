@@ -35,62 +35,62 @@ const ButtonDown = props => {
   );
 };
 const singled = e => {
-  props.singled(e);
+  // props.singled(e);
+  e.gamemode.read = true;
+  console.log(e);
+  console.log('dont');
 };
-const ButtonBar = ({ read = false, write = false, draw = false, ...props }) => {
+const ButtonBar = ({ read = false, write = true, draw = false, ...props }) => {
   // Render read write and draw buttons
   return (
-    <>
-      <ButtonDown read={true}>
-        <button
-          style={
-            props.child.gamemode.read || read
-              ? { opacity: '40% ' }
-              : { opacity: '100% ' }
-          }
-          onClick={e => {
-            singled(e);
-          }}
-          id="mission-read-button"
-        >
-          1
-        </button>
-        <button
-          style={
-            props.child.gamemode.write || write
-              ? { opacity: '40% ' }
-              : { opacity: '100% ' }
-          }
-          onClick={e => {
-            singled(e);
-          }}
-          id="mission-write-button"
-        >
-          2
-        </button>
-        <button
-          style={
-            props.child.gamemode.draw || draw
-              ? { opacity: '40% ' }
-              : { opacity: '100% ' }
-          }
-          onClick={e => {
-            singled(e);
-          }}
-          id="mission-draw-button"
-        >
-          3
-        </button>
-      </ButtonDown>
-    </>
+    <ButtonDown read={true}>
+      {singled(props)}
+      read &&{' '}
+      <button
+        style={
+          props.child.gamemode.read || read
+            ? { opacity: '40% ' }
+            : { opacity: '100% ' }
+        }
+        onClick={e => {
+          singled(e);
+        }}
+        id="mission-read-button"
+      >
+        1
+      </button>
+      write !== null &&{' '}
+      <button
+        style={
+          props.child.gamemode.write || write
+            ? { opacity: '40% ' }
+            : { opacity: '100% ' }
+        }
+        onClick={e => {
+          singled(e);
+        }}
+        id="mission-write-button"
+      >
+        2
+      </button>
+      <button
+        style={draw === null ? { opacity: '40% ' } : { opacity: '100% ' }}
+        onClick={e => {
+          singled(e);
+        }}
+        id="mission-draw-button"
+      >
+        3
+      </button>
+    </ButtonDown>
   );
 };
 export default connect(
   state => ({
-    child: state.child,
+    gamemode: state.child.gamemode,
   }),
-  {}
+  { clearUsers: global.clearUsers }
 )(ButtonBar);
 ButtonBar.propTypes = {
-  child: PropTypes.object,
+  gamemode: PropTypes.object,
 };

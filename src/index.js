@@ -70,6 +70,7 @@ import Fri from './components/pages/AdminDashboard/DevTools/DayComponents/07_Fri
 import DevModeHeader from './components/pages/AdminDashboard/devModeHeader';
 import GalleryContainer from './components/pages/Gallery/GalleryContainer';
 import { AudioBook } from './components/pages/AudioBook';
+import YourMission from './components/pages/Gamemode/YourMission';
 
 // import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
 
@@ -103,6 +104,7 @@ function App() {
     <Security {...config} onAuthRequired={authHandler}>
       <DevModeHeader component={DevModeHeader} />
       <Switch>
+        <Route path="/gamemode/single" component={YourMission} />
         <Route path="/login" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
