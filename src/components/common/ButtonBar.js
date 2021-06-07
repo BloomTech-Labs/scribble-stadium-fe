@@ -16,7 +16,7 @@ const ButtonDown = props => {
                 <button
                   style={{ opacity: props.op[0] }}
                   onClick={e => {
-                    singled(props);
+                    //sread dispatcher here
                   }}
                   id="mission-read-button"
                 >
@@ -31,7 +31,7 @@ const ButtonDown = props => {
                 <button
                   style={{ opacity: props.op[1] }}
                   onClick={e => {
-                    singled(props);
+                    //sread dispatcher here
                   }}
                   id="mission-write-button"
                 >
@@ -46,7 +46,7 @@ const ButtonDown = props => {
                 <button
                   style={{ opacity: props.op[2] }}
                   onClick={e => {
-                    singled(props);
+                    //sread dispatcher here
                   }}
                   id="mission-draw-button"
                 >
@@ -61,15 +61,7 @@ const ButtonDown = props => {
     </div>
   );
 };
-const singled = e => {
-  // props.singled(e);
-  // gamemode.read = true;
-  // e.gamemode.write = false;
-  console.log(e.gamemode);
-  console.log(e.child);
 
-  console.log('dont');
-};
 const ButtonBar = ({
   read = true,
   op = ['40%', '40%', '100%'],
@@ -80,7 +72,6 @@ const ButtonBar = ({
   // Render read write and draw buttons
   return (
     <>
-      {singled(props)}
       {(props.child.gamemode.read &&
         (props.child.gamemode.draw
           ? (((props.child.gamemode.draw = true),
@@ -95,14 +86,37 @@ const ButtonBar = ({
             ))
           : ((props.child.gamemode.draw = false),
             (props.child.gamemode.write = true)),
-        (<ButtonDown op={['10%', '20%', '90%']} draw={false} />))) ||
+        (
+          <ButtonDown
+            op={['10%', '20%', '90%']}
+            read={true}
+            write={true}
+            draw={false}
+          />
+        ))) ||
         (props.child.gamemode.write
           ? (((props.child.gamemode.draw = false),
             (props.child.gamemode.write = true)),
-            (<ButtonDown op={['20%', '20%', '90%']} write={true} />))
+            (
+              <ButtonDown
+                op={['20%', '20%', '90%']}
+                read={true}
+                op={['20%', '20%', '90%']}
+                write={true}
+                draw={false}
+              />
+            ))
           : ((props.child.gamemode.draw = true),
             (props.child.gamemode.write = false)),
-        (<ButtonDown op={['10%', '90%', '20%']} write={false} />))}
+        (
+          <ButtonDown
+            op={['10%', '90%', '20%']}
+            read={true}
+            op={['20%', '90%', '20%']}
+            write={false}
+            draw={true}
+          />
+        ))}
     </>
   );
 };
@@ -110,7 +124,9 @@ export default connect(
   state => ({
     gamemode: state.child.gamemode,
   }),
-  { clearUsers: global.clearUsers }
+  {
+    // sread: Dispatcher to come
+  }
 )(ButtonBar);
 ButtonBar.propTypes = {
   gamemode: PropTypes.object,
