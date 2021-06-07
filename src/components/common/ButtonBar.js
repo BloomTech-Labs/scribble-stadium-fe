@@ -13,18 +13,45 @@ const ButtonDown = props => {
             <Col className="gamemodebtncolclass">
               {
                 // Read button
+                <button
+                  style={{ opacity: props.op[0] }}
+                  onClick={e => {
+                    singled(props);
+                  }}
+                  id="mission-read-button"
+                >
+                  1
+                </button>
               }
               <p className="read-button-font">Read</p>
             </Col>
             <Col className="gamemodebtncolclass">
               {
                 // Write Button
+                <button
+                  style={{ opacity: props.op[1] }}
+                  onClick={e => {
+                    singled(props);
+                  }}
+                  id="mission-write-button"
+                >
+                  2
+                </button>
               }
               <p className="read-button-font">Write</p>
             </Col>
             <Col className="gamemodebtncolclass">
               {
                 //Draw button
+                <button
+                  style={{ opacity: props.op[2] }}
+                  onClick={e => {
+                    singled(props);
+                  }}
+                  id="mission-draw-button"
+                >
+                  3
+                </button>
               }
               <p className="read-button-font">Draw</p>
             </Col>
@@ -36,53 +63,31 @@ const ButtonDown = props => {
 };
 const singled = e => {
   // props.singled(e);
-  e.gamemode.read = true;
-  console.log(e);
+  // gamemode.read = true;
+  // e.gamemode.write = false;
+  console.log(e.gamemode);
+  console.log(e.child);
+
   console.log('dont');
 };
-const ButtonBar = ({ read = false, write = true, draw = false, ...props }) => {
+const ButtonBar = ({
+  read = true,
+  op = ['40%', '40%', '100%'],
+  write = true,
+  draw = false,
+  ...props
+}) => {
   // Render read write and draw buttons
   return (
-    <ButtonDown read={true}>
+    <>
       {singled(props)}
-      read &&{' '}
-      <button
-        style={
-          props.child.gamemode.read || read
-            ? { opacity: '40% ' }
-            : { opacity: '100% ' }
-        }
-        onClick={e => {
-          singled(e);
-        }}
-        id="mission-read-button"
-      >
-        1
-      </button>
-      write !== null &&{' '}
-      <button
-        style={
-          props.child.gamemode.write || write
-            ? { opacity: '40% ' }
-            : { opacity: '100% ' }
-        }
-        onClick={e => {
-          singled(e);
-        }}
-        id="mission-write-button"
-      >
-        2
-      </button>
-      <button
-        style={draw === null ? { opacity: '40% ' } : { opacity: '100% ' }}
-        onClick={e => {
-          singled(e);
-        }}
-        id="mission-draw-button"
-      >
-        3
-      </button>
-    </ButtonDown>
+      {(props.gamemode.draw && (
+        <ButtonDown op={['20%', '90%', '20%']} draw={true} />
+      )) || <ButtonDown op={['10%', '90%', '90%']} draw={false} /> ||
+        (props.gamemode.write && (
+          <ButtonDown op={['20%', '20%', '90%']} write={true} />
+        )) || <ButtonDown op={['10%', '90%', '90%']} write={false} />}
+    </>
   );
 };
 export default connect(
