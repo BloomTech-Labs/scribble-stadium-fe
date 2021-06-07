@@ -73,7 +73,7 @@ const singled = e => {
 const ButtonBar = ({
   read = true,
   op = ['40%', '40%', '100%'],
-  write = true,
+  write = false,
   draw = false,
   ...props
 }) => {
@@ -81,12 +81,28 @@ const ButtonBar = ({
   return (
     <>
       {singled(props)}
-      {(props.gamemode.draw && (
-        <ButtonDown op={['20%', '90%', '20%']} draw={true} />
-      )) || <ButtonDown op={['10%', '90%', '90%']} draw={false} /> ||
-        (props.gamemode.write && (
-          <ButtonDown op={['20%', '20%', '90%']} write={true} />
-        )) || <ButtonDown op={['10%', '90%', '90%']} write={false} />}
+      {(props.child.gamemode.read &&
+        (props.child.gamemode.draw
+          ? (((props.child.gamemode.draw = true),
+            (props.child.gamemode.write = false)),
+            (
+              <ButtonDown
+                read={true}
+                op={['20%', '90%', '20%']}
+                write={false}
+                draw={true}
+              />
+            ))
+          : ((props.child.gamemode.draw = false),
+            (props.child.gamemode.write = true)),
+        (<ButtonDown op={['10%', '20%', '90%']} draw={false} />))) ||
+        (props.child.gamemode.write
+          ? (((props.child.gamemode.draw = false),
+            (props.child.gamemode.write = true)),
+            (<ButtonDown op={['20%', '20%', '90%']} write={true} />))
+          : ((props.child.gamemode.draw = true),
+            (props.child.gamemode.write = false)),
+        (<ButtonDown op={['10%', '90%', '20%']} write={false} />))}
     </>
   );
 };
