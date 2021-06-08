@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-
+//test for LoginContainer
 import LoginContainer from '../components/pages/Login/LoginContainer';
 import configureStore from 'redux-mock-store';
 const mockStore = configureStore([]);
