@@ -11,7 +11,7 @@ import { useHistory } from 'react-router-dom';
 import { markAsRead } from '../../../api';
 import { tasks } from '../../../state/actions';
 
-const RenderStoryViewer = props => {
+const StoryViewer = props => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [hasViewedAllPages, setViewed] = useState(false);
@@ -75,66 +75,44 @@ const RenderStoryViewer = props => {
 
   return (
     <>
-      <Header backButton={true} />
-      <div className="viewer-container">
-        <SizeMe>
-          {({ size }) => (
-            <Document
-              file={props.tasks.story.storyUrl}
-              onLoadSuccess={onDocumentLoadSuccess}
-              loading="Loading Story..."
-            >
-              <div className="page-container">
-                <Page
-                  width={size.width ? size.width : 1}
-                  pageNumber={pageNumber}
-                />
-                <p>
-                  Page {pageNumber} of {numPages}
-                </p>
-              </div>
-            </Document>
-          )}
-        </SizeMe>
-
-        <Button
-          className="prev-button"
-          type="primary"
-          disabled={pageNumber <= 1}
-          onClick={previousPage}
-          icon={<ArrowLeftOutlined />}
-          size="large"
-        ></Button>
-        <Button
-          className="next-button"
-          type="primary"
-          disabled={pageNumber >= numPages}
-          onClick={nextPage}
-          icon={<ArrowRightOutlined />}
-          size="large"
-        ></Button>
-        <div className="finished-container">
-          <Button
-            className="finished-reading"
-            type="button"
-            disabled={!hasViewedAllPages}
-            onClick={onFinish}
+      <SizeMe>
+        {({ size }) => (
+          <Document
+            file="https://storysquad-main.s3.amazonaws.com/pdfs/Story+Squad+Week+1+Content+%2B+CCS.pdf"
+            onLoadSuccess={onDocumentLoadSuccess}
+            loading="Loading Story..."
           >
-            Finished Reading?
-          </Button>
-        </div>
-      </div>
+            <div className="page-container">
+              <Page
+                width={size.width ? size.width : 1}
+                pageNumber={pageNumber}
+              />
+              <p>
+                Page {pageNumber} of {numPages}
+              </p>
+            </div>
+          </Document>
+        )}
+      </SizeMe>
+
+      <Button
+        className="prev-button"
+        type="primary"
+        disabled={pageNumber <= 1}
+        onClick={previousPage}
+        icon={<ArrowLeftOutlined />}
+        size="large"
+      ></Button>
+      <Button
+        className="next-button"
+        type="primary"
+        disabled={pageNumber >= numPages}
+        onClick={nextPage}
+        icon={<ArrowRightOutlined />}
+        size="large"
+      ></Button>
     </>
   );
 };
 
-export default connect(
-  state => ({
-    child: state.child,
-    tasks: state.tasks,
-  }),
-  {
-    setHasRead: tasks.setHasRead,
-    setSubmissionInformation: tasks.setSubmissionInformation,
-  }
-)(RenderStoryViewer);
+export default StoryViewer;
