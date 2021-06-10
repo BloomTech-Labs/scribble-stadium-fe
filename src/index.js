@@ -33,7 +33,7 @@ import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
 import { DrawingSub } from './components/pages/DrawingSub';
 import { Help } from './components/pages/Help';
-import { LandingPage } from './components/pages/LandingPage';
+import LoginContainer from './components/pages/Login/LoginContainer';
 import { MissionControl } from './components/pages/MissionControl';
 import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
@@ -100,7 +100,7 @@ function App() {
     <Security {...config} onAuthRequired={authHandler}>
       <DevModeHeader component={DevModeHeader} />
       <Switch>
-        <Route path="/login" component={LandingPage} />
+        <Route path="/login" component={LoginContainer} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
