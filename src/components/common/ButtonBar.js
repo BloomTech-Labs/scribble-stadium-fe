@@ -72,10 +72,9 @@ const ButtonBar = ({
   // Render read write and draw buttons
   return (
     <>
-      {(props.child.gamemode.read &&
-        (props.child.gamemode.draw
-          ? (((props.child.gamemode.draw = true),
-            (props.child.gamemode.write = false)),
+      {(props.gamemode.read &&
+        (props.gamemode.draw
+          ? (((props.gamemode.draw = true), (props.gamemode.write = false)),
             (
               <ButtonDown
                 read={true}
@@ -84,8 +83,7 @@ const ButtonBar = ({
                 draw={true}
               />
             ))
-          : ((props.child.gamemode.draw = false),
-            (props.child.gamemode.write = true)),
+          : ((props.gamemode.draw = false), (props.gamemode.write = true)),
         (
           <ButtonDown
             op={['10%', '20%', '90%']}
@@ -94,9 +92,8 @@ const ButtonBar = ({
             draw={false}
           />
         ))) ||
-        (props.child.gamemode.write
-          ? (((props.child.gamemode.draw = false),
-            (props.child.gamemode.write = true)),
+        (props.gamemode.write
+          ? (((props.gamemode.draw = false), (props.gamemode.write = true)),
             (
               <ButtonDown
                 op={['20%', '20%', '90%']}
@@ -106,8 +103,7 @@ const ButtonBar = ({
                 draw={false}
               />
             ))
-          : ((props.child.gamemode.draw = true),
-            (props.child.gamemode.write = false)),
+          : ((props.gamemode.draw = true), (props.gamemode.write = false)),
         (
           <ButtonDown
             op={['10%', '90%', '20%']}
