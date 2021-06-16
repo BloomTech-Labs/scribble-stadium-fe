@@ -8,7 +8,7 @@
     "@ant-design/icons": "^4.2.2",
     "@craco/craco": "^5.6.4",
     "@okta/okta-react": "^3.0.2",
-    "@okta/okta-signin-widget": "^4.1.2",
+    "@okta/okta-signin-widget": "^5.7.2",
     "ant-design-pro": "^2.3.2",
     "antd": "^4.4.3",
     "axios": "^0.21.1",
@@ -34,7 +34,7 @@
     "react-plotly.js": "^2.5.0",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "^4.0.3",
     "react-sizeme": "^2.6.12",
     "react-spring": "^8.0.27",
     "react-test-renderer": "^16.13.1",
@@ -58,7 +58,6 @@
     "storybook": "start-storybook",
     "deploy-storybook": "storybook-to-ghpages"
   },
-  
   "lint-staged": {
     "**/*.js": [
       "eslint --fix",
@@ -93,11 +92,11 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^5.3.21",
-    "@storybook/addon-knobs": "^5.3.19",
-    "@storybook/addon-notes": "^5.3.19",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-knobs": "^6.2.9",
+    "@storybook/addon-notes": "^5.3.21",
     "@storybook/addons": "^5.3.19",
-    "@storybook/react": "^5.3.19",
+    "@storybook/react": "^6.2.9",
     "@storybook/storybook-deployer": "^2.8.6",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^10.2.1",

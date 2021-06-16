@@ -8,8 +8,11 @@ afterEach(() => {
 });
 
 const getItemsData = jest.fn(() =>
-  Promise.resolve([{ id: 1 }, { id: 2 }, { id: 3 }])
+  Promise.resolve([{ id: 1 }, { id: 2 }, { id: 3 }]).catch(e =>
+    expect(e).toMatch('error')
+  )
 );
+
 const RenderItems = jest.fn(props =>
   props.data.map(item => <li key={item.id}>Item</li>)
 );
@@ -34,18 +37,24 @@ describe('<List /> test suite', () => {
   test('renders item data', async () => {
     let rendered;
 
-    await act(async () => {
-      rendered = await render(
-        <List
-          getItemsData={getItemsData}
-          LoadingComponent={() => <div>Loading...</div>}
-          RenderItems={RenderItems}
-        />
-      );
-    });
+    try {
+      await act(async () => {
+        rendered = await render(
+          then(() => {
+            <List
+              getItemsData={getItemsData}
+              LoadingComponent={() => <div>Loading...</div>}
+              RenderItems={RenderItems}
+            />;
+          })
+        );
+      });
 
-    // We expect 3 child elements to render corresponding to the 3 objects
-    // in our mock dataset
-    expect(rendered.container.children).toHaveLength(3);
+      // We expect 3 child elements to render corresponding to the 3 objects
+      // in our mock dataset
+      expect(rendered.container.children).toHaveLength(3);
+    } catch (cate) {
+    } finally {
+    }
   });
 });

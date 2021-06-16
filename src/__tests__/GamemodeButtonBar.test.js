@@ -73,7 +73,7 @@ describe('<ButtonBar /> tests', () => {
         dispatchEvent: jest.fn(),
       })),
     });
-    const { getByText } = render(<Component />);
+    const { getByText } = render(<Component {...store} />);
     const head = getByText(/Your Mission/i);
     expect(head).toBeTruthy();
   });
