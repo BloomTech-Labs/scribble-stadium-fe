@@ -78,7 +78,7 @@ const ButtonBar = ({
             (
               <ButtonDown
                 read={true}
-                op={['20%', '90%', '20%']}
+                op={['40%', '90%', '40%']}
                 write={false}
                 draw={true}
               />
@@ -86,7 +86,7 @@ const ButtonBar = ({
           : ((props.gamemode.draw = false), (props.gamemode.write = true)),
         (
           <ButtonDown
-            op={['10%', '20%', '90%']}
+            op={['40%', '40%', '90%']}
             read={true}
             write={true}
             draw={false}
@@ -96,9 +96,8 @@ const ButtonBar = ({
           ? (((props.gamemode.draw = false), (props.gamemode.write = true)),
             (
               <ButtonDown
-                op={['20%', '20%', '90%']}
+                op={['40%', '40%', '90%']}
                 read={true}
-                op={['20%', '20%', '90%']}
                 write={true}
                 draw={false}
               />
@@ -106,9 +105,8 @@ const ButtonBar = ({
           : ((props.gamemode.draw = true), (props.gamemode.write = false)),
         (
           <ButtonDown
-            op={['10%', '90%', '20%']}
+            op={['40%', '90%', '40%']}
             read={true}
-            op={['20%', '90%', '20%']}
             write={false}
             draw={true}
           />

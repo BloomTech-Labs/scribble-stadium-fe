@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+#Temporary Development TRansfer
+/src/components/pages/Gamemode/ignored/
+src/components/pages/Gamemode/ignored/
 # dependencies
 /node_modules
 /.pnp
