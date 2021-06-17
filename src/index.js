@@ -25,6 +25,7 @@ import { config } from './utils/oktaConfig';
 import SecureRoute from './components/common/SecureRoute';
 
 //Components
+
 import {
   ChildLoadingComponent,
   ParentLoadingComponent,
@@ -32,19 +33,22 @@ import {
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
 import { DrawingSub } from './components/pages/DrawingSub';
+import { Gamemode } from './components/pages/Gamemode';
+import { GamemodeButton } from './components/pages/Gamemode';
+
 import { Help } from './components/pages/Help';
 import LoginContainer from './components/pages/Login/LoginContainer';
 import { MissionControl } from './components/pages/MissionControl';
 import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
-import { ParentDashboard } from './components/pages/ParentDashboard';
 
 import { ParentFaq } from './components/pages/ParentFaq';
-
+import { ParentContact } from './components/pages/ParentContact';
 import { NewParentDashboard } from './components/pages/NewParentDashboard';
 import { ParentDashFaq } from './components/pages/ParentDashFaq';
 import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
+import { EditPlayers } from './components/pages/EditPlayers';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
 import LoginCallbackLoader from './components/common/LoginCallbackLoader';
@@ -67,6 +71,7 @@ import Thurs from './components/pages/AdminDashboard/DevTools/DayComponents/06_T
 import Fri from './components/pages/AdminDashboard/DevTools/DayComponents/07_Fri';
 import DevModeHeader from './components/pages/AdminDashboard/devModeHeader';
 import GalleryContainer from './components/pages/Gallery/GalleryContainer';
+import { AudioBook } from './components/pages/AudioBook';
 
 // import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
 
@@ -100,13 +105,17 @@ function App() {
     <Security {...config} onAuthRequired={authHandler}>
       <DevModeHeader component={DevModeHeader} />
       <Switch>
+        <Route exact path="/gamemode" component={Gamemode} />
+        <Route path="/gamemode/single" component={GamemodeButton} />
         <Route path="/login" component={LoginContainer} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
           path="/"
           exact
-          component={() => <Modal LoadingComponent={ChildLoadingComponent} />}
+          component={() => (
+            <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
+          )}
         />
         <SecureRoute
           path="/child/story"
@@ -163,10 +172,15 @@ function App() {
           )}
         />
         <SecureRoute
+          path="/parent/edit-players"
+          component={() => (
+            <EditPlayers LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
+        <SecureRoute
           path="/parent/dashboard"
           exact
           component={() => (
-            // <ParentDashboard LoadingComponent={ParentLoadingComponent} /> This is the old Parent Dashboard
             <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
@@ -189,6 +203,13 @@ function App() {
           exact
           component={() => (
             <ParentFaq LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
+        <SecureRoute
+          path="/parent/contact"
+          exact
+          component={() => (
+            <ParentContact LoadingComponent={ParentLoadingComponent} />
           )}
         />
 
@@ -235,6 +256,13 @@ function App() {
           exact
           component={() => (
             <Leaderboard LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <SecureRoute
+          path="/child/audiobook"
+          exact
+          component={() => (
+            <AudioBook LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <Route exact path="/moderation" component={ModerationTest} />
