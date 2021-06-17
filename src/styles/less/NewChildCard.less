@@ -3,46 +3,152 @@
 @import 'global.less';
 @import 'variables.less';
 
+.childCardButtons{
+  display:flex;
+  @media @mobileLarge{
+    margin-bottom:3%;
+    justify-content: space-evenly;
+  }
+
+}
+.Players {
+  display: flex;
+  width: 68vw;
+  margin: -2% auto;
+  @media @mobileLarge{
+    width:85vw;
+    flex-direction:column;
+
+  }
+  
+
+  button {
+    background-color: #8CE2E0;
+    height: 40px;
+    width: 160px;
+    left: 0px;
+    top: 0px;
+    border-radius: 16px;
+    border: white;
+    color: #4B5151;
+    font-family: 'Open Sans';
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    @media @mobileLarge{
+      height:55px;
+    }
+    &:hover {
+      cursor:pointer;
+      filter: brightness(0.8);
+    }
+  }
+}
+
+.playheading {
+  flex-grow: 4;
+  @media @mobileLarge{  
+      flex-grow:2;
+      margin-right:2%;
+  }
+
+   h2 {
+     font-weight: 700;
+     text-transform: uppercase;
+     font-family: 'Open Sans';
+     font-size:1.7rem;
+
+     @media @mobileLarge {
+       margin-top: 2%;
+       padding: 1%;
+       font-size:1.3rem;
+     }
+   }
+}
 .newChild{
   width:80vw;
   display:flex;
   flex-wrap: wrap;
   margin:0 auto;
   padding: 2%;
-  max-width:95vw;
+  justify-content:space-between;
+  max-width:80vw;
+  @media @mobileLarge {
+    flex-direction: column;
+    padding:1%;
+    width:100vw;
+    max-width:100vw;
+  }
   .ant-card {
     display: flex;
     align-items: center;
-    position: relative;
     background-color:@new-turquoise;
     margin: 1% auto;
-    width: 30vw;
-    min-width: 20vw;
-    max-width: 40vw;
+    width: 490px;
     border-radius: 20px;
+    height:265px;
     justify-content: center;
     text-align: left;
+    @media @mobile{
+      width:130px;
+      height:200px;
+    }
+    @media @mobileLarge {
+      width:340px;
+      height:220px;
+
+    }
   .ant-card-body,
   .ant-layout {
     background: none;
     padding:3% 2%;
-    width:95%;
+    width:100%;
     font-family:'Open Sans';
     color:@dark-gray;
     }
     h2 {
       font-family: 'Bangers';
       color:@header-nero;
-      font-weight: 900;
-      font-size: 2rem;
+      font-weight: 700;
+      margin-top:-3%;
+      font-size: 1.5rem;
       text-align:center;
-      -webkit-text-stroke: 0.3px white;
+      -webkit-text-stroke: 0.1px white;
+      @media @mobileLarge {
+        font-size: 1.1rem;
+        
+      }
     }
   }
 }
 
 .avContainer{
- margin:2% 4%;
+ width:195px;
+ margin-left:15px;
+ @media @mobile{
+   margin-left:0%;
+   width:100px;
+ }
+ @media @mobileLarge{
+   width:200px;
+   margin:0px;
+   height:125px;
+ }
+ 
+ h2{ 
+   @media @mobile{
+     padding:1%;
+     font-size:0.8rem;
+   }
+   @media @mobileLarge{
+     padding:3%;
+     font-size:0.9rem;
+     
+   }
+  
+ }
 }
 .avBackground{
   width:150px;
@@ -51,16 +157,27 @@
   border-radius:70%;
   opacity:0.9;
   padding:2%;
+  
+  @media @mobileLarge {
+    width:100px;
+    height:100px;
+    margin-left:2%;
+  }
+  
 }
 .statBox{
   border-radius: 5px;
-  padding:2%;
+  padding:1%;
   margin:2%;
-  height:50px;
+  height:55px;
+  @media @mobileLarge {
+    padding:0%;
+  }
 
   p{
     padding:4%;
     font-weight:700;
+    font-size:1.5rem;
     text-align: center;
   }
   h4{
@@ -73,15 +190,32 @@
 .statContainer{
   display: flex;
   flex-wrap: wrap;
-  width:45%;
-  margin:2%;
+  height:175px;
+  justify-content:space-evenly;
+  width:245px;
+  margin-left:10px; 
+  @media @mobile{
+    margin:0px;
+    width:120px;
+  }
+  @media @mobileLarge {
+    margin:1%;
+    margin-left:10px;
+    width:250px;
+    height:120px;
+    justify-content:space-evenly;
+  }
+
 
 }
 .statusContainer{
   background-color:@light-gray;
   border-radius:10px;
   width:90%;
-  margin:2% auto;
+  margin:4% auto;
+  @media @mobileLarge {
+    margin-top:15%;
+  }
 
   h4{
     text-align: center;
@@ -92,14 +226,40 @@
 }
 .inner{
   width:100%;
+  margin:0%;
 }
 .innerChildContainer{
   display:flex;
+  margin:0 auto;
+  width:480px;
+  height:195px;
   justify-content: center;
+  @media @mobile{
+    width:115px;
+  }
+  @media @mobileLarge{
+    width:300px;
+  }
+
+
 }
 .statBoxBackground{
   background-color:@light-gray;
   border-radius:8px;
   width:80px;
   height:40px;
+  @media @mobileLarge{
+    width:50px;
+    font-size:0.9rem;
+    height:30px;
+  }
+}
+.noPlayers{
+  margin:2% 15%;
+}
+.addPlayerButton{
+  margin-right:2%;
+}
+.newChildCardContainer{
+  padding-top:2%;
 }

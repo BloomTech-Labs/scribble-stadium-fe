@@ -22,6 +22,26 @@ export const reducer = (state = initialState, action) => {
         ...state,
         children: [...state.children, action.payload],
       };
+    case parent.UPDATE_CHILD:
+      return {
+        ...state,
+        children: state.children.map(child => {
+          if (child.ID === action.payload) {
+            return action.payload;
+          }
+
+          return child;
+        }),
+      };
+    case parent.REMOVE_CHILD:
+      return {
+        ...state,
+        children: state.children.map(child => {
+          if (child.ID !== action.payload) {
+            return child;
+          }
+        }),
+      };
     case global.CLEAR_USERS:
       return initialState;
     default:

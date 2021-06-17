@@ -1,16 +1,29 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Layout, Card } from 'antd';
-import { PlusCircleFilled } from '@ant-design/icons';
+import React, { useEffect } from 'react';
+import { Layout } from 'antd';
+import { useOktaAuth } from '@okta/okta-react';
+import { getProfileData } from '../../../api';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import NewProgressCharts from '../../common/NewProgressCharts';
 import NewChildCard from '../../common/NewChildCard';
 import AccountSettings from '../AccountSettings/AccountSettingsContainer';
+import { connect } from 'react-redux';
+import { setParent } from '../../../state/actions/parentActions';
 
 const RenderNewParentDashboard = props => {
+  const { authState } = useOktaAuth();
+  const { setParent } = props;
+
+  useEffect(() => {
+    getProfileData(authState).then(res => {
+      setParent({
+        ...res[0],
+        children: res.filter(user => user.type !== 'Parent'),
+      });
+    });
+  }, [setParent, authState]);
   return (
-    <>
-      <Layout className="parent-dashboard">
+    <div>
+      <Layout className="newparent-dashboard">
         <ParentNavTopBar />
 
         <Layout>
@@ -25,8 +38,10 @@ const RenderNewParentDashboard = props => {
           </div>
         </Layout>
       </Layout>
-    </>
+    </div>
   );
 };
 
-export default RenderNewParentDashboard;
+export default connect(null, { setParent: setParent })(
+  RenderNewParentDashboard
+);
