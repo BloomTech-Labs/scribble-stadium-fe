@@ -7,6 +7,7 @@ import { PlayCircleOutlined, PauseCircleOutlined } from '@ant-design/icons';
 import 'react-h5-audio-player/lib/styles.css';
 import 'antd/dist/antd.css';
 import './rhap-style-override.css';
+import StoryViewer from './StoryViewer';
 
 const RenderAudioBookContainer = () => {
   const { push } = useHistory();
@@ -29,6 +30,7 @@ const RenderAudioBookContainer = () => {
           pause: <PauseCircleOutlined />,
         }}
       />
+      <StoryViewer />
       <div className="done-reading-container">
         <Button className="done-reading" type="button" onClick={doneReading}>
           I’m awesome, I’m done reading!
