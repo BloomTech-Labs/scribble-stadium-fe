@@ -15,9 +15,10 @@ const WeeklySubmissions = (props) => {
           <h3 className="h3"> View Prompt </h3>
         </span>
         <div className="submissions">
-          {props.map((child) => {
+          {props.data.map((child, i) => {
             return (
-              <Weekly key={child.children_id}
+              <Weekly key={i}
+              childId={child.children_id}
               writing={child.WritingURL}
               pagenum={child.PageNum}
               drawing={child.DrawingURL}

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Weekly = (props) => {
+    const { data } = props
 
     return (
         <div>

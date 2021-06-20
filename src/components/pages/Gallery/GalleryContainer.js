@@ -49,7 +49,7 @@ const GalleryContainer = () => {
             </div>
           </div>
         </div>
-        <WeeklySubmissions>
+        <WeeklySubmissions data={data}>
           {data.map((gallery) => {
             return (
               <Weekly
