@@ -11,13 +11,14 @@ import Weekly from './Weekly';
 const GalleryContainer = () => {
   const { authState } = useOktaAuth();
   const { push } = useHistory();
-  const [data, setDataInfo] = useState([
-    {
-      WritingUrl: '',
-      DrawingUrl: '',
-      children_id: 0,
-    },
-  ]);
+  const [data, setDataInfo] = useState([]);
+
+  // {
+  //   WritingUrl: '',
+  //   PageNum: 1,
+  //   DrawingUrl: '',
+  //   children_id: 0,
+  // },
 
   useEffect(() => {
     //Getting data from backend for leaderboard
@@ -28,7 +29,7 @@ const GalleryContainer = () => {
     });
   }, [authState]);
 
-  console.log('this is data: ', data[0].WritingUrl);
+  // console.log('this is data: ', data[0].WritingUrl);
 
   const leaderboard = () => {
     push('/child/leaderboard');
