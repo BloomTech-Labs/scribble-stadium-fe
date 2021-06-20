@@ -2,7 +2,6 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import UploadDocs from './UploadDocs';
 import LightingKid from '../../assets/images/gamemodeimg/LightingKid.png';
 
 const ButtonstubDown = ({ classWrite1, classWrite2, classWrite3 }) => {
@@ -19,12 +18,13 @@ const ButtonstubDown = ({ classWrite1, classWrite2, classWrite3 }) => {
           </p>
           <div className="kids-story-upload kids-story-upload-font">
             {classWrite2}
-            <UploadDocs />
+            {/*
+            Upload onclick button under construction 
+            */}
           </div>
           <div
-          // onClick={() => {
-          //   // props.pdw();
-          // }} Will be a onclick handler to choose I'd rather draw or I'd rather write
+          // write or draw handler to choose I'd rather draw or I'd rather write
+          // Onclick under construction
           >
             <p className="id-rather-choose-another-choice-font">
               {classWrite3}
