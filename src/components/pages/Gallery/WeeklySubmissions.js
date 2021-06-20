@@ -6,7 +6,7 @@ import Weekly from './Weekly';
 
 const WeeklySubmissions = (props) => {
   const { authState } = useOktaAuth();
-  const { data } = props
+  
   return (
     <>
       <div className="weekly-sub-container">
