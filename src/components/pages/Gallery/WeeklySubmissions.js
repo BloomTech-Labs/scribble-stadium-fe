@@ -1,29 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { submissions } from '../../../state/actions';
-import { getGallerySubmissionsById } from '../../../api/index';
 import { connect } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import Weekly from './Weekly';
 
-const WeeklySubmissions = props => {
+const WeeklySubmissions = () => {
   const { authState } = useOktaAuth();
-  const [data, setDataInfo] = useState([
-    {
-      WritingUrl: '',
-      DrawingUrl: '',
-      children_id: 0,
-    },
-  ]);
-
-  useEffect(() => {
-    //Getting data from backend for leaderboard
-    getGallerySubmissionsById(authState).then(res => {
-      setDataInfo(res);
-
-      console.log('this is res: ', res);
-    });
-  }, [authState]);
-
-  console.log('this is data: ', data[0].WritingUrl);
 
   return (
     <>
@@ -32,14 +14,15 @@ const WeeklySubmissions = props => {
           <h3 className="h3">Week</h3>
           <h3 className="h3"> View Prompt </h3>
         </span>
-        <span className="submissions">
-          <div className="sub-container">
-            <img className="gallery-submission" src={data[0].DrawingUrl} />
-          </div>
-          <div className="sub-container">
-            <img className="gallery-submission" src={data[0].WritingUrl} />
-          </div>
-        </span>
+        <div className="submissions">
+          {data.map((child) => {
+            return (
+              <Weekly key={child.children_id}
+              writing={child.WritingURL}
+              pagenum={child.PageNum}
+              drawing={child.DrawingURL}
+             />)})}
+        </div>
       </div>
     </>
   );
