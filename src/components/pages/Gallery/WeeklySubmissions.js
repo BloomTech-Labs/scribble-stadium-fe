@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import Popup from 'reactjs-popup';
+import 'antd/dist/antd.css';
+import { Modal, Button } from 'antd';
+import ContentPrompt from './SourceMaterial/ContentPrompt';
 import { submissions } from '../../../state/actions';
 import { getGallerySubmissionsById } from '../../../api/index';
 import { connect } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 
 const WeeklySubmissions = props => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const { authState } = useOktaAuth();
   const [data, setDataInfo] = useState([
     {
@@ -23,14 +28,43 @@ const WeeklySubmissions = props => {
     });
   }, [authState]);
 
-  console.log('this is data: ', data[0].WritingUrl);
+  // console.log('this is data: ', data[0].WritingUrl);
+
+  // Modal functions
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
 
   return (
     <>
       <div className="weekly-sub-container">
         <span className="label">
           <h3 className="h3">Week</h3>
-          <h3 className="h3"> View Prompt </h3>
+
+          {/* 1 - Original h3 tag */}
+          {/* <h3 className="h3"> View Prompt </h3> */}
+
+          {/* 2 - Modal with AntDesign  */}
+          <h3 className="h3" onClick={showModal}>
+            {' '}
+            View Prompt{' '}
+          </h3>
+          <Modal
+            title="Source Material"
+            visible={isModalVisible}
+            onOk={handleOk}
+            onCancel={handleCancel}
+          >
+            <ContentPrompt />
+          </Modal>
         </span>
         <span className="submissions">
           <div className="sub-container">
