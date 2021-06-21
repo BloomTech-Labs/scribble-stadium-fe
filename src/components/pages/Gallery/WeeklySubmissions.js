@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Popup from 'reactjs-popup';
 import 'antd/dist/antd.css';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 import ContentPrompt from './SourceMaterial/ContentPrompt';
 import { submissions } from '../../../state/actions';
 import { getGallerySubmissionsById } from '../../../api/index';
@@ -30,7 +29,7 @@ const WeeklySubmissions = props => {
 
   // console.log('this is data: ', data[0].WritingUrl);
 
-  // Modal functions
+  // Modal Functions
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -48,11 +47,6 @@ const WeeklySubmissions = props => {
       <div className="weekly-sub-container">
         <span className="label">
           <h3 className="h3">Week</h3>
-
-          {/* 1 - Original h3 tag */}
-          {/* <h3 className="h3"> View Prompt </h3> */}
-
-          {/* 2 - Modal with AntDesign  */}
           <h3 className="h3" onClick={showModal}>
             {' '}
             View Prompt{' '}
