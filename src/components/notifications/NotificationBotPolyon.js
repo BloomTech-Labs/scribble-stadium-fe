@@ -24,10 +24,20 @@ function NotificationBotPolygon(props) {
     top: 1.25rem;
     width: 40.5rem;
   `;
+  const CloseButton = styled.button`
+    background-color: none;
+    border: none;
+    cursor: pointer;
+    float: right;
+    height: 1.5rem;
+    padding: 0;
+    width: 1.5rem;
+  `;
   return (
     <section>
       <OuterColorDiv>
         <NotificationTextDiv>
+          <CloseButton>X</CloseButton>
           <h2>{`Welcome ${username}`}</h2>
           <p>{`${message}`}</p>
         </NotificationTextDiv>
