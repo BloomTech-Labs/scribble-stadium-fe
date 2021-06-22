@@ -6,6 +6,8 @@ import Weekly from './Weekly';
 
 const WeeklySubmissions = (props) => {
   const { authState } = useOktaAuth();
+
+  console.log('this is props', props)
   
   return (
     <>
@@ -16,12 +18,13 @@ const WeeklySubmissions = (props) => {
         </span>
         <div className="submissions">
           {props.data.map((child, i) => {
+            console.log('this is child', child)
             return (
               <Weekly key={i}
               childId={child.children_id}
-              writing={child.WritingURL}
+              writing={child.WritingUrl}
               pagenum={child.PageNum}
-              drawing={child.DrawingURL}
+              drawing={child.DrawingUrl}
              />)})}
         </div>
       </div>

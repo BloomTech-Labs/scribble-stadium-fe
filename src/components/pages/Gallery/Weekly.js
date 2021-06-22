@@ -2,17 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Weekly = (props) => {
-    const { data } = props
+    // const { data } = props
+    console.log('this is weekly props', props)
 
     return (
-        <div>
+        <>
             <div className="sub-container">
                 <img className="gallery-submission" src={props.drawing} alt="drawing submision" />
             </div>
             <div className="sub-container">
                 <img className="gallery-submission" src={props.writing} alt="writing submision" />
             </div>
-        </div>
+        </>
     )
 };
 
