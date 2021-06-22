@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import 'antd/dist/antd.css';
-import { Modal } from 'antd';
-import PDFViewer from './SourceMaterial/PDFViewer';
+import Week from './Week';
 import { submissions } from '../../../state/actions';
 import { getGallerySubmissionsById } from '../../../api/index';
 import { connect } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 
 const WeeklySubmissions = props => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
   const { authState } = useOktaAuth();
   const [data, setDataInfo] = useState([
     {
@@ -27,37 +24,11 @@ const WeeklySubmissions = props => {
     });
   }, [authState]);
 
-  // console.log('this is data: ', data[0].WritingUrl);
-
-  // Modal Functions
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
-
   return (
     <>
       <div className="weekly-sub-container">
         <span className="label">
-          <h3 className="h3">Week</h3>
-          <h3 className="h3" onClick={showModal}>
-            View Prompt
-          </h3>
-          <Modal
-            title="Source Material"
-            visible={isModalVisible}
-            onOk={handleOk}
-            onCancel={handleCancel}
-          >
-            <PDFViewer />
-          </Modal>
+          <Week />
         </span>
         <span className="submissions">
           <div className="sub-container">
