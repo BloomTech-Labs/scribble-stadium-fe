@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'antd/dist/antd.css';
 import { Modal } from 'antd';
-import ContentPrompt from './SourceMaterial/ContentPrompt';
+import PDFViewer from './SourceMaterial/PDFViewer';
 import { submissions } from '../../../state/actions';
 import { getGallerySubmissionsById } from '../../../api/index';
 import { connect } from 'react-redux';
@@ -48,8 +48,7 @@ const WeeklySubmissions = props => {
         <span className="label">
           <h3 className="h3">Week</h3>
           <h3 className="h3" onClick={showModal}>
-            {' '}
-            View Prompt{' '}
+            View Prompt
           </h3>
           <Modal
             title="Source Material"
@@ -57,7 +56,7 @@ const WeeklySubmissions = props => {
             onOk={handleOk}
             onCancel={handleCancel}
           >
-            <ContentPrompt />
+            <PDFViewer />
           </Modal>
         </span>
         <span className="submissions">
