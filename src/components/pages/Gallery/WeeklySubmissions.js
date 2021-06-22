@@ -23,7 +23,6 @@ const WeeklySubmissions = props => {
       console.log('this is res: ', res);
     });
   }, [authState]);
-
   return (
     <>
       <div className="weekly-sub-container">
