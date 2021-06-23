@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Week from './Week';
+import Weekly from './Weekly';
 import { submissions } from '../../../state/actions';
 import { getGallerySubmissionsById } from '../../../api/index';
 import { connect } from 'react-redux';
@@ -27,7 +27,7 @@ const WeeklySubmissions = props => {
     <>
       <div className="weekly-sub-container">
         <span className="label">
-          <Week />
+          <Weekly />
         </span>
         <span className="submissions">
           <div className="sub-container">
