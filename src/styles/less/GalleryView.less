@@ -50,11 +50,59 @@
 
 }
 
-.clickable {
-    cursor: pointer;
+.control-panel-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    .page-navigation {
+        margin: 15px;
+
+        .clickable {
+            cursor: pointer;
+        }
+        
+        .disabled {
+            cursor: not-allowed;
+            color: gray;
+        }
+    }
+
+    .page-zoom {
+        margin: 15px;
+
+        span {
+            margin: 0 10px;
+        }
+    }
 }
 
-.disabled {
-    cursor: not-allowed;
-    color: lightgray;
+.prompt-button-container {
+
+    .prompt-buttons {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        .prompt-btn {
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+    }
+
+    .viewable-prompts {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        padding-top: 6%;
+
+        p.visible {
+            display: relative;
+        }
+        
+        p.invisible {
+            display: none;
+        }
+    }
 }
