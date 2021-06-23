@@ -11,23 +11,18 @@ const WeeklySubmissions = (props) => {
   
   return (
     <>
-      <div className="weekly-sub-container">
-        <span className="label">
-          <h3 className="h3">Week</h3>
-          <h3 className="h3"> View Prompt </h3>
-        </span>
-        <div className="submissions">
+      
           {props.data.map((child, i) => {
             console.log('this is child', child)
             return (
               <Weekly key={i}
-              childId={child.children_id}
+              childId={child.SubmissionId}
+              drawingprompt={child.DrawingPrompt}
+              writingprompt={child.WritingPrompt}
               writing={child.WritingUrl}
               pagenum={child.PageNum}
               drawing={child.DrawingUrl}
              />)})}
-        </div>
-      </div>
     </>
   );
 };
