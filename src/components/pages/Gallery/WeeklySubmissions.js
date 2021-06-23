@@ -4,7 +4,7 @@ import { getGallerySubmissionsById } from '../../../api/index';
 import { connect } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import { Modal, Carousel } from 'antd';
-import CarouselModal from './CarouselContainer'
+import CarouselContainer from './CarouselContainer';
 
 const WeeklySubmissions = props => {
   const { authState } = useOktaAuth();
@@ -33,16 +33,16 @@ const WeeklySubmissions = props => {
           <h3 className="h3">Week</h3>
           <h3 className="h3"> View Prompt </h3>
         </span>
-        <span className="submissions">
+        {/* <span className="submissions">
           <div className="sub-container">
             <img className="gallery-submission" src={data[0].DrawingUrl} />
           </div>
           <div className="sub-container">
             <img className="gallery-submission" src={data[0].WritingUrl} />
           </div>
-        </span>
+        </span> */}
+        <CarouselContainer />
       </div>
-      <CarouselModal />
     </>
   );
 };
