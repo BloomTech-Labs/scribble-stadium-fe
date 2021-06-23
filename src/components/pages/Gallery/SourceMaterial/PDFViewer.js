@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import PDFLoading from './PDFLoading';
-import ControlPage from './ControlPage';
+import ControlPanel from './ControlPanel';
+import PromptButtons from './PromptButtons';
 import { Document, Page, pdfjs } from 'react-pdf';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-const ContentPrompt = () => {
+const PDFViewer = () => {
+  const [scale, setScale] = useState(1.0);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
@@ -17,7 +19,7 @@ const ContentPrompt = () => {
   return (
     <div>
       <div>
-        <h2>This Week's Story </h2>
+        <h3>This Week's Story </h3>
       </div>
       <div>
         <PDFLoading isLoading={isLoading} />
@@ -25,18 +27,19 @@ const ContentPrompt = () => {
           file="/assets/docs/sample.pdf"
           onLoadSuccess={onDocumentLoadSuccess}
         >
-          <Page pageNumber={pageNumber} />
+          <Page pageNumber={pageNumber} scale={scale} />
         </Document>
-        <ControlPage
+        <ControlPanel
+          scale={scale}
+          setScale={setScale}
           numPages={numPages}
           pageNumber={pageNumber}
           setPageNumber={setPageNumber}
         />
       </div>
-      <button>Writing Prompt</button>
-      <button>Drawing Prompt</button>
+      <PromptButtons />
     </div>
   );
 };
 
-export default ContentPrompt;
+export default PDFViewer;
