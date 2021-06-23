@@ -13,7 +13,7 @@ const Weekly = (props) => {
         <>
         <div className="weekly-sub-container">
             <span className="label">
-                <h3 className="h3">Week {props.childId}</h3>
+                <h3 className="h3">Week {props.sprint}</h3>
                 <h3 className="h3"> View Prompt </h3>
             </span>
             <span className="submissions">

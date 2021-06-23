@@ -12,11 +12,13 @@ const WeeklySubmissions = (props) => {
   return (
     <>
       
-          {props.data.map((child, i) => {
+          {props.data.reverse().map((child, i) => {
             console.log('this is child', child)
             return (
               <Weekly key={i}
-              childId={child.SubmissionId}
+              childId={child.ChildId}
+              sprint={child.Sprint}
+              galleryId={child.GalleryId}
               drawingprompt={child.DrawingPrompt}
               writingprompt={child.WritingPrompt}
               writing={child.WritingUrl}
