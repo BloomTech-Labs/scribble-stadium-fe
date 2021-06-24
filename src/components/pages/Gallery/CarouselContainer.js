@@ -1,42 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { getGallerySubmissionsById } from '../../../api/index';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import React, { useState } from 'react';
+import Weekly from './Weekly';
 import { Modal, Carousel } from 'antd';
 
-
 const CarouselContainer = props => {
-    const { authState } = useOktaAuth();
-    const [data, setDataInfo] = useState([]);
-    const [isModalVisible, setIsModalVisible] = useState(false);
-    const [pic, setPic] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [pic, setPic] = useState([]);
 
-    useEffect(() => {
-        //Getting data from backend for gallery
-        getGallerySubmissionsById(authState).then(res => {
-            setDataInfo(res);
+  const showModal = link => {
+    setIsModalVisible(true);
+    setPic(link);
+    console.log('clicked: ', link);
+  };
 
-            console.log('this is res: ', res);
-        });
-    }, [authState]);
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
 
-    const showModal = (link) => {
-        setIsModalVisible(true);
-        setPic(link);
-        console.log('clicked: ', link);
-    };
+  function onChange(a, b, c) {
+    console.log(a, b, c);
+  }
 
-    const handleCancel = () => {
-        setIsModalVisible(false);
-    };
+  return (
+    <>
+      {/* <div className="weekly-sub-container">
 
-    function onChange(a, b, c) {
-        console.log(a, b, c);
-    }
-
-    return (
-        <>
-            <div className="weekly-sub-container">
-                {/* filter based on child_id */}
                 {data.filter(pic => pic.Name === 'Pinkie (Cohort1)').map(filteredPic => (
                     <span className="submissions">
                         <div className="sub-container">
@@ -46,26 +33,31 @@ const CarouselContainer = props => {
 
                         <div className="sub-container">
                             <img className="gallery-submission" src={filteredPic.WritingUrl} alt="writing"
-                                onClick={() => showModal(["https://picsum.photos/800/800?random=1", "https://picsum.photos/800/800?random=2", "https://picsum.photos/800/800?random=3"])} />
-
+                                onClick={() => showModal([filteredPic.WritingUrl, "https://picsum.photos/800/800?random=2", "https://picsum.photos/800/800?random=3"])} />
                         </div>
                     </span>
-                ))}
-                {/* modal pops up when an image is clicked. It contains a larger picture and carousel for multiple pics. */}
-                <Modal visible={isModalVisible} centered onCancel={handleCancel} footer={null}
-                >
-                    <Carousel afterChange={onChange} arrows>
-                        {pic.map(p => (
-                            <div>
-                                <img  alt="" src={p} />
-                            </div>
-                        ))}
-                    </Carousel>
-                </Modal>
+                ))} */}
 
+      <Modal
+        visible={isModalVisible}
+        centered
+        onCancel={handleCancel}
+        footer={null}
+      >
+        <Carousel afterChange={onChange} arrows={true}>
+          {pic.map(p => (
+            <div>
+              <img
+                style={{ height: '75vh', objectFit: 'contain' }}
+                alt=""
+                src={p}
+              />
             </div>
-        </>
-    );
+          ))}
+        </Carousel>
+      </Modal>
+    </>
+  );
 };
 
 export default CarouselContainer;
