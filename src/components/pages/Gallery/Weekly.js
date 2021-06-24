@@ -2,12 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Weekly = (props) => {
-    // const { data } = props
-    console.log('this is weekly props', props)
-
-    const handleWeek = () => {
-
-    }
 
     return (
         <>

@@ -13,23 +13,13 @@ const GalleryContainer = () => {
   const { push } = useHistory();
   const [data, setDataInfo] = useState([]);
 
-  // {
-  //   WritingUrl: '',
-  //   PageNum: 1,
-  //   DrawingUrl: '',
-  //   children_id: 0,
-  // },
-
+  // moved to Parent Component to pass down data
   useEffect(() => {
     //Getting data from backend for leaderboard
     getGallerySubmissionsById(authState).then(res => {
       setDataInfo(res);
-
-      console.log('this is res: ', res);
     });
   }, [authState]);
-
-  // console.log('this is data: ', data[0].WritingUrl);
 
   const leaderboard = () => {
     push('/child/leaderboard');
@@ -49,17 +39,7 @@ const GalleryContainer = () => {
             </div>
           </div>
         </div>
-        <WeeklySubmissions data={data}>
-          {data.map((gallery) => {
-            return (
-              <Weekly
-              key={gallery.children_id}
-              writing={gallery.WritingUrl}
-              pagenum={gallery.PageNum}
-              drawing={gallery.DrawingUrl}
-             />)
-          })}
-        </WeeklySubmissions>
+        <WeeklySubmissions data={data} />
       </div>
     </>
   );
