@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect }from 'react';
 import { connect } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import { Header } from '../../common';
@@ -6,6 +7,7 @@ import { Button } from 'antd';
 import { getGallerySubmissionsById } from '../../../api/index';
 import WeeklySubmissions from './WeeklySubmissions';
 import { useHistory } from 'react-router-dom';
+import Weekly from './Weekly';
 
 const GalleryContainer = () => {
   const { authState } = useOktaAuth();
