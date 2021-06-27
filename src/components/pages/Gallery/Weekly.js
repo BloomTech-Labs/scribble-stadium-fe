@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import CarouselContainer from './CarouselContainer';
 
@@ -23,7 +23,6 @@ const Weekly = props => {
               className="gallery-submission"
               src={props.writing}
               alt="writing submision"
-              onClick={() => props.showModal(props.writing)}
             />
           </div>
         </span>

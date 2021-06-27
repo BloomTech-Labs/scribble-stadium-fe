@@ -22,22 +22,6 @@ const CarouselContainer = props => {
 
   return (
     <>
-      {/* <div className="weekly-sub-container">
-
-                {data.filter(pic => pic.Name === 'Pinkie (Cohort1)').map(filteredPic => (
-                    <span className="submissions">
-                        <div className="sub-container">
-                            <img className="gallery-submission" src={filteredPic.DrawingUrl} alt="drawing"
-                                onClick={() => showModal([filteredPic.DrawingUrl])} />
-                        </div>
-
-                        <div className="sub-container">
-                            <img className="gallery-submission" src={filteredPic.WritingUrl} alt="writing"
-                                onClick={() => showModal([filteredPic.WritingUrl, "https://picsum.photos/800/800?random=2", "https://picsum.photos/800/800?random=3"])} />
-                        </div>
-                    </span>
-                ))} */}
-
       <Modal
         visible={isModalVisible}
         centered
@@ -45,7 +29,7 @@ const CarouselContainer = props => {
         footer={null}
       >
         <Carousel afterChange={onChange} arrows={true}>
-          {pic.map(p => (
+          {props.writing.map(p => (
             <div>
               <img
                 style={{ height: '75vh', objectFit: 'contain' }}
