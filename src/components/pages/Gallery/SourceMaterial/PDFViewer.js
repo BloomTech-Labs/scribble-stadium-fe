@@ -5,11 +5,13 @@ import PromptButtons from './PromptButtons';
 import { Document, Page, pdfjs } from 'react-pdf';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-const PDFViewer = () => {
+const PDFViewer = props => {
   const [scale, setScale] = useState(1.0);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const [writingVisible, setWritingVisible] = useState('invisible');
+  const [drawingVisible, setDrawingVisible] = useState('invisible');
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -19,7 +21,7 @@ const PDFViewer = () => {
   return (
     <div>
       <div>
-        <h3>This Week's Story </h3>
+        <h3>Week's Story </h3>
       </div>
       <div>
         <PDFLoading isLoading={isLoading} />
@@ -37,7 +39,14 @@ const PDFViewer = () => {
           setPageNumber={setPageNumber}
         />
       </div>
-      <PromptButtons />
+      <PromptButtons
+        drawingVisible={drawingVisible}
+        setDrawingVisible={setDrawingVisible}
+        writingVisible={writingVisible}
+        setWritingVisible={setWritingVisible}
+        drawingprompt={props.drawingprompt}
+        writingprompt={props.writingprompt}
+      />
     </div>
   );
 };
