@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const PromptButtons = () => {
-  const [writingVisible, setWritingVisible] = useState('invisible');
-  const [drawingVisible, setDrawingVisible] = useState('invisible');
-
+const PromptButtons = props => {
   const wpVisibleClass = () => {
-    setWritingVisible(writingVisible == 'invisible' ? 'visible' : 'invisible');
-    setDrawingVisible('invisible');
+    props.setWritingVisible(
+      props.writingVisible == 'invisible' ? 'visible' : 'invisible'
+    );
+    props.setDrawingVisible('invisible');
   };
 
   const dpVisibleClass = () => {
-    setDrawingVisible(drawingVisible == 'invisible' ? 'visible' : 'invisible');
-    setWritingVisible('invisible');
+    props.setDrawingVisible(
+      props.drawingVisible == 'invisible' ? 'visible' : 'invisible'
+    );
+    props.setWritingVisible('invisible');
   };
 
   return (
@@ -25,8 +26,8 @@ const PromptButtons = () => {
         </button>
       </div>
       <div className="viewable-prompts">
-        <p className={writingVisible}>{`This week's writing assignment`}</p>
-        <p className={drawingVisible}>{`This week's drawing assignment`}</p>
+        <p className={props.writingVisible}>{props.writingprompt}</p>
+        <p className={props.drawingVisible}>{props.drawingprompt}</p>
       </div>
     </div>
   );
