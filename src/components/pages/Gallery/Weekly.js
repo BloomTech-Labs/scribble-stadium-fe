@@ -5,18 +5,18 @@ import PDFViewer from './SourceMaterial/PDFViewer';
 import { connect } from 'react-redux';
 
 const Weekly = props => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isPdfVisible, setIsPdfVisible] = useState(false);
 
-  const showModal = () => {
-    setIsModalVisible(true);
+  const showPdfModal = () => {
+    setIsPdfVisible(true);
   };
 
   const handleOk = () => {
-    setIsModalVisible(false);
+    setIsPdfVisible(false);
   };
 
   const handleCancel = () => {
-    setIsModalVisible(false);
+    setIsPdfVisible(false);
   };
 
   return (
@@ -24,17 +24,19 @@ const Weekly = props => {
       <div className="weekly-sub-container">
         <span className="label">
           <h3 className="h3">Week {props.sprint}</h3>
-          <h3 className="h3" onClick={showModal}>
+          <h3 className="h3" onClick={showPdfModal}>
             View Prompt
           </h3>
           <Modal
-            title="Source Material"
-            visible={isModalVisible}
+            visible={isPdfVisible}
             onOk={handleOk}
             onCancel={handleCancel}
             footer={null}
           >
-            <PDFViewer />
+            <PDFViewer
+              drawingprompt={props.drawingprompt}
+              writingprompt={props.writingprompt}
+            />
           </Modal>
         </span>
         <span className="submissions">
