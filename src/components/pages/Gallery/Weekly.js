@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import 'antd/dist/antd.css';
 import { Modal, Carousel } from 'antd';
 import PDFViewer from './SourceMaterial/PDFViewer';
+// import DownloadLink from './SourceMaterial/DownloadLink';
+import PromptButtons from './SourceMaterial/PromptButtons';
 
 const Weekly = props => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -74,26 +76,26 @@ const Weekly = props => {
               onClick={() => showModal([props.writing])}
             />
           </div>
+          <Modal
+            visible={isModalVisible}
+            centered
+            onCancel={handleCancel}
+            footer={null}
+          >
+            <Carousel afterChange={onChange} arrows={true}>
+              {imgUrl.map(url => (
+                <div>
+                  <img
+                    style={{ height: '72vh', objectFit: 'contain' }}
+                    alt=""
+                    src={url}
+                  />
+                </div>
+              ))}
+            </Carousel>
+          </Modal>
         </span>
       </div>
-      <Modal
-        visible={isModalVisible}
-        centered
-        onCancel={handleCancel}
-        footer={null}
-      >
-        <Carousel afterChange={onChange} arrows={true}>
-          {imgUrl.map(url => (
-            <div>
-              <img
-                style={{ height: '72vh', objectFit: 'contain' }}
-                alt=""
-                src={url}
-              />
-            </div>
-          ))}
-        </Carousel>
-      </Modal>
     </>
   );
 };
