@@ -20,6 +20,16 @@
         font-size: 2.5rem;
         font-family: 'atma';
     }
+          
+    // .full-pdf {
+    //     display: none;
+    // }
+
+    // div.pdf-link {
+    //     @media(max-width: 500px) {
+    //         display: none;
+    //     }    
+    // }
 }
 
 .submissions {
@@ -105,6 +115,29 @@
         
         p.invisible {
             display: none;
+        }
+    }
+}
+
+.pdf-container {
+
+    .pdf-viewer {
+
+        .pdf-components {
+            @media(max-width: 500px) {
+                display: none;
+            }  
+        }
+    
+        .pdf-link {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            padding-bottom: 30px;
+
+            @media(min-width: 501px) {
+                display: none;
+            }    
         }
     }
 }
