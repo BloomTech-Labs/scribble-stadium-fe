@@ -6,7 +6,6 @@ import { Button } from 'antd';
 import { getGallerySubmissionsById } from '../../../api/index';
 import WeeklySubmissions from './WeeklySubmissions';
 import { useHistory } from 'react-router-dom';
-import Weekly from './Weekly';
 
 const GalleryContainer = () => {
   const { authState } = useOktaAuth();

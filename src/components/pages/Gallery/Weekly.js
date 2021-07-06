@@ -1,23 +1,41 @@
 import React, { useState } from 'react';
-import 'antd/dist/antd.css';
-import { Modal } from 'antd';
-import PDFViewer from './SourceMaterial/PDFViewer';
 import { connect } from 'react-redux';
+import 'antd/dist/antd.css';
+import { Modal, Carousel } from 'antd';
+import PDFViewer from './SourceMaterial/PDFViewer';
 
 const Weekly = props => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [imgUrl, setImgUrl] = useState([]);
   const [isPdfVisible, setIsPdfVisible] = useState(false);
 
+  // PDF Modal Functions
   const showPdfModal = () => {
     setIsPdfVisible(true);
   };
 
-  const handleOk = () => {
+  const handlePdfOk = () => {
     setIsPdfVisible(false);
   };
 
-  const handleCancel = () => {
+  const handlePdfCancel = () => {
     setIsPdfVisible(false);
   };
+
+  // Carousel Modal Functions
+  const showModal = link => {
+    setIsModalVisible(true);
+    setImgUrl(link);
+    console.log('clicked: ', link);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  function onChange(a, b, c) {
+    console.log(a, b, c);
+  }
 
   return (
     <>
@@ -29,8 +47,8 @@ const Weekly = props => {
           </h3>
           <Modal
             visible={isPdfVisible}
-            onOk={handleOk}
-            onCancel={handleCancel}
+            onOk={handlePdfOk}
+            onCancel={handlePdfCancel}
             footer={null}
           >
             <PDFViewer
@@ -45,6 +63,7 @@ const Weekly = props => {
               className="gallery-submission"
               src={props.drawing}
               alt="drawing submision"
+              onClick={() => showModal([props.drawing])}
             />
           </div>
           <div className="sub-container">
@@ -52,10 +71,29 @@ const Weekly = props => {
               className="gallery-submission"
               src={props.writing}
               alt="writing submision"
+              onClick={() => showModal([props.writing])}
             />
           </div>
         </span>
       </div>
+      <Modal
+        visible={isModalVisible}
+        centered
+        onCancel={handleCancel}
+        footer={null}
+      >
+        <Carousel afterChange={onChange} arrows={true}>
+          {imgUrl.map(url => (
+            <div>
+              <img
+                style={{ height: '72vh', objectFit: 'contain' }}
+                alt=""
+                src={url}
+              />
+            </div>
+          ))}
+        </Carousel>
+      </Modal>
     </>
   );
 };
