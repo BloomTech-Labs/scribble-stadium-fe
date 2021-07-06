@@ -19,25 +19,33 @@ const PDFViewer = props => {
   }
 
   return (
-    <div>
+    <div className="pdf-container">
       <div>
         <h3>Week's Story </h3>
       </div>
-      <div>
+      <div className="pdf-viewer">
         <PDFLoading isLoading={isLoading} />
         <Document
+          className="pdf-components"
           file="/assets/docs/sample.pdf"
           onLoadSuccess={onDocumentLoadSuccess}
         >
           <Page pageNumber={pageNumber} scale={scale} />
         </Document>
-        <ControlPanel
-          scale={scale}
-          setScale={setScale}
-          numPages={numPages}
-          pageNumber={pageNumber}
-          setPageNumber={setPageNumber}
-        />
+        <div className="pdf-link">
+          <a href="/assets/docs/sample.pdf" download target="_blank">
+            Download Story
+          </a>
+        </div>
+        <div className="pdf-components">
+          <ControlPanel
+            scale={scale}
+            setScale={setScale}
+            numPages={numPages}
+            pageNumber={pageNumber}
+            setPageNumber={setPageNumber}
+          />
+        </div>
       </div>
       <PromptButtons
         drawingVisible={drawingVisible}
