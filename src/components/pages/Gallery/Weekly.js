@@ -1,11 +1,28 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import 'antd/dist/antd.css';
 import { Modal, Carousel } from 'antd';
+import PDFViewer from './SourceMaterial/PDFViewer';
 
 const Weekly = props => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [imgUrl, setImgUrl] = useState([]);
+  const [isPdfVisible, setIsPdfVisible] = useState(false);
 
+  // PDF Modal Functions
+  const showPdfModal = () => {
+    setIsPdfVisible(true);
+  };
+
+  const handlePdfOk = () => {
+    setIsPdfVisible(false);
+  };
+
+  const handlePdfCancel = () => {
+    setIsPdfVisible(false);
+  };
+
+  // Carousel Modal Functions
   const showModal = link => {
     setIsModalVisible(true);
     setImgUrl(link);
@@ -25,7 +42,20 @@ const Weekly = props => {
       <div className="weekly-sub-container">
         <span className="label">
           <h3 className="h3">Week {props.sprint}</h3>
-          <h3 className="h3"> View Prompt </h3>
+          <h3 className="h3" onClick={showPdfModal}>
+            View Prompt
+          </h3>
+          <Modal
+            visible={isPdfVisible}
+            onOk={handlePdfOk}
+            onCancel={handlePdfCancel}
+            footer={null}
+          >
+            <PDFViewer
+              drawingprompt={props.drawingprompt}
+              writingprompt={props.writingprompt}
+            />
+          </Modal>
         </span>
         <span className="submissions">
           <div className="sub-container">
