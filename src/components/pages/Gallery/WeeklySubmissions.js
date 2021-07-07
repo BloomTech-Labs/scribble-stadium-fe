@@ -13,6 +13,7 @@ const WeeklySubmissions = props => {
             childId={child.ChildId}
             sprint={child.Sprint}
             galleryId={child.GalleryId}
+            sprintstory={child.SprintStory}
             drawingprompt={child.DrawingPrompt}
             writingprompt={child.WritingPrompt}
             writing={child.WritingUrl}
