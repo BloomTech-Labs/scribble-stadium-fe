@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import 'antd/dist/antd.css';
 import { Modal, Carousel } from 'antd';
+import { QuestionCircleFilled } from '@ant-design/icons';
 import PDFViewer from './SourceMaterial/PDFViewer';
-// import DownloadLink from './SourceMaterial/DownloadLink';
-import PromptButtons from './SourceMaterial/PromptButtons';
 
 const Weekly = props => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -42,10 +41,10 @@ const Weekly = props => {
   return (
     <>
       <div className="weekly-sub-container">
-        <span className="label">
-          <h3 className="h3">Week {props.sprint}</h3>
-          <h3 className="h3" onClick={showPdfModal}>
-            View Prompt
+        <span className="label content-box">
+          <h3 className="h3">
+            Week {props.sprint}{' '}
+            <QuestionCircleFilled className="question" onClick={showPdfModal} />
           </h3>
           <Modal
             visible={isPdfVisible}
@@ -54,6 +53,8 @@ const Weekly = props => {
             footer={null}
           >
             <PDFViewer
+              sprint={props.sprint}
+              sprintstory={props.sprintstory}
               drawingprompt={props.drawingprompt}
               writingprompt={props.writingprompt}
             />
