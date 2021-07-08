@@ -194,6 +194,29 @@ const postNewChild = (authState, child) => {
 /**
  *
  * @param {Object} authState necessary for API functionality
+ * @param {number} childId the id of the respective child
+ * @returns {number} child id for child that is being called
+ */
+
+const getChildByID = (authState, ID) => {
+  try {
+    console.log(ID);
+    return apiAuthGet(`/gallery/child/${ID}`,
+      getAuthHeader(authState)
+    ).then(response => {
+      return response;
+    });
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [];
+    });
+  }
+};
+
+/**
+ *
+ * @param {Object} authState necessary for API functionality
  * @param {number} cohortId the cohort id of the respective child
  * @returns {Promise} a promise that resolves to an object containing {DrawingPrompt, ID, Title, URL, and WritingPrompt}
  */
@@ -573,6 +596,7 @@ export {
   postNewChild,
   getChildFormValues,
   getChildTasks,
+  getChildByID,
   getChildCard,
   updateChildData,
   deleteChild,
