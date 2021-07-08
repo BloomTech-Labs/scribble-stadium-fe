@@ -132,18 +132,27 @@ function App() {
         />
 
         <SecureRoute
-          path="/gallery"
+          exact path="/gallery"
           component={() => (
             <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}
         />
 
         <SecureRoute
-          path="/gallery/:id"
+          exact path="/gallery/:id"
           component={() => (
             <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}
         />
+
+        <SecureRoute
+          exact path="/gallery/child/:id" 
+          component={() => (
+            <GalleryContainer 
+            LoadingComponent={ChildLoadingComponent} 
+            />
+          )}
+         />
 
         <SecureRoute path="/scoreboard" component={FaceoffReveal} />
 

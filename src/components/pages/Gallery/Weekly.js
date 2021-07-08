@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 const Weekly = (props) => {
 
+    console.log('weekly props', props);
+    
     return (
         <>
         <div className="weekly-sub-container">
