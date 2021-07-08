@@ -45,4 +45,4 @@ function NotificationBotPolygon(props) {
     </section>
   );
 }
-export default NotificationBotPolygon;
+export default connect()(NotificationBotPolygon);
