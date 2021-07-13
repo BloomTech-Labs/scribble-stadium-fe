@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Weekly from './Weekly';
 
 const WeeklySubmissions = (props) => {
-  const { authState } = useOktaAuth();
+  // const { authState } = useOktaAuth();
   
   // Passing state to Week Card. Displaying Week card in descending order.
   return (
