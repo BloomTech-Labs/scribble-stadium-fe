@@ -132,6 +132,7 @@ function App() {
         />
 
         <SecureRoute
+          exact
           path="/gallery"
           component={() => (
             <GalleryContainer LoadingComponent={ChildLoadingComponent} />
@@ -139,7 +140,16 @@ function App() {
         />
 
         <SecureRoute
+          exact
           path="/gallery/:id"
+          component={() => (
+            <GalleryContainer LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+
+        <SecureRoute
+          exact
+          path="/gallery/child/:id"
           component={() => (
             <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}
