@@ -2,25 +2,26 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Weekly from './Weekly';
 
-const WeeklySubmissions = (props) => {
-  const { authState } = useOktaAuth();
-  
+const WeeklySubmissions = props => {
+  console.log('weekly', props.data);
+
   // Passing state to Week Card. Displaying Week card in descending order.
   return (
     <>
       {props.data.reverse().map((child, i) => {
         return (
-          <Weekly key={i}
+          <Weekly
+            key={i}
             // childId={child.ID}
-            sprint={child.sprint}
+            sprint={child.SubmissionId}
             // galleryId={child.GalleryId}
-            sourcestory={child.sprintStory}
+            // sourcestory={child.sprintStory}
             drawingprompt={child.DrawingPrompt}
             writingprompt={child.WritingPrompt}
-            writing={child.WritingUrl}
-            pagenum={child.PageNum}
-            drawing={child.DrawingUrl}
-           />)})}
+            pages={child.Pages}
+          />
+        );
+      })}
     </>
   );
 };

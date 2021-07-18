@@ -104,6 +104,7 @@ const Leaderboard = props => {
         columns={table}
         rowKey="uid"
         dataSource={data}
+        pagination={false}
       />
     </div>
   );
