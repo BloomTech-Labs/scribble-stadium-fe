@@ -104,6 +104,10 @@ const Leaderboard = props => {
         columns={table}
         rowKey="uid"
         dataSource={data}
+        scroll={{
+          y: 600,
+        }}
+        pagination={false}
       />
     </div>
   );
