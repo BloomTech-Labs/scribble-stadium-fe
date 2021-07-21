@@ -10,26 +10,19 @@ const Weekly = props => {
   // Carousel Modal Functions
   const showModal = pages => {
     setIsModalVisible(true);
-    let vals = Object.keys(pages).map(function (key) {
+    let values = Object.keys(pages).map(function (key) {
       return pages[key];
     });
-    setpageUrl(vals);
+    setpageUrl(values);
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
   };
 
-  function onChange(a, b, c) {
-    console.log(a, b, c);
-  }
-
   return (
     <>
       <div className="weekly-sub-container">
-        <span className="">
-          <h3 className="h3">Week {props.sprint}</h3>
-        </span>
         <span className="submissions">
           <div className="sub-container">
             <img
@@ -55,7 +48,7 @@ const Weekly = props => {
         onCancel={handleCancel}
         footer={null}
       >
-        <Carousel afterChange={onChange} arrows={true}>
+        <Carousel arrows={true}>
           {pageUrl.map(url => (
             <div>
               <img
