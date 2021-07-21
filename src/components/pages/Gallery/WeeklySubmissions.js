@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Weekly from './Weekly';
-
+  
 const WeeklySubmissions = props => {
-  // console.log('weekly', props.data);
   let weeks = props.data.length;
 
   // Passing state to Week Card. Displaying Week card in descending order.
