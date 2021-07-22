@@ -37,7 +37,6 @@ const AdminDashboard = props => {
         <Content>
           <Switch>
             <Route
-              exact
               path="/admin/audiobooks"
               render={() => <AudiobookManager />}
             />
