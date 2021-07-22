@@ -276,7 +276,7 @@ function App() {
           )}
         />
         <Route exact path="/moderation" component={ModerationTest} />
-        <Route exact path="/admin" component={AdminDashboard} />
+        <Route path="/admin" component={AdminDashboard} />
         <Route exact path="/dev/day/1-3" component={SatMon} />
         <Route exact path="/dev/day/4" component={Tues} />
         <Route exact path="/dev/day/5" component={Wed} />

@@ -97,6 +97,11 @@ const ModerationTools = props => {
     push('/child/match-up');
   };
 
+  // Navigates an admin to the audio-book manager
+  const goToAudiobookManager = () => {
+    push('/admin/audiobooks');
+  };
+
   return (
     <div>
       <h1>Admin Dashboard</h1>
@@ -118,6 +123,9 @@ const ModerationTools = props => {
             Go to Faceoffs/Matchups
           </Button>
         </Form.Item>
+        <Button type="type" onClick={goToAudiobookManager}>
+          Go to AudioBook Manager
+        </Button>
         <Form.Item className="moderator-form">
           <Button style={{ margin: '8px' }} type="reset" onClick={reset}>
             Reset Seeds
