@@ -2,76 +2,42 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import 'antd/dist/antd.css';
 import { Modal, Carousel } from 'antd';
-import PDFViewer from './SourceMaterial/PDFViewer';
 
 const Weekly = props => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [imgUrl, setImgUrl] = useState([]);
-  const [isPdfVisible, setIsPdfVisible] = useState(false);
-
-  // PDF Modal Functions
-  const showPdfModal = () => {
-    setIsPdfVisible(true);
-  };
-
-  const handlePdfOk = () => {
-    setIsPdfVisible(false);
-  };
-
-  const handlePdfCancel = () => {
-    setIsPdfVisible(false);
-  };
+  const [pageUrl, setpageUrl] = useState([]);
 
   // Carousel Modal Functions
-  const showModal = link => {
+  const showModal = pages => {
     setIsModalVisible(true);
-    setImgUrl(link);
-    console.log('clicked: ', link);
+    let values = Object.keys(pages).map(function (key) {
+      return pages[key];
+    });
+    setpageUrl(values);
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
   };
 
-  function onChange(a, b, c) {
-    console.log(a, b, c);
-  }
-
   return (
     <>
       <div className="weekly-sub-container">
-        <span className="label">
-          <h3 className="h3">Week {props.sprint}</h3>
-          <h3 className="h3" onClick={showPdfModal}>
-            View Prompt
-          </h3>
-          <Modal
-            visible={isPdfVisible}
-            onOk={handlePdfOk}
-            onCancel={handlePdfCancel}
-            footer={null}
-          >
-            <PDFViewer
-              drawingprompt={props.drawingprompt}
-              writingprompt={props.writingprompt}
-            />
-          </Modal>
-        </span>
         <span className="submissions">
           <div className="sub-container">
             <img
               className="gallery-submission"
-              src={props.drawing}
+              src={props.pages.Drawing.Page1}
               alt="drawing submision"
-              onClick={() => showModal([props.drawing])}
+              onClick={() => showModal(props.pages.Drawing)}
             />
           </div>
           <div className="sub-container">
             <img
               className="gallery-submission"
-              src={props.writing}
+              src={props.pages.Writing.Page1}
               alt="writing submision"
-              onClick={() => showModal([props.writing])}
+              onClick={() => showModal(props.pages.Writing)}
             />
           </div>
         </span>
@@ -82,8 +48,8 @@ const Weekly = props => {
         onCancel={handleCancel}
         footer={null}
       >
-        <Carousel afterChange={onChange} arrows={true}>
-          {imgUrl.map(url => (
+        <Carousel arrows={true}>
+          {pageUrl.map(url => (
             <div>
               <img
                 style={{ height: '72vh', objectFit: 'contain' }}
