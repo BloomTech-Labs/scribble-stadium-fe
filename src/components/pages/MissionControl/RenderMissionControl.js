@@ -10,7 +10,7 @@ import read_icon from '../../../assets/icons/read_icon.svg';
 import write_icon from '../../../assets/icons/write_icon.svg';
 import Checkbox from './Checkbox';
 
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import { useOktaAuth } from '@okta/okta-react';
 import { getChildTasks, getStory } from '../../../api';
 import { tasks } from '../../../state/actions';
 

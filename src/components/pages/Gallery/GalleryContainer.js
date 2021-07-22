@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import { useOktaAuth } from '@okta/okta-react';
 import { Header } from '../../common';
 import { Button } from 'antd';
 import { getChildByID } from '../../../api/index';
@@ -17,7 +17,7 @@ const GalleryContainer = () => {
   useEffect(() => {
     //Getting data from backend for leaderboard
     getChildByID(authState, id).then(res => {
-      setDataInfo(res.data.Submissions);   
+      setDataInfo(res.data.Submissions);
     });
   }, [authState, id]);
 

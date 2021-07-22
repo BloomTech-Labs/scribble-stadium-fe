@@ -41,7 +41,7 @@ import { LandingPage } from './components/pages/LandingPage';
 import { MissionControl } from './components/pages/MissionControl';
 import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
-
+import { ProfileSelect } from './components/pages/ProfileSelect';
 import { ParentFaq } from './components/pages/ParentFaq';
 import { ParentContact } from './components/pages/ParentContact';
 import { NewParentDashboard } from './components/pages/NewParentDashboard';
@@ -114,7 +114,7 @@ function App() {
           path="/"
           exact
           component={() => (
-            <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
+            <ProfileSelect LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <SecureRoute
@@ -132,27 +132,28 @@ function App() {
         />
 
         <SecureRoute
-          exact path="/gallery"
+          exact
+          path="/gallery"
           component={() => (
             <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}
         />
 
         <SecureRoute
-          exact path="/gallery/:id"
+          exact
+          path="/gallery/:id"
           component={() => (
             <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}
         />
 
         <SecureRoute
-          exact path="/gallery/child/:id" 
+          exact
+          path="/gallery/child/:id"
           component={() => (
-            <GalleryContainer 
-            LoadingComponent={ChildLoadingComponent} 
-            />
+            <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}
-         />
+        />
 
         <SecureRoute path="/scoreboard" component={FaceoffReveal} />
 

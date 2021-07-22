@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Table } from 'antd';
 import { getLeaderboard } from '../../../api';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
 
 const Leaderboard = props => {

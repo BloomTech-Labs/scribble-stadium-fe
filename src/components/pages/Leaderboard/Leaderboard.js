@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Table } from 'antd';
 import { getLeaderboard } from '../../../api';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
 
 const Leaderboard = props => {
@@ -47,7 +47,9 @@ const Leaderboard = props => {
     {
       title: 'Name',
       dataIndex: 'Name',
-      render: (Name, record) => (<Link to={`/gallery/child`+record.ID}>{Name}</Link>),
+      render: (Name, record) => (
+        <Link to={`/gallery/child` + record.ID}>{Name}</Link>
+      ),
       key: 'Name',
       width: 150,
     },
