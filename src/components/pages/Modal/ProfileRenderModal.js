@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import bc from 'bcryptjs';
 import { useHistory } from 'react-router-dom';
 
 import { ArrowLeftOutlined } from '@ant-design/icons';
@@ -115,7 +114,7 @@ const ProfileRenderModal = props => {
                   },
                   ({ getFieldValue }) => ({
                     validator(rule, value) {
-                      const x = bc.compareSync(value, selected.PIN);
+                      const x = value === selected.PIN;
                       if (x) {
                         return Promise.resolve();
                       }

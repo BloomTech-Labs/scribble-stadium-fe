@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
-import bc from 'bcryptjs';
 import { getProfileData } from '../../../api';
 import PinInput from 'react-pin-input';
 import AccountSettingsForm from '../AccountSettingsForm/AccountSettingsForm';
@@ -71,7 +70,7 @@ function RenderAccountSettings() {
             inputStyle={{ borderRadius: '15px' }}
             inputFocusStyle={{ borderColor: 'blue' }}
             onComplete={(value, index) => {
-              const x = bc.compareSync(value, userInfo.PIN);
+              const x = value === selected.PIN;
               if (x == true) {
                 onFinish();
               } else {
