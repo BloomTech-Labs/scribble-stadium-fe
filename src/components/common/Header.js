@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import ChildHeader from './Childnav';
-import ParentNavTop from './ParentNavTop';
+import ParentNavTopBar from './ParentNavTopBar';
 
 function HeaderRenderer(props) {
   const [Header, setHeader] = useState(ChildHeader);
   const location = useLocation();
   useEffect(() => {
     if (location.pathname.includes('parent')) {
-      setHeader(ParentNavTop);
+      setHeader(ParentNavTopBar);
     }
     //if a login specific header is desired it can be implemented here
     //  else if (location.pathname === '/login') {

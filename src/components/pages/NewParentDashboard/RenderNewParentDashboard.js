@@ -13,6 +13,8 @@ const RenderNewParentDashboard = props => {
   const { authState } = useOktaAuth();
   const { setParent } = props;
 
+  console.log('THESE ARE PROPS', authState);
+
   useEffect(() => {
     getProfileData(authState).then(res => {
       setParent({

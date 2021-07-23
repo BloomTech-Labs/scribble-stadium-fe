@@ -119,7 +119,7 @@ function App() {
           path="/"
           exact
           component={() => (
-            <ProfileSelect LoadingComponent={ChildLoadingComponent} />
+            <NewParentDashboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <SecureRoute

@@ -5,26 +5,33 @@ import RenderNewParentDashboard from './RenderNewParentDashboard';
 import { connect } from 'react-redux';
 
 function NewParentDashboardContainer({ LoadingComponent, ...props }) {
-  const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
+  // augment "oktaAuth" to behave like "authService"
+  const { authState, oktaAuth } = useOktaAuth();
+  oktaAuth.getUser = oktaAuth.token.getUserInfo;
+  oktaAuth.logout = oktaAuth.signOut;
+  oktaAuth.isAuthenticated = authState.isAuthenticated;
+  const authService = oktaAuth;
+  // end augmentation
+  console.log(authState);
   // eslint-disable-next-line
-  const [memoAuthService] = useMemo(() => [authService], []);
+  const [memoAuthService] = useMemo(() => [authService], []); // memoize the augmented class
 
   useEffect(() => {
-    let isSubscribed = true;
+    let isSubscribed = memoAuthService.isAuthenticated;
 
+    // ONBOARDING PHASE
     memoAuthService
       .getUser()
       .then(info => {
-        // if user is authenticated we can use the authService to snag some user info.
-        // isSubscribed is a boolean toggle that we're using to clean up our useEffect.
+        console.log('THIS IS INFO', info);
         if (isSubscribed) {
           setUserInfo(info);
         }
       })
       .catch(err => {
-        // isSubscribed = false;
-        setUserInfo(null);
+        isSubscribed = false;
+        return setUserInfo(null);
       });
     return () => (isSubscribed = false);
   }, [memoAuthService]);
