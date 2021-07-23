@@ -2,7 +2,7 @@ import { SmileFilled } from '@ant-design/icons';
 import { Layout, Spin } from 'antd';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Header from './Header.sample';
+import Header from './Header';
 
 function ChildLoadingComponent(props) {
   const { message } = props;

@@ -1,0 +1,116 @@
+@import 'global.less';
+@import 'variables.less';
+@import 'mixins.less';
+
+.parent-nav-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1% 7%;
+    margin-bottom: 2%;
+    border-bottom: 1px solid gray;
+    
+    background-color: #9BE1DF;
+    a {
+        color: black;
+    }
+    .navbar-logo {
+        margin: 0 0;
+        padding: 0 0;
+        font-family: 'Bangers';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 42px;
+        line-height: 45px;
+        letter-spacing: 0.06em;
+        color: #ffffff;
+        text-shadow:
+            -1.5px -1.5px 0 #000,
+            1.5px -1.5px 0 #000,
+            -1.5px 1.5px 0 #000,
+            1.5px 1.5px 0 #000;
+    }
+    .straight-bar {
+        margin: 0 15px;
+    }
+    .welcome-back-msg {
+        font-weight: 500;
+        font-size: 0.8rem;
+        margin-right: 12px;
+        letter-spacing: 0;
+        min-width: fit-content;
+    }
+    .nav-right {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+    }
+    .link-container {
+        display: inline-flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 280px;
+        a {
+            height: fit-content;
+            width: fit-content;
+        }
+        span {
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+    .parent-avatar {
+        box-sizing: border-box;
+        background: rgba(255, 255, 255, 0.95);
+        border: 0.5px solid #7B8794;
+        border-radius: 100px;
+        img {
+            width: 31px;
+            height: 31px;
+            clip-path: circle();
+        }
+    }
+    .parent-avatar:hover {
+        fill: #007aff;
+    }
+}
+
+.straight-bar {
+    height: 32px;
+    width: 1px;
+    background-color: #4B5151;
+    display: inline-block;
+}
+
+.play-game-btn {
+    .blueButtonStyle();
+    width: 130px;
+    background-color: #FBFBFB;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1000px) {
+    .parent-nav-top-bar {
+        padding: 1% 3%;
+    }
+}
+
+@media (max-width: 800px) {
+    .parent-nav-top-bar {
+        .welcome-back-msg {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 615px) {
+    .parent-nav-top-bar {
+        .link-container {
+            display: none;
+        }
+        .straight-bar {
+            display: none;
+        }
+    }
+}

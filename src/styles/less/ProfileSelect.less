@@ -1,0 +1,199 @@
+@import 'global.less';
+@import 'variables.less';
+@import 'mixins.less';
+
+
+.profile-select {
+  h2 {
+    font-family: @font-display;
+    text-align: center;
+    margin: 4rem 0 6.4rem 0;
+    font-size: 6rem;
+    @media @tablet {
+      font-size: 4.2rem;
+    }
+  }
+  .profile-list {
+    display: grid;
+    grid-template-columns: 12rem 12rem 12rem;
+    justify-content: center;
+    justify-items: center;
+    gap: 4rem 4rem;
+    margin-bottom: 6.4rem;
+    @media @tablet {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4rem 6rem;
+    }
+    button {
+      height: 16rem;
+      margin-bottom: 0;
+      background: none;
+      border: none;
+    }
+    .lock-icon {
+      margin-top: 0.8rem;
+    }
+  }
+  .button-parent-dashboard div {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    span {
+      margin-right: 1rem;
+    }
+  }
+  .ant-card {
+    background: none;
+  }
+}
+
+.pin-modal {
+  .content-box {
+    filter: none;
+  }
+  .pin-modal-content {
+    min-height: unset;
+    background: #F5F5F5;
+    border-radius: 16px;
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 3.5rem 0 1.7rem;
+    }
+    input {
+      width: 100%;
+      font-size: 3.6rem;
+      text-align: center;
+      letter-spacing: 2rem;
+      border-radius: 1.6rem;
+      padding-left: 4rem;
+    }
+    .button-container {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .button-close {
+      position: absolute;
+      background: none;
+      border: none;
+      width: 4rem;
+      height: 4rem;
+      margin: 0;
+      padding: 0;
+      top: 1.6rem;
+      left: 85%;
+    }
+    .button-cancel {
+      width: unset;
+      margin: 0 0 1rem 0;
+    }
+    width: 35rem;
+  }
+  .ant-form-item-explain {
+    position: absolute;
+    top: 14.6rem;
+    margin-left: 0.4rem;
+    font-size: 1.4rem;
+    font-family: @font-text-parent;
+    color: @red-warning;
+  }
+  .ant-form-item-children-icon {
+    display: none;
+  }
+}
+
+//The styles above are from drew the styles below are from the Lambda Repo
+
+// .profile-select {
+
+//   h2 {
+//     margin: 4rem 0 6.4rem 0;
+//     font-size: 6rem;
+//     @media @tablet {
+//       font-size: 4.2rem;
+//     }
+//   }
+//   .profile-list {
+    
+//     display: grid;
+//     grid-template-columns: 12rem 12rem 12rem;
+//     justify-content: center;
+//     justify-items: center;
+//     gap: 4rem 10rem;
+//     margin-bottom: 6.4rem;
+//     @media @tablet {
+//       display: flex;
+//       flex-wrap: wrap;
+//       gap: 4rem 6rem;
+//     }
+//     button {
+//       height: 16rem;
+//       margin-bottom: 0;
+//       background: none;
+//       border: none;
+//     }
+//     .lock-icon {
+//       margin-top: 0.8rem;
+//     }
+//   }
+//   .button-parent-dashboard div {
+//     display: flex;
+//     align-self: center;
+//     align-items: center;
+//     span {
+//       margin-right: 1rem;
+//     }
+//   }
+// }
+
+// .pin-modal {
+//   .pin-modal-content {
+//     min-height: unset;
+//     position: relative;
+//     h2 {
+//       font-size: 1.8rem;
+//       font-weight: 700;
+//       margin: 3.5rem 0 1.7rem;
+//     }
+//     input {
+//       width: 100%;
+//       font-size: 3.6rem;
+//       text-align: center;
+//       letter-spacing: 2rem;
+//       border-radius: 1.6rem;
+//       padding-left: 4rem;
+//     }
+//     .button-container {
+//       display: flex;
+//       justify-content: flex-end;
+//     }
+//     .button-close {
+//       position: absolute;
+//       background: none;
+//       border: none;
+//       width: 4rem;
+//       height: 4rem;
+//       margin: 0;
+//       padding: 0;
+//       top: 1.6rem;
+//       right: 1.6rem;
+//     }
+//     .button-cancel {
+//       width: unset;
+//       margin: 0 0 1rem 0;
+//     }
+//     width: 35rem;
+//   }
+//   .ant-form-item-explain {
+//     position: absolute;
+//     top: 14.6rem;
+//     margin-left: 0.4rem;
+//     font-size: 1.4rem;
+//     font-family: @font-text-parent;
+//     color: @red-warning;
+//   }
+//   .ant-form-item-children-icon {
+//     display: none;
+//   }
+// }

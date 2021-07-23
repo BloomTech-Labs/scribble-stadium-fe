@@ -21,7 +21,7 @@ import 'antd/dist/antd.less';
 import './styles/less/index.less';
 
 // Helpers
-import { config } from './utils/oktaConfig';
+import { config, genRestore, oktaAuth } from './utils/oktaConfig';
 import SecureRoute from './components/common/SecureRoute';
 
 //Components
@@ -94,7 +94,7 @@ function App() {
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
   // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
   const history = useHistory();
-
+  const restoreOriginalUri = genRestore(history);
   const authHandler = () => {
     // We pass this to our <Security /> component that wraps our routes.
     // It'll automatically check if userToken is available and push back to login if not :)
@@ -102,7 +102,12 @@ function App() {
   };
 
   return (
-    <Security {...config} onAuthRequired={authHandler}>
+    <Security
+      {...config}
+      oktaAuth={oktaAuth}
+      onAuthRequired={authHandler}
+      restoreOriginalUri={restoreOriginalUri}
+    >
       <DevModeHeader component={DevModeHeader} />
       <Switch>
         <Route exact path="/gamemode" component={Gamemode} />

@@ -10,7 +10,6 @@ function ProfileSelectContainer({ LoadingComponent, ...props }) {
   // const { authState, authService } = useOktaAuth();
   // augment "oktaAuth" to behave like "authService"
   const { authState, oktaAuth } = useOktaAuth();
-
   oktaAuth.getUser = oktaAuth.token.getUserInfo;
   oktaAuth.logout = oktaAuth.signOut;
   oktaAuth.isAuthenticated = authState.isAuthenticated;
@@ -18,7 +17,6 @@ function ProfileSelectContainer({ LoadingComponent, ...props }) {
   // end augmentation
 
   const [userInfo, setUserInfo] = useState(null);
-  console.log(userInfo);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
   useEffect(() => {

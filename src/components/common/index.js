@@ -4,7 +4,7 @@ import List from './List';
 import ParentLoadingComponent from './ParentLoadingComponent';
 import ChildLoadingComponent from './ChildLoadingComponent';
 import Button from './Button';
-import Header from './Header.sample';
+import Header from './Header';
 import UploadDocs from './UploadDocs';
 import InstructionsModal from './InstructionsModal';
 import VotingForm from './VotingForm';

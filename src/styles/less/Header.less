@@ -1,109 +1,131 @@
 @import '~antd/dist/antd.less';
 @import '~antd/lib/style/themes/default.less';
+// @import 'global';
+// @import 'mixins';
+// @import 'variables';
 
-.hero {
+header {
   background-image: url('../../assets/images/cityscape.svg');
   min-height: 30vh;
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: bottom;
-  border: 5px solid @header-nero;
-  background-color: @turquoise;
+  background-color: aqua;
   position: relative;
+  margin-bottom: 4rem;
 
-  @media @mobile {
-    min-height: 20vh;
-  }
-  h1 {
-    color: @white;
-    text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
-    text-align: center;
-    font-size: 5rem;
-    font-family: 'bangers';
-    font-weight: bold;
-    z-index: 1;
-    letter-spacing: 7px;
-    @media @mobile {
-      font-size: 3rem;
-    }
-  }
-  button {
-    position: absolute;
-    font-weight: 500;
-    font-family: 'Nunito';
-    font-weight: bold;
-    top: 5px;
-    background-color: #ffffffbb;
-    box-shadow: inset none;
-    -moz-box-shadow: inset none;
-    &.menu {
-      right: 5px;
-    }
-    &.back-button {
-      left: 5px;
-    }
-  }
-  .points-remaining {
-    position: absolute;
-    font-family: 'bangers';
-    font-size: 3rem;
-    color: #ffffff;
-    text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
-    font-weight: bold;
-    z-index: 1;
-    top: 68%;
-    left: 2%;
-    letter-spacing: 3px;
-    @media @mobile {
-      font-size: 2rem;
-    }
-  }
-  .countdown {
-    position: absolute;
-    font-family: 'bangers';
-    font-size: 3rem;
-    color: #ffffff;
-    text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
-    font-weight: bold;
-    z-index: 1;
-    bottom: 5px;
-    left: 25px;
-    @media @mobile {
-      font-size: 2rem;
-    }
-  }
-  .team-name{
-    color: #ffffff;
-    text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
-    text-align: center;
-    font-size: 3.5rem;
-    font-family: 'bangers';
-    font-weight: bold;
-    z-index: 1;
-    letter-spacing: 10px;
-    margin-top: -2.5%;
-  }
-  .versus{
-    color: #ffffff;
-    text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
-    text-align: center;
-    font-size: 3.5rem;
-    font-family: 'bangers';
-    font-weight: bold;
-    z-index: 1;
-    letter-spacing: 10px;
-    margin-top: -2.5%;
-  }
-  .points-to-win{
-    position: absolute;
-    color: white;
-    text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
-    font-size: 2.5rem;
-    z-index:1;
-    font-family: bangers;
-    letter-spacing: 2px;
-    left: 39%;
-    bottom: -18px;
-    font-weight: bold;
+  // @border-large-square(@black-brand);
+  @media @tablet {
+    height: 11.2rem;
+    margin-bottom: 3.2rem;
   }
 }
+
+//The styles above are from drew the styles below are from the Lambda Repo
+
+// .hero {
+//   background-image: url('../../assets/images/cityscape.svg');
+//   min-height: 30vh;
+//   background-repeat: no-repeat;
+//   background-size: 100% auto;
+//   background-position: bottom;
+//   border: 5px solid @header-nero;
+//   background-color: @turquoise;
+//   position: relative;
+//   @media @mobile {
+//     min-height: 20vh;
+//   }
+//   h1 {
+//     color: @white;
+//     text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+//     text-align: center;
+//     font-size: 5rem;
+//     font-family: 'bangers';
+//     font-weight: bold;
+//     z-index: 1;
+//     letter-spacing: 7px;
+//     @media @mobile {
+//       font-size: 3rem;
+//     }
+//   }
+//   button {
+//     position: absolute;
+//     font-weight: 500;
+//     font-family: 'Nunito';
+//     font-weight: bold;
+//     top: 5px;
+//     background-color: #ffffffbb;
+//     box-shadow: inset none;
+//     -moz-box-shadow: inset none;
+//     &.menu {
+//       right: 5px;
+//     }
+//     &.back-button {
+//       left: 5px;
+//     }
+//   }
+//   .points-remaining {
+//     position: absolute;
+//     font-family: 'bangers';
+//     font-size: 3rem;
+//     color: #ffffff;
+//     text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+//     font-weight: bold;
+//     z-index: 1;
+//     top: 68%;
+//     left: 2%;
+//     letter-spacing: 3px;
+//     @media @mobile {
+//       font-size: 2rem;
+//     }
+//   }
+//   .countdown {
+//     position: absolute;
+//     font-family: 'bangers';
+//     font-size: 3rem;
+//     color: #ffffff;
+//     text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+//     font-weight: bold;
+//     z-index: 1;
+//     bottom: 5px;
+//     left: 25px;
+//     @media @mobile {
+//       font-size: 2rem;
+//     }
+//   }
+//   .team-name{
+//     color: #ffffff;
+//     text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+//     text-align: center;
+//     font-size: 3.5rem;
+//     font-family: 'bangers';
+//     font-weight: bold;
+//     z-index: 1;
+//     letter-spacing: 10px;
+//     margin-top: -2.5%;
+//   }
+//   .versus{
+//     color: #ffffff;
+//     text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+//     text-align: center;
+//     font-size: 3.5rem;
+//     font-family: 'bangers';
+//     font-weight: bold;
+//     z-index: 1;
+//     letter-spacing: 10px;
+//     margin-top: -2.5%;
+//   }
+//   .points-to-win{
+//     position: absolute;
+//     color: white;
+//     text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+//     font-size: 2.5rem;
+//     z-index:1;
+//     font-family: bangers;
+//     letter-spacing: 2px;
+//     left: 39%;
+//     bottom: -18px;
+//     font-weight: bold;
+//   }
+// }
+

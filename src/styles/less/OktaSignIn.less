@@ -1,0 +1,52 @@
+@import 'global';
+@import 'mixins';
+@import 'variables';
+
+/* target OktaSignIn-specific class names.
+   some of the styles from parent.scss need to be duplicated here because
+   the Okta sign-in widget overrides the .parent-styles in some cases
+*/
+.o-form-fieldset-container,
+.o-form-button-bar {
+  margin: 0 auto;
+  max-width: 42rem;
+}
+
+.o-form-fieldset-container {
+  .custom-checkbox {
+    margin-top: -4.6rem;
+  }
+}
+
+.o-form-content {
+  margin-top: 10.1rem;
+  h2, .h2 {
+    margin-top: 0;
+  }
+}
+
+.o-form-label {
+  margin-bottom: 0.7rem;
+}
+
+.o-form-button-bar {
+  margin-top: 4.6rem;
+  margin-bottom: 0.9rem;
+  .button {
+    margin-bottom: 0;
+  }
+}
+
+.o-form-input {
+  position: relative;
+  .o-form-input-error {
+    position: absolute;
+    top: 3.2rem;
+    color: @red-warning;
+    margin-left: 0.4rem;
+  }
+}
+
+.auth-footer {
+  text-align: center;
+}
