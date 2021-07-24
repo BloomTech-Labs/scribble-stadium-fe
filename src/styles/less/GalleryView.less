@@ -1,5 +1,21 @@
 @import 'variables.less';
 
+.weekly-submissions {
+
+    .label{
+
+        .h3 {
+            color: @header-nero;
+            font-size: 1.5rem;
+            font-family: 'atma';
+            display: flex;
+            justify-content: left;
+            align-content:flex-end;
+            margin: 0;
+        }
+    }
+}
+
 .weekly-sub-container {
     min-height: 250px;
     width: 100%;
@@ -51,10 +67,12 @@
     justify-content: space-between;
     height: 100%;
     width: 100%;
+    padding-bottom: 30px;
     
     .sub-prompt {
         height: 100%;
         width: 100%;
+        margin: 0 10px;
 
         .sub-container {
             width: 100%;
@@ -89,11 +107,11 @@
                 } 
 
                 @media(max-width: 550px) {
-                    max-height: 200px;
+                    max-height: 180px;
                 } 
 
                 @media(max-width: 400px) {
-                    max-height: 145px;
+                    max-height: 150px;
                 } 
             }
         }
@@ -148,13 +166,13 @@
     font-family: 'atma';
 
     .prompt-border {    
-        width: 80%;
+        width: 100%;
         display: flex;
         justify-content: left;
         align-content: center;
         border: 1px solid #878D93;
         Background: #F5F5F5;
-        margin: 2% 5%;
+        // margin: 2% 5%;
 
         .prompt-btn {
             width: auto;
