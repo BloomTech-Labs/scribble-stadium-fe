@@ -30,18 +30,34 @@ export const CountDownTimer = () => {
 
   const [timeRemaining, setTimeRemaining] = useState(time);
 
-  const daysOfWeek = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
-  let today = new Date();
-  let day = daysOfWeek[today.getDay()];
-  // console.log(day);
+  // This function will display the current activity based on day of the week
+  const currActivity = () => {
+    const daysOfWeek = [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+    ];
+
+    const activityList = {
+      Sunday: 'Leaderboard',
+      Monday: 'Read',
+      Tuesday: 'Draw',
+      Wednesday: 'Write',
+      Thursday: 'Matchups',
+      Friday: 'Point Allocation',
+      Saturday: 'Leaderboard',
+    };
+
+    let day = daysOfWeek[new Date().getDay()];
+    // console.log(day);
+    return activityList[day];
+  };
+
+  currActivity();
 
   useEffect(() => {
     const timer =
@@ -50,7 +66,8 @@ export const CountDownTimer = () => {
   }, [time, timeRemaining]);
 
   return (
-    <div className="countdown-timer">
+    <div className="current-activity">
+      <div>Current Activity: {currActivity()}</div>
       <div>Countdown: {convertTimeFormat(timeRemaining)}</div>
     </div>
   );
