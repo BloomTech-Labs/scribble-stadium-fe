@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Table } from 'antd';
 import { getLeaderboard } from '../../../api';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
@@ -12,8 +13,6 @@ const Leaderboard = props => {
     //Getting data from backend for leaderboard
     getLeaderboard(authState).then(res => {
       setDataInfo(res);
-      console.log(res);
-      console.log();
     });
   }, [authState]);
 
@@ -48,6 +47,9 @@ const Leaderboard = props => {
     {
       title: 'Name',
       dataIndex: 'Name',
+      render: (Name, record) => (
+        <Link to={`/gallery/child/` + record.ID}>{Name}</Link>
+      ),
       key: 'Name',
       width: 150,
     },
@@ -104,6 +106,10 @@ const Leaderboard = props => {
         columns={table}
         rowKey="uid"
         dataSource={data}
+        scroll={{
+          y: 600,
+        }}
+        pagination={false}
       />
     </div>
   );

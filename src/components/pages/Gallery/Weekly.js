@@ -2,79 +2,81 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import 'antd/dist/antd.css';
 import { Modal, Carousel } from 'antd';
-import { QuestionCircleFilled } from '@ant-design/icons';
-import PDFViewer from './SourceMaterial/PDFViewer';
+import { UpCircleFilled, DownCircleFilled } from '@ant-design/icons';
+import WritingPrompt from './SourceMaterial/WritingPrompt';
+import DrawingPrompt from './SourceMaterial/DrawingPrompt';
+// import PromptButtons from './SourceMaterial/PromptButtons';
+// import PDFViewer from './SourceMaterial/PDFViewer';
 
 const Weekly = props => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [imgUrl, setImgUrl] = useState([]);
-  const [isPdfVisible, setIsPdfVisible] = useState(false);
-
-  // PDF Modal Functions
-  const showPdfModal = () => {
-    setIsPdfVisible(true);
-  };
-
-  const handlePdfOk = () => {
-    setIsPdfVisible(false);
-  };
-
-  const handlePdfCancel = () => {
-    setIsPdfVisible(false);
-  };
+  const [pageUrl, setpageUrl] = useState([]);
+  const [closeWriting, setCloseWriting] = useState('');
+  const [closeDrawing, setCloseDrawing] = useState('');
+  const [writingVisible, setWritingVisible] = useState('invisible');
+  const [drawingVisible, setDrawingVisible] = useState('invisible');
+  const [writingArrows, setWritingArrows] = useState(<DownCircleFilled />);
+  const [drawingArrows, setDrawingArrows] = useState(<DownCircleFilled />);
 
   // Carousel Modal Functions
-  const showModal = link => {
+  const showModal = pages => {
     setIsModalVisible(true);
-    setImgUrl(link);
-    console.log('clicked: ', link);
+    let values = Object.keys(pages).map(function (key) {
+      return pages[key];
+    });
+    setpageUrl(values);
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
   };
 
-  function onChange(a, b, c) {
-    console.log(a, b, c);
-  }
-
   return (
     <>
       <div className="weekly-sub-container">
-        <span className="label content-box">
-          <h3 className="h3">
-            Week {props.sprint}{' '}
-            <QuestionCircleFilled className="question" onClick={showPdfModal} />
-          </h3>
-          <Modal
-            visible={isPdfVisible}
-            onOk={handlePdfOk}
-            onCancel={handlePdfCancel}
-            footer={null}
-          >
-            <PDFViewer
-              sprint={props.sprint}
-              sprintstory={props.sprintstory}
-              drawingprompt={props.drawingprompt}
-              writingprompt={props.writingprompt}
-            />
-          </Modal>
-        </span>
         <span className="submissions">
-          <div className="sub-container">
-            <img
-              className="gallery-submission"
-              src={props.drawing}
-              alt="drawing submision"
-              onClick={() => showModal([props.drawing])}
+          <div className="sub-prompt">
+            <div className="sub-container">
+              <img
+                className="gallery-submission"
+                src={props.pages.Writing.Page1}
+                alt="writing submision"
+                onClick={() => showModal(props.pages.Writing)}
+              />
+            </div>
+            <WritingPrompt
+              writingprompt={props.writingprompt}
+              writingVisible={writingVisible}
+              setWritingVisible={setWritingVisible}
+              setDrawingVisible={setDrawingVisible}
+              setCloseWriting={setCloseWriting}
+              closeDrawing={closeDrawing}
+              setCloseDrawing={setCloseDrawing}
+              setWritingArrows={setWritingArrows}
+              setDrawingArrows={setDrawingArrows}
+              writingArrows={writingArrows}
             />
           </div>
-          <div className="sub-container">
-            <img
-              className="gallery-submission"
-              src={props.writing}
-              alt="writing submision"
-              onClick={() => showModal([props.writing])}
+          <div className="sub-prompt">
+            <div className="sub-container">
+              <img
+                className="gallery-submission"
+                src={props.pages.Drawing.Page1}
+                alt="drawing submision"
+                onClick={() => showModal(props.pages.Drawing)}
+              />
+            </div>
+            <DrawingPrompt
+              drawingprompt={props.drawingprompt}
+              drawingVisible={drawingVisible}
+              setDrawingVisible={setDrawingVisible}
+              setWritingVisible={setWritingVisible}
+              setCloseDrawing={setCloseDrawing}
+              closeWriting={closeWriting}
+              setCloseWriting={setCloseWriting}
+              setDrawingArrows={setDrawingArrows}
+              setWritingArrows={setWritingArrows}
+              drawingArrows={drawingArrows}
             />
           </div>
           <Modal
@@ -83,8 +85,8 @@ const Weekly = props => {
             onCancel={handleCancel}
             footer={null}
           >
-            <Carousel afterChange={onChange} arrows={true}>
-              {imgUrl.map(url => (
+            <Carousel arrows={true}>
+              {pageUrl.map(url => (
                 <div>
                   <img
                     style={{ height: '72vh', objectFit: 'contain' }}
