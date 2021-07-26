@@ -47,7 +47,9 @@ const Leaderboard = props => {
     {
       title: 'Name',
       dataIndex: 'Name',
-      render: (Name, record) => (<Link to={`/gallery/child`+record.ID}>{Name}</Link>),
+      render: (Name, record) => (
+        <Link to={`/gallery/child/` + record.ID}>{Name}</Link>
+      ),
       key: 'Name',
       width: 150,
     },

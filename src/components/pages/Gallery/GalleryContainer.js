@@ -17,15 +17,13 @@ const GalleryContainer = () => {
   useEffect(() => {
     //Getting data from backend for leaderboard
     getChildByID(authState, id).then(res => {
-      setDataInfo(res.data.Submissions);   
+      setDataInfo(res.data.Submissions);
     });
   }, [authState, id]);
 
   const leaderboard = () => {
     push('/child/leaderboard');
   };
-
-  console.log('data', data);
 
   return (
     <>
@@ -37,7 +35,7 @@ const GalleryContainer = () => {
         <div className="content-box">
           <div className="shaped">
             <div className="dark">
-              <h2 className="h2">My Gallery</h2>
+              <h2 className="h2">Submission Gallery</h2>
             </div>
           </div>
         </div>

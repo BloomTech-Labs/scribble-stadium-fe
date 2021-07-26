@@ -201,11 +201,11 @@ const postNewChild = (authState, child) => {
 const getChildByID = (authState, ID) => {
   try {
     console.log(ID);
-    return apiAuthGet(`/gallery/child/${ID}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      return response;
-    });
+    return apiAuthGet(`/gallery/child/${ID}`, getAuthHeader(authState)).then(
+      response => {
+        return response;
+      }
+    );
   } catch (error) {
     return new Promise(() => {
       console.log(error);
