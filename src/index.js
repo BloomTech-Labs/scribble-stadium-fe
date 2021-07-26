@@ -17,17 +17,19 @@ import {
 
 import { Security } from '@okta/okta-react';
 
+// import './styles/index.scss';
 import 'antd/dist/antd.less';
 import './styles/less/index.less';
 
 // Helpers
-import { config, genRestore, oktaAuth } from './utils/oktaConfig';
+import { oktaAuth, config, genRestore } from './utils/oktaConfig';
 import SecureRoute from './components/common/SecureRoute';
 
 //Components
 
 import {
   ChildLoadingComponent,
+  Header,
   ParentLoadingComponent,
 } from './components/common';
 import { AddChild } from './components/pages/AddChild';
@@ -37,7 +39,7 @@ import { Gamemode } from './components/pages/Gamemode';
 import { GamemodeButton } from './components/pages/Gamemode';
 
 import { Help } from './components/pages/Help';
-import { LandingPage } from './components/pages/LandingPage';
+// import { LandingPage } from './components/pages/LandingPage';
 import { MissionControl } from './components/pages/MissionControl';
 import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
@@ -72,6 +74,7 @@ import Fri from './components/pages/AdminDashboard/DevTools/DayComponents/07_Fri
 import DevModeHeader from './components/pages/AdminDashboard/devModeHeader';
 import GalleryContainer from './components/pages/Gallery/GalleryContainer';
 import { AudioBook } from './components/pages/AudioBook';
+import LoginContainer from './components/pages/Login/LoginContainer';
 
 // import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
 
@@ -101,6 +104,8 @@ function App() {
     history.push('/login');
   };
 
+  const [corsErrorModalOpen, setCorsErrorModalOpen] = React.useState(false);
+
   return (
     <Security
       {...config}
@@ -108,18 +113,23 @@ function App() {
       onAuthRequired={authHandler}
       restoreOriginalUri={restoreOriginalUri}
     >
+      <Header />
       <DevModeHeader component={DevModeHeader} />
       <Switch>
         <Route exact path="/gamemode" component={Gamemode} />
         <Route path="/gamemode/single" component={GamemodeButton} />
-        <Route path="/login" component={LandingPage} />
+        {/* <Route path="/login" component={LandingPage} /> */}
+        <Route
+          path="/login"
+          render={() => <LoginContainer {...{ setCorsErrorModalOpen }} />}
+        />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
           path="/"
           exact
           component={() => (
-            <NewParentDashboard LoadingComponent={ChildLoadingComponent} />
+            <ProfileSelect LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <SecureRoute

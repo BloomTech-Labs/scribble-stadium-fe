@@ -11,6 +11,7 @@ function RenderAccountSettings() {
   const [unlock, setUnlock] = useState(true);
   const [error, setError] = useState(false);
   const [userInfo, setUserInfo] = useState();
+  const [selected, setSelected] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   //Grab the parents userInfo so we can validate their information (pin)
@@ -23,6 +24,13 @@ function RenderAccountSettings() {
       });
     });
   }, [authState]);
+
+  const userSelect = user => {
+    if (user !== undefined) {
+      setSelected(user);
+      isModalVisible(true);
+    }
+  };
 
   //These functions handle's exiting the modal once it is activated
   const handleOk = () => {

@@ -3,6 +3,23 @@ import axios from 'axios';
 
 import { store } from '../state/index';
 
+// Use mock data for development environment to make user-testing and FE dev easier
+import {
+  mockGetChildTasks,
+  mockNewDrawingSub,
+  mockNewWritingSub,
+  mockGetChildTeam,
+  mockSubmitPoints,
+  mockGetChildSquad,
+  mockGetFaceoffsForMatchup,
+  mockGetChild,
+  mockGetFaceoffsForVoting,
+  mockUpdateChildData,
+  mockPostVotes,
+  mockGetProfileData,
+  mockGetStory,
+} from './mockApiData';
+
 /**
  * This function dynamically returns an API URL depending on NODE_ENV and state
  * State was used (as opposed to localStorage) so that UI can listen and change on devMode state toggle
@@ -69,19 +86,41 @@ const apiAuthDelete = (endpoint, authHeader) => {
   return axios.delete(`${getApiUrl()}${endpoint}`, { headers: authHeader });
 };
 
+// const getProfileData = authState => {
+//   try {
+//     return apiAuthGet('/profiles', getAuthHeader(authState)).then(response => {
+//       console.log("getProfileData", response);
+//       return response.data;
+//     });
+//   } catch (error) {
+//     return new Promise(() => {
+//       console.log(error);
+//       return [];
+//     });
+//   }
+// };
+
+//getProfileData for development purposes
 const getProfileData = authState => {
-  try {
-    return apiAuthGet('/profiles', getAuthHeader(authState)).then(response => {
-      console.log(response);
-      return response.data;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    return Promise.resolve(mockGetProfileData);
+  } else {
+    try {
+      return apiAuthGet('/profiles', getAuthHeader(authState)).then(
+        response => {
+          console.log('getProfileData', response.data);
+          return response.data;
+        }
+      );
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+        return [];
+      });
+    }
   }
 };
+
 // Getting data for leaderboard
 
 const getLeaderboard = authState => {
@@ -119,17 +158,36 @@ const getChildCard = authState => {
  * @param {number} childId id of the child needed for information
  * @return {Object} child information containing Name, PIN, IsDyslexic, CohortID, ParentID, AvatarID, and GradeLevelID
  */
+// const getChild = (authState, childId) => {
+//   try {
+//     return apiAuthGet(`/child/${childId}`, getAuthHeader(authState)).then(
+//       response => {
+//         return response.data;
+//       }
+//     );
+//   } catch (error) {
+//     return new Promise(() => {
+//       console.log(error);
+//     });
+//   }
+// };
+
 const getChild = (authState, childId) => {
-  try {
-    return apiAuthGet(`/child/${childId}`, getAuthHeader(authState)).then(
-      response => {
-        return response.data;
-      }
-    );
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    return Promise.resolve(mockGetChild);
+  } else {
+    try {
+      return apiAuthGet(`/child/${childId}`, getAuthHeader(authState)).then(
+        response => {
+          console.log('getChild', response.data);
+          return response.data;
+        }
+      );
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+      });
+    }
   }
 };
 
@@ -139,18 +197,40 @@ const getChild = (authState, childId) => {
  * @param {number} childId id of the child needed for information
  * @return {Object} child information containing Name, PIN, IsDyslexic, CohortID, ParentID, AvatarID, and GradeLevelID
  */
+// const updateChildData = (authState, body, childId) => {
+//   console.log(body);
+//   try {
+//     return apiAuthPut(`/child/${childId}`, body, getAuthHeader(authState)).then(
+//       response => {
+//         return response;
+//       }
+//     );
+//   } catch (error) {
+//     return new Promise(() => {
+//       console.log(error);
+//     });
+//   }
+// };
+
 const updateChildData = (authState, body, childId) => {
   console.log(body);
-  try {
-    return apiAuthPut(`/child/${childId}`, body, getAuthHeader(authState)).then(
-      response => {
+  if (process.env.REACT_APP_ENV === 'development') {
+    return mockUpdateChildData;
+  } else {
+    try {
+      return apiAuthPut(
+        `/child/${childId}`,
+        body,
+        getAuthHeader(authState)
+      ).then(response => {
+        console.log('updateChildData', response);
         return response;
-      }
-    );
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-    });
+      });
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+      });
+    }
   }
 };
 
@@ -201,11 +281,11 @@ const postNewChild = (authState, child) => {
 const getChildByID = (authState, ID) => {
   try {
     console.log(ID);
-    return apiAuthGet(`/gallery/child/${ID}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      return response;
-    });
+    return apiAuthGet(`/gallery/child/${ID}`, getAuthHeader(authState)).then(
+      response => {
+        return response;
+      }
+    );
   } catch (error) {
     return new Promise(() => {
       console.log(error);
@@ -220,19 +300,40 @@ const getChildByID = (authState, ID) => {
  * @param {number} cohortId the cohort id of the respective child
  * @returns {Promise} a promise that resolves to an object containing {DrawingPrompt, ID, Title, URL, and WritingPrompt}
  */
+// const getStory = (authState, cohortId) => {
+//   try {
+//     return apiAuthGet(
+//       `/story?cohortId=${cohortId}`,
+//       getAuthHeader(authState)
+//     ).then(response => {
+//       return response.data;
+//     });
+//   } catch (error) {
+//     return new Promise(() => {
+//       console.log(error);
+//       return [];
+//     });
+//   }
+// };
+
 const getStory = (authState, cohortId) => {
-  try {
-    return apiAuthGet(
-      `/story?cohortId=${cohortId}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      return response.data;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    return Promise.resolve(mockGetStory);
+  } else {
+    try {
+      return apiAuthGet(
+        `/story?cohortId=${cohortId}`,
+        getAuthHeader(authState)
+      ).then(response => {
+        console.log('getStory', response.data);
+        return response.data;
+      });
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+        return [];
+      });
+    }
   }
 };
 
@@ -264,16 +365,36 @@ const getChildFormValues = async authState => {
  * @param {number} subId id of the full submission
  * @returns {array} an array of submission objects containing the image url, the checksum, and the page number
  */
+// const postNewWritingSub = async (authState, body, subId) => {
+//   try {
+//     return apiAuthPost(
+//       `/submit/write/${subId}`,
+//       body,
+//       getAuthHeader(authState)
+//     ).then(res => res.data);
+//   } catch (err) {
+//     console.log(err);
+//     return [];
+//   }
+// };
+
 const postNewWritingSub = async (authState, body, subId) => {
-  try {
-    return apiAuthPost(
-      `/submit/write/${subId}`,
-      body,
-      getAuthHeader(authState)
-    ).then(res => res.data);
-  } catch (err) {
-    console.log(err);
-    return [];
+  if (process.env.REACT_APP_ENV === 'development') {
+    return mockNewWritingSub;
+  } else {
+    try {
+      return apiAuthPost(
+        `/submit/write/${subId}`,
+        body,
+        getAuthHeader(authState)
+      ).then(res => {
+        console.log('postNewWritingSub', res.data);
+        return res.data;
+      });
+    } catch (err) {
+      console.log(err);
+      return [];
+    }
   }
 };
 
@@ -284,16 +405,36 @@ const postNewWritingSub = async (authState, body, subId) => {
  * @param {number} subId id of the full submission
  * @returns {Object} submission object containing the image url, and the checksum
  */
+// const postNewDrawingSub = async (authState, body, subId) => {
+//   try {
+//     return apiAuthPost(
+//       `/submit/draw/${subId}`,
+//       body,
+//       getAuthHeader(authState)
+//     ).then(res => res.data);
+//   } catch (err) {
+//     console.log(err);
+//     return [];
+//   }
+// };
+
 const postNewDrawingSub = async (authState, body, subId) => {
-  try {
-    return apiAuthPost(
-      `/submit/draw/${subId}`,
-      body,
-      getAuthHeader(authState)
-    ).then(res => res.data);
-  } catch (err) {
-    console.log(err);
-    return [];
+  if (process.env.REACT_APP_ENV === 'development') {
+    return mockNewDrawingSub;
+  } else {
+    try {
+      return apiAuthPost(
+        `/submit/draw/${subId}`,
+        body,
+        getAuthHeader(authState)
+      ).then(res => {
+        console.log('postNewDrawingSub', res.data);
+        return res.data;
+      });
+    } catch (err) {
+      console.log(err);
+      return [];
+    }
   }
 };
 
@@ -306,19 +447,39 @@ const postNewDrawingSub = async (authState, body, subId) => {
  * @param {number} storyid id of the story of the week
  * @returns {Object} Object of tasks and relevant id's
  */
+// const getChildTasks = async (authState, childid, storyid) => {
+//   try {
+//     return apiAuthGet(
+//       `/submission?childId=${childid}&storyId=${storyid}`,
+//       getAuthHeader(authState)
+//     ).then(response => {
+//       return response.data;
+//     });
+//   } catch (err) {
+//     return new Promise(() => {
+//       console.log(err);
+//       return [];
+//     });
+//   }
+// };
+
 const getChildTasks = async (authState, childid, storyid) => {
-  try {
-    return apiAuthGet(
-      `/submission?childId=${childid}&storyId=${storyid}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      return response.data;
-    });
-  } catch (err) {
-    return new Promise(() => {
-      console.log(err);
-      return [];
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    return mockGetChildTasks;
+  } else {
+    try {
+      return apiAuthGet(
+        `/submission?childId=${childid}&storyId=${storyid}`,
+        getAuthHeader(authState)
+      ).then(response => {
+        return response.data;
+      });
+    } catch (err) {
+      return new Promise(() => {
+        console.log(err);
+        return [];
+      });
+    }
   }
 };
 
@@ -385,19 +546,40 @@ const setAllTasks = (
  * @param {number} childId id of the child who is "teaming up"
  * @returns {Object} containing information on the child and their teammate
  */
+// const getChildTeam = async (authState, childId) => {
+//   try {
+//     return apiAuthGet(
+//       `/game/team?childId=${childId}`,
+//       getAuthHeader(authState)
+//     ).then(response => {
+//       return response.data;
+//     });
+//   } catch (error) {
+//     return new Promise(() => {
+//       console.log(error);
+//       return [error];
+//     });
+//   }
+// };
+
 const getChildTeam = async (authState, childId) => {
-  try {
-    return apiAuthGet(
-      `/game/team?childId=${childId}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      return response.data;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [error];
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    return Promise.resolve(mockGetChildTeam);
+  } else {
+    try {
+      return apiAuthGet(
+        `/game/team?childId=${childId}`,
+        getAuthHeader(authState)
+      ).then(response => {
+        console.log('getChildTeam', response.data);
+        return response.data;
+      });
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+        return [error];
+      });
+    }
   }
 };
 
@@ -407,20 +589,43 @@ const getChildTeam = async (authState, childId) => {
  * @param {Object} teamPoints these are the points assigned for each of the submissions
  * @returns {Array} with id reference to the vote
  */
+// const submitPoints = async (authState, teamPoints) => {
+//   try {
+//     return apiAuthPost(
+//       `/game/points`,
+//       teamPoints,
+//       getAuthHeader(authState)
+//     ).then(response => {
+//       return response.data;
+//     });
+//   } catch (error) {
+//     return new Promise(() => {
+//       console.log(error);
+//       return [];
+//     });
+//   }
+// };
+
 const submitPoints = async (authState, teamPoints) => {
-  try {
-    return apiAuthPost(
-      `/game/points`,
-      teamPoints,
-      getAuthHeader(authState)
-    ).then(response => {
-      return response.data;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    console.log(mockSubmitPoints);
+    return mockSubmitPoints;
+  } else {
+    try {
+      return apiAuthPost(
+        `/game/points`,
+        teamPoints,
+        getAuthHeader(authState)
+      ).then(response => {
+        console.log('submitPoints', response.data);
+        return response.data;
+      });
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+        return [];
+      });
+    }
   }
 };
 
@@ -430,19 +635,40 @@ const submitPoints = async (authState, teamPoints) => {
  * @param {number} childId id of the child who is "squadding up"
  * @returns {number} squadId is returned
  */
+// const getChildSquad = async (authState, childId) => {
+//   try {
+//     return apiAuthGet(
+//       `/game/squad?childId=${childId}`,
+//       getAuthHeader(authState)
+//     ).then(response => {
+//       return response.data;
+//     });
+//   } catch (error) {
+//     return new Promise(() => {
+//       console.log(error);
+//       return [];
+//     });
+//   }
+// };
+
 const getChildSquad = async (authState, childId) => {
-  try {
-    return apiAuthGet(
-      `/game/squad?childId=${childId}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      return response.data;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    return mockGetChildSquad;
+  } else {
+    try {
+      return apiAuthGet(
+        `/game/squad?childId=${childId}`,
+        getAuthHeader(authState)
+      ).then(response => {
+        console.log('getChildSquad', response.data);
+        return response.data;
+      });
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+        return [];
+      });
+    }
   }
 };
 
@@ -452,19 +678,40 @@ const getChildSquad = async (authState, childId) => {
  * @param {number} squadId this will be received from 'getChildSquad' api call
  * @returns {Array} array of 4 objects (one for each child) containing information about their submissions
  */
+// const getFaceoffsForMatchup = async (authState, squadId, childId) => {
+//   try {
+//     return apiAuthGet(
+//       `/game/faceoffs/squads?squadId=${squadId}&childId=${childId}`,
+//       getAuthHeader(authState)
+//     ).then(response => {
+//       return response.data;
+//     });
+//   } catch (error) {
+//     return new Promise(() => {
+//       console.log(error);
+//       return [];
+//     });
+//   }
+// };
+
 const getFaceoffsForMatchup = async (authState, squadId, childId) => {
-  try {
-    return apiAuthGet(
-      `/game/faceoffs/squads?squadId=${squadId}&childId=${childId}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      return response.data;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    return mockGetFaceoffsForMatchup;
+  } else {
+    try {
+      return apiAuthGet(
+        `/game/faceoffs/squads?squadId=${squadId}&childId=${childId}`,
+        getAuthHeader(authState)
+      ).then(response => {
+        console.log('getFaceoffsForMatchup', response.data);
+        return response.data;
+      });
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+        return [];
+      });
+    }
   }
 };
 
@@ -474,19 +721,40 @@ const getFaceoffsForMatchup = async (authState, squadId, childId) => {
  * @param {number} squadId this will be received from 'getChildSquad' api call
  * @returns {Array} array of 4 objects (one for each child) containing information about their submissions
  */
+// const getFaceoffsForVoting = async (authState, squadId) => {
+//   try {
+//     return apiAuthGet(
+//       `/game/faceoffs/squads/?squadId=${squadId}`,
+//       getAuthHeader(authState)
+//     ).then(response => {
+//       return response.data;
+//     });
+//   } catch (error) {
+//     return new Promise(() => {
+//       console.log(error);
+//       return [];
+//     });
+//   }
+// };
+
 const getFaceoffsForVoting = async (authState, squadId) => {
-  try {
-    return apiAuthGet(
-      `/game/faceoffs/squads/?squadId=${squadId}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      return response.data;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
+  if (process.env.REACT_APP_ENV === 'development') {
+    return mockGetFaceoffsForVoting;
+  } else {
+    try {
+      return apiAuthGet(
+        `/game/faceoffs/squads/?squadId=${squadId}`,
+        getAuthHeader(authState)
+      ).then(response => {
+        console.log('getFaceoffsForVoting', response.data);
+        return response.data;
+      });
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+        return [];
+      });
+    }
   }
 };
 
@@ -496,19 +764,41 @@ const getFaceoffsForVoting = async (authState, squadId) => {
  * @param {Object} voteInfo includes the Vote, the MemberID, and the FaceoffID
  * @returns {Array} with id reference to the vote
  */
+// const postVotes = async (authState, voteInfo) => {
+//   try {
+//     return apiAuthPost(`/game/votes`, voteInfo, getAuthHeader(authState)).then(
+//       response => {
+//         console.log('POSTVOTES RESPONSE', response.data);
+//         return response.data;
+//       }
+//     );
+//   } catch (error) {
+//     return new Promise(() => {
+//       console.log(error);
+//       return [];
+//     });
+//   }
+// };
+
 const postVotes = async (authState, voteInfo) => {
-  try {
-    return apiAuthPost(`/game/votes`, voteInfo, getAuthHeader(authState)).then(
-      response => {
-        console.log('POSTVOTES RESPONSE', response.data);
+  if (process.env.REACT_APP_ENV === 'development') {
+    return mockPostVotes;
+  } else {
+    try {
+      return apiAuthPost(
+        `/game/votes`,
+        voteInfo,
+        getAuthHeader(authState)
+      ).then(response => {
+        console.log('postVotes', response.data);
         return response.data;
-      }
-    );
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
+      });
+    } catch (error) {
+      return new Promise(() => {
+        console.log(error);
+        return [];
+      });
+    }
   }
 };
 
