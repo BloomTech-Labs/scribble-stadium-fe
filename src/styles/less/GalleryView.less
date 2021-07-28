@@ -1,53 +1,134 @@
+@import 'variables.less';
+
+.weekly-submissions {
+
+    .label{
+
+        .h3 {
+            color: @header-nero;
+            font-size: 1.5rem;
+            font-family: 'atma';
+            display: flex;
+            justify-content: left;
+            align-content:flex-end;
+            margin: 0;
+        }
+    }
+}
+
 .weekly-sub-container {
-    max-height: 500px;
     min-height: 250px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 2.5% 5%;
 
     .label {
         background-color: @header-nero;
         padding-bottom: 20px;
-        width: 300px;
-        height: 150px;
+        width: 240px;
+        height: 80px;
         clip-path: polygon(1% 2%, 95% 2%, 100% 94%, 0% 100%);
         filter: drop-shadow(20px 5px @suva-grey) drop-shadow(-20px 1px @suva-grey);
+    }
+
+    .label-white {
+        width: 120px;
+        height: 60px;
     }
 
     .h3 {
         color: #FBFBFB;
         font-size: 2.5rem;
         font-family: 'atma';
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        margin-top: 10px;
+    }
+
+    .h4 {
+        color: @header-nero;
+        font-size: 1.5rem;
+        font-family: 'atma';
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        margin-top: 10px;
+    }
+
+    @media(max-width: 550px) {
+        height: auto;
     }
 }
 
 .submissions {
     display: flex;
     flex-direction: row;
-    height: 80%;
+    justify-content: space-between;
+    height: 100%;
     width: 100%;
-
-    .sub-container {
+    padding-bottom: 30px;
+    
+    .sub-prompt {
         height: 100%;
-        width: 45%;
-        background-image: url("../../assets/images/gallery/gallery-frames.svg");
-        background-position: center;
-        background-repeat: no-repeat;
-        margin: 0 auto;
+        width: 100%;
+        margin: 0 10px;
 
-        .gallery-submission {
-            display: flex;
-            border-radius: 25px;
-            min-height: 75px;
-            max-height: 175px;
-            background-size: contain;
-            align-content: center;
-            margin: 8% auto;
+        .sub-container {
+            width: 100%;
+            height: 100%;
+            min-height: 200px;
+            background-image: url("../../assets/images/gallery/gallery-frames.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0 auto;
+            padding: 40px;
+
+            .gallery-submission {
+                display: flex;
+                border-radius: 25px;
+                min-height: 75px;
+                max-height: 275px;
+                margin-top: 20px;
+                background-size: contain;
+                align-content: center;
+                margin: 8% auto;
+    
+                @media(max-width: 1200px) {
+                    max-height: 225px;
+                } 
+    
+                @media(max-width: 1024px) {
+                    max-height: 200px;
+                } 
+    
+                @media(max-width: 768px) {
+                    max-height: 160px;
+                } 
+
+                @media(max-width: 550px) {
+                    max-height: 180px;
+                } 
+
+                @media(max-width: 400px) {
+                    max-height: 150px;
+                } 
+            }
         }
-
     }
 
+    @media(max-width: 550px) {
+        flex-direction: column;
+        align-content: space-between;
+
+        .sub-prompt {
+            padding: 0;
+            .sub-container {
+                width: 100%;
+                margin: 2.5% 0;
+            }
+        }
+    } 
 }
 
 .control-panel-container {
@@ -74,22 +155,48 @@
         .percentage {
             margin: 0 10px;
             padding: 0 10px;
-            // border: black solid 2px;
         }
     }
 }
 
-.prompt-button-container {
+.prompt-container {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    font-family: 'atma';
 
-    .prompt-buttons {
+    .prompt-border {    
+        width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: left;
         align-content: center;
+        border: 1px solid #878D93;
+        Background: #F5F5F5;
+        // margin: 2% 5%;
 
         .prompt-btn {
+            width: auto;
+            max-width: 300px;
             margin-left: 15px;
             margin-right: 15px;
+            align-content: center;
+
+            p {
+                margin: 1em 0;
+            }
+
+            .visible {
+                display: relative;
+            }
+
+            .invisible {
+                display: none;
+            }
         }
+    }
+
+    .close-prompt {
+        max-height: 55px;
     }
 
     .viewable-prompts {
@@ -97,14 +204,47 @@
         flex-direction: column;
         justify-content: center;
         align-content: center;
-        padding-top: 6%;
-
-        p.visible {
-            display: relative;
-        }
         
+        p {
+            font-size: 1.1rem;
+        }
+
         p.invisible {
             display: none;
+        }
+    }
+
+    @media(max-width: 550px) {
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 10%;
+        margin: 2% 0;
+
+        .prompt-border {  
+            width: 80%;
+        }
+    }
+}
+
+.pdf-container {
+
+    .pdf-viewer {
+
+        .pdf-components {
+            @media(max-width: 500px) {
+                display: none;
+            }  
+        }
+    
+        .pdf-link {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            padding-bottom: 30px;
+
+            @media(min-width: 501px) {
+                display: none;
+            }    
         }
     }
 }
