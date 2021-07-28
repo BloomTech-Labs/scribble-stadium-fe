@@ -21,7 +21,7 @@ const AudiobookManager = () => {
   };
   return (
     <>
-      <h1>Audiobook Manager</h1>
+      <h1>Storybook Manager</h1>
       <Layout>
         <Layout>
           <Sider>

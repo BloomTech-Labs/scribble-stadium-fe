@@ -5,7 +5,7 @@ import { Button, Layout } from 'antd';
 
 import ModerationTools from './ModerationTools';
 import DevToolsNew from './DevToolsNew';
-import AudiobookManager from '../AudiobookManager';
+import StorybookManager from '../StorybookManager';
 
 const { Content, Header } = Layout;
 
@@ -38,7 +38,7 @@ const AdminDashboard = props => {
           <Switch>
             <Route
               path="/admin/audiobooks"
-              render={() => <AudiobookManager />}
+              render={() => <StorybookManager />}
             />
             <Route
               path="/admin"
