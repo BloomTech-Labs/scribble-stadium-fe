@@ -25,8 +25,6 @@ const GalleryContainer = () => {
     push('/child/leaderboard');
   };
 
-  console.log('data', data);
-
   return (
     <>
       <Header title="STORY SQUAD" displayMenu={true} />
@@ -37,7 +35,7 @@ const GalleryContainer = () => {
         <div className="content-box">
           <div className="shaped">
             <div className="dark">
-              <h2 className="h2">My Gallery</h2>
+              <h2 className="h2">Submission Gallery</h2>
             </div>
           </div>
         </div>
