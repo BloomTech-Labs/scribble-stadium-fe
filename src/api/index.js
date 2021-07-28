@@ -57,7 +57,7 @@ const getAuthHeader = authState => {
   if (!authState.isAuthenticated) {
     throw new Error('Not authenticated');
   }
-  return { Authorization: `Bearer ${authState.idToken}` };
+  return { Authorization: `Bearer ${authState.idToken.idToken}` };
 };
 
 const getDSData = (url, authState) => {
