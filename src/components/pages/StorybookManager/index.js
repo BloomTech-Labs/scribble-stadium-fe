@@ -8,7 +8,7 @@ const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
 const AudiobookManager = () => {
-  const [listView, setListView] = useState(() => 'Collection');
+  const [listView, setListView] = useState(() => 'Titles');
   const history = useHistory();
 
   const listViewHandler = view => {
@@ -27,34 +27,16 @@ const AudiobookManager = () => {
           <Sider>
             <Menu
               mode="inline"
-              defaultSelectedKeys={['2']}
-              defaultOpenKeys={['sub2']}
+              defaultSelectedKeys={['1']}
               style={{ height: '100%' }}
             >
-              <Menu.Item key="sub1" onClick={goToAddAudiobook}>
-                Add Audiobook
+              <Menu.Item key="1" onClick={() => listViewHandler('Titles')}>
+                Audiobooks
               </Menu.Item>
-              <SubMenu key="sub2" title="Audiobook List">
-                <Menu.Item
-                  key="2"
-                  onClick={() => listViewHandler('Collection')}
-                >
-                  Collections
-                </Menu.Item>
-                <Menu.Item key="3" onClick={() => listViewHandler('Titles')}>
-                  Titles
-                </Menu.Item>
-                <Menu.Item key="4" onClick={() => listViewHandler('Authors')}>
-                  Authors
-                </Menu.Item>
-              </SubMenu>
             </Menu>
           </Sider>
           <Content>
             <Switch>
-              <Route exact path="/admin/audiobooks/add">
-                <h2>Add Audiobooks</h2>
-              </Route>
               <Route
                 path="/admin/audiobooks"
                 render={() => <AudiobookList listView={listView} />}
