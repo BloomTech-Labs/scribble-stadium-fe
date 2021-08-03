@@ -1,1 +1,0 @@
-This file will log notes for commits and removed when the feature is complete.
