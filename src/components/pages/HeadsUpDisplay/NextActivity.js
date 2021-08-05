@@ -5,6 +5,8 @@ export const NextActivity = () => {
   const [day, setDay] = useState(1);
   const [activity, setActivity] = useState("");
 
+  // This function will select next day in 14 day rotation
+  // Will reconfigure to make code more dry later
   const nextDay = (day) => {
     let today = new Date().getDay();
     setDay(today);
@@ -68,6 +70,7 @@ export const NextActivity = () => {
     }
   };
 
+  // This function will find the next activity based on day
   const nextActivity = () => {
     const activityList = {
       0: "Big Final Reveal",
