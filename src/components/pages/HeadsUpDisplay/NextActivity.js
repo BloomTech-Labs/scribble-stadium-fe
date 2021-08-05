@@ -88,4 +88,11 @@ export const NextActivity = () => {
     setActivity(activityList[day+1]);
     return activity;
   };
+
+  useEffect(() => {
+    nextDay();
+    nextActivity();
+  });
+
+  return <div>Next Activity: {activity}</div>;
 }
