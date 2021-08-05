@@ -5,6 +5,8 @@ export const CurrentActivity = () => {
   const [day, setDay] = useState(1);
   const [activity, setActivity] = useState("");
 
+  // This function will change current day (0-13) based on previous day
+  // Will come back and refactor this to make it dry later
   const currDay = (day) => {
     let today = new Date().getDay();
     setDay(today);
@@ -67,6 +69,7 @@ export const CurrentActivity = () => {
     }
   };
 
+  // This function will find the current activity based on current day and set to state
   const currActivity = () => {
     const activityList = {
       0: "Big Final Reveal",
@@ -87,4 +90,12 @@ export const CurrentActivity = () => {
     setActivity(activityList[day]);
     return activity;
   };
+
+  // useEffect to call both functions on render
+  useEffect(() => {
+    currDay();
+    currActivity();
+  });
+
+  return <div>Current Activity: {activity}</div>;
 };
