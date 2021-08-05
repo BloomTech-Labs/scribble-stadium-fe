@@ -67,4 +67,25 @@ export const NextActivity = () => {
       }
     }
   };
+
+  const nextActivity = () => {
+    const activityList = {
+      0: "Big Final Reveal",
+      1: "Read",
+      2: "Draw",
+      3: "Write",
+      4: "Squadding Up",
+      5: "Point Share",
+      6: "Matchup 1",
+      7: "Voting Session 1",
+      8: "Matchup 2",
+      9: "Voting Session 2",
+      10: "Matchup 3",
+      11: "Voting Session 3",
+      12: "Matchup 4",
+      13: "Big Final Reveal"
+    };
+    setActivity(activityList[day+1]);
+    return activity;
+  };
 }
