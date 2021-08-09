@@ -36,7 +36,7 @@ const AudiobookList = ({ listView = 'Titles' }) => {
       render: book => (
         <Space size="middle">
           <a onClick={() => handleDelete(book.id)}>Delete</a>
-          <a>More Actions</a>
+          <a>Edit</a>
         </Space>
       ),
     },
@@ -76,7 +76,7 @@ const AudiobookList = ({ listView = 'Titles' }) => {
         },
       ]);
       setLoadingData(false);
-    }, 2000);
+    }, 1000);
   }, []);
 
   const handleDelete = id => {
@@ -84,19 +84,12 @@ const AudiobookList = ({ listView = 'Titles' }) => {
     setTimeout(() => {
       setAudiobookList(audiobookList.filter(book => book.id !== id));
       setLoadingData(false);
-    }, 2000);
+    }, 1000);
   };
 
   return (
     <>
-      <Row justify="space-between">
-        <Col span={20}>
-          <h2>Audiobook {listView} List</h2>
-        </Col>
-        <Col span={4}>
-          <Button>Add Audio Book</Button>
-        </Col>
-      </Row>
+      <h2>Audiobook {listView} List</h2>
       {loadingData
         ? [1, 2, 3, 4, 5].map((_, i) => {
             return <Skeleton key={`skeleton-${i}`} active={loadingData} />;
