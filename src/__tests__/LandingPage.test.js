@@ -21,6 +21,15 @@ Object.defineProperty(window, 'matchMedia', {
   })),
 });
 
+jest.mock('@okta/okta-react', () => ({
+  useOktaAuth: () => {
+    return {
+      authState: {},
+      authService: {},
+    };
+  },
+}));
+
 const Component = () => {
   return (
     <Provider store={store}>
