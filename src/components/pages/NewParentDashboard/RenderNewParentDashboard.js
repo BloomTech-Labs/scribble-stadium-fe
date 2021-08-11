@@ -5,6 +5,7 @@ import { getProfileData } from '../../../api';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import NewProgressCharts from '../../common/NewProgressCharts';
 import NewChildCard from '../../common/NewChildCard';
+import NewHud from '../../common/NewHud';
 import AccountSettings from '../AccountSettings/AccountSettingsContainer';
 import { connect } from 'react-redux';
 import { setParent } from '../../../state/actions/parentActions';
@@ -25,7 +26,9 @@ const RenderNewParentDashboard = props => {
     <div>
       <Layout className="newparent-dashboard">
         <ParentNavTopBar />
-
+        <div className="hud-container">
+          <NewHud />
+        </div>
         <Layout>
           <div className="progress-container">
             <NewProgressCharts />

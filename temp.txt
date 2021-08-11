@@ -1,0 +1,10 @@
+This file will log notes for commits; remove when the feature is complete.
+
+Added new component
+* src/components/common/NewHud.js
+
+Rendered NewHud in two components:
+* src/components/common/NewProgressCharts.js
+* src/components/pages/NewParentDashboard/RenderNewParentDashboard.js
+
+Ashton can decide on which place looks better for the HUD.
