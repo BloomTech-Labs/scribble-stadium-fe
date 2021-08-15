@@ -19,8 +19,23 @@ export const CountDownTimer = () => {
       second: "numeric"
     });
 
-    // Set endTime to midnight each day, need to add logic for Saturday weekTwo to === 48 hours
-    let endTime = new Date().setHours(24, 0, 0, 0);
+    let endTime = new Date();
+    let today = new Date().getDay();
+
+    console.log(today);
+
+    const countdownVar = {
+      0: 24,
+      1: 72,
+      2: 48,
+      3: 24,
+      4: 24,
+      5: 24,
+      6: 48
+    };
+
+    // Set endTime based on day of week (72, 48, 25 hour timers)
+    endTime.setHours(countdownVar[today], 0, 0, 0);
     // parse var pst, changing it from string to number format, then subtract from endTime
     let timeDiff = endTime - Date.parse(pst);
 
