@@ -1,19 +1,21 @@
 //** Gamemode Styles
-#gamemode {
-  .gamemode-btns {
-    margin-top: 30px;
+#gameification {
+  .hero {
+    margin-bottom: 50px;
+  }
 
-    .inner-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 2%;
-    }
+  .inner-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2%;
+  }
 
+  .main-btns {
     button {
       width: 100%;
       min-height: 250px;
       margin-bottom: 35px;
-      border: #333d3e 5px solid;
+      border: #333d3e 3px solid;
       cursor: pointer;
       font-size: 2rem;
       border-radius: 0 !important;
@@ -36,14 +38,87 @@
     }
   }
 
+  #mission-progress {
+    background: url(../../assets/images/gamemodeimg/steps-box.png) center
+      no-repeat;
+    background-size: contain;
+    height: 315px;
+    width: 720px;
+    margin: 0 auto -155px;
+    z-index: 50;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fbfbfb;
+    font-family: 'atma';
+
+    h3 {
+      font-size: 2.5rem;
+      color: #fbfbfb;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .steps {
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+
+      .step {
+        margin: 0 10px;
+      }
+    }
+  }
+
+  .gameification-content {
+    padding: 180px 0 50px;
+  }
+
   #read-step {
+    #story {
+      background: #f5f5f5;
+      margin-bottom: 35px;
+      z-index: 20;
+      position: relative;
+
+      .story-title {
+        font-family: 'atma';
+        text-align: center;
+        margin-bottom: 25px;
+
+        h2 {
+          font-size: 1.5rem;
+          margin-bottom: 0;
+        }
+      }
+
+      h3 {
+        font-family: 'atma';
+        font-size: 1.2rem;
+      }
+    }
+
     .next-btn {
+      text-align: center;
+
       button {
         width: auto;
+        height: auto;
         border-radius: 5px;
-        border: #333d3e 5px solid;
-        padding: 10px;
-        font-family: 'bangers';
+        border: #333d3e 3px solid;
+        padding: 5px 15px;
+        font-family: 'atma';
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: 0.3s all;
+
+        &:hover {
+          transform: scale(1.03);
+          -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+        }
       }
     }
   }

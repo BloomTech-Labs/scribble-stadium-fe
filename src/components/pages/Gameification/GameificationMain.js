@@ -6,7 +6,8 @@ import { useHistory } from 'react-router-dom';
 
 //** Import Components */
 import { Header } from '../../common';
-import GameReadStep from './GameReadStep';
+import { NotFoundPage } from '../NotFound';
+import GameificationMission from './GameificationMission';
 
 export default function GameificationMain(props) {
   const [currentStep, setCurrentStep] = useState('');
@@ -17,14 +18,19 @@ export default function GameificationMain(props) {
   };
 
   return (
-    <div id="gamemode">
+    <div id="gameification">
       <Header />
 
       <Switch>
         <Route path={baseURL} exact>
           <GamemodeBtns updateStep={updateStep} baseURL={baseURL} />
         </Route>
-        <Route path={`${baseURL}/read`} component={GameReadStep} />
+
+        <Route path={`${baseURL}/mission/read`}>
+          <GameificationMission baseURL={baseURL} currentStep={currentStep} />
+        </Route>
+
+        <Route component={NotFoundPage} />
       </Switch>
     </div>
   );
@@ -37,11 +43,11 @@ const GamemodeBtns = props => {
   const acceptMission = e => {
     e.preventDefault();
 
-    history.push(`${props.baseURL}/read`);
+    history.push(`${props.baseURL}/mission/read`);
   };
 
   return (
-    <div className="gamemode-btns">
+    <div className="main-btns">
       <div className="inner-container">
         <button className="mission-btn" onClick={acceptMission}>
           Accept The Mission
