@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CurrentActivity } from './CurrentActivity';
+import { NextActivity } from './NextActivity';
 
 export const CountDownTimer = () => {
   // This function will calculate difference between current and target times
@@ -38,10 +39,14 @@ export const CountDownTimer = () => {
   }, [timeRemaining]);
 
   return (
-    // <div className="countdown-timer">
-    //   <div>Current Activity: <CurrentActivity /></div>
-    //   <div>Time Remaining: {convertTimeFormat(timeRemaining)}</div>
-    // </div>
-    <div className="timer">{convertTimeFormat(timeRemaining)}</div>
+    <div className="countdown-timer">
+      <div>
+        Current Activity: <CurrentActivity />
+      </div>
+      <div>Time Remaining: {convertTimeFormat(timeRemaining)}</div>
+      <div>
+        Next Activity: <NextActivity />
+      </div>
+    </div>
   );
 };
