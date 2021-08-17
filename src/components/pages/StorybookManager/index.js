@@ -11,6 +11,7 @@ import {
 
 import Menu from './ManagerMenu';
 import AudiobookList from './AudiobookList';
+import AudiobookDetail from './AudiobookDetail';
 import StorybookManagerModal from './StorybookManagerModal';
 
 const { Content } = Layout;
@@ -24,7 +25,8 @@ const AudiobookManager = () => {
         <Content>
           <h1>Storybook Manager</h1>
           <Switch>
-            <Route path="/admin/audiobooks" component={AudiobookList} />
+            <Route path="/admin/audiobooks/:id" component={AudiobookDetail} />
+            <Route exact path="/admin/audiobooks" component={AudiobookList} />
           </Switch>
         </Content>
       </Layout>
