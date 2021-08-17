@@ -9,13 +9,28 @@ import { Header } from '../../common';
 import { NotFoundPage } from '../NotFound';
 import Footer from './Footer';
 import GameificationMission from './GameificationMission';
+import GameModal from './GameModal';
 
 export default function GameificationMain(props) {
-  const [currentStep, setCurrentStep] = useState('');
+  // Specify a base URL
   const baseURL = '/gameification';
 
-  const updateStep = step => {
-    setCurrentStep(step);
+  // State to enable/disable the modal
+  const [enableModal, setEnableModal] = useState(false);
+
+  // Data that the modal will display
+  const [modalData, setModalData] = useState({});
+
+  // Function to enable the modal
+  const enableModalWindow = data => {
+    setEnableModal(true);
+    setModalData(data);
+    console.log(data);
+  };
+
+  // Function to disable the modal
+  const disableModalWindow = () => {
+    setEnableModal(false);
   };
 
   return (
@@ -24,17 +39,27 @@ export default function GameificationMain(props) {
 
       <Switch>
         <Route path={baseURL} exact>
-          <GamemodeBtns updateStep={updateStep} baseURL={baseURL} />
+          <GamemodeBtns baseURL={baseURL} />
         </Route>
 
         <Route path={`${baseURL}/mission`}>
-          <GameificationMission baseURL={baseURL} currentStep={currentStep} />
+          <GameificationMission
+            baseURL={baseURL}
+            enableModalWindow={enableModalWindow}
+          />
         </Route>
 
         <Route component={NotFoundPage} />
       </Switch>
 
       <Footer />
+
+      {enableModal && (
+        <GameModal
+          modalData={modalData}
+          disableModalWindow={disableModalWindow}
+        />
+      )}
     </div>
   );
 }
@@ -46,7 +71,6 @@ const GamemodeBtns = props => {
   const acceptMission = e => {
     e.preventDefault();
 
-    props.updateStep('read');
     history.push(`${props.baseURL}/mission/read`);
   };
 

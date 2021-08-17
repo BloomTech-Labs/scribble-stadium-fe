@@ -1,6 +1,8 @@
 //** Import Modules */
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
+import { gsap } from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 //** Import Components */
 import GameMissionProgress from './GameMissionProgress';
@@ -39,6 +41,7 @@ export default function GameificationMission(props) {
   // Update the current step
   const updateCurStep = step => {
     setCurrentStep(step);
+    gsap.to(window, { duration: 1, scrollTo: '.hero' });
   };
 
   // Update current progress
@@ -56,12 +59,14 @@ export default function GameificationMission(props) {
       setCurrentStep('read');
       history.push(`${baseURL}/read`);
     }
+
+    gsap.from('#game-mission', { opacity: 0, y: 100, duration: 1 });
+
+    gsap.registerPlugin(ScrollToPlugin);
   }, []);
 
-  console.log(currentProgress);
-
   return (
-    <div>
+    <div id="game-mission">
       <GameMissionProgress
         baseURL={baseURL}
         updateCurStep={updateCurStep}
@@ -75,6 +80,7 @@ export default function GameificationMission(props) {
             updateCurStep={updateCurStep}
             baseURL={baseURL}
             updateCurProgress={updateCurProgress}
+            enableModalWindow={props.enableModalWindow}
           />
         </Route>
 

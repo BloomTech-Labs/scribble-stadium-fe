@@ -1,16 +1,37 @@
 //** Import Modules */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { gsap } from 'gsap';
 
 export default function GameReadStep(props) {
   const history = useHistory();
 
   const handleNext = () => {
+    // Update the current step and progress data
     props.updateCurStep('draw');
     props.updateCurProgress('read', 'complete');
 
+    // Enable the modal window
+    const modalData = {
+      title: 'Your time to shine!',
+      description:
+        "Grab a sheet of paper and your drawing supplies. Based on the reading, draw your favorite scene by hand. When you're finished, snap a photo and upload your masterpiece.",
+      buttonTxt: "Let's Go!",
+    };
+
+    props.enableModalWindow(modalData);
+
     history.push(`${props.baseURL}/draw`);
   };
+
+  // Add some animation
+  useEffect(() => {
+    gsap.from('#read-step', {
+      opacity: 0,
+      y: 200,
+      duration: 1,
+    });
+  }, []);
 
   return (
     <div id="read-step">

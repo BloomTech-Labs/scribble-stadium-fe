@@ -1,6 +1,7 @@
 //** Import Modules */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { gsap } from 'gsap';
 
 //** Import Components */
 import UploadDocs from '../../common/UploadDocs';
@@ -33,6 +34,22 @@ export default function GameDrawStep(props) {
 
     history.push(`${props.baseURL}/write`);
   };
+
+  // Add some animation
+  useEffect(() => {
+    gsap.from('#draw-step', {
+      opacity: 0,
+      y: 200,
+      duration: 1,
+    });
+
+    gsap.from('.boy-img', {
+      opacity: 0,
+      x: -200,
+      duration: 1,
+      delay: 1,
+    });
+  }, []);
 
   return (
     <div id="draw-step">
