@@ -26,7 +26,7 @@ export default function GameificationMain(props) {
           <GamemodeBtns updateStep={updateStep} baseURL={baseURL} />
         </Route>
 
-        <Route path={`${baseURL}/mission/read`}>
+        <Route path={`${baseURL}/mission`}>
           <GameificationMission baseURL={baseURL} currentStep={currentStep} />
         </Route>
 

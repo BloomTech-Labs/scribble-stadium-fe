@@ -15,6 +15,8 @@ export const UploadDocs = ({
   setSubmitted,
   maxLength,
   handleSubmit,
+  listType,
+  handleChangeExtra,
 }) => {
   const { authState } = useOktaAuth();
 
@@ -89,6 +91,8 @@ export const UploadDocs = ({
     if (fileList.length > maxLength) {
       openNotificationWithIcon('warning');
     }
+
+    handleChangeExtra(fileList);
   };
 
   const onRemove = file => {
@@ -118,7 +122,7 @@ export const UploadDocs = ({
     <>
       <Form form={form} onFinish={onFinish}>
         <Upload
-          listType="picture-card"
+          listType={listType ? listType : 'picture-card'}
           fileList={filePreviews}
           onRemove={onRemove}
           beforeUpload={beforeUpload}
@@ -142,15 +146,18 @@ export const UploadDocs = ({
               src={preview.image}
             />
           </Modal>
-          <Button
-            className={submitButtonClassname}
-            type="primary"
-            htmlType="submit"
-            disabled={fileList.length === 0 || fileList.length > maxLength}
-            loading={uploading}
-          >
-            {uploading ? 'Uploading...' : 'Submit'}
-          </Button>
+
+          {fileList.length > 0 && (
+            <Button
+              className={submitButtonClassname}
+              type="primary"
+              htmlType="submit"
+              disabled={fileList.length === 0 || fileList.length > maxLength}
+              loading={uploading}
+            >
+              {uploading ? 'Uploading...' : 'Submit'}
+            </Button>
+          )}
         </div>
       </Form>
     </>
