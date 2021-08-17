@@ -157,17 +157,15 @@ export const UploadDocs = ({
             />
           </Modal>
 
-          {fileList.length > 0 && (
-            <Button
-              className={submitButtonClassname}
-              type="primary"
-              htmlType="submit"
-              disabled={fileList.length === 0 || fileList.length > maxLength}
-              loading={uploading}
-            >
-              {uploading ? 'Uploading...' : 'Submit'}
-            </Button>
-          )}
+          <Button
+            className={submitButtonClassname}
+            type="primary"
+            htmlType="submit"
+            disabled={fileList.length === 0 || fileList.length > maxLength}
+            loading={uploading}
+          >
+            {uploading ? 'Uploading...' : 'Submit'}
+          </Button>
         </div>
       </Form>
     </>
