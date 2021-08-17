@@ -15,6 +15,7 @@ export default function (props) {
         <div classname="pontShare">Point Share</div>
         <div classname="vote">Vote</div>
       </div>
+      {/* This will show the days and indicaate current day */}
       <div className="dayBars">
         <div className="day1-3"></div>
         <div className="day4-5"></div>
