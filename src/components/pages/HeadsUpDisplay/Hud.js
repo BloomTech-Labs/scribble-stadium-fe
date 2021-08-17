@@ -6,6 +6,7 @@ export default function (props) {
   return (
     <div className="HudContainer">
       <CountDownTimer />
+      {/* This is going to show all tasks as well as indicating current task */}
       <div className="progressionBar">
         <div classname="read">Read</div>
         <div classname="draw">Draw</div>
