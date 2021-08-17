@@ -20,23 +20,39 @@ export default function GameificationMission(props) {
   // Save the current step we are currently in
   const [currentStep, setCurrentStep] = useState(props.currentStep);
 
-  // Save the current progress on a state
-  const initialProgress = {
-    read: '',
-    draw: '',
-    write: '',
+  // Data to submit
+  const initialSubmissionData = {
+    ChildID: 123,
+    StoryID: 1,
+    HasRead: false,
+    HasWritten: false,
+    HasDrawn: false,
+    id: 123,
+    Complexity: 30,
+    LowConfidence: false,
+    Status: 'PENDING',
   };
 
-  const [currentProgress, setCurrentProgress] = useState(initialProgress);
+  const [submissionData, setSubmissionData] = useState(initialSubmissionData);
 
   // Data to submit
-  const initialData = {
-    id: 123,
+  const initialFileData = {
     drawings: [],
     writings: [],
   };
 
-  const [submissionData, setSubmissionData] = useState(initialData);
+  const [fileSubmissionData, setFileSubmissionData] = useState(initialFileData);
+
+  // When all steps are complete, unlock the battle button
+  const [battleReady, setBattleReady] = useState(false);
+
+  // Has the modal already appeared once? Let's help avoid showing it again
+  const initialModalData = {
+    read: false,
+    write: false,
+  };
+
+  const [modalClosed, setModalClosed] = useState(initialModalData);
 
   // Update the current step
   const updateCurStep = step => {
@@ -44,18 +60,28 @@ export default function GameificationMission(props) {
     gsap.to(window, { duration: 1, scrollTo: '.hero' });
   };
 
-  // Update current progress
-  const updateCurProgress = (step, status) => {
-    setCurrentProgress({ ...currentProgress, [step]: status });
+  // Update the current data to submit
+  const updateSubmissionData = (dataType, data) => {
+    setSubmissionData({ ...submissionData, [dataType]: data });
   };
 
-  // Update the current data to submit
-  const updateSubmissionData = (step, data) => {
-    setSubmissionData({ ...submissionData, [step]: data });
+  // Update the current file data to submit
+  const updateFileSubmissionData = (dataType, data) => {
+    setFileSubmissionData({ ...fileSubmissionData, [dataType]: data });
+  };
+
+  // Update modal status
+  const updateModalStatus = (modal, status) => {
+    setModalClosed({ ...modalClosed, [modal]: status });
+  };
+
+  // Update battle ready status
+  const updateBattleReady = status => {
+    setBattleReady(status);
   };
 
   useEffect(() => {
-    if (currentProgress.read === '') {
+    if (submissionData.HasRead === false) {
       setCurrentStep('read');
       history.push(`${baseURL}/read`);
     }
@@ -65,13 +91,16 @@ export default function GameificationMission(props) {
     gsap.registerPlugin(ScrollToPlugin);
   }, []);
 
+  console.log(submissionData);
+
   return (
     <div id="game-mission">
       <GameMissionProgress
         baseURL={baseURL}
         updateCurStep={updateCurStep}
         currentStep={currentStep}
-        currentProgress={currentProgress}
+        submissionData={submissionData}
+        enableModalWindow={props.enableModalWindow}
       />
 
       <Switch>
@@ -79,8 +108,10 @@ export default function GameificationMission(props) {
           <GameReadStep
             updateCurStep={updateCurStep}
             baseURL={baseURL}
-            updateCurProgress={updateCurProgress}
             enableModalWindow={props.enableModalWindow}
+            updateSubmissionData={updateSubmissionData}
+            updateModalStatus={updateModalStatus}
+            modalClosed={modalClosed}
           />
         </Route>
 
@@ -88,13 +119,28 @@ export default function GameificationMission(props) {
           <GameDrawStep
             updateCurStep={updateCurStep}
             baseURL={baseURL}
-            updateCurProgress={updateCurProgress}
             updateSubmissionData={updateSubmissionData}
+            updateFileSubmissionData={updateFileSubmissionData}
+            enableModalWindow={props.enableModalWindow}
+            fileSubmissionData={fileSubmissionData}
+            updateModalStatus={updateModalStatus}
+            modalClosed={modalClosed}
+            updateBattleReady={updateBattleReady}
           />
         </Route>
 
         <Route path={`${baseURL}/write`}>
-          <GameWriteStep updateCurStep={updateCurStep} baseURL={baseURL} />
+          <GameWriteStep
+            updateCurStep={updateCurStep}
+            baseURL={baseURL}
+            updateSubmissionData={updateSubmissionData}
+            updateFileSubmissionData={updateFileSubmissionData}
+            enableModalWindow={props.enableModalWindow}
+            fileSubmissionData={fileSubmissionData}
+            submissionData={submissionData}
+            battleReady={battleReady}
+            updateBattleReady={updateBattleReady}
+          />
         </Route>
       </Switch>
     </div>

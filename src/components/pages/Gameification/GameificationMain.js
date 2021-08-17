@@ -1,5 +1,5 @@
 //** Import Modules */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
@@ -25,7 +25,6 @@ export default function GameificationMain(props) {
   const enableModalWindow = data => {
     setEnableModal(true);
     setModalData(data);
-    console.log(data);
   };
 
   // Function to disable the modal
@@ -39,13 +38,17 @@ export default function GameificationMain(props) {
 
       <Switch>
         <Route path={baseURL} exact>
-          <GamemodeBtns baseURL={baseURL} />
+          <GamemodeBtns
+            baseURL={baseURL}
+            enableModalWindow={enableModalWindow}
+          />
         </Route>
 
         <Route path={`${baseURL}/mission`}>
           <GameificationMission
             baseURL={baseURL}
             enableModalWindow={enableModalWindow}
+            disableModalWindow={disableModalWindow}
           />
         </Route>
 
@@ -73,6 +76,17 @@ const GamemodeBtns = props => {
 
     history.push(`${props.baseURL}/mission/read`);
   };
+
+  // Enable initial modal
+  useEffect(() => {
+    const data = {
+      title: 'Welcome to StorySquad!',
+      description: ' Accept the mission to start your adventure!',
+      buttonTxt: "Let's Go!",
+    };
+
+    props.enableModalWindow(data);
+  }, []);
 
   return (
     <div className="main-btns">

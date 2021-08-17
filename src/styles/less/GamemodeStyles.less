@@ -79,7 +79,7 @@
         transition: 0.3s all;
         text-transform: capitalize;
 
-        &.complete,
+        &.completed,
         &.active {
           opacity: 1 !important;
         }
@@ -100,24 +100,6 @@
 
         &:hover {
           opacity: 1;
-        }
-      }
-
-      #step-1 {
-        span {
-          background: #c6fd7e;
-        }
-      }
-
-      #step-2 {
-        span {
-          background: #ff845d;
-        }
-      }
-
-      #step-3 {
-        span {
-          background: #ffd854;
         }
       }
     }
@@ -214,6 +196,7 @@
       .step-description {
         width: 65%;
         font-family: 'atma';
+        margin-bottom: 35px;
 
         h3 {
           font-size: 2.5rem;
@@ -261,6 +244,7 @@
         font-family: 'atma';
         font-size: 1.1rem;
         cursor: pointer;
+        background: #8ce2e0;
 
         &:hover {
           transform: scale(1.03);
@@ -270,10 +254,12 @@
       }
 
       .bottom {
-        .ant-btn {
-          background: #6ceae6;
-          color: #333d3e;
-        }
+        margin-bottom: 15px;
+        display: none;
+      }
+
+      .submit-btn {
+        margin-right: 15px;
       }
 
       .skip-btn {
@@ -282,6 +268,25 @@
         padding: 0;
         font-size: 1.3rem;
         text-decoration: underline;
+        height: auto;
+        width: auto;
+      }
+
+      .battle-btn {
+        display: block;
+        width: 100%;
+        text-align: right;
+        margin-top: 20px;
+
+        button {
+          border: #333d3e 3px solid;
+          background: #ff845d;
+          font-size: 1.5rem;
+          cursor: pointer;
+          height: auto;
+          width: auto;
+          padding: 5px 15px;
+        }
       }
     }
   }

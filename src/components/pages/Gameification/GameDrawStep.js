@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { gsap } from 'gsap';
+import { Button } from 'antd';
 
 //** Import Components */
 import UploadDocs from '../../common/UploadDocs';
@@ -16,6 +17,9 @@ export default function GameDrawStep(props) {
   // In this state, I save the amount of files we have ready to upload
   const [fileList, setFileList] = useState([]);
 
+  // State to help when uploading
+  const [isUploading, setIsUploading] = useState(false);
+
   // This handles what happens when a picture is added/removed
   const handleChange = data => {
     setFileList(data);
@@ -23,14 +27,53 @@ export default function GameDrawStep(props) {
 
   // This handles what happens when the files are uploaded and ready for submission
   const handleSubmit = () => {
-    props.updateCurProgress('draw', 'complete');
+    setIsUploading(true);
+
+    setTimeout(() => {
+      props.updateSubmissionData('HasDrawn', true);
+      props.updateFileSubmissionData('drawings', fileList);
+      props.updateCurStep('write');
+
+      // Enable the modal window
+      if (!props.modalClosed.draw) {
+        const modalData = {
+          title: 'Scribble a side quest!',
+          description:
+            'Grab your favorite pencil and some loose leaf sheets of paper. Based on the prompt at the end of the reading, scribble down a side quest by hand. When your story is complete, snap a photo of your pages and upload them.',
+          buttonTxt: "Let's Go!",
+        };
+
+        props.enableModalWindow(modalData);
+        props.updateModalStatus('draw', true);
+      }
+
+      history.push(`${props.baseURL}/write`);
+    }, 1500);
   };
 
   // This handles when we skip the drawing phase
   const handleSkip = () => {
-    props.updateCurProgress('draw', 'skipped');
+    props.updateSubmissionData('HasDrawn', false);
+    props.updateFileSubmissionData('drawings', []);
 
     props.updateCurStep('write');
+
+    // Enable the modal window
+    if (!props.modalClosed.draw) {
+      const modalData = {
+        title: 'Scribble a side quest!',
+        description:
+          'Grab your favorite pencil and some loose leaf sheets of paper. Based on the prompt at the end of the reading, scribble down a side quest by hand. When your story is complete, snap a photo of your pages and upload them.',
+        buttonTxt: "Let's Go!",
+      };
+
+      props.enableModalWindow(modalData);
+      props.updateModalStatus('draw', true);
+    }
+
+    if (props.fileSubmissionData.writings.length === 0) {
+      props.updateBattleReady(false);
+    }
 
     history.push(`${props.baseURL}/write`);
   };
@@ -49,6 +92,8 @@ export default function GameDrawStep(props) {
       duration: 1,
       delay: 1,
     });
+
+    setFileList(props.fileSubmissionData.drawings);
   }, []);
 
   return (
@@ -75,13 +120,24 @@ export default function GameDrawStep(props) {
               uploadButtonText="Upload Your Drawing"
               handleChangeExtra={handleChange}
               handleSubmit={handleSubmit}
+              alternateHandleSubmission={true}
+              savedFileList={fileList}
             />
 
-            {fileList.length === 0 && (
-              <button className="skip-btn" onClick={handleSkip}>
-                I’d rather write
-              </button>
+            {fileList.length > 0 && (
+              <Button
+                className="submit-btn"
+                disabled={isUploading}
+                onClick={handleSubmit}
+                loading={isUploading}
+              >
+                {isUploading ? 'Uploading...' : 'Save'}
+              </Button>
             )}
+
+            <button className="skip-btn" onClick={handleSkip}>
+              I’d rather write
+            </button>
           </div>
         </div>
       </div>

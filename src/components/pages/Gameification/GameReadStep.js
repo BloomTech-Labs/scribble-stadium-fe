@@ -9,18 +9,22 @@ export default function GameReadStep(props) {
   const handleNext = () => {
     // Update the current step and progress data
     props.updateCurStep('draw');
-    props.updateCurProgress('read', 'complete');
+    props.updateSubmissionData('HasRead', true);
 
     // Enable the modal window
-    const modalData = {
-      title: 'Your time to shine!',
-      description:
-        "Grab a sheet of paper and your drawing supplies. Based on the reading, draw your favorite scene by hand. When you're finished, snap a photo and upload your masterpiece.",
-      buttonTxt: "Let's Go!",
-    };
+    if (!props.modalClosed.read) {
+      const modalData = {
+        title: 'Your time to shine!',
+        description:
+          "Grab a sheet of paper and your drawing supplies. Based on the reading, draw your favorite scene by hand. When you're finished, snap a photo and upload your masterpiece.",
+        buttonTxt: "Let's Go!",
+      };
 
-    props.enableModalWindow(modalData);
+      props.enableModalWindow(modalData);
+      props.updateModalStatus('read', true);
+    }
 
+    // Redirect to the next step
     history.push(`${props.baseURL}/draw`);
   };
 

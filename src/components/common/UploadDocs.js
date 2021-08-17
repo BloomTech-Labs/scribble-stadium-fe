@@ -17,6 +17,7 @@ export const UploadDocs = ({
   handleSubmit,
   listType,
   handleChangeExtra,
+  savedFileList,
 }) => {
   const { authState } = useOktaAuth();
 
@@ -50,7 +51,6 @@ export const UploadDocs = ({
       })
       .then(res => {
         handleSubmit();
-        setUploading(false);
       })
       .catch(err => {
         for (var value of formData.entries()) {
@@ -93,6 +93,7 @@ export const UploadDocs = ({
       openNotificationWithIcon('warning');
     }
 
+    // This is in case I want to have access to this onChange event outside of this component
     if (handleChangeExtra) {
       handleChangeExtra(fileList);
     }
@@ -111,6 +112,12 @@ export const UploadDocs = ({
 
   useEffect(() => {
     console.log({ fileList, filePreviews }, 'useEffect');
+
+    // This is in case I have a filelist ready OUTSIDE this component
+    if (savedFileList != undefined) {
+      setFilePreviews(savedFileList);
+      setFileList(savedFileList);
+    }
   });
 
   // For error message warning if there are too many images
