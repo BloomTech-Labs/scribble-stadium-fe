@@ -75,6 +75,14 @@
         margin: 0 10px;
         background: none;
         cursor: pointer;
+        opacity: 0.5;
+        transition: 0.3s all;
+        text-transform: capitalize;
+
+        &.complete,
+        &.active {
+          opacity: 1 !important;
+        }
 
         span {
           display: block;
@@ -88,6 +96,10 @@
           overflow: hidden;
           font-size: 2.5rem;
           margin-bottom: 5px;
+        }
+
+        &:hover {
+          opacity: 1;
         }
       }
 
@@ -118,6 +130,7 @@
 
   /* Styling for the read step elements */
   #read-step {
+    margin-bottom: 60px;
     #story {
       background: #f5f5f5;
       margin-bottom: 35px;
@@ -130,14 +143,19 @@
         margin-bottom: 25px;
 
         h2 {
-          font-size: 1.5rem;
+          font-size: 2rem;
           margin-bottom: 0;
         }
       }
 
       h3 {
         font-family: 'atma';
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.3em;
       }
     }
 
@@ -164,119 +182,116 @@
     }
   }
 
-  /* Style for the draw step elements */
-  #draw-step {
+  /* Style for the draw and write step elements */
+  #draw-step,
+  #write-step {
     #draw {
       background: #ff845d;
+    }
 
-      .inner-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    #write {
+      background: #ffd854;
+    }
 
-        .boy-img {
-          max-width: 30%;
+    .gameification-content {
+      padding-bottom: 0 !important;
+    }
+
+    .inner-container {
+      display: flex;
+      justify-content: space-between;
+
+      .boy-img {
+        max-width: 30%;
+        align-self: flex-end;
+        margin-top: auto;
+        padding-top: 20px;
+      }
+
+      .step-description {
+        width: 65%;
+        font-family: 'atma';
+
+        h3 {
+          font-size: 2.5rem;
+          text-transform: uppercase;
         }
 
-        .step-description {
-          width: 65%;
-          font-family: 'atma';
+        p {
+          font-size: 1.5rem;
+          font-weight: 300;
+        }
+      }
 
-          h3 {
-            font-size: 2.5rem;
-            text-transform: uppercase;
-          }
+      .ant-upload-list {
+        margin-bottom: 25px;
+      }
 
-          p {
+      .ant-upload-list-item {
+        background: #f5f5f5;
+
+        .ant-upload-list-item-thumbnail {
+          border-radius: 50%;
+          overflow: hidden;
+        }
+
+        .ant-upload-list-item-card-actions-btn.ant-btn-sm {
+          height: auto;
+
+          svg {
             font-size: 1.5rem;
-            font-weight: 300;
-          }
-        }
-
-        .ant-upload-list {
-          margin-bottom: 25px;
-        }
-
-        .ant-upload-list-item {
-          background: #f5f5f5;
-
-          .ant-upload-list-item-thumbnail {
-            border-radius: 50%;
-            overflow: hidden;
+            color: black;
           }
 
-          .ant-upload-list-item-card-actions-btn.ant-btn-sm {
-            height: auto;
-
-            svg {
-              font-size: 1.5rem;
-              color: black;
-
-              &:hover {
-                color: #8ce2e0;
-              }
-            }
+          &:hover {
+            background: #8ce2e0;
           }
         }
+      }
+
+      .ant-btn {
+        width: auto;
+        height: auto;
+        border-radius: 5px;
+        border: #333d3e 3px solid;
+        padding: 5px 15px;
+        font-family: 'atma';
+        font-size: 1.1rem;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.03);
+          box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
+          color: #333d3e !important;
+        }
+      }
+
+      .bottom {
+        .ant-btn {
+          background: #6ceae6;
+          color: #333d3e;
+        }
+      }
+
+      .skip-btn {
+        background: none;
+        cursor: pointer;
+        padding: 0;
+        font-size: 1.3rem;
+        text-decoration: underline;
       }
     }
   }
 
-  /* Style for the write step elements */
-  #write-step {
-    #write {
-      background: #ffd854;
+  /* Footer Styles */
+  footer {
+    background: #2d2a2b;
+    color: #fbfbfb;
+    padding: 30px 0;
 
-      .inner-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .boy-img {
-          max-width: 30%;
-        }
-
-        .step-description {
-          width: 65%;
-          font-family: 'atma';
-
-          h3 {
-            font-size: 2.5rem;
-            text-transform: uppercase;
-          }
-
-          p {
-            font-size: 1.5rem;
-            font-weight: 300;
-          }
-        }
-
-        .ant-upload-list {
-          margin-bottom: 25px;
-        }
-
-        .ant-upload-list-item {
-          background: #f5f5f5;
-
-          .ant-upload-list-item-thumbnail {
-            border-radius: 50%;
-            overflow: hidden;
-          }
-
-          .ant-upload-list-item-card-actions-btn.ant-btn-sm {
-            height: auto;
-
-            svg {
-              font-size: 1.5rem;
-              color: black;
-
-              &:hover {
-                color: #8ce2e0;
-              }
-            }
-          }
-        }
-      }
+    .inner-container {
+      display: flex;
+      justify-content: space-between;
     }
   }
 }

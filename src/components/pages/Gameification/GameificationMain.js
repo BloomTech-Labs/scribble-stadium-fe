@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 //** Import Components */
 import { Header } from '../../common';
 import { NotFoundPage } from '../NotFound';
+import Footer from './Footer';
 import GameificationMission from './GameificationMission';
 
 export default function GameificationMain(props) {
@@ -32,6 +33,8 @@ export default function GameificationMain(props) {
 
         <Route component={NotFoundPage} />
       </Switch>
+
+      <Footer />
     </div>
   );
 }
@@ -43,6 +46,7 @@ const GamemodeBtns = props => {
   const acceptMission = e => {
     e.preventDefault();
 
+    props.updateStep('read');
     history.push(`${props.baseURL}/mission/read`);
   };
 

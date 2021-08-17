@@ -1,5 +1,6 @@
 //** Import Modules */
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 //** Import Components */
 import UploadDocs from '../../common/UploadDocs';
@@ -7,13 +8,30 @@ import UploadDocs from '../../common/UploadDocs';
 //** Import Assets */
 import boyImg from '../../../assets/images/gamemodeimg/LightingKid.png';
 
-export default function GameDrawStep() {
+export default function GameDrawStep(props) {
+  // Get the history object
+  const history = useHistory();
+
   // In this state, I save the amount of files we have ready to upload
   const [fileList, setFileList] = useState([]);
 
   // This handles what happens when a picture is added/removed
   const handleChange = data => {
     setFileList(data);
+  };
+
+  // This handles what happens when the files are uploaded and ready for submission
+  const handleSubmit = () => {
+    props.updateCurProgress('draw', 'complete');
+  };
+
+  // This handles when we skip the drawing phase
+  const handleSkip = () => {
+    props.updateCurProgress('draw', 'skipped');
+
+    props.updateCurStep('write');
+
+    history.push(`${props.baseURL}/write`);
   };
 
   return (
@@ -39,10 +57,13 @@ export default function GameDrawStep() {
               uploadButtonClassname="upload-picture"
               uploadButtonText="Upload Your Drawing"
               handleChangeExtra={handleChange}
+              handleSubmit={handleSubmit}
             />
 
             {fileList.length === 0 && (
-              <button className="skip-btn">I’d rather write</button>
+              <button className="skip-btn" onClick={handleSkip}>
+                I’d rather write
+              </button>
             )}
           </div>
         </div>

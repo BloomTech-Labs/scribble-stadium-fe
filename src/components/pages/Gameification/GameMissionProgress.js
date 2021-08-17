@@ -6,11 +6,15 @@ export default function GameMissionProgress(props) {
   // Get the history object
   const history = useHistory();
 
+  // Get the current state
+  const { currentStep } = props;
+
   // Get the base URL
   const { baseURL } = props;
 
   // Functions to handle what each button does
   const handleStepClick = step => {
+    props.updateCurStep(step);
     history.push(`${baseURL}/${step}`);
   };
 
@@ -19,33 +23,41 @@ export default function GameMissionProgress(props) {
       <h3>Your Mission</h3>
 
       <div className="steps">
-        <button
-          id="step-1"
-          className="step"
-          onClick={() => handleStepClick('read')}
-        >
-          <span>1</span>
-          Read
-        </button>
-
-        <button
-          id="step-2"
-          className="step"
-          onClick={() => handleStepClick('draw')}
-        >
-          <span>2</span>
-          Draw
-        </button>
-
-        <button
-          id="step-3"
-          className="step"
-          onClick={() => handleStepClick('write')}
-        >
-          <span>3</span>
-          Write
-        </button>
+        <StepButton
+          stepNum="1"
+          stepName="read"
+          currentStep={currentStep}
+          handleStepClick={handleStepClick}
+        />
+        <StepButton
+          stepNum="2"
+          stepName="draw"
+          currentStep={currentStep}
+          handleStepClick={handleStepClick}
+        />
+        <StepButton
+          stepNum="3"
+          stepName="write"
+          currentStep={currentStep}
+          handleStepClick={handleStepClick}
+        />
       </div>
     </div>
   );
 }
+
+//** Component for the step buttons */
+const StepButton = props => {
+  const { stepNum, stepName, handleStepClick, currentStep } = props;
+
+  return (
+    <button
+      id={`step-${stepNum}`}
+      className={currentStep === stepName ? 'step active' : 'step'}
+      onClick={() => handleStepClick(stepName)}
+    >
+      <span>{stepNum}</span>
+      {stepName}
+    </button>
+  );
+};

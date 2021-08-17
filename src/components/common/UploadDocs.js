@@ -50,6 +50,7 @@ export const UploadDocs = ({
       })
       .then(res => {
         handleSubmit();
+        setUploading(false);
       })
       .catch(err => {
         for (var value of formData.entries()) {
@@ -92,7 +93,9 @@ export const UploadDocs = ({
       openNotificationWithIcon('warning');
     }
 
-    handleChangeExtra(fileList);
+    if (handleChangeExtra) {
+      handleChangeExtra(fileList);
+    }
   };
 
   const onRemove = file => {

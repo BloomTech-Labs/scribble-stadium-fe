@@ -37,12 +37,12 @@ export default function GameWriteStep() {
             <UploadDocs
               listType="picture"
               uploadButtonClassname="upload-picture"
-              uploadButtonText="Upload Your Drawing"
+              uploadButtonText="Upload Your Writing"
               handleChangeExtra={handleChange}
             />
 
             {fileList.length === 0 && (
-              <button className="skip-btn">I’d rather write</button>
+              <button className="skip-btn">I’d rather draw</button>
             )}
           </div>
         </div>

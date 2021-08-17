@@ -1,7 +1,17 @@
 //** Import Modules */
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 export default function GameReadStep(props) {
+  const history = useHistory();
+
+  const handleNext = () => {
+    props.updateCurStep('draw');
+    props.updateCurProgress('read', 'complete');
+
+    history.push(`${props.baseURL}/draw`);
+  };
+
   return (
     <div id="read-step">
       <div id="story" className="gameification-content">
@@ -56,7 +66,7 @@ export default function GameReadStep(props) {
       </div>
 
       <div className="next-btn">
-        <button>I'm awesome, I'm done reading!</button>
+        <button onClick={handleNext}>I'm awesome, I'm done reading!</button>
       </div>
     </div>
   );
