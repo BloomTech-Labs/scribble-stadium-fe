@@ -1,412 +1,750 @@
-.rectangle130-yellow{
-    // display:inline;
-    // position: absolute;
-    display:flex;
-    // flex-direction: column;
-    justify-items: center;
-    align-content: center;
-    width: 100%;
-    height: 864px;
-    // left: 0px;
-    // top: 341px;
-    z-index: -1;
-    
+//** Gameification Styles
+#gameification {
+  /* Header Styles */
+  .hero {
+    margin-bottom: 50px;
+  }
 
-    /* Yellow for when you would rather write */
+  /* Inner Container */
+  .inner-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2%;
+  }
 
-    background: #FFD854;
+  /* Buttons on the main gameification page */
+  .main-btns {
+    button {
+      width: 100%;
+      min-height: 250px;
+      margin-bottom: 35px;
+      border: #333d3e 3px solid;
+      cursor: pointer;
+      font-size: 2rem;
+      border-radius: 0 !important;
+      transition: all 0.3s;
+      background: #ff845d;
+      font-family: 'bangers';
 
-    /* Orange for when you would rather draw*/
-    
-    // background: #FF845D;
-}
+      &:hover {
+        transform: scale(1.03);
+        -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+      }
 
+      &.mission-btn {
+        background: #c6fd7e
+          url(../../assets/images/gamemodeimg/mission-btn-bg.png) center
+          no-repeat;
+        background-size: cover;
+      }
+    }
+  }
 
-
-.rectangle130{
-    // display:inline;
-    // position: absolute;
-    display:flex;
-    // flex-direction: column;
-    justify-items: center;
-    align-content: center;
-    width: 100%;
-    height: 864px;
-    // left: 0px;
-    // top: 341px;
-    z-index: -1;
-    
-
-    /* Yellow for when you would rather write */
-
-    // background: #FFD854;
-
-    /* Orange for when you would rather draw*/
-    
-    background: #FF845D;
-}
-
-.btmRow{
-    /* Bottom Row container for colored background in gamemode */
-    margin-top:auto;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom:auto;
+  /* Progress box when on the mission steps */
+  #mission-progress {
+    background: url(../../assets/images/gamemodeimg/steps-box.png) center
+      no-repeat;
+    background-size: cover;
+    height: 315px;
+    width: 720px;
+    margin: 0 auto -155px;
+    z-index: 50;
+    position: relative;
     display: flex;
-    // flex-direction: column;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    // width:70%;
-    // height: 40em;
-    // background-color: yellow;
-//     /* Shadow/Gray */
+    color: #fbfbfb;
+    font-family: 'atma';
+    overflow: hidden;
 
-    min-width: 100%;
-    min-height: 100%;  
-    width:100%;
-    height:100%;
-        // img{
-        //     margin-top:2%;
-        //     margin-left:auto;
-        //     margin-right:auto;
-        //     margin-bottom:auto;
-        //     display: flex;
-        //     flex-direction: column;
-        //     justify-content: center;
-        //     align-items: center;   
-        //     width:100%;
-        //     height:100%;
-        // }
+    h3 {
+      font-size: 3rem;
+      color: #fbfbfb;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      margin-top: 9%;
+    }
 
+    .steps {
+      font-size: 2rem;
+      display: flex;
+      justify-content: center;
+
+      .step {
+        margin: 0 10px;
+        background: none;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: 0.3s all;
+        text-transform: capitalize;
+
+        &.completed,
+        &.active {
+          opacity: 1 !important;
+        }
+
+        span {
+          display: block;
+          color: #2d2a2b;
+          width: 45px;
+          height: 45px;
+          line-height: 45px;
+          text-align: center;
+          margin: 0 auto;
+          border-radius: 50%;
+          overflow: hidden;
+          font-size: 2.5rem;
+          margin-bottom: 5px;
+        }
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  /* Inside step content where the story, draw, or write content is */
+  .gameification-content {
+    padding: 200px 0 50px;
+  }
+
+  /* Styling for the read step elements */
+  #read-step {
+    margin-bottom: 60px;
+    #story {
+      background: #f5f5f5;
+      margin-bottom: 35px;
+      z-index: 20;
+      position: relative;
+
+      .story-title {
+        font-family: 'atma';
+        text-align: center;
+        margin-bottom: 25px;
+
+        h2 {
+          font-size: 2rem;
+          margin-bottom: 0;
+        }
+      }
+
+      h3 {
+        font-family: 'atma';
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.3em;
+      }
+    }
+
+    .next-btn {
+      text-align: center;
+
+      button {
+        width: auto;
+        height: auto;
+        border-radius: 5px;
+        border: #333d3e 3px solid;
+        padding: 5px 15px;
+        font-family: 'atma';
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: 0.3s all;
+
+        &:hover {
+          transform: scale(1.03);
+          -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+
+  /* Style for the draw and write step elements */
+  #draw-step,
+  #write-step {
+    overflow: hidden;
+
+    #draw {
+      background: #ff845d;
+    }
+
+    #write {
+      background: #ffd854;
+    }
+
+    .gameification-content {
+      padding-bottom: 0 !important;
+    }
+
+    .inner-container {
+      display: flex;
+      justify-content: space-between;
+
+      .boy-img {
+        max-width: 30%;
+        align-self: flex-end;
+        margin-top: auto;
+        padding-top: 20px;
+        margin-bottom: -10px;
+      }
+
+      .step-description {
+        width: 65%;
+        font-family: 'atma';
+        margin-bottom: 35px;
+
+        h3 {
+          font-size: 2.5rem;
+          text-transform: uppercase;
+        }
+
+        p {
+          font-size: 1.5rem;
+          font-weight: 300;
+        }
+      }
+
+      .ant-upload-list {
+        margin-bottom: 25px;
+      }
+
+      .ant-upload-list-item {
+        background: #f5f5f5;
+
+        .ant-upload-list-item-thumbnail {
+          border-radius: 50%;
+          overflow: hidden;
+        }
+
+        .ant-upload-list-item-card-actions-btn.ant-btn-sm {
+          height: auto;
+
+          svg {
+            font-size: 1.5rem;
+            color: black;
+          }
+
+          &:hover {
+            background: #8ce2e0;
+          }
+        }
+      }
+
+      .ant-btn {
+        width: auto;
+        height: auto;
+        border-radius: 5px;
+        border: #333d3e 3px solid;
+        padding: 5px 15px;
+        font-family: 'atma';
+        font-size: 1.1rem;
+        cursor: pointer;
+        background: #8ce2e0;
+
+        &:hover {
+          transform: scale(1.03);
+          box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
+          color: #333d3e !important;
+        }
+      }
+
+      .bottom {
+        margin-bottom: 15px;
+        display: none;
+      }
+
+      .submit-btn {
+        margin-right: 15px;
+      }
+
+      .skip-btn {
+        background: none;
+        cursor: pointer;
+        padding: 0;
+        font-size: 1.3rem;
+        text-decoration: underline;
+        height: auto;
+        width: auto;
+      }
+
+      .battle-btn {
+        display: block;
+        width: 100%;
+        text-align: right;
+        margin-top: 20px;
+
+        button {
+          border: #333d3e 3px solid;
+          background: #ff845d;
+          font-size: 1.5rem;
+          cursor: pointer;
+          height: auto;
+          width: auto;
+          padding: 5px 15px;
+        }
+      }
+    }
+  }
+
+  /* Footer Styles */
+  footer {
+    background: #2d2a2b;
+    color: #fbfbfb;
+    padding: 30px 0;
+    position: relative;
+    z-index: 50;
+
+    .inner-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  /* notification-modal */
+  #notification-modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    display: none;
+
+    .modal-container {
+      background: url(../../assets/images/gamemodeimg/modal.png);
+      background-size: cover;
+      width: 720px;
+      height: 520px;
+      transform: translateY(-100vh);
+
+      .modal-content {
+        padding: 20px 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        font-family: 'atma';
+
+        h3 {
+          font-size: 3rem;
+          text-transform: uppercase;
+        }
+
+        p {
+          font-size: 1.5rem;
+          line-height: 1.5em;
+        }
+
+        button {
+          width: auto;
+          height: auto;
+          border-radius: 5px;
+          border: #333d3e 3px solid;
+          padding: 5px 15px;
+          font-family: 'atma';
+          font-size: 1.5rem;
+          cursor: pointer;
+          background: white;
+        }
+      }
+    }
+  }
+}
+
+//** Gamemode Styles
+.rectangle130-yellow {
+  // display:inline;
+  // position: absolute;
+  display: flex;
+  // flex-direction: column;
+  justify-items: center;
+  align-content: center;
+  width: 100%;
+  height: 864px;
+  // left: 0px;
+  // top: 341px;
+  z-index: -1;
+
+  /* Yellow for when you would rather write */
+
+  background: #ffd854;
+
+  /* Orange for when you would rather draw*/
+
+  // background: #FF845D;
+}
+
+.rectangle130 {
+  // display:inline;
+  // position: absolute;
+  display: flex;
+  // flex-direction: column;
+  justify-items: center;
+  align-content: center;
+  width: 100%;
+  height: 864px;
+  // left: 0px;
+  // top: 341px;
+  z-index: -1;
+
+  /* Yellow for when you would rather write */
+
+  // background: #FFD854;
+
+  /* Orange for when you would rather draw*/
+
+  background: #ff845d;
+}
+
+.btmRow {
+  /* Bottom Row container for colored background in gamemode */
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  display: flex;
+  // flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // width:70%;
+  // height: 40em;
+  // background-color: yellow;
+  //     /* Shadow/Gray */
+
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  // img{
+  //     margin-top:2%;
+  //     margin-left:auto;
+  //     margin-right:auto;
+  //     margin-bottom:auto;
+  //     display: flex;
+  //     flex-direction: column;
+  //     justify-content: center;
+  //     align-items: center;
+  //     width:100%;
+  //     height:100%;
+  // }
 }
 // .img-of-LightingKid{
-    
+
 //     background-image:url("../../../assets/images/gamemodeimg/LightingKid.png");
 // }
 
- h1.dont4get{
-    /* Don’t forget! the h1 here */
+h1.dont4get {
+  /* Don’t forget! the h1 here */
 
- 
-        // width: 308px;
-        // height: 30px; 
+  // width: 308px;
+  // height: 30px;
 
-        /* Heading2-medium */
-        width:100%;
-        height:100%;
-        font-family: Bangers;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 42px;
-        line-height: 45px;
-        
-        letter-spacing: 0.05em;
+  /* Heading2-medium */
+  width: 100%;
+  height: 100%;
+  font-family: Bangers;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 42px;
+  line-height: 45px;
 
-        /* Heading/subheading-board */
+  letter-spacing: 0.05em;
 
-        color: #333D3E;
+  /* Heading/subheading-board */
+
+  color: #333d3e;
 }
 
-.dont4get-p{
-    /* When you’re finished drawing, snap a photo and upload your masterpiece. */
+.dont4get-p {
+  /* When you’re finished drawing, snap a photo and upload your masterpiece. */
 
+  // position: absolute;
+  // width: 308px;
+  // height: 114px;
+  // left: 541.93px;
+  // top: 613px;
+  width: 100%;
+  height: 100%;
+  /* Subheading */
 
-        // position: absolute;
-        // width: 308px;
-        // height: 114px;
-        // left: 541.93px;
-        // top: 613px;
-        width:100%;
-        height:100%;
-        /* Subheading */
+  font-family: Atma;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 38px;
+  /* or 146% */
 
-        font-family: Atma;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 26px;
-        line-height: 38px;
-        /* or 146% */
+  /* Heading/subheading-board */
 
-
-        /* Heading/subheading-board */
-
-        color: #333D3E;
+  color: #333d3e;
 }
 
-.kids-story-upload{
-    /* this is the abstract upload button button/medium */
+.kids-story-upload {
+  /* this is the abstract upload button button/medium */
 
+  /* Auto Layout */
 
-    /* Auto Layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 17px;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 13px 17px;
+  // position: absolute;
+  width: 100%;
+  height: 100%;
+  // left: 541.93px;
+  // top: 767px;
 
-    // position: absolute;
-    width: 100%;
-    height: 100%;
-    // left: 541.93px;
-    // top: 767px;
+  /* Brand/Aqua */
 
-    /* Brand/Aqua */
+  background: #6ceae6;
+  /* Heading/subheading-board */
 
-    background: #6CEAE6;
-    /* Heading/subheading-board */
-
-    border: 3px solid #333D3E;
-    box-sizing: border-box;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1), inset 0px 1px 2px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
+  border: 3px solid #333d3e;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1),
+    inset 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
 }
 
-.kids-story-upload-font{
-    /* I’m awesome, I’m done reading! 
+.kids-story-upload-font {
+  /* I’m awesome, I’m done reading! 
     This is the font inside the abstract upload button
     */
 
+  // position: static;
+  // left: 8.63%;
+  // right: 8.63%;
+  // top: 26%;
+  // bottom: 26%;
 
-        // position: static;
-        // left: 8.63%;
-        // right: 8.63%;
-        // top: 26%;
-        // bottom: 26%;
+  font-family: Atma;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  /* identical to box height, or 120% */
 
-        font-family: Atma;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 24px;
-        /* identical to box height, or 120% */
+  color: #333d3e;
 
+  /* Inside Auto Layout */
 
-        color: #333D3E;
-
-
-        /* Inside Auto Layout */
-
-        flex: none;
-        order: 0;
-        flex-grow: 0;
-        // justify-content: center;
-        // align-self:center;
-        margin: auto;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  // justify-content: center;
+  // align-self:center;
+  margin: auto;
 }
-.id-rather-choose-another-choice-font{
-    /* I’d rather write/read font */
+.id-rather-choose-another-choice-font {
+  /* I’d rather write/read font */
 
+  // position: absolute;
+  // left: 52.93%;
+  // right: 35.35%;
+  // top: 66.38%;
+  // bottom: 31.73%;
 
-        // position: absolute;
-        // left: 52.93%;
-        // right: 35.35%;
-        // top: 66.38%;
-        // bottom: 31.73%;
+  font-family: Atma;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  /* identical to box height, or 120% */
 
-        font-family: Atma;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 24px;
-        /* identical to box height, or 120% */
+  text-decoration-line: underline;
 
-        text-decoration-line: underline;
+  /* Heading/subheading-board */
 
-        /* Heading/subheading-board */
-
-        color: #333D3E;
+  color: #333d3e;
 }
-#missioncon{
-    margin:auto;
-    width:100%;
-    height: 100%;
-    background: pink;
+#missioncon {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background: pink;
 }
 
-.rectangle125-box{
-    margin-top:2%;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom:auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    // width:70%;
-    // height: 40em;
-    // background-color: yellow;
-//     /* Shadow/Gray */
+.rectangle125-box {
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // width:70%;
+  // height: 40em;
+  // background-color: yellow;
+  //     /* Shadow/Gray */
 
-    min-width: 408px;
-    min-height: 288px;
-    width:8rem;
-    height:20em;
-    background: #E5E5E5;
-    transform: matrix(1, -0.02, 0.04, 1, 0, 0);
+  min-width: 408px;
+  min-height: 288px;
+  width: 8rem;
+  height: 20em;
+  background: #e5e5e5;
+  transform: matrix(1, -0.02, 0.04, 1, 0, 0);
 }
-.rectangle12B5{
-    margin:auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width:80%;
-    height:100%;
+.rectangle12B5 {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
 }
-.rectangle125{
-    /* Rectangle 125 tab & desktop first */
-    
-    display: flex;
-    flex-direction: column;
-    /* Text/Black */
-    min-width: 408px;
-    min-height: 288px;
-    width:8rem;
-    height:20em;
-    background: #2D2A2B;
-    transform: matrix(1, -0.02, 0.03, 1, 0, 0);
-}
+.rectangle125 {
+  /* Rectangle 125 tab & desktop first */
 
-.gamemodebtncolclass{
-    display:flex;
-    flex-direction:column;
-    align-items: center;
-    justify-content: center;
-    margin:auto;
-    // margin-left:1rem;
-    // margin-right:1rem;   
-    // width:45%;
-    // height:100%;
-
-}
-.your-mission{
-    
-    /* Your Mission */
-    width:60%;
-    text-align:center;
-
-    /* Heading2-medium */
-
-    h1{
-        margin-top:1.7rem;
-        font-family: Bangers;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 42px;
-        line-height: 45px;
-        /* identical to box height */
-
-        letter-spacing: 0.05em;
-
-        /* Text/White */
-
-        color: #FBFBFB;
-    }
+  display: flex;
+  flex-direction: column;
+  /* Text/Black */
+  min-width: 408px;
+  min-height: 288px;
+  width: 8rem;
+  height: 20em;
+  background: #2d2a2b;
+  transform: matrix(1, -0.02, 0.03, 1, 0, 0);
 }
 
-// Butttons
+.gamemodebtncolclass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  // margin-left:1rem;
+  // margin-right:1rem;
+  // width:45%;
+  // height:100%;
+}
+.your-mission {
+  /* Your Mission */
+  width: 60%;
+  text-align: center;
 
+  /* Heading2-medium */
 
-.read-button-font{
-    /* Read */
-
-    margin:auto;
-    // position: absolute;
-    // left: 0%;
-    // right: 0%;
-    // top: 46.3%;
-    // bottom: 0%;
-
-    font-family: Atma;
+  h1 {
+    margin-top: 1.7rem;
+    font-family: Bangers;
     font-style: normal;
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 58px;
+    font-weight: normal;
+    font-size: 42px;
+    line-height: 45px;
+    /* identical to box height */
+
     letter-spacing: 0.05em;
 
     /* Text/White */
 
-    color: #FBFBFB;
-}
-#mission-read-button{
-
-    /* Lime Green */
-    border-radius:50%;
-    background: #C6FD7E;
-    margin:auto;
-    width:100%;
-    height:100%;
-    color:#2D2A2B;
-    }
-
-#mission-write-button{
-    /* Orange */
-    border-radius: 50%;
-    background: #FF845D;
-
-    margin:auto;
-    width:100%;
-    height:100%;
-    color:#2D2A2B;
+    color: #fbfbfb;
+  }
 }
 
-#mission-draw-button{
-    /* Yellow */
-    border-radius:50%;
-    margin:auto;
-    width:100%;
-    height:100%;
-    color:#2D2A2B;
-    background: #FFD854;
+// Butttons
+
+.read-button-font {
+  /* Read */
+
+  margin: auto;
+  // position: absolute;
+  // left: 0%;
+  // right: 0%;
+  // top: 46.3%;
+  // bottom: 0%;
+
+  font-family: Atma;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 58px;
+  letter-spacing: 0.05em;
+
+  /* Text/White */
+
+  color: #fbfbfb;
+}
+#mission-read-button {
+  /* Lime Green */
+  border-radius: 50%;
+  background: #c6fd7e;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  color: #2d2a2b;
 }
 
+#mission-write-button {
+  /* Orange */
+  border-radius: 50%;
+  background: #ff845d;
 
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  color: #2d2a2b;
+}
 
-.dont-forget{
-    /* Text  might not need all of dont-forget*/
+#mission-draw-button {
+  /* Yellow */
+  border-radius: 50%;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  color: #2d2a2b;
+  background: #ffd854;
+}
 
+.dont-forget {
+  /* Text  might not need all of dont-forget*/
 
-        position: absolute;
-        width: 308px;
-        height: 258px;
-        left: 541.93px;
-        top: 559px;
+  position: absolute;
+  width: 308px;
+  height: 258px;
+  left: 541.93px;
+  top: 559px;
 
+  /* Skip */
 
+  position: absolute;
+  width: 120px;
+  height: 24px;
+  left: 542px;
+  top: 841px;
 
-        /* Skip */
+  /* Line */
 
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
 
-        position: absolute;
-        width: 120px;
-        height: 24px;
-        left: 542px;
-        top: 841px;
+  border: 4px solid #1a1a1a;
+  border-radius: 24px;
 
+  /* End / Circle */
 
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 16px;
+  bottom: -8px;
 
-        /* Line */
-
-
-        position: absolute;
-        left: 0px;
-        right: 0px;
-        top: 0px;
-        bottom: 0px;
-
-        border: 4px solid #1A1A1A;
-        border-radius: 24px;
-
-
-        /* End / Circle */
-
-
-        position: absolute;
-        width: 16px;
-        height: 16px;
-        left: 16px;
-        bottom: -8px;
-
-        transform: matrix(-1, 0, 0, 1, 0, 0);
+  transform: matrix(-1, 0, 0, 1, 0, 0);
 }
