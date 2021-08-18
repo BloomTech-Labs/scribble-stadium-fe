@@ -5,3 +5,56 @@
 .storybookManager {
   min-height: 100vh;
 }
+
+.storybookDetails {
+  &__content {
+    margin-right: 1em;
+    background-color: white;
+
+    .header {
+      margin-bottom: 1em;
+      &__top {
+        padding: 2em 0;
+
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .details {
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+
+      &__item,
+      &__input {
+        flex: 1;
+
+        input {
+          text-align: center;
+        }
+      }
+    }
+
+    .prompt,
+    .audio {
+      &__header {
+        display: flex;
+        align-items: center;
+        h3 {
+          margin-right: 1em;
+        }
+        hr {
+          flex: 1;
+        }
+      }
+    }
+
+    .prompt {
+    }
+
+    .audio {
+    }
+  }
+}

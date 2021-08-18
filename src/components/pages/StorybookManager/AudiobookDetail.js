@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Button, Input, Layout, Menu } from 'antd';
+import { Button, Input, Layout, Menu, Upload } from 'antd';
 import { toggleNavCollapsed } from './Context/StorybookManager.Actions';
 import { useStore } from './Context/StorybookManager.Context';
 import { useParams } from 'react-router-dom';
@@ -36,14 +36,14 @@ const AudiobookDetail = () => {
   console.table(detail);
   return (
     <Fragment>
-      <Layout>
-        <Content style={{ background: 'white' }}>
+      <Layout className="storybookDetails">
+        <Content className="storybookDetails__content">
           <div className="header">
             <div
               className="header__top"
               style={{ display: 'flex', justifyContent: 'space-between' }}
             >
-              <h3>{detail.trackName}</h3>
+              <h2>{detail.trackName}</h2>
               <Button onClick={toggleEditMode}>
                 {editMode ? 'Save' : 'Edit'} Details
               </Button>
@@ -92,13 +92,30 @@ const AudiobookDetail = () => {
               }}
             />
           </div>
+
+          <div className="prompt">
+            <div className="prompt__header">
+              <h3>Story Prompt</h3>
+              <hr />
+            </div>
+            <div className="prompt__upload">
+              <Upload.Dragger>
+                <p>Click or drag file to this area to upload</p>
+              </Upload.Dragger>
+            </div>
+          </div>
+          <div className="audio">
+            <div className="audio__header">
+              <h3>Audio File</h3>
+              <hr />
+            </div>
+            <div className="audio__upload">
+              <Upload.Dragger>
+                <p>Click or drag file to this area to upload</p>
+              </Upload.Dragger>
+            </div>
+          </div>
         </Content>
-        <Sider theme="light">
-          <Menu>
-            <Menu.Item>Audiobook</Menu.Item>
-            <Menu.Item>Story Prompt</Menu.Item>
-          </Menu>
-        </Sider>
       </Layout>
     </Fragment>
   );
@@ -107,17 +124,17 @@ const AudiobookDetail = () => {
 const DetailObject = ({ label, data, edit = false, inputParams }) => {
   if (edit)
     return (
-      <>
+      <div className="details__input">
         <h4>{label}</h4>
         <Input size="large" {...inputParams} placeholder={data} />
-      </>
+      </div>
     );
   else
     return (
-      <>
+      <div className="details__item">
         <h4>{label}</h4>
         <p>{data}</p>
-      </>
+      </div>
     );
 };
 
