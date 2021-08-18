@@ -17,15 +17,22 @@ const StorybookManagerModal = () => {
   };
 
   return (
-    <Modal title={modalTitle} visible={isModalOn} onCancel={handleCloseModal}>
+    <Modal
+      className="storybookModal"
+      title={modalTitle}
+      visible={isModalOn}
+      onCancel={handleCloseModal}
+    >
       <Input placeholder="Track Title" />
       <Input placeholder="Chapter" />
       <Input placeholder="Episode" />
       <Input placeholder="Story" />
       <Input placeholder="Author" />
-      <Upload>
-        <Button>Upload</Button>
-      </Upload>
+      <div className="upload-container">
+        <Upload.Dragger>
+          <p>Drag or Click to add</p>
+        </Upload.Dragger>
+      </div>
     </Modal>
   );
 };

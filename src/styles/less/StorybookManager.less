@@ -6,6 +6,27 @@
   min-height: 100vh;
 }
 
+.storybookModal {
+  .ant-modal-body {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: stretch;
+    input {
+      margin: 1em 0;
+    }
+
+    .upload-container {
+      flex-basis: 100%;
+    }
+  }
+
+  .ant-modal-footer {
+    button {
+      margin: 0 !important;
+    }
+  }
+}
+
 .storybookDetails {
   &__content {
     margin-right: 1em;
