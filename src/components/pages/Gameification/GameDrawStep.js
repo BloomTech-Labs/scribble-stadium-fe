@@ -29,6 +29,9 @@ export default function GameDrawStep(props) {
   const handleSubmit = () => {
     setIsUploading(true);
 
+    // Timer used to allow a slight delay before the submit functions trigger.
+    const triggerSubmitTimer = 1500;
+
     setTimeout(() => {
       props.updateSubmissionData('HasDrawn', true);
       props.updateFileSubmissionData('drawings', fileList);
@@ -48,7 +51,7 @@ export default function GameDrawStep(props) {
       }
 
       history.push(`${props.baseURL}/write`);
-    }, 1500);
+    }, triggerSubmitTimer);
   };
 
   // This handles when we skip the drawing phase

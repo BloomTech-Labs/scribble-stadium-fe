@@ -29,6 +29,9 @@ export default function GameWriteStep(props) {
   const handleSubmit = () => {
     setIsUploading(true);
 
+    // Timer used to allow a slight delay before the submit functions trigger.
+    const triggerSubmitTimer = 1500;
+
     setTimeout(() => {
       props.updateSubmissionData('HasWritten', true);
       props.updateFileSubmissionData('writings', fileList);
@@ -45,7 +48,7 @@ export default function GameWriteStep(props) {
       props.enableModalWindow(modalData);
 
       setIsUploading(false);
-    }, 1500);
+    }, triggerSubmitTimer);
   };
 
   // This function handles when we make a full submission of the entire mission(after reading, drawing, and writing)

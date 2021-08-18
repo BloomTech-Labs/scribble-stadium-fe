@@ -6,6 +6,9 @@ export default function GameModal(props) {
   // Get the data to display
   const { title, description, buttonTxt } = props.modalData;
 
+  // Timeout timer before the modal is removed from the DOM(in ms)
+  const removeModalTimer = 1000;
+
   // Functio to close the modal
   const closeModal = () => {
     gsap.to('.modal-container', { y: '100vh', duration: 0.5 });
@@ -18,7 +21,7 @@ export default function GameModal(props) {
 
     setTimeout(() => {
       props.disableModalWindow();
-    }, 1000);
+    }, removeModalTimer);
   };
 
   // Add some animation effects when component loads
