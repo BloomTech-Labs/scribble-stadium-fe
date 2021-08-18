@@ -5,14 +5,17 @@ import {
   changeListViewMode,
   toggleNavCollapsed,
 } from './Context/StorybookManager.Actions';
+import { useHistory } from 'react-router-dom';
 
 const { SubMenu } = Menu;
 
 const ManagerMenu = () => {
   const [{ listView, isNavCollapsed }, dispatch] = useStore();
+  const history = useHistory();
 
   const listViewHandler = view => {
     dispatch(changeListViewMode(view));
+    history.push('/admin/audiobooks');
   };
 
   const onCollapse = () => {

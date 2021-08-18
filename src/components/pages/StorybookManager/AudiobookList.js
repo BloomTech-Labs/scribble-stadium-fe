@@ -3,6 +3,7 @@ import { Skeleton, Table, Space, Button } from 'antd';
 import { useStore } from './Context/StorybookManager.Context';
 import { showModalAddAudiobook } from './Context/StorybookManager.Actions';
 import sampleData from './SampleData';
+import { useHistory } from 'react-router-dom';
 
 const createTableColumns = render => {
   return [
@@ -41,6 +42,7 @@ const createTableColumns = render => {
 
 const AudiobookList = () => {
   const [{ listView }, dispatch] = useStore();
+  const history = useHistory();
 
   const [audiobookList, setAudiobookList] = useState([]);
   const [loadingData, setLoadingData] = useState(false);
@@ -82,7 +84,11 @@ const AudiobookList = () => {
               columns={createTableColumns(book => (
                 <Space size="middle">
                   <a onClick={() => handleDelete(book.id)}>Delete</a>
-                  <a>Edit</a>
+                  <a
+                    onClick={() => history.push(`/admin/audiobooks/${book.id}`)}
+                  >
+                    Edit
+                  </a>
                 </Space>
               ))}
               dataSource={audiobookList}
