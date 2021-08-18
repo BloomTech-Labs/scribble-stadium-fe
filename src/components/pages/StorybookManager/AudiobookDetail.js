@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Button, Input, Layout, Menu, Upload } from 'antd';
+import { Button, Checkbox, Input, Layout, Menu, message, Upload } from 'antd';
 import { toggleNavCollapsed } from './Context/StorybookManager.Actions';
 import { useStore } from './Context/StorybookManager.Context';
 import { useParams } from 'react-router-dom';
@@ -99,9 +99,33 @@ const AudiobookDetail = () => {
               <hr />
             </div>
             <div className="prompt__upload">
-              <Upload.Dragger>
-                <p>Click or drag file to this area to upload</p>
-              </Upload.Dragger>
+              {editMode ? (
+                <Upload.Dragger
+                  beforeUpload={file => {
+                    console.log(file.type);
+                    if (file.type !== 'application/pdf') {
+                      message.error(`${file.name} is not a pdf file`);
+                    }
+                    return file.type === 'application/pdf'
+                      ? true
+                      : Upload.LIST_IGNORE;
+                  }}
+                  multiple={false}
+                  action={file => {
+                    console.log(file);
+                  }}
+                >
+                  <p>Click or drag file to this area to upload</p>
+                </Upload.Dragger>
+              ) : (
+                <div className="prompt__fileView">
+                  {detail.storyPrompt ? (
+                    <></>
+                  ) : (
+                    <p>No File has been uploaded</p>
+                  )}
+                </div>
+              )}
             </div>
           </div>
           <div className="audio">
@@ -110,9 +134,45 @@ const AudiobookDetail = () => {
               <hr />
             </div>
             <div className="audio__upload">
-              <Upload.Dragger>
-                <p>Click or drag file to this area to upload</p>
-              </Upload.Dragger>
+              {editMode ? (
+                <Upload.Dragger
+                  beforeUpload={file => {
+                    console.log(file.type);
+                    if (file.type !== 'application/pdf') {
+                      message.error(`${file.name} is not a pdf file`);
+                    }
+                    return file.type === 'application/pdf'
+                      ? true
+                      : Upload.LIST_IGNORE;
+                  }}
+                  multiple={false}
+                  action={file => {
+                    console.log(file);
+                  }}
+                >
+                  <p>Click or drag file to this area to upload</p>
+                </Upload.Dragger>
+              ) : (
+                <div className="audio__fileView">
+                  {detail.storyPrompt ? (
+                    <></>
+                  ) : (
+                    <p>No File has been uploaded</p>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+          <div className="control">
+            <div className="control__header">
+              <h3>Controls</h3>
+              <hr />
+            </div>
+            <div className="control__panel">
+              <div className="control__checklist">
+                <Checkbox disabled={!editMode}>Publish</Checkbox>
+              </div>
+              <Button disabled={!editMode}>Delete Chapter</Button>
             </div>
           </div>
         </Content>

@@ -7,6 +7,9 @@ const sampleData = [
     episode: 1,
     author: 'J. K. Rowling',
     story: "Harry Potter and the Philosopher's Stone",
+    isPublished: false,
+    storyPrompt: null,
+    audioFile: null,
   },
   {
     id: 2,
@@ -16,6 +19,9 @@ const sampleData = [
     episode: 1,
     author: 'J. K. Rowling',
     story: "Harry Potter and the Philosopher's Stone",
+    isPublished: false,
+    storyPrompt: null,
+    audioFile: null,
   },
   {
     id: 3,
@@ -25,6 +31,9 @@ const sampleData = [
     episode: 2,
     author: 'J. K. Rowling',
     story: "Harry Potter and the Philosopher's Stone",
+    isPublished: false,
+    storyPrompt: null,
+    audioFile: null,
   },
 ];
 
