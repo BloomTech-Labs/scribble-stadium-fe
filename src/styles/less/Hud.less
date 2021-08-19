@@ -1,0 +1,102 @@
+@import '~antd/dist/antd.less';
+@import '~antd/lib/style/themes/default.less';
+
+.HudContainer {
+    width: 100%;
+    font-family: ;
+    background-color: #757575;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0px;
+}
+
+.countdown-timer {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.progressionBar {
+    width: 85%;
+    border-radius: 15px;
+    border: 3px solid black;
+    display: flex;
+    flex-flow: row, wrap;
+    color: black;
+    background-color: white;
+    font-size: 1.4rem;
+    margin: 0 auto;
+}
+
+.activity {
+    width: 16.666%;
+    text-align: center;
+    transform: skewX(-15deg);
+    border-right: 3px solid black;
+    span {
+        transform: skewX(15deg);
+    }
+    &:nth-last-of-type(1) {
+        border-right: none;
+    }
+}
+
+// Checkmark img for completed activity to be added after made in house 
+.completedActivity {
+    background-color: #C6FD7E;
+}
+
+.currentActivity {
+    background-color: #C6FD7E;
+    animation: pulse-animation 2s infinite;
+}
+
+.pulse {
+    animation: pulse-animation 2s infinite;
+}
+  
+@keyframes pulse-animation {
+    0% {
+        box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    }
+}
+
+.dayBars {
+    width: 80%;
+    justify-content: space-evenly;
+}
+
+.bar1 {
+    width: 40%;
+    background-color: #757575;
+    min-height: 2rem;
+}
+
+.bar2 {
+    width: 30%;
+    background-color: #757575;
+    min-height: 2rem;
+}
+
+.bar3 {
+    width: 30%;
+    background-color: #757575;
+    min-height: 2rem;
+}
+
+.days {
+    width: 80%;
+}
+
+.currentDay {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: #C6FD7E;
+    animation: pulse-animation 2s infinite;
+}
+
+.completedDay {
+    background-color: #C6FD7E;
+}
