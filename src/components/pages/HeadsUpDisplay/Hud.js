@@ -43,6 +43,7 @@ export default function (props) {
         <div className="day4-5">Day 4 - 5</div>
         <div className="day6-7">Day 6 - 7</div>
       </div>
+      {/* Button for collapsing/expanding will go here */}
     </div>
   );
 }

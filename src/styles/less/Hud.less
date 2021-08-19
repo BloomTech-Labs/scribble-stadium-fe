@@ -3,7 +3,6 @@
 
 .HudContainer {
     width: 100%;
-    font-family: ;
     background-color: #757575;
     display: flex;
     flex-direction: column;
@@ -30,8 +29,10 @@
 .activity {
     width: 16.666%;
     text-align: center;
+    // This is how the I made the border angled on one side
     transform: skewX(-15deg);
     border-right: 3px solid black;
+    // This is to make the element seem less italicized 
     span {
         transform: skewX(15deg);
     }
@@ -49,7 +50,7 @@
     background-color: #C6FD7E;
     animation: pulse-animation 2s infinite;
 }
-
+// This is the animation for current activity
 .pulse {
     animation: pulse-animation 2s infinite;
 }
@@ -89,14 +90,14 @@
 .days {
     width: 80%;
 }
-
+//State not done for this PT21
 .currentDay {
     display: flex;
     flex-flow: row wrap;
     background-color: #C6FD7E;
     animation: pulse-animation 2s infinite;
 }
-
+// State not done for this PT21
 .completedDay {
     background-color: #C6FD7E;
 }
