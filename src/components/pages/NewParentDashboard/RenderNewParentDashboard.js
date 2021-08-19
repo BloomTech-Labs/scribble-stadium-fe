@@ -25,7 +25,6 @@ const RenderNewParentDashboard = props => {
     <div>
       <Layout className="newparent-dashboard">
         <ParentNavTopBar />
-
         <Layout>
           <div className="progress-container">
             <NewProgressCharts />

@@ -67,13 +67,13 @@ export const CountDownTimer = () => {
 
   return (
     <div className="countdown-timer">
-      <div>
+      {/* <div>
         Current Activity: <CurrentActivity />
-      </div>
+      </div> */}
       <div>Time Remaining: {convertTimeFormat(timeRemaining)}</div>
-      <div>
+      {/* <div>
         Next Activity: <NextActivity />
-      </div>
+      </div> */}
     </div>
   );
 };
