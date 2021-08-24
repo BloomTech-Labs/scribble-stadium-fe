@@ -16,6 +16,7 @@ import {
 } from 'react-router-dom';
 
 import { Security } from '@okta/okta-react';
+import { Auth0Provider } from '@auth0/auth0-react'; //this will replace okta above
 
 import 'antd/dist/antd.less';
 import './styles/less/index.less';
@@ -76,18 +77,26 @@ import { AudioBook } from './components/pages/AudioBook';
 
 // import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
 
+const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+
 ReactDOM.render(
   //
   <Router>
     <React.StrictMode>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <App />
+          <Auth0Provider
+            domain={domain}
+            clientId={clientId}
+            redirectUri={window.location.origin}
+          >
+            <App />
+          </Auth0Provider>
         </PersistGate>
       </Provider>
     </React.StrictMode>
   </Router>,
-
   document.getElementById('root')
 );
 
@@ -114,28 +123,28 @@ function App() {
         <Route path="/login" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
-        <SecureRoute
+        <ProtectedRoute
           path="/"
           exact
           component={() => (
             <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/child/story"
           component={() => (
             <StoryPrompt LoadingComponent={ChildLoadingComponent} />
           )}
         />
 
-        <SecureRoute
+        <ProtectedRoute
           path="/child/dashboard"
           component={() => (
             <ChildDashboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
 
-        <SecureRoute
+        <ProtectedRoute
           exact
           path="/gallery"
           component={() => (
@@ -143,7 +152,7 @@ function App() {
           )}
         />
 
-        <SecureRoute
+        <ProtectedRoute
           exact
           path="/gallery/:id"
           component={() => (
@@ -151,7 +160,7 @@ function App() {
           )}
         />
 
-        <SecureRoute
+        <ProtectedRoute
           exact
           path="/gallery/child/:id"
           component={() => (
@@ -159,39 +168,39 @@ function App() {
           )}
         />
 
-        <SecureRoute path="/scoreboard" component={FaceoffReveal} />
+        <ProtectedRoute path="/scoreboard" component={FaceoffReveal} />
 
-        <SecureRoute
+        <ProtectedRoute
           path="/child/mission-control"
           component={() => (
             <MissionControl LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/child/drawing-sub"
           component={() => (
             <DrawingSub LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/child/writing-sub"
           component={() => (
             <WritingSub LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/parent/add-child"
           component={() => (
             <AddChild LoadingComponent={ParentLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/parent/edit-players"
           component={() => (
             <EditPlayers LoadingComponent={ParentLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/parent/dashboard"
           exact
           component={() => (
@@ -199,7 +208,7 @@ function App() {
           )}
         />
 
-        <SecureRoute
+        <ProtectedRoute
           path="/parent/dashboard-faq"
           exact
           component={() => (
@@ -212,14 +221,14 @@ function App() {
           )}
         />
 
-        <SecureRoute
+        <ProtectedRoute
           path="/parent/faq"
           exact
           component={() => (
             <ParentFaq LoadingComponent={ParentLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/parent/contact"
           exact
           component={() => (
@@ -227,52 +236,52 @@ function App() {
           )}
         />
 
-        <SecureRoute
+        <ProtectedRoute
           path="/parent/help"
           exact
           component={() => <Help LoadingComponent={ParentLoadingComponent} />}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/parent/settings"
           exact
           component={() => (
             <ParentSettings LoadingComponent={ParentLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/child/join"
           exact
           component={() => (
             <JoinTheSquad LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/child/point-share"
           exact
           component={() => (
             <PointShare LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/child/match-up"
           exact
           component={() => <MatchUp LoadingComponent={ChildLoadingComponent} />}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/child/match-up/squad-vote"
           exact
           component={() => (
             <VotingPage LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/child/leaderboard"
           exact
           component={() => (
             <Leaderboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/child/audiobook"
           exact
           component={() => (
