@@ -24,6 +24,7 @@ import './styles/less/index.less';
 // Helpers
 import { config } from './utils/oktaConfig';
 import SecureRoute from './components/common/SecureRoute';
+import ProtectedRoute from './components/common/SecureRouteAuth0'; //replacing SecureRoute
 
 //Components
 
@@ -112,13 +113,13 @@ function App() {
   };
 
   return (
-    <Security {...config} onAuthRequired={authHandler}>
+    <>
+      {/* <Security {...config} onAuthRequired={authHandler}> */}
+
       <DevModeHeader component={DevModeHeader} />
       <Switch>
         <Route exact path="/gamemode" component={Gamemode} />
-
         <Route path="/gameification" component={GameificationMain} />
-
         <Route path="/gamemode/single" component={GamemodeButton} />
         <Route path="/login" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />
@@ -297,6 +298,7 @@ function App() {
         <Route exact path="/dev/day/7" component={Fri} />
         <Route component={NotFoundPage} />
       </Switch>
-    </Security>
+      {/* </Security> */}
+    </>
   );
 }
