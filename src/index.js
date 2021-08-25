@@ -15,16 +15,13 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import { Security } from '@okta/okta-react';
-import { Auth0Provider } from '@auth0/auth0-react'; //this will replace okta above
+import { Auth0Provider } from '@auth0/auth0-react';
 
 import 'antd/dist/antd.less';
 import './styles/less/index.less';
 
 // Helpers
-import { config } from './utils/oktaConfig';
-import SecureRoute from './components/common/SecureRoute';
-import ProtectedRoute from './components/common/SecureRouteAuth0'; //replacing SecureRoute
+import ProtectedRoute from './components/common/SecureRouteAuth0';
 
 //Components
 
@@ -114,8 +111,6 @@ function App() {
 
   return (
     <>
-      {/* <Security {...config} onAuthRequired={authHandler}> */}
-
       <DevModeHeader component={DevModeHeader} />
       <Switch>
         <Route exact path="/gamemode" component={Gamemode} />
@@ -123,7 +118,7 @@ function App() {
         <Route path="/gamemode/single" component={GamemodeButton} />
         <Route path="/login" component={LandingPage} />
         <Route path="/implicit/callback" component={LoginCallbackLoader} />
-        {/* any of the routes you need secured should be registered as SecureRoutes */}
+        {/* any of the routes you need secured should be registered as ProtectedRoutes */}
         <ProtectedRoute
           path="/"
           exact
@@ -298,7 +293,6 @@ function App() {
         <Route exact path="/dev/day/7" component={Fri} />
         <Route component={NotFoundPage} />
       </Switch>
-      {/* </Security> */}
     </>
   );
 }
