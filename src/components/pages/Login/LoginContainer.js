@@ -5,7 +5,7 @@ const LoginContainer = () => {
   const { loginWithRedirect } = useAuth0();
 
   return (
-    <button onClick={() => loginWithRedirect()} style={{ marginRight: '.5em' }}>
+    <button id="sign-in-btn" onClick={() => loginWithRedirect()}>
       Log In
     </button>
   );
