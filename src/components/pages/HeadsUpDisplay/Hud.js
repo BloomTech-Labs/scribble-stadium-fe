@@ -19,7 +19,7 @@ export default function (props) {
       <br />
       <br />
       {/* This is going to show all tasks as well as indicating current task */}
-      {/* <div className="progressionBar">
+      <div className="progressionBar">
         {activities.map(a => {
           return (
             <div
@@ -31,7 +31,7 @@ export default function (props) {
             </div>
           );
         })}
-      </div> */}
+      </div>
       {/* This will show the days and indicaate current day */}
       <div className="dayBars">
         <div className="bar1"></div>
