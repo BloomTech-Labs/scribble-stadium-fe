@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { useAuth0 } from '@auth0/auth0-react'; //replaces useOtkaAuth
+import { useAuth0 } from '@auth0/auth0-react';
 import RenderParentDashboard from './RenderParentDashboard';
 import { connect } from 'react-redux';
 
