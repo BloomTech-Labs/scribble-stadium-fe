@@ -44,6 +44,9 @@ export default function (props) {
         <div className="day6-7">Day 6 - 7</div>
       </div>
       {/* Button for collapsing/expanding will go here */}
+      <div style={{ fontSize: '30px' }}>
+        <UpCircleFilled />
+      </div>
     </div>
   );
 }
