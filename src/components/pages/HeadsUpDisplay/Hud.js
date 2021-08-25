@@ -3,8 +3,7 @@ import { CountDownTimer } from './CountdownTimer';
 import Hud from '../../../styles/less/Hud.less';
 import { UpCircleFilled } from '@ant-design/icons';
 
-export default function HUD() {
-  //props) {
+export default function (props) {
   const activities = [
     'Read',
     'Draw',

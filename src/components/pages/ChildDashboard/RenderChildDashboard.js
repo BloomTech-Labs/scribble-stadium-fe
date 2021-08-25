@@ -4,7 +4,7 @@ import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
-import { HUD } from '../HeadsUpDisplay/Hud';
+import { HUD } from '../HeadsUpDisplay/index';
 
 import adventure_passport from '../../../assets/images/child_dashboard_images/adventure_passport.svg';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
