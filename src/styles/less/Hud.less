@@ -44,10 +44,34 @@
 // Checkmark img for completed activity to be added after made in house 
 .completedActivity {
     background-color: #C6FD7E;
+    width: 16.666%;
+    text-align: center;
+    // This is how the I made the border angled on one side
+    transform: skewX(-15deg);
+    border-right: 3px solid black;
+    // This is to make the element seem less italicized 
+    span {
+        transform: skewX(15deg);
+    }
+    &:nth-last-of-type(1) {
+        border-right: none;
+    }
 }
 
 .currentActivity {
     background-color: #C6FD7E;
+    width: 16.666%;
+    text-align: center;
+    // This is how the I made the border angled on one side
+    transform: skewX(-15deg);
+    border-right: 3px solid black;
+    // This is to make the element seem less italicized 
+    span {
+        transform: skewX(15deg);
+    }
+    &:nth-last-of-type(1) {
+        border-right: none;
+    }
     animation: pulse-animation 2s infinite;
 }
 // This is the animation for current activity

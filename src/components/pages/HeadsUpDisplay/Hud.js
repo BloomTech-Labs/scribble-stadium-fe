@@ -4,6 +4,8 @@ import Hud from '../../../styles/less/Hud.less';
 import { UpCircleFilled } from '@ant-design/icons';
 
 export default function (props) {
+  const { currentActivity } = props;
+
   const activities = [
     'Read',
     'Draw',
@@ -24,7 +26,7 @@ export default function (props) {
           return (
             <div
               className={`activity ${
-                props.currentActivity == a && 'currentActivity'
+                currentActivity == a && 'currentActivity'
               }`}
             >
               <span>{a}</span>

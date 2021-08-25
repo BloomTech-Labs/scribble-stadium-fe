@@ -33,7 +33,7 @@ const RenderChildDashboard = props => {
   return (
     <>
       <Header displayMenu={true} />
-      <HUD />
+      <HUD currentActivity={'Read'} />
       <InstructionsModal //This is the pop up that happens on the child dashboard stop at one pop up
         modalVisible={modalVisible}
         handleCancel={() => {
