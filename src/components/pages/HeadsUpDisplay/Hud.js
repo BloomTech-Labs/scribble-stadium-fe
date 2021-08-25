@@ -17,7 +17,6 @@ export default function (props) {
     <div className="HudContainer">
       <CountDownTimer />
       <br />
-      <br />
       {/* This is going to show all tasks as well as indicating current task */}
       <div className="progressionBar">
         {activities.map(a => {
