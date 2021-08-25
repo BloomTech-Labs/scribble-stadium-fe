@@ -35,6 +35,7 @@ import { ChildDashboard } from './components/pages/ChildDashboard';
 import { DrawingSub } from './components/pages/DrawingSub';
 import { Gamemode } from './components/pages/Gamemode';
 import { GamemodeButton } from './components/pages/Gamemode';
+import { Hud } from './components/pages/HeadsUpDisplay';
 
 import { Help } from './components/pages/Help';
 import { LandingPage } from './components/pages/LandingPage';
@@ -124,7 +125,8 @@ function App() {
           )}
         />
 
-        <SecureRoute
+        {/* change back to SecureRoute when finished */}
+        <Route
           path="/child/dashboard"
           component={() => (
             <ChildDashboard LoadingComponent={ChildLoadingComponent} />
