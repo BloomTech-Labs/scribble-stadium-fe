@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Layout } from 'antd';
-import { useAuth0 } from '@auth0/auth0-react'; //replaces okta
+import { useAuth0 } from '@auth0/auth0-react';
 import { getProfileData } from '../../../api';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import NewProgressCharts from '../../common/NewProgressCharts';
