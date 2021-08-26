@@ -10,7 +10,9 @@
 }
 
 .countdown-timer {
-    font-size: 1rem;
+    font-size: 1.5rem;
+	font-family: 'Bangers', cursive;
+	color: white;
     text-align: center;
 }
 
@@ -22,7 +24,9 @@
     flex-flow: row, wrap;
     color: black;
     background-color: white;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+	font-weight: 500;
+	font-family: 'Bangers', cursive;
     margin: 0 auto;
 }
 
@@ -89,30 +93,79 @@
 }
 
 .dayBars {
-    width: 80%;
+	display: flex;
+    width: 85%;
+	margin: 0 auto;
+	flex-direction: row;
     justify-content: space-evenly;
 }
 
 .bar1 {
-    width: 40%;
-    background-color: #757575;
-    min-height: 2rem;
+    width: 30%;
+    background-color: #c7c7c7;
+    min-height: .75rem;
+	border-radius: 200px;
 }
 
 .bar2 {
-    width: 30%;
-    background-color: #757575;
-    min-height: 2rem;
+    width: 20%;
+    background-color: #c7c7c7;
+    min-height: .75rem;
+	border-radius: 200px;
 }
 
 .bar3 {
-    width: 30%;
-    background-color: #757575;
-    min-height: 2rem;
+    width: 20%;
+    background-color: #c7c7c7;
+    min-height: .75rem;
+	border-radius: 200px;
+}
+
+.currentBar {
+    width: 20%;
+    background-color: #C6FD7E;
+    min-height: .75rem;
+	border-radius: 200px;
 }
 
 .days {
-    width: 80%;
+    display: flex;
+    width: 85%;
+	margin-top: .5%;
+	margin-left: 7.5%;
+	margin-right: 7.5%;
+	flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.day1-3 {
+	display: flex;
+	width: 30%;
+	justify-content: center;
+	font-size: 1.5rem;
+	color: white;
+	font-family: 'Bangers', cursive;
+
+}
+
+.day4-5 {
+	display: flex;
+	width: 20%;
+	justify-content: center;
+	font-size: 1.5rem;
+	color: white;
+	font-family: 'Bangers', cursive;
+
+}
+
+.day6-7 {
+	display: flex;
+	width: 20%;
+	justify-content: center;
+	font-size: 1.5rem;
+	color: white;
+	font-family: 'Bangers', cursive;
+
 }
 //State not done for this PT21
 .currentDay {
