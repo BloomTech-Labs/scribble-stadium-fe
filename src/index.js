@@ -32,8 +32,7 @@ import {
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
 import { DrawingSub } from './components/pages/DrawingSub';
-import { Gamemode } from './components/pages/Gamemode';
-import { GamemodeButton } from './components/pages/Gamemode';
+import { Gamemode, GamemodeButton } from './components/pages/Gamemode';
 
 import { Help } from './components/pages/Help';
 import { LandingPage } from './components/pages/LandingPage';
@@ -120,8 +119,8 @@ function App() {
         <Route path="/implicit/callback" component={LoginCallbackLoader} />
         {/* any of the routes you need secured should be registered as ProtectedRoutes */}
         <ProtectedRoute
-          path="/"
           exact
+          path="/"
           component={() => (
             <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
@@ -197,89 +196,89 @@ function App() {
           )}
         />
         <ProtectedRoute
-          path="/parent/dashboard"
           exact
+          path="/parent/dashboard"
           component={() => (
             <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
 
         <ProtectedRoute
-          path="/parent/dashboard-faq"
           exact
+          path="/parent/dashboard-faq"
           component={() => (
             <ParentDashFaq LoadingComponent={ParentLoadingComponent} />
           )}
-          path="/parent/support"
           exact
+          path="/parent/support"
           component={() => (
             <SupportPage LoadingComponent={ParentLoadingComponent} />
           )}
         />
 
         <ProtectedRoute
-          path="/parent/faq"
           exact
+          path="/parent/faq"
           component={() => (
             <ParentFaq LoadingComponent={ParentLoadingComponent} />
           )}
         />
         <ProtectedRoute
-          path="/parent/contact"
           exact
+          path="/parent/contact"
           component={() => (
             <ParentContact LoadingComponent={ParentLoadingComponent} />
           )}
         />
 
         <ProtectedRoute
-          path="/parent/help"
           exact
+          path="/parent/help"
           component={() => <Help LoadingComponent={ParentLoadingComponent} />}
         />
         <ProtectedRoute
-          path="/parent/settings"
           exact
+          path="/parent/settings"
           component={() => (
             <ParentSettings LoadingComponent={ParentLoadingComponent} />
           )}
         />
         <ProtectedRoute
-          path="/child/join"
           exact
+          path="/child/join"
           component={() => (
             <JoinTheSquad LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <ProtectedRoute
-          path="/child/point-share"
           exact
+          path="/child/point-share"
           component={() => (
             <PointShare LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <ProtectedRoute
-          path="/child/match-up"
           exact
+          path="/child/match-up"
           component={() => <MatchUp LoadingComponent={ChildLoadingComponent} />}
         />
         <ProtectedRoute
-          path="/child/match-up/squad-vote"
           exact
+          path="/child/match-up/squad-vote"
           component={() => (
             <VotingPage LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <ProtectedRoute
-          path="/child/leaderboard"
           exact
+          path="/child/leaderboard"
           component={() => (
             <Leaderboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <ProtectedRoute
-          path="/child/audiobook"
           exact
+          path="/child/audiobook"
           component={() => (
             <AudioBook LoadingComponent={ChildLoadingComponent} />
           )}
