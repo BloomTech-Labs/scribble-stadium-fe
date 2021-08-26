@@ -44,8 +44,9 @@ export default function (props) {
         <div className="day6-7">Day 6 - 7</div>
       </div>
       {/* Button for collapsing/expanding will go here */}
-      <div>
-        <Button className="progbtn" icon={<UpCircleFilled />} type="default" />
+
+      <div className="progbtn">
+        <UpCircleFilled />
       </div>
     </div>
   );
