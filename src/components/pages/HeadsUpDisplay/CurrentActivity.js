@@ -19,7 +19,7 @@ export const CurrentActivity = () => {
       3: "Write",
       4: "Squadding Up",
       5: "Point Share",
-      6: "Big Final Reveal"
+      6: "Voting"
     };
     setActivity(activityList[day]);
     return activity;

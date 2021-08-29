@@ -20,9 +20,9 @@ export const NextActivity = () => {
       3: "Write",
       4: "Squadding Up",
       5: "Point Share",
-      6: "Big Final Reveal"
+      6: "Voting"
     };
-    setActivity(day === 6 ? activityList[1] : activityList[day + 1]);
+    setActivity(day === 6 ? activityList[0] : activityList[day + 1]);
     return activity;
   };
 
