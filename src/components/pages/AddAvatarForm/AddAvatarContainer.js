@@ -1,38 +1,18 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
+import React, { useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import RenderAddAvatar from './RenderAddAvatar';
 
 const AddAvatarContainer = ({ LoadingComponent }) => {
-  const { authState, authService } = useOktaAuth();
-  const [userInfo, setUserInfo] = useState(null);
-  const [memoAuthService] = useMemo(() => [authService], []);
-
-  useEffect(() => {
-    let isSubscribed = true;
-
-    memoAuthService
-      .getUser()
-      .then(info => {
-        if (isSubscribed) {
-          setUserInfo(info);
-        }
-      })
-      .catch(err => {
-        isSubscribed = false;
-        return setUserInfo(null);
-      });
-    return () => (isSubscribed = false);
-  }, [memoAuthService]);
+  const { user, isAuthenticated } = useAuth0();
+  const [userInfo, setUserInfo] = useState(user);
 
   return (
     <>
-      {authState.isAuthenticated && !userInfo && (
+      {isAuthenticated && !userInfo && (
         <LoadingComponent message="Loading..." />
       )}
-      {authState.isAuthenticated && userInfo && (
-        <RenderAddAvatar userInfo={userInfo} authService={authService} />
-      )}
+      {isAuthenticated && userInfo && <RenderAddAvatar userInfo={userInfo} />}
     </>
   );
 };
