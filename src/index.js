@@ -84,8 +84,8 @@ ReactDOM.render(
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <Auth0Provider
-            domain="dev-ww9ta3gj.us.auth0.com"
-            clientId="BTIEOCGivpbhGskpLJ73QAc7DZuNFM36"
+            domain={domain}
+            clientId={clientId}
             redirectUri={window.location.origin}
           >
             <App />
