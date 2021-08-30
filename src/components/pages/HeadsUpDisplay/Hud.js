@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CountDownTimer } from './CountdownTimer';
 import Hud from '../../../styles/less/Hud.less';
+import { Button } from 'antd';
 import { UpCircleFilled } from '@ant-design/icons';
 
 export default function (props) {
@@ -43,7 +44,8 @@ export default function (props) {
         <div className="day6-7">Day 6 - 7</div>
       </div>
       {/* Button for collapsing/expanding will go here */}
-      <div style={{ fontSize: '30px' }}>
+
+      <div className="progbtn">
         <UpCircleFilled />
       </div>
     </div>
