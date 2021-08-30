@@ -14,6 +14,8 @@ export default function (props) {
     'Voting',
   ];
 
+  const dayBars = ['bar1', 'bar2', 'bar3'];
+
   return (
     <div className="HudContainer">
       <CountDownTimer />
@@ -33,11 +35,15 @@ export default function (props) {
         })}
       </div>
       {/* This will show the days and indicaate current day */}
+
       <div className="dayBars">
-        <div className="bar1"></div>
-        <div className="bar2"></div>
-        <div className="bar3"></div>
+        {dayBars.map(a => {
+          return (
+            <div className={`bar1 ${currentBar == a && 'currentBar'}`}></div>
+          );
+        })}
       </div>
+
       <div className="days">
         <div className="day1-3">Day 1 - 3</div>
         <div className="day4-5">Day 4 - 5</div>
