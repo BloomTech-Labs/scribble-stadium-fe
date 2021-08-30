@@ -5,6 +5,7 @@ import { Button } from 'antd';
 import { UpCircleFilled } from '@ant-design/icons';
 
 export default function (props) {
+  const { currentActivity, currentBar } = props;
   const activities = [
     'Read',
     'Draw',
@@ -14,7 +15,7 @@ export default function (props) {
     'Voting',
   ];
 
-  const dayBars = ['bar1', 'bar2', 'bar3'];
+  const dayBars = ['bar1', 'bar2', 'bar3', 'bar4'];
 
   return (
     <div className="HudContainer">
@@ -46,7 +47,8 @@ export default function (props) {
 
       <div className="days">
         <div className="day1-3">Day 1 - 3</div>
-        <div className="day4-5">Day 4 - 5</div>
+        <div className="day4">Day 4 </div>
+        <div className="day5">Day 5 </div>
         <div className="day6-7">Day 6 - 7</div>
       </div>
       {/* Button for collapsing/expanding will go here */}
