@@ -1,6 +1,15 @@
 @import '~antd/dist/antd.less';
 @import '~antd/lib/style/themes/default.less';
 
+:root{
+	--green: #C6FD7E;
+	--grey: #c7c7c7;
+	--white: white;
+	--bar-border-radius: 200px;
+	--min-height: .75rem;
+	--font-size: 1.5rem;
+} 
+
 .HudContainer {
     width: 100%;
     background-color: #757575;
@@ -10,7 +19,7 @@
 }
 
 .countdown-timer {
-    font-size: 1.5rem;
+    font-size: var(--font-size);
 	font-family: 'Bangers', cursive;
 	color: white;
     text-align: center;
@@ -24,7 +33,7 @@
     flex-flow: row, wrap;
     color: black;
     background-color: white;
-    font-size: 1.5rem;
+    font-size: var(--font-size);
 	font-weight: 500;
 	font-family: 'Bangers', cursive;
     margin: 0 auto;
@@ -32,7 +41,7 @@
 .progbtn{
     display: flex;
     flex-direction: column;
-    font-size: 1.5rem;
+    font-size: var(--font-size);
 
 
 
@@ -54,7 +63,7 @@
 
 // Checkmark img for completed activity to be added after made in house 
 .completedActivity {
-    background-color: #C6FD7E;
+    background-color: var(--green);
     width: 16.666%;
     text-align: center;
     // This is how the I made the border angled on one side
@@ -70,7 +79,7 @@
 }
 
 .currentActivity {
-    background-color: #C6FD7E;
+    background-color:  var(--green);
     width: 16.666%;
     text-align: center;
     // This is how the I made the border angled on one side
@@ -101,56 +110,51 @@
 
 .dayBars {
 	display: flex;
-    // width: 1%;
 	margin-top: 1%;
-	// margin-left: 2.5%;
-	// margin-right: 2.5%;
-    // justify-content: space-between;
 }
 
 .bar1 {
 	margin-left: 9%;
 	margin-right: 2%;
     width: 39%;
-    background-color: #c7c7c7;
-    min-height: .75rem;
-	border-radius: 200px;
+    background-color: var(--grey);
+    min-height: var(--min-height);
+	border-radius: var(--bar-border-radius);
 }
 
 .bar2 {
 	margin-right: 2%;
     width: 26.5%;
-    background-color: #c7c7c7;
-    min-height: .75rem;
-	border-radius: 200px;
+    background-color: var(--grey);
+    min-height: var(--min-height);
+	border-radius: var(--bar-border-radius);
 }
 
 .bar3 {
     width: 12%;
-    background-color: #c7c7c7;
-    min-height: .75rem;
-	border-radius: 200px;
+    background-color: var(--grey);
+    min-height: var(--min-height);
+	border-radius: var(--bar-border-radius);
 }
 
 .bar4 {
     width: 12%;
-    background-color: #c7c7c7;
-    min-height: .75rem;
-	border-radius: 200px;
+    background-color: var(--grey);
+    min-height: var(--min-height);
+	border-radius: var(--bar-border-radius);
 }
 
 
 .currentBar {
-    width: 20%;
-    background-color: #C6FD7E;
-    min-height: .75rem;
-	border-radius: 200px;
+    // width: 20%;
+    background-color: var(--green);
+    // min-height: var(--min-height);
+	// border-radius: var(--bar-border-radius);
 }
 
 .days {
     display: flex;
 	margin-top: .5%;
-    // justify-content: space-evenly;
 }
 
 .day1-3 {
@@ -159,8 +163,8 @@
 	margin-right: 2%;
 	width: 39%;
 	justify-content: center;
-	font-size: 1.5rem;
-	color: white;
+	font-size: var(--font-size);
+	color: var(--white);
 	font-family: 'Bangers', cursive;
 
 }
@@ -170,8 +174,8 @@
 	margin-right: 2%;
 	width: 26.5%;
 	justify-content: center;
-	font-size: 1.5rem;
-	color: white;
+	font-size: var(--font-size);
+	color: var(--white);
 	font-family: 'Bangers', cursive;
 
 }
@@ -181,8 +185,8 @@
 	margin-right: 2%;
 	width: 26.5%;
 	justify-content: center;
-	font-size: 1.5rem;
-	color: white;
+	font-size: var(--font-size);
+	color: var(--white);
 	font-family: 'Bangers', cursive;
 
 }
@@ -191,8 +195,8 @@
 	display: flex;
 	width: 12%;
 	justify-content: center;
-	font-size: 1.5rem;
-	color: white;
+	font-size: var(--font-size);
+	color:var(--white);
 	font-family: 'Bangers', cursive;
 
 }
@@ -202,10 +206,10 @@
 .currentDay {
     display: flex;
     flex-flow: row wrap;
-    background-color: #C6FD7E;
+    background-color: var(--green);
     animation: pulse-animation 2s infinite;
 }
 // State not done for this PT21
 .completedDay {
-    background-color: #C6FD7E;
+    background-color: var(--green);
 }
