@@ -36,6 +36,8 @@
 
 
 
+
+
 }
 .activity {
     width: 16.666%;
@@ -175,6 +177,125 @@
 
 }
 
+#toggle {
+    position: column;
+    appearance: none;
+    cursor: pointer;
+    left: -100%;
+    top: -100%;
+  }
+
+  #toggle + label {
+    position: column;
+    cursor: pointer;
+    padding: 10px;
+    background: #000;
+    width: 100px;
+    border-radius: 3px;
+    padding: 8px 10px;
+    color: #FFF;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    margin: 20px 50px;
+    transition: all 500ms ease;
+  }
+
+  #toggle + label:after {
+    content: "Slide Down"
+  }
+
+  .slidecontainer {
+    transition: margin 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    padding: 5em 3em;
+  }
+
+  #toggle:checked ~ .message {
+    top: 0;
+  }
+
+  #toggle:checked ~ .slidecontainer {
+    margin-top: 250px;
+  }
+
+  #toggle:checked + label {
+    background: #54494b;
+  }
+
+  #toggle:checked + label:after {
+    content: "Slide Up"
+  }
+
+  #toggle {
+    position: column;
+    appearance: none;
+    cursor: pointer;
+    left: -100%;
+    top: -100%;
+  }
+
+  #toggle + label {
+    position: column;
+    cursor: pointer;
+    padding: 10px;
+    background: #000;
+    width: 100px;
+    border-radius: 3px;
+    padding: 8px 10px;
+    color: #FFF;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    margin: 20px 50px;
+    transition: all 500ms ease;
+  }
+
+  #toggle + label:after {
+    content: "Slide Down"
+  }
+
+  .slidecontainer {
+    transition: margin 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    padding: 5em 3em;
+  }
+
+  #toggle:checked ~ .message {
+    top: 0;
+  }
+
+  #toggle:checked ~ .slidecontainer {
+    margin-top: 250px;
+  }
+
+  #toggle:checked + label {
+    background: #54494b;
+  }
+
+  #toggle:checked + label:after {
+    content: "Slide Up"
+  }
+
+  .message {
+      background: #54494b none repeat scroll 0 0;
+      box-sizing: border-box;
+      color: #fff;
+      height: 230px;
+      left: 0;
+      overflow: hidden;
+      padding: 2em;
+      position: absolute;
+      top: -250px;
+      transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94) 0s;
+      width: 100%;
+  }
+
+  .message h1 {
+    color: #FFF;
+  }
 
 //State not done for this PT21
 .currentDay {
