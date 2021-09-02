@@ -52,10 +52,9 @@ export default function (props) {
         <div className="day6-7">Day 6 - 7</div>
       </div>
       {/* Button for collapsing/expanding will go here */}
-
-      <div className="progbtn">
-        <UpCircleFilled />
-      </div>
+      <input type="checkbox" name="toggle" id="toggle" />
+      <label for="toggle"></label>
+      <div class="message"> CONTENT GOES HERE </div>
     </div>
   );
 }
