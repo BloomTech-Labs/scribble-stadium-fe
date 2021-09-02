@@ -125,8 +125,7 @@ function App() {
           )}
         />
 
-        {/* change back to SecureRoute when finished */}
-        <Route
+        <SecureRoute
           path="/child/dashboard"
           component={() => (
             <ChildDashboard LoadingComponent={ChildLoadingComponent} />
