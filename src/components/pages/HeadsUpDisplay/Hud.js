@@ -40,7 +40,7 @@ export default function (props) {
       <div className="dayBars">
         {dayBars.map(a => {
           return (
-            <div className={`bar1 ${currentBar == a && 'currentBar'}`}></div>
+            <div className={`${a} ${currentBar == a && 'currentBar'}`}></div>
           );
         })}
       </div>
