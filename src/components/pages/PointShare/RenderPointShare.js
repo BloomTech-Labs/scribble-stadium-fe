@@ -81,13 +81,14 @@ const PointShare = props => {
     ]);
   };
 
+  // check if child.id === virtualPlayerIDs.includes(props.child.id)
+  // for (let i = 0; i < virtualPlayerIDs.length; i++) {
+  //   if (MemberID === i) {
+  //     submitPoints(authState, virtualPlayerPoints);
+  //   }
+  // }
+
   useEffect(() => {
-    // check if child.id === virtualPlayerIDs.includes(props.child.id)
-    // for (let i = 0; i < virtualPlayerIDs.length; i++) {
-    //   if (MemberID === i) {
-    //     submitPoints(authState, virtualPlayerPoints);
-    //   }
-    // }
     if (teamPoints) {
       submitPoints(authState, teamPoints);
     }
