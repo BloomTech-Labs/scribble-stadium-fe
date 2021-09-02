@@ -96,37 +96,28 @@ const Gamemode = ({ ...props }) => {
   };
 
   return (
-    <Switch>
-      <Router>
-        <>
-          {props.child.gamemode === null
-            ? reini()
-            : props.child.gamemode.mode === 'select' &&
-              !props.child.gamemode.sp && (
-                <div className="dash-container">
-                  <Header />
+    <div>
+      {props.child.gamemode === null
+        ? reini()
+        : props.child.gamemode.mode === 'select' &&
+          !props.child.gamemode.sp && (
+            <div className="dash-container">
+              <Header />
 
-                  <Row>
-                    <Col className="adventure-passport" xs={16} sm={24}>
-                      {!sP && props.child.gamemode.mode === 'select' && (
-                        <Link to="/gamemode/single">{trig()}</Link>
-                      )}
-                    </Col>
-                  </Row>
-                </div>
-              )}
+              <Row>
+                <Col className="adventure-passport" xs={16} sm={24}>
+                  {!sP && props.child.gamemode.mode === 'select' && (
+                    <Link to="/gameification">{trig()}</Link>
+                  )}
+                </Col>
+              </Row>
+            </div>
+          )}
 
-          {props.child.gamemode.sp &&
-            props.child.gamemode.mode === 'single' && (
-              <Route
-                {...props}
-                path="/gamemode/single"
-                component={GamemodeButton}
-              />
-            )}
-        </>
-      </Router>
-    </Switch>
+      {props.child.gamemode.sp && props.child.gamemode.mode === 'single' && (
+        <Route {...props} path="/gamemode/single" component={GamemodeButton} />
+      )}
+    </div>
   );
 };
 export default connect(
