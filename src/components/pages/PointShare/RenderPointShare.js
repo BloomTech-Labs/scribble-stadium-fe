@@ -87,6 +87,7 @@ const PointShare = props => {
       submitPoints(authState, teamPoints);
     }
     // check for virtual player id from props
+    // added format to the commit
     // if virtual id submit virtual player points
     if (virtualPlayerIDs.includes(props.team.child1.MemberID)) {
       submitPoints(
