@@ -41,7 +41,7 @@ const PointShare = props => {
   ];
 
   const formSubmit = () => {
-    // note: lines 45 - 51 not required anymore! However, "notification" could be used for future implementations
+    // note: lines 43 - 51 not required anymore! However, "notification" could be used for future implementations
     // regarding error handling for the user's share points submission. Yay!
     if (totalPoints < 0) {
       notification.error({
@@ -65,13 +65,6 @@ const PointShare = props => {
     ]);
   };
 
-  // check if props.team.child1.MemeberId || props.team.child2 === virtualPlayerIDs.includes(props.child.id)
-  // for (let i = 0; i < virtualPlayerIDs.length; i++) {
-  //   if (props.child.memberId === i) {
-  //     submitPoints(authState, virtualPlayerPoints);
-  //   }
-  // }
-
   useEffect(() => {
     const setVirtualPlayerPoints = virtualPlayerID => {
       return [
@@ -93,7 +86,8 @@ const PointShare = props => {
     if (teamPoints) {
       submitPoints(authState, teamPoints);
     }
-
+    // check for virtual player id
+    // if virtual id submit virtual player points
     if (virtualPlayerIDs.includes(props.team.child1.MemberID)) {
       submitPoints(
         authState,
