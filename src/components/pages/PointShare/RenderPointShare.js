@@ -22,7 +22,6 @@ const PointShare = props => {
   const [modalContent, setModalContent] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [modalVisible, setModalVisible] = useState(true);
-
   const { authState } = useOktaAuth();
 
   // Virtual Player
@@ -40,23 +39,9 @@ const PointShare = props => {
     'VP-6',
     'VP-7',
   ];
-  // const virtualPlayerPoints = [
-  //   {
-  //     WritingPoints: storyOnePoints,
-  //     DrawingPoints: illustrationOnePoints,
-  //     MemberID: props.child.memberId,
-  //     SubmissionID: props.team.child1.SubmissionID,
-  //   },
-  //   {
-  //     WritingPoints: storyTwoPoints,
-  //     DrawingPoints: illustrationTwoPoints,
-  //     MemberID: props.child.memberId,
-  //     SubmissionID: props.team.child2.SubmissionID,
-  //   },
-  // ];
 
   const formSubmit = () => {
-    // note: lines 30 - 35 not required anymore! However, "notification" could be used for future implementations
+    // note: lines 45 - 51 not required anymore! However, "notification" could be used for future implementations
     // regarding error handling for the user's share points submission. Yay!
     if (totalPoints < 0) {
       notification.error({
@@ -64,7 +49,6 @@ const PointShare = props => {
       });
       return;
     }
-
     setTeamPoints([
       {
         WritingPoints: storyOnePoints,
@@ -81,18 +65,55 @@ const PointShare = props => {
     ]);
   };
 
-  // check if child.id === virtualPlayerIDs.includes(props.child.id)
+  // check if props.team.child1.MemeberId || props.team.child2 === virtualPlayerIDs.includes(props.child.id)
   // for (let i = 0; i < virtualPlayerIDs.length; i++) {
-  //   if (MemberID === i) {
+  //   if (props.child.memberId === i) {
   //     submitPoints(authState, virtualPlayerPoints);
   //   }
   // }
 
   useEffect(() => {
+    const setVirtualPlayerPoints = virtualPlayerID => {
+      return [
+        {
+          WritingPoints: 25,
+          DrawingPoints: 25,
+          MemberID: virtualPlayerID,
+          SubmissionID: props.team.child1.SubmissionID,
+        },
+        {
+          WritingPoints: 25,
+          DrawingPoints: 25,
+          MemberID: virtualPlayerID,
+          SubmissionID: props.team.child2.SubmissionID,
+        },
+      ];
+    };
+
     if (teamPoints) {
       submitPoints(authState, teamPoints);
     }
-  }, [teamPoints, authState]);
+
+    if (virtualPlayerIDs.includes(props.team.child1.MemberID)) {
+      submitPoints(
+        authState,
+        setVirtualPlayerPoints(props.team.child1.MemberID)
+      );
+    } else if (virtualPlayerIDs.includes(props.team.child2.MemberID)) {
+      submitPoints(
+        authState,
+        setVirtualPlayerPoints(props.team.child2.MemberID)
+      );
+    }
+  }, [
+    teamPoints,
+    authState,
+    virtualPlayerIDs,
+    props.team.child1.MemberID,
+    props.team.child2.MemberID,
+    props.team.child1.SubmissionID,
+    props.team.child2.SubmissionID,
+  ]);
 
   const openModal = content => {
     setModalContent(content);
