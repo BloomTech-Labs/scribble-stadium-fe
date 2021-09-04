@@ -5,13 +5,13 @@ import { Button } from 'antd';
 import { UpCircleFilled } from '@ant-design/icons';
 
 export default function (props) {
-  const { currentActivity, currentBar } = props;
+  const { completedActivity, currentActivity, currentBar } = props;
   const activities = [
     'Read',
     'Draw',
     'Write',
-    'Squad Up',
-    'Point Share',
+    'SquadUp',
+    'PointShare',
     'Voting',
   ];
 
@@ -26,8 +26,10 @@ export default function (props) {
         {activities.map(a => {
           return (
             <div
-              className={`activity ${
-                props.currentActivity == a && 'currentActivity'
+              className={`activity ${currentActivity == a && 'currentActivity'}
+              ${
+                completedActivity.length - 1 >= activities.indexOf(a) &&
+                'completedActivity'
               }`}
             >
               <span>{a}</span>
@@ -40,7 +42,7 @@ export default function (props) {
       <div className="dayBars">
         {dayBars.map(a => {
           return (
-            <div className={`bar1 ${currentBar == a && 'currentBar'}`}></div>
+            <div className={`${a} ${currentBar == a && 'currentBar'}`}></div>
           );
         })}
       </div>
@@ -52,10 +54,9 @@ export default function (props) {
         <div className="day6-7">Day 6 - 7</div>
       </div>
       {/* Button for collapsing/expanding will go here */}
-
-      <div className="progbtn">
-        <UpCircleFilled />
-      </div>
+      <input type="checkbox" name="toggle" id="toggle" />
+      <label for="toggle"></label>
+      <div class="message"> CONTENT GOES HERE </div>
     </div>
   );
 }

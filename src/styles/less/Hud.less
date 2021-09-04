@@ -8,7 +8,7 @@
 	--bar-border-radius: 200px;
 	--min-height: .75rem;
 	--font-size: 1.5rem;
-} 
+}
 
 .HudContainer {
     width: 100%;
@@ -42,6 +42,8 @@
     display: flex;
     flex-direction: column;
     font-size: var(--font-size);
+
+
 
 
 
@@ -115,31 +117,32 @@
 }
 
 .bar1 {
-	margin-left: 9%;
-	margin-right: 2%;
     width: 39%;
+	margin-left: 9%;
     background-color: var(--grey);
     min-height: var(--min-height);
 	border-radius: var(--bar-border-radius);
 }
 
 .bar2 {
-	margin-right: 2%;
-    width: 26.5%;
+    width: 11%;
+	margin-left: 3%;
     background-color: var(--grey);
     min-height: var(--min-height);
 	border-radius: var(--bar-border-radius);
 }
 
 .bar3 {
-    width: 12%;
+    width: 11%;
+	margin-left: 3%;
     background-color: var(--grey);
     min-height: var(--min-height);
 	border-radius: var(--bar-border-radius);
 }
 
 .bar4 {
-    width: 12%;
+    width: 11%;
+	margin-left: 3%;
     background-color: var(--grey);
     min-height: var(--min-height);
 	border-radius: var(--bar-border-radius);
@@ -147,10 +150,7 @@
 
 
 .currentBar {
-    // width: 20%;
     background-color: var(--green);
-    // min-height: var(--min-height);
-	// border-radius: var(--bar-border-radius);
 }
 
 .days {
@@ -161,8 +161,7 @@
 .day1-3 {
 	display: flex;
 	margin-left: 9%;
-	margin-right: 2%;
-	width: 39%;
+    width: 39%;
 	justify-content: center;
 	font-size: var(--font-size);
 	color: var(--white);
@@ -172,8 +171,8 @@
 
 .day4 {
 	display: flex;
-	margin-right: 2%;
-	width: 26.5%;
+	width: 11%;
+	margin-left: 3%;
 	justify-content: center;
 	font-size: var(--font-size);
 	color: var(--white);
@@ -183,8 +182,8 @@
 
 .day5 {
 	display: flex;
-	margin-right: 2%;
-	width: 26.5%;
+	width: 11%;
+	margin-left: 3%;
 	justify-content: center;
 	font-size: var(--font-size);
 	color: var(--white);
@@ -194,7 +193,8 @@
 
 .day6-7 {
 	display: flex;
-	width: 12%;
+	width: 11%;
+	margin-left: 3%;
 	justify-content: center;
 	font-size: var(--font-size);
 	color:var(--white);
@@ -202,6 +202,125 @@
 
 }
 
+#toggle {
+    position: column;
+    appearance: none;
+    cursor: pointer;
+    left: -100%;
+    top: -100%;
+  }
+
+  #toggle + label {
+    position: column;
+    cursor: pointer;
+    padding: 10px;
+    background: #000;
+    width: 100px;
+    border-radius: 3px;
+    padding: 8px 10px;
+    color: #FFF;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    margin: 20px 50px;
+    transition: all 500ms ease;
+  }
+
+  #toggle + label:after {
+    content: "Slide Down"
+  }
+
+  .slidecontainer {
+    transition: margin 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    padding: 5em 3em;
+  }
+
+  #toggle:checked ~ .message {
+    top: 0;
+  }
+
+  #toggle:checked ~ .slidecontainer {
+    margin-top: 250px;
+  }
+
+  #toggle:checked + label {
+    background: #54494b;
+  }
+
+  #toggle:checked + label:after {
+    content: "Slide Up"
+  }
+
+  #toggle {
+    position: column;
+    appearance: none;
+    cursor: pointer;
+    left: -100%;
+    top: -100%;
+  }
+
+  #toggle + label {
+    position: column;
+    cursor: pointer;
+    padding: 10px;
+    background: #000;
+    width: 100px;
+    border-radius: 3px;
+    padding: 8px 10px;
+    color: #FFF;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    margin: 20px 50px;
+    transition: all 500ms ease;
+  }
+
+  #toggle + label:after {
+    content: "Slide Down"
+  }
+
+  .slidecontainer {
+    transition: margin 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    padding: 5em 3em;
+  }
+
+  #toggle:checked ~ .message {
+    top: 0;
+  }
+
+  #toggle:checked ~ .slidecontainer {
+    margin-top: 250px;
+  }
+
+  #toggle:checked + label {
+    background: #54494b;
+  }
+
+  #toggle:checked + label:after {
+    content: "Slide Up"
+  }
+
+  .message {
+      background: #54494b none repeat scroll 0 0;
+      box-sizing: border-box;
+      color: #fff;
+      height: 230px;
+      left: 0;
+      overflow: hidden;
+      padding: 2em;
+      position: absolute;
+      top: -250px;
+      transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94) 0s;
+      width: 100%;
+  }
+
+  .message h1 {
+    color: #FFF;
+  }
 
 //State not done for this PT21
 .currentDay {

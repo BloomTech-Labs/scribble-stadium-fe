@@ -125,7 +125,6 @@ function App() {
           )}
         />
 
-        {/* change back to SecureRoute when finished */}
         <Route
           path="/child/dashboard"
           component={() => (
