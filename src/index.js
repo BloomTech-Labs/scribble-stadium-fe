@@ -125,14 +125,14 @@ function App() {
           )}
         />
 
-        <SecureRoute
+        <Route
           path="/child/dashboard"
           component={() => (
             <ChildDashboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
 
-        <SecureRoute
+        <Route
           exact
           path="/gallery"
           component={() => (
