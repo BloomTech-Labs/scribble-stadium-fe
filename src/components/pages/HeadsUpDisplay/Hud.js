@@ -5,13 +5,13 @@ import { Button } from 'antd';
 import { UpCircleFilled } from '@ant-design/icons';
 
 export default function (props) {
-  const { currentActivity, currentBar } = props;
+  const { completedActivity, currentActivity, currentBar } = props;
   const activities = [
     'Read',
     'Draw',
     'Write',
-    'Squad Up',
-    'Point Share',
+    'SquadUp',
+    'PointShare',
     'Voting',
   ];
 
@@ -26,8 +26,10 @@ export default function (props) {
         {activities.map(a => {
           return (
             <div
-              className={`activity ${
-                props.currentActivity == a && 'currentActivity'
+              className={`activity ${currentActivity == a && 'currentActivity'}
+              ${
+                completedActivity.length - 1 >= activities.indexOf(a) &&
+                'completedActivity'
               }`}
             >
               <span>{a}</span>
