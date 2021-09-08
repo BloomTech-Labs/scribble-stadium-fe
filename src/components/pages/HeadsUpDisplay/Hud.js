@@ -56,7 +56,6 @@ export default function (props) {
       {/* Button for collapsing/expanding will go here */}
       <input type="checkbox" name="toggle" id="toggle" />
       <label for="toggle"></label>
-      <div class="message"> CONTENT GOES HERE </div>
     </div>
   );
 }
