@@ -5,7 +5,7 @@ import Help from './Help';
 
 function HelpContainer({ LoadingComponent }) {
   const { user, isAuthenticated } = useAuth0();
-  const [userInfo, setUserInfo] = useState(null);
+  const [userInfo, setUserInfo] = useState(user);
 
   return (
     <>
