@@ -36,17 +36,21 @@ const getExampleData = () => {
     .then(response => response.data);
 };
 
-const getAuthHeader = authState => {
-  if (!authState.isAuthenticated) {
+const getAuthHeader = () => {
+  const idToken = localStorage.getItem('idToken');
+  const authenticated = localStorage.getItem('isAuthenticated');
+
+  if (!idToken || !authenticated) {
     throw new Error('Not authenticated');
   }
-  return { Authorization: `Bearer ${authState.idToken}` };
+  return { headers: { Authorization: `Bearer ${idToken}` } };
 };
 
-const getDSData = (url, authState) => {
+//apiUrl here instead
+const getDSData = url => {
   // here's another way you can compose together your API calls.
   // Note the use of GetAuthHeader here is a little different than in the getProfileData call.
-  const headers = getAuthHeader(authState);
+  const headers = getAuthHeader();
   if (!url) {
     throw new Error('No URL provided');
   }
@@ -56,22 +60,22 @@ const getDSData = (url, authState) => {
     .catch(err => err);
 };
 
-const apiAuthGet = (endpoint, authHeader) => {
-  return axios.get(`${getApiUrl()}${endpoint}`, { headers: authHeader });
+const apiAuthGet = endpoint => {
+  return axios.get(`${getApiUrl()}${endpoint}`, getAuthHeader());
 };
-const apiAuthPost = (endpoint, body, authHeader) => {
-  return axios.post(`${getApiUrl()}${endpoint}`, body, { headers: authHeader });
+const apiAuthPost = (endpoint, body) => {
+  return axios.post(`${getApiUrl()}${endpoint}`, body, getAuthHeader());
 };
-const apiAuthPut = (endpoint, body, authHeader) => {
-  return axios.put(`${getApiUrl()}${endpoint}`, body, { headers: authHeader });
+const apiAuthPut = (endpoint, body) => {
+  return axios.put(`${getApiUrl()}${endpoint}`, body, getAuthHeader());
 };
-const apiAuthDelete = (endpoint, authHeader) => {
-  return axios.delete(`${getApiUrl()}${endpoint}`, { headers: authHeader });
+const apiAuthDelete = endpoint => {
+  return axios.delete(`${getApiUrl()}${endpoint}`, getAuthHeader());
 };
 
-const getProfileData = authState => {
+const getProfileData = () => {
   try {
-    return apiAuthGet('/profiles', getAuthHeader(authState)).then(response => {
+    return apiAuthGet('/profiles').then(response => {
       console.log(response);
       return response.data;
     });
@@ -84,13 +88,11 @@ const getProfileData = authState => {
 };
 // Getting data for leaderboard
 
-const getLeaderboard = authState => {
+const getLeaderboard = () => {
   try {
-    return apiAuthGet('/leaderboard', getAuthHeader(authState)).then(
-      response => {
-        return response.data;
-      }
-    );
+    return apiAuthGet('/leaderboard', getAuthHeader()).then(response => {
+      return response.data;
+    });
   } catch (err) {
     return new Promise(() => {
       console.log(err);
@@ -99,9 +101,9 @@ const getLeaderboard = authState => {
   }
 };
 
-const getChildCard = authState => {
+const getChildCard = () => {
   try {
-    return apiAuthGet('/child/:id', getAuthHeader(authState)).then(response => {
+    return apiAuthGet('/child/:id', getAuthHeader()).then(response => {
       return response.data;
     });
   } catch (err) {
@@ -119,13 +121,11 @@ const getChildCard = authState => {
  * @param {number} childId id of the child needed for information
  * @return {Object} child information containing Name, PIN, IsDyslexic, CohortID, ParentID, AvatarID, and GradeLevelID
  */
-const getChild = (authState, childId) => {
+const getChild = childId => {
   try {
-    return apiAuthGet(`/child/${childId}`, getAuthHeader(authState)).then(
-      response => {
-        return response.data;
-      }
-    );
+    return apiAuthGet(`/child/${childId}`, getAuthHeader()).then(response => {
+      return response.data;
+    });
   } catch (error) {
     return new Promise(() => {
       console.log(error);
@@ -139,10 +139,10 @@ const getChild = (authState, childId) => {
  * @param {number} childId id of the child needed for information
  * @return {Object} child information containing Name, PIN, IsDyslexic, CohortID, ParentID, AvatarID, and GradeLevelID
  */
-const updateChildData = (authState, body, childId) => {
+const updateChildData = (body, childId) => {
   console.log(body);
   try {
-    return apiAuthPut(`/child/${childId}`, body, getAuthHeader(authState)).then(
+    return apiAuthPut(`/child/${childId}`, body, getAuthHeader()).then(
       response => {
         return response;
       }
@@ -154,9 +154,9 @@ const updateChildData = (authState, body, childId) => {
   }
 };
 
-const deleteChild = (authState, childId) => {
+const deleteChild = childId => {
   try {
-    return apiAuthDelete(`/child/${childId}`, getAuthHeader(authState)).then(
+    return apiAuthDelete(`/child/${childId}`, getAuthHeader()).then(
       response => {
         return response;
       }
@@ -174,13 +174,11 @@ const deleteChild = (authState, childId) => {
  * @param {Object} child object containing fields for Name, PIN, IsDyslexic, CohortID, ParentID, AvatarID, and GradeLevelID
  * @returns {number} child id for child that was just created
  */
-const postNewChild = (authState, child) => {
+const postNewChild = child => {
   try {
-    return apiAuthPost('/child', child, getAuthHeader(authState)).then(
-      response => {
-        return response.data;
-      }
-    );
+    return apiAuthPost('/child', child, getAuthHeader()).then(response => {
+      return response.data;
+    });
   } catch (error) {
     return new Promise(() => {
       console.log(error);
@@ -198,10 +196,10 @@ const postNewChild = (authState, child) => {
  * @returns {number} child id for child that is being called
  */
 
-const getChildByID = (authState, ID) => {
+const getChildByID = ID => {
   try {
     console.log(ID);
-    return apiAuthGet(`/gallery/child/${ID}`, getAuthHeader(authState)).then(
+    return apiAuthGet(`/gallery/child/${ID}`, getAuthHeader()).then(
       response => {
         return response;
       }
@@ -220,14 +218,13 @@ const getChildByID = (authState, ID) => {
  * @param {number} cohortId the cohort id of the respective child
  * @returns {Promise} a promise that resolves to an object containing {DrawingPrompt, ID, Title, URL, and WritingPrompt}
  */
-const getStory = (authState, cohortId) => {
+const getStory = cohortId => {
   try {
-    return apiAuthGet(
-      `/story?cohortId=${cohortId}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      return response.data;
-    });
+    return apiAuthGet(`/story?cohortId=${cohortId}`, getAuthHeader()).then(
+      response => {
+        return response.data;
+      }
+    );
   } catch (error) {
     return new Promise(() => {
       console.log(error);
@@ -241,11 +238,11 @@ const getStory = (authState, cohortId) => {
  * @param {Object} authState necessary for API functionality
  * @returns {Promise} a promise that resolves to an array of [[avatars], [gradeLevels]]
  */
-const getChildFormValues = async authState => {
+const getChildFormValues = async () => {
   try {
     return Promise.all([
-      apiAuthGet('/avatars', getAuthHeader(authState)),
-      apiAuthGet('/gradelevels', getAuthHeader(authState)),
+      apiAuthGet('/avatars', getAuthHeader()),
+      apiAuthGet('/gradelevels', getAuthHeader()),
     ]).then(res => {
       return res.map(x => x.data);
     });
@@ -264,13 +261,11 @@ const getChildFormValues = async authState => {
  * @param {number} subId id of the full submission
  * @returns {array} an array of submission objects containing the image url, the checksum, and the page number
  */
-const postNewWritingSub = async (authState, body, subId) => {
+const postNewWritingSub = async (body, subId) => {
   try {
-    return apiAuthPost(
-      `/submit/write/${subId}`,
-      body,
-      getAuthHeader(authState)
-    ).then(res => res.data);
+    return apiAuthPost(`/submit/write/${subId}`, body, getAuthHeader()).then(
+      res => res.data
+    );
   } catch (err) {
     console.log(err);
     return [];
@@ -284,13 +279,11 @@ const postNewWritingSub = async (authState, body, subId) => {
  * @param {number} subId id of the full submission
  * @returns {Object} submission object containing the image url, and the checksum
  */
-const postNewDrawingSub = async (authState, body, subId) => {
+const postNewDrawingSub = async (body, subId) => {
   try {
-    return apiAuthPost(
-      `/submit/draw/${subId}`,
-      body,
-      getAuthHeader(authState)
-    ).then(res => res.data);
+    return apiAuthPost(`/submit/draw/${subId}`, body, getAuthHeader()).then(
+      res => res.data
+    );
   } catch (err) {
     console.log(err);
     return [];
@@ -306,11 +299,11 @@ const postNewDrawingSub = async (authState, body, subId) => {
  * @param {number} storyid id of the story of the week
  * @returns {Object} Object of tasks and relevant id's
  */
-const getChildTasks = async (authState, childid, storyid) => {
+const getChildTasks = async (childid, storyid) => {
   try {
     return apiAuthGet(
       `/submission?childId=${childid}&storyId=${storyid}`,
-      getAuthHeader(authState)
+      getAuthHeader()
     ).then(response => {
       return response.data;
     });
@@ -328,13 +321,11 @@ const getChildTasks = async (authState, childid, storyid) => {
  * @param {number} submissionId id of the full submission
  * @returns {Object} enpty object on success
  */
-const markAsRead = async (authState, submissionId) => {
+const markAsRead = async submissionId => {
   try {
-    return apiAuthPut(
-      `/submit/read/${submissionId}`,
-      {},
-      getAuthHeader(authState)
-    ).then(response => response.data);
+    return apiAuthPut(`/submit/read/${submissionId}`, {}, getAuthHeader()).then(
+      response => response.data
+    );
   } catch (err) {
     return new Promise(() => {
       console.log(err);
@@ -366,7 +357,7 @@ const setAllTasks = (
       hasDrawn: hasDrawnStatus,
       hasWritten: hasWrittenStatus,
     },
-    getAuthHeader(authState)
+    getAuthHeader()
   )
     .then(response => {
       return response.data;
@@ -385,14 +376,13 @@ const setAllTasks = (
  * @param {number} childId id of the child who is "teaming up"
  * @returns {Object} containing information on the child and their teammate
  */
-const getChildTeam = async (authState, childId) => {
+const getChildTeam = async childId => {
   try {
-    return apiAuthGet(
-      `/game/team?childId=${childId}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      return response.data;
-    });
+    return apiAuthGet(`/game/team?childId=${childId}`, getAuthHeader()).then(
+      response => {
+        return response.data;
+      }
+    );
   } catch (error) {
     return new Promise(() => {
       console.log(error);
@@ -407,15 +397,13 @@ const getChildTeam = async (authState, childId) => {
  * @param {Object} teamPoints these are the points assigned for each of the submissions
  * @returns {Array} with id reference to the vote
  */
-const submitPoints = async (authState, teamPoints) => {
+const submitPoints = async teamPoints => {
   try {
-    return apiAuthPost(
-      `/game/points`,
-      teamPoints,
-      getAuthHeader(authState)
-    ).then(response => {
-      return response.data;
-    });
+    return apiAuthPost(`/game/points`, teamPoints, getAuthHeader()).then(
+      response => {
+        return response.data;
+      }
+    );
   } catch (error) {
     return new Promise(() => {
       console.log(error);
@@ -430,14 +418,13 @@ const submitPoints = async (authState, teamPoints) => {
  * @param {number} childId id of the child who is "squadding up"
  * @returns {number} squadId is returned
  */
-const getChildSquad = async (authState, childId) => {
+const getChildSquad = async childId => {
   try {
-    return apiAuthGet(
-      `/game/squad?childId=${childId}`,
-      getAuthHeader(authState)
-    ).then(response => {
-      return response.data;
-    });
+    return apiAuthGet(`/game/squad?childId=${childId}`, getAuthHeader()).then(
+      response => {
+        return response.data;
+      }
+    );
   } catch (error) {
     return new Promise(() => {
       console.log(error);
@@ -452,11 +439,11 @@ const getChildSquad = async (authState, childId) => {
  * @param {number} squadId this will be received from 'getChildSquad' api call
  * @returns {Array} array of 4 objects (one for each child) containing information about their submissions
  */
-const getFaceoffsForMatchup = async (authState, squadId, childId) => {
+const getFaceoffsForMatchup = async (squadId, childId) => {
   try {
     return apiAuthGet(
       `/game/faceoffs/squads?squadId=${squadId}&childId=${childId}`,
-      getAuthHeader(authState)
+      getAuthHeader()
     ).then(response => {
       return response.data;
     });
@@ -474,11 +461,11 @@ const getFaceoffsForMatchup = async (authState, squadId, childId) => {
  * @param {number} squadId this will be received from 'getChildSquad' api call
  * @returns {Array} array of 4 objects (one for each child) containing information about their submissions
  */
-const getFaceoffsForVoting = async (authState, squadId) => {
+const getFaceoffsForVoting = async squadId => {
   try {
     return apiAuthGet(
       `/game/faceoffs/squads/?squadId=${squadId}`,
-      getAuthHeader(authState)
+      getAuthHeader()
     ).then(response => {
       return response.data;
     });
@@ -496,9 +483,9 @@ const getFaceoffsForVoting = async (authState, squadId) => {
  * @param {Object} voteInfo includes the Vote, the MemberID, and the FaceoffID
  * @returns {Array} with id reference to the vote
  */
-const postVotes = async (authState, voteInfo) => {
+const postVotes = async voteInfo => {
   try {
-    return apiAuthPost(`/game/votes`, voteInfo, getAuthHeader(authState)).then(
+    return apiAuthPost(`/game/votes`, voteInfo, getAuthHeader()).then(
       response => {
         console.log('POSTVOTES RESPONSE', response.data);
         return response.data;
@@ -519,11 +506,11 @@ const postVotes = async (authState, voteInfo) => {
  * @param {number} memberId id of the team the child is on
  * @returns {Array} containing objects of the results of the faceoff
  */
-const getGameVotes = async (authState, squadId, memberId) => {
+const getGameVotes = async (squadId, memberId) => {
   try {
     return apiAuthGet(
       `/game/votes?squadId=${squadId}&memberId=${memberId}`,
-      getAuthHeader(authState)
+      getAuthHeader()
     ).then(response => {
       return response.data;
     });
@@ -544,24 +531,22 @@ const getGameVotes = async (authState, squadId, memberId) => {
  * @returns {Array} the newly created avatar(s)
  */
 
-const postNewAvatar = async (authState, body) => {
+const postNewAvatar = async body => {
   try {
-    return apiAuthPost('/avatars', body, getAuthHeader(authState)).then(
-      res => res.data
-    );
+    return apiAuthPost('/avatars', body, getAuthHeader()).then(res => res.data);
   } catch (err) {
     console.log(err);
     return [];
   }
 };
 
-const getChildGraph = async (authState, ChildID) => {
-  return apiAuthGet(`/parent/viz?childId=${ChildID}`, getAuthHeader(authState));
+const getChildGraph = async ChildID => {
+  return apiAuthGet(`/parent/viz?childId=${ChildID}`, getAuthHeader());
 };
 
-const getGallerySubmissionsById = authState => {
+const getGallerySubmissionsById = () => {
   try {
-    return apiAuthGet(`/gallery`, getAuthHeader(authState)).then(response => {
+    return apiAuthGet(`/gallery`, getAuthHeader()).then(response => {
       return response.data;
     });
   } catch (err) {
@@ -572,11 +557,11 @@ const getGallerySubmissionsById = authState => {
   }
 };
 
-const getGallery = async authState => {
-  return apiAuthGet('/gallary', getAuthHeader(authState));
+const getGallery = async () => {
+  return apiAuthGet('/gallary', getAuthHeader());
 };
 
-const reset = async authState => {
+const reset = async () => {
   console.log('It should work');
   return apiAuthPut(`/reset/reset/`, null);
 };
