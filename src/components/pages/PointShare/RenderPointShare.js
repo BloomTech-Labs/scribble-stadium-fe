@@ -24,12 +24,13 @@ const PointShare = props => {
   const [modalVisible, setModalVisible] = useState(true);
   const { authState } = useOktaAuth();
 
-  // Virtual Player
-  // Array of virtual player IDs
-  // ['VP-1','VP-2','VP-3','VP-4','VP-5','VP-6','VP-7']
-  // Check if MemeberID for child is one of the virtual players IDs if true then submit virtual player points 25-25-25-25
-  // Conditionaly render PointShare virtual player will not see the component - All data submition is happening behind the scenes
-  // Create new object or implement with existing objects?
+  /**
+   *Virtual Player
+   *Array of virtual player IDs
+   *['VP-1','VP-2','VP-3','VP-4','VP-5','VP-6','VP-7']
+   *Check if MemeberID for child is one of the virtual players IDs if true then submit virtual player points 25-25-25-25
+   *Conditionaly render PointShare | Virtual player will not see the component so all data submition is happening behind the scenes for virtual player
+   */
   const virtualPlayerIDs = [
     'VP-1',
     'VP-2',
