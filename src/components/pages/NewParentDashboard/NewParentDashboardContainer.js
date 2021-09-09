@@ -4,13 +4,21 @@ import RenderNewParentDashboard from './RenderNewParentDashboard';
 import { connect } from 'react-redux';
 
 function NewParentDashboardContainer({ LoadingComponent, ...props }) {
-  const { user, isAuthenticated } = useAuth0();
-  const [userInfo, setUserInfo] = useState(user);
+  const { user, isAuthenticated, getIdTokenClaims } = useAuth0();
+  const [userInfo, setUserInfo] = useState();
+
+  if (isAuthenticated && !userInfo) {
+    getIdTokenClaims().then(res => {
+      localStorage.setItem('idToken', res.__raw);
+      localStorage.setItem('isAuthenticated', isAuthenticated);
+      setUserInfo(user);
+    });
+  }
 
   return (
     <>
       {isAuthenticated && !userInfo && (
-        <LoadingComponent message="Loading..." />
+        <LoadingComponent message="Fetching Parent Profile..." />
       )}
       {isAuthenticated && userInfo && (
         <RenderNewParentDashboard {...props} userInfo={userInfo} />
