@@ -87,8 +87,8 @@ const PointShare = props => {
       submitPoints(authState, teamPoints);
     }
     // check for virtual player id from props
-    // if virtual id submit virtual player points
     if (virtualPlayerIDs.includes(props.team.child1.MemberID)) {
+      // if virtual id submit virtual player points
       submitPoints(
         authState,
         setVirtualPlayerPoints(props.team.child1.MemberID)
