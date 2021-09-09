@@ -14,12 +14,16 @@ const RenderNewParentDashboard = props => {
   const { setParent } = props;
 
   useEffect(() => {
-    getProfileData(user).then(res => {
-      setParent({
-        ...res[0],
-        children: res.filter(user => user.type !== 'Parent'),
+    getProfileData()
+      .then(res => {
+        setParent({
+          ...res[0],
+          children: res.filter(user => user.type !== 'Parent'),
+        });
+      })
+      .catch(err => {
+        console.log('error retrieving profile data', err.message);
       });
-    });
   }, [setParent, user]);
   return (
     <div>
