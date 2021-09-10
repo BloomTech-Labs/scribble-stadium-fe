@@ -41,6 +41,23 @@ const PointShare = props => {
     'VP-7',
   ];
 
+  const setVirtualPlayerPoints = virtualPlayerID => {
+    return [
+      {
+        WritingPoints: 25,
+        DrawingPoints: 25,
+        MemberID: virtualPlayerID,
+        SubmissionID: props.team.child1.SubmissionID,
+      },
+      {
+        WritingPoints: 25,
+        DrawingPoints: 25,
+        MemberID: virtualPlayerID,
+        SubmissionID: props.team.child2.SubmissionID,
+      },
+    ];
+  };
+
   const formSubmit = () => {
     // note: lines 43 - 51 not required anymore! However, "notification" could be used for future implementations
     // regarding error handling for the user's share points submission. Yay!
@@ -66,8 +83,8 @@ const PointShare = props => {
     ]);
   };
 
-  useEffect(() => {
-    const setVirtualPlayerPoints = virtualPlayerID => {
+  const virtualPlayerCallback = useCallback(
+    virtualPlayerID => {
       return [
         {
           WritingPoints: 25,
@@ -82,8 +99,11 @@ const PointShare = props => {
           SubmissionID: props.team.child2.SubmissionID,
         },
       ];
-    };
+    },
+    [props.team.child2.SubmissionID, props.team.child1.SubmissionID]
+  );
 
+  useEffect(() => {
     if (teamPoints) {
       submitPoints(authState, teamPoints);
     }
@@ -92,22 +112,21 @@ const PointShare = props => {
       // if virtual id submit virtual player points
       submitPoints(
         authState,
-        setVirtualPlayerPoints(props.team.child1.MemberID)
+        virtualPlayerCallback(props.team.child1.MemberID)
       );
     } else if (virtualPlayerIDs.includes(props.team.child2.MemberID)) {
       submitPoints(
         authState,
-        setVirtualPlayerPoints(props.team.child2.MemberID)
+        virtualPlayerCallback(props.team.child2.MemberID)
       );
     }
   }, [
     teamPoints,
     authState,
-    virtualPlayerIDs,
-    props.team.child1.MemberID,
+    virtualPlayerCallback,
     props.team.child2.MemberID,
-    props.team.child1.SubmissionID,
-    props.team.child2.SubmissionID,
+    props.team.child1.MemberID,
+    virtualPlayerIDs,
   ]);
 
   const openModal = content => {
