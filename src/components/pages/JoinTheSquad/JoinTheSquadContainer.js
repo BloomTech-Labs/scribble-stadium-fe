@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useMemo } from 'react'; 
+import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
 
 import RenderJoinTheSquad from './RenderJoinTheSquad';
-import {team} from '../../../state/actions';
+import { team } from '../../../state/actions';
 
 const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
   const { authState, authService } = useOktaAuth();
