@@ -15,7 +15,7 @@ afterEach(cleanup);
 jest.mock('@auth0/auth0-react', () => ({
   useAuth0: () => {
     return {
-      authState: jest.fn(),
+      user: jest.fn(),
       isAuthenticated: true,
     };
   },
