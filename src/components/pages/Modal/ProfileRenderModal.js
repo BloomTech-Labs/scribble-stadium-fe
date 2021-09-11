@@ -42,7 +42,7 @@ const ProfileRenderModal = props => {
   };
 
   useEffect(() => {
-    getProfileData(user).then(res => {
+    getProfileData().then(res => {
       setUserInfo(res);
     });
   }, [user]);
