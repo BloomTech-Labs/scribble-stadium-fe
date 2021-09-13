@@ -13,7 +13,7 @@ const { Header, Content, Footer } = Layout;
 
 const SatMon = ({ setDate, child, devMode }) => {
   const [radioTasks, value, setValue] = useTasksRadio(0);
-  const { isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
   const { push } = useHistory();
 
   const adminDash = () => {
@@ -42,13 +42,9 @@ const SatMon = ({ setDate, child, devMode }) => {
 
   const handleGetChildTasks = async e => {
     try {
-      const res = await getChildTasks(
-        isAuthenticated,
-        child.id,
-        child.cohortId
-      );
+      const res = await getChildTasks(user, child.id, child.cohortId);
       setAllTasks(
-        isAuthenticated,
+        user,
         res.ID,
         radioTasks.hasRead,
         radioTasks.hasDrawn,
