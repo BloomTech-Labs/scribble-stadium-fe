@@ -16,7 +16,7 @@ const StoryViewer = props => {
   const [pageNumber, setPageNumber] = useState(1);
   const [hasViewedAllPages, setViewed] = useState(false);
 
-  const { isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
   const { push } = useHistory();
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -67,7 +67,7 @@ const StoryViewer = props => {
   };
 
   const onFinish = e => {
-    markAsRead(isAuthenticated, props.tasks.id);
+    markAsRead(user, props.tasks.id);
     push('/child/mission-control');
 
     props.setHasRead();
