@@ -16,7 +16,7 @@ jest.mock('react-router-dom', () => ({
   useHistory: () => ({
     push: jest.fn(),
   }),
-})); 
+}));
 
 describe('<InstructionsModal />', () => {
   let wrapper;

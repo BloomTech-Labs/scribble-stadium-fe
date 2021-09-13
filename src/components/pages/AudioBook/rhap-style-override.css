@@ -1,21 +1,19 @@
 /* overiding border and background */
 .rhap_container {
-    background-color: transparent;
-    box-shadow: none;
-  }
-  
-  /* overiding progress bar colors and volume */
-  .rhap_progress-bar,
-  .rhap_download-progress,
-  .rhap_progress-filled,
-  .rhap_progress-bar-show-download {
-    background-color: dodgerblue;
-  }
-  
-  .rhap_volume-bar,
-  .rhap_progress-indicator,
-  .rhap_volume-indicator {
-    background: dodgerblue;
-  }
-  
-  
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* overiding progress bar colors and volume */
+.rhap_progress-bar,
+.rhap_download-progress,
+.rhap_progress-filled,
+.rhap_progress-bar-show-download {
+  background-color: dodgerblue;
+}
+
+.rhap_volume-bar,
+.rhap_progress-indicator,
+.rhap_volume-indicator {
+  background: dodgerblue;
+}

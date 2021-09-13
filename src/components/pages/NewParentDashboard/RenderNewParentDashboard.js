@@ -8,6 +8,7 @@ import NewChildCard from '../../common/NewChildCard';
 import AccountSettings from '../AccountSettings/AccountSettingsContainer';
 import { connect } from 'react-redux';
 import { setParent } from '../../../state/actions/parentActions';
+import RenderWordCloud from '../WordCloud';
 
 const RenderNewParentDashboard = props => {
   const { authState } = useOktaAuth();
@@ -25,6 +26,9 @@ const RenderNewParentDashboard = props => {
     <div>
       <Layout className="newparent-dashboard">
         <ParentNavTopBar />
+        <div className="renderWordCloud">
+          <RenderWordCloud />
+        </div>
 
         <Layout>
           <div className="progress-container">
