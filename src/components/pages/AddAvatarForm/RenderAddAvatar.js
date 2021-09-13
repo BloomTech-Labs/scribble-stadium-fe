@@ -11,7 +11,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import Modal from 'antd/lib/modal/Modal';
 
 const RenderAddAvatar = () => {
-  const { isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
 
   const [fileList, setFileList] = useState([]);
   const [filePreviews, setFilePreviews] = useState([]);
@@ -36,7 +36,7 @@ const RenderAddAvatar = () => {
       formData.append(key, values[key]);
     });
 
-    postNewAvatar(isAuthenticated, formData)
+    postNewAvatar(user, formData)
       .then(res => {
         setUploading(false);
       })
