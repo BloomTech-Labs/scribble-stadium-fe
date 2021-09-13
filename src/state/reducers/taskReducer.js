@@ -15,7 +15,7 @@ const initialState = {
     storyTitle: '',
     storyUrl: null,
   },
-}; 
+};
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {

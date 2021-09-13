@@ -38,7 +38,7 @@
   margin: 0 0;
   padding: 15px 0px;
 }
-@media (max-width:360px) {
+@media (max-width: 360px) {
   .h2 {
     font-size: 3rem;
   }
@@ -58,7 +58,7 @@
   margin: 0px 20px;
   width: 1px;
 }
-@media screen and ((max-width:360px)) {
+@media screen and ((max-width: 360px)) {
   .custom-divider {
     visibility: hidden;
   }
