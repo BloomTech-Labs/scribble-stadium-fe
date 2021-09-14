@@ -22,8 +22,6 @@ export const CountDownTimer = () => {
     let endTime = new Date();
     let today = new Date().getDay();
 
-    console.log(today);
-
     const countdownVar = {
       0: 72,
       1: 24,
@@ -64,13 +62,7 @@ export const CountDownTimer = () => {
 
   return (
     <div className="countdown-timer">
-      {/* <div>
-        Current Activity: <CurrentActivity />
-      </div> */}
       <div>Time Remaining: {convertTimeFormat(timeRemaining)}</div>
-      {/* <div>
-        Next Activity: <NextActivity />
-      </div> */}
     </div>
   );
 };
