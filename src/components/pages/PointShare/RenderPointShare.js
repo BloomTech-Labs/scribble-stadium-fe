@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import { useAuth0 } from '@auth0/auth0-react';
 import { Header } from '../../common';
 import { Row, Col, InputNumber, Button, notification } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
@@ -22,7 +22,9 @@ const PointShare = props => {
   const [modalContent, setModalContent] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [modalVisible, setModalVisible] = useState(true);
-  const { authState } = useOktaAuth();
+
+
+  const { user } = useAuth0();
 
   /**
    *Virtual Player
@@ -105,8 +107,10 @@ const PointShare = props => {
 
   useEffect(() => {
     if (teamPoints) {
-      submitPoints(authState, teamPoints);
+      submitPoints(user, teamPoints);
     }
+  }, [teamPoints, user]);
+  
     // check for virtual player id from props
     if (virtualPlayerIDs.includes(props.team.child1.MemberID)) {
       // if virtual id submit virtual player points
@@ -128,6 +132,7 @@ const PointShare = props => {
     props.team.child1.MemberID,
     virtualPlayerIDs,
   ]);
+
 
   const openModal = content => {
     setModalContent(content);

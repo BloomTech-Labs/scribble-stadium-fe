@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
+import React, { useState, useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import RenderMatchUp from './RenderMatchUp';
 import { connect } from 'react-redux';
@@ -13,21 +13,19 @@ import {
 } from '../../../api/index';
 
 function MatchUpContainer({ LoadingComponent, ...props }) {
-  const { authState, authService } = useOktaAuth();
-  const [userInfo, setUserInfo] = useState(null);
+  const { user, isAuthenticated } = useAuth0();
+  const [userInfo, setUserInfo] = useState(user);
   const [canVote, setCanVote] = useState(true);
-  // eslint-disable-next-line
-  const [memoAuthService] = useMemo(() => [authService], []);
 
   useEffect(() => {
-    getChild(authState, props.child.id).then(child => {
+    getChild(user, props.child.id).then(child => {
       props.setChild({ ...child });
     });
 
     if (props.child.Ballots) {
       if (props.child.Ballots.length > 0 && props.child.VotesRemaining > 0) {
         for (let ballot of props.child.Ballots) {
-          getFaceoffsForVoting(authState, ballot[1]).then(faceoffs => {
+          getFaceoffsForVoting(user, ballot[1]).then(faceoffs => {
             if (props.votes.length === 0) {
               for (let faceoff of faceoffs) {
                 if (faceoff.ID === ballot[0]) {
@@ -40,7 +38,7 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.faceoffs, authState, props.child.VotesRemaining]);
+  }, [props.faceoffs, user, props.child.VotesRemaining]);
 
   useEffect(() => {
     if (props.child.VotesRemaining === 0) {
@@ -49,27 +47,8 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
   }, [props.child]);
 
   useEffect(() => {
-    let isSubscribed = true;
-
-    memoAuthService
-      .getUser()
-      .then(info => {
-        // if user is authenticated we can use the authService to snag some user info.
-        // isSubscribed is a boolean toggle that we're using to clean up our useEffect.
-        if (isSubscribed) {
-          setUserInfo(info);
-        }
-      })
-      .catch(err => {
-        isSubscribed = false;
-        return setUserInfo(null);
-      });
-    return () => (isSubscribed = false);
-  }, [memoAuthService]);
-
-  useEffect(() => {
-    getChildSquad(authState, props.child.id).then(squad => {
-      getFaceoffsForMatchup(authState, squad.ID, props.child.id).then(
+    getChildSquad(user, props.child.id).then(squad => {
+      getFaceoffsForMatchup(user, squad.ID, props.child.id).then(
         allFaceoffs => {
           props.setMemberId(squad);
           props.setSquadFaceoffs(allFaceoffs);
@@ -78,18 +57,17 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
     });
 
     // eslint-disable-next-line
-  }, [authState]);
+  }, [user]);
 
   return (
     <>
-      {authState.isAuthenticated && !userInfo && (
+      {isAuthenticated && !userInfo && (
         <LoadingComponent message="Loading..." />
       )}
-      {authState.isAuthenticated && userInfo && props.faceoffs && (
+      {isAuthenticated && userInfo && props.faceoffs && (
         <RenderMatchUp
           {...props}
           userInfo={userInfo}
-          authService={authService}
           canVote={canVote}
           votesRemaining={props.child.VotesRemaining}
         />
