@@ -15,7 +15,7 @@
     background-color: #757575;
     display: flex;
     flex-direction: column;
-    padding: 40px 0px;
+
 }
 
 .countdown-timer {
@@ -23,6 +23,7 @@
 	font-family: 'Bangers', cursive;
 	color: white;
     text-align: center;
+
 }
 
 .progressionBar {
@@ -37,6 +38,23 @@
 	font-weight: 500;
 	font-family: 'Bangers', cursive;
     margin: 0 auto;
+
+}
+
+.progressionBarLoaded {
+    width: 85%;
+    border-radius: 15px;
+    border: 3px solid black;
+    display: flex;
+    flex-flow: row, wrap;
+    color: black;
+    //background-color: white;
+    background-image: linear-gradient(to right,  var(--green) 0%, white  5%;);
+    font-size: var(--font-size);
+	font-weight: 500;
+	font-family: 'Bangers', cursive;
+    margin: 0 auto;
+
 }
 
 .progbtn{
@@ -161,7 +179,6 @@
 	border-radius: var(--bar-border-radius);
 }
 
-
 .currentBar {
     background-color: var(--green);
 }
@@ -179,7 +196,6 @@
 	font-size: var(--font-size);
 	color: var(--white);
 	font-family: 'Bangers', cursive;
-
 }
 
 .day4 {
@@ -190,7 +206,6 @@
 	font-size: var(--font-size);
 	color: var(--white);
 	font-family: 'Bangers', cursive;
-
 }
 
 .day5 {
@@ -201,7 +216,6 @@
 	font-size: var(--font-size);
 	color: var(--white);
 	font-family: 'Bangers', cursive;
-
 }
 
 .day6-7 {
@@ -212,128 +226,17 @@
 	font-size: var(--font-size);
 	color:var(--white);
 	font-family: 'Bangers', cursive;
-
 }
 
-#toggle {
-    position: column;
-    appearance: none;
-    cursor: pointer;
-    left: -100%;
-    top: -100%;
-  }
+[data-theme='compact'] .site-collapse-custom-collapse .site-collapse-custom-panel,
+.site-collapse-custom-collapse .site-collapse-custom-panel {
 
-  #toggle + label {
-    position: column;
-    cursor: pointer;
-    padding: 10px;
-    background: #000;
-    width: 100px;
-    border-radius: 3px;
-    padding: 8px 10px;
-    color: #FFF;
-    line-height: 20px;
-    font-size: 12px;
-    text-align: center;
-    -webkit-font-smoothing: antialiased;
-    cursor: pointer;
-    margin: 20px 50px;
-    transition: all 500ms ease;
-  }
-
-  #toggle + label:after {
-    content: "Slide Down"
-  }
-
-  .slidecontainer {
-    transition: margin 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
-    padding: 5em 3em;
-  }
-
-  #toggle:checked ~ .message {
-    top: 0;
-  }
-
-  #toggle:checked ~ .slidecontainer {
-    margin-top: 250px;
-  }
-
-  #toggle:checked + label {
-    background: #54494b;
-  }
-
-  #toggle:checked + label:after {
-    content: "Slide Up"
-  }
-
-  #toggle {
-    position: column;
-    appearance: none;
-    cursor: pointer;
-    left: -100%;
-    top: -100%;
-  }
-
-  #toggle + label {
-    position: column;
-    cursor: pointer;
-    padding: 10px;
-    background: #000;
-    width: 100px;
-    border-radius: 3px;
-    padding: 8px 10px;
-    color: #FFF;
-    line-height: 20px;
-    font-size: 12px;
-    text-align: center;
-    -webkit-font-smoothing: antialiased;
-    cursor: pointer;
-    margin: 20px 50px;
-    transition: all 500ms ease;
-  }
-
-  #toggle + label:after {
-    content: "Slide Down"
-  }
-
-  .slidecontainer {
-    transition: margin 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
-    padding: 5em 3em;
-  }
-
-  #toggle:checked ~ .message {
-    top: 0;
-  }
-
-  #toggle:checked ~ .slidecontainer {
-    margin-top: 250px;
-  }
-
-  #toggle:checked + label {
-    background: #54494b;
-  }
-
-  #toggle:checked + label:after {
-    content: "Slide Up"
-  }
-
-  .message {
-      background: #54494b none repeat scroll 0 0;
-      box-sizing: border-box;
-      color: #fff;
-      height: 230px;
-      left: 0;
-      overflow: hidden;
-      padding: 2em;
-      position: absolute;
-      top: -250px;
-      transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94) 0s;
-      width: 100%;
-  }
-
-  .message h1 {
-    color: #FFF;
-  }
+  overflow: hidden;
+  background: #757575;
+  border: 0px;
+  border-radius: 2px;
+  text-align: center;
+}
 
 //State not done for this PT21
 .currentDay {

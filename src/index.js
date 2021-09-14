@@ -132,7 +132,7 @@ function App() {
           )}
         />
 
-        <SecureRoute
+        <Route
           exact
           path="/gallery"
           component={() => (

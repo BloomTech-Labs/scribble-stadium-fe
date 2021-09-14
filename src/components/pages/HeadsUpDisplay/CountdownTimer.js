@@ -8,30 +8,25 @@ export const CountDownTimer = () => {
     let currTime = new Date();
 
     // This variable will format current local time to pacific timezone (string)
-    let pst = currTime.toLocaleString("en-US", {
-      timeZone: "America/Los_Angeles",
-      weekday: "short",
-      month: "short",
-      day: "2-digit",
-      year: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      second: "numeric"
+    let pst = currTime.toLocaleString('en-US', {
+      timeZone: 'America/Los_Angeles',
+      weekday: 'short',
+      month: 'short',
+      day: '2-digit',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
     });
 
     let endTime = new Date();
     let today = new Date().getDay();
 
-    console.log(today);
-
     const countdownVar = {
-      0: 24,
-      1: 72,
-      2: 48,
-      3: 24,
-      4: 24,
-      5: 24,
-      6: 48
+      0: 72,
+      1: 24,
+      2: 24,
+      3: 48,
     };
 
     // Set endTime based on day of week (72, 48, 25 hour timers)
@@ -43,7 +38,7 @@ export const CountDownTimer = () => {
   };
 
   // This function will convert the format for our time difference to HH:MM:SS
-  const convertTimeFormat = (time) => {
+  const convertTimeFormat = time => {
     let timeVar = parseInt(time, 10);
 
     let hours = Math.floor(timeVar / (1000 * 60 * 60));
@@ -51,9 +46,9 @@ export const CountDownTimer = () => {
     let seconds = Math.floor(timeVar / 1000) % 60;
 
     return [hours, minutes, seconds]
-      .map((v) => (v < 10 ? "0" + v : v))
-      .filter((v, i) => v !== "00" || i > 0)
-      .join(":");
+      .map(v => (v < 10 ? '0' + v : v))
+      .filter((v, i) => v !== '00' || i > 0)
+      .join(':');
   };
 
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining());
@@ -67,13 +62,7 @@ export const CountDownTimer = () => {
 
   return (
     <div className="countdown-timer">
-      {/* <div>
-        Current Activity: <CurrentActivity />
-      </div> */}
       <div>Time Remaining: {convertTimeFormat(timeRemaining)}</div>
-      {/* <div>
-        Next Activity: <NextActivity />
-      </div> */}
     </div>
   );
 };
