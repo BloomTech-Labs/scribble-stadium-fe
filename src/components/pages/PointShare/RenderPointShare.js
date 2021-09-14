@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useCallback } from 'use-callback';
 import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
 import { Header } from '../../common';
@@ -6,7 +7,6 @@ import { Row, Col, InputNumber, Button, notification } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
-
 import { SubmissionViewerModal } from '../../common';
 import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
