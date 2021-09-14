@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { CountDownTimer } from './CountdownTimer';
 import Hud from '../../../styles/less/Hud.less';
-import { Button } from 'antd';
-import { UpCircleFilled } from '@ant-design/icons';
 import { DownCircleFilled } from '@ant-design/icons';
 import { Collapse } from 'antd';
 
@@ -22,35 +20,35 @@ export default function (props) {
 
   return (
     <div className="HudContainer">
-      <Collapse
-        bordered={false}
-        defaultActiveKey={['1']}
-        expandIcon={({ isActive }) => (
-          <DownCircleFilled rotate={isActive ? 90 : 0} />
-        )}
-        className="site-collapse-custom-collapse"
-      >
-        <Panel header="" key="1" className="site-collapse-custom-panel">
-          <CountDownTimer />
-          <br />
-          {/* This is going to show all tasks as well as indicating current task */}
-          <div className="progressionBar">
-            {activities.map(a => {
-              return (
-                <div
-                  className={`activity ${
-                    currentActivity == a && 'currentActivity'
-                  }
+      <CountDownTimer />
+      <br />
+      <div className="progressionBar">
+        {activities.map(a => {
+          return (
+            <div
+              className={`activity ${currentActivity == a && 'currentActivity'}
               ${
                 completedActivity.length - 1 >= activities.indexOf(a) &&
                 'completedActivity'
               }`}
-                >
-                  <span>{a}</span>
-                </div>
-              );
-            })}
-          </div>
+            >
+              <span>{a}</span>
+            </div>
+          );
+        })}
+      </div>
+      <Collapse
+        bordered={false}
+        defaultActiveKey={['1']}
+        expandIcon={({ isActive }) => (
+          <DownCircleFilled
+            rotate={isActive ? 180 : 0}
+            style={{ fontSize: '18px' }}
+          />
+        )}
+        className="site-collapse-custom-collapse"
+      >
+        <Panel header="" key="1" className="site-collapse-custom-panel">
           <div className="dayBars">
             {dayBars.map(a => {
               return (
