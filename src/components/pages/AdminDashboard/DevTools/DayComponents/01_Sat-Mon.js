@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { useOktaAuth } from '@okta/okta-react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import { Layout, Button, Radio } from 'antd';
 
@@ -13,7 +13,7 @@ const { Header, Content, Footer } = Layout;
 
 const SatMon = ({ setDate, child, devMode }) => {
   const [radioTasks, value, setValue] = useTasksRadio(0);
-  const { authState } = useOktaAuth();
+  const { user } = useAuth0();
   const { push } = useHistory();
 
   const adminDash = () => {
@@ -42,9 +42,9 @@ const SatMon = ({ setDate, child, devMode }) => {
 
   const handleGetChildTasks = async e => {
     try {
-      const res = await getChildTasks(authState, child.id, child.cohortId);
+      const res = await getChildTasks(user, child.id, child.cohortId);
       setAllTasks(
-        authState,
+        user,
         res.ID,
         radioTasks.hasRead,
         radioTasks.hasDrawn,
