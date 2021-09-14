@@ -21,7 +21,7 @@ export default function (props) {
   return (
     <div className="HudContainer">
       <CountDownTimer />
-      <br />
+
       <div className="progressionBar">
         {activities.map(a => {
           return (
