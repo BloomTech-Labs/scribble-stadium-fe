@@ -38,16 +38,13 @@
 	font-family: 'Bangers', cursive;
     margin: 0 auto;
 }
+
 .progbtn{
     display: flex;
     flex-direction: column;
     font-size: var(--font-size);
-
-
-
-
-
 }
+
 .activity {
     width: 16.666%;
     text-align: center;
@@ -63,14 +60,19 @@
     }
 }
 
+.activity .checkImg{
+   display: none;
+}
+
 // Checkmark img for completed activity to be added after made in house 
 .completedActivity {
     background-color: var(--green);
+    //border-radius: 1px 0px 0px 0px;
     width: 16.666%;
     text-align: center;
     // This is how the I made the border angled on one side
     transform: skewX(-15deg);
-    border-right: 3px solid black;
+   // border-right: 3px solid black;
     // This is to make the element seem less italicized 
     span {
         transform: skewX(15deg);
@@ -79,6 +81,12 @@
         border-right: none;
     }
 }
+
+.completedActivity .checkImg{
+  display: inline;
+}
+
+
 
 .currentActivity {
     background-color:  var(--white);
@@ -97,6 +105,11 @@
     }
     animation: pulse-animation 2s infinite;
 }
+
+.currentActivity .checkImg{
+  display: none;
+}
+
 // This is the animation for current activity
 .pulse {
     animation: pulse-animation 2s infinite;

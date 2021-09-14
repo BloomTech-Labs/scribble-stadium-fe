@@ -35,7 +35,7 @@ const RenderChildDashboard = props => {
       <Header displayMenu={true} />
       <HUD
         completedActivity={['Read', 'Draw', 'Write']}
-        currentActivity={'SquadUp'}
+        currentActivity={'Squad Up'}
         currentBar={'bar2'}
       />
       <InstructionsModal //This is the pop up that happens on the child dashboard stop at one pop up

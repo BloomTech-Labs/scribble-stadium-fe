@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CountDownTimer } from './CountdownTimer';
 import Hud from '../../../styles/less/Hud.less';
+import checkMark from '../../../assets/images/Checkmark.svg';
 import { Button } from 'antd';
 import { UpCircleFilled } from '@ant-design/icons';
 
@@ -10,8 +11,8 @@ export default function (props) {
     'Read',
     'Draw',
     'Write',
-    'SquadUp',
-    'PointShare',
+    'Squad Up',
+    'Point Share',
     'Voting',
   ];
 
@@ -37,7 +38,9 @@ export default function (props) {
           );
         })}
       </div>
-      {/* This will show the days and indicaate current day */}
+      {/* This will show the days and indicaate current day 
+       <img class="checkImg"  src={checkMark} alt="checkMark"></img>
+              <br></br>*/}
 
       <div className="dayBars">
         {dayBars.map(a => {
