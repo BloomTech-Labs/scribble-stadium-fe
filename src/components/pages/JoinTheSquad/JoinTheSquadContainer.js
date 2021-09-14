@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { connect } from 'react-redux';
@@ -16,11 +15,7 @@ const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
         <LoadingComponent message="Loading..." />
       )}
       {isAuthenticated && userInfo && (
-        <RenderJoinTheSquad
-          {...props}
-          userInfo={userInfo}
-          authService={authService}
-        />
+        <RenderJoinTheSquad {...props} userInfo={userInfo} />
       )}
     </>
   );
