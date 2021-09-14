@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'antd';
-import { useOktaAuth } from '@okta/okta-react';
+import { useAuth0 } from '@auth0/auth0-react';
 import bc from 'bcryptjs';
 import { getProfileData } from '../../../api';
 import PinInput from 'react-pin-input';
 import AccountSettingsForm from '../AccountSettingsForm/AccountSettingsForm';
 
 function RenderAccountSettings() {
-  const { authState } = useOktaAuth();
-
+  const { user } = useAuth0();
   const [unlock, setUnlock] = useState(true);
   const [error, setError] = useState(false);
   const [userInfo, setUserInfo] = useState();
@@ -16,14 +15,14 @@ function RenderAccountSettings() {
 
   //Grab the parents userInfo so we can validate their information (pin)
   useEffect(() => {
-    getProfileData(authState).then(res => {
+    getProfileData(user).then(res => {
       res.map(user => {
         if (user.type == 'Parent') {
           setUserInfo(user);
         }
       });
     });
-  }, [authState]);
+  }, [user]);
 
   //These functions handle's exiting the modal once it is activated
   const handleOk = () => {

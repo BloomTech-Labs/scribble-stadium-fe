@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, Menu, Dropdown, Button } from 'antd';
 import { Link, useHistory } from 'react-router-dom';
-import { useOktaAuth } from '@okta/okta-react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { connect } from 'react-redux';
 import { global } from '../../state/actions';
 
@@ -11,7 +11,7 @@ const { Title } = Typography;
 
 const ParentMenu = props => {
   const { push } = useHistory();
-  const { authService } = useOktaAuth();
+  const { logout } = useAuth0();
   const { clearUsers, ...rest } = props;
 
   const switchUsers = e => {
@@ -24,7 +24,10 @@ const ParentMenu = props => {
       <Menu.Item key="1" onClick={switchUsers}>
         Change User
       </Menu.Item>
-      <Menu.Item key="2" onClick={() => authService.logout()}>
+      <Menu.Item
+        key="2"
+        onClick={() => logout({ returnTo: window.location.origin })}
+      >
         Logout
       </Menu.Item>
     </Menu>
