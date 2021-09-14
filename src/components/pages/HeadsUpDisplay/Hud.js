@@ -69,7 +69,6 @@ export default function (props) {
           </div>
         </Panel>
       </Collapse>
-      ,
     </div>
   );
 }
