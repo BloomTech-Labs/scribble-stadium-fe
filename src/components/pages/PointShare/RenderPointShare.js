@@ -23,7 +23,6 @@ const PointShare = props => {
   const [showModal, setShowModal] = useState(false);
   const [modalVisible, setModalVisible] = useState(true);
 
-
   const { user } = useAuth0();
 
   /**
@@ -109,30 +108,22 @@ const PointShare = props => {
     if (teamPoints) {
       submitPoints(user, teamPoints);
     }
-  }, [teamPoints, user]);
-  
+
     // check for virtual player id from props
     if (virtualPlayerIDs.includes(props.team.child1.MemberID)) {
       // if virtual id submit virtual player points
-      submitPoints(
-        authState,
-        virtualPlayerCallback(props.team.child1.MemberID)
-      );
+      submitPoints(user, virtualPlayerCallback(props.team.child1.MemberID));
     } else if (virtualPlayerIDs.includes(props.team.child2.MemberID)) {
-      submitPoints(
-        authState,
-        virtualPlayerCallback(props.team.child2.MemberID)
-      );
+      submitPoints(user, virtualPlayerCallback(props.team.child2.MemberID));
     }
   }, [
     teamPoints,
-    authState,
+    user,
     virtualPlayerCallback,
     props.team.child2.MemberID,
     props.team.child1.MemberID,
     virtualPlayerIDs,
   ]);
-
 
   const openModal = content => {
     setModalContent(content);
