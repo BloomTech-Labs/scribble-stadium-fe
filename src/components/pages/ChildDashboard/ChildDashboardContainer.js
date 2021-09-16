@@ -1,44 +1,21 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
+import React, { useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import { connect } from 'react-redux';
 
 import RenderChildDashboard from './RenderChildDashboard';
 
 const ChildDashboardContainer = ({ LoadingComponent, ...props }) => {
-  const { authState, authService } = useOktaAuth();
-  const [userInfo, setUserInfo] = useState(null);
-  // eslint-disable-next-line
-  const [memoAuthService] = useMemo(() => [authService], []);
+  const { user, isAuthenticated } = useAuth0();
+  const [userInfo, setUserInfo] = useState(user);
 
-  useEffect(() => {
-    let isSubscribed = true;
-
-    memoAuthService
-      .getUser()
-      .then(info => {
-        if (isSubscribed) {
-          setUserInfo(info);
-          console.log('USER INFO', info);
-        }
-      })
-      .catch(err => {
-        isSubscribed = false;
-        return setUserInfo(null);
-      });
-    return () => (isSubscribed = false);
-  }, [memoAuthService]);
   return (
     <>
-      {authState.isAuthenticated && !userInfo && (
+      {isAuthenticated && !userInfo && (
         <LoadingComponent message="Loading..." />
       )}
-      {authState.isAuthenticated && userInfo && (
-        <RenderChildDashboard
-          {...props}
-          userInfo={userInfo}
-          authService={authService}
-        />
+      {isAuthenticated && userInfo && (
+        <RenderChildDashboard {...props} userInfo={userInfo} />
       )}
     </>
   );

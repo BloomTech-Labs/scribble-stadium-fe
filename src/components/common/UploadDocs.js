@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { Form, Button, Upload, Modal, notification } from 'antd';
 
 import { getBase64 } from '../../utils/helpers';
@@ -15,8 +15,11 @@ export const UploadDocs = ({
   setSubmitted,
   maxLength,
   handleSubmit,
+  listType,
+  handleChangeExtra,
+  savedFileList,
 }) => {
-  const { authState } = useOktaAuth();
+  const { user } = useAuth0();
 
   const [uploading, setUploading] = useState(false);
   const [filePreviews, setFilePreviews] = useState([]);
@@ -41,7 +44,7 @@ export const UploadDocs = ({
       formData.append(key, values[key]);
     });
     formData.append('storyId', storyId);
-    apiAxios(authState, formData, submissionId)
+    apiAxios(user, formData, submissionId)
       .then(res => {
         setUploading(false);
         setSubmitted(true);
@@ -89,6 +92,11 @@ export const UploadDocs = ({
     if (fileList.length > maxLength) {
       openNotificationWithIcon('warning');
     }
+
+    // This is in case I want to have access to this onChange event outside of this component
+    if (handleChangeExtra) {
+      handleChangeExtra(fileList);
+    }
   };
 
   const onRemove = file => {
@@ -104,6 +112,12 @@ export const UploadDocs = ({
 
   useEffect(() => {
     console.log({ fileList, filePreviews }, 'useEffect');
+
+    // This is in case I have a filelist ready OUTSIDE this component
+    if (savedFileList != undefined) {
+      setFilePreviews(savedFileList);
+      setFileList(savedFileList);
+    }
   });
 
   // For error message warning if there are too many images
@@ -118,7 +132,7 @@ export const UploadDocs = ({
     <>
       <Form form={form} onFinish={onFinish}>
         <Upload
-          listType="picture-card"
+          listType={listType ? listType : 'picture-card'}
           fileList={filePreviews}
           onRemove={onRemove}
           beforeUpload={beforeUpload}
@@ -142,6 +156,7 @@ export const UploadDocs = ({
               src={preview.image}
             />
           </Modal>
+
           <Button
             className={submitButtonClassname}
             type="primary"

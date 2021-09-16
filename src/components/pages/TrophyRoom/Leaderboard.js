@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Table } from 'antd';
 import { getLeaderboard } from '../../../api';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import { useAuth0 } from '@auth0/auth0-react';
 import { connect } from 'react-redux';
 
 const Leaderboard = props => {
-  const { authState } = useOktaAuth();
+  const { user } = useAuth0();
   const [data, setDataInfo] = useState([]);
   useEffect(() => {
-    //Getting data from backend for leaderboard
-    getLeaderboard(authState).then(res => {
+    //Getting data from backend for leaderboard.
+    getLeaderboard(user).then(res => {
       setDataInfo(res);
       console.log(res);
       console.log();
     });
-  }, [authState]);
+  }, [user]);
 
   const table = [
-    // Structre of the Table
+    // Structure of the Table.
     {
       title: 'Rank',
       key: 'Rank',

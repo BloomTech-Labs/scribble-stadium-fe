@@ -10,7 +10,7 @@ import read_icon from '../../../assets/icons/read_icon.svg';
 import write_icon from '../../../assets/icons/write_icon.svg';
 import Checkbox from './Checkbox';
 
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import { useAuth0 } from '@auth0/auth0-react';
 import { getChildTasks, getStory } from '../../../api';
 import { tasks } from '../../../state/actions';
 
@@ -22,7 +22,7 @@ const RenderMissionControl = props => {
   const { hasRead, hasWritten, hasDrawn } = props;
 
   const { push } = useHistory();
-  const { authState } = useOktaAuth();
+  const { user } = useAuth0();
 
   /**
    * On initial render, checks to see if tasks in state (id, hasRead, hasWritten, etc)
@@ -32,13 +32,11 @@ const RenderMissionControl = props => {
    */
   useEffect(() => {
     if (props.tasks.id === null || props.devMode.isDevModeActive) {
-      getChildTasks(authState, props.child.id, props.child.cohortId).then(
-        res => {
-          props.setTasks(res);
-        }
-      );
+      getChildTasks(user, props.child.id, props.child.cohortId).then(res => {
+        props.setTasks(res);
+      });
 
-      getStory(authState, props.child.cohortId).then(res => {
+      getStory(user, props.child.cohortId).then(res => {
         props.setSubmissionInformation(res);
       });
     }

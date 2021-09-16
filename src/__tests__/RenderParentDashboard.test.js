@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { render, screen, cleanup, fireEvent } from '@testing-library/react';
-import RenderParentDashboard from '../components/pages/ParentDashboard/RenderParentDashboard';
+import RenderNewParentDashboard from '../components/pages/NewParentDashboard/RenderNewParentDashboard';
 
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
@@ -12,13 +12,18 @@ afterEach(() => {
   cleanup();
 });
 
-jest.mock('@okta/okta-react', () => ({
-  useOktaAuth: () => {
+jest.mock('@auth0/auth0-react', () => ({
+  Auth0Provider: ({ children }) => children,
+  withAuthenticationRequired: (component, _) => component,
+  useAuth0: () => {
     return {
-      authState: {
-        isAuthenticated: true,
+      isAuthenticated: false,
+      userInfo: {
+        sub: '1234567890',
+        name: 'John Doe',
+        email: 'johndoe@test.com',
       },
-      authService: {},
+      getIdTokenClaims: jest.fn(),
     };
   },
 }));
@@ -27,13 +32,13 @@ const Component = props => {
   return (
     <Router>
       <Provider store={store}>
-        <RenderParentDashboard {...props} />
+        <RenderNewParentDashboard {...props} />
       </Provider>
     </Router>
   );
 };
 
-describe('<ParentDashboard /> test suite', () => {
+describe('<NewParentDashboard /> test suite', () => {
   test('Welcome back Nav', () => {
     render(<Component parent={{ children: [] }} />);
 
