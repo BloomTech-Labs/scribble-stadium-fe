@@ -4,8 +4,11 @@
 
 [<img src="https://avatars2.githubusercontent.com/t/4044276?s=280&v=4" width="200" />](https://avatars2.githubusercontent.com/t/4044276?s=280&v=4)
 
+
 Scribble Stadium turns “reluctant readers” into authors and illustrators through a collaborative world-building game.
+
 <!-- Todo! Update this -->
+
 You can find the deployed project at: [AWS Amplify](https://a.storysquad.dev/)
 
 ## Current State Of The App
@@ -176,6 +179,7 @@ Front End:
 - add a new .env file with the info provided by your TPL
 - npm start
 - -open localhost:3000
+- ** Note: Okta auth will ONLY work on port 3000 at this time. If you have something running on another port you may encounter a CORS error.
 Back End
 - npm install
 - add a new .env file with the info provided by your TPL (if you are using something other than Docker (like Postgres), add it to your backend .env file instead of the docker url
