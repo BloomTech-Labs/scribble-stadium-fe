@@ -1,0 +1,251 @@
+@import '~antd/dist/antd.less';
+@import '~antd/lib/style/themes/default.less';
+
+:root{
+	--green: #C6FD7E;
+	--grey: #c7c7c7;
+	--white: white;
+	--bar-border-radius: 200px;
+	--min-height: .75rem;
+	--font-size: 1.5rem;
+}
+
+.HudContainer {
+    width: 100%;
+    background-color: #757575;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.countdown-timer {
+    font-size: var(--font-size);
+	font-family: 'Bangers', cursive;
+	color: white;
+    text-align: center;
+
+}
+
+.progressionBar {
+    width: 85%;
+    border-radius: 15px;
+    border: 3px solid black;
+    display: flex;
+    flex-flow: row, wrap;
+    color: black;
+    background-color: white;
+    font-size: var(--font-size);
+	font-weight: 500;
+	font-family: 'Bangers', cursive;
+    margin: 0 auto;
+
+}
+
+.progressionBarLoaded {
+    width: 85%;
+    border-radius: 15px;
+    border: 3px solid black;
+    display: flex;
+    flex-flow: row, wrap;
+    color: black;
+    //background-color: white;
+    background-image: linear-gradient(to right,  var(--green) 0%, white  5%;);
+    font-size: var(--font-size);
+	font-weight: 500;
+	font-family: 'Bangers', cursive;
+    margin: 0 auto;
+
+}
+
+.progbtn{
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-size);
+}
+
+.activity {
+    width: 16.666%;
+    text-align: center;
+    // This is how the I made the border angled on one side
+    transform: skewX(-15deg);
+    border-right: 3px solid black;
+    // This is to make the element seem less italicized 
+    span {
+        transform: skewX(15deg);
+    }
+    &:nth-last-of-type(1) {
+        border-right: none;
+    }
+}
+
+.activity .checkImg{
+   display: none;
+}
+
+// Checkmark img for completed activity to be added after made in house 
+.completedActivity {
+    background-color: var(--green);
+    //border-radius: 1px 0px 0px 0px;
+    width: 16.666%;
+    text-align: center;
+    // This is how the I made the border angled on one side
+    transform: skewX(-15deg);
+   // border-right: 3px solid black;
+    // This is to make the element seem less italicized 
+    span {
+        transform: skewX(15deg);
+    }
+    &:nth-last-of-type(1) {
+        border-right: none;
+    }
+}
+
+.completedActivity .checkImg{
+  display: inline;
+}
+
+
+
+.currentActivity {
+    background-color:  var(--white);
+    width: 16.666%;
+    text-align: center;
+    // This is how the I made the border angled on one side
+    transform: skewX(-15deg);
+    border: 8px solid #C6FD7E;;
+    //border-right: 3px solid black;
+    // This is to make the element seem less italicized 
+    span {
+        transform: skewX(15deg);
+    }
+    &:nth-last-of-type(1) {
+        border-right: none;
+    }
+    animation: pulse-animation 2s infinite;
+}
+
+.currentActivity .checkImg{
+  display: none;
+}
+
+// This is the animation for current activity
+.pulse {
+    animation: pulse-animation 2s infinite;
+}
+  
+@keyframes pulse-animation {
+    0% {
+        box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    }
+}
+
+.dayBars {
+	display: flex;
+	margin-top: 1%;
+}
+
+.bar1 {
+    width: 39%;
+	margin-left: 9%;
+    background-color: var(--grey);
+    min-height: var(--min-height);
+	border-radius: var(--bar-border-radius);
+}
+
+.bar2 {
+    width: 11%;
+	margin-left: 3%;
+    background-color: var(--grey);
+    min-height: var(--min-height);
+	border-radius: var(--bar-border-radius);
+}
+
+.bar3 {
+    width: 11%;
+	margin-left: 3%;
+    background-color: var(--grey);
+    min-height: var(--min-height);
+	border-radius: var(--bar-border-radius);
+}
+
+.bar4 {
+    width: 11%;
+	margin-left: 3%;
+    background-color: var(--grey);
+    min-height: var(--min-height);
+	border-radius: var(--bar-border-radius);
+}
+
+.currentBar {
+    background-color: var(--green);
+}
+
+.days {
+    display: flex;
+	margin-top: .5%;
+}
+
+.day1-3 {
+	display: flex;
+	margin-left: 9%;
+    width: 39%;
+	justify-content: center;
+	font-size: var(--font-size);
+	color: var(--white);
+	font-family: 'Bangers', cursive;
+}
+
+.day4 {
+	display: flex;
+	width: 11%;
+	margin-left: 3%;
+	justify-content: center;
+	font-size: var(--font-size);
+	color: var(--white);
+	font-family: 'Bangers', cursive;
+}
+
+.day5 {
+	display: flex;
+	width: 11%;
+	margin-left: 3%;
+	justify-content: center;
+	font-size: var(--font-size);
+	color: var(--white);
+	font-family: 'Bangers', cursive;
+}
+
+.day6-7 {
+	display: flex;
+	width: 11%;
+	margin-left: 3%;
+	justify-content: center;
+	font-size: var(--font-size);
+	color:var(--white);
+	font-family: 'Bangers', cursive;
+}
+
+[data-theme='compact'] .site-collapse-custom-collapse .site-collapse-custom-panel,
+.site-collapse-custom-collapse .site-collapse-custom-panel {
+
+  overflow: hidden;
+  background: #757575;
+  border: 0px;
+  border-radius: 2px;
+  text-align: center;
+}
+
+//State not done for this PT21
+.currentDay {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: var(--green);
+    animation: pulse-animation 2s infinite;
+}
+// State not done for this PT21
+.completedDay {
+    background-color: var(--green);
+}
