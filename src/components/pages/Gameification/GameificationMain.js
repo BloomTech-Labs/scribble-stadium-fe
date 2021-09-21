@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 //** Import Components */
 import { Header } from '../../common';
@@ -10,6 +11,11 @@ import { NotFoundPage } from '../NotFound';
 import Footer from './Footer';
 import GameificationMission from './GameificationMission';
 import GameModal from './GameModal';
+import PlayerMatchup from './SinglePlayerBattle/PlayerMatchup';
+import SubmissionPage from './SubmissionsGallery/SubmissionPage';
+
+//** Import Helpers */
+import { getApiUrl } from '../../../api/index';
 
 export default function GameificationMain(props) {
   // Specify a base URL
@@ -21,16 +27,35 @@ export default function GameificationMain(props) {
   // Data that the modal will display
   const [modalData, setModalData] = useState({});
 
-  // Function to enable the modal
+  // Data from the current child playing
+  const [child, setChild] = useState({});
+
+  //* Function to enable the modal
   const enableModalWindow = data => {
     setEnableModal(true);
     setModalData(data);
   };
 
-  // Function to disable the modal
+  //* Function to disable the modal
   const disableModalWindow = () => {
     setEnableModal(false);
   };
+
+  //* Get the current child info
+  useEffect(() => {
+    const tempChildID = 1;
+
+    const APIURL = getApiUrl();
+
+    axios
+      .get(`${APIURL}children/${tempChildID}`)
+      .then(res => {
+        setChild(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
 
   return (
     <div id="gameification">
@@ -50,6 +75,14 @@ export default function GameificationMain(props) {
             enableModalWindow={enableModalWindow}
             disableModalWindow={disableModalWindow}
           />
+        </Route>
+
+        <Route path={`${baseURL}/single-matchup`}>
+          <PlayerMatchup baseURL={baseURL} />
+        </Route>
+
+        <Route path={`${baseURL}/submissions`}>
+          <SubmissionPage />
         </Route>
 
         <Route component={NotFoundPage} />
@@ -77,6 +110,12 @@ const GamemodeBtns = props => {
     history.push(`${props.baseURL}/mission/read`);
   };
 
+  const accessSubmissions = e => {
+    e.preventDefault();
+
+    history.push(`${props.baseURL}/submissions`);
+  };
+
   // Enable initial modal
   useEffect(() => {
     const data = {
@@ -95,7 +134,7 @@ const GamemodeBtns = props => {
           Accept The Mission
         </button>
 
-        <button>Trophy Room</button>
+        <button onClick={accessSubmissions}>Submission Gallery</button>
       </div>
     </div>
   );

@@ -20,6 +20,9 @@ export default function GameWriteStep(props) {
   // State to help when uploading
   const [isUploading, setIsUploading] = useState(false);
 
+  // State to help when submitting everything
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   // This handles what happens when a picture is added/removed
   const handleChange = data => {
     setFileList(data);
@@ -52,7 +55,16 @@ export default function GameWriteStep(props) {
   };
 
   // This function handles when we make a full submission of the entire mission(after reading, drawing, and writing)
-  const handleFullSubmission = () => {};
+  const handleFullSubmission = () => {
+    setIsSubmitting(true);
+
+    // Timer used to allow a slight delay before the submit functions trigger.
+    const triggerSubmitTimer = 1500;
+
+    setTimeout(() => {
+      history.push('/gameification/single-matchup');
+    }, triggerSubmitTimer);
+  };
 
   // This handles when we skip the drawing phase
   const handleSkip = () => {
@@ -152,7 +164,13 @@ export default function GameWriteStep(props) {
 
             {props.battleReady && (
               <div className="battle-btn">
-                <button>Begin Battle!</button>
+                <Button
+                  disabled={isSubmitting}
+                  loading={isSubmitting}
+                  onClick={handleFullSubmission}
+                >
+                  {isSubmitting ? 'Battle Starting...' : 'Begin Battle!'}
+                </Button>
               </div>
             )}
           </div>
