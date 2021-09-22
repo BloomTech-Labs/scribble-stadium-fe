@@ -49,7 +49,6 @@ import { ParentSettings } from './components/pages/FamilySettings';
 import { EditPlayers } from './components/pages/EditPlayers';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
-import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 import { Leaderboard } from './components/pages/Leaderboard';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
@@ -116,7 +115,6 @@ function App() {
         <Route path="/gameification" component={GameificationMain} />
         <Route path="/gamemode/single" component={GamemodeButton} />
         <Route path="/login" component={LandingPage} />
-        <Route path="/implicit/callback" component={LoginCallbackLoader} />
         {/* any of the routes you need secured should be registered as ProtectedRoutes */}
         <ProtectedRoute
           exact

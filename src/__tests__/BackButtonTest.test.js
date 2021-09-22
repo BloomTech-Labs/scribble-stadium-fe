@@ -8,13 +8,12 @@ import BackButton from '../components/common/BackButton';
 
 configure({ adapter: new Adapter() });
 
-jest.mock('@okta/okta-react', () => ({
-  useOktaAuth: () => {
+jest.mock('@auth0/auth0-react', () => ({
+  Auth0Provider: ({ children }) => children,
+  withAuthenticationRequired: (component, _) => component,
+  useAuth0: () => {
     return {
-      authState: {
-        isAuthenticated: true,
-      },
-      AuthService: {},
+      isAuthenticated: true,
     };
   },
 }));
