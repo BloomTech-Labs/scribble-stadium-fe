@@ -10,7 +10,7 @@ const { Panel } = Collapse;
 const ParentFaqContainer = () => {
   return (
     <>
-      <Layout className="parent-dashboard">
+      <Layout className="newparent-dashboard">
         <ParentNavTopBar />
         <div className='"site-card-border-less-wrapper"'>
           <div style={{ width: '66%', margin: '0 auto' }}>
