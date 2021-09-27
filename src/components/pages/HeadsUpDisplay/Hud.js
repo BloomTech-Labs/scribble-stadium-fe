@@ -56,7 +56,9 @@ export default function (props) {
             {dayBars.map(a => {
               return (
                 <div
-                  className={`${a} ${currentBar == a && 'currentBar'}`}
+                  className={`${a} ${currentBar == a && 'currentBar'}
+                  ${currentBar.length - 1 >= dayBars.indexOf(a) && 'currentBar'}
+                  `}
                 ></div>
               );
             })}

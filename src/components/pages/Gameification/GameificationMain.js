@@ -10,6 +10,7 @@ import { NotFoundPage } from '../NotFound';
 import Footer from './Footer';
 import GameificationMission from './GameificationMission';
 import GameModal from './GameModal';
+import Hud from '../HeadsUpDisplay/Hud';
 
 export default function GameificationMain(props) {
   // Specify a base URL
@@ -32,10 +33,18 @@ export default function GameificationMain(props) {
     setEnableModal(false);
   };
 
+  const completedActivity = [];
+  const currentActivity = 'Read';
+  const currentBar = [];
+
   return (
     <div id="gameification">
       <Header />
-
+      <Hud
+        completedActivity={completedActivity}
+        currentActivity={currentActivity}
+        currentBar={currentBar}
+      />
       <Switch>
         <Route path={baseURL} exact>
           <GamemodeBtns
@@ -95,7 +104,7 @@ const GamemodeBtns = props => {
           Accept The Mission
         </button>
 
-        <button>Trophy Room</button>
+        <button className="trophy-btn">Trophy Room</button>
       </div>
     </div>
   );
