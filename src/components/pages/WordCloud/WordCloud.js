@@ -1,7 +1,7 @@
 import React from 'react';
 import useWindowDimensions from './windowdimensions';
 import './wordcloud.css';
-// import axios from "axios";
+import axios from 'axios';
 
 export default function WordCloud(props) {
   let words = props.data;
