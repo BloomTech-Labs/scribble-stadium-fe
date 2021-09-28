@@ -33,9 +33,16 @@ export default function GameificationMain(props) {
     setEnableModal(false);
   };
 
-  const completedActivity = [];
-  const currentActivity = 'Read';
-  const currentBar = [];
+  const completedActivity = [
+    'Read',
+    'Draw',
+    'write',
+    'squad up',
+    'point share',
+    'voting',
+  ];
+  const currentActivity = 'voting';
+  const currentBar = ['bar 1', 'bar 2', 'bar 3', 'bar 4'];
 
   return (
     <div id="gameification">
