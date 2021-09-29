@@ -4,7 +4,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const StoryViewerContainer = ({ LoadingComponent }) => {
   const { user, isAuthenticated } = useAuth0();
-  const [userInfo, setUserInfo] = useState(user);
+  const [userInfo] = useState(user);
 
   return (
     <>
