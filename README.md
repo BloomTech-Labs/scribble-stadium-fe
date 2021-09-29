@@ -250,5 +250,3 @@ Note for the Parent Dashboard “Change email” and “Change password” modal
 
 
 
-User: llama001@maildrop.cc
-Pw: Test001Test
