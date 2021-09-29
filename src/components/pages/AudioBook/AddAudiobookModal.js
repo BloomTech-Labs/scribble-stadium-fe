@@ -30,49 +30,49 @@ To-Do:
         * modal will close on completion
 */
 const AddAudiobookModal = props => {
-  const [visible, setVisible] = useState(false);
-  const [confirmLoading, setConfirmLoading] = useState(false);
+    const [visible, setVisible] = useState(false);
+    const [confirmLoading, setConfirmLoading] = useState(false);
   // const [modalContent, setModalContent] = useState('content of modal');
 
-  const showModal = () => {
+    const showModal = () => {
     setVisible(true);
-  };
+    };
 
-  const handleOk = () => {
+    const handleOk = () => {
     setConfirmLoading(true);
     setTimeout(() => {
-      setVisible(false);
-      setConfirmLoading(false);
-    }, 2000);
-  };
+        setVisible(false);
+        setConfirmLoading(false);
+        }, 2000);
+    };
 
   // this function will initiate the axios POST request to upload an audio file and save it to db.
   // const onButtonClick = () => {
 
   // };
 
-  const handleCancel = () => {
+    const handleCancel = () => {
     console.log('clicked cancel button');
     setVisible(false);
-  };
+    };
 
-  return (
-    <>
-      <Button type="primary" onClick={showModal}>
-        Add AudioBook
-      </Button>
+    return (
+        <>
+        <Button type="primary" onClick={showModal}>
+            Add AudioBook
+        </Button>
 
-      <Modal
-        title="AddAudiobook"
-        visible={visible}
-        onOk={handleOk}
-        confirmLoading={confirmLoading}
-        onCancel={handleCancel}
-      >
-        {/* <p>{modalContent}</p> */}
-      </Modal>
-    </>
-  );
+        <Modal
+            title="AddAudiobook"
+            visible={visible}
+            onOk={handleOk}
+            confirmLoading={confirmLoading}
+            onCancel={handleCancel}
+        >
+            {/* <p>{modalContent}</p> */}
+        </Modal>
+        </>
+    );
 };
 
 export default AddAudiobookModal;
