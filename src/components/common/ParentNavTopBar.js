@@ -39,7 +39,7 @@ const ParentNavTopBar = props => {
     <nav className="parent-nav-top-bar" theme="light">
       <Link to="/parent/dashboard">
         <Title className="title navbar-logo" level={1}>
-          STORY SQUAD
+          Scribble Stadium
         </Title>
       </Link>
       <div className="nav-right">
