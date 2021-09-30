@@ -8,7 +8,7 @@ import RenderVotingPage from './RenderVotingPage';
 function VotingPageContainer({ LoadingComponent, ...props }) {
   const { push } = useHistory();
   const { user, isAuthenticated } = useAuth0();
-  const [userInfo, setUserInfo] = useState(user);
+  const [userInfo] = useState(user);
   const [votes, setVotes] = useState();
 
   useEffect(() => {

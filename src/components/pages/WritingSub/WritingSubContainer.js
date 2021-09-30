@@ -5,7 +5,7 @@ import RenderWritingSub from './RenderWritingSub';
 
 function WritingSubContainer({ LoadingComponent, ...props }) {
   const { user, isAuthenticated } = useAuth0();
-  const [userInfo, setUserInfo] = useState(user);
+  const [userInfo] = useState(user);
 
   return (
     <>
