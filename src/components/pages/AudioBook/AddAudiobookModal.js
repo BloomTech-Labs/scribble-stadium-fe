@@ -49,9 +49,10 @@ const AddAudiobookModal = props => {
   };
 
   // this function will initiate the axios POST request to upload an audio file and save it to db.
-  const onButtonClick = () => {
-    apiAuthPost('/upload'); // Need to ask BE to create /upload endpoint
-  };
+  // const onButtonClick = () => {
+  //     apiAuthPost('/upload');
+
+  // };
 
   const handleCancel = () => {
     console.log('clicked cancel button');
