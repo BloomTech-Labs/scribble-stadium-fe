@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
 // import { UploadOutlined } from '@ant-design/icons';
-// import axios from 'axios';
+import { apiAuthPost } from '../../../api';
 
 /*
 This component creates a modal popup to add an audiobook file for a user-submitted story
@@ -22,6 +22,8 @@ To-Do:
     [] write modal helper function for onClick
         * This will toggle the visibility of the modal as well as show its content
     [] write helper function for Axios POST
+        * We already have Authorization functions built in
+        * Need to have an endpoint linked to db that will store user-uploaded files.
     [] write validation checks for login status and filetype (user MUST be logged in to upload, audio files ONLY)
     [] write onClick function for Upload Button
         * This will trigger the Axios POST request
@@ -47,9 +49,9 @@ const AddAudiobookModal = props => {
   };
 
   // this function will initiate the axios POST request to upload an audio file and save it to db.
-  // const onButtonClick = () => {
-
-  // };
+  const onButtonClick = () => {
+    apiAuthPost('/upload'); // Need to ask BE to create /upload endpoint
+  };
 
   const handleCancel = () => {
     console.log('clicked cancel button');
@@ -59,9 +61,8 @@ const AddAudiobookModal = props => {
   return (
     <>
       <Button type="primary" onClick={showModal}>
-        Add AudioBook
+        Add AudioBook{' '}
       </Button>
-
       <Modal
         title="AddAudiobook"
         visible={visible}
@@ -69,8 +70,8 @@ const AddAudiobookModal = props => {
         confirmLoading={confirmLoading}
         onCancel={handleCancel}
       >
-        {/* <p>{modalContent}</p> */}
-      </Modal>
+        {/* <p>{modalContent}</p> */}{' '}
+      </Modal>{' '}
     </>
   );
 };
