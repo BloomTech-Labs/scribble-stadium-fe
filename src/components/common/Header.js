@@ -71,7 +71,7 @@ const Header = ({
       {pointsRemaining && (
         <h2 className="points-remaining">POINTS REMAINING: {props.points}</h2>
       )}
-      <h1 className="header-text">{props.title || 'STORY SQUAD'}</h1>
+      <h1 className="header-text">{props.title || 'Scribble Stadium'}</h1>
       {teamName && <h2 className="team-name">{props.team.teamName}</h2>}
       {versus && (
         <h2 className="versus">
