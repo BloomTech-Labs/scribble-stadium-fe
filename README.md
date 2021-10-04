@@ -4,7 +4,6 @@
 
 [<img src="https://avatars2.githubusercontent.com/t/4044276?s=280&v=4" width="200" />](https://avatars2.githubusercontent.com/t/4044276?s=280&v=4)
 
-
 Scribble Stadium turns “reluctant readers” into authors and illustrators through a collaborative world-building game.
 
 <!-- Todo! Update this -->
@@ -251,6 +250,8 @@ Remember that this project is licensed under the MIT license, and by submitting 
 - Please see [Labs Gitflow](https://github.com/Lambda-School-Labs/labs28-gitflow.git) for proper flow on all your pull requests.
 
 ## Documentation
+
+- This is the link to the proper glossary documentation for the project (https://docs.google.com/document/d/1I2dtnjUtSmGxIfcuUWKrIRBhrCAFlmQ0RnJ3DZJIy4g/edit)
 
 See [Backend Documentation](https://story-squad-b-api.herokuapp.com/api-docs/) for details on the backend of our project.
 
