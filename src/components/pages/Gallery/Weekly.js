@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import 'antd/dist/antd.css';
 import { Modal, Carousel } from 'antd';
 import { UpCircleFilled, DownCircleFilled } from '@ant-design/icons';
-import WritingPrompt from './SourceMaterial/WritingPrompt';
-import DrawingPrompt from './SourceMaterial/DrawingPrompt';
+import WritingPrompt from '../StoryPrompt/SourceMaterial/WritingPrompt';
+import DrawingPrompt from '../StoryPrompt/SourceMaterial/DrawingPrompt';
 // import PromptButtons from './SourceMaterial/PromptButtons';
 // import PDFViewer from './SourceMaterial/PDFViewer';
 
