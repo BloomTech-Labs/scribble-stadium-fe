@@ -39,7 +39,7 @@ export default function GameReadStep(props) {
 
   return (
     <div id="read-step">
-      <div id="story" className="gameification-content">
+      <div id="story" className="gamefication-content">
         <div className="inner-container">
           <div className="story-title">
             <h2>Zoom & Boom @ A Saltwater Startup</h2>

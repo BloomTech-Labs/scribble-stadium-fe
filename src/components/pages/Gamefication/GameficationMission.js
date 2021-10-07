@@ -10,7 +10,7 @@ import GameReadStep from './GameReadStep';
 import GameDrawStep from './GameDrawStep';
 import GameWriteStep from './GameWriteStep';
 
-export default function GameificationMission(props) {
+export default function GameficationMission(props) {
   // GEt the history obj
   const history = useHistory();
 

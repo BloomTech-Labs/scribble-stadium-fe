@@ -52,8 +52,8 @@ import { WritingSub } from './components/pages/WritingSub';
 import { Leaderboard } from './components/pages/Leaderboard';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
-// Gameification Components
-import { GameificationMain } from './components/pages/Gameification';
+// Gamefication Components
+import { GameficationMain } from './components/pages/Gamefication/index';
 import { JoinTheSquad } from './components/pages/JoinTheSquad';
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
@@ -112,7 +112,7 @@ function App() {
       <DevModeHeader component={DevModeHeader} />
       <Switch>
         <Route exact path="/gamemode" component={Gamemode} />
-        <Route path="/gameification" component={GameificationMain} />
+        <Route path="/gamefication" component={GameficationMain} />
         <Route path="/gamemode/single" component={GamemodeButton} />
         <Route path="/login" component={LandingPage} />
         {/* any of the routes you need secured should be registered as ProtectedRoutes */}
