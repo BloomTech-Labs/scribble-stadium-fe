@@ -16,7 +16,7 @@ const GalleryContainer = () => {
   // moved to Parent Component to pass down data
   useEffect(() => {
     //Getting data from backend for leaderboard
-    getChildByID(user, id).then(res => {
+    getChildByID(id).then(res => {
       setDataInfo(res.data.Submissions);
     });
   }, [user, id]);
