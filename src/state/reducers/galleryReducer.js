@@ -1,10 +1,9 @@
 import { submissions } from '../actions';
 
 const initialState = {
-  WritingUrl: '',
-  PageNum: 0,
-  DrawingUrl: '',
-  children_id: 0,
+  ID: null,
+  Name: '',
+  Submissions: [],
 };
 
 export const reducer = (state = initialState, action) => {
@@ -12,10 +11,9 @@ export const reducer = (state = initialState, action) => {
     case submissions.SET_WEEKLY_SUBMISSIONS:
       return {
         ...state,
-        WritingUrl: action.payload.WritingUrl,
-        PageNum: action.payload.PageNum,
-        DrawingUrl: action.payload.DrawingUrl,
-        children_id: action.payload.children_id,
+        ID: action.payload.ID,
+        Name: action.payload.Name,
+        Submissions: [...action.payload.Submissions],
       };
 
     default:
