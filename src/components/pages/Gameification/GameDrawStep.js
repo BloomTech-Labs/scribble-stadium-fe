@@ -103,7 +103,7 @@ export default function GameDrawStep(props) {
     <div id="draw-step">
       <div id="draw" className="gameification-content">
         <div className="inner-container">
-          <img src={boyImg} alt="Boy Image" className="boy-img" />
+          <img src={boyImg} alt="A boy" className="boy-img" />
 
           <div className="step-description">
             <h3>Don’t forget!</h3>
