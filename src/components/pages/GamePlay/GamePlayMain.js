@@ -8,12 +8,12 @@ import { useHistory } from 'react-router-dom';
 import { Header } from '../../common';
 import { NotFoundPage } from '../NotFound';
 import Footer from './Footer';
-import GameficationMission from './GameficationMission';
+import GamePlayMission from './GamePlayMission';
 import GameModal from './GameModal';
 
-function GameficationMain(props) {
+function GamePlayMain(props) {
   // Specify a base URL
-  const baseURL = '/gamefication';
+  const baseURL = '/gameplay';
 
   // State to enable/disable the modal
   const [enableModal, setEnableModal] = useState(false);
@@ -33,7 +33,7 @@ function GameficationMain(props) {
   };
 
   return (
-    <div id="gamefication">
+    <div id="gameplay">
       <Header />
 
       <Switch>
@@ -45,7 +45,7 @@ function GameficationMain(props) {
         </Route>
 
         <Route path={`${baseURL}/mission`}>
-          <GameficationMission
+          <GamePlayMission
             baseURL={baseURL}
             enableModalWindow={enableModalWindow}
             disableModalWindow={disableModalWindow}
@@ -101,4 +101,4 @@ const GamemodeBtns = props => {
   );
 };
 
-export default connect(null, null)(GameficationMain);
+export default connect(null, null)(GamePlayMain);
