@@ -198,7 +198,6 @@ const postNewChild = child => {
 
 const getChildByID = ID => {
   try {
-    console.log(ID);
     return apiAuthGet(`/gallery/child/${ID}`, getAuthHeader()).then(
       response => {
         return response;
