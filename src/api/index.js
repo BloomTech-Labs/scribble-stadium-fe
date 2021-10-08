@@ -191,7 +191,7 @@ const postNewChild = child => {
 
 /**
  *
- * @param {Object} authState necessary for API functionality
+ 
  * @param {number} childId the id of the respective child
  * @returns {number} child id for child that is being called
  */
