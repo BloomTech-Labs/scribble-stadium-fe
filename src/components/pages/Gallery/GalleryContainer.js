@@ -44,14 +44,19 @@ const GalleryContainer = props => {
             </div>
           </div>
         </div>
-        <WeeklySubmissions data={data} />
+        <WeeklySubmissions data={props.submissions.Submissions} />
       </div>
     </>
   );
 };
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    ...state,
+    submissions: state.submissions,
+    name: state.Name,
+    childId: state.ID,
+  };
 };
 
 export default connect(mapStateToProps, { setWeeklySubmissions })(
