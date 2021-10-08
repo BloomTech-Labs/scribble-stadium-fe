@@ -74,9 +74,9 @@ const StepButton = props => {
   const completedClass = props.isComplete ? 'completed' : '';
   const activeClass = currentStep === stepName ? 'active' : '';
   const stepBGColor =
-    props.stepBGColor != undefined ? props.stepBGColor : '#ffffff';
+    props.stepBGColor !== undefined ? props.stepBGColor : '#ffffff';
   const requirementMet =
-    props.requiredStep != undefined ? props.requiredStep : true;
+    props.requiredStep !== undefined ? props.requiredStep : true;
 
   return (
     <button
