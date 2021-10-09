@@ -5,7 +5,6 @@ import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { connect } from 'react-redux';
 
-import { tasks } from '../../../state/actions';
 import { Gamemode } from './index';
 
 import Thrashbar from './Thrashbar';
