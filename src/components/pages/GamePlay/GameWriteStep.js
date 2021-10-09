@@ -1,7 +1,7 @@
 //** Import Modules */
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import { gsap } from 'gsap';
+import { useHistory } from 'react-router-dom';
 import { Button } from 'antd';
 
 //** Import Components */
@@ -10,7 +10,7 @@ import UploadDocs from '../../common/UploadDocs';
 //** Import Assets */
 import boyImg from '../../../assets/images/gamemodeimg/LightingKid.png';
 
-export default function GameDrawStep(props) {
+export default function GameWriteStep(props) {
   // Get the history object
   const history = useHistory();
 
@@ -33,57 +33,56 @@ export default function GameDrawStep(props) {
     const triggerSubmitTimer = 1500;
 
     setTimeout(() => {
-      props.updateSubmissionData('HasDrawn', true);
-      props.updateFileSubmissionData('drawings', fileList);
-      props.updateCurStep('write');
+      props.updateSubmissionData('HasWritten', true);
+      props.updateFileSubmissionData('writings', fileList);
+      props.updateBattleReady(true);
 
       // Enable the modal window
-      if (!props.modalClosed.draw) {
-        const modalData = {
-          title: 'Scribble a side quest!',
-          description:
-            'Grab your favorite pencil and some loose leaf sheets of paper. Based on the prompt at the end of the reading, scribble down a side quest by hand. When your story is complete, snap a photo of your pages and upload them.',
-          buttonTxt: "Let's Go!",
-        };
-
-        props.enableModalWindow(modalData);
-        props.updateModalStatus('draw', true);
-      }
-
-      history.push(`${props.baseURL}/write`);
-    }, triggerSubmitTimer);
-  };
-
-  // This handles when we skip the drawing phase
-  const handleSkip = () => {
-    props.updateSubmissionData('HasDrawn', false);
-    props.updateFileSubmissionData('drawings', []);
-
-    props.updateCurStep('write');
-
-    // Enable the modal window
-    if (!props.modalClosed.draw) {
       const modalData = {
-        title: 'Scribble a side quest!',
+        title: 'Get ready for the boss battle!',
         description:
-          'Grab your favorite pencil and some loose leaf sheets of paper. Based on the prompt at the end of the reading, scribble down a side quest by hand. When your story is complete, snap a photo of your pages and upload them.',
+          'To complete this mission, your work will be put up head-to-head against a boss. If you are ready to fight, submit your work!',
         buttonTxt: "Let's Go!",
       };
 
       props.enableModalWindow(modalData);
-      props.updateModalStatus('draw', true);
-    }
 
-    if (props.fileSubmissionData.writings.length === 0) {
+      setIsUploading(false);
+    }, triggerSubmitTimer);
+  };
+
+  // This function handles when we make a full submission of the entire mission(after reading, drawing, and writing)
+  const handleFullSubmission = () => {};
+
+  // This handles when we skip the drawing phase
+  const handleSkip = () => {
+    props.updateSubmissionData('HasWritten', false);
+    props.updateFileSubmissionData('writings', []);
+
+    if (!props.submissionData.HasDrawn) {
+      props.updateCurStep('draw');
       props.updateBattleReady(false);
-    }
 
-    history.push(`${props.baseURL}/write`);
+      history.push(`${props.baseURL}/draw`);
+    } else {
+      props.updateCurStep('write');
+      props.updateBattleReady(true);
+
+      // Enable the modal window
+      const modalData = {
+        title: 'Get ready for the boss battle!',
+        description:
+          'To complete this mission, your work will be put up head-to-head against a boss. If you are ready to fight, submit your work!',
+        buttonTxt: "Let's Go!",
+      };
+
+      props.enableModalWindow(modalData);
+    }
   };
 
   // Add some animation
   useEffect(() => {
-    gsap.from('#draw-step', {
+    gsap.from('#write-step', {
       opacity: 0,
       y: 200,
       duration: 1,
@@ -96,12 +95,19 @@ export default function GameDrawStep(props) {
       delay: 1,
     });
 
-    setFileList(props.fileSubmissionData.drawings);
-  }, []);
+    const battleBtnAnim = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+    battleBtnAnim.to('.battle-btn button', { scale: 0.8, duration: 0.5 });
+    battleBtnAnim.to('.battle-btn button', { scale: 1.2, duration: 0.3 });
+    battleBtnAnim.to('.battle-btn button', { scale: 1.05, duration: 0.2 });
+    battleBtnAnim.to('.battle-btn button', { scale: 1.07, duration: 0.2 });
+    battleBtnAnim.to('.battle-btn button', { scale: 1, duration: 0.4 });
+
+    setFileList(props.fileSubmissionData.writings);
+  }, [props.fileSubmissionData.writings]);
 
   return (
-    <div id="draw-step">
-      <div id="draw" className="gameification-content">
+    <div id="write-step">
+      <div id="write" className="gameplay-content">
         <div className="inner-container">
           <img src={boyImg} alt="Boy Image" className="boy-img" />
 
@@ -110,8 +116,8 @@ export default function GameDrawStep(props) {
 
             {fileList.length === 0 ? (
               <p>
-                When you’re finished drawing, snap a photo and upload your
-                masterpiece.
+                When your story is complete, snap a photo of your pages and
+                upload them.
               </p>
             ) : (
               <p>Double check that you’re uploading the right photo!</p>
@@ -120,7 +126,7 @@ export default function GameDrawStep(props) {
             <UploadDocs
               listType="picture"
               uploadButtonClassname="upload-picture"
-              uploadButtonText="Upload Your Drawing"
+              uploadButtonText="Upload Your Writing"
               handleChangeExtra={handleChange}
               handleSubmit={handleSubmit}
               alternateHandleSubmission={true}
@@ -139,8 +145,16 @@ export default function GameDrawStep(props) {
             )}
 
             <button className="skip-btn" onClick={handleSkip}>
-              I’d rather write
+              {props.submissionData.HasDrawn
+                ? 'Just drawing, no story'
+                : "I'd rather draw"}
             </button>
+
+            {props.battleReady && (
+              <div className="battle-btn">
+                <button>Begin Battle!</button>
+              </div>
+            )}
           </div>
         </div>
       </div>

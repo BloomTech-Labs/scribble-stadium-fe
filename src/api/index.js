@@ -368,7 +368,7 @@ const setAllTasks = (
     });
 };
 
-// Gamification API Calls
+// GamePlay API Calls
 
 /**
  *
