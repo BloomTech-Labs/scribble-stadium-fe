@@ -1,4 +1,4 @@
-// import { getNewStories } from '../actions';
+import { storiesNew } from '../actions';
 
 const initialState = {
   ID: null,
@@ -10,7 +10,7 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_NEW_STORIES:
+    case storiesNew.GET_NEW_STORIES:
       return {
         ...state,
         ID: action.payload.ID,
