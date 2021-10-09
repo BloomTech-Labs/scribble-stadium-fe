@@ -4,7 +4,7 @@ import LightingKid from '../../../assets/images/gamemodeimg/LightingKid.png';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { connect } from 'react-redux';
-import UploaderComp from './UploaderComp';
+
 import { tasks } from '../../../state/actions';
 import { Gamemode } from './index';
 
