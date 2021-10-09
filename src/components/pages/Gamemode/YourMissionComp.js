@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import UploaderComp from './UploaderComp';
 import { tasks } from '../../../state/actions';
 import { Gamemode } from './index';
-import { Link, Route, useHistory } from 'react-router-dom';
 
 import Thrashbar from './Thrashbar';
 const YourMissionComp = ({ ...props }) => {
