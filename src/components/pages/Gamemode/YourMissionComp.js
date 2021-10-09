@@ -13,10 +13,12 @@ const YourMissionComp = ({ ...props }) => {
     draw: false,
     mode: 'single',
   });
+
   const fxd = () => {
     if (props.child.gamemode.write) {
       props.child.gamemode.write = true;
       rwd.write = true;
+      setsRwd(rwd.write);
       props.child.gamemode.draw = false;
       rwd.draw = false;
       props.child.gamemode.read = true;
