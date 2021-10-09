@@ -8,7 +8,7 @@ import UploaderComp from './UploaderComp';
 import { tasks } from '../../../state/actions';
 import { Gamemode } from './index';
 import { Link, Route, useHistory } from 'react-router-dom';
-import { render } from 'react-dom';
+
 import Thrashbar from './Thrashbar';
 const YourMissionComp = ({ ...props }) => {
   const { push, location } = useHistory();
