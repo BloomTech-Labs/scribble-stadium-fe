@@ -37,27 +37,52 @@ const DevToolsNew = ({ devMode, setDevMode }) => {
   const dropdown = (
     <Menu>
       <Menu.Item>
-        <a target="_blank" onClick={handleSatMon}>
+        <a
+          href="http://localhost:3000/dev/day/1-3"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={handleSatMon}
+        >
           Saturday - Monday
         </a>
       </Menu.Item>
       <Menu.Item>
-        <a target="_blank" onClick={handleTues}>
+        <a
+          href="http://localhost:3000/dev/day/4#"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={handleTues}
+        >
           Tuesday
         </a>
       </Menu.Item>
       <Menu.Item>
-        <a target="_blank" onClick={handleWed}>
+        <a
+          href="http://localhost:3000/dev/day/5"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={handleWed}
+        >
           Wednesday
         </a>
       </Menu.Item>
       <Menu.Item>
-        <a target="_blank" onClick={handleThurs}>
+        <a
+          href="http://localhost:3000/dev/day/6"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={handleThurs}
+        >
           Thursday
         </a>
       </Menu.Item>
       <Menu.Item>
-        <a target="_blank" onClick={handleFri}>
+        <a
+          href="http://localhost:3000/dev/day/7"
+          target="_blank"
+          rel=" noopener noreferrer"
+          onClick={handleFri}
+        >
           Friday
         </a>
       </Menu.Item>
@@ -78,21 +103,21 @@ const DevToolsNew = ({ devMode, setDevMode }) => {
           </Button>
           {devMode.isDevModeActive ? (
             <Dropdown style={{ margin: '8px' }} overlay={dropdown}>
-              <a
+              <button
                 className="ant-dropdown-link"
                 onClick={e => e.preventDefault()}
               >
                 Select a day ... <DownOutlined />
-              </a>
+              </button>
             </Dropdown>
           ) : (
             <Dropdown style={{ margin: '8px' }} disabled overlay={dropdown}>
-              <a
+              <button
                 className="ant-dropdown-link"
                 onClick={e => e.preventDefault()}
               >
                 Select a day ... <DownOutlined />
-              </a>
+              </button>
             </Dropdown>
           )}
         </div>
