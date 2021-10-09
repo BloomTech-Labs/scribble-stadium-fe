@@ -114,7 +114,7 @@ export const UploadDocs = ({
     console.log({ fileList, filePreviews }, 'useEffect');
 
     // This is in case I have a filelist ready OUTSIDE this component
-    if (savedFileList != undefined) {
+    if (savedFileList !== undefined) {
       setFilePreviews(savedFileList);
       setFileList(savedFileList);
     }
