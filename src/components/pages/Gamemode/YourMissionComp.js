@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import UploadDocs from '../../common/UploadDocs';
 import LightingKid from '../../../assets/images/gamemodeimg/LightingKid.png';
 import { Header } from '../../common';
