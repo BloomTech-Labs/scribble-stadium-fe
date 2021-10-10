@@ -29,6 +29,8 @@
     height: 35vh;
   }
 
+
+
   .accept-mission {
     background: url('../../assets/images/child_dashboard_images/accept_the_mission.svg')
       no-repeat;
@@ -46,7 +48,43 @@
     }
   }
 
-  
+  div.accept-mission {
+    border-width: .75rem .375rem .75rem .75rem;
+    @media @tablet {
+      border-width: .5rem .25rem .5rem .5rem;
+    }
+    @media @mobile {
+      border-width: .5rem .5rem .25rem .5rem;
+    }
+  }
+  div.change-avatar {
+    border-width: .75rem .75rem .75rem .375rem;
+    @media @tablet {
+      border-width: .5rem .5rem .5rem .25rem;
+    }
+    @media @mobile {
+      border-width: .25rem .5rem .5rem .5rem;
+    }
+  }
+  div.adventure-passport {
+    border-width: .75rem .375rem .75rem .75rem;
+    @media @tablet {
+      border-width: .5rem .25rem .5rem .5rem;
+    }
+    @media @mobile {
+      border-width: .5rem .5rem .25rem .5rem;
+    }
+  }
+  div.leaderboard {
+    border-width: .75rem .75rem .75rem .375rem;
+    @media @tablet {
+      border-width: .5rem .5rem .5rem .25rem;
+    }
+    @media @mobile {
+      border-width: .25rem .5rem .5rem .5rem;
+    }
+  }
+
 // Gamemode could use backend read write examples intohere
   .accept-mission-ga1 {
     background: url('../../assets/images/child_dashboard_images/accept_the_mission.svg')
