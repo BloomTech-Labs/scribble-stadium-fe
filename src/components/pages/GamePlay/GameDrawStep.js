@@ -97,13 +97,13 @@ export default function GameDrawStep(props) {
     });
 
     setFileList(props.fileSubmissionData.drawings);
-  }, []);
+  }, [props.fileSubmissionData.drawings]);
 
   return (
     <div id="draw-step">
       <div id="draw" className="gameplay-content">
         <div className="inner-container">
-          <img src={boyImg} alt="Boy Image" className="boy-img" />
+          <img src={boyImg} alt="A boy" className="boy-img" />
 
           <div className="step-description">
             <h3>Don’t forget!</h3>

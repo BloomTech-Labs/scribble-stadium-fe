@@ -118,7 +118,7 @@ export const UploadDocs = ({
       setFilePreviews(savedFileList);
       setFileList(savedFileList);
     }
-  });
+  }, [fileList, filePreviews, savedFileList]);
 
   // For error message warning if there are too many images
   const openNotificationWithIcon = type => {
