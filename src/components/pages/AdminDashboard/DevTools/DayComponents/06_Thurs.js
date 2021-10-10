@@ -33,7 +33,7 @@ const Thurs = ({ setDate }) => {
 
   useEffect(() => {
     setDate(findNextDayOfWeek(findDayOfWeekReference));
-  }, [findDayOfWeekReference]);
+  }, [setDate]);
 
   return (
     <Layout>
