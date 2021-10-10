@@ -48,7 +48,7 @@ const DevToolsNew = ({ devMode, setDevMode }) => {
       </Menu.Item>
       <Menu.Item>
         <a
-          href="http://localhost:3000/dev/day/4#"
+          href="http://localhost:3000/dev/day/4"
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleTues}
