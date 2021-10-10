@@ -103,8 +103,8 @@ function App() {
     // We pass this function to our <Security /> component that wraps our routes.
     // Checks if userToken is available and pushes back to login if not
     history.push('/login');
+    console.log('AuthHandler', authHandler);
   };
-  console.log('AuthHandler', authHandler);
 
   return (
     <>
