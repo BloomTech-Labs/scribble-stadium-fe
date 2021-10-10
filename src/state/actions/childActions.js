@@ -7,3 +7,8 @@ export const SET_MEMBER_ID = 'SET_MEMBER_ID';
 export const setMemberId = memberId => dispatch => {
   dispatch({ type: SET_MEMBER_ID, payload: memberId });
 };
+
+export const INCREMENT = 'INCREMENT';
+export const increment = childData => dispatch => {
+  dispatch({ type: INCREMENT, payload: childData });
+};
