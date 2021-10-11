@@ -3,11 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { Button } from 'antd';
-
-//** Import Components */
 import UploadDocs from '../../common/UploadDocs';
-
-//** Import Assets */
 import boyImg from '../../../assets/images/gamemodeimg/LightingKid.png';
 
 export default function GameDrawStep(props) {
