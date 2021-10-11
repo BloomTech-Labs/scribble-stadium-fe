@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import YourMissionComp from './YourMissionComp';
 
 const GamemodeButton = ({ ...props }) => {
-  const { push, location } = useHistory();
+  const { push } = useHistory();
   const [rwd, setsRwd] = useState({
     read:
       props.child.gamemode.read !== null ? props.child.gamemode.read : false,
