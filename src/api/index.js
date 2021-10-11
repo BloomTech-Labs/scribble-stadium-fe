@@ -191,14 +191,13 @@ const postNewChild = child => {
 
 /**
  *
- * @param {Object} authState necessary for API functionality
+ 
  * @param {number} childId the id of the respective child
  * @returns {number} child id for child that is being called
  */
 
 const getChildByID = ID => {
   try {
-    console.log(ID);
     return apiAuthGet(`/gallery/child/${ID}`, getAuthHeader()).then(
       response => {
         return response;
