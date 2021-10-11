@@ -3,7 +3,7 @@ import { Modal } from 'antd';
 import { LockOutlined } from '@ant-design/icons';
 
 const ChangePasswordModal = props => {
-  const [visible, setVisible] = useState(false);
+  const [setVisible] = useState(false);
 
   const handleClose = () => {
     props.setVisible(false);
