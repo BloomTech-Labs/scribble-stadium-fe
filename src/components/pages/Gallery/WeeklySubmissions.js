@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import Weekly from './Weekly';
 
 const WeeklySubmissions = props => {
-  const { user, isAuthenticated } = useAuth0();
   let weeks = props.data.length;
 
   // Passing state to Week Card. Displaying Week card in descending order.
