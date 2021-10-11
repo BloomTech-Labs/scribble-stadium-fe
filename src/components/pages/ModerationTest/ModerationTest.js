@@ -3,8 +3,7 @@ import { useHistory, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-// import draft_dev_moderation_page from 'story-squad-fe-b/docs/draft-dev-moderation-page.png';
-// import draft_dev_moderation_page from '../../../../docs/draft-dev-moderation-page.png';
+
 
 import { date } from '../../../state/actions';
 
