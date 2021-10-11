@@ -4,8 +4,8 @@ import LightingKid from '../../../assets/images/gamemodeimg/LightingKid.png';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { connect } from 'react-redux';
-
 import Thrashbar from './Thrashbar';
+
 const YourMissionComp = ({ ...props }) => {
   const [rwd, setsRwd] = useState({
     read: false,
