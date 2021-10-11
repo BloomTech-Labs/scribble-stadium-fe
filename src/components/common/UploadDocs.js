@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Form, Button, Upload, Modal, notification } from 'antd';
-
 import { getBase64 } from '../../utils/helpers';
 
 export const UploadDocs = ({
