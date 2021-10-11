@@ -3,9 +3,8 @@ import { useHistory, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-
-
 import { date } from '../../../state/actions';
+import { reset } from '../../../api/index';
 
 import {
   getCohorts,
@@ -16,8 +15,6 @@ import {
   setResults,
   setVoteSeq,
 } from '../../../api/moderation';
-
-import { reset } from '../../../api/index';
 
 import {
   Button,
