@@ -17,7 +17,7 @@ function RenderAccountSettings() {
   useEffect(() => {
     getProfileData(user).then(res => {
       res.map(user => {
-        if (user.type == 'Parent') {
+        if (user.type === 'Parent') {
           setUserInfo(user);
         }
       });
@@ -71,7 +71,7 @@ function RenderAccountSettings() {
             inputFocusStyle={{ borderColor: 'blue' }}
             onComplete={(value, index) => {
               const x = bc.compareSync(value, userInfo.PIN);
-              if (x == true) {
+              if (x === true) {
                 onFinish();
               } else {
                 setError(true);

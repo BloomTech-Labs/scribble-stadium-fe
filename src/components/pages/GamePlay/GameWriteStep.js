@@ -107,7 +107,7 @@ export default function GameWriteStep(props) {
 
   return (
     <div id="write-step">
-      <div id="write" className="gameification-content">
+      <div id="write" className="gameplay-content">
         <div className="inner-container">
           <img src={boyImg} alt="Boy Image" className="boy-img" />
 

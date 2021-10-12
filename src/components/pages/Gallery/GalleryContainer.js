@@ -4,10 +4,11 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { Header } from '../../common';
 import { Button } from 'antd';
 import { getChildByID } from '../../../api/index';
+import { setWeeklySubmissions } from '../../../state/actions/galleryActions';
 import WeeklySubmissions from './WeeklySubmissions';
 import { useHistory, useParams } from 'react-router-dom';
 
-const GalleryContainer = () => {
+const GalleryContainer = props => {
   const { user, isAuthenticated } = useAuth0();
   const { push } = useHistory();
   const [data, setDataInfo] = useState([]);
@@ -16,7 +17,7 @@ const GalleryContainer = () => {
   // moved to Parent Component to pass down data
   useEffect(() => {
     //Getting data from backend for leaderboard
-    getChildByID(user, id).then(res => {
+    getChildByID(id).then(res => {
       setDataInfo(res.data.Submissions);
     });
   }, [user, id]);
@@ -24,6 +25,10 @@ const GalleryContainer = () => {
   const leaderboard = () => {
     push('/child/leaderboard');
   };
+
+  useEffect(() => {
+    props.setWeeklySubmissions(id);
+  }, []);
 
   return (
     <>
@@ -39,10 +44,21 @@ const GalleryContainer = () => {
             </div>
           </div>
         </div>
-        <WeeklySubmissions data={data} />
+        <WeeklySubmissions data={props.submissions.Submissions} />
       </div>
     </>
   );
 };
 
-export default connect()(GalleryContainer);
+const mapStateToProps = state => {
+  return {
+    ...state,
+    submissions: state.submissions,
+    name: state.Name,
+    childId: state.ID,
+  };
+};
+
+export default connect(mapStateToProps, { setWeeklySubmissions })(
+  GalleryContainer
+);

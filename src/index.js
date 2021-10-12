@@ -37,7 +37,6 @@ import { Gamemode, GamemodeButton } from './components/pages/Gamemode';
 import { Help } from './components/pages/Help';
 import { LandingPage } from './components/pages/LandingPage';
 import { MissionControl } from './components/pages/MissionControl';
-import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
 
 import { ParentFaq } from './components/pages/ParentFaq';
@@ -52,8 +51,8 @@ import { WritingSub } from './components/pages/WritingSub';
 import { Leaderboard } from './components/pages/Leaderboard';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
-// Gameification Components
-import { GameificationMain } from './components/pages/Gameification';
+// GamePlay Components
+import { GamePlayMain } from './components/pages/GamePlay/index';
 import { JoinTheSquad } from './components/pages/JoinTheSquad';
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
@@ -98,13 +97,13 @@ ReactDOM.render(
 
 function App() {
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
-  // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
   const history = useHistory();
 
   const authHandler = () => {
-    // We pass this to our <Security /> component that wraps our routes.
-    // It'll automatically check if userToken is available and push back to login if not :)
+    // We pass this function to our <Security /> component that wraps our routes.
+    // Checks if userToken is available and pushes back to login if not
     history.push('/login');
+    console.log('AuthHandler', authHandler);
   };
 
   return (
@@ -112,7 +111,7 @@ function App() {
       <DevModeHeader component={DevModeHeader} />
       <Switch>
         <Route exact path="/gamemode" component={Gamemode} />
-        <Route path="/gameification" component={GameificationMain} />
+        <Route path="/gameplay" component={GamePlayMain} />
         <Route path="/gamemode/single" component={GamemodeButton} />
         <Route path="/login" component={LandingPage} />
         {/* any of the routes you need secured should be registered as ProtectedRoutes */}

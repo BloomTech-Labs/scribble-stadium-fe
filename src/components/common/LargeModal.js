@@ -43,7 +43,7 @@ const LargeModal = props => {
             <ProgressChart ChildID={props.id} />
           </div>
         ) : (
-          <h2>Image from gamification will be here</h2>
+          <h2>Image from gameplay will be here</h2>
         )}
       </Modal>
     </>

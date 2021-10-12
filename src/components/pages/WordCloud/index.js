@@ -34,7 +34,7 @@ function RenderWordCloud() {
             //checked={cloud === 'cropcloud'}
             defaultChecked={true}
           />
-          <label for="cropcloud" className="switcher__label">
+          <label htmlFor="cropcloud" className="switcher__label">
             Crop Cloud
           </label>
 
@@ -47,7 +47,7 @@ function RenderWordCloud() {
             onChange={() => handleButtonPress(2)}
             checked={cloud === 'wordcloud'}
           />
-          <label for="wordcloud" className="switcher__label">
+          <label htmlFor="wordcloud" className="switcher__label">
             Word Cloud
           </label>
 
