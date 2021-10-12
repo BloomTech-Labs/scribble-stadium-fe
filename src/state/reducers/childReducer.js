@@ -18,8 +18,8 @@ const initialState = {
   memberId: null,
   VotesRemaining: null,
   totalPoints: null,
-  wins: null,
-  losses: null,
+  wins: 0,
+  losses: 0,
   achievements: null,
   Ballots: [],
   Streaks: 'test',
@@ -53,6 +53,11 @@ export const reducer = (state = initialState, action) => {
       };
     case global.CLEAR_USERS:
       return initialState;
+    case child.INCREMENT:
+      return {
+        ...state,
+        wins: initialState.wins + 1,
+      };
     default:
       return state;
   }
