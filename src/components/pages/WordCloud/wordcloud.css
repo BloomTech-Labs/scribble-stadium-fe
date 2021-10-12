@@ -69,10 +69,20 @@
   justify-content: center;
   align-items: center;
 }
+.crop-cloud-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 615px;
+  width: 725px;
+  background-color: #b5d33d;
+  border-radius: 111px;
+}
 
 .cropcloudimage {
   height: 500px;
   width: auto;
+  border-radius: 111px;
 }
 
 /* Toggle Switch Styling */
