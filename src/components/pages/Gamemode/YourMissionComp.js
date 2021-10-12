@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import UploadDocs from '../../common/UploadDocs';
 import LightingKid from '../../../assets/images/gamemodeimg/LightingKid.png';
 import { Header } from '../../common';
-import { Row, Col, Button } from 'antd';
+import { Row, Col } from 'antd';
 import { connect } from 'react-redux';
 import UploaderComp from './UploaderComp';
 import { tasks } from '../../../state/actions';
