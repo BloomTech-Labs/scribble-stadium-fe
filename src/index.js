@@ -128,14 +128,12 @@ function App() {
             <StoryPrompt LoadingComponent={ChildLoadingComponent} />
           )}
         />
-
         <ProtectedRoute
           path="/child/dashboard"
           component={() => (
             <ChildDashboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
-
         <ProtectedRoute
           exact
           path="/gallery"
@@ -143,7 +141,6 @@ function App() {
             <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}
         />
-
         <ProtectedRoute
           exact
           path="/gallery/:id"
@@ -151,7 +148,6 @@ function App() {
             <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}
         />
-
         <ProtectedRoute
           exact
           path="/gallery/child/:id"
@@ -159,9 +155,7 @@ function App() {
             <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}
         />
-
         <ProtectedRoute path="/scoreboard" component={FaceoffReveal} />
-
         <ProtectedRoute
           path="/child/mission-control"
           component={() => (
@@ -199,20 +193,16 @@ function App() {
             <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
-
         <ProtectedRoute
           exact
           path="/parent/dashboard-faq"
           component={() => (
             <ParentDashFaq LoadingComponent={ParentLoadingComponent} />
           )}
-          exact
-          path="/parent/support"
-          component={() => (
-            <SupportPage LoadingComponent={ParentLoadingComponent} />
-          )}
         />
-
+        exact path="/parent/support" component=
+        {() => <SupportPage LoadingComponent={ParentLoadingComponent} />}
+        />
         <ProtectedRoute
           exact
           path="/parent/faq"
@@ -227,7 +217,6 @@ function App() {
             <ParentContact LoadingComponent={ParentLoadingComponent} />
           )}
         />
-
         <ProtectedRoute
           exact
           path="/parent/help"
