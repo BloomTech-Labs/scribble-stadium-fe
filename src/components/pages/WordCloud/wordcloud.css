@@ -77,12 +77,15 @@
   width: 725px;
   background-color: #b5d33d;
   border-radius: 111px;
+  filter: drop-shadow(0 0.25rem 0.25rem #949494);
+  border: 3px solid black;
 }
 
 .cropcloudimage {
   height: 500px;
   width: auto;
   border-radius: 111px;
+  filter: drop-shadow(0 0 0.25rem #949494);
 }
 
 /* Toggle Switch Styling */
