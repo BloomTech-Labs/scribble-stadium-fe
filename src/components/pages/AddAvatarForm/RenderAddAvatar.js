@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
+import React, { useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import { postNewAvatar } from '../../../api';
 import { getBase64 } from '../../../utils/helpers';
@@ -10,8 +10,8 @@ import { Form, Upload, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import Modal from 'antd/lib/modal/Modal';
 
-const RenderAddAvatar = props => {
-  const { authState } = useOktaAuth();
+const RenderAddAvatar = () => {
+  const { user } = useAuth0();
 
   const [fileList, setFileList] = useState([]);
   const [filePreviews, setFilePreviews] = useState([]);
@@ -36,7 +36,7 @@ const RenderAddAvatar = props => {
       formData.append(key, values[key]);
     });
 
-    postNewAvatar(authState, formData)
+    postNewAvatar(user, formData)
       .then(res => {
         setUploading(false);
       })

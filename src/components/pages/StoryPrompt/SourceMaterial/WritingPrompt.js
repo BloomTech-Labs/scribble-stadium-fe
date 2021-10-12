@@ -4,10 +4,10 @@ import { UpCircleFilled, DownCircleFilled } from '@ant-design/icons';
 const WritingPrompt = props => {
   const wpVisible = () => {
     props.setWritingVisible(
-      props.writingVisible == 'invisible' ? 'visible' : 'invisible'
+      props.writingVisible === 'invisible' ? 'visible' : 'invisible'
     );
     props.setWritingArrows(
-      props.writingVisible == 'invisible' ? (
+      props.writingVisible === 'invisible' ? (
         <UpCircleFilled />
       ) : (
         <DownCircleFilled />
@@ -17,7 +17,7 @@ const WritingPrompt = props => {
 
     props.setDrawingVisible('invisible');
     props.setDrawingArrows(<DownCircleFilled />);
-    props.setCloseDrawing(props.closeDrawing == '' ? 'close-prompt' : '');
+    props.setCloseDrawing(props.closeDrawing === '' ? 'close-prompt' : '');
   };
 
   return (

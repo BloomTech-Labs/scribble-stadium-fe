@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { Form, Button, Upload, Modal, notification } from 'antd';
 
 import { getBase64 } from '../../utils/helpers';
@@ -19,7 +19,7 @@ export const UploadDocs = ({
   handleChangeExtra,
   savedFileList,
 }) => {
-  const { authState } = useOktaAuth();
+  const { user } = useAuth0();
 
   const [uploading, setUploading] = useState(false);
   const [filePreviews, setFilePreviews] = useState([]);
@@ -44,7 +44,7 @@ export const UploadDocs = ({
       formData.append(key, values[key]);
     });
     formData.append('storyId', storyId);
-    apiAxios(authState, formData, submissionId)
+    apiAxios(user, formData, submissionId)
       .then(res => {
         setUploading(false);
         setSubmitted(true);

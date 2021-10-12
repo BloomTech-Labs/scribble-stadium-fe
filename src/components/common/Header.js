@@ -6,13 +6,13 @@ import { CountDown } from 'ant-design-pro/lib/CountDown';
 import { MenuOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { global } from '../../state/actions';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import { useAuth0 } from '@auth0/auth0-react';
 import BackButton from '../common/BackButton';
 import PropTypes from 'prop-types';
 
 const ChildMenu = props => {
   const { push } = useHistory();
-  const { authService } = useOktaAuth();
+  const { logout } = useAuth0();
 
   const switchUsers = e => {
     props.clearUsers();
@@ -33,7 +33,10 @@ const ChildMenu = props => {
       <Menu.Item key="4" onClick={switchUsers}>
         Change User
       </Menu.Item>
-      <Menu.Item key="5" onClick={() => authService.logout()}>
+      <Menu.Item
+        key="5"
+        onClick={() => logout({ returnTo: window.location.origin })}
+      >
         Log Out
       </Menu.Item>
     </Menu>
