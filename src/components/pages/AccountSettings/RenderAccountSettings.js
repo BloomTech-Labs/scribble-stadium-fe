@@ -92,13 +92,13 @@ function RenderAccountSettings() {
             className="unlockButton"
             style={unlock ? null : { display: 'none' }}
           >
-            <button
+            <Button
               className="lockUnlockButton"
               onClick={() => setIsModalVisible(true)}
               value="UNLOCK"
             >
               UNLOCK WITH PIN
-            </button>
+            </Button>
           </div>
 
           <div
