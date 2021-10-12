@@ -21,7 +21,7 @@ function RenderWordCloud() {
   }
 
   return (
-    <div classNameName="wordCloudContainer">
+    <div className="wordCloudContainer">
       <div className="centerer">
         <div className="switcher">
           <input
