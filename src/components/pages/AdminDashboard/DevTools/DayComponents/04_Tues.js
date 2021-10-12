@@ -34,7 +34,7 @@ const Tues = ({ setDate }) => {
 
   useEffect(() => {
     setDate(findNextDayOfWeek(findDayOfWeekReference));
-  }, [findDayOfWeekReference]);
+  }, [setDate]);
 
   return (
     <Layout>
