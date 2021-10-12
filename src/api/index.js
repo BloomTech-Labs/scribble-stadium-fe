@@ -214,12 +214,12 @@ const getChildByID = ID => {
 /**
  *
  * @param {Object} authState necessary for API functionality
- * @param {number} cohortId the cohort id of the respective child
+ * @param {number} storyId the story id of the respective episode
  * @returns {Promise} a promise that resolves to an object containing {DrawingPrompt, ID, Title, URL, and WritingPrompt}
  */
-const getStory = cohortId => {
+const getStory = storyId => {
   try {
-    return apiAuthGet(`/story?cohortId=${cohortId}`, getAuthHeader()).then(
+    return apiAuthGet(`/storyNew/${storyId}`, getAuthHeader()).then(
       response => {
         return response.data;
       }

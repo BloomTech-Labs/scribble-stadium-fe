@@ -8,6 +8,7 @@ import * as votes from './votesActions';
 import * as date from './dateAction';
 import * as devMode from './devModeActions';
 import * as submissions from './galleryActions';
+import * as storiesNew from './newStories';
 
 export {
   global,
@@ -20,4 +21,5 @@ export {
   date,
   devMode,
   submissions,
+  storiesNew,
 };
