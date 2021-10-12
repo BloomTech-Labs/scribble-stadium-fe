@@ -6,7 +6,6 @@ import { Row, Col } from 'antd';
 import { connect } from 'react-redux';
 import Thrashbar from './Thrashbar';
 const YourMissionComp = ({ ...props }) => {
-  const { push, location } = useHistory();
   const [rwd, setsRwd] = useState({
     read: false,
     write: false,
