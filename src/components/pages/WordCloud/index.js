@@ -31,8 +31,8 @@ function RenderWordCloud() {
             id="cropcloud"
             className="switcher__input switcher__input--cc"
             onChange={() => handleButtonPress(1)}
-            checked={cloud === 'cropcloud'}
-            defaultChecked
+            //checked={cloud === 'cropcloud'}
+            defaultChecked={true}
           />
           <label htmlFor="cropcloud" className="switcher__label">
             Crop Cloud
