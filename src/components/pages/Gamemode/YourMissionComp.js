@@ -28,7 +28,7 @@ const YourMissionComp = ({ ...props }) => {
 
     if (props.child.gamemode.draw) {
       props.child.gamemode.write = false;
-      rwd.write = false;
+
       props.child.gamemode.draw = true;
       rwd.draw = true;
       props.child.gamemode.read = true;
