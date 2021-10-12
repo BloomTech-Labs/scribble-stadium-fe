@@ -25,10 +25,7 @@ function RenderAccountSettings() {
   }, [user]);
 
   //These functions handle's exiting the modal once it is activated
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-  const handleCancel = () => {
+  const handleModal = () => {
     setIsModalVisible(false);
   };
 
@@ -46,7 +43,7 @@ function RenderAccountSettings() {
     <div className="accountSettingsContainer">
       <Modal
         visible={isModalVisible}
-        onCancel={handleCancel}
+        onCancel={handleModal}
         afterClose={() => pin.clear()}
         centered="true"
         width="25vw"
