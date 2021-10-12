@@ -34,7 +34,8 @@ const Fri = ({ setDate }) => {
 
   useEffect(() => {
     setDate(findNextDayOfWeek(findDayOfWeekReference));
-  }, [findDayOfWeekReference]);
+  }, [setDate]);
+  //the dependency array was originally set to [findDayOfWeekReference]. Had to be changed
 
   return (
     <Layout>
