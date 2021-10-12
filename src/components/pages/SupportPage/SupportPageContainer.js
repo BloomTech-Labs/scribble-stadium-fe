@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import RenderSupportPage from './RenderSupportPageModal';
 import { toast } from 'react-toastify';
 
