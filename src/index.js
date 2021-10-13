@@ -206,6 +206,8 @@ function App() {
           component={() => (
             <ParentDashFaq LoadingComponent={ParentLoadingComponent} />
           )}
+        />
+        <ProtectedRoute
           exact
           path="/parent/support"
           component={() => (
