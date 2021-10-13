@@ -34,8 +34,7 @@ const Wed = ({ setDate }) => {
 
   useEffect(() => {
     setDate(findNextDayOfWeek(findDayOfWeekReference));
-  }, [findDayOfWeekReference]);
-
+  }, [setDate]);
   return (
     <Layout>
       <Header className="ant-page-header">
