@@ -4,7 +4,7 @@ import Leaderboard from './Leaderboard';
 
 import { connect } from 'react-redux';
 
-import { Divider, Button, Modal } from 'antd';
+import { Button } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { child } from '../../../state/actions';
 
