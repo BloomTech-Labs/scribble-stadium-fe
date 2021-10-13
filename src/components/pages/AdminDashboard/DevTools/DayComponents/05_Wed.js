@@ -35,8 +35,6 @@ const Wed = ({ setDate }) => {
   useEffect(() => {
     setDate(findNextDayOfWeek(findDayOfWeekReference));
   }, [setDate]);
-  //the dependency array on line 37 was originally set to [findDayOfWeekReference] which was causing error
-
   return (
     <Layout>
       <Header className="ant-page-header">
