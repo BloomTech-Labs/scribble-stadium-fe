@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Header } from '../../common';
+import SideMenu from '../../common/SideMenu';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { InstructionsModal } from '../../common';
@@ -32,7 +33,8 @@ const RenderChildDashboard = props => {
 
   return (
     <>
-      <Header displayMenu={true} title={'Scribble Stadium'} />
+      <SideMenu />
+      <Header displayMenu={false} title={'Scribble Stadium'} />
       <HUD
         completedActivity={['Read', 'Draw', 'Write']}
         currentActivity={'Squad Up'}
