@@ -16,11 +16,7 @@ function RenderAccountSettings() {
   //Grab the parents userInfo so we can validate their information (pin)
   useEffect(() => {
     getProfileData(user).then(res => {
-      res.map(user => {
-        if (user.type === 'Parent') {
-          setUserInfo(user);
-        }
-      });
+      res.filter(user => setUserInfo(user) && user.type === 'Parent');
     });
   }, [user]);
 
