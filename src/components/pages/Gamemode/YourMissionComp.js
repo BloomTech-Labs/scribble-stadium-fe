@@ -58,7 +58,7 @@ const YourMissionComp = ({ ...props }) => {
         className={rwd.write === true ? 'rectangle130-yellow' : 'rectangle130'}
       >
         <Row className="btmRow">
-          <img src={LightingKid} alt="A lighting kid" />
+          <img src={LightingKid} alt="A child dressed as a superhero called lighting kid" />
           <Col>
             <h1 className="dont4get">DON'T FORGET!</h1>
 
