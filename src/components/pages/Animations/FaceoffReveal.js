@@ -17,7 +17,7 @@ import useCounter from './AnimationComponents/useCounter';
 import useGoBackButton from './AnimationComponents/useGoBackButton';
 
 const FaceoffReveal = props => {
-  const setToggle = props.setToggle;
+  //const setToggle = props.setToggle; <-- not in use yet in this component, uncomment while need it
   // we need to bring in faceoff data from FaceoffContent / FaceoffSubDisplay
   console.log(
     'animation background color:',
