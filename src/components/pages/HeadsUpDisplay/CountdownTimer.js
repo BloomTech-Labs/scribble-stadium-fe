@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { CurrentActivity } from './CurrentActivity';
-import { NextActivity } from './NextActivity';
+
+// TEMPORARY - Commenting out as this will be utilized once we render the implementation of the working activities display feature. Utilize components as necessary.
+// import { CurrentActivity } from './CurrentActivity';
+// import { NextActivity } from './NextActivity';
 
 export const CountDownTimer = () => {
   // This function will calculate difference between current and target times

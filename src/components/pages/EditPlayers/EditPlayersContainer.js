@@ -7,7 +7,7 @@ import { parent } from '../../../state/actions';
 
 function EditPlayersContainer({ LoadingComponent, ...props }) {
   const { user, isAuthenticated } = useAuth0();
-  const [userInfo, setUserInfo] = useState(user);
+  const [userInfo] = useState(user);
 
   return (
     <>

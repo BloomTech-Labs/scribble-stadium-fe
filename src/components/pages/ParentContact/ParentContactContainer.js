@@ -29,7 +29,7 @@ const ParentContactContainer = () => {
   });
   return (
     <>
-      <Layout className="parent-dashboard">
+      <Layout className="newparent-dashboard">
         <ParentNavTopBar />
         <div className='"site-card-border-less-wrapper"'>
           <Row className="card">
@@ -68,7 +68,7 @@ const ParentContactContainer = () => {
             <form className="contact-form-container" onSubmit={handleSubmit}>
               <Row className="form-inputs">
                 <Col>
-                  <label for="name">Name</label>
+                  <label htmlFor="name">Name</label>
                   <br />
                   <input
                     type="text"
@@ -80,7 +80,7 @@ const ParentContactContainer = () => {
                   />
                 </Col>
                 <Col>
-                  <label for="email">Email Address</label>
+                  <label htmlFor="email">Email Address</label>
                   <br />
                   <input
                     type="email"
@@ -93,7 +93,7 @@ const ParentContactContainer = () => {
                 </Col>
               </Row>
               <Row>
-                <label for="message">Message</label>
+                <label htmlFor="message">Message</label>
                 <br />
                 <textarea
                   id="message"

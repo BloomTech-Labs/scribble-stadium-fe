@@ -14,7 +14,7 @@ import {
 
 function MatchUpContainer({ LoadingComponent, ...props }) {
   const { user, isAuthenticated } = useAuth0();
-  const [userInfo, setUserInfo] = useState(user);
+  const [userInfo] = useState(user);
   const [canVote, setCanVote] = useState(true);
 
   useEffect(() => {

@@ -7,7 +7,7 @@ import { tasks } from '../../../state/actions';
 
 const MissionControlContainer = ({ LoadingComponent, ...props }) => {
   const { user, isAuthenticated } = useAuth0();
-  const [userInfo, setUserInfo] = useState(user);
+  const [userInfo] = useState(user);
 
   const [checked, setChecked] = useState(false);
 

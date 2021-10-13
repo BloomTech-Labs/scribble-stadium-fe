@@ -7,7 +7,7 @@ import RenderChildDashboard from './RenderChildDashboard';
 
 const ChildDashboardContainer = ({ LoadingComponent, ...props }) => {
   const { user, isAuthenticated } = useAuth0();
-  const [userInfo, setUserInfo] = useState(user);
+  const [userInfo] = useState(user);
 
   return (
     <>

@@ -22,13 +22,13 @@ export default function (props) {
       <CountDownTimer />
       <div
         className={`progressionBar ${
-          completedActivity[0] == 'Read' && 'progressionBarLoaded'
+          completedActivity[0] === 'Read' && 'progressionBarLoaded'
         }`}
       >
         {activities.map(a => {
           return (
             <div
-              className={`activity ${currentActivity == a && 'currentActivity'}
+              className={`activity ${currentActivity === a && 'currentActivity'}
               ${
                 completedActivity.length - 1 >= activities.indexOf(a) &&
                 'completedActivity'
@@ -55,7 +55,7 @@ export default function (props) {
             {dayBars.map(a => {
               return (
                 <div
-                  className={`${a} ${currentBar == a && 'currentBar'}`}
+                  className={`${a} ${currentBar === a && 'currentBar'}`}
                 ></div>
               );
             })}

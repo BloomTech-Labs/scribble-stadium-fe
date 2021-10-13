@@ -12,7 +12,7 @@ const WeeklySubmissions = props => {
     <>
       {props.data.reverse().map((child, i) => {
         return (
-          <div className="weekly-submissions">
+          <div className="weekly-submissions" key={i}>
             <span className="label">
               <h3 className="h3">Week {weeks--}</h3>
             </span>
