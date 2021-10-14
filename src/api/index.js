@@ -557,7 +557,7 @@ const getGallerySubmissionsById = () => {
 };
 
 const getGallery = async () => {
-  return apiAuthGet('/gallary', getAuthHeader());
+  return apiAuthGet('/gallery', getAuthHeader());
 };
 
 const reset = async () => {
