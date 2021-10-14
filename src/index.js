@@ -49,6 +49,7 @@ import { EditPlayers } from './components/pages/EditPlayers';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
 import { Leaderboard } from './components/pages/Leaderboard';
+import { ChangeAvatar } from './components/pages/ChangeAvatar';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
 // GamePlay Components
@@ -273,6 +274,12 @@ function App() {
           path="/child/leaderboard"
           component={() => (
             <Leaderboard LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <ProtectedRoute
+          path="/child/change-avatar"
+          component={() => (
+            <ChangeAvatar LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <ProtectedRoute
