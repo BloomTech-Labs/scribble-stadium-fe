@@ -5,7 +5,7 @@ import { Row, Col, Button } from 'antd';
 import { connect } from 'react-redux';
 
 import { useHistory } from 'react-router-dom';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import GamemodeButton from './GamemodeButton';
 
 const Gamemode = ({ ...props }) => {
@@ -107,7 +107,7 @@ const Gamemode = ({ ...props }) => {
               <Row>
                 <Col className="adventure-passport" xs={16} sm={24}>
                   {!sP && props.child.gamemode.mode === 'select' && (
-                    <Link to="/gameification">{trig()}</Link>
+                    <Link to="/gameplay">{trig()}</Link>
                   )}
                 </Col>
               </Row>

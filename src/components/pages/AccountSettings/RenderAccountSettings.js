@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'antd';
-import { useOktaAuth } from '@okta/okta-react';
+import { useAuth0 } from '@auth0/auth0-react';
 import bc from 'bcryptjs';
 import { getProfileData } from '../../../api';
 import PinInput from 'react-pin-input';
 import AccountSettingsForm from '../AccountSettingsForm/AccountSettingsForm';
 
 function RenderAccountSettings() {
-  const { authState } = useOktaAuth();
-
+  const { user } = useAuth0();
   const [unlock, setUnlock] = useState(true);
   const [error, setError] = useState(false);
   const [userInfo, setUserInfo] = useState();
@@ -16,20 +15,17 @@ function RenderAccountSettings() {
 
   //Grab the parents userInfo so we can validate their information (pin)
   useEffect(() => {
-    getProfileData(authState).then(res => {
+    getProfileData(user).then(res => {
       res.map(user => {
-        if (user.type == 'Parent') {
+        if (user.type === 'Parent') {
           setUserInfo(user);
         }
       });
     });
-  }, [authState]);
+  }, [user]);
 
   //These functions handle's exiting the modal once it is activated
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-  const handleCancel = () => {
+  const handleModal = () => {
     setIsModalVisible(false);
   };
 
@@ -47,7 +43,7 @@ function RenderAccountSettings() {
     <div className="accountSettingsContainer">
       <Modal
         visible={isModalVisible}
-        onCancel={handleCancel}
+        onCancel={handleModal}
         afterClose={() => pin.clear()}
         centered="true"
         width="25vw"
@@ -72,7 +68,7 @@ function RenderAccountSettings() {
             inputFocusStyle={{ borderColor: 'blue' }}
             onComplete={(value, index) => {
               const x = bc.compareSync(value, userInfo.PIN);
-              if (x == true) {
+              if (x === true) {
                 onFinish();
               } else {
                 setError(true);
@@ -93,13 +89,13 @@ function RenderAccountSettings() {
             className="unlockButton"
             style={unlock ? null : { display: 'none' }}
           >
-            <button
+            <Button
               className="lockUnlockButton"
               onClick={() => setIsModalVisible(true)}
               value="UNLOCK"
             >
               UNLOCK WITH PIN
-            </button>
+            </Button>
           </div>
 
           <div

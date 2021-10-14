@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Header } from '../../common';
 import { Col, Button } from 'antd';
 import { useHistory } from 'react-router-dom';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import { useAuth0 } from '@auth0/auth0-react';
 import Squadup from '../../../assets/images/Squadup.svg';
 import wordBubble from '../../../assets/images/match_up_images/wordbubble.svg';
 import wordBubbleright from '../../../assets/images/match_up_images/wordBubbleright.svg';
@@ -12,15 +12,15 @@ import { child } from '../../../state/actions';
 
 const RenderJoinTheSquad = props => {
   const { push } = useHistory();
-  const { authState } = useOktaAuth();
+  const { user } = useAuth0();
 
   useEffect(() => {
-    getChildTeam(authState, props.child.id).then(res => {
+    getChildTeam(user, props.child.id).then(res => {
       props.setMemberId(res[props.child.id]);
       props.setTeamSubmissions(res);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authState]);
+  }, [user]);
 
   const teamVote = e => {
     push('/child/point-share');

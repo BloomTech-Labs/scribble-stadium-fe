@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
+import { useAuth0 } from '@auth0/auth0-react';
 import bc from 'bcryptjs';
 import { useHistory } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ import Header from '../../common/Header';
 const titleText = 'Please select your name';
 
 const ProfileRenderModal = props => {
-  const { authState } = useOktaAuth();
+  const { user } = useAuth0();
   const [visible, setVisible] = useState(true);
   const [userInfo, setUserInfo] = useState([]);
 
@@ -42,10 +42,10 @@ const ProfileRenderModal = props => {
   };
 
   useEffect(() => {
-    getProfileData(authState).then(res => {
+    getProfileData().then(res => {
       setUserInfo(res);
     });
-  }, [authState]);
+  }, [user]);
 
   const handleOk = e => {
     setVisible(true);

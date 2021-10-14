@@ -15,14 +15,13 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import { Security } from '@okta/okta-react';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 import 'antd/dist/antd.less';
 import './styles/less/index.less';
 
 // Helpers
-import { config } from './utils/oktaConfig';
-import SecureRoute from './components/common/SecureRoute';
+import ProtectedRoute from './components/common/SecureRouteAuth0';
 
 //Components
 
@@ -33,13 +32,11 @@ import {
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
 import { DrawingSub } from './components/pages/DrawingSub';
-import { Gamemode } from './components/pages/Gamemode';
-import { GamemodeButton } from './components/pages/Gamemode';
+import { Gamemode, GamemodeButton } from './components/pages/Gamemode';
 
 import { Help } from './components/pages/Help';
 import { LandingPage } from './components/pages/LandingPage';
 import { MissionControl } from './components/pages/MissionControl';
-import { Modal } from './components/pages/Modal';
 import { NotFoundPage } from './components/pages/NotFound';
 
 import { ParentFaq } from './components/pages/ParentFaq';
@@ -51,12 +48,11 @@ import { ParentSettings } from './components/pages/FamilySettings';
 import { EditPlayers } from './components/pages/EditPlayers';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
-import LoginCallbackLoader from './components/common/LoginCallbackLoader';
 import { Leaderboard } from './components/pages/Leaderboard';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
-// Gameification Components
-import { GameificationMain } from './components/pages/Gameification';
+// GamePlay Components
+import { GamePlayMain } from './components/pages/GamePlay/index';
 import { JoinTheSquad } from './components/pages/JoinTheSquad';
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
@@ -76,66 +72,71 @@ import { AudioBook } from './components/pages/AudioBook';
 
 // import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
 
+const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+
 ReactDOM.render(
   //
   <Router>
     <React.StrictMode>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <App />
+          <Auth0Provider
+            domain={domain}
+            clientId={clientId}
+            redirectUri={window.location.origin}
+          >
+            <App />
+          </Auth0Provider>
         </PersistGate>
       </Provider>
     </React.StrictMode>
   </Router>,
-
   document.getElementById('root')
 );
 
 function App() {
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
-  // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
   const history = useHistory();
 
   const authHandler = () => {
-    // We pass this to our <Security /> component that wraps our routes.
-    // It'll automatically check if userToken is available and push back to login if not :)
+    // We pass this function to our <Security /> component that wraps our routes.
+    // Checks if userToken is available and pushes back to login if not
     history.push('/login');
+    console.log('AuthHandler', authHandler);
   };
 
   return (
-    <Security {...config} onAuthRequired={authHandler}>
+    <>
       <DevModeHeader component={DevModeHeader} />
       <Switch>
         <Route exact path="/gamemode" component={Gamemode} />
-
-        <Route path="/gameification" component={GameificationMain} />
-
+        <Route path="/gameplay" component={GamePlayMain} />
         <Route path="/gamemode/single" component={GamemodeButton} />
         <Route path="/login" component={LandingPage} />
-        <Route path="/implicit/callback" component={LoginCallbackLoader} />
-        {/* any of the routes you need secured should be registered as SecureRoutes */}
-        <SecureRoute
-          path="/"
+        {/* any of the routes you need secured should be registered as ProtectedRoutes */}
+        <ProtectedRoute
           exact
+          path="/"
           component={() => (
             <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/child/story"
           component={() => (
             <StoryPrompt LoadingComponent={ChildLoadingComponent} />
           )}
         />
 
-        <SecureRoute
+        <ProtectedRoute
           path="/child/dashboard"
           component={() => (
             <ChildDashboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
 
-        <SecureRoute
+        <ProtectedRoute
           exact
           path="/gallery"
           component={() => (
@@ -143,7 +144,7 @@ function App() {
           )}
         />
 
-        <SecureRoute
+        <ProtectedRoute
           exact
           path="/gallery/:id"
           component={() => (
@@ -151,7 +152,7 @@ function App() {
           )}
         />
 
-        <SecureRoute
+        <ProtectedRoute
           exact
           path="/gallery/child/:id"
           component={() => (
@@ -159,122 +160,124 @@ function App() {
           )}
         />
 
-        <SecureRoute path="/scoreboard" component={FaceoffReveal} />
+        <ProtectedRoute path="/scoreboard" component={FaceoffReveal} />
 
-        <SecureRoute
+        <ProtectedRoute
           path="/child/mission-control"
           component={() => (
             <MissionControl LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/child/drawing-sub"
           component={() => (
             <DrawingSub LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/child/writing-sub"
           component={() => (
             <WritingSub LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/parent/add-child"
           component={() => (
             <AddChild LoadingComponent={ParentLoadingComponent} />
           )}
         />
-        <SecureRoute
+        <ProtectedRoute
           path="/parent/edit-players"
           component={() => (
             <EditPlayers LoadingComponent={ParentLoadingComponent} />
           )}
         />
-        <SecureRoute
-          path="/parent/dashboard"
+        <ProtectedRoute
           exact
+          path="/parent/dashboard"
           component={() => (
             <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
 
-        <SecureRoute
-          path="/parent/dashboard-faq"
+        <ProtectedRoute
           exact
+          path="/parent/dashboard-faq"
           component={() => (
             <ParentDashFaq LoadingComponent={ParentLoadingComponent} />
           )}
-          path="/parent/support"
+        />
+        <ProtectedRoute
           exact
+          path="/parent/support"
           component={() => (
             <SupportPage LoadingComponent={ParentLoadingComponent} />
           )}
         />
 
-        <SecureRoute
-          path="/parent/faq"
+        <ProtectedRoute
           exact
+          path="/parent/faq"
           component={() => (
             <ParentFaq LoadingComponent={ParentLoadingComponent} />
           )}
         />
-        <SecureRoute
-          path="/parent/contact"
+        <ProtectedRoute
           exact
+          path="/parent/contact"
           component={() => (
             <ParentContact LoadingComponent={ParentLoadingComponent} />
           )}
         />
 
-        <SecureRoute
-          path="/parent/help"
+        <ProtectedRoute
           exact
+          path="/parent/help"
           component={() => <Help LoadingComponent={ParentLoadingComponent} />}
         />
-        <SecureRoute
-          path="/parent/settings"
+        <ProtectedRoute
           exact
+          path="/parent/settings"
           component={() => (
             <ParentSettings LoadingComponent={ParentLoadingComponent} />
           )}
         />
-        <SecureRoute
-          path="/child/join"
+        <ProtectedRoute
           exact
+          path="/child/join"
           component={() => (
             <JoinTheSquad LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <SecureRoute
-          path="/child/point-share"
+        <ProtectedRoute
           exact
+          path="/child/point-share"
           component={() => (
             <PointShare LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <SecureRoute
-          path="/child/match-up"
+        <ProtectedRoute
           exact
+          path="/child/match-up"
           component={() => <MatchUp LoadingComponent={ChildLoadingComponent} />}
         />
-        <SecureRoute
-          path="/child/match-up/squad-vote"
+        <ProtectedRoute
           exact
+          path="/child/match-up/squad-vote"
           component={() => (
             <VotingPage LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <SecureRoute
-          path="/child/leaderboard"
+        <ProtectedRoute
           exact
+          path="/child/leaderboard"
           component={() => (
             <Leaderboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        <SecureRoute
-          path="/child/audiobook"
+        <ProtectedRoute
           exact
+          path="/child/audiobook"
           component={() => (
             <AudioBook LoadingComponent={ChildLoadingComponent} />
           )}
@@ -288,6 +291,6 @@ function App() {
         <Route exact path="/dev/day/7" component={Fri} />
         <Route component={NotFoundPage} />
       </Switch>
-    </Security>
+    </>
   );
 }

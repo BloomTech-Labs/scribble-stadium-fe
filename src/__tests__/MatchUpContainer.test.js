@@ -15,16 +15,11 @@ const store = mockStore({
 
 afterEach(cleanup);
 
-jest.mock('@okta/okta-react', () => ({
-  useOktaAuth: () => {
+jest.mock('@auth0/auth0-react', () => ({
+  useAuth0: () => {
     return {
-      authState: {
-        isAuthenticated: true,
-        userInfo: '',
-      },
-      authService: {
-        getUser: () => Promise.reject(),
-      },
+      user: jest.fn(),
+      isAuthenticated: true,
     };
   },
 }));

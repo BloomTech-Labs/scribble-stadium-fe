@@ -1,22 +1,18 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import { Header } from '../../common';
-import { useOktaAuth } from '@okta/okta-react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { Button } from 'antd';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { SizeMe } from 'react-sizeme';
-import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
 import { markAsRead } from '../../../api';
-import { tasks } from '../../../state/actions';
 
 const StoryViewer = props => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [hasViewedAllPages, setViewed] = useState(false);
 
-  const { authState } = useOktaAuth();
+  const { user } = useAuth0();
   const { push } = useHistory();
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -67,9 +63,8 @@ const StoryViewer = props => {
   };
 
   const onFinish = e => {
-    markAsRead(authState, props.tasks.id);
+    markAsRead(user, props.tasks.id);
     push('/child/mission-control');
-
     props.setHasRead();
   };
 

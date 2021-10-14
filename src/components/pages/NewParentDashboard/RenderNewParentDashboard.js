@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Layout } from 'antd';
-import { useOktaAuth } from '@okta/okta-react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { getProfileData } from '../../../api';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import NewProgressCharts from '../../common/NewProgressCharts';
@@ -8,27 +8,31 @@ import NewChildCard from '../../common/NewChildCard';
 import AccountSettings from '../AccountSettings/AccountSettingsContainer';
 import { connect } from 'react-redux';
 import { setParent } from '../../../state/actions/parentActions';
-import RenderWordCloud from "../WordCloud";
+import RenderWordCloud from '../WordCloud';
 
 const RenderNewParentDashboard = props => {
-  const { authState } = useOktaAuth();
+  const { user } = useAuth0();
   const { setParent } = props;
 
   useEffect(() => {
-    getProfileData(authState).then(res => {
-      setParent({
-        ...res[0],
-        children: res.filter(user => user.type !== 'Parent'),
+    getProfileData()
+      .then(res => {
+        setParent({
+          ...res[0],
+          children: res.filter(user => user.type !== 'Parent'),
+        });
+      })
+      .catch(err => {
+        console.log('error retrieving profile data', err.message);
       });
-    });
-  }, [setParent, authState]);
+  }, [setParent, user]);
   return (
     <div>
       <Layout className="newparent-dashboard">
         <ParentNavTopBar />
-        <div className="renderWordCloud"><RenderWordCloud /></div>
-        
-
+        <div className="renderWordCloud">
+          <RenderWordCloud />
+        </div>
         <Layout>
           <div className="progress-container">
             <NewProgressCharts />

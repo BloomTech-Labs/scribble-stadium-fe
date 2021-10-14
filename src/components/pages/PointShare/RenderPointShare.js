@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useOktaAuth } from '@okta/okta-react/dist/OktaContext';
+import { useAuth0 } from '@auth0/auth0-react';
 import { Header } from '../../common';
 import { Row, Col, InputNumber, Button, notification } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
@@ -23,10 +23,44 @@ const PointShare = props => {
   const [showModal, setShowModal] = useState(false);
   const [modalVisible, setModalVisible] = useState(true);
 
-  const { authState } = useOktaAuth();
+  const { user } = useAuth0();
+
+  /**
+   *Virtual Player
+   *Array of virtual player IDs
+   *['VP-1','VP-2','VP-3','VP-4','VP-5','VP-6','VP-7']
+   *Check if MemeberID for child is one of the virtual players IDs if true then submit virtual player points 25-25-25-25
+   *Conditionaly render PointShare | Virtual player will not see the component so all data submition is happening behind the scenes for virtual player
+   */
+  const virtualPlayerIDs = [
+    'VP-1',
+    'VP-2',
+    'VP-3',
+    'VP-4',
+    'VP-5',
+    'VP-6',
+    'VP-7',
+  ];
+
+  const setVirtualPlayerPoints = virtualPlayerID => {
+    return [
+      {
+        WritingPoints: 25,
+        DrawingPoints: 25,
+        MemberID: virtualPlayerID,
+        SubmissionID: props.team.child1.SubmissionID,
+      },
+      {
+        WritingPoints: 25,
+        DrawingPoints: 25,
+        MemberID: virtualPlayerID,
+        SubmissionID: props.team.child2.SubmissionID,
+      },
+    ];
+  };
 
   const formSubmit = () => {
-    // note: lines 30 - 35 not required anymore! However, "notification" could be used for future implementations
+    // note: lines 43 - 51 not required anymore! However, "notification" could be used for future implementations
     // regarding error handling for the user's share points submission. Yay!
     if (totalPoints < 0) {
       notification.error({
@@ -50,11 +84,46 @@ const PointShare = props => {
     ]);
   };
 
+  const virtualPlayerCallback = useCallback(
+    virtualPlayerID => {
+      return [
+        {
+          WritingPoints: 25,
+          DrawingPoints: 25,
+          MemberID: virtualPlayerID,
+          SubmissionID: props.team.child1.SubmissionID,
+        },
+        {
+          WritingPoints: 25,
+          DrawingPoints: 25,
+          MemberID: virtualPlayerID,
+          SubmissionID: props.team.child2.SubmissionID,
+        },
+      ];
+    },
+    [props.team.child2.SubmissionID, props.team.child1.SubmissionID]
+  );
+
   useEffect(() => {
     if (teamPoints) {
-      submitPoints(authState, teamPoints);
+      submitPoints(user, teamPoints);
     }
-  }, [teamPoints, authState]);
+
+    // check for virtual player id from props
+    if (virtualPlayerIDs.includes(props.team.child1.MemberID)) {
+      // if virtual id submit virtual player points
+      submitPoints(user, virtualPlayerCallback(props.team.child1.MemberID));
+    } else if (virtualPlayerIDs.includes(props.team.child2.MemberID)) {
+      submitPoints(user, virtualPlayerCallback(props.team.child2.MemberID));
+    }
+  }, [
+    teamPoints,
+    user,
+    virtualPlayerCallback,
+    props.team.child2.MemberID,
+    props.team.child1.MemberID,
+    virtualPlayerIDs,
+  ]);
 
   const openModal = content => {
     setModalContent(content);
@@ -66,6 +135,7 @@ const PointShare = props => {
   // pointSetter - it takes into account the min and max value on each input, and it will
   // determine how many points are available to spend on the current input number field.
   // setTotalPoints - it keeps track of total points available
+
   const sharePointHandler = ({ value, pointSetter, a, b, c }) => {
     const maxValue =
       100 - (Math.max(a, 10) + Math.max(b, 10) + Math.max(c, 10));

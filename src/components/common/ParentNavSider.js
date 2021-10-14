@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, Menu, Typography } from 'antd';
 import { Link, useHistory } from 'react-router-dom';
-import { useOktaAuth } from '@okta/okta-react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { connect } from 'react-redux';
 import { global } from '../../state/actions';
 
@@ -9,7 +9,7 @@ const { Sider } = Layout;
 const { Title } = Typography;
 
 const ParentNavSider = props => {
-  const { authService } = useOktaAuth();
+  const { logout } = useAuth0();
   const { push } = useHistory();
   const switchUsers = e => {
     props.clearUsers();
@@ -39,7 +39,10 @@ const ParentNavSider = props => {
         <Menu.Item onClick={switchUsers} key="switch">
           Change User
         </Menu.Item>
-        <Menu.Item onClick={() => authService.logout()} key="logout">
+        <Menu.Item
+          onClick={() => logout({ returnTo: window.location.origin })}
+          key="logout"
+        >
           Log out
         </Menu.Item>
       </Menu>

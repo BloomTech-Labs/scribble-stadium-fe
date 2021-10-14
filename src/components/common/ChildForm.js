@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import { Button, Card, Form, Input, Modal } from 'antd';
 import Parent_Avatar from '../../assets/icons/parent_avatar.svg';
@@ -33,7 +33,7 @@ function showConfirmDelete(onDelete) {
 }
 
 function ChildForm(props) {
-  const { authState } = useOktaAuth();
+  const { user } = useAuth0();
   const [form] = Form.useForm();
 
   const [isModalOpen, setIsModalOpen] = useState(() => false);
@@ -50,10 +50,10 @@ function ChildForm(props) {
 
   useEffect(() => {
     // Fetch available avatars from API
-    getChildFormValues(authState).then(data => {
+    getChildFormValues(user).then(data => {
       setAvatars(() => data[0]);
     });
-  }, [authState]);
+  }, [user]);
 
   const onEditBtnClick = () => {
     setIsModalOpen(() => true);
@@ -80,7 +80,7 @@ function ChildForm(props) {
     const changes = values;
 
     if (props.newChild) {
-      postNewChild(authState, {
+      postNewChild(user, {
         ...values,
         AvatarID: selectedImage.ID,
         ParentID: props.parent.id,
@@ -120,15 +120,11 @@ function ChildForm(props) {
         delete changes.PIN;
       }
 
-      updateChildData(
-        authState,
-        { ...values, AvatarID: selectedImage.ID },
-        props.ID
-      )
+      updateChildData(user, { ...values, AvatarID: selectedImage.ID }, props.ID)
         .then(res => {
           setIsSaveBtnDisabled(() => true);
 
-          getChild(authState, props.ID).then(child => {
+          getChild(user, props.ID).then(child => {
             props.updateChild({ ...child });
           });
         })
@@ -140,7 +136,7 @@ function ChildForm(props) {
   };
 
   const onDelete = () => {
-    deleteChild(authState, props.ID)
+    deleteChild(user, props.ID)
       .then(res => {
         props.removeChild(props.ID);
       })

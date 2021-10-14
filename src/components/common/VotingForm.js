@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Button, Form, Radio } from 'antd';
-import { useOktaAuth } from '@okta/okta-react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { useHistory } from 'react-router-dom';
 
 import { postVotes, updateChildData } from '../../api';
 
 const VotingForm = props => {
   const { push } = useHistory();
-  const { authState } = useOktaAuth();
+  const { user } = useAuth0();
   const { subEmojis1, subEmojis2 } = props.subEmojis;
   const [value, setValue] = useState();
   const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -33,8 +33,8 @@ const VotingForm = props => {
       VotesRemaining: props.child.VotesRemaining - 1,
     };
 
-    updateChildData(authState, child, props.child.id);
-    postVotes(authState, body).then(res => {
+    updateChildData(user, child, props.child.id);
+    postVotes(user, body).then(res => {
       push('/child/match-up');
     });
   };

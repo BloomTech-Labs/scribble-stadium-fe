@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { getChildGraph } from '../../api';
-import { useOktaAuth } from '@okta/okta-react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import { Spin } from 'antd';
 import { SmileFilled } from '@ant-design/icons';
@@ -15,11 +15,11 @@ const Plot = createPlotlyComponent(window.Plotly);
 const ProgressChart = ({ ChildID }) => {
   const [graph, setGraph] = useState(null);
   const [error, setError] = useState(null);
-  const { authState } = useOktaAuth();
+  const { user } = useAuth0();
 
   useEffect(() => {
     if (ChildID)
-      getChildGraph(authState, ChildID)
+      getChildGraph(user, ChildID)
         .then(res => {
           setGraph(res.data);
           setError(null);
@@ -32,7 +32,7 @@ const ProgressChart = ({ ChildID }) => {
               "An unexpected error occurred while loading your child's progress."
             );
         });
-  }, [ChildID, authState]);
+  }, [ChildID, user]);
 
   return (
     <div>

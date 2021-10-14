@@ -4,7 +4,6 @@ import useMedia from '../AnimationMediaHelper/useMedia';
 const useEnlargeCenterToTopLeft = ref => {
   const phoneScreen = useMedia('(max-width:600px)');
   const tabletScreen = useMedia('(max-width:991px)');
-  const computerScreen = useMedia('(min-width:992px)');
 
   const spring = useSpring({
     config: { mass: 10, tension: 500, friction: 150 },
