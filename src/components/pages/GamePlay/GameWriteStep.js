@@ -52,7 +52,7 @@ export default function GameWriteStep(props) {
   };
 
   // This function handles when we make a full submission of the entire mission(after reading, drawing, and writing)
-  const handleFullSubmission = () => {};
+  // const handleFullSubmission = () => {};
 
   // This handles when we skip the drawing phase
   const handleSkip = () => {
