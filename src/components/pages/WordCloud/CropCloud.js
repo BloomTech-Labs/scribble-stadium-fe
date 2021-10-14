@@ -34,6 +34,7 @@ export default function CropCloud() {
       <img
         className={'cropcloudimage'}
         src={`data:image/png;base64, ${placeholderCloud.data}`}
+        alt="A demonstration of a child's handwritten words"
       />
     </div>
   );
