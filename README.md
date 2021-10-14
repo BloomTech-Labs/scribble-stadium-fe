@@ -185,6 +185,15 @@ Back End
 - npm start
 ```
 
+
+
+## LOGIN Credentials
+User: llama001@maildrop.cc
+Pw: Test001Test
+
+
+
+
 Run Test
 
 ```
