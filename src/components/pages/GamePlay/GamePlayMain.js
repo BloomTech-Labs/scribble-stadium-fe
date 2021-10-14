@@ -37,7 +37,7 @@ function GamePlayMain(props) {
       <Header />
 
       <Switch>
-        <Route path={baseURL} exact>
+        <Route exact path={baseURL}>
           <GamemodeBtns
             baseURL={baseURL}
             enableModalWindow={enableModalWindow}
