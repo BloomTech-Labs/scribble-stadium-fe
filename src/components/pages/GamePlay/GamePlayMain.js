@@ -86,6 +86,7 @@ const GamemodeBtns = props => {
     };
 
     props.enableModalWindow(data);
+    // eslint-disable-next-line
   }, []);
 
   return (
