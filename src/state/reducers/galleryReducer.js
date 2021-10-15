@@ -1,7 +1,7 @@
 import { submissions } from '../actions';
 
 const initialState = {
-  //feature/update-gallery-reducer-schema
+
   WritingUrl: '',
   PageNum: 0,
   DrawingUrl: '',
@@ -26,7 +26,7 @@ export const reducer = (state = initialState, action) => {
     case submissions.SET_WEEKLY_SUBMISSIONS:
       return {
         ...state,
-        // feature/update-gallery-reducer-schema
+
         WritingUrl: action.payload.WritingUrl,
         PageNum: action.payload.PageNum,
         DrawingUrl: action.payload.DrawingUrl,
