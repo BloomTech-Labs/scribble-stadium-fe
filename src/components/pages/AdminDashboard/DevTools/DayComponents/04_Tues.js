@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Layout, Button, Radio } from 'antd';
+import { Layout, Button } from 'antd';
 
 import { date } from '../../../../../state/actions/index';
 
@@ -34,7 +34,7 @@ const Tues = ({ setDate }) => {
 
   useEffect(() => {
     setDate(findNextDayOfWeek(findDayOfWeekReference));
-  }, [findDayOfWeekReference]);
+  }, [setDate]);
 
   return (
     <Layout>

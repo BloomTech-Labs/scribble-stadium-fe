@@ -9,7 +9,7 @@ import WeeklySubmissions from './WeeklySubmissions';
 import { useHistory, useParams } from 'react-router-dom';
 
 const GalleryContainer = props => {
-  const { user, isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
   const { push } = useHistory();
   const [data, setDataInfo] = useState([]);
   const { id } = useParams();

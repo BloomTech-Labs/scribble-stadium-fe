@@ -1,0 +1,22 @@
+.word-count-container {
+  margin: 0 auto;
+  width: 400px;
+  height: 75px;
+  border: 2px solid black;
+  border-radius: 25px;
+  background-color: #6ceae6;
+  padding: 10px 50px;
+}
+
+.word-count-title {
+  margin: 20px auto;
+  font: 24px 'Bangers';
+  color: #fed23f;
+  -webkit-text-stroke: 2px black;
+}
+
+.word-count-data {
+  padding: 5px;
+  margin: 0 auto;
+  font: 18px 'Nunito';
+}
