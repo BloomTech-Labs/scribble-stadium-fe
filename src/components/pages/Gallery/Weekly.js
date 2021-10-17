@@ -9,6 +9,7 @@ import DrawingPrompt from '../StoryPrompt/SourceMaterial/DrawingPrompt';
 // import PDFViewer from './SourceMaterial/PDFViewer';
 
 const Weekly = props => {
+  console.log('Weekly: props:', props);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [pageUrl, setpageUrl] = useState([]);
   const [closeWriting, setCloseWriting] = useState('');
@@ -39,7 +40,7 @@ const Weekly = props => {
             <div className="sub-container">
               <img
                 className="gallery-submission"
-                src={props.pages.Writing.Page1}
+                src={props.image}
                 alt="writing submision"
                 onClick={() => showModal(props.pages.Writing)}
               />
@@ -61,7 +62,7 @@ const Weekly = props => {
             <div className="sub-container">
               <img
                 className="gallery-submission"
-                src={props.pages.Drawing.Page1}
+                src={props.image}
                 alt="drawing submision"
                 onClick={() => showModal(props.pages.Drawing)}
               />
