@@ -5,7 +5,7 @@ import { Row, Col, Button } from 'antd';
 import { connect } from 'react-redux';
 
 import { useHistory } from 'react-router-dom';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import GamemodeButton from './GamemodeButton';
 
 const Gamemode = ({ ...props }) => {
