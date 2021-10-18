@@ -1,6 +1,7 @@
 import { submissions } from '../actions';
 
 const initialState = {
+
   WritingUrl: '',
   PageNum: 0,
   DrawingUrl: '',
