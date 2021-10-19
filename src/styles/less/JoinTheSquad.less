@@ -2,7 +2,9 @@
 @import '~antd/lib/style/themes/default.less';
 
 .JoinSquadContainer {
-  height: 70vh;
+  height: auto;
+  width: 100%;
+  padding: 5rem 0;
   display: flex;
   @media @tablet {
     flex-direction: column;
@@ -11,25 +13,32 @@
 
 .joinSquad1 {
   background: #b5d33d;
+  height: auto;
+  padding: 5rem auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 .joinSquad2 {
   background-color: #fed23f;
-  height: 100%;
+  height: auto;
+  padding: 5rem auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .joinSquad1,
 .joinSquad2 {
   border: 5px solid #292929;
-  position: relative;
+  // position: relative;
 }
 
 .imgContain1 {
   display: flex;
-  position: relative;
+  // position: relative;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   @media @tablet {
     padding-left: 5%;
@@ -37,28 +46,69 @@
   }
 }
 
+.imgContain1Sub1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  @media @tablet {
+    padding-left: 5%;
+    padding-bottom: 0%;
+  }
+}
+
+.imgContain1Sub1 p {
+  margin: auto 0;
+}
+
 .imgContain2 {
   display: flex;
+  // position: relative;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  position: relative;
+  @media @tablet {
+    padding-left: 5%;
+    padding-bottom: 0%;
+  }
 }
+
+.imgContain2Sub1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  @media @tablet {
+    padding-left: 5%;
+    padding-bottom: 0%;
+  }
+}
+
+.imgContain2Sub1 p {
+  margin: auto 0;
+}
+
 .button {
   display: flex;
   justify-content: flex-end;
 }
 .sharePoints {
-  background: #eb7d5b;
-  border-color: #eb7d5b;
+  background: #eb7d5b !important;
+  border-color: #eb7d5b !important;
+  color: white !important;
+  margin: 2vh 2vw;
   position: absolute;
   bottom: 2vh;
   right: 2vh;
   font-weight: 700;
   width: 19%;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  // text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   border: 3px solid black;
   &:hover {
-    background-color: #eb7d5bbb;
-    border-color: #eb7d5bbb;
+    background-color: #eb7d5bbb !important;
+    border-color: #eb7d5bbb !important;
   }
   @media @mobile {
     position: relative;
@@ -130,8 +180,8 @@ img {
   z-index: 2;
   height: 29vh;
   position: absolute;
-  left: 28%;
-  top: 24%;
+  left: 43%;
+  top: 60%;
   @media @mobile {
     height: 16vh;
     left: 38%;
@@ -143,6 +193,7 @@ img {
   z-index: 2;
   height: 29vh;
   position: absolute;
+  margin-top: 12rem;
   left: 43%;
   top: 32%;
 
@@ -153,17 +204,15 @@ img {
   }
 }
 .back-button {
-  .orangeButtonStyle();
-  position: absolute;
-  width: 19%;
-  height: 6.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8rem;
+  height: 3rem;
   font-weight: 700;
   left: 2vh;
   bottom: 2vh;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-  &:hover {
-    background-color: #eb7d5bbb;
-    border-color: #eb7d5bbb;
-    color: white;
-  }
+  text-shadow: .1rem .1rem .2rem #888;
+
 }
+

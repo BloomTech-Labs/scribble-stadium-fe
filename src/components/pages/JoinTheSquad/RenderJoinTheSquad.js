@@ -35,52 +35,65 @@ const RenderJoinTheSquad = props => {
       <div className="JoinSquadContainer">
         <Col className="joinSquad1" xs={24} sm={12}>
           <div className="imgContain1">
-            <p className="text">
-              Hi! <br></br>My name is {props.team.child1.ChildName}!
-            </p>
-            <img
-              className="wordBubble"
-              src={wordBubbleright}
-              alt="word bubble"
-            />
-            <img
-              className="star"
-              src={Squadup}
-              alt="Blast Character Background"
-            />
-
-            <img
-              className="child1-avatar"
-              src={props.team.child1.AvatarURL}
-              alt="Child 1 Avatar"
-            />
+            <div className={'imgContain1Sub1'}>
+              <p className="text">
+                Hi! <br></br>My name is {props.team.child1.ChildName}!
+              </p>
+              <img
+                className="wordBubble"
+                src={wordBubbleright}
+                alt="word bubble"
+              />
+            </div>
+            <div className={'imgContain1Sub2'}>
+              <img
+                className="star"
+                src={Squadup}
+                alt="Blast Character Background"
+              />
+              <img
+                className="child1-avatar"
+                src={props.team.child1.AvatarURL}
+                alt="Child 1 Avatar"
+              />
+            </div>
           </div>
-          <Button className="back-button" onClick={home}>
+          <Button
+            cselection="#eb7d5bbb"
+            className="sharePoints"
+            // type="primary"
+            size="large"
+            onClick={home}
+          >
             Back
           </Button>
         </Col>
         <Col className="joinSquad2" xs={24} sm={12}>
           <div className="imgContain2">
-            <p className="text2">
-              Hi! <br></br>My name is {props.team.child2.ChildName}!
-            </p>
-            <img className="wordBubble2" src={wordBubble} alt="word bubble" />
-            <img
-              className="star"
-              src={Squadup}
-              alt="Blast Character Background"
-            />
-            <img
-              className="child2-avatar"
-              src={props.team.child2.AvatarURL}
-              alt="User's Avatar"
-            />
+            <div className={'imgContain2Sub1'}>
+              <p className="text2">
+                Hi! <br></br>My name is {props.team.child2.ChildName}!
+              </p>
+              <img className="wordBubble2" src={wordBubble} alt="word bubble" />
+            </div>
+            <div className={'imgContain2Sub2'}>
+              <img
+                className="star"
+                src={Squadup}
+                alt="Blast Character Background"
+              />
+              <img
+                className="child2-avatar"
+                src={props.team.child2.AvatarURL}
+                alt="User's Avatar"
+              />
+            </div>
           </div>
           <div className="button">
             <Button
               selection="#eb7d5bbb"
               className="sharePoints"
-              type="primary"
+              // type="primary"
               size="large"
               onClick={teamVote}
             >
