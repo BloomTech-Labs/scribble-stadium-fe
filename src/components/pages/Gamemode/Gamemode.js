@@ -98,15 +98,11 @@ const Gamemode = ({ ...props }) => {
           !props.child.gamemode.sp && (
             <div className="dash-container">
               <Header />
-              <div className="adventure-passport-container">
-                <Button
-                  className="adventure-passport"
-                  onClick={startSinglePlayerMode}
-                >
+              <div className="single-button-container">
+                <Button className="single-btn" onClick={startSinglePlayerMode}>
                   Single Player
                 </Button>
               </div>
-
             </div>
           )}
     </div>
