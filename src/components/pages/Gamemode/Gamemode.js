@@ -95,6 +95,12 @@ const Gamemode = ({ ...props }) => {
     props.child.gamemode = ggm;
   };
 
+  // Start single player mode
+  const startSinglePlayerMode = e => {
+    e.preventDefault();
+    push('/gameplay');
+  };
+
   return (
     <div>
       {props.child.gamemode === null
