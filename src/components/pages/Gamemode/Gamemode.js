@@ -103,10 +103,6 @@ const Gamemode = ({ ...props }) => {
           !props.child.gamemode.sp && (
             <div className="dash-container">
               <Header />
-
-              {!sP && props.child.gamemode.mode === 'select' && (
-                <Link to="/gameplay">{trig()}</Link>
-              )}
             </div>
           )}
 
