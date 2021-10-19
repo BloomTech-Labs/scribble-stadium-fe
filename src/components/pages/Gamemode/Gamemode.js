@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 import { useHistory } from 'react-router-dom';
 import { Link, Route } from 'react-router-dom';
-import GamemodeButton from './GamemodeButton';
 
 const Gamemode = ({ ...props }) => {
   const { push, location } = useHistory();
@@ -73,16 +72,7 @@ const Gamemode = ({ ...props }) => {
       setsP(true);
     }
   };
-  const trig = () => {
-    return (
-      <div>
-        <Button type="default" onClick={singled}>
-          Single Player
-        </Button>
-        <Route {...props} path="/gamemode/single" component={GamemodeButton} />
-      </div>
-    );
-  };
+
   const reini = () => {
     // For basic prop initiation
     const ggm = {
@@ -94,7 +84,10 @@ const Gamemode = ({ ...props }) => {
     };
     props.child.gamemode = ggm;
   };
-
+  const startSinglePlayerMode = e => {
+    e.preventDefault();
+    push('/gameplay');
+  };
   return (
     <div>
       {props.child.gamemode === null
@@ -106,17 +99,11 @@ const Gamemode = ({ ...props }) => {
 
               <Row>
                 <Col className="adventure-passport" xs={16} sm={24}>
-                  {!sP && props.child.gamemode.mode === 'select' && (
-                    <Link to="/gameplay">{trig()}</Link>
-                  )}
+                  <Button onClick={startSinglePlayerMode}>Single Player</Button>
                 </Col>
               </Row>
             </div>
           )}
-
-      {props.child.gamemode.sp && props.child.gamemode.mode === 'single' && (
-        <Route {...props} path="/gamemode/single" component={GamemodeButton} />
-      )}
     </div>
   );
 };
