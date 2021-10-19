@@ -96,9 +96,7 @@ const Gamemode = ({ ...props }) => {
 
               <Row>
                 <Col className="adventure-passport" xs={16} sm={24}>
-                  {!sP && props.child.gamemode.mode === 'select' && (
-                    <Link to="/gameplay">{trig()}</Link>
-                  )}
+                  <Button>Single Player</Button>
                 </Col>
               </Row>
             </div>
