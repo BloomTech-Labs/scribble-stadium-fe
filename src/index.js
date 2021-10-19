@@ -113,7 +113,6 @@ function App() {
       <Switch>
         <Route exact path="/gamemode" component={Gamemode} />
         <Route path="/gameplay" component={GamePlayMain} />
-        <Route path="/gamemode/single" component={GamemodeButton} />
         <Route path="/login" component={LandingPage} />
         {/* any of the routes you need secured should be registered as ProtectedRoutes */}
         <ProtectedRoute
