@@ -110,7 +110,12 @@ const Gamemode = ({ ...props }) => {
             <div className="dash-container">
               <Header />
               <div className="adventure-passport-container">
-                <Button className="adventure-passport">Single Player</Button>
+                <Button
+                  className="adventure-passport"
+                  onClick={startSinglePlayerMode}
+                >
+                  Single Player
+                </Button>
               </div>
             </div>
           )}
