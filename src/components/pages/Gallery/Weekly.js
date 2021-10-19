@@ -31,6 +31,7 @@ const Weekly = props => {
     setIsModalVisible(false);
   };
 
+  console.log(pageUrl);
   return (
     <>
       <div className="weekly-sub-container">
@@ -39,6 +40,9 @@ const Weekly = props => {
             <div className="sub-container">
               <img
                 className="gallery-submission"
+                // {...pageUrl.map(page => (
+                //   <img src={page.Writing.Page} alt="writing submission"></img>
+                // ))}
                 src={props.pages.Writing.Page1}
                 alt="writing submision"
                 onClick={() => showModal(props.pages.Writing)}
@@ -89,7 +93,7 @@ const Weekly = props => {
               {pageUrl.map(url => (
                 <div>
                   <img
-                    style={{ height: '72vh', objectFit: 'contain' }}
+                    style={{ height: '65vh', objectFit: 'contain' }}
                     alt=""
                     src={url}
                   />
