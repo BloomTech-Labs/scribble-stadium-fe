@@ -104,13 +104,11 @@ const Gamemode = ({ ...props }) => {
             <div className="dash-container">
               <Header />
 
-              <Row>
-                <Col className="adventure-passport" xs={16} sm={24}>
-                  {!sP && props.child.gamemode.mode === 'select' && (
-                    <Link to="/gameplay">{trig()}</Link>
-                  )}
-                </Col>
-              </Row>
+              <Col className="adventure-passport" xs={16} sm={24}>
+                {!sP && props.child.gamemode.mode === 'select' && (
+                  <Link to="/gameplay">{trig()}</Link>
+                )}
+              </Col>
             </div>
           )}
 
