@@ -72,16 +72,7 @@ const Gamemode = ({ ...props }) => {
       setsP(true);
     }
   };
-  const trig = () => {
-    return (
-      <div>
-        <Button type="default" onClick={singled}>
-          Single Player
-        </Button>
-        <Route {...props} path="/gamemode/single" component={GamemodeButton} />
-      </div>
-    );
-  };
+
   const reini = () => {
     // For basic prop initiation
     const ggm = {
