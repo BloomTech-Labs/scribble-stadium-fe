@@ -113,10 +113,6 @@ const Gamemode = ({ ...props }) => {
               </Row>
             </div>
           )}
-
-      {props.child.gamemode.sp && props.child.gamemode.mode === 'single' && (
-        <Route {...props} path="/gamemode/single" component={GamemodeButton} />
-      )}
     </div>
   );
 };
