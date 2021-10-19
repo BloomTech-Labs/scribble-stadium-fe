@@ -25,7 +25,7 @@
   .adventure-passport,
   .trophy-room,
   .leaderboard {
-    border: 5px solid @header-nero;
+    border: 2px solid @header-nero;
     height: 35vh;
     cursor: pointer
   }
@@ -135,12 +135,19 @@
     }
   }
 
+  .adventure-passport-container{
+    padding-top:3%;        
+  }
   .adventure-passport {
     display: flex;
     justify-content: center;
     align-items: center;
     background: @bright-sun;
-    opacity: 75%;
+    font-size:xx-large;
+    font-family: 'bangers',cursive;
+    margin-left:2.5%;
+    width:95%;
+    min-height: 50vh;
   }
 
   .adventure-passport img {
@@ -195,12 +202,24 @@
 }
 
 .adventure-passport:hover {
-  opacity: 100%;
+  animation:scale-up-singleplayer-btn linear 0.3s;
+  transform: scale(1.01);
 
   img {
     max-width: 100%;
     max-height: 100%;
   }
+}
+
+@keyframes scale-up-singleplayer-btn {
+  from{
+    transform:scale(1.0)
+  }
+
+  to{
+    transform:scale(1.01)
+  }
+  
 }
 
 .trophy-room:hover {
