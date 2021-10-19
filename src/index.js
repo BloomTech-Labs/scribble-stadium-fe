@@ -32,7 +32,7 @@ import {
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
 import { DrawingSub } from './components/pages/DrawingSub';
-import { Gamemode, GamemodeButton } from './components/pages/Gamemode';
+import { Gamemode } from './components/pages/Gamemode';
 
 import { Help } from './components/pages/Help';
 import { LandingPage } from './components/pages/LandingPage';
@@ -113,7 +113,6 @@ function App() {
       <Switch>
         <Route exact path="/gamemode" component={Gamemode} />
         <Route path="/gameplay" component={GamePlayMain} />
-        <Route path="/gamemode/single" component={GamemodeButton} />
         <Route path="/login" component={LandingPage} />
         {/* any of the routes you need secured should be registered as ProtectedRoutes */}
         <ProtectedRoute

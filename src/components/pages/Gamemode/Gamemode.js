@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 import { useHistory } from 'react-router-dom';
 import { Link, Route } from 'react-router-dom';
-import GamemodeButton from './GamemodeButton';
 
 const Gamemode = ({ ...props }) => {
   const { push, location } = useHistory();
@@ -73,16 +72,7 @@ const Gamemode = ({ ...props }) => {
       setsP(true);
     }
   };
-  const trig = () => {
-    return (
-      <div>
-        <Button type="default" onClick={singled}>
-          Single Player
-        </Button>
-        <Route {...props} path="/gamemode/single" component={GamemodeButton} />
-      </div>
-    );
-  };
+
   const reini = () => {
     // For basic prop initiation
     const ggm = {
@@ -95,7 +85,6 @@ const Gamemode = ({ ...props }) => {
     props.child.gamemode = ggm;
   };
 
-  // Start single player mode
   const startSinglePlayerMode = e => {
     e.preventDefault();
     push('/gameplay');
@@ -117,12 +106,9 @@ const Gamemode = ({ ...props }) => {
                   Single Player
                 </Button>
               </div>
+
             </div>
           )}
-
-      {props.child.gamemode.sp && props.child.gamemode.mode === 'single' && (
-        <Route {...props} path="/gamemode/single" component={GamemodeButton} />
-      )}
     </div>
   );
 };
