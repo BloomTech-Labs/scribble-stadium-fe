@@ -103,6 +103,7 @@ const Gamemode = ({ ...props }) => {
           !props.child.gamemode.sp && (
             <div className="dash-container">
               <Header />
+              <div className="adventure-passport-container"></div>
             </div>
           )}
 
