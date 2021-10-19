@@ -9,7 +9,6 @@ import DrawingPrompt from '../StoryPrompt/SourceMaterial/DrawingPrompt';
 // import PDFViewer from './SourceMaterial/PDFViewer';
 
 const Weekly = props => {
-  console.log('Weekly: props:', props);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [pageUrl, setpageUrl] = useState([]);
   const [closeWriting, setCloseWriting] = useState('');
