@@ -32,7 +32,7 @@ import {
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
 import { DrawingSub } from './components/pages/DrawingSub';
-import { Gamemode, GamemodeButton } from './components/pages/Gamemode';
+import { Gamemode } from './components/pages/Gamemode';
 
 import { Help } from './components/pages/Help';
 import { LandingPage } from './components/pages/LandingPage';
@@ -54,7 +54,6 @@ import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
 // GamePlay Components
 import { GamePlayMain } from './components/pages/GamePlay/index';
-import { JoinTheSquad } from './components/pages/JoinTheSquad';
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
 import { VotingPage } from './components/pages/VotingPage';
@@ -113,7 +112,6 @@ function App() {
       <Switch>
         <Route exact path="/gamemode" component={Gamemode} />
         <Route path="/gameplay" component={GamePlayMain} />
-        <Route path="/gamemode/single" component={GamemodeButton} />
         <Route path="/login" component={LandingPage} />
         {/* any of the routes you need secured should be registered as ProtectedRoutes */}
         <ProtectedRoute
@@ -241,13 +239,6 @@ function App() {
           path="/parent/settings"
           component={() => (
             <ParentSettings LoadingComponent={ParentLoadingComponent} />
-          )}
-        />
-        <ProtectedRoute
-          exact
-          path="/child/join"
-          component={() => (
-            <JoinTheSquad LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <ProtectedRoute

@@ -19,7 +19,7 @@ function getApiUrl() {
    */
   if (devMode && process.env.NODE_ENV === 'production') {
     // if env = production and devMode active, use dev/staging DB, if env = production and devMode false, use production DB
-    apiUrl = process.env.REACT_APP_DEV_MODE_DATABASE_ENDPOINT;
+    apiUrl = process.env.REACT_APP_DS_API;
   }
   // note that if environment is development then apiUrl should be the local db (not production or dev/staging DB)
   return apiUrl;
