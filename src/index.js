@@ -54,7 +54,6 @@ import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
 // GamePlay Components
 import { GamePlayMain } from './components/pages/GamePlay/index';
-import { JoinTheSquad } from './components/pages/JoinTheSquad';
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
 import { VotingPage } from './components/pages/VotingPage';
@@ -240,13 +239,6 @@ function App() {
           path="/parent/settings"
           component={() => (
             <ParentSettings LoadingComponent={ParentLoadingComponent} />
-          )}
-        />
-        <ProtectedRoute
-          exact
-          path="/child/join"
-          component={() => (
-            <JoinTheSquad LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <ProtectedRoute
