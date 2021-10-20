@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CountDownTimer } from './CountdownTimer';
-import Hud from '../../../styles/less/Hud.less';
 import { DownCircleFilled } from '@ant-design/icons';
 import { Collapse } from 'antd';
 

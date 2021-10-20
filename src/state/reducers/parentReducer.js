@@ -36,11 +36,9 @@ export const reducer = (state = initialState, action) => {
     case parent.REMOVE_CHILD:
       return {
         ...state,
-        children: state.children.map(child => {
-          if (child.ID !== action.payload) {
-            return child;
-          }
-        }),
+        children: state.children.filter(
+          child => child && child.ID !== action.payload
+        ),
       };
     case global.CLEAR_USERS:
       return initialState;

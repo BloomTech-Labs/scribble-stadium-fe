@@ -22,8 +22,8 @@ const RenderChildDashboard = props => {
     push('/child/join');
   };
 
-  const handleAdminPage = event => {
-    push('/admin');
+  const handleChangeAvatar = event => {
+    push('/child/change-avatar');
   };
 
   const handleLeaderboard = e => {
@@ -62,7 +62,7 @@ const RenderChildDashboard = props => {
             className="change-avatar"
             xs={24}
             sm={12}
-            onClick={handleAdminPage}
+            onClick={handleChangeAvatar}
           >
             <img
               className="child-dash-img"

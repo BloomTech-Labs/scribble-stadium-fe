@@ -19,7 +19,7 @@ function getApiUrl() {
    */
   if (devMode && process.env.NODE_ENV === 'production') {
     // if env = production and devMode active, use dev/staging DB, if env = production and devMode false, use production DB
-    apiUrl = process.env.REACT_APP_DEV_MODE_DATABASE_ENDPOINT;
+    apiUrl = process.env.REACT_APP_DS_API;
   }
   // note that if environment is development then apiUrl should be the local db (not production or dev/staging DB)
   return apiUrl;
@@ -214,12 +214,12 @@ const getChildByID = ID => {
 /**
  *
  * @param {Object} authState necessary for API functionality
- * @param {number} cohortId the cohort id of the respective child
+ * @param {number} storyId the story id of the respective episode
  * @returns {Promise} a promise that resolves to an object containing {DrawingPrompt, ID, Title, URL, and WritingPrompt}
  */
-const getStory = cohortId => {
+const getStory = storyId => {
   try {
-    return apiAuthGet(`/story?cohortId=${cohortId}`, getAuthHeader()).then(
+    return apiAuthGet(`/storyNew/${storyId}`, getAuthHeader()).then(
       response => {
         return response.data;
       }
@@ -557,7 +557,7 @@ const getGallerySubmissionsById = () => {
 };
 
 const getGallery = async () => {
-  return apiAuthGet('/gallary', getAuthHeader());
+  return apiAuthGet('/gallery', getAuthHeader());
 };
 
 const reset = async () => {

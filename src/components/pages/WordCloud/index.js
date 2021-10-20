@@ -21,16 +21,16 @@ function RenderWordCloud() {
   }
 
   return (
-    <div classNameName="wordCloudContainer">
+    <div className="wordCloudContainer">
       <div className="centerer">
         <div className="switcher">
           <input
             type="radio"
             name="render"
-            value="Crop Cloud"
+            value={1}
             id="cropcloud"
             className="switcher__input switcher__input--cc"
-            onChange={() => handleButtonPress(1)}
+            onChange={handleButtonPress}
             //checked={cloud === 'cropcloud'}
             defaultChecked={true}
           />

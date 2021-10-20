@@ -5,8 +5,7 @@ import { Row, Col, Button } from 'antd';
 import { connect } from 'react-redux';
 
 import { useHistory } from 'react-router-dom';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-import GamemodeButton from './GamemodeButton';
+import { Link, Route } from 'react-router-dom';
 
 const Gamemode = ({ ...props }) => {
   const { push, location } = useHistory();
@@ -73,16 +72,7 @@ const Gamemode = ({ ...props }) => {
       setsP(true);
     }
   };
-  const trig = () => {
-    return (
-      <div>
-        <Button type="default" onClick={singled}>
-          Single Player
-        </Button>
-        <Route {...props} path="/gamemode/single" component={GamemodeButton} />
-      </div>
-    );
-  };
+
   const reini = () => {
     // For basic prop initiation
     const ggm = {
@@ -93,6 +83,11 @@ const Gamemode = ({ ...props }) => {
       sp: false,
     };
     props.child.gamemode = ggm;
+  };
+
+  const startSinglePlayerMode = e => {
+    e.preventDefault();
+    push('/gameplay');
   };
 
   return (
@@ -113,10 +108,6 @@ const Gamemode = ({ ...props }) => {
               </Row>
             </div>
           )}
-
-      {props.child.gamemode.sp && props.child.gamemode.mode === 'single' && (
-        <Route {...props} path="/gamemode/single" component={GamemodeButton} />
-      )}
     </div>
   );
 };
