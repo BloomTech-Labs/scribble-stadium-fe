@@ -34,12 +34,7 @@ const ChildMenu = props => {
   };
 
   return (
-    <Menu
-      {...props}
-      mode="inline"
-      //  theme="dark"
-      style={styles.menu}
-    >
+    <Menu {...props} mode="inline" style={styles.menu}>
       <Menu.Item
         key="1"
         style={styles.menuItem}
@@ -83,6 +78,7 @@ const ChildMenu = props => {
     </Menu>
   );
 };
+
 //styling for child menu items
 const styles = {
   menu: {
@@ -133,7 +129,7 @@ const Header = ({
       {countDown && <CountDown className="countdown" />}
       {displayMenu && (
         <Dropdown
-          overlay={<ChildMenu clearUsers={props.clearUsers} />}
+          overlay={<ChildMenu />}
           trigger={['click']}
           className="menu-button"
         >
