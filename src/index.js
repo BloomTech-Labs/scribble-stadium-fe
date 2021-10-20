@@ -114,13 +114,7 @@ function App() {
         <Route path="/gameplay" component={GamePlayMain} />
         <Route path="/login" component={LandingPage} />
         {/* any of the routes you need secured should be registered as ProtectedRoutes */}
-        <ProtectedRoute
-          exact
-          path="/"
-          component={() => (
-            <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
-          )}
-        />
+
         <ProtectedRoute
           path="/child/story"
           component={() => (
