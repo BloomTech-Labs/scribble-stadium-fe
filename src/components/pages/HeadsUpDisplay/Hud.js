@@ -32,7 +32,13 @@ export default function (props) {
               ${
                 completedActivity.length - 1 >= activities.indexOf(a) &&
                 'completedActivity'
-              }`}
+              }
+              ${
+                currentActivity !== a &&
+                completedActivity.length - 1 < activities.indexOf(a) &&
+                'restActive'
+              }
+              `}
             >
               <span>{a}</span>
             </div>
