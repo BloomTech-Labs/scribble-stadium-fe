@@ -77,6 +77,11 @@ const GamemodeBtns = props => {
     history.push(`${props.baseURL}/mission/read`);
   };
 
+  const trophyRoom = e => {
+    e.preventDefault();
+    history.push(`${props.baseURL}/trophy-room`);
+  };
+
   // Enable initial modal
   useEffect(() => {
     const data = {
@@ -96,7 +101,9 @@ const GamemodeBtns = props => {
           Accept The Mission
         </button>
 
-        <button>Trophy Room</button>
+        <button className="" onClick={trophyRoom}>
+          Trophy Room
+        </button>
       </div>
     </div>
   );
