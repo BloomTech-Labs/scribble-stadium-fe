@@ -51,7 +51,7 @@ export default function (props) {
         expandIcon={({ isActive }) => (
           <DownCircleFilled
             rotate={isActive ? 180 : 0}
-            style={{ fontSize: '18px' }}
+            style={{ fontSize: '35px' }}
           />
         )}
         className="site-collapse-custom-collapse"
