@@ -84,10 +84,12 @@ const Gamemode = ({ ...props }) => {
     };
     props.child.gamemode = ggm;
   };
+
   const startSinglePlayerMode = e => {
     e.preventDefault();
     push('/gameplay');
   };
+
   return (
     <div>
       {props.child.gamemode === null
@@ -96,12 +98,11 @@ const Gamemode = ({ ...props }) => {
           !props.child.gamemode.sp && (
             <div className="dash-container">
               <Header />
-
-              <Row>
-                <Col className="adventure-passport" xs={16} sm={24}>
-                  <Button onClick={startSinglePlayerMode}>Single Player</Button>
-                </Col>
-              </Row>
+              <div className="single-button-container">
+                <Button className="single-btn" onClick={startSinglePlayerMode}>
+                  Single Player
+                </Button>
+              </div>
             </div>
           )}
     </div>
