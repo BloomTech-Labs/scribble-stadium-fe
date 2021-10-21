@@ -64,7 +64,7 @@ const ParentNavTopBar = props => {
           placement="bottomCenter"
         >
           <a
-            href="/parent/dashboard"
+            href="/"
             className="parent-avatar"
             data-testid="parent-avatar"
             onClick={e => e.preventDefault()}
