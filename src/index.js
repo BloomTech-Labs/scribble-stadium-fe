@@ -31,7 +31,6 @@ import {
 } from './components/common';
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
-import { DrawingSub } from './components/pages/DrawingSub';
 import { Gamemode } from './components/pages/Gamemode';
 
 import { Help } from './components/pages/Help';
@@ -47,7 +46,6 @@ import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { EditPlayers } from './components/pages/EditPlayers';
 import { StoryPrompt } from './components/pages/StoryPrompt';
-import { WritingSub } from './components/pages/WritingSub';
 import { Leaderboard } from './components/pages/Leaderboard';
 import { ChangeAvatar } from './components/pages/ChangeAvatar';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
@@ -165,18 +163,6 @@ function App() {
           path="/child/mission-control"
           component={() => (
             <MissionControl LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <ProtectedRoute
-          path="/child/drawing-sub"
-          component={() => (
-            <DrawingSub LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <ProtectedRoute
-          path="/child/writing-sub"
-          component={() => (
-            <WritingSub LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <ProtectedRoute
