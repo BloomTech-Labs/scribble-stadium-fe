@@ -37,7 +37,7 @@ const ParentMenu = props => {
 const ParentNavTopBar = props => {
   return (
     <nav className="parent-nav-top-bar" theme="light">
-      <Link to="/parent/dashboard">
+      <Link to="/">
         <Title className="title navbar-logo" level={1}>
           STORY SQUAD
         </Title>
