@@ -5,3 +5,4 @@ export const setWeeklySubmissions = id => dispatch => {
   getGallerySubmissionsById(id).then(res =>
     dispatch({ type: SET_WEEKLY_SUBMISSIONS, payload: res })
   );
+};
