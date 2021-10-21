@@ -40,7 +40,7 @@ const Weekly = props => {
               <img
                 className="gallery-submission"
                 src={props.image}
-                alt="writing submision"
+                alt="writing submission"
                 onClick={() => showModal(props.pages.Writing)}
               />
             </div>
