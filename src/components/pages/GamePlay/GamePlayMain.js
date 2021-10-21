@@ -108,9 +108,7 @@ const GamemodeBtns = props => {
           Accept The Mission
         </button>
 
-        <button className="" onClick={trophyRoom}>
-          Trophy Room
-        </button>
+        <button onClick={trophyRoom}>Trophy Room</button>
       </div>
     </div>
   );
