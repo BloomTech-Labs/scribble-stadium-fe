@@ -89,7 +89,7 @@ const Weekly = props => {
               {pageUrl.map(url => (
                 <div>
                   <img
-                    style={{ height: '72vh', objectFit: 'contain' }}
+                    style={{ height: '65vh', objectFit: 'contain' }}
                     alt=""
                     src={url}
                   />
