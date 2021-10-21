@@ -28,7 +28,7 @@ const ParentNavSider = props => {
         defaultSelectedKeys={[props.selected]}
       >
         <Menu.Item key="dashboard">
-          <Link to="/parent/dashboard">Dashboard</Link>
+          <Link to="/">Dashboard</Link>
         </Menu.Item>
         <Menu.Item key="settings">
           <Link to="/parent/settings">Parent Settings</Link>
