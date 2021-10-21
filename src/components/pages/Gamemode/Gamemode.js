@@ -57,22 +57,6 @@ const Gamemode = ({ ...props }) => {
     propInit();
   }, [props, location]);
 
-  const singled = () => {
-    if (location.pathname === '/gamemode' && sP === false) {
-      push('/gamemode/single');
-
-      props.child.gamemode = {
-        mode: 'single',
-        read: false,
-        write: false,
-        draw: false,
-        sp: true,
-      };
-      console.log('nal gamemode singled', props.child);
-      setsP(true);
-    }
-  };
-
   const reini = () => {
     // For basic prop initiation
     const ggm = {
