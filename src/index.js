@@ -116,11 +116,12 @@ function App() {
         {/* any of the routes you need secured should be registered as ProtectedRoutes */}
         <ProtectedRoute
           exact
-          path="/parent/dashboard"
+          path="/"
           component={() => (
             <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
+
         <ProtectedRoute
           path="/child/story"
           component={() => (
