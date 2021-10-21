@@ -9,6 +9,7 @@ import { Header } from '../../common';
 import { NotFoundPage } from '../NotFound';
 import Footer from './Footer';
 import GamePlayMission from './GamePlayMission';
+import { TrophyRoom } from '../TrophyRoom/index';
 import GameModal from './GameModal';
 
 function GamePlayMain(props) {
@@ -51,6 +52,13 @@ function GamePlayMain(props) {
             disableModalWindow={disableModalWindow}
           />
         </Route>
+        <Route path={`${baseURL}/`}>
+          <TrophyRoom
+            baseURL={baseURL}
+            enableModalWindow={enableModalWindow}
+            disableModalWindow={disableModalWindow}
+          />
+        </Route>
 
         <Route component={NotFoundPage} />
       </Switch>
@@ -73,7 +81,6 @@ const GamemodeBtns = props => {
 
   const acceptMission = e => {
     e.preventDefault();
-
     history.push(`${props.baseURL}/mission/read`);
   };
 
