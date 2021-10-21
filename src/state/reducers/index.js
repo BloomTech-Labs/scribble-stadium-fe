@@ -13,6 +13,7 @@ import { reducer as votes } from './votesReducer';
 import { reducer as date } from './dateReducer';
 import { reducer as devMode } from './devModeReducer';
 import { reducer as submissions } from './galleryReducer';
+import { reducer as newStories } from './storiesNewReducer';
 
 const persistConfig = {
   key: 'root',
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
   date,
   devMode,
   submissions,
+  newStories,
 });
 
 export default persistReducer(persistConfig, rootReducer);
