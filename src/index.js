@@ -195,13 +195,6 @@ function App() {
 
         <ProtectedRoute
           exact
-          path="/parent/dashboard-faq"
-          component={() => (
-            <ParentDashFaq LoadingComponent={ParentLoadingComponent} />
-          )}
-        />
-        <ProtectedRoute
-          exact
           path="/parent/support"
           component={() => (
             <SupportPage LoadingComponent={ParentLoadingComponent} />
