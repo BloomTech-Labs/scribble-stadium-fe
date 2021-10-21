@@ -199,8 +199,6 @@ function ChildForm(props) {
           form={form}
           initialValues={{
             Name: props.Name || '',
-            CharacterName: props.CharacterName || '',
-            Email: props.Email || '',
             PIN: '0000',
           }}
           name="control-hooks"
@@ -210,29 +208,24 @@ function ChildForm(props) {
         >
           <div className="col">
             <Form.Item
-              name="CharacterName"
-              label="Character Name"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your character's name",
-                },
-              ]}
-              on
-            >
-              <Input />
-            </Form.Item>
-            <Form.Item
               name="PIN"
               label="PIN"
               rules={[
-                { required: true, message: 'Please input your PIN' },
                 {
-                  type: 'string',
-                  min: 4,
-                  max: 4,
-                  message: 'The input is not a valid PIN',
+                  required: true,
+                  // type: "integer",
+                  // len: 4,
                 },
+                ({ getFieldValue }) => ({
+                  validator(_, value) {
+                    if (!isNaN(value) && value.length == 4) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject(
+                      new Error('The PIN has to be a 4 digit long number')
+                    );
+                  },
+                }),
               ]}
             >
               <Input type="password" className="pin" />
@@ -243,16 +236,6 @@ function ChildForm(props) {
               name="Name"
               label="Name"
               rules={[{ required: true, message: 'Please input your name' }]}
-            >
-              <Input />
-            </Form.Item>
-            <Form.Item
-              name="Email"
-              label="Email Address"
-              rules={[
-                { required: true, message: 'Please input your email address' },
-                { type: 'email', message: 'The input is not a valid email' },
-              ]}
             >
               <Input />
             </Form.Item>
