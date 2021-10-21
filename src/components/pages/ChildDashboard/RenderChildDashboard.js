@@ -32,7 +32,7 @@ const RenderChildDashboard = props => {
 
   return (
     <>
-      <Header displayMenu={true} />
+      <Header displayMenu={true} title={'Scribble Stadium'} />
       <HUD
         completedActivity={['Read', 'Draw', 'Write']}
         currentActivity={'Squad Up'}
