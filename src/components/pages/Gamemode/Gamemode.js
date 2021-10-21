@@ -21,29 +21,6 @@ const Gamemode = ({ ...props }) => {
           draw: props.child.gamemode.draw,
           sp: false,
         };
-
-        // May not need this shape for how upload doc works dont know how to get the file name
-        // and the image uploaded still
-        // const props1 = {
-        //   name: 'file',
-        //   multiple: true,
-        //   action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-        //   onChange(info) {
-        //     const { status } = info.file;
-        //     if (status !== 'uploading') {
-        //       console.log(info.file, info.fileList);
-        //     }
-        //     if (status === 'done') {
-        //       message.success(`${info.file.name} file uploaded successfully.`);
-        //     } else if (status === 'error') {
-        //       message.error(`${info.file.name} file upload failed.`);
-        //     }
-        //   },
-        //   onDrop(e) {
-        //     console.log('Dropped files', e.dataTransfer.files);
-        //   },
-        // };
-        // props.child = props1;
       } else {
         props.child.gamemode = {
           mode: 'select',
