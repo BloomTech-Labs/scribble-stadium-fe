@@ -19,9 +19,9 @@ const ParentFaqContainer = () => {
           <Row className="card">
             <Col span={16} className="col-btn">
               <Row>
-                <h4 style={{ color: '#878D93', fontWeight: '700' }}>
+                <h3 style={{ color: '#878D93', fontWeight: '700' }}>
                   FREQUENTLY ASKED QUESTIONS
-                </h4>
+                </h3>
               </Row>
               <div className="btn-group">
                 <Row>
