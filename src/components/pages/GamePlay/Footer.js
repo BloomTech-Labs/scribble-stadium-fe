@@ -10,11 +10,27 @@ export default function Footer() {
       <div className="inner-container">
         <div class="copyright">©{curYear} Story Squad HQ</div>
 
-        <nav>
-          <Link to="#">Contact</Link>
-          <Link to="#">FaQs</Link>
-          <Link to="#">Privacy</Link>
-          <Link to="#">Terms</Link>
+        <nav className="footer-nav-container">
+          <div className="footer-nav-div-link">
+            <Link className="footer-nav-link" to="#">
+              Contact
+            </Link>
+          </div>
+          <div className="footer-nav-div-link">
+            <Link className="footer-nav-link" to="#">
+              FaQs
+            </Link>
+          </div>
+          <div className="footer-nav-div-link">
+            <Link className="footer-nav-link" to="#">
+              Privacy
+            </Link>
+          </div>
+          <div className="footer-nav-div-link">
+            <Link className="footer-nav-link" to="#">
+              Terms
+            </Link>
+          </div>
         </nav>
       </div>
     </footer>
