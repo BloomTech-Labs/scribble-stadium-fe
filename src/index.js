@@ -119,6 +119,7 @@ function App() {
             <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
+
         <ProtectedRoute
           path="/child/story"
           component={() => (
@@ -177,21 +178,7 @@ function App() {
             <EditPlayers LoadingComponent={ParentLoadingComponent} />
           )}
         />
-        <ProtectedRoute
-          exact
-          path="/parent/dashboard"
-          component={() => (
-            <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
-          )}
-        />
 
-        <ProtectedRoute
-          exact
-          path="/parent/dashboard-faq"
-          component={() => (
-            <ParentDashFaq LoadingComponent={ParentLoadingComponent} />
-          )}
-        />
         <ProtectedRoute
           exact
           path="/parent/support"
