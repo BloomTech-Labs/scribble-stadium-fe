@@ -233,6 +233,25 @@ const getStory = storyId => {
 };
 
 /**
+ *
+ * @param {Object} authState necessary for API functionality
+ * @returns {Promise} a promise that resolves to an object containing an array of story objects
+ */
+
+const getNewStories = () => {
+  try {
+    return apiAuthGet(`/storyNew`, getAuthHeader()).then(response => {
+      return response.data;
+    });
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [];
+    });
+  }
+};
+
+/**
  * Reads in gradelevels and avatars from the database to enforce referential integrity
  * @param {Object} authState necessary for API functionality
  * @returns {Promise} a promise that resolves to an array of [[avatars], [gradeLevels]]
@@ -576,6 +595,7 @@ export {
   apiAuthGet,
   getLeaderboard,
   getStory,
+  getNewStories,
   getAuthHeader,
   apiAuthPost,
   apiAuthPut,
