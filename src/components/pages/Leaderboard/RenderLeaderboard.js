@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Header } from '../../common';
 import Leaderboard from './Leaderboard';
 
 import { connect } from 'react-redux';
 
-import { Divider, Button, Modal } from 'antd';
+import { Button } from 'antd';
 import { useHistory } from 'react-router-dom';
-import { child } from '../../../state/actions';
+//import { child } from '../../../state/actions'; <-- not in use yet in this component, uncomment while need it
 
 const RenderLeaderboard = props => {
   const { push } = useHistory();

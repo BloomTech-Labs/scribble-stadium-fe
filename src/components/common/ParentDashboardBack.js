@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 const ParentDashboardBack = props => {
   const history = useHistory();
   const backButton = () => {
-    history.push('/parent/dashboard');
+    history.push('/');
   };
   return (
     <Button

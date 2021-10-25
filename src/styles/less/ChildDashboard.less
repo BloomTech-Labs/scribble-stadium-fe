@@ -27,6 +27,7 @@
   .leaderboard {
     border: 5px solid @header-nero;
     height: 35vh;
+    cursor: pointer
   }
 
 
@@ -38,7 +39,6 @@
     background-position: center;
     background-color: @conifer;
     opacity: 75%;
-    cursor: pointer;
 
     img {
       z-index: 1;
@@ -135,12 +135,28 @@
     }
   }
 
+  .single-button-container{
+    padding-top:3%;        
+  }
   .adventure-passport {
     display: flex;
     justify-content: center;
     align-items: center;
     background: @bright-sun;
-    opacity: 75%;
+    opacity:75%;
+  }
+
+  .single-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: @bright-sun;
+    font-size:xx-large;
+    font-family: 'bangers',cursive;
+    margin-left:2.5%;
+    width:95%;
+    min-height: 50vh;
+    border: 5px solid @header-nero;
   }
 
   .adventure-passport img {
@@ -201,6 +217,23 @@
     max-width: 100%;
     max-height: 100%;
   }
+}
+
+.single-btn:hover{
+  animation:scale-up-singleplayer-btn linear 0.3s;
+  transform: scale(1.01);
+
+}
+
+@keyframes scale-up-singleplayer-btn {
+  from{
+    transform:scale(1.0)
+  }
+
+  to{
+    transform:scale(1.01)
+  }
+  
 }
 
 .trophy-room:hover {

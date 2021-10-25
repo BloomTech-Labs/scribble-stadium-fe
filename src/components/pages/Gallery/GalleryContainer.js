@@ -9,7 +9,7 @@ import WeeklySubmissions from './WeeklySubmissions';
 import { useHistory, useParams } from 'react-router-dom';
 
 const GalleryContainer = props => {
-  const { user, isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
   const { push } = useHistory();
   const [data, setDataInfo] = useState([]);
   const { id } = useParams();
@@ -44,7 +44,7 @@ const GalleryContainer = props => {
             </div>
           </div>
         </div>
-        <WeeklySubmissions data={props.submissions.Submissions} />
+        <WeeklySubmissions data={props.submissions} />
       </div>
     </>
   );
@@ -54,8 +54,6 @@ const mapStateToProps = state => {
   return {
     ...state,
     submissions: state.submissions,
-    name: state.Name,
-    childId: state.ID,
   };
 };
 
