@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import UploadDocs from '../../common/UploadDocs';
 import LightingKid from '../../../assets/images/gamemodeimg/LightingKid.png';
 import { Header } from '../../common';
-import { Row, Col, Button } from 'antd';
+import { Row, Col } from 'antd';
 import { connect } from 'react-redux';
-import UploaderComp from './UploaderComp';
-import { tasks } from '../../../state/actions';
-import { Gamemode } from './index';
-import { Link, Route, useHistory } from 'react-router-dom';
-import { render } from 'react-dom';
 import Thrashbar from './Thrashbar';
 const YourMissionComp = ({ ...props }) => {
-  const { push, location } = useHistory();
   const [rwd, setsRwd] = useState({
     read: false,
     write: false,
@@ -21,20 +15,28 @@ const YourMissionComp = ({ ...props }) => {
   const fxd = () => {
     if (props.child.gamemode.write) {
       props.child.gamemode.write = true;
-      rwd.write = true;
+
       props.child.gamemode.draw = false;
-      rwd.draw = false;
+
       props.child.gamemode.read = true;
-      rwd.read = true;
+      setsRwd({
+        write: props.child.gamemode.write,
+        draw: props.child.gamemode.draw,
+        read: props.child.gamemode.read,
+      });
     }
 
     if (props.child.gamemode.draw) {
       props.child.gamemode.write = false;
-      rwd.write = false;
+
       props.child.gamemode.draw = true;
-      rwd.draw = true;
+
       props.child.gamemode.read = true;
-      rwd.read = true;
+      setsRwd({
+        write: props.child.gamemode.write,
+        draw: props.child.gamemode.draw,
+        read: props.child.gamemode.read,
+      });
     }
   };
   return (
@@ -58,7 +60,7 @@ const YourMissionComp = ({ ...props }) => {
         className={rwd.write === true ? 'rectangle130-yellow' : 'rectangle130'}
       >
         <Row className="btmRow">
-          <img src={LightingKid} />
+          <img src={LightingKid} alt="A child dressed as a superhero called lighting kid" />
           <Col>
             <h1 className="dont4get">DON'T FORGET!</h1>
 

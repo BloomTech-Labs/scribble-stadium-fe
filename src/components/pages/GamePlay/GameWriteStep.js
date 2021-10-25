@@ -52,7 +52,7 @@ export default function GameWriteStep(props) {
   };
 
   // This function handles when we make a full submission of the entire mission(after reading, drawing, and writing)
-  const handleFullSubmission = () => {};
+  // const handleFullSubmission = () => {};
 
   // This handles when we skip the drawing phase
   const handleSkip = () => {
@@ -109,7 +109,7 @@ export default function GameWriteStep(props) {
     <div id="write-step">
       <div id="write" className="gameplay-content">
         <div className="inner-container">
-          <img src={boyImg} alt="Boy Image" className="boy-img" />
+          <img src={boyImg} alt="A boy" className="boy-img" />
 
           <div className="step-description">
             <h3>Don’t forget!</h3>
