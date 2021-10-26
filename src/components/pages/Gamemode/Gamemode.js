@@ -59,11 +59,14 @@ const Gamemode = ({ ...props }) => {
           !props.child.gamemode.sp && (
             <div className="dash-container">
               <Header />
-              <div className="single-button-container">
-                <Button className="single-btn" onClick={startSinglePlayerMode}>
-                  Single Player
-                </Button>
-              </div>
+
+              <Row>
+                <Col className="adventure-passport" xs={16} sm={24}>
+                  {!sP && props.child.gamemode.mode === 'select' && (
+                    <Link to="/gameification">{trig()}</Link>
+                  )}
+                </Col>
+              </Row>
             </div>
           )}
     </div>

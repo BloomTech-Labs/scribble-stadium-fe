@@ -50,8 +50,9 @@ import { Leaderboard } from './components/pages/Leaderboard';
 import { ChangeAvatar } from './components/pages/ChangeAvatar';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
-// GamePlay Components
-import { GamePlayMain } from './components/pages/GamePlay/index';
+// Gameification Components
+import { GameificationMain } from './components/pages/Gameification';
+import { JoinTheSquad } from './components/pages/JoinTheSquad';
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
 import { VotingPage } from './components/pages/VotingPage';
@@ -110,7 +111,10 @@ function App() {
       <DevModeHeader component={DevModeHeader} />
       <Switch>
         <Route exact path="/gamemode" component={Gamemode} />
-        <Route path="/gameplay" component={GamePlayMain} />
+
+        <Route path="/gameification" component={GameificationMain} />
+
+        <Route path="/gamemode/single" component={GamemodeButton} />
         <Route path="/login" component={LandingPage} />
         {/* any of the routes you need secured should be registered as ProtectedRoutes */}
         <ProtectedRoute
