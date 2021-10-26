@@ -71,10 +71,10 @@ const ParentContactContainer = () => {
                   <label htmlFor="name">Name</label>
                   <br />
                   <input
+                    required
                     type="text"
                     name="name"
                     id="name"
-                    isFilled="false"
                     className="contact-form-input"
                     value={name}
                     onChange={e => setName(e.target.value)}
@@ -84,10 +84,10 @@ const ParentContactContainer = () => {
                   <label htmlFor="email">Email Address</label>
                   <br />
                   <input
+                    required
                     type="email"
                     name="email"
                     id="email"
-                    isFilled="false"
                     className="contact-form-input"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
@@ -100,7 +100,6 @@ const ParentContactContainer = () => {
                 <textarea
                   id="message"
                   name="message"
-                  isFilled="false"
                   className="contact-form-textarea"
                   placeholder="Write your message here"
                   value={message}

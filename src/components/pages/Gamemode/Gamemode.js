@@ -6,8 +6,6 @@ import { connect } from 'react-redux';
 
 import { useHistory } from 'react-router-dom';
 import { Link, Route } from 'react-router-dom';
-import GamemodeButton from './GamemodeButton';
-
 
 const Gamemode = ({ ...props }) => {
   const { push, location } = useHistory();
