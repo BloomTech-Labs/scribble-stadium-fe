@@ -543,11 +543,13 @@ const getChildGraph = async ChildID => {
   return apiAuthGet(`/parent/viz?childId=${ChildID}`, getAuthHeader());
 };
 
-const getGallerySubmissionsById = () => {
+const getGallerySubmissionsById = id => {
   try {
-    return apiAuthGet(`/gallery`, getAuthHeader()).then(response => {
-      return response.data;
-    });
+    return apiAuthGet(`/submissions/child/${id}`, getAuthHeader()).then(
+      response => {
+        return response.data;
+      }
+    );
   } catch (err) {
     return new Promise(() => {
       console.log(err);

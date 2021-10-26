@@ -2,7 +2,7 @@
 
 .weekly-submissions {
 
-    .label{
+    .label {
 
         .h3 {
             color: @header-nero;
@@ -10,7 +10,7 @@
             font-family: 'atma';
             display: flex;
             justify-content: left;
-            align-content:flex-end;
+            align-content: flex-end;
             margin: 0;
         }
     }
@@ -68,11 +68,14 @@
     height: 100%;
     width: 100%;
     padding-bottom: 30px;
-    
+
+
+
     .sub-prompt {
         height: 100%;
         width: 100%;
         margin: 0 10px;
+
 
         .sub-container {
             width: 100%;
@@ -93,26 +96,35 @@
                 background-size: contain;
                 align-content: center;
                 margin: 8% auto;
-    
+
+
                 @media(max-width: 1200px) {
                     max-height: 225px;
-                } 
-    
+                    padding-bottom: 0.5rem;
+                    width: 85%
+                }
+
                 @media(max-width: 1024px) {
                     max-height: 200px;
-                } 
-    
+                    padding-bottom: 0.5rem;
+                    width: 85%
+                }
+
                 @media(max-width: 768px) {
-                    max-height: 160px;
-                } 
+                    max-height: 140px;
+                    padding-bottom: 0.5rem;
+                    width: 90%
+                }
 
                 @media(max-width: 550px) {
                     max-height: 180px;
-                } 
+                    width: 85%
+                }
 
                 @media(max-width: 400px) {
                     max-height: 150px;
-                } 
+                    width: 85%
+                }
             }
         }
     }
@@ -123,12 +135,13 @@
 
         .sub-prompt {
             padding: 0;
+
             .sub-container {
                 width: 100%;
                 margin: 2.5% 0;
             }
         }
-    } 
+    }
 }
 
 .control-panel-container {
@@ -142,7 +155,7 @@
         .clickable {
             cursor: pointer;
         }
-        
+
         .disabled {
             cursor: not-allowed;
             color: gray;
@@ -165,7 +178,7 @@
     align-content: center;
     font-family: 'atma';
 
-    .prompt-border {    
+    .prompt-border {
         width: 100%;
         display: flex;
         justify-content: left;
@@ -204,7 +217,7 @@
         flex-direction: column;
         justify-content: center;
         align-content: center;
-        
+
         p {
             font-size: 1.1rem;
         }
@@ -220,7 +233,7 @@
         padding-left: 10%;
         margin: 2% 0;
 
-        .prompt-border {  
+        .prompt-border {
             width: 80%;
         }
     }
@@ -233,9 +246,9 @@
         .pdf-components {
             @media(max-width: 500px) {
                 display: none;
-            }  
+            }
         }
-    
+
         .pdf-link {
             display: flex;
             justify-content: center;
@@ -244,7 +257,7 @@
 
             @media(min-width: 501px) {
                 display: none;
-            }    
+            }
         }
     }
 }

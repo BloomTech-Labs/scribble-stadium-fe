@@ -39,8 +39,8 @@ const Weekly = props => {
             <div className="sub-container">
               <img
                 className="gallery-submission"
-                src={props.pages.Writing.Page1}
-                alt="writing submision"
+                src={props.image}
+                alt="writing submission"
                 onClick={() => showModal(props.pages.Writing)}
               />
             </div>
@@ -61,7 +61,7 @@ const Weekly = props => {
             <div className="sub-container">
               <img
                 className="gallery-submission"
-                src={props.pages.Drawing.Page1}
+                src={props.image}
                 alt="drawing submision"
                 onClick={() => showModal(props.pages.Drawing)}
               />
@@ -89,7 +89,7 @@ const Weekly = props => {
               {pageUrl.map(url => (
                 <div>
                   <img
-                    style={{ height: '72vh', objectFit: 'contain' }}
+                    style={{ height: '65vh', objectFit: 'contain' }}
                     alt=""
                     src={url}
                   />
