@@ -55,6 +55,7 @@ import { GamePlayMain } from './components/pages/GamePlay/index';
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
 import { VotingPage } from './components/pages/VotingPage';
+import { Winner } from './components/pages/Winner';
 
 // Note: for demo/developer purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
@@ -232,6 +233,11 @@ function App() {
           component={() => (
             <VotingPage LoadingComponent={ChildLoadingComponent} />
           )}
+        />
+        <ProtectedRoute
+          exact
+          path="child/winner"
+          component={() => <Winner LoadingComponent={ChildloadingComponent} />}
         />
         <ProtectedRoute
           exact
