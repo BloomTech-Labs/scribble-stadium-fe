@@ -236,7 +236,7 @@ function App() {
         />
         <ProtectedRoute
           exact
-          path="child/winner"
+          path="/child/winner"
           component={() => <Winner LoadingComponent={ChildloadingComponent} />}
         />
         <ProtectedRoute
