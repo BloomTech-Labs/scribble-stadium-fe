@@ -18,7 +18,7 @@ export default function Footer() {
           </div>
           <div className="footer-nav-div-link">
             <Link className="footer-nav-link" to="#">
-              FaQs
+              FAQs
             </Link>
           </div>
           <div className="footer-nav-div-link">
