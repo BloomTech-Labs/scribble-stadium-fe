@@ -41,7 +41,6 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { ParentFaq } from './components/pages/ParentFaq';
 import { ParentContact } from './components/pages/ParentContact';
 import { NewParentDashboard } from './components/pages/NewParentDashboard';
-import { ParentDashFaq } from './components/pages/ParentDashFaq';
 import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { EditPlayers } from './components/pages/EditPlayers';
@@ -52,7 +51,6 @@ import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
 // Gameification Components
 import { GameificationMain } from './components/pages/Gameification';
-import { JoinTheSquad } from './components/pages/JoinTheSquad';
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
 import { VotingPage } from './components/pages/VotingPage';
@@ -113,8 +111,6 @@ function App() {
         <Route exact path="/gamemode" component={Gamemode} />
 
         <Route path="/gameification" component={GameificationMain} />
-
-        <Route path="/gamemode/single" component={GamemodeButton} />
         <Route path="/login" component={LandingPage} />
         {/* any of the routes you need secured should be registered as ProtectedRoutes */}
         <ProtectedRoute
