@@ -55,7 +55,7 @@ import { GamePlayMain } from './components/pages/GamePlay/index';
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
 import { VotingPage } from './components/pages/VotingPage';
-import { Winner } from './components/pages/Winner';
+import { WinnerPage } from './components/pages/WinnerPage';
 
 // Note: for demo/developer purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
