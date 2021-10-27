@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import { Header } from '../../common';
-import { UploadDocs } from '../../common/';
+import { UploadDocs } from '../../common';
 import { postNewWritingSub } from '../../../api/index';
 import { InstructionsModal } from '../../common/index';
 import { modalInstructions } from '../../../utils/helpers';
