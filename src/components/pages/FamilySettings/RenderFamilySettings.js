@@ -32,7 +32,7 @@ const FamilySettings = props => {
     <Layout className="parent-dashboard add-child">
       <ParentNavTopBar selected="settings" />
       <Layout className="content">
-        <Title className="title" style={{ color: '#0267C1' }} level={1}>
+        <Title className="title" style={{ color: '#2D2A2B' }} level={1}>
           Settings
         </Title>
         <Layout className="children" style={{ flexFlow: 'row wrap' }}>
