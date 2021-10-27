@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { setParent } from '../../../state/actions/parentActions';
 import RenderWordCloud from '../WordCloud';
 import WordCountContainer from '../WordCountContainer/WordCountContainer';
+import ChooseChildModal from './ChooseChildModal';
 
 const RenderNewParentDashboard = props => {
   const { user } = useAuth0();
@@ -28,7 +29,7 @@ const RenderNewParentDashboard = props => {
       });
   }, [setParent, user]);
   return (
-    <div>
+    <div id="parent-dashboard-page">
       <Layout className="newparent-dashboard">
         <ParentNavTopBar />
         <div className="renderWordCloud">
@@ -47,6 +48,8 @@ const RenderNewParentDashboard = props => {
           </div>
         </Layout>
       </Layout>
+
+      <ChooseChildModal />
     </div>
   );
 };
