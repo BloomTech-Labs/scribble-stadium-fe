@@ -111,8 +111,7 @@ function App() {
       <DevModeHeader component={DevModeHeader} />
       <Switch>
         <Route exact path="/gamemode" component={Gamemode} />
-
-        <Route path="/gameification" component={GameificationMain} />
+        <Route path="/gameplay" component={GamePlayMain} />
         <Route path="/login" component={LandingPage} />
         {/* any of the routes you need secured should be registered as ProtectedRoutes */}
         <ProtectedRoute
@@ -122,7 +121,6 @@ function App() {
             <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
-
         <ProtectedRoute
           path="/child/story"
           component={() => (
@@ -170,6 +168,18 @@ function App() {
           )}
         />
         <ProtectedRoute
+          path="/child/drawing-sub"
+          component={() => (
+            <DrawingSub LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <ProtectedRoute
+          path="/child/writing-sub"
+          component={() => (
+            <WritingSub LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <ProtectedRoute
           path="/parent/add-child"
           component={() => (
             <AddChild LoadingComponent={ParentLoadingComponent} />
@@ -181,7 +191,21 @@ function App() {
             <EditPlayers LoadingComponent={ParentLoadingComponent} />
           )}
         />
+        <ProtectedRoute
+          exact
+          path="/parent/dashboard"
+          component={() => (
+            <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
 
+        <ProtectedRoute
+          exact
+          path="/parent/dashboard-faq"
+          component={() => (
+            <ParentDashFaq LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
         <ProtectedRoute
           exact
           path="/parent/support"
@@ -254,13 +278,6 @@ function App() {
           path="/child/audiobook"
           component={() => (
             <AudioBook LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <ProtectedRoute
-          exact
-          path="/child/play-again"
-          component={() => (
-            <PlayAgain LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <Route exact path="/moderation" component={ModerationTest} />
