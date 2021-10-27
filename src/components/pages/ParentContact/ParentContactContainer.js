@@ -35,7 +35,7 @@ const ParentContactContainer = () => {
           <Row className="card">
             <Col span={16}>
               <Row className="title">
-                <h4 style={{ color: '#878D93', fontWeight: '700' }}>
+                <h4 style={{ color: '#2D2A2B', fontWeight: '700' }}>
                   CONTACT US
                 </h4>
               </Row>
