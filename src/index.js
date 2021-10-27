@@ -31,6 +31,7 @@ import {
 } from './components/common';
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
+// import { DrawingSub } from './components/pages/DrawingSub';
 import { Gamemode } from './components/pages/Gamemode';
 
 import { Help } from './components/pages/Help';
@@ -41,20 +42,21 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { ParentFaq } from './components/pages/ParentFaq';
 import { ParentContact } from './components/pages/ParentContact';
 import { NewParentDashboard } from './components/pages/NewParentDashboard';
+// import { ParentDashFaq } from './components/pages/ParentDashFaq';
 import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { EditPlayers } from './components/pages/EditPlayers';
 import { StoryPrompt } from './components/pages/StoryPrompt';
+// import { WritingSub } from './components/pages/WritingSub';
 import { Leaderboard } from './components/pages/Leaderboard';
 import { ChangeAvatar } from './components/pages/ChangeAvatar';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
-// Gameification Components
-import { GameificationMain } from './components/pages/Gameification';
+// GamePlay Components
+// import { GamePlayMain } from './components/pages/GamePlay/index';
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
 import { VotingPage } from './components/pages/VotingPage';
-import { PlayAgain } from './components/pages/PlayAgain';
 
 // Note: for demo/developer purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
