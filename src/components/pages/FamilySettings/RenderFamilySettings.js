@@ -5,6 +5,7 @@ import { Layout, Form, Input, Button, Typography } from 'antd';
 
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import ChildCard from '../../common/ChildCard';
+import ParentDashboardBack from '../../common/ParentDashboardBack';
 
 import { connect } from 'react-redux';
 
@@ -29,11 +30,12 @@ const FamilySettings = props => {
   };
 
   return (
-    <Layout className="parent-dashboard">
+    <Layout className="edit-players">
       <ParentNavTopBar selected="settings" />
       <Layout className="content">
         <div className="top-section">
-          <Title className="title" style={{ color: '#2D2A2B' }} level={1}>
+          <ParentDashboardBack />
+          <Title className="title" level={2}>
             Settings
           </Title>
         </div>

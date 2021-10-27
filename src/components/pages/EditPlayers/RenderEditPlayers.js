@@ -15,7 +15,7 @@ const EditPlayers = props => {
       <Layout className="content">
         <div className="top-section">
           <ParentDashboardBack />
-          <Title className="title" style={{ color: '#2D2A2B' }} level={2}>
+          <Title className="title" level={2}>
             Edit Players
           </Title>
         </div>

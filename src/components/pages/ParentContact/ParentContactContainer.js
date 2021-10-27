@@ -29,15 +29,13 @@ const ParentContactContainer = () => {
   });
   return (
     <>
-      <Layout className="parent-dashboard">
+      <Layout className="edit-players">
         <ParentNavTopBar />
         <div className='"site-card-border-less-wrapper"'>
           <Row className="card">
             <Col span={16}>
               <Row className="title">
-                <h4 style={{ color: '#2D2A2B', fontWeight: '700' }}>
-                  CONTACT US
-                </h4>
+                <h4>CONTACT US</h4>
               </Row>
               <div className="description">
                 <Row>
