@@ -17,8 +17,8 @@ const WeeklySubmissions = props => {
               <h3 className="h3">Week {weeks--}</h3>
             </span>
             <Weekly
-              key={i}
-              sprint={child.SubmissionId}
+              sprint={child.ID}
+              image={child.image.URL}
               drawingprompt={child.DrawingPrompt}
               writingprompt={child.WritingPrompt}
               pages={child.Pages}

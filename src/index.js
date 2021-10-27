@@ -31,8 +31,7 @@ import {
 } from './components/common';
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
-import { DrawingSub } from './components/pages/DrawingSub';
-import { Gamemode, GamemodeButton } from './components/pages/Gamemode';
+import { Gamemode } from './components/pages/Gamemode';
 
 import { Help } from './components/pages/Help';
 import { LandingPage } from './components/pages/LandingPage';
@@ -42,21 +41,20 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { ParentFaq } from './components/pages/ParentFaq';
 import { ParentContact } from './components/pages/ParentContact';
 import { NewParentDashboard } from './components/pages/NewParentDashboard';
-import { ParentDashFaq } from './components/pages/ParentDashFaq';
 import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { EditPlayers } from './components/pages/EditPlayers';
 import { StoryPrompt } from './components/pages/StoryPrompt';
-import { WritingSub } from './components/pages/WritingSub';
 import { Leaderboard } from './components/pages/Leaderboard';
+import { ChangeAvatar } from './components/pages/ChangeAvatar';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
-// GamePlay Components
-import { GamePlayMain } from './components/pages/GamePlay/index';
-import { JoinTheSquad } from './components/pages/JoinTheSquad';
+// Gameification Components
+import { GameificationMain } from './components/pages/Gameification';
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
 import { VotingPage } from './components/pages/VotingPage';
+import { PlayAgain } from './components/pages/PlayAgain';
 
 // Note: for demo/developer purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
@@ -111,8 +109,8 @@ function App() {
       <DevModeHeader component={DevModeHeader} />
       <Switch>
         <Route exact path="/gamemode" component={Gamemode} />
-        <Route path="/gameplay" component={GamePlayMain} />
-        <Route path="/gamemode/single" component={GamemodeButton} />
+
+        <Route path="/gameification" component={GameificationMain} />
         <Route path="/login" component={LandingPage} />
         {/* any of the routes you need secured should be registered as ProtectedRoutes */}
         <ProtectedRoute
@@ -122,6 +120,7 @@ function App() {
             <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
+
         <ProtectedRoute
           path="/child/story"
           component={() => (
@@ -169,18 +168,6 @@ function App() {
           )}
         />
         <ProtectedRoute
-          path="/child/drawing-sub"
-          component={() => (
-            <DrawingSub LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <ProtectedRoute
-          path="/child/writing-sub"
-          component={() => (
-            <WritingSub LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <ProtectedRoute
           path="/parent/add-child"
           component={() => (
             <AddChild LoadingComponent={ParentLoadingComponent} />
@@ -192,20 +179,8 @@ function App() {
             <EditPlayers LoadingComponent={ParentLoadingComponent} />
           )}
         />
-        <ProtectedRoute
-          exact
-          path="/parent/dashboard"
-          component={() => (
-            <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
-          )}
-        />
 
         <ProtectedRoute
-          exact
-          path="/parent/dashboard-faq"
-          component={() => (
-            <ParentDashFaq LoadingComponent={ParentLoadingComponent} />
-          )}
           exact
           path="/parent/support"
           component={() => (
@@ -242,13 +217,6 @@ function App() {
         />
         <ProtectedRoute
           exact
-          path="/child/join"
-          component={() => (
-            <JoinTheSquad LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <ProtectedRoute
-          exact
           path="/child/point-share"
           component={() => (
             <PointShare LoadingComponent={ChildLoadingComponent} />
@@ -274,10 +242,23 @@ function App() {
           )}
         />
         <ProtectedRoute
+          path="/child/change-avatar"
+          component={() => (
+            <ChangeAvatar LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <ProtectedRoute
           exact
           path="/child/audiobook"
           component={() => (
             <AudioBook LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <ProtectedRoute
+          exact
+          path="/child/play-again"
+          component={() => (
+            <PlayAgain LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <Route exact path="/moderation" component={ModerationTest} />

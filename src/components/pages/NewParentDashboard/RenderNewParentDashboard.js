@@ -9,6 +9,7 @@ import AccountSettings from '../AccountSettings/AccountSettingsContainer';
 import { connect } from 'react-redux';
 import { setParent } from '../../../state/actions/parentActions';
 import RenderWordCloud from '../WordCloud';
+import WordCountContainer from '../WordCountContainer/WordCountContainer';
 
 const RenderNewParentDashboard = props => {
   const { user } = useAuth0();

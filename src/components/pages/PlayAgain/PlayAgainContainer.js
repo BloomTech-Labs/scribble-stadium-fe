@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import { connect } from 'react-redux';
+import RenderPlayAgain from './RenderPlayAgain';
 
-import RenderWritingSub from './RenderWritingSub';
-
-function WritingSubContainer({ LoadingComponent, ...props }) {
+const PlayAgainContainer = ({ LoadingComponent, ...props }) => {
   const { user, isAuthenticated } = useAuth0();
   const [userInfo] = useState(user);
 
@@ -13,10 +13,16 @@ function WritingSubContainer({ LoadingComponent, ...props }) {
         <LoadingComponent message="Loading..." />
       )}
       {isAuthenticated && userInfo && (
-        <RenderWritingSub {...props} userInfo={userInfo} />
+        <RenderPlayAgain {...props} userInfo={userInfo} />
       )}
     </>
   );
-}
+};
 
-export default WritingSubContainer;
+export default connect(
+  state => ({
+    child: state.child,
+    tasks: state.tasks,
+  }),
+  {}
+)(PlayAgainContainer);

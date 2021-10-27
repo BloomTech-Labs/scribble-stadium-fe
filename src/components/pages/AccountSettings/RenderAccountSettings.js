@@ -16,19 +16,15 @@ function RenderAccountSettings() {
   //Grab the parents userInfo so we can validate their information (pin)
   useEffect(() => {
     getProfileData(user).then(res => {
-      res.map(user => {
-        if (user.type === 'Parent') {
-          setUserInfo(user);
-        }
-      });
+      const parent = res.find(user => user.type === 'Parent');
+      if (parent !== null) {
+        setUserInfo(parent);
+      }
     });
   }, [user]);
 
   //These functions handle's exiting the modal once it is activated
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-  const handleCancel = () => {
+  const handleModal = () => {
     setIsModalVisible(false);
   };
 
@@ -46,7 +42,7 @@ function RenderAccountSettings() {
     <div className="accountSettingsContainer">
       <Modal
         visible={isModalVisible}
-        onCancel={handleCancel}
+        onCancel={handleModal}
         afterClose={() => pin.clear()}
         centered="true"
         width="25vw"
@@ -92,13 +88,13 @@ function RenderAccountSettings() {
             className="unlockButton"
             style={unlock ? null : { display: 'none' }}
           >
-            <button
+            <Button
               className="lockUnlockButton"
               onClick={() => setIsModalVisible(true)}
               value="UNLOCK"
             >
               UNLOCK WITH PIN
-            </button>
+            </Button>
           </div>
 
           <div

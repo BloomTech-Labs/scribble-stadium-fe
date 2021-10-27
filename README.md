@@ -185,6 +185,15 @@ Back End
 - npm start
 ```
 
+
+
+## LOGIN Credentials
+User: llama001@maildrop.cc
+Pw: Test001Test
+
+
+
+
 Run Test
 
 ```
@@ -266,3 +275,6 @@ Note for the Parent Dashboard “Change email” and “Change password” modal
 
 - The modals are to have a lockout feature that disables and obscures their buttons with an opacity styling. This feature is still pending completion.
 - Also, the modal’s “Cancel” and “Save” buttons themselves still lack functionality (the latter of which will need to be added with Okta).
+
+
+

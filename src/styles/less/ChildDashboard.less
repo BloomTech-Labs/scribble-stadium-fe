@@ -20,25 +20,23 @@
     }
   }
 
-  .accept-mission,.accept-mission-ga1,
+  .accept-mission,
+  .accept-mission-ga1,
   .change-avatar,
   .adventure-passport,
   .trophy-room,
   .leaderboard {
     border: 5px solid @header-nero;
     height: 35vh;
+    cursor: pointer;
   }
-
-
 
   .accept-mission {
     background: url('../../assets/images/child_dashboard_images/accept_the_mission.svg')
       no-repeat;
     background-size: contain;
     background-position: center;
-    background-color: @conifer;
-    opacity: 75%;
-    cursor: pointer;
+    background-color: #c6fd7e;
 
     img {
       z-index: 1;
@@ -49,49 +47,49 @@
   }
 
   div.accept-mission {
-    border-width: .75rem .375rem .75rem .75rem;
+    border-width: 0.75rem 0.375rem 0.75rem 0.75rem;
     @media @tablet {
-      border-width: .5rem .25rem .5rem .5rem;
+      border-width: 0.5rem 0.25rem 0.5rem 0.5rem;
     }
     @media @mobile {
-      border-width: .5rem .5rem .25rem .5rem;
+      border-width: 0.5rem 0.5rem 0.25rem 0.5rem;
     }
   }
   div.change-avatar {
-    border-width: .75rem .75rem .75rem .375rem;
+    border-width: 0.75rem 0.75rem 0.75rem 0.375rem;
     @media @tablet {
-      border-width: .5rem .5rem .5rem .25rem;
+      border-width: 0.5rem 0.5rem 0.5rem 0.25rem;
     }
     @media @mobile {
-      border-width: .25rem .5rem .5rem .5rem;
+      border-width: 0.25rem 0.5rem 0.5rem 0.5rem;
     }
   }
   div.adventure-passport {
-    border-width: .75rem .375rem .75rem .75rem;
+    border-width: 0.75rem 0.375rem 0.75rem 0.75rem;
     @media @tablet {
-      border-width: .5rem .25rem .5rem .5rem;
+      border-width: 0.5rem 0.25rem 0.5rem 0.5rem;
     }
     @media @mobile {
-      border-width: .5rem .5rem .25rem .5rem;
+      border-width: 0.5rem 0.5rem 0.25rem 0.5rem;
     }
   }
   div.leaderboard {
-    border-width: .75rem .75rem .75rem .375rem;
+    border-width: 0.75rem 0.75rem 0.75rem 0.375rem;
     @media @tablet {
-      border-width: .5rem .5rem .5rem .25rem;
+      border-width: 0.5rem 0.5rem 0.5rem 0.25rem;
     }
     @media @mobile {
-      border-width: .25rem .5rem .5rem .5rem;
+      border-width: 0.25rem 0.5rem 0.5rem 0.5rem;
     }
   }
 
-// Gamemode could use backend read write examples intohere
+  // Gamemode could use backend read write examples intohere
   .accept-mission-ga1 {
     background: url('../../assets/images/child_dashboard_images/accept_the_mission.svg')
       no-repeat;
     background-size: contain;
     background-position: center;
-    background-color: @conifer;
+    background-color: #c6fd7e;
     opacity: 100%;
     cursor: pointer;
 
@@ -128,19 +126,33 @@
     justify-content: center;
     align-items: center;
     background: @burnt-sienna;
-    opacity: 75%;
     img {
       max-width: 80%;
       max-height: 80%;
     }
   }
 
+  .single-button-container {
+    padding-top: 3%;
+  }
   .adventure-passport {
     display: flex;
     justify-content: center;
     align-items: center;
     background: @bright-sun;
-    opacity: 75%;
+  }
+
+  .single-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: @bright-sun;
+    font-size: xx-large;
+    font-family: 'bangers', cursive;
+    margin-left: 2.5%;
+    width: 95%;
+    min-height: 50vh;
+    border: 5px solid @header-nero;
   }
 
   .adventure-passport img {
@@ -169,7 +181,6 @@
     justify-content: center;
     align-items: center;
     background: @boston-blue;
-    opacity: 75%;
     img {
       max-width: 80%;
       max-height: 80%;
@@ -178,7 +189,7 @@
 }
 
 .accept-mission:hover {
-  opacity: 100%;
+  opacity: 75%;
 
   .accept-mission-text {
     font-size: 4.5rem;
@@ -186,7 +197,7 @@
 }
 
 .change-avatar:hover {
-  opacity: 100%;
+  opacity: 75%;
 
   img {
     max-width: 100%;
@@ -195,11 +206,26 @@
 }
 
 .adventure-passport:hover {
-  opacity: 100%;
+  opacity: 75%;
 
   img {
     max-width: 100%;
     max-height: 100%;
+  }
+}
+
+.single-btn:hover {
+  animation: scale-up-singleplayer-btn linear 0.3s;
+  transform: scale(1.01);
+}
+
+@keyframes scale-up-singleplayer-btn {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.01);
   }
 }
 
@@ -213,7 +239,7 @@
 }
 
 .leaderboard:hover {
-  opacity: 100%;
+  opacity: 75%;
 
   img {
     max-width: 100%;

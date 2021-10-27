@@ -32,7 +32,7 @@ const SatMon = ({ setDate, child, devMode }) => {
 
   useEffect(() => {
     setDate(findNextDayOfWeek(1));
-  }, [1]);
+  }, [setDate]);
 
   useEffect(() => {
     if (devMode.isDevModeActive === false) {
