@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { Layout, Form, Input, Button, Typography } from 'antd';
+import { Layout, Form, Card, Input, Button, Typography, Row, Col } from 'antd';
 
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import ChildCard from '../../common/ChildCard';
@@ -32,98 +32,127 @@ const FamilySettings = props => {
   return (
     <Layout className="edit-players">
       <ParentNavTopBar selected="settings" />
-      <Layout className="content">
-        <div className="top-section">
-          <ParentDashboardBack />
-          <Title className="title" level={2}>
-            Settings
-          </Title>
-        </div>
-        <Layout className="children" style={{ flexFlow: 'row wrap' }}>
-          {props.parent.children.map(child => (
-            <ChildCard
-              name={child.Name}
-              AvatarURL={child.AvatarURL}
-              update="SETTINGS"
-            />
-          ))}
-        </Layout>
 
-        <Layout className="settings-form">
-          <h2 className="h2-family-settings">Change Email or Password</h2>
+      <div className="top-section">
+        <ParentDashboardBack />
+        <Title className="title" level={2}>
+          Settings
+        </Title>
+      </div>
+      <Layout className="children" style={{ flexFlow: 'row wrap' }}>
+        {props.parent.children.map(child => (
+          <ChildCard
+            name={child.Name}
+            AvatarURL={child.AvatarURL}
+            update="SETTINGS"
+          />
+        ))}
+      </Layout>
+
+      <Row className="card">
+        <Col>
+          <Row className="title">
+            <h4>Change Email or Password</h4>
+          </Row>
           <Form
             {...layoutSettings}
             form={form}
             name="change-family-settings"
             onFinish={onFinish}
           >
-            <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
-              <Form.Item
-                name="email"
-                onChange={handleChange}
-                rules={[
-                  {
-                    type: 'email',
-                    message: 'The input is not valid E-mail!',
-                  },
-                  { required: true, message: 'Please enter an email address!' },
-                ]}
-              >
-                <Input placeholder="Enter New Email" />
-              </Form.Item>
-              <Form.Item
-                name="password"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please input your old password!',
-                  },
-                ]}
-                hasFeedback
-              >
-                <Input.Password placeholder="Enter old Password" />
-              </Form.Item>
-              <Form.Item
-                name="email"
-                onChange={handleChange}
-                rules={[
-                  {
-                    type: 'email',
-                    message: 'The input is not valid E-mail!',
-                  },
-                  { required: true, message: 'Please enter an email address!' },
-                ]}
-              >
-                <Input placeholder="Enter New Email" />
-              </Form.Item>
-              <Form.Item
-                name="email"
-                onChange={handleChange}
-                rules={[
-                  {
-                    type: 'email',
-                    message: 'The input is not valid E-mail!',
-                  },
-                  { required: true, message: 'Please enter an email address!' },
-                ]}
-              >
-                <Input placeholder="Re-enter New Email" />
-              </Form.Item>
-            </Form.Item>
-            <Form.Item wrapperCol={{ span: 20, offset: 8 }}>
-              <Button
-                style={{ backgroundColor: '#007AFF', color: 'white' }}
-                type="primary"
+            <Row className="form-inputs">
+              <Col>
+                <label htmlFor="oldEmail">Enter Old Email</label>
+                <br />
+                <input
+                  id="oldEmail"
+                  name="email"
+                  onChange={handleChange}
+                  rules={[
+                    {
+                      type: 'email',
+                      message: 'The input is not valid E-mail!',
+                    },
+                    {
+                      required: true,
+                      message: 'Please enter an email address!',
+                    },
+                  ]}
+                  className="contact-form-input"
+                />
+              </Col>
+              <Col>
+                <label htmlFor="oldPassword">Enter Old Password</label>
+                <br />
+                <input
+                  id="oldPassword"
+                  name="password"
+                  rules={[
+                    {
+                      required: true,
+                      type: 'password',
+                      message: 'Please input your old password!',
+                    },
+                  ]}
+                  hasFeedback
+                  className="contact-form-input"
+                />
+              </Col>
+            </Row>
+            <Row className="form-inputs">
+              <Col>
+                <label htmlFor="newEmail">Enter New Email</label>
+                <br />
+                <input
+                  id="newEmail"
+                  name="email"
+                  onChange={handleChange}
+                  rules={[
+                    {
+                      type: 'email',
+                      message: 'The input is not valid E-mail!',
+                    },
+                    {
+                      required: true,
+                      message: 'Please enter an email address!',
+                    },
+                  ]}
+                  className="contact-form-input"
+                />
+              </Col>
+              <Col>
+                <label htmlFor="ReEnterNewEmail">Re-Enter New Email</label>
+                <br />
+                <input
+                  id="ReEnterNewEmail"
+                  name="email"
+                  onChange={handleChange}
+                  rules={[
+                    {
+                      type: 'email',
+                      message: 'The input is not valid E-mail!',
+                    },
+                    {
+                      required: true,
+                      message: 'Please enter an email address!',
+                    },
+                  ]}
+                  className="contact-form-input"
+                />
+              </Col>
+            </Row>
+            <Row>
+              <input
+                type="submit"
                 size="large"
+                value="UPDATE"
                 htmlType="submit"
-                disabled
-              >
-                Update
-              </Button>
-            </Form.Item>
+                className="contact-form-submit-btn"
+              ></input>
+            </Row>
           </Form>
-        </Layout>
-      </Layout>
+        </Col>
+      </Row>
     </Layout>
   );
 };
