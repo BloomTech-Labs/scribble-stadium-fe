@@ -29,7 +29,7 @@ const ParentContactContainer = () => {
   });
   return (
     <>
-      <Layout>
+      <Layout className="parent-dashboard">
         <ParentNavTopBar />
         <div className='"site-card-border-less-wrapper"'>
           <Row className="card">

@@ -29,12 +29,14 @@ const FamilySettings = props => {
   };
 
   return (
-    <Layout>
+    <Layout className="parent-dashboard">
       <ParentNavTopBar selected="settings" />
       <Layout className="content">
-        <Title className="title" style={{ color: '#2D2A2B' }} level={1}>
-          Settings
-        </Title>
+        <div className="top-section">
+          <Title className="title" style={{ color: '#2D2A2B' }} level={1}>
+            Settings
+          </Title>
+        </div>
         <Layout className="children" style={{ flexFlow: 'row wrap' }}>
           {props.parent.children.map(child => (
             <ChildCard
