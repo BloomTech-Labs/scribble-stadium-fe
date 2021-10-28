@@ -55,6 +55,7 @@ import { GamePlayMain } from './components/pages/GamePlay/index';
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
 import { VotingPage } from './components/pages/VotingPage';
+import { PlayAgain } from './components/pages/PlayAgain';
 
 // Note: for demo/developer purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
@@ -251,6 +252,13 @@ function App() {
           path="/child/audiobook"
           component={() => (
             <AudioBook LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <ProtectedRoute
+          exact
+          path="/child/play-again"
+          component={() => (
+            <PlayAgain LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <Route exact path="/moderation" component={ModerationTest} />
