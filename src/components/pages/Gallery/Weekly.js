@@ -21,10 +21,11 @@ const Weekly = props => {
   // Carousel Modal Functions
   const showModal = pages => {
     setIsModalVisible(true);
-    let values = Object.keys(pages).map(function (key) {
-      return pages[key];
+    const values = [];
+    pages.map(page => {
+      values.push(page.URL);
+      setpageUrl(values);
     });
-    setpageUrl(values);
   };
 
   const handleCancel = () => {
@@ -41,7 +42,7 @@ const Weekly = props => {
                 className="gallery-submission"
                 src={props.image}
                 alt="writing submision"
-                onClick={() => showModal(props.pages.Writing)}
+                onClick={() => showModal(props.pages)}
               />
             </div>
             <WritingPrompt
@@ -63,7 +64,7 @@ const Weekly = props => {
                 className="gallery-submission"
                 src={props.image}
                 alt="drawing submision"
-                onClick={() => showModal(props.pages.Drawing)}
+                onClick={() => showModal(props.pages)}
               />
             </div>
             <DrawingPrompt
@@ -86,8 +87,8 @@ const Weekly = props => {
             footer={null}
           >
             <Carousel arrows={true}>
-              {pageUrl.map(url => (
-                <div>
+              {pageUrl.map((url, i) => (
+                <div key={i}>
                   <img
                     style={{ height: '72vh', objectFit: 'contain' }}
                     alt=""
