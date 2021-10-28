@@ -8,12 +8,11 @@ import RenderChildDashboard from './RenderChildDashboard';
 const ChildDashboardContainer = ({ LoadingComponent, ...props }) => {
   const { user, isAuthenticated } = useAuth0();
   const [userInfo] = useState(user);
-  console.log('>>>>>>>>>>>>>>>>>>>>>>>>> userInfo:', userInfo);
 
   return (
     <>
       {isAuthenticated && !userInfo && (
-        <LoadingComponent message="Checking..." />
+        <LoadingComponent message="Loading..." />
       )}
       {isAuthenticated && userInfo && (
         <RenderChildDashboard {...props} userInfo={userInfo} />
