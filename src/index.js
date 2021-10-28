@@ -54,6 +54,7 @@ import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 // GamePlay Components
 import { GamePlayMain } from './components/pages/GamePlay/index';
 import { PlayAgain } from './components/pages/PlayAgain';
+import { Scores } from './components/pages/Scores';
 
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
@@ -262,13 +263,19 @@ function App() {
             <VotingPage LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        {/* UNDER CONTRUCTION HOLDER / New path to point to /gameplay/mission/play-again NOT for DELETE */}
+        {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/play-again NOT for DELETE */}
         <ProtectedRoute
           exact
-          path="/child/play-again"
+          path="/play-again"
           component={() => (
             <PlayAgain LoadingComponent={ChildLoadingComponent} />
           )}
+        />
+        {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/play-again NOT for DELETE */}
+        <ProtectedRoute
+          exact
+          path="/scores"
+          component={() => <Scores LoadingComponent={ChildLoadingComponent} />}
         />
         {/* FOUNDATION CODE exists. NEEDS DATA New path to point to /gameplay/dashboard/leaderboard NOT for DELETE */}
         <ProtectedRoute
