@@ -23,9 +23,9 @@ const Weekly = props => {
     setIsModalVisible(true);
     const values = [];
     pages.map(page => {
-      values.push(page.URL);
-      setpageUrl(values);
+      return values.push(page.URL);
     });
+    setpageUrl(values);
   };
 
   const handleCancel = () => {
