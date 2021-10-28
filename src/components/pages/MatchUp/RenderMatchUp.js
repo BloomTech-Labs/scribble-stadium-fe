@@ -55,7 +55,7 @@ const RenderMatchUp = props => {
           instructions={modalInstructions.matchUp}
         />
       )}
-      <div className="matchup-container">
+      {/* <div className="matchup-container">
         <Row className="toprow">
           <Col className="green-box" xs={24} sm={13}>
             {faceoffs[0] && (
@@ -119,7 +119,7 @@ const RenderMatchUp = props => {
           <br />
           {props.VotesRemaining} votes left
         </Button>
-      </div>
+      </div> */}
     </>
   );
 };
