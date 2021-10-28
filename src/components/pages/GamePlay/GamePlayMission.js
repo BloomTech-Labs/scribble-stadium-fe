@@ -146,6 +146,10 @@ export default function GamePlayMission(props) {
         <Route path={`${baseURL}/nextsteps`}>
           {/*gameplay/mission/nextsteps component goes here */}
         </Route>
+
+        <Route path={`${baseURL}/matchup`}>
+          {/*gameplay/mission/matchup component goes here */}
+        </Route>
       </Switch>
     </div>
   );
