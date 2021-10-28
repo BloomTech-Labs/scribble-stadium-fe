@@ -154,6 +154,10 @@ export default function GamePlayMission(props) {
         <Route path={`${baseURL}/scores`}>
           {/*gameplay/mission/scores component goes here */}
         </Route>
+
+        <Route path={`${baseURL}/winner`}>
+          {/*gameplay/mission/winner component goes here */}
+        </Route>
       </Switch>
     </div>
   );
