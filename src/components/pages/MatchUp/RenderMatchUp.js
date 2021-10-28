@@ -13,6 +13,10 @@ const RenderMatchUp = props => {
   const [faceoffs, setFaceoffs] = useState([]);
   const [modalVisible, setModalVisible] = useState(true);
 
+  const goToChildDashboard = () => {
+    push('/child/dashboard');
+  };
+
   useEffect(() => {
     if (props.child.VotesRemaining <= 9) {
       setModalVisible(false);
@@ -37,7 +41,25 @@ const RenderMatchUp = props => {
         pointsToWin={true}
         votesRemaining={true}
       />
-      <QuestionCircleOutlined
+      {/* REMOVE ONCE DESIGN WORK BEGINS - START */}
+      <div className={'under-construction'}>
+        <div className={'rectangle-126'} style={{ margin: '3rem' }}>
+          <h1>Coming Soon</h1>
+        </div>
+        <div className={'under-construction-content'}>
+          <h1>Under Construction!</h1>
+          <h1>Match Up UI Coming Soon!</h1>
+        </div>
+        <Button
+          style={{ margin: '1rem' }}
+          className="back-btn"
+          onClick={goToChildDashboard}
+        >
+          Back to Child Dashboard
+        </Button>
+      </div>
+      {/* REMOVE ONCE DESIGN WORK BEGINS - END */}
+      {/* <QuestionCircleOutlined
         className="question-icon"
         onClick={() => {
           setModalVisible(true);
@@ -54,7 +76,7 @@ const RenderMatchUp = props => {
           }}
           instructions={modalInstructions.matchUp}
         />
-      )}
+      )} */}
       {/* <div className="matchup-container">
         <Row className="toprow">
           <Col className="green-box" xs={24} sm={13}>
