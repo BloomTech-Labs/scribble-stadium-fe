@@ -5,6 +5,7 @@ import { Header } from '../../common';
 import { Button } from 'antd';
 import { getChildByID } from '../../../api/index';
 import { setWeeklySubmissions } from '../../../state/actions/galleryActions';
+import { getAllStories } from '../../../state/actions/newStories';
 import WeeklySubmissions from './WeeklySubmissions';
 import { useHistory, useParams } from 'react-router-dom';
 
@@ -27,6 +28,7 @@ const GalleryContainer = props => {
   };
 
   useEffect(() => {
+    props.getAllStories();
     props.setWeeklySubmissions(id);
   }, []);
 
@@ -57,6 +59,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { setWeeklySubmissions })(
-  GalleryContainer
-);
+export default connect(mapStateToProps, {
+  setWeeklySubmissions,
+  getAllStories,
+})(GalleryContainer);
