@@ -54,7 +54,7 @@ import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
 // GamePlay Components
 import { GamePlayMain } from './components/pages/GamePlay/index';
-import { JoinTheSquad } from './components/pages/JoinTheSquad';
+import { PlayAgain } from './components/pages/PlayAgain';
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
 import { VotingPage } from './components/pages/VotingPage';
@@ -244,13 +244,6 @@ function App() {
         />
         <ProtectedRoute
           exact
-          path="/child/join"
-          component={() => (
-            <JoinTheSquad LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <ProtectedRoute
-          exact
           path="/child/point-share"
           component={() => (
             <PointShare LoadingComponent={ChildLoadingComponent} />
@@ -266,6 +259,13 @@ function App() {
           path="/child/match-up/squad-vote"
           component={() => (
             <VotingPage LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <ProtectedRoute
+          exact
+          path="/child/play-again"
+          component={() => (
+            <PlayAgain LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <ProtectedRoute

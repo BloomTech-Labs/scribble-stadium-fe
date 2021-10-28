@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { connect } from 'react-redux';
+import RenderPlayAgain from './RenderPlayAgain';
 
-import RenderJoinTheSquad from './RenderJoinTheSquad';
-import { team } from '../../../state/actions';
-
-const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
+const PlayAgainContainer = ({ LoadingComponent, ...props }) => {
   const { user, isAuthenticated } = useAuth0();
   const [userInfo] = useState(user);
 
@@ -15,7 +13,7 @@ const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
         <LoadingComponent message="Loading..." />
       )}
       {isAuthenticated && userInfo && (
-        <RenderJoinTheSquad {...props} userInfo={userInfo} />
+        <RenderPlayAgain {...props} userInfo={userInfo} />
       )}
     </>
   );
@@ -24,9 +22,7 @@ const JoinTheSquadContainer = ({ LoadingComponent, ...props }) => {
 export default connect(
   state => ({
     child: state.child,
-    team: state.team,
+    tasks: state.tasks,
   }),
-  {
-    setTeamSubmissions: team.setTeamSubmissions,
-  }
-)(JoinTheSquadContainer);
+  {}
+)(PlayAgainContainer);

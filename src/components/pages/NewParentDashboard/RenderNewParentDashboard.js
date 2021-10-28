@@ -34,7 +34,7 @@ const RenderNewParentDashboard = props => {
         <div className="renderWordCloud">
           <RenderWordCloud />
         </div>
-        <WordCountContainer />
+
         <Layout>
           <div className="progress-container">
             <NewProgressCharts />

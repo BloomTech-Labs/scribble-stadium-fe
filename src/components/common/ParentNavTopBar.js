@@ -37,7 +37,7 @@ const ParentMenu = props => {
 const ParentNavTopBar = props => {
   return (
     <nav className="parent-nav-top-bar" theme="light">
-      <Link to="/parent/dashboard">
+      <Link to="/">
         <Title className="title navbar-logo" level={1}>
           Scribble Stadium
         </Title>
@@ -56,7 +56,10 @@ const ParentNavTopBar = props => {
         </div>
         <div className="straight-bar"></div>
         <span className="welcome-back-msg">
-          {props.parent && `Welcome back, ${props.parent.name}`}
+          {props.parent &&
+            `Welcome back, ` +
+              (props.parent.name == null ? 'parent' : `${props.parent.name}`) +
+              `!`}
         </span>
         <Dropdown
           overlay={<ParentMenu clearUsers={props.clearUsers} />}
@@ -64,7 +67,7 @@ const ParentNavTopBar = props => {
           placement="bottomCenter"
         >
           <a
-            href="/parent/dashboard"
+            href="/"
             className="parent-avatar"
             data-testid="parent-avatar"
             onClick={e => e.preventDefault()}

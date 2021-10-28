@@ -9,6 +9,7 @@ import { Header } from '../../common';
 import { NotFoundPage } from '../NotFound';
 import Footer from './Footer';
 import GamePlayMission from './GamePlayMission';
+import { TrophyRoom } from '../TrophyRoom/index';
 import GameModal from './GameModal';
 
 function GamePlayMain(props) {
@@ -37,7 +38,7 @@ function GamePlayMain(props) {
       <Header />
 
       <Switch>
-        <Route path={baseURL} exact>
+        <Route exact path={baseURL}>
           <GamemodeBtns
             baseURL={baseURL}
             enableModalWindow={enableModalWindow}
@@ -46,6 +47,13 @@ function GamePlayMain(props) {
 
         <Route path={`${baseURL}/mission`}>
           <GamePlayMission
+            baseURL={baseURL}
+            enableModalWindow={enableModalWindow}
+            disableModalWindow={disableModalWindow}
+          />
+        </Route>
+        <Route path={`${baseURL}/`}>
+          <TrophyRoom
             baseURL={baseURL}
             enableModalWindow={enableModalWindow}
             disableModalWindow={disableModalWindow}
@@ -73,8 +81,12 @@ const GamemodeBtns = props => {
 
   const acceptMission = e => {
     e.preventDefault();
-
     history.push(`${props.baseURL}/mission/read`);
+  };
+
+  const trophyRoom = e => {
+    e.preventDefault();
+    history.push(`${props.baseURL}/trophy-room`);
   };
 
   // Enable initial modal
@@ -86,6 +98,7 @@ const GamemodeBtns = props => {
     };
 
     props.enableModalWindow(data);
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -95,7 +108,7 @@ const GamemodeBtns = props => {
           Accept The Mission
         </button>
 
-        <button>Trophy Room</button>
+        <button onClick={trophyRoom}>Trophy Room</button>
       </div>
     </div>
   );
