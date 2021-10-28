@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import { Header } from '../../common';
-import { Row, Col, Button } from 'antd';
+import { Button } from 'antd';
 import { connect } from 'react-redux';
 
 import { useHistory } from 'react-router-dom';
-import { Link, Route } from 'react-router-dom';
 
 const Gamemode = ({ ...props }) => {
   const { push, location } = useHistory();
-  const [sP, setsP] = useState(false);
 
   useEffect(() => {
     const propInit = () => {
@@ -33,22 +31,6 @@ const Gamemode = ({ ...props }) => {
     };
     propInit();
   }, [props, location]);
-
-  const singled = () => {
-    if (location.pathname === '/gamemode' && sP === false) {
-      push('/gamemode/single');
-
-      props.child.gamemode = {
-        mode: 'single',
-        read: false,
-        write: false,
-        draw: false,
-        sp: true,
-      };
-      console.log('nal gamemode singled', props.child);
-      setsP(true);
-    }
-  };
 
   const reini = () => {
     // For basic prop initiation
@@ -79,8 +61,13 @@ const Gamemode = ({ ...props }) => {
                 <Button className="single-btn" onClick={startSinglePlayerMode}>
                   Single Player
                 </Button>
-                <Button className="multi-btn" onClick={startSinglePlayerMode}>
-                  Multi Player
+                <Button
+                  className="multi-btn"
+                  onClick={
+                    startSinglePlayerMode
+                  } /* multiplayer mode is not created yet, will need to change onClick event*/
+                >
+                  Multiplayer
                 </Button>
               </div>
             </div>
