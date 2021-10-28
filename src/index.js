@@ -252,7 +252,7 @@ function App() {
         {/* ROUTE EXISTS / NO PAGE EXISTS OK to DELETE / Will need to be replaced under /gameplay route */}
         <ProtectedRoute
           exact
-          path="/child/match-up"
+          path="/match-up"
           component={() => <MatchUp LoadingComponent={ChildLoadingComponent} />}
         />
         {/* ROUTE EXISTS OK to DELETE / returns user to /child/dashboard / Will need to be replaced under /gameplay route */}
