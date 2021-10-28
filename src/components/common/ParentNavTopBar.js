@@ -44,7 +44,7 @@ const ParentNavTopBar = props => {
       </Link>
       <div className="nav-right">
         <div className="link-container">
-          <Link to="/gamemode">
+          <Link to="/dashboard">
             <Button className="play-game-btn">PLAY GAME</Button>
           </Link>
           <Link to="/parent/faq">

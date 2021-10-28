@@ -11,7 +11,8 @@ const TrophyRoomContainer = ({ LoadingComponent, ...props }) => {
   return (
     <>
       {isAuthenticated && !userInfo && (
-        <LoadingComponent message="Loading..." />
+        <h1>Loading</h1>
+        // <LoadingComponent message="Loading..." />
       )}
       {isAuthenticated && userInfo && (
         <RenderTrophyRoom

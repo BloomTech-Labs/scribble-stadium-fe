@@ -130,7 +130,7 @@ function App() {
         />
 
         <ProtectedRoute
-          path="/child/dashboard"
+          path="/dashboard"
           component={() => (
             <ChildDashboard LoadingComponent={ChildLoadingComponent} />
           )}
