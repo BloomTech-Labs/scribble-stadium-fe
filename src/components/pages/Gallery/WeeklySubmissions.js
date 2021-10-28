@@ -21,7 +21,7 @@ const WeeklySubmissions = props => {
               image={child.image.URL}
               drawingprompt={child.DrawingPrompt}
               writingprompt={child.WritingPrompt}
-              pages={child.Pages}
+              pages={child.pages}
             />
           </div>
         );
