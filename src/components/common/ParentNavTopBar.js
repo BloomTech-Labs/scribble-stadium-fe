@@ -56,7 +56,10 @@ const ParentNavTopBar = props => {
         </div>
         <div className="straight-bar"></div>
         <span className="welcome-back-msg">
-          {props.parent && `Welcome back, ${props.parent.name}`}
+          {props.parent &&
+            `Welcome back, ` +
+              (props.parent.name == null ? 'parent' : `${props.parent.name}`) +
+              `!`}
         </span>
         <Dropdown
           overlay={<ParentMenu clearUsers={props.clearUsers} />}

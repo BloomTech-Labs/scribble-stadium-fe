@@ -31,6 +31,7 @@ import {
 } from './components/common';
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
+import { DrawingSub } from './components/pages/DrawingSub';
 import { Gamemode } from './components/pages/Gamemode';
 
 import { Help } from './components/pages/Help';
@@ -45,16 +46,18 @@ import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { EditPlayers } from './components/pages/EditPlayers';
 import { StoryPrompt } from './components/pages/StoryPrompt';
+import { WritingSub } from './components/pages/WritingSub';
 import { Leaderboard } from './components/pages/Leaderboard';
 import { ChangeAvatar } from './components/pages/ChangeAvatar';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
-// Gameification Components
-import { GameificationMain } from './components/pages/Gameification';
+// GamePlay Components
+import { GamePlayMain } from './components/pages/GamePlay/index';
+import { PlayAgain } from './components/pages/PlayAgain';
+
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
 import { VotingPage } from './components/pages/VotingPage';
-import { PlayAgain } from './components/pages/PlayAgain';
 
 // Note: for demo/developer purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
@@ -109,8 +112,7 @@ function App() {
       <DevModeHeader component={DevModeHeader} />
       <Switch>
         <Route exact path="/gamemode" component={Gamemode} />
-
-        <Route path="/gameification" component={GameificationMain} />
+        <Route path="/gameplay" component={GamePlayMain} />
         <Route path="/login" component={LandingPage} />
         {/* any of the routes you need secured should be registered as ProtectedRoutes */}
         <ProtectedRoute
@@ -120,7 +122,6 @@ function App() {
             <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
-
         <ProtectedRoute
           path="/child/story"
           component={() => (
@@ -168,6 +169,18 @@ function App() {
           )}
         />
         <ProtectedRoute
+          path="/child/drawing-sub"
+          component={() => (
+            <DrawingSub LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <ProtectedRoute
+          path="/child/writing-sub"
+          component={() => (
+            <WritingSub LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <ProtectedRoute
           path="/parent/add-child"
           component={() => (
             <AddChild LoadingComponent={ParentLoadingComponent} />
@@ -179,7 +192,21 @@ function App() {
             <EditPlayers LoadingComponent={ParentLoadingComponent} />
           )}
         />
+        <ProtectedRoute
+          exact
+          path="/parent/dashboard"
+          component={() => (
+            <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
 
+        <ProtectedRoute
+          exact
+          path="/parent/dashboard-faq"
+          component={() => (
+            <ParentDashFaq LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
         <ProtectedRoute
           exact
           path="/parent/support"
@@ -236,6 +263,13 @@ function App() {
         />
         <ProtectedRoute
           exact
+          path="/child/play-again"
+          component={() => (
+            <PlayAgain LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <ProtectedRoute
+          exact
           path="/child/leaderboard"
           component={() => (
             <Leaderboard LoadingComponent={ChildLoadingComponent} />
@@ -252,13 +286,6 @@ function App() {
           path="/child/audiobook"
           component={() => (
             <AudioBook LoadingComponent={ChildLoadingComponent} />
-          )}
-        />
-        <ProtectedRoute
-          exact
-          path="/child/play-again"
-          component={() => (
-            <PlayAgain LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <Route exact path="/moderation" component={ModerationTest} />
