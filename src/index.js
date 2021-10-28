@@ -42,7 +42,6 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { ParentFaq } from './components/pages/ParentFaq';
 import { ParentContact } from './components/pages/ParentContact';
 import { NewParentDashboard } from './components/pages/NewParentDashboard';
-import { ParentDashFaq } from './components/pages/ParentDashFaq';
 import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { EditPlayers } from './components/pages/EditPlayers';
@@ -55,6 +54,7 @@ import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 // GamePlay Components
 import { GamePlayMain } from './components/pages/GamePlay/index';
 import { PlayAgain } from './components/pages/PlayAgain';
+
 import { PointShare } from './components/pages/PointShare';
 import { MatchUp } from './components/pages/MatchUp';
 import { VotingPage } from './components/pages/VotingPage';
