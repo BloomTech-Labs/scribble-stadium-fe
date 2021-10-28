@@ -142,6 +142,10 @@ export default function GamePlayMission(props) {
             updateBattleReady={updateBattleReady}
           />
         </Route>
+
+        <Route path={`${baseURL}/nextsteps`}>
+          {/*gameplay/mission/nextsteps component goes here */}
+        </Route>
       </Switch>
     </div>
   );
