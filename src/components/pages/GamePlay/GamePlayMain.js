@@ -11,6 +11,7 @@ import Footer from './Footer';
 import GamePlayMission from './GamePlayMission';
 import { TrophyRoom } from '../TrophyRoom/index';
 import GameModal from './GameModal';
+import Explosion from '../../../assets/images/gamemodeimg/explosion.png';
 
 function GamePlayMain(props) {
   // Specify a base URL
@@ -105,13 +106,16 @@ const GamemodeBtns = props => {
     <div className="main-btns">
       <div className="inner-container">
         <button className="mission-btn" onClick={acceptMission}>
-          Accept The Mission
+          <img className="mission-explosion" src={Explosion} alt="explosion" />
+          <p className="mission-btn-txt">
+            {' '}
+            Accept
+            <br /> The Mission
+          </p>
         </button>
-
         <button onClick={trophyRoom}>Trophy Room</button>
       </div>
     </div>
   );
 };
-
 export default connect(null, null)(GamePlayMain);

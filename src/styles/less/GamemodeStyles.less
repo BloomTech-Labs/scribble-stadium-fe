@@ -33,13 +33,26 @@
       }
 
       &.mission-btn {
-        background: #c6fd7e
+        background: #C6FD7E
           url(../../assets/images/gamemodeimg/mission-btn-bg.png) center
           no-repeat;
         background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
+
+  // Mission Accept Btn
+.mission-explosion {
+  position: absolute;
+  // z-index: -1;
+}
+.mission-btn-txt {
+  z-index: 1;
+  margin-top: 2rem;
+}
 
   /* Progress box when on the mission steps */
   #mission-progress {
