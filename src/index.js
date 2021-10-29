@@ -295,7 +295,7 @@ function App() {
         />
         {/* INCOMPLETE page exists. NEEDS DATA/ STYLE New path to point to /gameplay/dashboard/change-avatar NOT for DELETE */}
         <ProtectedRoute
-          path="/child/change-avatar"
+          path="/change-avatar"
           component={() => (
             <ChangeAvatar LoadingComponent={ChildLoadingComponent} />
           )}
