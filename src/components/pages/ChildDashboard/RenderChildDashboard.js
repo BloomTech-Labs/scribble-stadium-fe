@@ -27,7 +27,7 @@ const RenderChildDashboard = props => {
   };
 
   const handleLeaderboard = e => {
-    push('/gameplay/trophy-room');
+    push('/leaderboard');
   };
 
   return (

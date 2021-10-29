@@ -288,7 +288,7 @@ function App() {
         {/* FOUNDATION CODE exists. NEEDS DATA New path to point to /gameplay/dashboard/leaderboard NOT for DELETE */}
         <ProtectedRoute
           exact
-          path="/child/leaderboard"
+          path="/leaderboard"
           component={() => (
             <Leaderboard LoadingComponent={ChildLoadingComponent} />
           )}
