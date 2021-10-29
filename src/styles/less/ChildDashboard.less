@@ -134,12 +134,37 @@
 
   .single-button-container {
     padding-top: 3%;
+    display: flex;
+    justify-content: space-evenly;
+    @media @tablet, @mobile {
+      flex-direction: column;
+      align-items: center;
+    }
   }
   .adventure-passport {
     display: flex;
     justify-content: center;
     align-items: center;
     background: @bright-sun;
+  }
+
+  .multi-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: @burnt-sienna;
+    font-size: xx-large;
+    font-family: 'bangers', cursive;
+    margin-left: 0;
+    width: 47%;
+    min-height: 40vh;
+    letter-spacing: 0.35vh;
+    border: 5px solid @header-nero;
+    @media @tablet, @mobile {
+      width: 90%;
+      min-height: 20vh;
+      margin-top: 4%;
+    }
   }
 
   .single-btn {
@@ -149,10 +174,16 @@
     background: @bright-sun;
     font-size: xx-large;
     font-family: 'bangers', cursive;
-    margin-left: 2.5%;
-    width: 95%;
-    min-height: 50vh;
+    margin-left: 0;
+    width: 47%;
+    min-height: 40vh;
+    letter-spacing: 0.35vh;
     border: 5px solid @header-nero;
+    @media @tablet, @mobile {
+      width: 90%;
+      min-height: 20vh;
+      margin-top: 4%;
+    }
   }
 
   .adventure-passport img {
