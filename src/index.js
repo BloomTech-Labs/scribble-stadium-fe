@@ -135,7 +135,7 @@ function App() {
         />
         {/* TO BE RE-REROUTED to /gameplay/dashboard and connected along the gameplay path  */}
         <ProtectedRoute
-          path="/child/dashboard"
+          path="/dashboard"
           component={() => (
             <ChildDashboard LoadingComponent={ChildLoadingComponent} />
           )}
