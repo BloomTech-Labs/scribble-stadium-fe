@@ -15,7 +15,7 @@ const RenderChildDashboard = props => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleAcceptMission = e => {
-    push('/gameplay/mission/read');
+    push('/gameplay/gamemode');
   };
 
   const handleJoinSquad = e => {
