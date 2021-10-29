@@ -53,12 +53,12 @@ import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
 // GamePlay Components
 import { GamePlayMain } from './components/pages/GamePlay/index';
-import { PlayAgain } from './components/pages/PlayAgain';
-import { Scores } from './components/pages/Scores';
-
-import { PointShare } from './components/pages/PointShare';
+import { NextSteps } from './components/pages/NextSteps';
 import { MatchUp } from './components/pages/MatchUp';
+import { Scores } from './components/pages/Scores';
+import { PointShare } from './components/pages/PointShare';
 import { VotingPage } from './components/pages/VotingPage';
+import { PlayAgain } from './components/pages/PlayAgain';
 
 // Note: for demo/developer purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
@@ -239,6 +239,14 @@ function App() {
           path="/parent/settings"
           component={() => (
             <ParentSettings LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
+        {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/next-steps NOT for DELETE */}
+        <ProtectedRoute
+          exact
+          path="/next-steps"
+          component={() => (
+            <NextSteps LoadingComponent={ChildLoadingComponent} />
           )}
         />
         {/* INCOMPLETE AND BROKEN Can be fixed and repurposed under /gameplay  path when needed STATUS CONFIRMATION NEEDED */}
