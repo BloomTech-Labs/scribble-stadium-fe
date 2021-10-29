@@ -19,11 +19,11 @@ const RenderChildDashboard = props => {
   };
 
   const handleJoinSquad = e => {
-    push('/child/join');
+    push('/join');
   };
 
   const handleChangeAvatar = event => {
-    push('/child/change-avatar');
+    push('/change-avatar');
   };
 
   const handleLeaderboard = e => {
