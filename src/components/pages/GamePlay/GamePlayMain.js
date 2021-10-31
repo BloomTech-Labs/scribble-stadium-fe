@@ -93,7 +93,7 @@ const GamemodeBtns = props => {
   // Enable initial modal
   useEffect(() => {
     const data = {
-      title: 'Welcome to StorySquad!',
+      title: 'Welcome to Scribble Stadium!',
       description: ' Accept the mission to start your adventure!',
       buttonTxt: "Let's Go!",
     };

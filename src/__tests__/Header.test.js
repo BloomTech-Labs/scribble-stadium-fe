@@ -24,7 +24,7 @@ const Component = () => {
 describe('<Header /> test suite', () => {
   it('the className for the header is correct', () => {
     const { getByText } = render(<Component />);
-    const head = getByText(/story squad/i);
+    const head = getByText(/scribble stadium/i);
     expect(head).toHaveClass('header-text');
   });
 });
