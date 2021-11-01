@@ -12,7 +12,7 @@ const RenderLeaderboard = props => {
   const { push } = useHistory();
 
   const dashboard = () => {
-    push('/child/dashboard');
+    push('/dashboard');
   };
 
   return (
