@@ -18,8 +18,8 @@ const RenderChildDashboard = props => {
     push('/gamemode');
   };
 
-  const handleJoinSquad = e => {
-    push('/join');
+  const handleTrophyRoom = e => {
+    push('/gameplay/trophy-room');
   };
 
   const handleChangeAvatar = event => {
@@ -89,7 +89,7 @@ const RenderChildDashboard = props => {
             className="adventure-passport"
             xs={24}
             sm={12}
-            onClick={handleJoinSquad}
+            onClick={handleTrophyRoom}
           >
             <img className="trophy-explosion" src={Explosion} alt="explosion" />
             <p className="accept-mission-text">Trophy Room!</p>
