@@ -12,6 +12,7 @@ import GamePlayMission from './GamePlayMission';
 import { TrophyRoom } from '../TrophyRoom/index';
 import GameModal from './GameModal';
 import Explosion from '../../../assets/images/gamemodeimg/explosion.png';
+import { Gamemode } from '../Gamemode';
 
 function GamePlayMain(props) {
   // Specify a base URL
@@ -44,6 +45,9 @@ function GamePlayMain(props) {
             baseURL={baseURL}
             enableModalWindow={enableModalWindow}
           />
+        </Route>
+        <Route path={`${baseURL}/gamemode`}>
+          <Gamemode baseURL={baseURL} />
         </Route>
 
         <Route path={`${baseURL}/mission`}>
