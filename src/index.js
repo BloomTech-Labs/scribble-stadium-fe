@@ -58,6 +58,7 @@ import { MatchUp } from './components/pages/MatchUp';
 import { Scores } from './components/pages/Scores';
 import { PointShare } from './components/pages/PointShare';
 import { VotingPage } from './components/pages/VotingPage';
+import { WinnerPage } from './components/pages/WinnerPage';
 import { PlayAgain } from './components/pages/PlayAgain';
 
 // Note: for demo/developer purposes ONLY
@@ -288,7 +289,16 @@ function App() {
         {/* FOUNDATION CODE exists. NEEDS DATA New path to point to /gameplay/dashboard/leaderboard NOT for DELETE */}
         <ProtectedRoute
           exact
+          path="/child/winner"
+          component={() => (
+            <WinnerPage LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <ProtectedRoute
+          exact
+          path="/child/leaderboard"
           path="/leaderboard"
+
           component={() => (
             <Leaderboard LoadingComponent={ChildLoadingComponent} />
           )}
