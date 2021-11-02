@@ -46,7 +46,7 @@ const Gamemode = ({ ...props }) => {
 
   const startSinglePlayerMode = e => {
     e.preventDefault();
-    push('/gameplay');
+    push('/gameplay/mission/read');
   };
 
   return (

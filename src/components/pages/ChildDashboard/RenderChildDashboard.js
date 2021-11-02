@@ -15,19 +15,19 @@ const RenderChildDashboard = props => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleAcceptMission = e => {
-    push('/gameplay/gamemode');
+    push('/gamemode');
   };
 
   const handleJoinSquad = e => {
-    push('/child/join');
+    push('/join');
   };
 
   const handleChangeAvatar = event => {
-    push('/child/change-avatar');
+    push('/change-avatar');
   };
 
   const handleLeaderboard = e => {
-    push('/gameplay/trophy-room');
+    push('/leaderboard');
   };
 
   return (
