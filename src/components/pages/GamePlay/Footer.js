@@ -12,12 +12,12 @@ export default function Footer() {
 
         <nav className="footer-nav-container">
           <div className="footer-nav-div-link">
-            <Link className="footer-nav-link" to="#">
+            <Link className="footer-nav-link" to="/parent/contact">
               Contact
             </Link>
           </div>
           <div className="footer-nav-div-link">
-            <Link className="footer-nav-link" to="#">
+            <Link className="footer-nav-link" to="/parent/faq">
               FAQs
             </Link>
           </div>
