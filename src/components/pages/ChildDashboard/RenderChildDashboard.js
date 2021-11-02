@@ -5,8 +5,8 @@ import { useHistory } from 'react-router-dom';
 import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
 import { HUD } from '../HeadsUpDisplay/index';
-
-import adventure_passport from '../../../assets/images/child_dashboard_images/adventure_passport.svg';
+import Explosion from '../../../assets/images/gamemodeimg/explosion.png';
+// import adventure_passport from '../../../assets/images/child_dashboard_images/adventure_passport.svg';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 import leaderboard_icon from '../../../assets/images/child_dashboard_images/leaderboard_icon.png';
 
@@ -91,11 +91,8 @@ const RenderChildDashboard = props => {
             sm={12}
             onClick={handleJoinSquad}
           >
-            <img
-              className="child-dash-img"
-              src={adventure_passport}
-              alt="Adventure Passport Button"
-            />
+            <img className="trophy-explosion" src={Explosion} alt="explosion" />
+            <p className="accept-mission-text">Trophy Room!</p>
           </Col>
         </Row>
       </div>
