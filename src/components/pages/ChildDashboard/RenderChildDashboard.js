@@ -73,18 +73,6 @@ const RenderChildDashboard = props => {
         </Row>
         <Row className="bottomrow">
           <Col
-            className="adventure-passport"
-            xs={24}
-            sm={12}
-            onClick={handleJoinSquad}
-          >
-            <img
-              className="child-dash-img"
-              src={adventure_passport}
-              alt="Adventure Passport Button"
-            />
-          </Col>
-          <Col
             className="leaderboard"
             xs={24}
             sm={12}
@@ -95,6 +83,18 @@ const RenderChildDashboard = props => {
               // This icon will need to be changed to an inhouse icon, this is just imported as a placeholder //
               src={leaderboard_icon}
               alt="Leaderboard Button"
+            />
+          </Col>{' '}
+          <Col
+            className="adventure-passport"
+            xs={24}
+            sm={12}
+            onClick={handleJoinSquad}
+          >
+            <img
+              className="child-dash-img"
+              src={adventure_passport}
+              alt="Adventure Passport Button"
             />
           </Col>
         </Row>
