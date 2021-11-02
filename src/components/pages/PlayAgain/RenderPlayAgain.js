@@ -51,7 +51,7 @@ const RenderPlayAgain = () => {
             <img
               src={boyWithYellowHelmetImg}
               alt="An excited boy in hero costume"
-              className="boy-with-yellow-helmet-image"
+              className="boy-with-yellow-helmet-img"
             />
 
             <div className="play-again-text">
