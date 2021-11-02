@@ -1,20 +1,20 @@
 # Single Player Mode
 
-## Story Squad Project Overview Resources
+## Scribble Stadium Project Overview Resources
 
 This is the link to the entire project overview created by previous developers:
 
 - [Main README](https://github.com/Lambda-School-Labs/story-squad-fe/blob/main/README.md)
 
-This is how Story Squad should work:
+This is how Scribble Stadium should work:
 
-- [How Story Squad Works](https://github.com/Lambda-School-Labs/story-squad-fe/blob/main/storysquadExplained.md)
+- [How Scribble Stadium Works](https://github.com/Lambda-School-Labs/story-squad-fe/blob/main/storysquadExplained.md)
 
 Here is the deployment guide:
 
 - [Deployment Guide](https://github.com/Lambda-School-Labs/story-squad-fe/blob/main/DEPLOYMENT_GUIDE.md)
 
-Story Squad code of conduct:
+Scribble Stadium code of conduct:
 
 - [Code of Conduct](https://github.com/Lambda-School-Labs/story-squad-fe/blob/main/CODE_OF_CONDUCT.md)
 

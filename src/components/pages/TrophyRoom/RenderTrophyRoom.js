@@ -97,7 +97,7 @@ const RenderLeaderboard = props => {
 
       {/* TEMPORARY  */}
       {/* <h1>Coming Soon</h1>
-       <Header displayMenu={true} title="STORY SQUAD" />
+       <Header displayMenu={true} title="Scribble Stadium" />
        <Button
           style={{ margin: '1rem' }}
           className="back-btn"
