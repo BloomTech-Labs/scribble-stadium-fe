@@ -15,6 +15,9 @@ const RenderChangeAvatar = () => {
           <div className="avatar-card">
             <div className="avatar-captain-falcon-kid"></div>
           </div>
+          <div className="avatar-card">
+            <div className="avatar-shazaam-kid"></div>
+          </div>
         </div>
       </div>
     </>
