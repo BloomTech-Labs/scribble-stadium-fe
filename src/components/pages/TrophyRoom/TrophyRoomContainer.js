@@ -12,7 +12,7 @@ const TrophyRoomContainer = ({ LoadingComponent, ...props }) => {
     <>
       {isAuthenticated && !userInfo && (
         <div style={{ textAlign: 'center' }}>
-          <h2>Awaiting Auth Data Holder. Page Rendering</h2>
+          <h2>Awaiting User Data Holder. Page Rendering</h2>
         </div>
 
         // <LoadingComponent message="Loading..." />
