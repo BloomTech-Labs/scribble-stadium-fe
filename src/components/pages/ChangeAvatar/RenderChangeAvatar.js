@@ -11,6 +11,7 @@ const RenderChangeAvatar = () => {
         <div className="avatar-cards-container">
           <div className="avatar-card">
             <img
+              id="lighting-kid-image"
               src="src\assets\images\hero_images\hero4.png"
               alt="Lighting kid avatar"
             />
