@@ -17,12 +17,12 @@ export default function ParentFooter(props) {
 
         <nav className="parent-footer-nav-container">
           <div className="parent-footer-nav-div-link">
-            <Link className="parent-footer-nav-link" to="#">
+            <Link className="parent-footer-nav-link" to="/parent/contact">
               Contact
             </Link>
           </div>
           <div className="parent-footer-nav-div-link">
-            <Link className="parent-footer-nav-link" to="#">
+            <Link className="parent-footer-nav-link" to="/parent/faq">
               FAQs
             </Link>
           </div>
