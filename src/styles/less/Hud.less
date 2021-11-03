@@ -1,258 +1,265 @@
 @import '~antd/dist/antd.less';
 @import '~antd/lib/style/themes/default.less';
 
-:root{
-	--green: #C6FD7E;
-	--grey: #c7c7c7;
-	--white: white;
-	--bar-border-radius: 200px;
-	--min-height: .75rem;
-	--font-size: 1.5rem;
+:root {
+  --green: #c6fd7e;
+  --grey: #c7c7c7;
+  --white: white;
+  --bar-border-radius: 200px;
+  --min-height: 0.75rem;
+  --font-size: 1.7rem;
 }
 
 .HudContainer {
-    width: 100%;
-    background-color: #757575;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  background-color: #757575;
+  display: flex;
+  flex-direction: column;
 }
 
 .countdown-timer-container {
-    width: 85%;
-    margin: 0 auto;
-    letter-spacing: .25rem;
+  width: 85%;
+  margin: 0 auto;
+  letter-spacing: 0.25rem;
 }
 
 .ctimer.pos-1 {
-    width: 50%;
-    text-align: center;
+  width: 50%;
+  text-align: center;
 }
 
 .ctimer.pos-2 {
-    margin-left: 33.33%;
-    width: 50%;
-    text-align: center;    
+  margin-left: 33.33%;
+  width: 50%;
+  text-align: center;
 }
 
 .ctimer.pos-3 {
-    margin-left: 63%;
-    width: 37%;
-    text-align: center;
+  margin-left: 63%;
+  width: 37%;
+  text-align: center;
 }
 
 .countdown-timer {
-    font-size: var(--font-size);
-	font-family: 'Bangers', cursive;
-	color: white;
-    
-
+  margin: 10px 0;
+  font-size: var(--font-size);
+  font-family: 'Bangers', cursive;
+  color: white;
+  font-weight: 500;
 }
 
 .progressionBar {
-    width: 85%;
-    border-radius: 15px;
-    border: 3px solid black;
-    display: flex;
-    flex-flow: row, wrap;
-    color: black;
-    background-color: white;
-    font-size: var(--font-size);
-	font-weight: 500;
-	font-family: 'Bangers', cursive;
-    margin: 0 auto;
-
+  width: 87%;
+  border-radius: 15px;
+  border: 3px solid black;
+  display: flex;
+  align-items: center;
+  flex-flow: row, wrap;
+  color: black;
+  background-color: white;
+  font-size: var(--font-size);
+  font-weight: 700;
+  font-family: 'Bangers', cursive;
+  margin: 0 auto;
+  letter-spacing: 0.15rem;
 }
 
 .progressionBarLoaded {
-    width: 85%;
-    border-radius: 15px;
-    border: 3px solid black;
-    display: flex;
-    flex-flow: row, wrap;
-    color: black;
-    //background-color: white;
-    background-image: linear-gradient(to right,  var(--green) 0%, white  5%;);
-    font-size: var(--font-size);
-	font-weight: 500;
-	font-family: 'Bangers', cursive;
-    margin: 0 auto;
-
+  width: 87%;
+  border-radius: 15px;
+  border: 3px solid black;
+  display: flex;
+  flex-flow: row, wrap;
+  color: black;
+  //background-color: white;
+  background-image: linear-gradient(to right, var(--green) 0%, white 5%;);
+  font-size: var(--font-size);
+  font-weight: 700;
+  font-family: 'Bangers', cursive;
+  margin: 0 auto;
 }
 
-.progbtn{
-    display: flex;
-    flex-direction: column;
-    font-size: var(--font-size);
+.progbtn {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size);
 }
 
 .activity {
-    width: 16.666%;
-    text-align: center;
-    // This is how the I made the border angled on one side
-    transform: skewX(-15deg);
-    border-right: 3px solid black;
-    // This is to make the element seem less italicized 
-    span {
-        transform: skewX(15deg);
-    }
-    &:nth-last-of-type(1) {
-        border-right: none;
-    }
+  width: 16.666%;
+  text-align: center;
+  // This is how the I made the border angled on one side
+  transform: skewX(-15deg);
+  border-right: 3px solid black;
+  // This is to make the element seem less italicized
+  span {
+    transform: skewX(15deg);
+  }
+  &:nth-last-of-type(1) {
+    border-right: none;
+  }
 }
 
-.activity .checkImg{
-   display: none;
+.activity .checkImg {
+  display: none;
 }
 
-// Checkmark img for completed activity to be added after made in house 
+// Checkmark img for completed activity to be added after made in house
 .completedActivity {
-    background-color: var(--green);
-    //border-radius: 1px 0px 0px 0px;
-    width: 16.666%;
-    text-align: center;
-    // This is how the I made the border angled on one side
-    transform: skewX(-15deg);
-   // border-right: 3px solid black;
-    // This is to make the element seem less italicized 
-    span {
-        transform: skewX(15deg);
-    }
-    &:nth-last-of-type(1) {
-        border-right: none;
-    }
+  background-color: var(--green);
+  //border-radius: 1px 0px 0px 0px;
+  width: 16.666%;
+  text-align: center;
+  border-top:8px solid #c6fd7e;
+  border-bottom: 8px solid #c6fd7e;
+  // This is how the I made the border angled on one side
+  transform: skewX(-15deg);
+  // border-right: 3px solid black;
+  // This is to make the element seem less italicized
+  span {
+    transform: skewX(15deg);
+  }
+  &:nth-last-of-type(1) {
+    border-right: none;
+  }
 }
 
-.completedActivity .checkImg{
+.completedActivity:nth-of-type(1){
+  border-bottom-left-radius: 32px;
+}
+.completedActivity:nth-last-of-type(1){
+  border-bottom-right-radius: 32px;
+}
+.completedActivity .checkImg {
   display: inline;
 }
 
-
-
 .currentActivity {
-    background-color:  var(--white);
-    width: 16.666%;
-    text-align: center;
-    // This is how the I made the border angled on one side
-    transform: skewX(-15deg);
-    border: 8px solid #C6FD7E;;
-    //border-right: 3px solid black;
-    // This is to make the element seem less italicized 
-    span {
-        transform: skewX(15deg);
-    }
-    &:nth-last-of-type(1) {
-        border-right: none;
-    }
-    animation: pulse-animation 2s infinite;
+  background-color: var(--white);
+  width: 16.666%;
+  text-align: center;
+  // This is how the I made the border angled on one side
+  transform: skewX(-15deg);
+  border: 8px solid #c6fd7e;
+  //border-right: 3px solid black;
+  // This is to make the element seem less italicized
+  span {
+    transform: skewX(15deg);
+  }
+  &:nth-last-of-type(1) {
+    border-right: none;
+  }
+  animation: pulse-animation 2s infinite;
 }
 
-.currentActivity .checkImg{
+.currentActivity .checkImg {
   display: none;
 }
 
 // This is the animation for current activity
 .pulse {
-    animation: pulse-animation 2s infinite;
+  animation: pulse-animation 2s infinite;
 }
-  
+
 @keyframes pulse-animation {
-    0% {
-        box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.4);
-    }
-    100% {
-        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
-    }
+  0% {
+    box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+  }
 }
 
 .dayBars {
-	display: flex;
-	margin-top: 1%;
+  display: flex;
+  margin-top: 1%;
 }
 
 .bar1 {
-    width: 39%;
-	margin-left: 9%;
-    background-color: var(--grey);
-    min-height: var(--min-height);
-	border-radius: var(--bar-border-radius);
+  width: 39%;
+  margin-left: 9%;
+  background-color: var(--grey);
+  min-height: var(--min-height);
+  border-radius: var(--bar-border-radius);
 }
 
 .bar2 {
-    width: 11%;
-	margin-left: 3%;
-    background-color: var(--grey);
-    min-height: var(--min-height);
-	border-radius: var(--bar-border-radius);
+  width: 11%;
+  margin-left: 3%;
+  background-color: var(--grey);
+  min-height: var(--min-height);
+  border-radius: var(--bar-border-radius);
 }
 
 .bar3 {
-    width: 11%;
-	margin-left: 3%;
-    background-color: var(--grey);
-    min-height: var(--min-height);
-	border-radius: var(--bar-border-radius);
+  width: 11%;
+  margin-left: 3%;
+  background-color: var(--grey);
+  min-height: var(--min-height);
+  border-radius: var(--bar-border-radius);
 }
 
 .bar4 {
-    width: 11%;
-	margin-left: 3%;
-    background-color: var(--grey);
-    min-height: var(--min-height);
-	border-radius: var(--bar-border-radius);
+  width: 11%;
+  margin-left: 3%;
+  background-color: var(--grey);
+  min-height: var(--min-height);
+  border-radius: var(--bar-border-radius);
 }
 
 .currentBar {
-    background-color: var(--green);
+  background-color: var(--green);
 }
 
 .days {
-    display: flex;
-	margin-top: .5%;
+  display: flex;
+  margin-top: 0.5%;
 }
 
 .day1-3 {
-	display: flex;
-	margin-left: 9%;
-    width: 39%;
-	justify-content: center;
-	font-size: var(--font-size);
-	color: var(--white);
-	font-family: 'Bangers', cursive;
+  display: flex;
+  margin-left: 9%;
+  width: 39%;
+  justify-content: center;
+  font-size: var(--font-size);
+  color: var(--white);
+  font-family: 'Bangers', cursive;
 }
 
 .day4 {
-	display: flex;
-	width: 11%;
-	margin-left: 3%;
-	justify-content: center;
-	font-size: var(--font-size);
-	color: var(--white);
-	font-family: 'Bangers', cursive;
+  display: flex;
+  width: 11%;
+  margin-left: 3%;
+  justify-content: center;
+  font-size: var(--font-size);
+  color: var(--white);
+  font-family: 'Bangers', cursive;
 }
 
 .day5 {
-	display: flex;
-	width: 11%;
-	margin-left: 3%;
-	justify-content: center;
-	font-size: var(--font-size);
-	color: var(--white);
-	font-family: 'Bangers', cursive;
+  display: flex;
+  width: 11%;
+  margin-left: 3%;
+  justify-content: center;
+  font-size: var(--font-size);
+  color: var(--white);
+  font-family: 'Bangers', cursive;
 }
 
 .day6-7 {
-	display: flex;
-	width: 11%;
-	margin-left: 3%;
-	justify-content: center;
-	font-size: var(--font-size);
-	color:var(--white);
-	font-family: 'Bangers', cursive;
+  display: flex;
+  width: 11%;
+  margin-left: 3%;
+  justify-content: center;
+  font-size: var(--font-size);
+  color: var(--white);
+  font-family: 'Bangers', cursive;
 }
 
-[data-theme='compact'] .site-collapse-custom-collapse .site-collapse-custom-panel,
+[data-theme='compact']
+  .site-collapse-custom-collapse
+  .site-collapse-custom-panel,
 .site-collapse-custom-collapse .site-collapse-custom-panel {
-
   overflow: hidden;
   background: #757575;
   border: 0px;
@@ -262,12 +269,12 @@
 
 //State not done for this PT21
 .currentDay {
-    display: flex;
-    flex-flow: row wrap;
-    background-color: var(--green);
-    animation: pulse-animation 2s infinite;
+  display: flex;
+  flex-flow: row wrap;
+  background-color: var(--green);
+  animation: pulse-animation 2s infinite;
 }
 // State not done for this PT21
 .completedDay {
-    background-color: var(--green);
+  background-color: var(--green);
 }
