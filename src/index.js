@@ -44,7 +44,7 @@ import { ParentContact } from './components/pages/ParentContact';
 import { NewParentDashboard } from './components/pages/NewParentDashboard';
 import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
-
+import ChangePassword from './components/pages/FamilySettings/ChangePassword';
 import { EditPlayers } from './components/pages/EditPlayers';
 import { StoryPrompt } from './components/pages/StoryPrompt';
 import { WritingSub } from './components/pages/WritingSub';
@@ -241,6 +241,11 @@ function App() {
           component={() => (
             <ParentSettings LoadingComponent={ParentLoadingComponent} />
           )}
+        />
+        <Route
+          exact
+          path="/parent/changepassword"
+          component={() => <ChangePassword />}
         />
         {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/next-steps NOT for DELETE */}
         <ProtectedRoute
