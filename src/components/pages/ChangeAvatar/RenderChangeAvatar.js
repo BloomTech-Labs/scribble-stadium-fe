@@ -8,7 +8,9 @@ const RenderChangeAvatar = () => {
       <Header displayMenu={true} />
       <div className="avatar-header">
         <h2>Choose your avatar</h2>
-        <div className="avatar-cards-container"></div>
+        <div className="avatar-cards-container">
+          <div className="avatar-card"></div>
+        </div>
       </div>
     </>
   );
