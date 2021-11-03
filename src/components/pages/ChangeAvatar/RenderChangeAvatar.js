@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header } from '../../common';
+import '../../../styles/less/ChangeYourAvatar.less';
 
 const RenderChangeAvatar = () => {
   return (
