@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Layout, Row, Col } from 'antd';
 import img2 from './img2.png';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
+import ParentFooter from '../../common/ParentFooter';
 
 const ParentContactContainer = () => {
   const [name, setName] = useState('');
@@ -115,6 +116,7 @@ const ParentContactContainer = () => {
           </Row>
         </div>
       </Layout>
+      <ParentFooter />
     </>
   );
 };

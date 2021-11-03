@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { setParent } from '../../../state/actions/parentActions';
 import RenderWordCloud from '../WordCloud';
 import WordCountContainer from '../WordCountContainer/WordCountContainer';
+import ParentFooter from '../../common/ParentFooter';
 
 const RenderNewParentDashboard = props => {
   const { user } = useAuth0();
@@ -46,6 +47,7 @@ const RenderNewParentDashboard = props => {
             <AccountSettings />
           </div>
         </Layout>
+        <ParentFooter />
       </Layout>
     </div>
   );

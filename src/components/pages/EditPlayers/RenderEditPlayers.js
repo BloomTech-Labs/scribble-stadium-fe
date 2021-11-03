@@ -5,6 +5,7 @@ import { Layout, Typography } from 'antd';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import ParentDashboardBack from '../../common/ParentDashboardBack';
 import ChildForm from '../../common/ChildForm';
+import ParentFooter from '../../common/ParentFooter';
 
 const { Title } = Typography;
 
@@ -25,6 +26,7 @@ const EditPlayers = props => {
           ))}
         </Layout>
       </Layout>
+      <ParentFooter layoutContainerCheck={`no-scroll`} />
     </Layout>
   );
 };
