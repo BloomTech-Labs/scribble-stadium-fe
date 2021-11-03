@@ -5,6 +5,9 @@ const RenderChangeAvatar = () => {
   return (
     <>
       <Header displayMenu={true} />
+      <div className="avatar-header">
+        <h2>Choose your avatar</h2>
+      </div>
     </>
   );
 };
