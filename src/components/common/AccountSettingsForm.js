@@ -15,9 +15,9 @@ function AccountSettingsForm({ disabled }) {
   };
 
   return (
-    //<div class="backdrop">
+    //<div className="backdrop">
     <form className="acct-settings-form" onSubmit={e => handleSubmit(e)}>
-      {/*<div class="form-half">*/}
+      {/*<div className="form-half">*/}
       <label>
         <p className="email-label">Email Address</p>
       </label>
@@ -46,7 +46,7 @@ function AccountSettingsForm({ disabled }) {
       </div>
       {/*</div>*/}
 
-      {/*<div class="form-half">*/}
+      {/*<div className="form-half">*/}
       <label>
         <p className="password-label">Password</p>
       </label>
