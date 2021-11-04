@@ -56,6 +56,7 @@ const Gamemode = ({ ...props }) => {
         : props.child.gamemode.mode === 'select' &&
           !props.child.gamemode.sp && (
             <div className="dash-container">
+              <Header displayMenu={true} />
               <div className="single-button-container">
                 <Button className="single-btn" onClick={startSinglePlayerMode}>
                   Single Player
