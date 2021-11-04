@@ -17,7 +17,8 @@ const TrophyRoomContainer = ({ LoadingComponent, ...props }) => {
         <RenderTrophyRoom
           {...props}
           userInfo={userInfo}
-          // authService={authService}
+          // Currently not used. Will be used in the future
+          //authService={authService}
         />
       )}
     </>

@@ -9,6 +9,7 @@ import GameMissionProgress from './GameMissionProgress';
 import GameReadStep from './GameReadStep';
 import GameDrawStep from './GameDrawStep';
 import GameWriteStep from './GameWriteStep';
+import { MatchUp } from '../MatchUp';
 
 export default function GamePlayMission(props) {
   // GEt the history obj
@@ -141,6 +142,22 @@ export default function GamePlayMission(props) {
             battleReady={battleReady}
             updateBattleReady={updateBattleReady}
           />
+        </Route>
+
+        <Route path={`${baseURL}/nextsteps`}>
+          {/*gameplay/mission/nextsteps component goes here */}
+        </Route>
+
+        <Route path={`${baseURL}/matchup`}>
+          <MatchUp />
+        </Route>
+
+        <Route path={`${baseURL}/scores`}>
+          {/*gameplay/mission/scores component goes here */}
+        </Route>
+
+        <Route path={`${baseURL}/winner`}>
+          {/*gameplay/mission/winner component goes here */}
         </Route>
       </Switch>
     </div>

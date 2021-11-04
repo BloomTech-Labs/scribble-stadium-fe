@@ -63,7 +63,7 @@ const SatMon = ({ setDate, child, devMode }) => {
   return (
     <Layout>
       <Header className="ant-page-header">
-        <h1>Story Squad</h1>
+        <h1>Scribble Stadium</h1>
         <Button onClick={adminDash}>Back to Admin Dashboard</Button>
       </Header>
       <div className="dev-tools-day">

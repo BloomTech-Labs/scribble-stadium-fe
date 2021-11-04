@@ -32,7 +32,7 @@ const GalleryContainer = props => {
 
   return (
     <>
-      <Header title="STORY SQUAD" displayMenu={true} />
+      <Header title="Scribble Stadium" displayMenu={true} />
       <Button style={{ margin: '1rem' }} onClick={leaderboard}>
         Back to Leaderboard
       </Button>

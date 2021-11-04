@@ -194,7 +194,7 @@ const ModerationTest = props => {
     <Layout className="moderation-page">
       {/* <Layout> */}
       <PageHeader>
-        <h1>Story Squad</h1>
+        <h1>Scribble Stadium</h1>
       </PageHeader>
       <Layout>
         {/* <Sider>
