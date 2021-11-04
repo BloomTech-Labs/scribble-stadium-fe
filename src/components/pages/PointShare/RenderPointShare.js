@@ -250,17 +250,20 @@ const PointShare = props => {
             <img src={childTwoImg} alt="child-two" />
             <p className="point-share-heading">{`WHITE FOX`}</p>
           </div>
+
           <div className="point-share-story">
             <p className="point-share-heading">STORY</p>
+
             <div className="point-share-submission">
               <img src={sampleWritingSubmission} alt="child-two-story" />
+              <div className="point-share-zoom-container">
+                <ZoomInOutlined
+                  className="point-share-zoom"
+                  style={{ fontSize: '40px', padding: '5.5px' }}
+                />
+              </div>
             </div>
-            <div className="point-share-zoom-container">
-              <ZoomInOutlined
-                className="point-share-zoom"
-                style={{ fontSize: '40px', padding: '5.5px' }}
-              />
-            </div>
+
             <div className="counter-box">
               <p className="points-assigned">100</p>
               <div className="increment-box">
@@ -275,6 +278,7 @@ const PointShare = props => {
               </div>
             </div>
           </div>
+
           <div className="point-share-drawing">
             <p className="point-share-heading">DRAWING</p>
             <div className="point-share-submission">
