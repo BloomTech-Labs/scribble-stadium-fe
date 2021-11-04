@@ -11,6 +11,8 @@ import Footer from './Footer';
 import GamePlayMission from './GamePlayMission';
 import { TrophyRoom } from '../TrophyRoom/index';
 import GameModal from './GameModal';
+import Explosion from '../../../assets/images/gamemodeimg/explosion.png';
+import { Gamemode } from '../Gamemode';
 
 function GamePlayMain(props) {
   // Specify a base URL
@@ -43,6 +45,9 @@ function GamePlayMain(props) {
             baseURL={baseURL}
             enableModalWindow={enableModalWindow}
           />
+        </Route>
+        <Route path={`${baseURL}/gamemode`}>
+          <Gamemode baseURL={baseURL} />
         </Route>
 
         <Route path={`${baseURL}/mission`}>
@@ -92,7 +97,7 @@ const GamemodeBtns = props => {
   // Enable initial modal
   useEffect(() => {
     const data = {
-      title: 'Welcome to StorySquad!',
+      title: 'Welcome to Scribble Stadium!',
       description: ' Accept the mission to start your adventure!',
       buttonTxt: "Let's Go!",
     };
@@ -105,13 +110,16 @@ const GamemodeBtns = props => {
     <div className="main-btns">
       <div className="inner-container">
         <button className="mission-btn" onClick={acceptMission}>
-          Accept The Mission
+          <img className="mission-explosion" src={Explosion} alt="explosion" />
+          <p className="mission-btn-txt">
+            {' '}
+            Accept
+            <br /> The Mission
+          </p>
         </button>
-
         <button onClick={trophyRoom}>Trophy Room</button>
       </div>
     </div>
   );
 };
-
 export default connect(null, null)(GamePlayMain);

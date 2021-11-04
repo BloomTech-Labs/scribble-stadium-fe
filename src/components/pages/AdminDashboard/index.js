@@ -18,7 +18,7 @@ const AdminDashboard = props => {
   return (
     <Layout className="moderation-page">
       <Header className="ant-page-header">
-        <h1>Story Squad</h1>
+        <h1>Scribble Stadium</h1>
 
         <Button type="default" onClick={homePageHandler}>
           Back to Home Page

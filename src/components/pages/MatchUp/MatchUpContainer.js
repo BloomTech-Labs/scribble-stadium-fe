@@ -17,51 +17,57 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
   const [userInfo] = useState(user);
   const [canVote, setCanVote] = useState(true);
 
-  useEffect(() => {
-    getChild(user, props.child.id).then(child => {
-      props.setChild({ ...child });
-    });
+  // useEffect(() => {
+  //   getChild(user, props.child.id).then(child => {
+  //     props.setChild({ ...child });
+  //   });
 
-    if (props.child.Ballots) {
-      if (props.child.Ballots.length > 0 && props.child.VotesRemaining > 0) {
-        for (let ballot of props.child.Ballots) {
-          getFaceoffsForVoting(user, ballot[1]).then(faceoffs => {
-            if (props.votes.length === 0) {
-              for (let faceoff of faceoffs) {
-                if (faceoff.ID === ballot[0]) {
-                  props.setVotes(faceoff);
-                }
-              }
-            }
-          });
-        }
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.faceoffs, user, props.child.VotesRemaining]);
+  //   if (props.child.Ballots) {
+  //     if (props.child.Ballots.length > 0 && props.child.VotesRemaining > 0) {
+  //       for (let ballot of props.child.Ballots) {
+  //         getFaceoffsForVoting(user, ballot[1]).then(faceoffs => {
+  //           if (props.votes.length === 0) {
+  //             for (let faceoff of faceoffs) {
+  //               if (faceoff.ID === ballot[0]) {
+  //                 props.setVotes(faceoff);
+  //               }
+  //             }
+  //           }
+  //         });
+  //       }
+  //     }
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [props.faceoffs, user, props.child.VotesRemaining]);
 
-  useEffect(() => {
-    if (props.child.VotesRemaining === 0) {
-      setCanVote(false);
-    }
-  }, [props.child]);
+  // useEffect(() => {
+  //   if (props.child.VotesRemaining === 0) {
+  //     setCanVote(false);
+  //   }
+  // }, [props.child]);
 
-  useEffect(() => {
-    getChildSquad(user, props.child.id).then(squad => {
-      getFaceoffsForMatchup(user, squad.ID, props.child.id).then(
-        allFaceoffs => {
-          props.setMemberId(squad);
-          props.setSquadFaceoffs(allFaceoffs);
-        }
-      );
-    });
+  // useEffect(() => {
+  //   getChildSquad(user, props.child.id).then(squad => {
+  //     getFaceoffsForMatchup(user, squad.ID, props.child.id).then(
+  //       allFaceoffs => {
+  //         props.setMemberId(squad);
+  //         props.setSquadFaceoffs(allFaceoffs);
+  //       }
+  //     );
+  //   });
 
-    // eslint-disable-next-line
-  }, [user]);
+  //   // eslint-disable-next-line
+  // }, [user]);
 
   return (
     <>
-      {isAuthenticated && !userInfo && (
+      <RenderMatchUp
+        {...props}
+        userInfo={userInfo}
+        canVote={canVote}
+        votesRemaining={props.child.VotesRemaining}
+      />
+      {/* {isAuthenticated && !userInfo && (
         <LoadingComponent message="Loading..." />
       )}
       {isAuthenticated && userInfo && props.faceoffs && (
@@ -71,7 +77,7 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
           canVote={canVote}
           votesRemaining={props.child.VotesRemaining}
         />
-      )}
+      )} */}
     </>
   );
 }

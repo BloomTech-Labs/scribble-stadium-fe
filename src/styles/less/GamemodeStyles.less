@@ -33,13 +33,26 @@
       }
 
       &.mission-btn {
-        background: #c6fd7e
+        background: #C6FD7E
           url(../../assets/images/gamemodeimg/mission-btn-bg.png) center
           no-repeat;
         background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
+
+  // Mission Accept Btn
+.mission-explosion {
+  position: absolute;
+  // z-index: -1;
+}
+.mission-btn-txt {
+  z-index: 1;
+  margin-top: 2rem;
+}
 
   /* Progress box when on the mission steps */
   #mission-progress {
@@ -299,9 +312,13 @@
     position: relative;
     z-index: 50;
 
+    // display: flex;
+    // justify-content: space-between;
     .inner-container {
-      display: flex;
-      justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     }
   }
 
@@ -334,7 +351,7 @@
         justify-content: center;
         text-align: center;
         flex-direction: column;
-        font-family: 'atma';
+        font-family: 'bangers';
 
         h3 {
           font-size: 3rem;
@@ -520,7 +537,7 @@ h1.dont4get {
 }
 
 .kids-story-upload-font {
-  /* I’m awesome, I’m done reading! 
+  /* I’m awesome, I’m done reading!
     This is the font inside the abstract upload button
     */
 
