@@ -30,7 +30,7 @@ const ChildMenu = props => {
   };
 
   const leaderboardRedirect = () => {
-    push('/child/leaderboard');
+    push('/leaderboard');
   };
 
   return (
