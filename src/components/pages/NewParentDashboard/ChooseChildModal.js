@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 
 export default function ChooseChildModal(props) {
   // Get the data to display
-  // const { title, description, buttonTxt } = props.modalData;
+  const { childrenAccounts, handleCharacterClick } = props;
 
   // Timeout timer before the modal is removed from the DOM(in ms)
   const removeModalTimer = 1000;
@@ -37,13 +37,38 @@ export default function ChooseChildModal(props) {
   return (
     <div id="notification-modal">
       <div className="modal-container">
-        <div className="modal-content">
-          <h1>I AM MOLLY</h1>
-          {/* <h3>{title}</h3>
-
-          <p>{description}</p>
-
-          <button onClick={closeModal}>{buttonTxt}</button> */}
+        <div className="modal-content" style={{ width: '70%' }}>
+          <h2 style={{ textAlign: 'center' }}>Choose Child</h2>
+          <div
+            style={{
+              display: 'flex',
+              width: '100%',
+              justifyContent: 'space-between',
+            }}
+          >
+            {childrenAccounts.map(child => {
+              const { ID, Name, AvatarURL } = child;
+              return (
+                <div style={{ display: 'flexbox', flexDirection: 'column' }}>
+                  <div
+                    style={{
+                      backgroundColor: 'gray',
+                      borderRadius: '100%',
+                      width: '125px',
+                      height: '125px',
+                      display: 'flex',
+                      overflow: 'hidden',
+                      cursor: 'pointer',
+                    }}
+                    onClick={evt => handleCharacterClick(evt, ID)}
+                  >
+                    <img src={AvatarURL} />
+                  </div>
+                  <span>{Name}</span>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

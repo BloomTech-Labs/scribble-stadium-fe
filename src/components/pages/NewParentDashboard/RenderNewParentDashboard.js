@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Layout } from 'antd';
 import { useAuth0 } from '@auth0/auth0-react';
 import { getProfileData } from '../../../api';
@@ -11,14 +11,39 @@ import { setParent } from '../../../state/actions/parentActions';
 import RenderWordCloud from '../WordCloud';
 import WordCountContainer from '../WordCountContainer/WordCountContainer';
 import ChooseChildModal from './ChooseChildModal';
+import { useHistory } from 'react-router-dom';
 
 const RenderNewParentDashboard = props => {
+  const FAKE_CHILDREN = [
+    {
+      ID: 0,
+      Name: 'Pinky Winky',
+      AvatarURL: 'https://scribble-stadium.s3.amazonaws.com/avatars/01.svg',
+    },
+    {
+      ID: 1,
+      Name: 'Submarine Boy',
+      AvatarURL: 'https://scribble-stadium.s3.amazonaws.com/avatars/02.svg',
+    },
+    {
+      ID: 2,
+      Name: 'Dad',
+      AvatarURL: 'https://scribble-stadium.s3.amazonaws.com/avatars/03.svg',
+    },
+  ];
+
+  const history = useHistory();
   const { user } = useAuth0();
   const { setParent } = props;
+  const [childrenAccounts, setChildrenAccounts] = useState(FAKE_CHILDREN);
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
+    console.warn('!!! GETTING PROFILE DATA');
     getProfileData()
       .then(res => {
+        console.log('~~ profile data');
+        console.log(res, res[0]);
         setParent({
           ...res[0],
           children: res.filter(user => user.type !== 'Parent'),
@@ -31,7 +56,12 @@ const RenderNewParentDashboard = props => {
   return (
     <div id="parent-dashboard-page">
       <Layout className="newparent-dashboard">
-        <ParentNavTopBar />
+        <ParentNavTopBar
+          handlePlayGameButtonClick={evt => {
+            evt.preventDefault();
+            setModalVisible(true);
+          }}
+        />
         <div className="renderWordCloud">
           <RenderWordCloud />
         </div>
@@ -49,7 +79,15 @@ const RenderNewParentDashboard = props => {
         </Layout>
       </Layout>
 
-      <ChooseChildModal />
+      {modalVisible && (
+        <ChooseChildModal
+          childrenAccounts={childrenAccounts}
+          handleCharacterClick={(evt, childId) => {
+            console.warn('We should set the selected child account here.');
+            history.push('/dashboard');
+          }}
+        />
+      )}
     </div>
   );
 };
