@@ -32,7 +32,7 @@ import {
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
 import { DrawingSub } from './components/pages/DrawingSub';
-import { Gamemode } from './components/pages/Gamemode';
+import { Gamemode, YourMissionComp } from './components/pages/Gamemode';
 
 import { Help } from './components/pages/Help';
 import { LandingPage } from './components/pages/LandingPage';
@@ -114,7 +114,7 @@ function App() {
       <DevModeHeader component={DevModeHeader} />
       <Switch>
         {/* NEW path => /gameplay/gamemode NOT for DELETE  */}
-        <Route exact path="/gamemode" component={Gamemode} />
+        <Route exact path="/gamemode" component={YourMissionComp} />
         {/* HEAD Route for all gameplay path components DO NOT REMOVE  */}
         <Route path="/gameplay" component={GamePlayMain} />
         <Route path="/login" component={LandingPage} />
