@@ -26,6 +26,7 @@ const RenderAddChild = props => {
             <ChildForm {...props} newChild={true} />
           </Layout>
         </Layout>
+      </Layout>
       <ParentFooter layoutContainerCheck={'no-scroll'} />
     </>
   );
