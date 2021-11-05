@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Header } from '../../common';
+import Footer from '../GamePlay/Footer';
 import { Row, Col, InputNumber, Button, notification } from 'antd';
 import {
   ZoomInOutlined,
@@ -312,6 +313,8 @@ const PointShare = props => {
 
         <Button className="point-share-submit-button">Submit Points</Button>
       </div>
+      {/* The Footer import must be updated once it gets moved to the global component "common" directory */}
+      <Footer />
     </>
   );
 };
