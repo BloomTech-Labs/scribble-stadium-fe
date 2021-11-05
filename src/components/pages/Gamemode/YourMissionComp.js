@@ -5,6 +5,7 @@ import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { connect } from 'react-redux';
 import Thrashbar from './Thrashbar';
+import { Gamemode } from '.';
 const YourMissionComp = ({ ...props }) => {
   const [rwd, setsRwd] = useState({
     read: false,
@@ -56,6 +57,7 @@ const YourMissionComp = ({ ...props }) => {
 
         fxd()
       }
+      <Gamemode />
       <div
         className={rwd.write === true ? 'rectangle130-yellow' : 'rectangle130'}
       >
