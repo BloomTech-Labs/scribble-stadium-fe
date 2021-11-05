@@ -8,7 +8,7 @@ import { Button } from 'antd';
 import UploadDocs from '../../common/UploadDocs';
 
 //** Import Assets */
-import boyImg from '../../../assets/images/gamemodeimg/LightingKid.png';
+import boyImg from '../../../assets/images/hero_images/hero4.png';
 
 export default function GameWriteStep(props) {
   // Get the history object

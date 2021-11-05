@@ -13,7 +13,7 @@ const { Title } = Typography;
 const RenderAddChild = props => {
   return (
     <>
-      <Layout className="add-child">
+      <Layout className="edit-players">
         <ParentNavTopBar />
         <Layout className="content">
           <div className="top-section">
@@ -26,7 +26,6 @@ const RenderAddChild = props => {
             <ChildForm {...props} newChild={true} />
           </Layout>
         </Layout>
-      </Layout>
       <ParentFooter layoutContainerCheck={'no-scroll'} />
     </>
   );

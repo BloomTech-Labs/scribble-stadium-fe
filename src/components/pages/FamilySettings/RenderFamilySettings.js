@@ -1,10 +1,11 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { Layout, Form, Input, Button, Typography } from 'antd';
+import { Layout, Form, Card, Row, Input, Button, Typography } from 'antd';
 
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import ChildCard from '../../common/ChildCard';
+import ParentDashboardBack from '../../common/ParentDashboardBack';
 
 import { connect } from 'react-redux';
 
@@ -29,12 +30,15 @@ const FamilySettings = props => {
   };
 
   return (
-    <Layout className="parent-dashboard add-child">
+    <Layout className="edit-players">
       <ParentNavTopBar selected="settings" />
       <Layout className="content">
-        <Title className="title" style={{ color: '#0267C1' }} level={1}>
-          Settings
-        </Title>
+        <div className="top-section">
+          <ParentDashboardBack />
+          <Title className="title" level={2}>
+            Settings
+          </Title>
+        </div>
         <Layout className="children" style={{ flexFlow: 'row wrap' }}>
           {props.parent.children.map(child => (
             <ChildCard
@@ -45,79 +49,96 @@ const FamilySettings = props => {
           ))}
         </Layout>
 
-        <Layout className="settings-form">
-          <h2 className="h2-family-settings">Change Email or Password</h2>
-          <Form
-            {...layoutSettings}
-            form={form}
-            name="change-family-settings"
-            onFinish={onFinish}
-          >
-            <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
-              <Form.Item
-                name="email"
-                onChange={handleChange}
-                rules={[
-                  {
-                    type: 'email',
-                    message: 'The input is not valid E-mail!',
-                  },
-                  { required: true, message: 'Please enter an email address!' },
-                ]}
+        <Layout className="children">
+          <Card className="child-card-form" bordered={false}>
+            <div className="card-center">
+              <h3>Change Email or Password</h3>
+              <Form
+                {...layoutSettings}
+                form={form}
+                name="change-family-settings"
+                onFinish={onFinish}
               >
-                <Input placeholder="Enter New Email" />
-              </Form.Item>
-              <Form.Item
-                name="password"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please input your old password!',
-                  },
-                ]}
-                hasFeedback
-              >
-                <Input.Password placeholder="Enter old Password" />
-              </Form.Item>
-              <Form.Item
-                name="email"
-                onChange={handleChange}
-                rules={[
-                  {
-                    type: 'email',
-                    message: 'The input is not valid E-mail!',
-                  },
-                  { required: true, message: 'Please enter an email address!' },
-                ]}
-              >
-                <Input placeholder="Enter New Email" />
-              </Form.Item>
-              <Form.Item
-                name="email"
-                onChange={handleChange}
-                rules={[
-                  {
-                    type: 'email',
-                    message: 'The input is not valid E-mail!',
-                  },
-                  { required: true, message: 'Please enter an email address!' },
-                ]}
-              >
-                <Input placeholder="Re-enter New Email" />
-              </Form.Item>
-            </Form.Item>
-            <Form.Item wrapperCol={{ span: 20, offset: 8 }}>
-              <Button
-                style={{ backgroundColor: '#007AFF', color: 'white' }}
-                type="primary"
-                size="large"
-                htmlType="submit"
-                disabled
-              >
-                Update
-              </Button>
-            </Form.Item>
-          </Form>
+                <div className="col">
+                  <Form.Item
+                    label="Old Email"
+                    name="email"
+                    onChange={handleChange}
+                    rules={[
+                      {
+                        type: 'email',
+                        message: 'The input is not valid E-mail!',
+                      },
+                      {
+                        required: true,
+                        message: 'Please enter an email address!',
+                      },
+                    ]}
+                  >
+                    <Input />
+                  </Form.Item>
+                </div>
+                <div className="col">
+                  <Form.Item
+                    name="password"
+                    label="Password"
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Please input your old password!',
+                      },
+                    ]}
+                    hasFeedback
+                  >
+                    <Input type="password" />
+                  </Form.Item>
+                </div>
+                <div className="col">
+                  <Form.Item
+                    name="email"
+                    label="New Email"
+                    onChange={handleChange}
+                    rules={[
+                      {
+                        type: 'email',
+                        message: 'The input is not valid E-mail!',
+                      },
+                      {
+                        required: true,
+                        message: 'Please enter an email address!',
+                      },
+                    ]}
+                  >
+                    <Input />
+                  </Form.Item>
+                </div>
+                <div className="col">
+                  <Form.Item
+                    label="Re-Enter New Email"
+                    name="email"
+                    onChange={handleChange}
+                    rules={[
+                      {
+                        type: 'email',
+                        message: 'The input is not valid E-mail!',
+                      },
+                      {
+                        required: true,
+                        message: 'Please enter an email address!',
+                      },
+                    ]}
+                  >
+                    <Input />
+                  </Form.Item>
+                </div>
+                <div className="card-bottom">
+                  <Button className="save-btn" htmlType="submit" disabled>
+                    Update
+                  </Button>
+                </div>
+              </Form>
+            </div>
+          </Card>
         </Layout>
       </Layout>
     </Layout>
