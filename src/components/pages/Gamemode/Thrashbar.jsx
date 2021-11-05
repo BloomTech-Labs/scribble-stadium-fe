@@ -3,7 +3,7 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import { connect } from 'react-redux';
 
-class Thrashbar extends React.Component {
+className Thrashbar extends React.Component {
   constructor(...props) {
     super(...props);
     this.state = {

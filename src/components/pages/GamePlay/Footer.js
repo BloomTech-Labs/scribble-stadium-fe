@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="inner-container">
-        <div class="copyright">©{curYear} Story Squad HQ</div>
+        <div className="copyright">©{curYear} Story Squad HQ</div>
 
         <nav className="footer-nav-container">
           <div className="footer-nav-div-link">
