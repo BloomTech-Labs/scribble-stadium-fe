@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'antd';
-
 import { useHistory } from 'react-router-dom';
-
 import { Header } from '../../common';
 import ChildFooter from '../../common/ChildFooter';
 import FaceoffContent from './FaceoffContent';
@@ -19,7 +17,6 @@ const RenderMatchUp = props => {
         title="The Matchup"
         versus={true}
         pointsToWin={true}
-        votesRemaining={true}
       />
 
          <ChildFooter />
