@@ -11,8 +11,6 @@ import { modalInstructions } from '../../../utils/helpers';
 
 const RenderMatchUp = props => {
   const { push } = useHistory();
-  const [faceoffs, setFaceoffs] = useState([]);
-  const [modalVisible, setModalVisible] = useState(true);
 
   return (
     <>
