@@ -155,6 +155,7 @@ const PointShare = props => {
     virtualPlayerIDs,
   ]);
 
+  // openModal helper function, sets the content of the modal through state. onClick of the zoom icon calls openModal
   const openModal = content => {
     setModalContent(content);
     setShowModal(true);
@@ -221,6 +222,7 @@ const PointShare = props => {
               <ZoomInOutlined
                 className="point-share-zoom"
                 style={{ fontSize: '40px', padding: '5.5px' }}
+                onClick={() => openModal([{ ImgURL: sampleWritingSubmission }])}
               />
             </div>
             <div className="counter-box">
@@ -264,6 +266,7 @@ const PointShare = props => {
               <ZoomInOutlined
                 className="point-share-zoom"
                 style={{ fontSize: '40px', padding: '5.5px' }}
+                onClick={() => openModal([{ ImgURL: sampleDrawingSubmission }])}
               />
             </div>
             <div className="counter-box">
@@ -315,6 +318,9 @@ const PointShare = props => {
                 <ZoomInOutlined
                   className="point-share-zoom"
                   style={{ fontSize: '40px', padding: '5.5px' }}
+                  onClick={() =>
+                    openModal([{ ImgURL: sampleWritingSubmission }])
+                  }
                 />
               </div>
             </div>
@@ -364,6 +370,9 @@ const PointShare = props => {
                 <ZoomInOutlined
                   className="point-share-zoom"
                   style={{ fontSize: '40px', padding: '5.5px' }}
+                  onClick={() =>
+                    openModal([{ ImgURL: sampleDrawingSubmission }])
+                  }
                 />
               </div>
               <div className="counter-box">
