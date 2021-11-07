@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Button } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
+
 import { useHistory } from 'react-router-dom';
 
 import { Header } from '../../common';
