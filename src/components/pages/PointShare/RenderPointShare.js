@@ -1,9 +1,28 @@
+/*
+This component contains temporary hard coding to fill data that should be pulling from the database.
+- currently those BE endpoints and DB data structures are not finished. 11-07-21
+Once this component pulls data from the database, change the parameters in the render section so that they pull from props and this page will be complete.  
+
+As BE endpoints and DB schema are finished:
+[] remove hardcode virtual player data, pull this data from BE and DB. Virtual player creation & data should be on BE, not FE
+[] remove hardcode user data, pull this data from props or global state
+[] remove hardcode point data, pull this data from props or global state
+[] remove hardcode story / drawing submission data, pull this data from BE and DB
+[] ensure that handleSubmitPoints passes the correct data to BE
+[] remove all comments when component is complete and ready for production
+
+Complete:
+[x] styling matches Figma 
+[x] counter boxes increment and decrement, saving value to component state
+[x] component level state saves and renders correctly ---> storyOnePoints, storyTwoPoints, illustrationOnePoints, illustrationTwoPoints
+*/
+
 import React, { useEffect, useState, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Header } from '../../common';
 import Footer from '../GamePlay/Footer';
-import { Button, notification, InputNumber } from 'antd';
+import { Button, notification } from 'antd';
 import {
   ZoomInOutlined,
   CaretUpOutlined,
@@ -13,8 +32,6 @@ import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
 
 import { SubmissionViewerModal } from '../../common';
-import { InstructionsModal } from '../../common';
-import { modalInstructions } from '../../../utils/helpers';
 
 // import hero images - TEMPORARY HARD CODE - remove when pulling state ( avatarID ) from backend
 import childOneImg from '../../../assets/images/hero_images/hero10.png';
@@ -56,9 +73,8 @@ const PointShare = props => {
   user = initialStateForUserTemporaryHardcode;
 
   /**
-   *Virtual Player
-   *Array of virtual player IDs
-   *['VP-1','VP-2','VP-3','VP-4','VP-5','VP-6','VP-7']
+  create virtual player - TEMPORARY HARD CODE - remove when pulling state from backend
+   *Array of virtual player IDs ---> ['VP-1','VP-2','VP-3','VP-4','VP-5','VP-6','VP-7']
    *Check if MemeberID for child is one of the virtual players IDs if true then submit virtual player points 25-25-25-25
    *Conditionaly render PointShare | Virtual player will not see the component so all data submition is happening behind the scenes for virtual player
    */
@@ -90,8 +106,7 @@ const PointShare = props => {
   };
 
   const formSubmit = () => {
-    // note: lines 43 - 51 not required anymore! However, "notification" could be used for future implementations
-    // regarding error handling for the user's share points submission. Yay!
+    // notification used to handle errors related to the user's share points submission.
     if (totalPoints < 0) {
       notification.error({
         message: 'You may only allocate 100 points!',
@@ -99,6 +114,7 @@ const PointShare = props => {
       return;
     }
     setTeamPoints([
+      // base case, when you DON'T have a virtual player
       {
         WritingPoints: storyOnePoints,
         DrawingPoints: illustrationOnePoints,
@@ -115,6 +131,7 @@ const PointShare = props => {
   };
 
   const virtualPlayerCallback = useCallback(
+    // useCallback refreshes the callback function when the SubmissionIDs change
     virtualPlayerID => {
       return [
         {
@@ -136,10 +153,11 @@ const PointShare = props => {
 
   useEffect(() => {
     if (teamPoints) {
+      // submitPoints is an api call to BE that sends teamPoints
       submitPoints(user, teamPoints);
     }
 
-    // check for virtual player id from props
+    // if child one is a virtual player
     if (virtualPlayerIDs.includes(props.team.child1.MemberID)) {
       // if virtual id submit virtual player points
       submitPoints(user, virtualPlayerCallback(props.team.child1.MemberID));
@@ -174,8 +192,9 @@ const PointShare = props => {
   };
 
   const handleSubmitPoints = () => {
-    // this page needs to route to Winner page per Ash's / Jake's Whimsical
-    history.push('/child/winner');
+    formSubmit(); // submit the form
+    console.log('api call submitPoints was made');
+    history.push('/child/winner'); // this page routes to Winner page per Ash / Jake's Whimsical
   };
 
   return (
