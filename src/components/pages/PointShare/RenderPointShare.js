@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Header } from '../../common';
 import Footer from '../GamePlay/Footer';
-import { Row, Col, InputNumber, Button, notification } from 'antd';
+import { Button, notification, InputNumber } from 'antd';
 import {
   ZoomInOutlined,
   CaretUpOutlined,
@@ -16,26 +16,44 @@ import { SubmissionViewerModal } from '../../common';
 import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
 
-// import hero images - TEMPORARY HARD CODE
+// import hero images - TEMPORARY HARD CODE - remove when pulling state ( avatarID ) from backend
 import childOneImg from '../../../assets/images/hero_images/hero10.png';
 import childTwoImg from '../../../assets/images/hero_images/hero8.png';
-// import sample writing submission - TEMPORARY HARD CODE
+// import sample writing submission - TEMPORARY HARD CODE - remove when pulling state from backend
 import sampleWritingSubmission from './sampleWriting.png';
 import sampleDrawingSubmission from './sampleDrawing.png';
 
+// initialize state for user object - TEMPORARY HARD CODE - remove when pulling state from backend
+const initialStateForUserTemporaryHardcode = {
+  id: 1,
+  avatarID: 1, // foreign key to avatar table
+  avatar: {
+    // avatar object is pulled into child object from avatar table (this happens on the BE)
+    id: 1,
+    fileName: 'hero10.png',
+  },
+  characterName: 'Pinky Winky',
+};
+
 const PointShare = props => {
-  const { push } = useHistory();
   const [totalPoints, setTotalPoints] = useState(100);
+
+  // these setStory and setIllustration functions set state of the 4 InputNumber components
   const [storyOnePoints, setStoryOnePoints] = useState(0);
   const [storyTwoPoints, setStoryTwoPoints] = useState(0);
   const [illustrationOnePoints, setIllustrationOnePoints] = useState(0);
   const [illustrationTwoPoints, setIllustrationTwoPoints] = useState(0);
+
   const [teamPoints, setTeamPoints] = useState(null);
   const [modalContent, setModalContent] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [modalVisible, setModalVisible] = useState(true);
 
-  const { user } = useAuth0();
+  let { user } = useAuth0();
+  let history = useHistory();
+
+  // TEMPORARY HARD CODE - remove when pulling user state from backend
+  user = initialStateForUserTemporaryHardcode;
 
   /**
    *Virtual Player
@@ -142,21 +160,21 @@ const PointShare = props => {
     setShowModal(true);
   };
 
-  // SharePointHandler - handler that sets the logic of each input number point value:
+  // handlePointShare - onClick helper function that sets the logic of each of the 4 point assignment boxes and state.
   // maxValue - it returns the maximum value available for each input.
   // pointSetter - it takes into account the min and max value on each input, and it will
   // determine how many points are available to spend on the current input number field.
-  // setTotalPoints - it keeps track of total points available
-
-  const sharePointHandler = ({ value, pointSetter, a, b, c }) => {
+  // setTotalPoints - it keeps track of total points available, sets that value to state.
+  const handlePointShare = ({ value, pointSetter, a, b, c }) => {
     const maxValue =
       100 - (Math.max(a, 10) + Math.max(b, 10) + Math.max(c, 10));
     pointSetter(Math.min(value, maxValue));
     setTotalPoints(Math.max(100 - (value + a + b + c), 0));
   };
 
-  const backToJoin = e => {
-    push('/child/join');
+  const handleSubmitPoints = () => {
+    // this page needs to route to Winner page per Ash's / Jake's Whimsical
+    history.push('/child/winner');
   };
 
   return (
@@ -191,8 +209,8 @@ const PointShare = props => {
       <div className="point-share-boxes-container">
         <div className="point-share-box child-one">
           <div className="point-share-child-info">
-            <img src={childOneImg} alt="child-one" />
-            <p className="point-share-heading">{`PINKY WINKY (YOU)`}</p>
+            <img src={childOneImg} alt="child-one-avatar" />
+            <p className="point-share-heading">{`${user.characterName.toUpperCase()} (YOU)`}</p>
           </div>
           <div className="point-share-story">
             <p className="point-share-heading">STORY</p>
@@ -206,15 +224,33 @@ const PointShare = props => {
               />
             </div>
             <div className="counter-box">
-              <p className="points-assigned">100</p>
+              <p className="points-assigned">{storyOnePoints}</p>
               <div className="increment-box">
                 <CaretUpOutlined
                   className="increment-up"
                   style={{ color: '#6CEAE6', fontSize: '30px' }}
+                  onClick={() => {
+                    handlePointShare({
+                      value: storyOnePoints + 5,
+                      pointSetter: setStoryOnePoints,
+                      a: storyTwoPoints,
+                      b: illustrationOnePoints,
+                      c: illustrationTwoPoints,
+                    });
+                  }}
                 />
                 <CaretDownOutlined
                   className="increment-down"
                   style={{ color: '#6CEAE6', fontSize: '30px' }}
+                  onClick={() => {
+                    handlePointShare({
+                      value: storyOnePoints - 5,
+                      pointSetter: setStoryOnePoints,
+                      a: storyTwoPoints,
+                      b: illustrationOnePoints,
+                      c: illustrationTwoPoints,
+                    });
+                  }}
                 />
               </div>
             </div>
@@ -231,15 +267,33 @@ const PointShare = props => {
               />
             </div>
             <div className="counter-box">
-              <p className="points-assigned">100</p>
+              <p className="points-assigned">{illustrationOnePoints}</p>
               <div className="increment-box">
                 <CaretUpOutlined
                   className="increment-up"
                   style={{ color: '#6CEAE6', fontSize: '30px' }}
+                  onClick={() => {
+                    handlePointShare({
+                      value: illustrationOnePoints + 5,
+                      pointSetter: setIllustrationOnePoints,
+                      a: storyTwoPoints,
+                      b: storyOnePoints,
+                      c: illustrationTwoPoints,
+                    });
+                  }}
                 />
                 <CaretDownOutlined
                   className="increment-down"
                   style={{ color: '#6CEAE6', fontSize: '30px' }}
+                  onClick={() => {
+                    handlePointShare({
+                      value: illustrationOnePoints - 5,
+                      pointSetter: setIllustrationOnePoints,
+                      a: storyTwoPoints,
+                      b: storyOnePoints,
+                      c: illustrationTwoPoints,
+                    });
+                  }}
                 />
               </div>
             </div>
@@ -248,7 +302,7 @@ const PointShare = props => {
 
         <div className="point-share-box child-two">
           <div className="point-share-child-info">
-            <img src={childTwoImg} alt="child-two" />
+            <img src={childTwoImg} alt="child-two-avatar" />
             <p className="point-share-heading">{`WHITE FOX`}</p>
           </div>
 
@@ -266,15 +320,33 @@ const PointShare = props => {
             </div>
 
             <div className="counter-box">
-              <p className="points-assigned">100</p>
+              <p className="points-assigned">{storyTwoPoints}</p>
               <div className="increment-box">
                 <CaretUpOutlined
                   className="increment-up"
                   style={{ color: '#6CEAE6', fontSize: '30px' }}
+                  onClick={() => {
+                    handlePointShare({
+                      value: storyTwoPoints + 5,
+                      pointSetter: setStoryTwoPoints,
+                      a: storyOnePoints,
+                      b: illustrationOnePoints,
+                      c: illustrationTwoPoints,
+                    });
+                  }}
                 />
                 <CaretDownOutlined
                   className="increment-down"
                   style={{ color: '#6CEAE6', fontSize: '30px' }}
+                  onClick={() => {
+                    handlePointShare({
+                      value: storyTwoPoints - 5,
+                      pointSetter: setStoryTwoPoints,
+                      a: storyOnePoints,
+                      b: illustrationOnePoints,
+                      c: illustrationTwoPoints,
+                    });
+                  }}
                 />
               </div>
             </div>
@@ -295,15 +367,33 @@ const PointShare = props => {
                 />
               </div>
               <div className="counter-box">
-                <p className="points-assigned">100</p>
+                <p className="points-assigned">{illustrationTwoPoints}</p>
                 <div className="increment-box">
                   <CaretUpOutlined
                     className="increment-up"
                     style={{ color: '#6CEAE6', fontSize: '30px' }}
+                    onClick={() => {
+                      handlePointShare({
+                        value: illustrationTwoPoints + 5,
+                        pointSetter: setIllustrationTwoPoints,
+                        a: storyTwoPoints,
+                        b: illustrationOnePoints,
+                        c: storyOnePoints,
+                      });
+                    }}
                   />
                   <CaretDownOutlined
                     className="increment-down"
                     style={{ color: '#6CEAE6', fontSize: '30px' }}
+                    onClick={() => {
+                      handlePointShare({
+                        value: illustrationTwoPoints - 5,
+                        pointSetter: setIllustrationTwoPoints,
+                        a: storyTwoPoints,
+                        b: illustrationOnePoints,
+                        c: storyOnePoints,
+                      });
+                    }}
                   />
                 </div>
               </div>
@@ -311,7 +401,12 @@ const PointShare = props => {
           </div>
         </div>
 
-        <Button className="point-share-submit-button">Submit Points</Button>
+        <Button
+          className="point-share-submit-button"
+          onClick={handleSubmitPoints}
+        >
+          Submit Points
+        </Button>
       </div>
       {/* The Footer import must be updated once it gets moved to the global component "common" directory */}
       <Footer />
