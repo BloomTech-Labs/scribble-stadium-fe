@@ -14,25 +14,6 @@ const RenderMatchUp = props => {
   const [faceoffs, setFaceoffs] = useState([]);
   const [modalVisible, setModalVisible] = useState(true);
 
-  const goToPointShare = () => {
-    push('/child/point-share');
-  };
-
-  useEffect(() => {
-    if (props.child.VotesRemaining <= 9) {
-      setModalVisible(false);
-    }
-    setFaceoffs(props.faceoffs);
-  }, [props]);
-  const handleVote = e => {
-    e.preventDefault();
-    push('/child/match-up/squad-vote');
-  };
-  const back2Dash = e => {
-    e.preventDefault();
-    push('/child/dashboard');
-  };
-
   return (
     <>
       <Header
