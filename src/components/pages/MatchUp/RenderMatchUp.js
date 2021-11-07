@@ -13,6 +13,9 @@ const RenderMatchUp = props => {
   return (
     <>
       <Header displayMenu={true} title="Scribble Stadium" />
+      
+
+      <div className="matchup-container"></div>
       <ChildFooter/>
     </>
   );
