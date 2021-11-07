@@ -12,14 +12,8 @@ const RenderMatchUp = props => {
 
   return (
     <>
-      <Header
-        displayMenu={true}
-        title="The Matchup"
-        versus={true}
-        pointsToWin={true}
-      />
-
-         <ChildFooter />
+      <Header displayMenu={true} title="Scribble Stadium" />
+      <ChildFooter/>
     </>
   );
 };
