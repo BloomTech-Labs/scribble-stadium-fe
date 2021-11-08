@@ -11,7 +11,6 @@ import UploadDocs from '../../common/UploadDocs';
 import boyImg from '../../../assets/images/gamemodeimg/LightingKid.png';
 
 export default function GameWriteStep(props) {
-  console.log('props: ---->', props);
   // Get the history object
   const history = useHistory();
 
@@ -58,7 +57,6 @@ export default function GameWriteStep(props) {
   // This function handles when we make a full submission of the entire mission(after reading, drawing, and writing)
   const handleFullSubmission = () => {
     setIsSubmitting(true);
-    console.log('handleFullSubmission fires');
 
     // Timer used to allow a slight delay before the submit functions trigger.
     const triggerSubmitTimer = 1500;
