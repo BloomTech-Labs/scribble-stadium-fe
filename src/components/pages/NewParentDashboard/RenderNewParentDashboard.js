@@ -46,8 +46,6 @@ const RenderNewParentDashboard = props => {
     console.warn('!!! GETTING PROFILE DATA');
     getProfileData()
       .then(res => {
-        console.log('~~ profile data');
-        console.log(res, res[0]);
         setParent({
           ...res[0],
           children: res.filter(user => user.type !== 'Parent'),
