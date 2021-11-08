@@ -122,13 +122,14 @@
     &:nth-last-of-type(1) {
         border-right: none;
     }
+    &:nth-child(1) {
+        border-radius: 1rem 0 0 2rem;
+    }
 }
 
 .completedActivity .checkImg{
     display: inline;
 }
-
-
 
 .currentActivity {
     background-color:  var(--white);
@@ -144,6 +145,9 @@
     }
     &:nth-last-of-type(1) {
         border-right: none;
+    }
+    &:nth-child(1) {
+        border-radius: 1rem 0 0 2rem;
     }
     animation: pulse-animation 2s infinite;
 }
