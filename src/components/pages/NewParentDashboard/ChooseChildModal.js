@@ -38,7 +38,15 @@ export default function ChooseChildModal(props) {
     <div id="notification-modal">
       <div className="modal-container">
         <div className="modal-content" style={{ width: '70%' }}>
-          <h2 style={{ textAlign: 'center' }}>Choose Child</h2>
+          <h2
+            style={{
+              textAlign: 'center',
+              fontSize: '3rem',
+              fontStyle: 'italic',
+            }}
+          >
+            CHOOSE CHILD
+          </h2>
           <div
             style={{
               display: 'flex',
@@ -52,19 +60,22 @@ export default function ChooseChildModal(props) {
                 <div style={{ display: 'flexbox', flexDirection: 'column' }}>
                   <div
                     style={{
-                      backgroundColor: 'gray',
+                      backgroundColor: '#FFFFFF',
                       borderRadius: '100%',
-                      width: '125px',
-                      height: '125px',
+                      width: '111.54px',
+                      height: '111.54px',
                       display: 'flex',
                       overflow: 'hidden',
                       cursor: 'pointer',
+                      justifyContent: 'center',
                     }}
                     onClick={evt => handleCharacterClick(evt, ID)}
                   >
                     <img src={AvatarURL} />
                   </div>
-                  <span>{Name}</span>
+                  <span style={{ fontSize: '1.2rem' }}>
+                    {Name.toUpperCase()}
+                  </span>
                 </div>
               );
             })}

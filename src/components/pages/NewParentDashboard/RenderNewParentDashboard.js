@@ -12,23 +12,27 @@ import RenderWordCloud from '../WordCloud';
 import WordCountContainer from '../WordCountContainer/WordCountContainer';
 import ChooseChildModal from './ChooseChildModal';
 import { useHistory } from 'react-router-dom';
+// TEMPORARY HARD CODE - import of image assets - remove when pulling state from BE or globally
+import pinkyWinky from '../../../assets/images/hero_images/hero10.png';
+import submarineBoy from '../../../assets/images/hero_images/hero3.png';
+import dad from '../../../assets/images/hero_images/hero5.png';
 
 const RenderNewParentDashboard = props => {
   const FAKE_CHILDREN = [
     {
       ID: 0,
       Name: 'Pinky Winky',
-      AvatarURL: 'https://scribble-stadium.s3.amazonaws.com/avatars/01.svg',
+      AvatarURL: pinkyWinky,
     },
     {
       ID: 1,
       Name: 'Submarine Boy',
-      AvatarURL: 'https://scribble-stadium.s3.amazonaws.com/avatars/02.svg',
+      AvatarURL: submarineBoy,
     },
     {
       ID: 2,
       Name: 'Dad',
-      AvatarURL: 'https://scribble-stadium.s3.amazonaws.com/avatars/03.svg',
+      AvatarURL: dad,
     },
   ];
 
