@@ -8,7 +8,7 @@ const RenderNextSteps = () => {
   const { push } = useHistory();
 
   const goToMatchup = () => {
-    push('/gameplay/mission/matchup');
+    push('/child/match-up');
   };
 
   return (
