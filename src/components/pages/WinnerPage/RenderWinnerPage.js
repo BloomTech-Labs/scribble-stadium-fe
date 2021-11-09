@@ -17,7 +17,7 @@ const RenderWinnerPage = props => {
       <Header displayMenu={true} />
       {/* REMOVE ONCE DESIGN WORK BEGINS - START */}
       <div className={'winner-container'}>
-        <div className="wbox">
+        <div className="winner-box">
           <img src={explosion} alt="boom" className="explosion-img" />
           <div className="winner-text">
             Winner!
