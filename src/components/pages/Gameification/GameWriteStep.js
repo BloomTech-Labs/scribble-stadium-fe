@@ -60,9 +60,8 @@ export default function GameWriteStep(props) {
 
     // Timer used to allow a slight delay before the submit functions trigger.
     const triggerSubmitTimer = 1500;
-
     setTimeout(() => {
-      history.push('/gameification/single-matchup');
+      history.push('/child/next-steps');
     }, triggerSubmitTimer);
   };
 

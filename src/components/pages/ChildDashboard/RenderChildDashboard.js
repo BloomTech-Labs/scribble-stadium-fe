@@ -85,7 +85,7 @@ const RenderChildDashboard = props => {
             />
           </Col>{' '}
           <Col
-            className="adventure-passport"
+            className="trophy-room-button"
             xs={24}
             sm={12}
             onClick={handleTrophyRoom}

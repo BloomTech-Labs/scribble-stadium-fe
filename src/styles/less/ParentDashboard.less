@@ -71,6 +71,65 @@
   }
 }
 
+#parent-dashboard-page {
+
+
+  /* notification-modal */
+  #notification-modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    display: none;
+
+    .modal-container {
+      background: url(../../assets/images/gamemodeimg/modal.png);
+      background-size: cover;
+      width: 720px;
+      height: 520px;
+      transform: translateY(-100vh);
+
+      .modal-content {
+        padding: 20px 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        font-family: 'atma';
+
+        h3 {
+          font-size: 3rem;
+          text-transform: uppercase;
+        }
+
+        p {
+          font-size: 1.5rem;
+          line-height: 1.5em;
+        }
+
+        button {
+          width: auto;
+          height: auto;
+          border-radius: 5px;
+          border: #333d3e 3px solid;
+          padding: 5px 15px;
+          font-family: 'atma';
+          font-size: 1.5rem;
+          cursor: pointer;
+          background: white;
+        }
+      }
+    }
+  }
+}
 @media @tablet {
   .parent-dashboard {
     .heading-section {
