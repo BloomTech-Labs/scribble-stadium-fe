@@ -57,7 +57,10 @@ export default function ChooseChildModal(props) {
             {childrenAccounts.map(child => {
               const { ID, Name, AvatarURL } = child;
               return (
-                <div style={{ display: 'flexbox', flexDirection: 'column' }}>
+                <div
+                  key={`${Name}`}
+                  style={{ display: 'flexbox', flexDirection: 'column' }}
+                >
                   <div
                     style={{
                       backgroundColor: '#FFFFFF',
