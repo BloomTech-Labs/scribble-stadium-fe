@@ -1,8 +1,19 @@
 //** Gameplay Styles
 #gameplay {
+  @media (max-width: 800px) {
+    resize: both !important;
+    overflow: hidden !important;
+    max-width: auto !important;
+  }
+
   /* Header Styles */
   .hero {
     margin-bottom: 50px;
+    @media (max-width: 450px) {
+      .header-text {
+        margin-left: 40px;
+      }
+    }
   }
 
   /* Inner Container */
@@ -114,6 +125,21 @@
         &:hover {
           opacity: 1;
         }
+      }
+    }
+    @media(max-width: 800px) {
+      width: 87%;
+      #step-1 {
+        width: 50%;
+      }
+      
+    }
+    @media (max-width: 460px) {
+      #step-1 {
+        width: 50%;
+      }
+      #step-3 {
+        width: 50%;
       }
     }
   }
