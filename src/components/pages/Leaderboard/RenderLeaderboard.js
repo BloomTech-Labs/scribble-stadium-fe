@@ -19,7 +19,11 @@ const RenderLeaderboard = props => {
   return (
     <>
       <Header displayMenu={true} title="Scribble Stadium" />
-      <Button style={{ margin: '1rem' }} onClick={dashboard}>
+      <Button
+        className="back-btn"
+        style={{ margin: '1rem' }}
+        onClick={dashboard}
+      >
         Back to Child Dashboard
       </Button>
       <div className="trophy-container">
