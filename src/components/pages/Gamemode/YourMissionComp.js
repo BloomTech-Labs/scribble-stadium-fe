@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import UploadDocs from '../../common/UploadDocs';
-import LightingKid from '../../../assets/images/gamemodeimg/LightingKid.png';
+import LightningKid from '../../../assets/images/hero_images/hero4.png';
 import { Header } from '../../common';
 import { Row, Col } from 'antd';
 import { connect } from 'react-redux';
@@ -60,7 +60,10 @@ const YourMissionComp = ({ ...props }) => {
         className={rwd.write === true ? 'rectangle130-yellow' : 'rectangle130'}
       >
         <Row className="btmRow">
-          <img src={LightingKid} alt="A child dressed as a superhero called lighting kid" />
+          <img
+            src={LightningKid}
+            alt="A child dressed as a superhero called lightning kid"
+          />
           <Col>
             <h1 className="dont4get">DON'T FORGET!</h1>
 

@@ -13,8 +13,8 @@ const RenderMatchUp = props => {
   const [faceoffs, setFaceoffs] = useState([]);
   const [modalVisible, setModalVisible] = useState(true);
 
-  const goToChildDashboard = () => {
-    push('/child/dashboard');
+  const goToPointShare = () => {
+    push('/child/point-share');
   };
 
   useEffect(() => {
@@ -53,9 +53,9 @@ const RenderMatchUp = props => {
         <Button
           style={{ margin: '1rem' }}
           className="back-btn"
-          onClick={goToChildDashboard}
+          onClick={goToPointShare}
         >
-          Back to Child Dashboard
+          Next to Point Share
         </Button>
       </div>
       {/* REMOVE ONCE DESIGN WORK BEGINS - END */}

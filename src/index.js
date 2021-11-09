@@ -245,7 +245,7 @@ function App() {
         {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/next-steps NOT for DELETE */}
         <ProtectedRoute
           exact
-          path="/next-steps"
+          path="/child/next-steps"
           component={() => (
             <NextSteps LoadingComponent={ChildLoadingComponent} />
           )}
@@ -261,7 +261,7 @@ function App() {
         {/* ROUTE EXISTS / NO PAGE EXISTS OK to DELETE / Will need to be replaced under /gameplay route */}
         <ProtectedRoute
           exact
-          path="/match-up"
+          path="/child/match-up"
           component={() => <MatchUp LoadingComponent={ChildLoadingComponent} />}
         />
         {/* ROUTE EXISTS OK to DELETE / returns user to /child/dashboard / Will need to be replaced under /gameplay route */}
@@ -275,7 +275,7 @@ function App() {
         {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/play-again NOT for DELETE */}
         <ProtectedRoute
           exact
-          path="/play-again"
+          path="/child/play-again"
           component={() => (
             <PlayAgain LoadingComponent={ChildLoadingComponent} />
           )}
@@ -283,7 +283,7 @@ function App() {
         {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/play-again NOT for DELETE */}
         <ProtectedRoute
           exact
-          path="/scores"
+          path="/child/scores"
           component={() => <Scores LoadingComponent={ChildLoadingComponent} />}
         />
         {/* FOUNDATION CODE exists. NEEDS DATA New path to point to /gameplay/dashboard/leaderboard NOT for DELETE */}

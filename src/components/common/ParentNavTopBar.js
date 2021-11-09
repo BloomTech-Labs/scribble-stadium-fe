@@ -45,7 +45,14 @@ const ParentNavTopBar = props => {
       <div className="nav-right">
         <div className="link-container">
           <Link to="/dashboard">
-            <Button className="play-game-btn">PLAY GAME</Button>
+            <Button
+              onClick={evt => {
+                props.handlePlayGameButtonClick(evt);
+              }}
+              className="play-game-btn"
+            >
+              PLAY GAME
+            </Button>
           </Link>
           <Link to="/parent/faq">
             <span>FAQ</span>

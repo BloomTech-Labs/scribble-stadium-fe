@@ -2,6 +2,7 @@ import React from 'react';
 import { Layout, Typography } from 'antd';
 
 import ParentNavTopBar from '../../common/ParentNavTopBar';
+import ParentFooter from '../../common/ParentFooter';
 
 const { Title } = Typography;
 
@@ -25,6 +26,7 @@ const Help = props => {
           </div>
         </Layout>
       </Layout>
+      <ParentFooter layoutContainerCheck={'no-scroll'} />
     </>
   );
 };
