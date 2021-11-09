@@ -9,7 +9,6 @@ import AccountSettings from '../AccountSettings/AccountSettingsContainer';
 import { connect } from 'react-redux';
 import { setParent } from '../../../state/actions/parentActions';
 import RenderWordCloud from '../WordCloud';
-import WordCountContainer from '../WordCountContainer/WordCountContainer';
 import ParentFooter from '../../common/ParentFooter';
 import ChooseChildModal from './ChooseChildModal';
 import { useHistory } from 'react-router-dom';
@@ -17,7 +16,6 @@ import { useHistory } from 'react-router-dom';
 import pinkyWinky from '../../../assets/images/hero_images/hero10.png';
 import submarineBoy from '../../../assets/images/hero_images/hero3.png';
 import dad from '../../../assets/images/hero_images/hero5.png';
-
 
 const RenderNewParentDashboard = props => {
   const FAKE_CHILDREN = [
