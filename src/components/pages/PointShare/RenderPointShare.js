@@ -193,7 +193,6 @@ const PointShare = props => {
 
   const handleSubmitPoints = () => {
     formSubmit(); // submit the form
-    console.log('api call submitPoints was made');
     history.push('/child/winner'); // this page routes to Winner page per Ash / Jake's Whimsical
   };
 
