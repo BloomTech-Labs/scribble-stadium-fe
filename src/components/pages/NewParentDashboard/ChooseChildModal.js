@@ -6,8 +6,8 @@ export default function ChooseChildModal(props) {
   // Get the data to display
   const { childrenAccounts, handleCharacterClick } = props;
 
-  // Timeout timer before the modal is removed from the DOM(in ms)
-  const removeModalTimer = 1000;
+  // // Timeout timer before the modal is removed from the DOM(in ms)
+  // const removeModalTimer = 1000;
 
   // Functio to close the modal
   const closeModal = () => {
@@ -19,9 +19,9 @@ export default function ChooseChildModal(props) {
       delay: 1,
     });
 
-    setTimeout(() => {
-      props.disableModalWindow();
-    }, removeModalTimer);
+    // setTimeout(() => {
+    //   props.disableModalWindow();
+    // }, removeModalTimer);
   };
 
   // Add some animation effects when component loads
@@ -69,7 +69,10 @@ export default function ChooseChildModal(props) {
                       cursor: 'pointer',
                       justifyContent: 'center',
                     }}
-                    onClick={evt => handleCharacterClick(evt, ID)}
+                    onClick={evt => {
+                      handleCharacterClick(evt, ID);
+                      closeModal();
+                    }}
                   >
                     <img src={AvatarURL} />
                   </div>
