@@ -3,8 +3,9 @@ import { Header } from '../../common';
 import { Button } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-
-const RenderWinnerPage = () => {
+import explosion from '../../../assets/images/gamemodeimg/explosion.png';
+import boyImg from '../../../assets/images/gamemodeimg/LightingKid.png';
+const RenderWinnerPage = props => {
   const { push } = useHistory();
 
   const goToChildDashboard = () => {
@@ -15,21 +16,17 @@ const RenderWinnerPage = () => {
     <>
       <Header displayMenu={true} />
       {/* REMOVE ONCE DESIGN WORK BEGINS - START */}
-      <div className={'under-construction'}>
-        <div className={'rectangle-126'} style={{ margin: '3rem' }}>
-          <h1>Coming Soon</h1>
+      <div className={'winner-container'}>
+        <div className="wbox">
+          <img src={explosion} alt="boom" className="explosion-img" />
+          <div className="winner-text">
+            Winner!
+            <div className="winner-avatar">
+              <img src={boyImg} alt="boyImg" className="winner-boy-img" />
+            </div>
+            <div className="winner-name">THUNDERBOLT</div>
+          </div>
         </div>
-        <div className={'under-construction-content'}>
-          <h1>Under Construction!</h1>
-          <h1>Winner Page UI Coming Soon!</h1>
-        </div>
-        <Button
-          style={{ margin: '1rem' }}
-          className="back-btn"
-          onClick={goToChildDashboard}
-        >
-          Back to Child Dashboard
-        </Button>
       </div>
       {/* REMOVE ONCE DESIGN WORK BEGINS - END */}
     </>
