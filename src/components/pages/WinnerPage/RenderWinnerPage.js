@@ -7,8 +7,8 @@ import { connect } from 'react-redux';
 const RenderWinnerPage = () => {
   const { push } = useHistory();
 
-  const goToChildDashboard = () => {
-    push('/child/dashboard');
+  const goToPlayAgain = () => {
+    push('/child/play-again');
   };
 
   return (
@@ -26,9 +26,9 @@ const RenderWinnerPage = () => {
         <Button
           style={{ margin: '1rem' }}
           className="back-btn"
-          onClick={goToChildDashboard}
+          onClick={goToPlayAgain}
         >
-          Back to Child Dashboard
+          Next to Play Again
         </Button>
       </div>
       {/* REMOVE ONCE DESIGN WORK BEGINS - END */}

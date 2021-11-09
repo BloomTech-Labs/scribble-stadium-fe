@@ -275,7 +275,7 @@ function App() {
         {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/play-again NOT for DELETE */}
         <ProtectedRoute
           exact
-          path="child/play-again"
+          path="/child/play-again"
           component={() => (
             <PlayAgain LoadingComponent={ChildLoadingComponent} />
           )}
@@ -283,7 +283,7 @@ function App() {
         {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/play-again NOT for DELETE */}
         <ProtectedRoute
           exact
-          path="child/scores"
+          path="/child/scores"
           component={() => <Scores LoadingComponent={ChildLoadingComponent} />}
         />
         {/* FOUNDATION CODE exists. NEEDS DATA New path to point to /gameplay/dashboard/leaderboard NOT for DELETE */}

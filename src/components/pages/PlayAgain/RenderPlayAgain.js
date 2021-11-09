@@ -13,7 +13,7 @@ const RenderPlayAgain = () => {
   const { push } = useHistory();
 
   const goToChildDashboard = () => {
-    push('/child/dashboard');
+    push('/dashboard');
   };
 
   // Add animation - hero image of girl flies in from left
