@@ -90,7 +90,6 @@ const RenderChildDashboard = props => {
             sm={12}
             onClick={handleTrophyRoom}
           >
-            <img className="trophy-explosion" src={Explosion} alt="explosion" />
             <p className="accept-mission-text">Trophy Room!</p>
           </Col>
         </Row>
