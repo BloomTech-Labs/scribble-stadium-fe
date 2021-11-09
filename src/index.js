@@ -317,6 +317,13 @@ function App() {
             <AudioBook LoadingComponent={ChildLoadingComponent} />
           )}
         />
+        <ProtectedRoute
+          exact
+          path="/child/play-again"
+          component={() => (
+            <PlayAgain LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
         <Route exact path="/moderation" component={ModerationTest} />
         <Route exact path="/admin" component={AdminDashboard} />
         <Route exact path="/dev/day/1-3" component={SatMon} />
