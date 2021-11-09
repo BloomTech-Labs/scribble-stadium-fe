@@ -22,7 +22,7 @@ const ChildMenu = props => {
   const { logout } = useAuth0();
 
   const childRedirect = () => {
-    push('/child/dashboard');
+    push('/dashboard');
   };
 
   const galleryRedirect = () => {
@@ -30,7 +30,7 @@ const ChildMenu = props => {
   };
 
   const leaderboardRedirect = () => {
-    push('/child/leaderboard');
+    push('/leaderboard');
   };
 
   return (

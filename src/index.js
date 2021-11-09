@@ -31,6 +31,7 @@ import {
 } from './components/common';
 import { AddChild } from './components/pages/AddChild';
 import { ChildDashboard } from './components/pages/ChildDashboard';
+import { DrawingSub } from './components/pages/DrawingSub';
 import { Gamemode } from './components/pages/Gamemode';
 
 import { Help } from './components/pages/Help';
@@ -41,20 +42,23 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { ParentFaq } from './components/pages/ParentFaq';
 import { ParentContact } from './components/pages/ParentContact';
 import { NewParentDashboard } from './components/pages/NewParentDashboard';
-import { ParentDashFaq } from './components/pages/ParentDashFaq';
 import { SupportPage } from './components/pages/SupportPage';
 import { ParentSettings } from './components/pages/FamilySettings';
 import { EditPlayers } from './components/pages/EditPlayers';
 import { StoryPrompt } from './components/pages/StoryPrompt';
+import { WritingSub } from './components/pages/WritingSub';
 import { Leaderboard } from './components/pages/Leaderboard';
 import { ChangeAvatar } from './components/pages/ChangeAvatar';
 import FaceoffReveal from './components/pages/Animations/FaceoffReveal';
 
 // GamePlay Components
 import { GamePlayMain } from './components/pages/GamePlay/index';
-import { PointShare } from './components/pages/PointShare';
+import { NextSteps } from './components/pages/NextSteps';
 import { MatchUp } from './components/pages/MatchUp';
+import { Scores } from './components/pages/Scores';
+import { PointShare } from './components/pages/PointShare';
 import { VotingPage } from './components/pages/VotingPage';
+import { WinnerPage } from './components/pages/WinnerPage';
 import { PlayAgain } from './components/pages/PlayAgain';
 
 // Note: for demo/developer purposes ONLY
@@ -109,7 +113,9 @@ function App() {
     <>
       <DevModeHeader component={DevModeHeader} />
       <Switch>
+        {/* NEW path => /gameplay/gamemode NOT for DELETE  */}
         <Route exact path="/gamemode" component={Gamemode} />
+        {/* HEAD Route for all gameplay path components DO NOT REMOVE  */}
         <Route path="/gameplay" component={GamePlayMain} />
         <Route path="/login" component={LandingPage} />
         {/* any of the routes you need secured should be registered as ProtectedRoutes */}
@@ -121,20 +127,21 @@ function App() {
           )}
         />
 
+        {/* Incomplete and non functional. OK TO DELETE - REPLACED with /gameplay/mission/read */}
         <ProtectedRoute
           path="/child/story"
           component={() => (
             <StoryPrompt LoadingComponent={ChildLoadingComponent} />
           )}
         />
-
+        {/* TO BE RE-REROUTED to /gameplay/dashboard and connected along the gameplay path  */}
         <ProtectedRoute
-          path="/child/dashboard"
+          path="/dashboard"
           component={() => (
             <ChildDashboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
-
+        {/* TO BE MAPPED into flow  PAGE NEEDED SUBMISSION GALLERY HEADER RENDERED  */}
         <ProtectedRoute
           exact
           path="/gallery"
@@ -142,7 +149,7 @@ function App() {
             <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}
         />
-
+        {/* CONNECTED TO ABOVE /gallery path  */}
         <ProtectedRoute
           exact
           path="/gallery/:id"
@@ -150,7 +157,7 @@ function App() {
             <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}
         />
-
+        {/* CONNECTED TO ABOVE /gallery path*/}
         <ProtectedRoute
           exact
           path="/gallery/child/:id"
@@ -160,11 +167,25 @@ function App() {
         />
 
         <ProtectedRoute path="/scoreboard" component={FaceoffReveal} />
-
+        {/* INCOMPLETE and NON-OPERATIONAL replaced with /gameplay/mission/read, write, and draw pages OK TO DELETE */}
         <ProtectedRoute
           path="/child/mission-control"
           component={() => (
             <MissionControl LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        {/* INCOMPLETE and OPERATIONAL but NO STYLE / replaced with /gameplay/mission/draw OK to DELETE   */}
+        <ProtectedRoute
+          path="/child/drawing-sub"
+          component={() => (
+            <DrawingSub LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        {/* INCOMPLETE and OPERATIONAL but NO STYLE / replaced with /gameplay/mission/write OK to DELETE   */}
+        <ProtectedRoute
+          path="/child/writing-sub"
+          component={() => (
+            <WritingSub LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <ProtectedRoute
@@ -179,7 +200,13 @@ function App() {
             <EditPlayers LoadingComponent={ParentLoadingComponent} />
           )}
         />
-
+        <ProtectedRoute
+          exact
+          path="/parent/dashboard"
+          component={() => (
+            <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
+          )}
+        />
         <ProtectedRoute
           exact
           path="/parent/support"
@@ -215,6 +242,15 @@ function App() {
             <ParentSettings LoadingComponent={ParentLoadingComponent} />
           )}
         />
+        {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/next-steps NOT for DELETE */}
+        <ProtectedRoute
+          exact
+          path="/child/next-steps"
+          component={() => (
+            <NextSteps LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        {/* INCOMPLETE AND BROKEN Can be fixed and repurposed under /gameplay  path when needed STATUS CONFIRMATION NEEDED */}
         <ProtectedRoute
           exact
           path="/child/point-share"
@@ -222,11 +258,13 @@ function App() {
             <PointShare LoadingComponent={ChildLoadingComponent} />
           )}
         />
+        {/* ROUTE EXISTS / NO PAGE EXISTS OK to DELETE / Will need to be replaced under /gameplay route */}
         <ProtectedRoute
           exact
           path="/child/match-up"
           component={() => <MatchUp LoadingComponent={ChildLoadingComponent} />}
         />
+        {/* ROUTE EXISTS OK to DELETE / returns user to /child/dashboard / Will need to be replaced under /gameplay route */}
         <ProtectedRoute
           exact
           path="/child/match-up/squad-vote"
@@ -234,19 +272,44 @@ function App() {
             <VotingPage LoadingComponent={ChildLoadingComponent} />
           )}
         />
+        {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/play-again NOT for DELETE */}
+        <ProtectedRoute
+          exact
+          path="/child/play-again"
+          component={() => (
+            <PlayAgain LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/play-again NOT for DELETE */}
+        <ProtectedRoute
+          exact
+          path="/child/scores"
+          component={() => <Scores LoadingComponent={ChildLoadingComponent} />}
+        />
+        {/* FOUNDATION CODE exists. NEEDS DATA New path to point to /gameplay/dashboard/leaderboard NOT for DELETE */}
+        <ProtectedRoute
+          exact
+          path="/child/winner"
+          component={() => (
+            <WinnerPage LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
         <ProtectedRoute
           exact
           path="/child/leaderboard"
+          path="/leaderboard"
           component={() => (
             <Leaderboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
+        {/* INCOMPLETE page exists. NEEDS DATA/ STYLE New path to point to /gameplay/dashboard/change-avatar NOT for DELETE */}
         <ProtectedRoute
-          path="/child/change-avatar"
+          path="/change-avatar"
           component={() => (
             <ChangeAvatar LoadingComponent={ChildLoadingComponent} />
           )}
         />
+        {/* FOUNDATION CODE exists. NEEDS DATA/ STYLE New path and connection point TBD / JAKE FLOW QUESTION NOT for DELETE */}
         <ProtectedRoute
           exact
           path="/child/audiobook"

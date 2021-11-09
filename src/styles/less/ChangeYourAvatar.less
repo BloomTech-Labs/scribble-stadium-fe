@@ -1,0 +1,137 @@
+/* Styling for the choose your avatar header*/
+.avatar-header{
+    font-size:xx-large;
+    font-family: 'bangers',cursive;
+    text-align: center;    
+}
+
+/*Ruleset for the container of the avatar cards*/
+.avatar-cards-container{
+    display:flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-flow: wrap;
+}
+
+/*Ruleset for the styling of the avatar cards*/
+.avatar-card{    
+    min-height: 29rem;
+    width: 25rem;   
+    border:1px solid black; 
+    box-sizing: border-box;
+    box-shadow: 0px 6px 10px rgba(128,128,128,0.8);
+    margin-bottom:5%;
+    padding-top:1%;
+    background-color:#6ceae6;
+    opacity: 0.9;
+}
+
+/*Ruleset that triggers animation of avatar card when hovering*/
+.avatar-card:hover{
+    animation:avatar-card-animation linear 0.9s infinite;
+}
+
+/*Transformations for the animation of the avatar card. This is the animation*/
+@keyframes avatar-card-animation {
+    0%{
+        transform: rotate(0deg);
+    }
+
+    25%{
+        transform: rotate(-45deg);
+    }
+
+    50%{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(45deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+    
+}
+
+/*Everything below are the rulesets for the images of the avatar cards*/
+.avatar-lighting-kid{
+    background-image: url('../../assets/images/hero_images/hero4.png');
+    background-size:contain;  
+    background-repeat: no-repeat; 
+    background-position: center;
+    min-height:15rem; 
+}
+
+.avatar-captain-falcon-kid{
+    background-image: url('../../assets/images/hero_images/hero1.png');
+    background-size:contain;  
+    background-repeat: no-repeat; 
+    background-position: center;
+    min-height:15rem; 
+}
+
+.avatar-shazaam-kid{
+    background-image: url('../../assets/images/hero_images/hero2.png');
+    background-size:contain;  
+    background-repeat: no-repeat; 
+    background-position: center;
+    min-height:15rem; 
+}
+
+.avatar-blue-whirlwind-kid{
+    background-image: url('../../assets/images/hero_images/hero3.png');
+    background-size:contain;  
+    background-repeat: no-repeat; 
+    background-position: center;
+    min-height:15rem; 
+}
+
+.avatar-pan-on-head-kid{
+    background-image: url('../../assets/images/hero_images/hero5.png');
+    background-size:contain;  
+    background-repeat: no-repeat; 
+    background-position: center;
+    min-height:15rem; 
+}
+
+.avatar-purple-hero-kid{
+    background-image: url('../../assets/images/hero_images/hero6.png');
+    background-size:contain;  
+    background-repeat: no-repeat; 
+    background-position: center;
+    min-height:15rem; 
+}
+
+.avatar-frost-kid{
+    background-image: url('../../assets/images/hero_images/hero7.png');
+    background-size:contain;  
+    background-repeat: no-repeat; 
+    background-position: center;
+    min-height:15rem; 
+}
+
+.avatar-flash-kid{
+    background-image: url('../../assets/images/hero_images/hero8.png');
+    background-size:contain;  
+    background-repeat: no-repeat; 
+    background-position: center;
+    min-height:15rem; 
+}
+
+.avatar-fly-girl-kid{
+    background-image: url('../../assets/images/hero_images/hero9.png');
+    background-size:contain;  
+    background-repeat: no-repeat; 
+    background-position: center;
+    min-height:15rem; 
+}
+
+.avatar-super-girl-kid{
+    background-image: url('../../assets/images/hero_images/hero10.png');
+    background-size:contain;  
+    background-repeat: no-repeat; 
+    background-position: center;
+    min-height:15rem; 
+}
+

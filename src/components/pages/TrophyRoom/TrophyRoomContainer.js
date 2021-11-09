@@ -11,13 +11,18 @@ const TrophyRoomContainer = ({ LoadingComponent, ...props }) => {
   return (
     <>
       {isAuthenticated && !userInfo && (
-        <LoadingComponent message="Loading..." />
+        <div style={{ textAlign: 'center' }}>
+          <h2>Awaiting User Data Holder. Page Rendering</h2>
+        </div>
+
+        // <LoadingComponent message="Loading..." />
       )}
       {isAuthenticated && userInfo && (
         <RenderTrophyRoom
           {...props}
           userInfo={userInfo}
-          // authService={authService}
+          // Currently not used. Will be used in the future
+          //authService={authService}
         />
       )}
     </>

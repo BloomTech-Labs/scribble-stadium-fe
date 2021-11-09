@@ -214,7 +214,7 @@ function ChildForm(props) {
                 {
                   required: true,
                   // type: "integer",
-                  // len: 4,
+                  // len: 4
                 },
                 ({ getFieldValue }) => ({
                   validator(_, value) {

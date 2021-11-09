@@ -77,7 +77,7 @@ const LandingAnimation = () => {
   const writeTextRef = useRef();
   // "DRAW" text
   const drawTextRef = useRef();
-  // ENLARGE "WELCOME TO STORY SQUAD" TO TOP REFS
+  // ENLARGE "WELCOME TO Scribble Stadium" TO TOP REFS
   const storySquadBannerRef = useRef();
   // ENLARGE "READ" TO TOP LEFT REFS
   const readInLeftRef = useRef();
@@ -102,7 +102,7 @@ const LandingAnimation = () => {
 
   // creating animation hooks
 
-  // ENLARGE "WELCOME TO STORY SQUAD" TO TOP HOOKS
+  // ENLARGE "WELCOME TO Scribble Stadium" TO TOP HOOKS
   const welcomeBannerOnTopStyle1 = useWelcomeToStorySquad(readTextRef, 'READ!');
   const welcomeBannerOnTopStyle2 = useWelcomeToStorySquad(
     writeTextRef,
@@ -131,7 +131,7 @@ const LandingAnimation = () => {
 
   // bringing in useChain to connect the animations together
   useChain([
-    // storySquadBannerRef, //"WELCOME TO STORY SQUAD"
+    // storySquadBannerRef, //"WELCOME TO Scribble Stadium"
     readInLeftRef, // "READ"
     readTextRef,
     // welcomeBannerOnTopStyle,

@@ -8,7 +8,7 @@ import { Button } from 'antd';
 import UploadDocs from '../../common/UploadDocs';
 
 //** Import Assets */
-import boyImg from '../../../assets/images/gamemodeimg/LightingKid.png';
+import boyImg from '../../../assets/images/hero_images/hero4.png';
 
 export default function GameWriteStep(props) {
   // Get the history object
@@ -49,6 +49,7 @@ export default function GameWriteStep(props) {
 
       setIsUploading(false);
     }, triggerSubmitTimer);
+    history.push('/child/next-steps');
   };
 
   // This function handles when we make a full submission of the entire mission(after reading, drawing, and writing)
@@ -150,11 +151,12 @@ export default function GameWriteStep(props) {
                 : "I'd rather draw"}
             </button>
 
-            {props.battleReady && (
+            {/* This button is no longer needed as the page routes to next steps. If in the future a battle mode is implemented, this button will be used. */}
+            {/* {props.battleReady && (
               <div className="battle-btn">
                 <button>Begin Battle!</button>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>

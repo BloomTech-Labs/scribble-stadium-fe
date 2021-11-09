@@ -39,7 +39,7 @@ const Tues = ({ setDate }) => {
   return (
     <Layout>
       <Header className="ant-page-header">
-        <h1>Story Squad</h1>
+        <h1>Scribble Stadium</h1>
         <Button onClick={adminDash}>Back to Admin Dashboard</Button>
       </Header>
 
