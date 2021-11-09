@@ -19,7 +19,9 @@ const RenderMatchUp = props => {
         <div id="matchup-window">
           <h1>The Matchup</h1>
           <h2>201 points to win</h2>
-          <div className="player-matchup"></div>
+          <div className="player-matchup">
+            <div className="vs-image"></div>
+          </div>
         </div>
       </div>
     </>
