@@ -37,7 +37,7 @@ function GamePlayMain(props) {
 
   return (
     <div id="gameplay">
-      <Header />
+      <Header displayMenu={true} />
 
       <Switch>
         <Route exact path={baseURL}>
