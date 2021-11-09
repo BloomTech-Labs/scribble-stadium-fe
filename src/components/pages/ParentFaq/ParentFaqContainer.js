@@ -4,6 +4,7 @@ import { CaretRightOutlined } from '@ant-design/icons';
 import img1 from './img1.png';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import ParentDashboardBack from '../../common/ParentDashboardBack';
+import ParentFooter from '../../common/ParentFooter';
 
 const { Panel } = Collapse;
 
@@ -431,6 +432,7 @@ const ParentFaqContainer = () => {
           </Card>
         </div>
       </Layout>
+      <ParentFooter />
     </>
   );
 };

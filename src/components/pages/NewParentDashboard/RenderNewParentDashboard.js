@@ -10,12 +10,14 @@ import { connect } from 'react-redux';
 import { setParent } from '../../../state/actions/parentActions';
 import RenderWordCloud from '../WordCloud';
 import WordCountContainer from '../WordCountContainer/WordCountContainer';
+import ParentFooter from '../../common/ParentFooter';
 import ChooseChildModal from './ChooseChildModal';
 import { useHistory } from 'react-router-dom';
 // TEMPORARY HARD CODE - import of image assets - remove when pulling state from BE or globally
 import pinkyWinky from '../../../assets/images/hero_images/hero10.png';
 import submarineBoy from '../../../assets/images/hero_images/hero3.png';
 import dad from '../../../assets/images/hero_images/hero5.png';
+
 
 const RenderNewParentDashboard = props => {
   const FAKE_CHILDREN = [
@@ -79,6 +81,7 @@ const RenderNewParentDashboard = props => {
             <AccountSettings />
           </div>
         </Layout>
+        <ParentFooter />
       </Layout>
 
       {modalVisible && (
