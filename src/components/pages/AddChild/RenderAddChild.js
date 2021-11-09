@@ -6,25 +6,29 @@ import { Layout, Typography } from 'antd';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import ParentDashboardBack from '../../common/ParentDashboardBack';
 import ChildForm from '../../common/ChildForm';
+import ParentFooter from '../../common/ParentFooter';
 
 const { Title } = Typography;
 
 const RenderAddChild = props => {
   return (
-    <Layout className="add-child">
-      <ParentNavTopBar />
-      <Layout className="content">
-        <div className="top-section">
-          <ParentDashboardBack />
-          <Title className="title" level={2}>
-            Add Player
-          </Title>
-        </div>
-        <Layout className="children">
-          <ChildForm {...props} newChild={true} />
+    <>
+      <Layout className="edit-players">
+        <ParentNavTopBar />
+        <Layout className="content">
+          <div className="top-section">
+            <ParentDashboardBack />
+            <Title className="title" level={2}>
+              Add Player
+            </Title>
+          </div>
+          <Layout className="children">
+            <ChildForm {...props} newChild={true} />
+          </Layout>
         </Layout>
       </Layout>
-    </Layout>
+      <ParentFooter layoutContainerCheck={'no-scroll'} />
+    </>
   );
 };
 

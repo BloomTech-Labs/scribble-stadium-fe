@@ -30,7 +30,7 @@ const RenderLeaderboard = props => {
   // const [isStreakModalVisible, setIsStreakModalVisible] = useState(false);
 
   const dashboard = () => {
-    push('/gameplay');
+    push('/dashboard');
   };
 
   // TEMPORARY
@@ -90,14 +90,14 @@ const RenderLeaderboard = props => {
           onClick={dashboard}
         >
           {' '}
-          Back to Gameplay{' '}
+          Back to Dashboard{' '}
         </Button>
       </div>
       {/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  TEMPORARY UNDER CONSTRUCTION SECTION ABOVE TO BE REMOVED*/}
 
       {/* TEMPORARY  */}
       {/* <h1>Coming Soon</h1>
-       <Header displayMenu={true} title="STORY SQUAD" />
+       <Header displayMenu={true} title="Scribble Stadium" />
        <Button
           style={{ margin: '1rem' }}
           className="back-btn"

@@ -12,12 +12,12 @@ const RenderLeaderboard = props => {
   const { push } = useHistory();
 
   const dashboard = () => {
-    push('/child/dashboard');
+    push('/dashboard');
   };
 
   return (
     <>
-      <Header displayMenu={true} title="Story Squad" />
+      <Header displayMenu={true} title="Scribble Stadium" />
       <Button style={{ margin: '1rem' }} onClick={dashboard}>
         Back to Child Dashboard
       </Button>

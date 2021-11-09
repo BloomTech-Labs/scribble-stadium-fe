@@ -7,19 +7,34 @@
 
   .ant-modal-content {
     border: 2px solid #000000;
-    height: 55vh;
+    height: 75vh;
     padding: 5%;
     min-width: 100%;
+
+    .ant-modal-close{
+      left: inherit;
+    }
+
+    .ant-modal-close-x {
+      font-size: 25px;
+      float: right;
+    }
 
     .accept-button {
       .orangeButtonStyle();
       position: absolute;
-      right: 8%;
+      right: 5%;
       top: 82.33%;
+      margin: 0 auto;
+      background: white;
+      color: black;
     }
     .ant-modal-body {
       p {
         font-size: 3rem;
+      }
+      .ant-btn > span {
+        font-size: 20px;
       }
     }
   }
@@ -64,5 +79,16 @@
           }
         }
     }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .instructions-modal .ant-modal-content {
+    height: 85vh;
+    padding: inherit;
+  }
+
+  .instructions-modal .ant-modal-content .ant-modal-body p {
+    font-size: 30px;
   }
 }

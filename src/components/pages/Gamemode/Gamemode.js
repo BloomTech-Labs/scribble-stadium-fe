@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import { Header } from '../../common';
-import { Row, Col, Button } from 'antd';
+import { Button } from 'antd';
 import { connect } from 'react-redux';
 
 import { useHistory } from 'react-router-dom';
-import { Link, Route } from 'react-router-dom';
 
 const Gamemode = ({ ...props }) => {
   const { push, location } = useHistory();
-  const [sP, setsP] = useState(false);
 
   useEffect(() => {
     const propInit = () => {
@@ -48,7 +46,7 @@ const Gamemode = ({ ...props }) => {
 
   const startSinglePlayerMode = e => {
     e.preventDefault();
-    push('/gameplay');
+    push('/gameplay/mission/read');
   };
 
   return (
@@ -62,6 +60,14 @@ const Gamemode = ({ ...props }) => {
               <div className="single-button-container">
                 <Button className="single-btn" onClick={startSinglePlayerMode}>
                   Single Player
+                </Button>
+                <Button
+                  className="multi-btn"
+                  onClick={
+                    startSinglePlayerMode
+                  } /* multiplayer mode is not created yet, will need to change onClick event*/
+                >
+                  Multiplayer
                 </Button>
               </div>
             </div>
