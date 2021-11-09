@@ -41,7 +41,13 @@ function Hud(props) {
               ${
                 completedActivity.length - 1 >= activities.indexOf(a) &&
                 'completedActivity'
-              }`}
+              }
+              ${
+                currentActivity !== a &&
+                completedActivity.length - 1 < activities.indexOf(a) &&
+                'restActive'
+              }
+              `}
             >
               <span>{a}</span>
             </div>
@@ -54,7 +60,7 @@ function Hud(props) {
         expandIcon={({ isActive }) => (
           <DownCircleFilled
             rotate={isActive ? 180 : 0}
-            style={{ fontSize: '18px' }}
+            style={{ fontSize: '35px' }}
           />
         )}
         className="site-collapse-custom-collapse"
