@@ -43,7 +43,6 @@ const RenderNewParentDashboard = props => {
   const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
-    console.warn('!!! GETTING PROFILE DATA');
     getProfileData()
       .then(res => {
         setParent({
@@ -86,7 +85,6 @@ const RenderNewParentDashboard = props => {
         <ChooseChildModal
           childrenAccounts={childrenAccounts}
           handleCharacterClick={(evt, childId) => {
-            console.warn('We should set the selected child account here.');
             history.push('/dashboard');
           }}
         />
