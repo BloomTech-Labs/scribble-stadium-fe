@@ -4,7 +4,7 @@ import { Button } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { gsap } from 'gsap';
-import Footer from '../GamePlay/Footer';
+import ChildFooter from '../../common/ChildFooter';
 
 import flyingGirlImg from '../../../assets/images/hero_images/hero9.png';
 import boyWithYellowHelmetImg from '../../../assets/images/hero_images/hero1.png';
@@ -68,8 +68,7 @@ const RenderPlayAgain = () => {
           </div>
         </div>
       </div>
-      {/* The Footer import must be updated once it gets moved to the global component "common" directory */}
-      <Footer />
+      <ChildFooter />
     </>
   );
 };

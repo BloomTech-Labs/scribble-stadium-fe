@@ -4,6 +4,7 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
 
 import { Header } from '../../common';
+import ChildFooter from '../../common/ChildFooter';
 import FaceoffContent from './FaceoffContent';
 import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
@@ -142,6 +143,7 @@ const RenderMatchUp = props => {
           {props.VotesRemaining} votes left
         </Button>
       </div> */}
+      <ChildFooter />
     </>
   );
 };

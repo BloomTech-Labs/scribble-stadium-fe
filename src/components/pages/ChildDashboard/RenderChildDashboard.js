@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Header } from '../../common';
+import ChildFooter from '../../common/ChildFooter';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { InstructionsModal } from '../../common';
@@ -95,6 +96,7 @@ const RenderChildDashboard = props => {
           </Col>
         </Row>
       </div>
+      <ChildFooter />
     </>
   );
 };

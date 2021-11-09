@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 //** Import Components */
 import { Header } from '../../common';
 import { NotFoundPage } from '../NotFound';
-import Footer from './Footer';
+import ChildFooter from '../../common/ChildFooter';
 import GamePlayMission from './GamePlayMission';
 import { TrophyRoom } from '../TrophyRoom/index';
 import GameModal from './GameModal';
@@ -68,7 +68,7 @@ function GamePlayMain(props) {
         <Route component={NotFoundPage} />
       </Switch>
 
-      <Footer />
+      <ChildFooter />
 
       {enableModal && (
         <GameModal
