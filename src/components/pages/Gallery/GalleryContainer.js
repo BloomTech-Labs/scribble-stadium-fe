@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Header } from '../../common';
+import ChildFooter from '../../common/ChildFooter';
 import { Button } from 'antd';
 import { getChildByID } from '../../../api/index';
 import { setWeeklySubmissions } from '../../../state/actions/galleryActions';
@@ -46,6 +47,7 @@ const GalleryContainer = props => {
         </div>
         <WeeklySubmissions data={props.submissions} />
       </div>
+      <ChildFooter />
     </>
   );
 };

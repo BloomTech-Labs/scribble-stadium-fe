@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header } from '../../common';
+import ChildFooter from '../../common/ChildFooter';
 import '../../../styles/less/ChangeYourAvatar.less';
 
 const RenderChangeAvatar = () => {
@@ -41,6 +42,7 @@ const RenderChangeAvatar = () => {
           </div>
         </div>
       </div>
+      <ChildFooter />
     </>
   );
 };

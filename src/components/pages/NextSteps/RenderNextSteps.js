@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import boom from '../../../assets/images/boom-img.png';
 import talkBubble1 from '../../../assets/images/talk-bubble1.png';
 import talkBubble2 from '../../../assets/images/talk-bubble2.png';
-import Footer from '../GamePlay/Footer';
+import ChildFooter from '../../common/ChildFooter';
 
 // import hero images - TEMPORARY HARD CODE - remove when pulling state ( avatarID ) from backend
 import childOneImg from '../../../assets/images/hero_images/hero10.png';
@@ -97,7 +97,7 @@ const RenderNextSteps = () => {
         </div>
       </div>
       {/* The Footer import must be updated once it gets moved to the global component "common" directory */}
-      <Footer />
+      <ChildFooter />
     </>
   );
 };

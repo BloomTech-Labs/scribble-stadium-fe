@@ -9,7 +9,7 @@ export default function ChooseChildModal(props) {
   // Timeout timer before the modal is removed from the DOM(in ms)
   const removeModalTimer = 1000;
 
-  // Functio to close the modal
+  // Function to close the modal
   const closeModal = () => {
     gsap.to('.modal-container', { y: '100vh', duration: 0.5 });
     gsap.to('#notification-modal', { opacity: 0, duration: 0.5, delay: 0.5 });

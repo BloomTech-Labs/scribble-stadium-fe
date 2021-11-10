@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Row } from 'antd';
 import { connect } from 'react-redux';
 import { Header } from '../../common';
+import ChildFooter from '../../common/ChildFooter';
 import { UploadDocs } from '../../common/';
 import { postNewDrawingSub } from '../../../api/index';
 import { InstructionsModal } from '../../common/index';
@@ -64,6 +65,7 @@ export const RenderDrawingSub = props => {
           />
         </div>
       </div>
+      <ChildFooter />
     </>
   );
 };
