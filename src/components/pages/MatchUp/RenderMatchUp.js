@@ -38,6 +38,8 @@ const RenderMatchUp = props => {
               <figcaption>player name</figcaption>
             </div>
           </div>
+
+          <div className="drawing-matchup"></div>
         </div>
       </div>
     </>
