@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header } from '../../common';
+import ChildFooter from '../../common/ChildFooter';
 import { Button } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -32,6 +33,7 @@ const RenderWinnerPage = () => {
         </Button>
       </div>
       {/* REMOVE ONCE DESIGN WORK BEGINS - END */}
+      <ChildFooter />
     </>
   );
 };

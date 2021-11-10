@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import UploadDocs from '../../common/UploadDocs';
 import LightningKid from '../../../assets/images/hero_images/hero4.png';
 import { Header } from '../../common';
+import ChildFooter from '../../common/ChildFooter';
 import { Row, Col } from 'antd';
 import { connect } from 'react-redux';
 import Thrashbar from './Thrashbar';
@@ -87,6 +88,7 @@ const YourMissionComp = ({ ...props }) => {
           </Col>
         </Row>
       </div>
+      <ChildFooter />
     </>
   );
 };

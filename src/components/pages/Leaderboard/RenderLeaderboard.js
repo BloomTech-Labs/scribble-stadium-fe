@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header } from '../../common';
+import ChildFooter from '../../common/ChildFooter';
 import Leaderboard from './Leaderboard';
 
 import { connect } from 'react-redux';
@@ -25,6 +26,7 @@ const RenderLeaderboard = props => {
         <Leaderboard child={props.child} />
         <div className="custom-divider"></div>
       </div>
+      <ChildFooter layoutContainerCheck={'no-scroll'} />
     </>
   );
 };

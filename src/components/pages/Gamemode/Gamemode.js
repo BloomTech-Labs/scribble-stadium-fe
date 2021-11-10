@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { Header } from '../../common';
+import ChildFooter from '../../common/ChildFooter';
 import { Button } from 'antd';
 import { connect } from 'react-redux';
 
@@ -72,6 +73,7 @@ const Gamemode = ({ ...props }) => {
               </div>
             </div>
           )}
+      <ChildFooter layoutContainerCheck={'no-scroll'} />
     </div>
   );
 };
