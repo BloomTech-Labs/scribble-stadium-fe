@@ -66,7 +66,7 @@ const Gamemode = ({ ...props }) => {
               <Header />
               <Button
                 className="back-btn"
-                style={{ margin: '1rem' }}
+                style={{ marginBottom: '2rem', transform: 'scale(80%)' }}
                 onClick={dashboard}
               >
                 Back to Dashboard
