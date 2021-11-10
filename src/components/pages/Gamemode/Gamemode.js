@@ -54,8 +54,7 @@ const Gamemode = ({ ...props }) => {
     <div>
       {props.child.gamemode === null
         ? reini()
-        : props.child.gamemode.mode === 'select' &&
-          !props.child.gamemode.sp && (
+        : !props.child.gamemode.sp && (
             <div className="dash-container">
               <Header displayMenu={true} />
               <div className="single-button-container">
