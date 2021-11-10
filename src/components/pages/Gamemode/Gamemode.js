@@ -60,25 +60,7 @@ const Gamemode = ({ ...props }) => {
         ? reini()
         : !props.child.gamemode.sp && (
             <div className="dash-container">
-<<<<<<< HEAD
               <Header displayMenu={true} />
-=======
-              <Header />
-              <Button
-                className="back-btn"
-<<<<<<< HEAD
-                style={{ marginBottom: '2rem', transform: 'scale(80%)' }}
-=======
-                style={{ margin: '1rem' }}
->>>>>>> 886e5bf (adds a back-btn)
-                onClick={dashboard}
-              >
-                Back to Dashboard
-              </Button>
-<<<<<<< HEAD
->>>>>>> 886e5bf (adds a back-btn)
-=======
->>>>>>> 886e5bf (adds a back-btn)
               <div className="single-button-container">
                 <Button className="single-btn" onClick={startSinglePlayerMode}>
                   Single Player
