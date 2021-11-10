@@ -45,6 +45,10 @@ const Gamemode = ({ ...props }) => {
     props.child.gamemode = ggm;
   };
 
+  const dashboard = () => {
+    push('/dashboard');
+  };
+
   const startSinglePlayerMode = e => {
     e.preventDefault();
     push('/gameplay/mission/read');
@@ -56,7 +60,18 @@ const Gamemode = ({ ...props }) => {
         ? reini()
         : !props.child.gamemode.sp && (
             <div className="dash-container">
+<<<<<<< HEAD
               <Header displayMenu={true} />
+=======
+              <Header />
+              <Button
+                className="back-btn"
+                style={{ margin: '1rem' }}
+                onClick={dashboard}
+              >
+                Back to Dashboard
+              </Button>
+>>>>>>> 886e5bf (adds a back-btn)
               <div className="single-button-container">
                 <Button className="single-btn" onClick={startSinglePlayerMode}>
                   Single Player
