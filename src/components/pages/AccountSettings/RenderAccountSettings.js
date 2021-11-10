@@ -83,32 +83,6 @@ function RenderAccountSettings() {
         <div className="editText">
           <h3>Edit Account Settings</h3>
         </div>
-        <div className="buttonArea">
-          <div
-            className="unlockButton"
-            style={unlock ? null : { display: 'none' }}
-          >
-            <Button
-              className="lockUnlockButton"
-              onClick={() => setIsModalVisible(true)}
-              value="UNLOCK"
-            >
-              UNLOCK WITH PIN
-            </Button>
-          </div>
-
-          <div
-            className="lockButton"
-            style={unlock ? { display: 'none' } : null}
-          >
-            <button
-              className="lockUnlockButton"
-              onClick={() => setUnlock(!unlock)}
-            >
-              LOCK
-            </button>
-          </div>
-        </div>
       </div>
       <div
         className="editFormsAndButtonsContainer"
