@@ -24,7 +24,10 @@ const RenderMatchUp = props => {
               <div id="first-player" className="player-image"></div>
               <figcaption>player name</figcaption>
             </div>
-            <div id="second-player" className="player-image"></div>
+            <div className="player-matchup">
+              <div id="second-player" className="player-image"></div>
+              <figcaption>player name</figcaption>
+            </div>
             <div className="vs-image"></div>
             <div id="third-player" className="player-image"></div>
             <div id="fourth-player" className="player-image"></div>
