@@ -41,10 +41,10 @@ const RenderMatchUp = props => {
         </div>
       </div>
       <div className="drawing-story-matchup">
-        <div className="drawing-matchup"></div>
-        <div className="story-matchup"></div>
-        <div className="drawing-matchup"></div>
-        <div className="story-matchup"></div>
+        <div className="small-matchup-window"></div>
+        <div className="small-matchup-window"></div>
+        <div className="small-matchup-window"></div>
+        <div className="small-matchup-window"></div>
       </div>
     </>
   );
