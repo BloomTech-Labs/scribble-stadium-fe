@@ -37,6 +37,7 @@ function Hud(props) {
         {activities.map(a => {
           return (
             <div
+              key={`${a}`}
               className={`activity ${currentActivity === a && 'currentActivity'}
               ${
                 completedActivity.length - 1 >= activities.indexOf(a) &&
@@ -70,6 +71,7 @@ function Hud(props) {
             {dayBars.map(a => {
               return (
                 <div
+                  key={`${a}`}
                   className={`${a} ${currentBar === a && 'currentBar'}`}
                 ></div>
               );
