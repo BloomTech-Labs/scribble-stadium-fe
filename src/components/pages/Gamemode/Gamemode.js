@@ -52,27 +52,26 @@ const Gamemode = ({ ...props }) => {
 
   return (
     <div>
-      {props.child.gamemode === null
-        ? reini()
-        : props.child.gamemode.mode === 'select' &&
-          !props.child.gamemode.sp && (
-            <div className="dash-container">
-              <Header displayMenu={true} />
-              <div className="single-button-container">
-                <Button className="single-btn" onClick={startSinglePlayerMode}>
-                  Single Player
-                </Button>
-                <Button
-                  className="multi-btn"
-                  onClick={
-                    startSinglePlayerMode
-                  } /* multiplayer mode is not created yet, will need to change onClick event*/
-                >
-                  Multiplayer
-                </Button>
-              </div>
-            </div>
-          )}
+      {props.child.gamemode === null ? (
+        reini()
+      ) : (
+        <div className="dash-container">
+          <Header displayMenu={true} />
+          <div className="single-button-container">
+            <Button className="single-btn" onClick={startSinglePlayerMode}>
+              Single Player
+            </Button>
+            <Button
+              className="multi-btn"
+              onClick={
+                startSinglePlayerMode
+              } /* multiplayer mode is not created yet, will need to change onClick event*/
+            >
+              Multiplayer
+            </Button>
+          </div>
+        </div>
+      )}
       <ChildFooter layoutContainerCheck={'no-scroll'} />
     </div>
   );
