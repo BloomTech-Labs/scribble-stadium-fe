@@ -89,7 +89,7 @@ const RenderMatchUp = props => {
               ></div>
               <figcaption>player name</figcaption>
             </div>
-            <h2>VS</h2>
+            <div className="vs-lightning-image"></div>
             <div className="player-container">
               <div
                 id="fourth-player-small-window"
