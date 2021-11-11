@@ -117,6 +117,7 @@ const RenderMatchUp = props => {
               <figcaption>player name</figcaption>
             </div>
           </div>
+          <h2>50 points to win</h2>
         </div>
       </div>
     </>
