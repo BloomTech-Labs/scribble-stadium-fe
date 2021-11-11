@@ -132,7 +132,6 @@ export default function GamePlayMission(props) {
         </Route>
 
         <Route path={`${baseURL}/write`}>
-          {/*
           <GameWriteStep
             updateCurStep={updateCurStep}
             baseURL={baseURL}
@@ -143,15 +142,16 @@ export default function GamePlayMission(props) {
             submissionData={submissionData}
             battleReady={battleReady}
             updateBattleReady={updateBattleReady}
-          />*/}
-          <MatchUp />
+          />
         </Route>
 
         <Route path={`${baseURL}/nextsteps`}>
           {/*gameplay/mission/nextsteps component goes here */}
         </Route>
 
-        <Route path={`${baseURL}/matchup`}></Route>
+        <Route path={`${baseURL}/matchup`}>
+          <MatchUp />
+        </Route>
 
         <Route path={`${baseURL}/scores`}>
           {/*gameplay/mission/scores component goes here */}
