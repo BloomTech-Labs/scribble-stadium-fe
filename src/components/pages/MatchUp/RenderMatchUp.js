@@ -81,20 +81,22 @@ const RenderMatchUp = props => {
           </div>
         </div>
         <div className="small-matchup-window">
-          <div className="player-container">
-            <div
-              id="third-player-small-window"
-              className="player-image-small"
-            ></div>
-            <figcaption>player name</figcaption>
-          </div>
-          <h2>VS</h2>
-          <div className="player-container">
-            <div
-              id="fourth-player-small-window"
-              className="player-image-small"
-            ></div>
-            <figcaption>player name</figcaption>
+          <div id="third-window">
+            <div className="player-container">
+              <div
+                id="third-player-small-window"
+                className="player-image-small"
+              ></div>
+              <figcaption>player name</figcaption>
+            </div>
+            <h2>VS</h2>
+            <div className="player-container">
+              <div
+                id="fourth-player-small-window"
+                className="player-image-small"
+              ></div>
+              <figcaption>player name</figcaption>
+            </div>
           </div>
         </div>
         <div className="small-matchup-window">
