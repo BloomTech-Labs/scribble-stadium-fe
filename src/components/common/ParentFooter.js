@@ -13,8 +13,6 @@ export default function ParentFooter(props) {
   return (
     <footer className={layoutContainerCheck}>
       <div className="inner-container">
-        <div class="copyright">©{curYear} Story Squad HQ</div>
-
         <nav className="parent-footer-nav-container">
           <div className="parent-footer-nav-div-link">
             <Link className="parent-footer-nav-link" to="/parent/contact">
@@ -37,6 +35,7 @@ export default function ParentFooter(props) {
             </Link>
           </div>
         </nav>
+        <div class="copyright">©{curYear} Story Squad HQ</div>
       </div>
     </footer>
   );
