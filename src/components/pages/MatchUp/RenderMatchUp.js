@@ -79,6 +79,7 @@ const RenderMatchUp = props => {
               <figcaption>player name</figcaption>
             </div>
           </div>
+          <h2>150 points to win</h2>
         </div>
         <div className="small-matchup-window">
           <div id="third-window">
