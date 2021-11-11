@@ -15,6 +15,7 @@ import Explosion from '../../../assets/images/gamemodeimg/explosion.png';
 import { Gamemode } from '../Gamemode';
 
 function GamePlayMain(props) {
+  const { pathname } = props.location;
   // Specify a base URL
   const baseURL = '/gameplay';
 
@@ -68,7 +69,7 @@ function GamePlayMain(props) {
         <Route component={NotFoundPage} />
       </Switch>
 
-      <ChildFooter />
+      {pathname != '/gameplay/mission/read' ? <ChildFooter /> : null}
 
       {enableModal && (
         <GameModal
