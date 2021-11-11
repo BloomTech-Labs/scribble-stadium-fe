@@ -50,7 +50,7 @@ const RenderMatchUp = props => {
               ></div>
               <figcaption>player name</figcaption>
             </div>
-            <h2>VS</h2>
+            <h2 className="vs-lighting">VS</h2>
             <div className="player-container">
               <div
                 id="second-player-small-window"
