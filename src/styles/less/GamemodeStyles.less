@@ -1,8 +1,18 @@
 //** Gameplay Styles
 #gameplay {
+
   /* Header Styles */
   .hero {
     margin-bottom: 50px;
+    @media (max-width: 450px) {
+      .header-text {
+        margin-left: 40px;
+      }
+    }
+    @media (max-width: 380px) {
+      width: 100%;
+      margin-bottom: 0%;
+    }
   }
 
   /* Inner Container */
@@ -116,6 +126,36 @@
         }
       }
     }
+    @media(max-width: 800px) {
+      width: 87%;
+      #step-1 {
+        width: 40%;
+      }
+    }
+    @media (max-width: 500px) {
+      h3 {
+        margin-top: 3rem;
+      }
+      #step-1, #step-2, #step-3 {
+        width: 50%;
+      }
+    }
+    @media (max-width: 380px) {
+      h3 {
+        transform: scale(75%);
+        margin-bottom: 0;
+      }
+      #step-1, #step-2, #step-3 {
+        transform: scale(75%);
+      }
+    }
+    @media (max-width: 300px) {
+      width: 90%;
+      #step-1, #step-2, #step-3 {
+        width: 15%;
+      }
+    }
+
   }
 
   /* Inside step content where the story, draw, or write content is */
