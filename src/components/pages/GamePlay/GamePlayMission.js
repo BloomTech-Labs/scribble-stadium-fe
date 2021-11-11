@@ -96,14 +96,13 @@ export default function GamePlayMission(props) {
 
   return (
     <div id="game-mission">
-      {/*
       <GameMissionProgress
         baseURL={baseURL}
         updateCurStep={updateCurStep}
         currentStep={currentStep}
         submissionData={submissionData}
         enableModalWindow={props.enableModalWindow}
-      />*/}
+      />
 
       <Switch>
         <Route path={`${baseURL}/read`}>
