@@ -49,7 +49,9 @@ const RenderMatchUp = props => {
             ></div>
             <figcaption>player name</figcaption>
           </div>
+          <h2>VS</h2>
         </div>
+
         <div className="small-matchup-window"></div>
         <div className="small-matchup-window"></div>
         <div className="small-matchup-window"></div>
