@@ -43,7 +43,10 @@ const RenderMatchUp = props => {
       <div className="drawing-story-matchup">
         <div className="small-matchup-window">
           <div className="player-container">
-            <div id="first-player" className="player-image"></div>
+            <div
+              id="first-player-small-window"
+              className="player-image-small"
+            ></div>
             <figcaption>player name</figcaption>
           </div>
         </div>
