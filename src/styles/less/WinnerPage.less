@@ -11,12 +11,27 @@ display: flex;
 justify-content: center;
 background: #292929;
 padding: 2%;
-img{
-  width:70%;
-  height:70%;
-  margin: 20%;
 }
+
+
+.winner-box .explosion-img{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width:70%;
+    height: 70%;
+    top: 15%;
+
+  
 }
+.winner-box .winner-boy-img{
+  position: absolute;
+  top: 45%;
+  right: 41%;
+}
+
+
+
 .winner-box{
   width: 550px;
   height: 550px;
@@ -30,9 +45,11 @@ img{
   justify-content: center;
   
 }
-.winner-text{
-
-font-family: Bangers;
+.winner-container{
+  display: flex;
+  align-items: flex-start;
+.winner-box h1 {
+  font-family: Bangers;
 font-style: normal;
 font-weight: normal;
 font-size: 90px;
@@ -41,19 +58,51 @@ line-height: 64px;
 letter-spacing: 0.05em;
 color: #FBFBFB;
 position: absolute;
+
+}
+}
+
+.winner-container{
+  display: flex;
+  align-items: flex-end;
+} p{
+font-family: Bangers;
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 64px;
+/* identical to box height */
+letter-spacing: 0.05em;
+color: #FBFBFB;
+position: absolute;
+display: flex;
+align-items: flex-end;
   
 }
 
-.winner-avatar{
-  display: flex;
-  justify-content: center;
-  margin:3%;
-  img{
-  width: 70%;
-  height:70%;
-  }
-}
+
 
 .winner-name{
   font-size: 50px;
+}
+
+.playagainbtn {
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.button #play{
+
+}
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
 }
