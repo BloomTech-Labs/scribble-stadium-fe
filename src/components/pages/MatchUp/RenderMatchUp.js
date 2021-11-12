@@ -18,7 +18,7 @@ const RenderMatchUp = props => {
   return (
     <>
       <Header displayMenu={true} title="Scribble Stadium" />
-
+      {/**Temporary button to redirect to point share component */}
       <div className="matchup-container">
         <div id="matchup-window">
           <h1>The Matchup</h1>
