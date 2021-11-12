@@ -9,7 +9,7 @@ const PlayAgainButtonAnimation = () => {
   };
 
   function listener(event) {
-    var l = document.createElement('li');
+    var l = document.createElement('playbtn');
     switch (event.type) {
       case 'animationiteration':
         l.textContent = `New loop started at time ${event.elapsedTime}`;
@@ -27,7 +27,7 @@ const PlayAgainButtonAnimation = () => {
     <div className={'playagainbtn'}>
       <a href={goToChildDashboard}>
         {' '}
-        <button id="li">Play Again</button>{' '}
+        <button id="playbtn">Play Again</button>{' '}
       </a>
       <ul id="output"></ul>
     </div>
