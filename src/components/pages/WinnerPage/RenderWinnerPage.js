@@ -23,6 +23,9 @@ const RenderWinnerPage = props => {
           <h1>Winner!</h1>
           <img src={explosion} alt="boom" className="explosion-img" />
           <img src={boyImg} alt="boyImg" className="winner-boy-img" />
+          <div className="playbutton">
+            <PlayAgainButtonAnimation />
+          </div>
         </div>
         <p> THUNDERBOLT</p>
       </div>
