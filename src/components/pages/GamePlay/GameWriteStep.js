@@ -113,21 +113,13 @@ export default function GameWriteStep(props) {
           <img src={boyImg} alt="A boy" className="boy-img" />
 
           <div className="step-description">
-            <h3>Don’t forget!</h3>
-
-            {fileList.length === 0 ? (
-              <p>
-                When your story is complete, snap a photo of your pages and
-                upload them.
-              </p>
-            ) : (
-              <p>Double check that you’re uploading the right photo!</p>
-            )}
-
+            <p style={{ fontWeight: '100 !important', width: '350px' }}>
+              Make sure you're uploading the right photo.
+            </p>
             <UploadDocs
               listType="picture"
               uploadButtonClassname="upload-picture"
-              uploadButtonText="Upload Your Writing"
+              uploadButtonText="Upload your story"
               handleChangeExtra={handleChange}
               handleSubmit={handleSubmit}
               alternateHandleSubmission={true}
