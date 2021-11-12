@@ -7,7 +7,9 @@ const PlayAgainButtonAnimation = () => {
   const goToChildDashboard = () => {
     push('/child/dashboard');
   };
-
+  const playAgain = () => {
+    push('/child/play-again');
+  };
   function listener(event) {
     var l = document.createElement('playbtn');
     switch (event.type) {
@@ -27,7 +29,9 @@ const PlayAgainButtonAnimation = () => {
     <div className={'playagainbtn'}>
       <a href={goToChildDashboard}>
         {' '}
-        <button id="playbtn">Play Again</button>{' '}
+        <button onclick={playAgain} id="playbtn">
+          Play Again
+        </button>{' '}
       </a>
       <ul id="output"></ul>
     </div>
