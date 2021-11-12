@@ -9,7 +9,7 @@ import GameMissionProgress from './GameMissionProgress';
 import GameReadStep from './GameReadStep';
 import GameDrawStep from './GameDrawStep';
 import GameWriteStep from './GameWriteStep';
-import { MatchUp } from '../MatchUp';
+import { MatchUp } from '../MatchUp/index';
 
 export default function GamePlayMission(props) {
   // GEt the history obj

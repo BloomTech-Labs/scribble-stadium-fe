@@ -1,129 +1,187 @@
-.matchup-container {
-  position: relative;
-
-  .question-icon {
-    font-size: 2.1rem;
-    color: #6d6d6d;
-    position: absolute;
-    top: 1.2%;
-    right: 4.5%;
-  }
-
-  .ant-row {
-    [className^='ant-col'] {
-      height: 35vh;
-      border: 5px solid @header-nero;
-      display: flex;
-      .faceoff {
-        flex-grow: 1;
-
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-evenly;
-
-        .points {
-          position: absolute;
-          bottom: 0;
-          font-size: xxx-large;
-          font-weight: bold;
-          color: white;
-          font-family: Bangers;
-          text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
-          letter-spacing: 10px;
-          width: 12%;
-        }
-
-        & > img {
-          height: 80%;
-        }
-
-        .sub {
-          padding: 1.5vh;
-          max-width: 10.5vw;
-          flex-grow: 1;
-          display: flex;
-          flex-flow: column nowrap;
-          align-items: center;
-          .child-info {
-            margin-bottom: -22%;
-            img {
-              margin-right: 0.5vw;
-            }
-            .name {
-              font-family: bangers;
-              font-size: x-large;
-            }
-          }
-          .submission-preview {
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 114%;
-            img {
-              max-width: 100%;
-              width: 100%;
-              height: 57%;
-              border-radius: 20px;
-              border: 3px solid black;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .green-box {
-    background-color: @conifer;
-  }
-
-  .red-box {
-    background: @burnt-sienna;
-  }
-
-  .yellow-box {
-    background: @bright-sun;
-  }
-
-  .blue-box {
-    background: @boston-blue;
-  }
-
-  .back-button {
-    .orangeButtonStyle();
-    border-color: #ddd;
-    position: absolute;
-    width: 10%;
-    height: 8.5%;
-    font-weight: 700;
-    left: 4vw;
-    top: -7vh;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-  }
-
-  .vote-button {
-    color: #fff;
-    box-sizing: border-box;
-    font-size: 1.1rem;
-    line-height: 1.1rem;
-    border: 3px solid #ddd;
-    background-color: #20c997;
-    position: absolute;
-    width: 12%;
-    height: 10.5%;
-    right: 4vw;
-    top: -7vh;
-    font-weight: 700;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-
-    &.disabled {
-      background-color: #73bba5;
-      color: #ddd;
-      text-shadow: -2px 0 #aaa, 0 2px #aaa, 2px 0 #aaa, 0 -2px #aaa;
-    }
-
-    &:hover {
-      background-color: #4dd4ac;
-    }
-  }
+.matchup-container{
+  display:flex;  
+  justify-content: center;
 }
+
+#matchup-window{
+  background: url(../../assets/images/gamemodeimg/steps-box.png) center
+  no-repeat;
+  background-size: cover;
+  height: 30rem;
+  width: 60rem;    
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  font-family: 'bangers',cursive;
+  overflow: hidden;
+  padding-top: 4rem;
+   h1,h2{
+     color:white;
+     font-size:xx-large;
+   }
+
+   .player-matchup{
+     display:flex;
+     flex-direction: row;
+     justify-content:space-evenly;
+     width:50rem;     
+   }
+
+   .player-container{
+     display: flex;
+     flex-direction: column;
+     text-align: center;
+     color:whitesmoke;
+     font-size:xx-large;
+   }
+
+   .drawing-story-matchup{
+     display: flex;
+     flex-direction: column;
+     justify-items: center;
+   }
+
+   #first-player{
+     background-image: url(../../assets/images/hero_images/hero1.png);
+     background-color:whitesmoke;
+     border-radius: 50%;
+   }
+
+  
+
+   #second-player{
+    background-image: url(../../assets/images/hero_images/hero3.png);
+    background-color:whitesmoke;
+    border-radius: 50%;
+   }
+
+   #third-player{
+    background-image: url(../../assets/images/hero_images/hero5.png);
+    background-color:whitesmoke;
+    border-radius: 50%;
+   }
+
+   #fourth-player{
+    background-image: url(../../assets/images/hero_images/hero6.png);
+    background-color:whitesmoke;
+    border-radius: 50%;
+   }
+
+   .player-image{
+     background-repeat: no-repeat;
+     background-size: cover;
+     height: 11rem;
+     width: 10rem;
+   }
+
+   .vs-image{
+     background-image: url('../../assets/images/match_up_images/matchup_bolt.svg');
+     height:30rem;
+     width:10rem;
+     background-repeat: no-repeat;
+   }
+}
+
+.drawing-story-matchup{
+  display:flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding-bottom: 3rem;
+  padding-top:3rem;
+  margin-left:7%;
+  margin-right:7%;   
+}
+
+.small-matchup-window{
+  background-color:rgb(40,40,40); 
+  height: 30rem;
+  width:35rem;
+  padding-top:0.5rem;
+  margin-bottom: 3rem;
+  color:white;
+  font-size: xx-large;
+  font-family: 'bangers',cursive;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  
+   h2{
+     padding-top: 3rem;
+     color:white;
+   }
+}
+
+.vs-lightning-image{
+  background-image:url('../../assets/images/match_up_images/ThunderBolt_Complete.png');
+  height:21rem;
+  width:14rem;
+  margin-bottom:2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#first-window{
+  display: flex;
+    justify-content: space-evenly;
+    background-color:#FF845D;
+    width: 34rem;
+    height: 22rem;
+    padding-top: 1rem;
+}
+#first-player-small-window{
+  background-image: url(../../assets/images/hero_images/hero1.png);
+  background-color:whitesmoke;
+  border-radius: 50%; 
+ }
+
+ #second-window{
+  display: flex;
+    justify-content: space-evenly;
+    background-color:#42CAF0;
+    width: 34rem;
+    height: 22rem;
+    padding-top: 1rem;
+}
+
+ #second-player-small-window{
+  background-image: url(../../assets/images/hero_images/hero5.png);
+  background-color:whitesmoke;
+  border-radius: 50%; 
+ }
+
+ #third-player-small-window{
+  background-image: url(../../assets/images/hero_images/hero3.png);
+  background-color:whitesmoke;
+  border-radius: 50%; 
+ }
+
+ #third-window{
+  display: flex;
+    justify-content: space-evenly;
+    background-color:#C6FD7E;
+    width: 34rem;
+    height: 22rem;
+    padding-top: 1rem;
+}
+
+ #fourth-player-small-window{
+  background-image: url(../../assets/images/hero_images/hero6.png);
+  background-color:whitesmoke;
+  border-radius: 50%; 
+ }
+
+ #fourth-window{
+  display: flex;
+    justify-content: space-evenly;
+    background-color:#FFD854;
+    width: 34rem;
+    height: 22rem;
+    padding-top: 1rem;    
+}
+
+ .player-image-small{
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 11rem;
+  width: 10rem;
+ }
