@@ -7,11 +7,12 @@ import { useHistory } from 'react-router-dom';
 //** Import Components */
 import { Header } from '../../common';
 import { NotFoundPage } from '../NotFound';
-import Footer from './Footer';
+import ChildFooter from '../../common/ChildFooter';
 import GamePlayMission from './GamePlayMission';
 import { TrophyRoom } from '../TrophyRoom/index';
 import GameModal from './GameModal';
 import Explosion from '../../../assets/images/gamemodeimg/explosion.png';
+import { Gamemode } from '../Gamemode';
 
 function GamePlayMain(props) {
   // Specify a base URL
@@ -36,7 +37,7 @@ function GamePlayMain(props) {
 
   return (
     <div id="gameplay">
-      <Header />
+      <Header displayMenu={true} />
 
       <Switch>
         <Route exact path={baseURL}>
@@ -44,6 +45,9 @@ function GamePlayMain(props) {
             baseURL={baseURL}
             enableModalWindow={enableModalWindow}
           />
+        </Route>
+        <Route path={`${baseURL}/gamemode`}>
+          <Gamemode baseURL={baseURL} />
         </Route>
 
         <Route path={`${baseURL}/mission`}>
@@ -64,7 +68,7 @@ function GamePlayMain(props) {
         <Route component={NotFoundPage} />
       </Switch>
 
-      <Footer />
+      <ChildFooter />
 
       {enableModal && (
         <GameModal

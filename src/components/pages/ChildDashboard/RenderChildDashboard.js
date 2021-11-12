@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Header } from '../../common';
+import ChildFooter from '../../common/ChildFooter';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
 import { HUD } from '../HeadsUpDisplay/index';
-
-import adventure_passport from '../../../assets/images/child_dashboard_images/adventure_passport.svg';
+import Explosion from '../../../assets/images/gamemodeimg/explosion.png';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 import leaderboard_icon from '../../../assets/images/child_dashboard_images/leaderboard_icon.png';
 
@@ -15,19 +15,19 @@ const RenderChildDashboard = props => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleAcceptMission = e => {
-    push('/gameplay/mission/read');
+    push('/gamemode');
   };
 
-  const handleJoinSquad = e => {
-    push('/child/join');
+  const handleTrophyRoom = e => {
+    push('/gameplay/trophy-room');
   };
 
   const handleChangeAvatar = event => {
-    push('/child/change-avatar');
+    push('/change-avatar');
   };
 
   const handleLeaderboard = e => {
-    push('/gameplay/trophy-room');
+    push('/leaderboard');
   };
 
   return (
@@ -73,18 +73,6 @@ const RenderChildDashboard = props => {
         </Row>
         <Row className="bottomrow">
           <Col
-            className="adventure-passport"
-            xs={24}
-            sm={12}
-            onClick={handleJoinSquad}
-          >
-            <img
-              className="child-dash-img"
-              src={adventure_passport}
-              alt="Adventure Passport Button"
-            />
-          </Col>
-          <Col
             className="leaderboard"
             xs={24}
             sm={12}
@@ -96,9 +84,18 @@ const RenderChildDashboard = props => {
               src={leaderboard_icon}
               alt="Leaderboard Button"
             />
+          </Col>{' '}
+          <Col
+            className="trophy-room-button"
+            xs={24}
+            sm={12}
+            onClick={handleTrophyRoom}
+          >
+            <p className="accept-mission-text">Trophy Room!</p>
           </Col>
         </Row>
       </div>
+      <ChildFooter />
     </>
   );
 };

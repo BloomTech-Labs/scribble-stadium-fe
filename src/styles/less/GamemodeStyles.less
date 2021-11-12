@@ -1,8 +1,18 @@
 //** Gameplay Styles
 #gameplay {
+
   /* Header Styles */
   .hero {
     margin-bottom: 50px;
+    @media (max-width: 450px) {
+      .header-text {
+        margin-left: 40px;
+      }
+    }
+    @media (max-width: 380px) {
+      width: 100%;
+      margin-bottom: 0%;
+    }
   }
 
   /* Inner Container */
@@ -33,7 +43,7 @@
       }
 
       &.mission-btn {
-        background: #C6FD7E
+        background: #c6fd7e
           url(../../assets/images/gamemodeimg/mission-btn-bg.png) center
           no-repeat;
         background-size: cover;
@@ -45,14 +55,14 @@
   }
 
   // Mission Accept Btn
-.mission-explosion {
-  position: absolute;
-  // z-index: -1;
-}
-.mission-btn-txt {
-  z-index: 1;
-  margin-top: 2rem;
-}
+  .mission-explosion {
+    position: absolute;
+    // z-index: -1;
+  }
+  .mission-btn-txt {
+    z-index: 1;
+    margin-top: 2rem;
+  }
 
   /* Progress box when on the mission steps */
   #mission-progress {
@@ -116,6 +126,36 @@
         }
       }
     }
+    @media(max-width: 800px) {
+      width: 87%;
+      #step-1 {
+        width: 40%;
+      }
+    }
+    @media (max-width: 500px) {
+      h3 {
+        margin-top: 3rem;
+      }
+      #step-1, #step-2, #step-3 {
+        width: 50%;
+      }
+    }
+    @media (max-width: 380px) {
+      h3 {
+        transform: scale(75%);
+        margin-bottom: 0;
+      }
+      #step-1, #step-2, #step-3 {
+        transform: scale(75%);
+      }
+    }
+    @media (max-width: 300px) {
+      width: 90%;
+      #step-1, #step-2, #step-3 {
+        width: 15%;
+      }
+    }
+
   }
 
   /* Inside step content where the story, draw, or write content is */
@@ -304,20 +344,6 @@
     }
   }
 
-  /* Footer Styles */
-  footer {
-    background: #2d2a2b;
-    color: #fbfbfb;
-    padding: 30px 0;
-    position: relative;
-    z-index: 50;
-
-    .inner-container {
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-
   /* notification-modal */
   #notification-modal {
     position: fixed;
@@ -452,9 +478,9 @@
   //     height:100%;
   // }
 }
-// .img-of-LightingKid{
+// .img-of-LightningKid{
 
-//     background-image:url("../../../assets/images/gamemodeimg/LightingKid.png");
+//     background-image:url("../../../assets/images/hero_images/hero4.png");
 // }
 
 h1.dont4get {
@@ -533,7 +559,7 @@ h1.dont4get {
 }
 
 .kids-story-upload-font {
-  /* I’m awesome, I’m done reading! 
+  /* I’m awesome, I’m done reading!
     This is the font inside the abstract upload button
     */
 

@@ -4,6 +4,7 @@ import { CaretRightOutlined } from '@ant-design/icons';
 import img1 from './img1.png';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import ParentDashboardBack from '../../common/ParentDashboardBack';
+import ParentFooter from '../../common/ParentFooter';
 
 const { Panel } = Collapse;
 
@@ -66,7 +67,7 @@ const ParentFaqContainer = () => {
               )}
             >
               <Panel
-                header="Q-1. STAR: Is Story Squad safe and appropriate for my children?"
+                header="Q-1. STAR: Is Scribble Stadium safe and appropriate for my children?"
                 key="1"
                 className="ant-card-body"
               >
@@ -137,7 +138,7 @@ const ParentFaqContainer = () => {
                 </p>
               </Panel>
               <Panel
-                header="Q-6. What is Story Squad privacy policy?"
+                header="Q-6. What is Scribble Stadium privacy policy?"
                 key="6"
                 className="ant-card-body"
               >
@@ -165,7 +166,7 @@ const ParentFaqContainer = () => {
                 </p>
               </Panel>
               <Panel
-                header="Q-8. I'm a child's book author. How do I get my book on Story Squad?"
+                header="Q-8. I'm a child's book author. How do I get my book on Scribble Stadium?"
                 key="8"
                 className="ant-card-body"
               >
@@ -311,7 +312,7 @@ const ParentFaqContainer = () => {
                 </p>
               </Panel>
               <Panel
-                header="Q-2. How do I update my parent email for my Story Squad
+                header="Q-2. How do I update my parent email for my Scribble Stadium
                 subscription?"
                 key="2"
                 className="ant-card-body"
@@ -431,6 +432,7 @@ const ParentFaqContainer = () => {
           </Card>
         </div>
       </Layout>
+      <ParentFooter />
     </>
   );
 };

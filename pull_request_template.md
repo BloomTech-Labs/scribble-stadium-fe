@@ -29,7 +29,7 @@ Add a summary that address the following:
 - [ ] code meets DRY standards
 - [ ] no dead code (check for logs and print statements)
 - [ ] no TODOS instead necessary comments
-- [ ] code follows Story Squad standards for:
+- [ ] code follows Scribble Stadium standards for:
   - Language
   - Framework
   - Libraries

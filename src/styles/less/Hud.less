@@ -2,11 +2,10 @@
 @import '~antd/lib/style/themes/default.less';
 
 :root{
-	--green: #C6FD7E;
+	--green: #c6fd7e;
 	--grey: #c7c7c7;
 	--white: white;
 	--bar-border-radius: 200px;
-	--min-height: .75rem;
 	--font-size: 1.5rem;
 }
 
@@ -15,6 +14,10 @@
     background-color: #757575;
     display: flex;
     flex-direction: column;
+    letter-spacing: .2rem;
+    --min-height: 0.75rem;
+	--font-size: 1.5rem;
+	letter-spacing: 0.2rem;
 }
 
 .countdown-timer-container {
@@ -40,12 +43,11 @@
     text-align: center;
 }
 
+
 .countdown-timer {
     font-size: var(--font-size);
 	font-family: 'Bangers', cursive;
 	color: white;
-    
-
 }
 
 .progressionBar {
@@ -55,7 +57,7 @@
     display: flex;
     flex-flow: row, wrap;
     color: black;
-    background-color: white;
+    background-color: var(--green);
     font-size: var(--font-size);
 	font-weight: 500;
 	font-family: 'Bangers', cursive;
@@ -70,11 +72,10 @@
     display: flex;
     flex-flow: row, wrap;
     color: black;
-    //background-color: white;
-    background-image: linear-gradient(to right,  var(--green) 0%, white  5%;);
+    background-image: var(--green);
     font-size: var(--font-size);
-	font-weight: 500;
-	font-family: 'Bangers', cursive;
+    font-weight: 500;
+    font-family: 'Bangers', cursive;
     margin: 0 auto;
 
 }
@@ -91,7 +92,7 @@
     // This is how the I made the border angled on one side
     transform: skewX(-15deg);
     border-right: 3px solid black;
-    // This is to make the element seem less italicized 
+    // This is to make the element seem less italicized
     span {
         transform: skewX(15deg);
     }
@@ -104,16 +105,17 @@
    display: none;
 }
 
-// Checkmark img for completed activity to be added after made in house 
+// Checkmark img for completed activity to be added after made in house
 .completedActivity {
-    background-color: var(--green);
+    // background-color: var(--green);
     //border-radius: 1px 0px 0px 0px;
     width: 16.666%;
     text-align: center;
     // This is how the I made the border angled on one side
     transform: skewX(-15deg);
+		padding: 8px;
    // border-right: 3px solid black;
-    // This is to make the element seem less italicized 
+    // This is to make the element seem less italicized
     span {
         transform: skewX(15deg);
     }
@@ -123,7 +125,7 @@
 }
 
 .completedActivity .checkImg{
-  display: inline;
+    display: inline;
 }
 
 
@@ -136,7 +138,7 @@
     transform: skewX(-15deg);
     border: 8px solid #C6FD7E;;
     //border-right: 3px solid black;
-    // This is to make the element seem less italicized 
+    // This is to make the element seem less italicized
     span {
         transform: skewX(15deg);
     }
@@ -147,14 +149,26 @@
 }
 
 .currentActivity .checkImg{
-  display: none;
+    display: none;
+}
+
+.restActive {
+	padding: 8px;
+}
+
+.restActive {
+	padding: 8px;
+}
+
+.restActive {
+	padding: 8px;
 }
 
 // This is the animation for current activity
 .pulse {
     animation: pulse-animation 2s infinite;
 }
-  
+
 @keyframes pulse-animation {
     0% {
         box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.4);
@@ -270,4 +284,30 @@
 // State not done for this PT21
 .completedDay {
     background-color: var(--green);
+}
+
+
+@media screen and (max-width: 500px) {
+  .HudContainer .countdown-timer .progressionBar.progressBarLoaded {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100px
+  }
+
+ .progressionBarLoaded, .days {
+   display: block;
+   width: 100%;
+ }
+
+ .completedActivity, .activity, .currentActivity {
+   width: inherit;
+   transform: inherit;
+   border-bottom: 2px solid black;
+   border-right: none;
+ }
+ .day1-3, .day4, .day5, .day6-7 {
+    margin-left: inherit;
+    width: 100%
+ }
 }

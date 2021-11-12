@@ -4,7 +4,6 @@
 @import 'variables.less';
 
 .dash-container {
-  height: 70vh;
   .toprow,
   .bottomrow {
     @media @mobile {
@@ -13,7 +12,7 @@
   }
   .ant-col.ant-col-13.accept-mission,
   .ant-col.ant-col-11.change-avatar,
-  .ant-col.ant-col-11.adventure-passport,
+  .ant-col.ant-col-11.trophy-room-button,
   .ant-col.ant-col-13.trophy-room {
     @media @mobile {
       max-width: 100%;
@@ -23,7 +22,7 @@
   .accept-mission,
   .accept-mission-ga1,
   .change-avatar,
-  .adventure-passport,
+  .trophy-room-button,
   .trophy-room,
   .leaderboard {
     border: 5px solid @header-nero;
@@ -64,22 +63,22 @@
       border-width: 0.25rem 0.5rem 0.5rem 0.5rem;
     }
   }
-  div.adventure-passport {
-    border-width: 0.75rem 0.375rem 0.75rem 0.75rem;
-    @media @tablet {
-      border-width: 0.5rem 0.25rem 0.5rem 0.5rem;
-    }
-    @media @mobile {
-      border-width: 0.5rem 0.5rem 0.25rem 0.5rem;
-    }
-  }
-  div.leaderboard {
+  div.trophy-room-button {
     border-width: 0.75rem 0.75rem 0.75rem 0.375rem;
     @media @tablet {
       border-width: 0.5rem 0.5rem 0.5rem 0.25rem;
     }
     @media @mobile {
       border-width: 0.25rem 0.5rem 0.5rem 0.5rem;
+    }
+  }
+  div.leaderboard {
+    border-width: 0.75rem 0.375rem 0.75rem 0.75rem;
+    @media @tablet {
+      border-width: 0.5rem 0.25rem 0.5rem 0.5rem;
+    }
+    @media @mobile {
+      border-width: 0.5rem 0.5rem 0.25rem 0.5rem;
     }
   }
 
@@ -118,6 +117,7 @@
     @media @tablet, @mobile {
       padding: 0%;
       font-size: 2.5rem;
+      text-align: center;
     }
   }
 
@@ -141,11 +141,16 @@
       align-items: center;
     }
   }
-  .adventure-passport {
+  .trophy-room-button {
+    background: url('../../assets/images/gamemodeimg/explosion.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: @bright-sun;
+    opacity: 100%;
+    cursor: pointer;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: @bright-sun;
+    justify-content: center;
   }
 
   .multi-btn {
@@ -262,11 +267,6 @@
 
 .trophy-room:hover {
   opacity: 100%;
-
-  img {
-    max-width: 100%;
-    max-height: 100%;
-  }
 }
 
 .leaderboard:hover {
@@ -275,5 +275,13 @@
   img {
     max-width: 100%;
     max-height: 100%;
+  }
+}
+
+.trophy-room-button:hover {
+  opacity: 75%;
+
+  p {
+    font-size: 4.5rem;
   }
 }

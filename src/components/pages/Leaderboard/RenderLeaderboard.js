@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header } from '../../common';
+import ChildFooter from '../../common/ChildFooter';
 import Leaderboard from './Leaderboard';
 
 import { connect } from 'react-redux';
@@ -12,12 +13,12 @@ const RenderLeaderboard = props => {
   const { push } = useHistory();
 
   const dashboard = () => {
-    push('/child/dashboard');
+    push('/dashboard');
   };
 
   return (
     <>
-      <Header displayMenu={true} title="Story Squad" />
+      <Header displayMenu={true} title="Scribble Stadium" />
       <Button style={{ margin: '1rem' }} onClick={dashboard}>
         Back to Child Dashboard
       </Button>
@@ -25,6 +26,7 @@ const RenderLeaderboard = props => {
         <Leaderboard child={props.child} />
         <div className="custom-divider"></div>
       </div>
+      <ChildFooter layoutContainerCheck={'no-scroll'} />
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { Header } from '../../common';
+import ChildFooter from '../../common/ChildFooter';
 import { Button } from 'antd';
 import { connect } from 'react-redux';
 
@@ -46,7 +47,7 @@ const Gamemode = ({ ...props }) => {
 
   const startSinglePlayerMode = e => {
     e.preventDefault();
-    push('/gameplay');
+    push('/gameplay/mission/read');
   };
 
   return (
@@ -56,7 +57,7 @@ const Gamemode = ({ ...props }) => {
         : props.child.gamemode.mode === 'select' &&
           !props.child.gamemode.sp && (
             <div className="dash-container">
-              <Header />
+              <Header displayMenu={true} />
               <div className="single-button-container">
                 <Button className="single-btn" onClick={startSinglePlayerMode}>
                   Single Player
@@ -72,6 +73,7 @@ const Gamemode = ({ ...props }) => {
               </div>
             </div>
           )}
+      <ChildFooter layoutContainerCheck={'no-scroll'} />
     </div>
   );
 };

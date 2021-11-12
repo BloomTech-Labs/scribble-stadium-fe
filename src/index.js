@@ -59,6 +59,7 @@ import { MatchUp } from './components/pages/MatchUp';
 import { Scores } from './components/pages/Scores';
 import { PointShare } from './components/pages/PointShare';
 import { VotingPage } from './components/pages/VotingPage';
+import { WinnerPage } from './components/pages/WinnerPage';
 import { PlayAgain } from './components/pages/PlayAgain';
 
 // Note: for demo/developer purposes ONLY
@@ -250,7 +251,7 @@ function App() {
         {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/next-steps NOT for DELETE */}
         <ProtectedRoute
           exact
-          path="/next-steps"
+          path="/child/next-steps"
           component={() => (
             <NextSteps LoadingComponent={ChildLoadingComponent} />
           )}
@@ -266,7 +267,7 @@ function App() {
         {/* ROUTE EXISTS / NO PAGE EXISTS OK to DELETE / Will need to be replaced under /gameplay route */}
         <ProtectedRoute
           exact
-          path="/match-up"
+          path="/child/match-up"
           component={() => <MatchUp LoadingComponent={ChildLoadingComponent} />}
         />
         {/* ROUTE EXISTS OK to DELETE / returns user to /child/dashboard / Will need to be replaced under /gameplay route */}
@@ -280,7 +281,7 @@ function App() {
         {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/play-again NOT for DELETE */}
         <ProtectedRoute
           exact
-          path="/play-again"
+          path="/child/play-again"
           component={() => (
             <PlayAgain LoadingComponent={ChildLoadingComponent} />
           )}
@@ -288,20 +289,28 @@ function App() {
         {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/play-again NOT for DELETE */}
         <ProtectedRoute
           exact
-          path="/scores"
+          path="/child/scores"
           component={() => <Scores LoadingComponent={ChildLoadingComponent} />}
         />
         {/* FOUNDATION CODE exists. NEEDS DATA New path to point to /gameplay/dashboard/leaderboard NOT for DELETE */}
         <ProtectedRoute
           exact
+          path="/child/winner"
+          component={() => (
+            <WinnerPage LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <ProtectedRoute
+          exact
           path="/child/leaderboard"
+          path="/leaderboard"
           component={() => (
             <Leaderboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
         {/* INCOMPLETE page exists. NEEDS DATA/ STYLE New path to point to /gameplay/dashboard/change-avatar NOT for DELETE */}
         <ProtectedRoute
-          path="/child/change-avatar"
+          path="/change-avatar"
           component={() => (
             <ChangeAvatar LoadingComponent={ChildLoadingComponent} />
           )}
@@ -312,6 +321,13 @@ function App() {
           path="/child/audiobook"
           component={() => (
             <AudioBook LoadingComponent={ChildLoadingComponent} />
+          )}
+        />
+        <ProtectedRoute
+          exact
+          path="/child/play-again"
+          component={() => (
+            <PlayAgain LoadingComponent={ChildLoadingComponent} />
           )}
         />
         <Route exact path="/moderation" component={ModerationTest} />

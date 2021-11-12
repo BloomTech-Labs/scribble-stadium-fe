@@ -8,7 +8,7 @@ import axios from 'axios';
 //** Import Components */
 import { Header } from '../../common';
 import { NotFoundPage } from '../NotFound';
-import Footer from './Footer';
+import ChildFooter from '../../common/ChildFooter';
 import GameificationMission from './GameificationMission';
 import GameModal from './GameModal';
 import PlayerMatchup from './SinglePlayerBattle/PlayerMatchup';
@@ -88,7 +88,7 @@ export default function GameificationMain(props) {
         <Route component={NotFoundPage} />
       </Switch>
 
-      <Footer />
+      <ChildFooter />
 
       {enableModal && (
         <GameModal

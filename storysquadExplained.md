@@ -56,7 +56,7 @@ TBD
 
 (Provided by stakeholder at [this link](<[https://www.notion.so/How-the-app-should-work-a39c5ddfe3614cea8e41dc3da4991c87#d683ba82f1ad45b8aece9164b17f03c3](https://www.notion.so/How-the-app-should-work-a39c5ddfe3614cea8e41dc3da4991c87#d683ba82f1ad45b8aece9164b17f03c3)>))
 
-**"Monster app"** refers to the weekly Story Squad game being developed in Lambda Labs.
+**"Monster app"** refers to the weekly Scribble Stadium game being developed in Lambda Labs.
 
 **"Mini app"** refers to the separate free daily story contest that is already launched.
 

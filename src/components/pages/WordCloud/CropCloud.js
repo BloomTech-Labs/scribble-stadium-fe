@@ -31,14 +31,13 @@ export default function CropCloud() {
   return (
     <div className="cropcloud">
       {/* The first portion of the "src" code is a built in method for decoding images, just change the file type for different img types */}
-
       <div className="crop-cloud-container">
         <img
           className={'cropcloudimage'}
           src={`data:image/png;base64, ${placeholderCloud.data}`}
         />
       </div>
- main
+      main
     </div>
   );
 }

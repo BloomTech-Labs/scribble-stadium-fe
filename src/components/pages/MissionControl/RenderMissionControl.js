@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from '../../common';
+import ChildFooter from '../../common/ChildFooter';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -140,6 +141,7 @@ const RenderMissionControl = props => {
           </Col>
         </Row>
       </div>
+      <ChildFooter />
     </>
   );
 };

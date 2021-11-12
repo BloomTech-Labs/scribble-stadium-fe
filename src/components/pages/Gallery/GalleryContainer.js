@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Header } from '../../common';
+import ChildFooter from '../../common/ChildFooter';
 import { Button } from 'antd';
 import { getChildByID } from '../../../api/index';
 import { setWeeklySubmissions } from '../../../state/actions/galleryActions';
@@ -32,7 +33,7 @@ const GalleryContainer = props => {
 
   return (
     <>
-      <Header title="STORY SQUAD" displayMenu={true} />
+      <Header title="Scribble Stadium" displayMenu={true} />
       <Button style={{ margin: '1rem' }} onClick={leaderboard}>
         Back to Leaderboard
       </Button>
@@ -46,6 +47,7 @@ const GalleryContainer = props => {
         </div>
         <WeeklySubmissions data={props.submissions} />
       </div>
+      <ChildFooter />
     </>
   );
 };
