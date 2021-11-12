@@ -10,10 +10,14 @@ import { modalInstructions } from '../../../utils/helpers';
 const RenderMatchUp = props => {
   const { push } = useHistory();
 
+  const goToPointShare = e => {
+    e.preventDefault();
+    push('/child/point-share');
+  };
+
   return (
     <>
       <Header displayMenu={true} title="Scribble Stadium" />
-      
 
       <div className="matchup-container">
         <div id="matchup-window">
