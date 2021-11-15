@@ -1,0 +1,124 @@
+@import '~antd/dist/antd.less';
+@import '~antd/lib/style/themes/default.less';
+@import 'global.less';
+@import 'variables.less';
+
+.body{
+  background-color: red;
+  
+}
+.winner-container{
+display: flex;
+justify-content: center;
+background: #292929;
+padding: 2%;
+}
+
+
+.winner-box .explosion-img{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width:70%;
+    height: 70%;
+    top: 15%;
+    left:15%;
+
+  
+}
+.winner-box .winner-boy-img{
+  position: absolute;
+  top: 45%;
+    display: flex;
+    justify-content: center;
+}
+
+.winner-box .playbutton{
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  right:35%;
+  top:7.5%;
+  margin-bottom: 0;
+  
+
+}
+
+.winner-box{
+  width: 550px;
+  height: 550px;
+  left: 0px;
+  top: 0px;
+  border: 7px solid #E5E5E5;
+  box-sizing: border-box;
+  padding: 2%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  
+}
+.winner-container{
+  display: flex;
+  align-items: flex-start;
+.winner-box h1 {
+  font-family: Bangers;
+font-style: normal;
+font-weight: normal;
+font-size: 90px;
+line-height: 64px;
+/* identical to box height */
+letter-spacing: 0.05em;
+color: #FBFBFB;
+position: absolute;
+
+}
+}
+
+.winner-container{
+  display: flex;
+  align-items: flex-end;
+} p{
+font-family:Bangers;
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 64px;
+letter-spacing: 0.05em;
+color: #FBFBFB;
+position: absolute;
+display: flex;
+align-items: flex-end;
+}
+
+
+
+.winner-name{
+  font-size: 50px;
+}
+
+.playagainbtn {
+  animation-duration: 3s;
+  animation-name: slidein;
+  :hover{
+    animation: pulse 1s infinite;
+    animation-timing-function: linear;  
+
+  }
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 1000%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform:  scale(1.1); }
+  100% { transform: scale(1); }
+  }
