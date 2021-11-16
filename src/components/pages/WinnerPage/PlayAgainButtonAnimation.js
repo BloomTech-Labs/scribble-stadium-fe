@@ -27,7 +27,7 @@ const PlayAgainButtonAnimation = () => {
 
   return (
     <div className={'playagainbtn'}>
-      <button onClick={playAgain} id="playbtn">
+      <button onClick={playAgain} id="playbtn" className={'play-again-btn'}>
         Play Again
       </button>{' '}
       <ul id="output"></ul>
