@@ -27,12 +27,9 @@ const PlayAgainButtonAnimation = () => {
 
   return (
     <div className={'playagainbtn'}>
-      <a href={goToChildDashboard}>
-        {' '}
-        <button onclick={playAgain} id="playbtn">
-          Play Again
-        </button>{' '}
-      </a>
+      <button onClick={playAgain} id="playbtn">
+        Play Again
+      </button>{' '}
       <ul id="output"></ul>
     </div>
   );
