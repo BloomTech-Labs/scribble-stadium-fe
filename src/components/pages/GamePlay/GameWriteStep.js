@@ -22,7 +22,7 @@ export default function GameWriteStep(props) {
 
   // Enable the modal window to warn about no draw submittion
   const warnData = {
-    title: 'Hold up there parner!',
+    title: 'Hold up there partner!',
     description: 'you must submit a drawing in order to battle.',
     buttonTxt: 'back to drawing',
   };
