@@ -127,21 +127,21 @@ function App() {
           )}
         />
 
-        {/* Incomplete and non functional. OK TO DELETE - REPLACED with /gameplay/mission/read */}
+        {/* Incomplete and non functional. OK TO DELETE - REPLACED with /gameplay/mission/read UPDATED 11-16-21 */}
         <ProtectedRoute
           path="/child/story"
           component={() => (
             <StoryPrompt LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        {/* TO BE RE-REROUTED to /gameplay/dashboard and connected along the gameplay path  */}
+
         <ProtectedRoute
           path="/dashboard"
           component={() => (
             <ChildDashboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        {/* TO BE MAPPED into flow  PAGE NEEDED SUBMISSION GALLERY HEADER RENDERED  */}
+        {/* TO BE MAPPED into flow  PAGE NEEDED SUBMISSION GALLERY HEADER RENDERED  UPDATED 11-16-21 */}
         <ProtectedRoute
           exact
           path="/gallery"
@@ -149,7 +149,7 @@ function App() {
             <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        {/* CONNECTED TO ABOVE /gallery path  */}
+        {/* CONNECTED TO ABOVE /gallery path UPDATED 11-16-21 */}
         <ProtectedRoute
           exact
           path="/gallery/:id"
@@ -157,7 +157,7 @@ function App() {
             <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        {/* CONNECTED TO ABOVE /gallery path*/}
+        {/* CONNECTED TO ABOVE /gallery path UPDATED 11-16-21*/}
         <ProtectedRoute
           exact
           path="/gallery/child/:id"
@@ -165,29 +165,31 @@ function App() {
             <GalleryContainer LoadingComponent={ChildLoadingComponent} />
           )}
         />
-
+        {/* BROKEN and SHOULD BE REDUNDANT. EXAMINE AGAINST CURRENT PATH. SHOULD BE OK TO DELETE UPDATED 11-16-21 */}
         <ProtectedRoute path="/scoreboard" component={FaceoffReveal} />
-        {/* INCOMPLETE and NON-OPERATIONAL replaced with /gameplay/mission/read, write, and draw pages OK TO DELETE */}
+
+        {/* REDUNDANT replaced with /gameplay/mission/read, write, and draw pages OK TO DELETE  UPDATED 11-16-21  */}
         <ProtectedRoute
           path="/child/mission-control"
           component={() => (
             <MissionControl LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        {/* INCOMPLETE and OPERATIONAL but NO STYLE / replaced with /gameplay/mission/draw OK to DELETE   */}
+        {/* INCOMPLETE and OPERATIONAL but NO STYLE / replaced with /gameplay/mission/draw OK to DELETE UPDATED 11-16-21  */}
         <ProtectedRoute
           path="/child/drawing-sub"
           component={() => (
             <DrawingSub LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        {/* INCOMPLETE and OPERATIONAL but NO STYLE / replaced with /gameplay/mission/write OK to DELETE   */}
+        {/* REDUNDANT. OK to delete UPDATED 11-16-21 */}
         <ProtectedRoute
           path="/child/writing-sub"
           component={() => (
             <WritingSub LoadingComponent={ChildLoadingComponent} />
           )}
         />
+        {/* REDUNDANT. OK to delete UPDATED 11-16-21 */}
         <ProtectedRoute
           path="/parent/add-child"
           component={() => (
@@ -207,6 +209,8 @@ function App() {
             <NewParentDashboard LoadingComponent={ParentLoadingComponent} />
           )}
         />
+
+        {/* Obsolete page OK to remove UPDATED 11-16-21 */}
         <ProtectedRoute
           exact
           path="/parent/support"
@@ -214,7 +218,7 @@ function App() {
             <SupportPage LoadingComponent={ParentLoadingComponent} />
           )}
         />
-
+        {/* WORKING to be updated with real faq's and answers UPDATED 11-16-21 */}
         <ProtectedRoute
           exact
           path="/parent/faq"
@@ -229,7 +233,7 @@ function App() {
             <ParentContact LoadingComponent={ParentLoadingComponent} />
           )}
         />
-
+        {/* Currently REDUNDANT (/parent/contact-us is current) and not connected to application. Should be ok to remove unless future plans for a help page change UPDATED 11-16-21 */}
         <ProtectedRoute
           exact
           path="/parent/help"
@@ -242,7 +246,7 @@ function App() {
             <ParentSettings LoadingComponent={ParentLoadingComponent} />
           )}
         />
-        {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/next-steps NOT for DELETE */}
+
         <ProtectedRoute
           exact
           path="/child/next-steps"
@@ -250,7 +254,7 @@ function App() {
             <NextSteps LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        {/* INCOMPLETE AND BROKEN Can be fixed and repurposed under /gameplay  path when needed STATUS CONFIRMATION NEEDED */}
+
         <ProtectedRoute
           exact
           path="/child/point-share"
@@ -258,13 +262,13 @@ function App() {
             <PointShare LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        {/* ROUTE EXISTS / NO PAGE EXISTS OK to DELETE / Will need to be replaced under /gameplay route */}
+
         <ProtectedRoute
           exact
           path="/child/match-up"
           component={() => <MatchUp LoadingComponent={ChildLoadingComponent} />}
         />
-        {/* ROUTE EXISTS OK to DELETE / returns user to /child/dashboard / Will need to be replaced under /gameplay route */}
+        {/* REDUNDANT 404 PATH OK to delete  UPDATED 11-16-21 */}
         <ProtectedRoute
           exact
           path="/child/match-up/squad-vote"
@@ -272,7 +276,7 @@ function App() {
             <VotingPage LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/play-again NOT for DELETE */}
+
         <ProtectedRoute
           exact
           path="/child/play-again"
@@ -280,13 +284,13 @@ function App() {
             <PlayAgain LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        {/* UNDER CONSTRUCTION HOLDER / New path to point to /gameplay/mission/play-again NOT for DELETE */}
+
         <ProtectedRoute
           exact
           path="/child/scores"
           component={() => <Scores LoadingComponent={ChildLoadingComponent} />}
         />
-        {/* FOUNDATION CODE exists. NEEDS DATA New path to point to /gameplay/dashboard/leaderboard NOT for DELETE */}
+
         <ProtectedRoute
           exact
           path="/child/winner"
@@ -296,20 +300,19 @@ function App() {
         />
         <ProtectedRoute
           exact
-          path="/child/leaderboard"
           path="/leaderboard"
           component={() => (
             <Leaderboard LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        {/* INCOMPLETE page exists. NEEDS DATA/ STYLE New path to point to /gameplay/dashboard/change-avatar NOT for DELETE */}
+
         <ProtectedRoute
           path="/change-avatar"
           component={() => (
             <ChangeAvatar LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        {/* FOUNDATION CODE exists. NEEDS DATA/ STYLE New path and connection point TBD / JAKE FLOW QUESTION NOT for DELETE */}
+        {/* FOUNDATION CODE exists. NEEDS DATA/ STYLE New path and connection point TBD / JAKE FLOW QUESTION NOT for DELETE UPDATED 11-16-21*/}
         <ProtectedRoute
           exact
           path="/child/audiobook"
@@ -324,6 +327,7 @@ function App() {
             <PlayAgain LoadingComponent={ChildLoadingComponent} />
           )}
         />
+        {/* DEPRECATED. OK to DELETE please work on /admin instad of moderation UPDATED 11-16-21*/}
         <Route exact path="/moderation" component={ModerationTest} />
         <Route exact path="/admin" component={AdminDashboard} />
         <Route exact path="/dev/day/1-3" component={SatMon} />
