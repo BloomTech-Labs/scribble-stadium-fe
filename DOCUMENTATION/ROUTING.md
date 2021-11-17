@@ -40,7 +40,7 @@ These paths will need to be examined for potential future need and if not needed
 
 - /scoreboard - broken logic and I believe this is a redundant page. Should be ok to remove once considered against the current functionality.
 
-- /child/drawing-sub - incomplete, unstyled redundant page. OK to remove.
+- /child/drawing-sub - incomplete, un-styled redundant page. OK to remove.
 
 - /child/writing-sub - same as above. OK to remove.
 
@@ -54,6 +54,7 @@ These paths will need to be examined for potential future need and if not needed
 
 - child/match-up/squad-vote - 404 page that can be implemented in the future in the happy path for the children to be able to vote on other squads potentially. 
 
+- Gameification folder - Can be reviewed for potential future usage and any obsolete folders/ files can be removed. Currently unused and not connected to the application. 
 
 ## ADMIN / DEV Routes
 
