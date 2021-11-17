@@ -277,10 +277,12 @@
 
 //State not done for this PT21
 .currentDay {
-  display: flex;
-  flex-flow: row wrap;
-  background-color: var(--green);
-  animation: pulse-animation 2s infinite;
+  color: var(--green);
+  text-shadow: -1px -1px 0 rgb(117, 117, 117), 1px -1px 0 rgb(117, 117, 117),
+    -1px 1px 0 rgb(117, 117, 117), 1px 1px 0 rgb(117, 117, 117),
+    0px 0px 20px rgba(198, 253, 126, 0.45);
+  @media @mobileLarge {
+  }
 }
 // State not done for this PT21
 .completedDay {
