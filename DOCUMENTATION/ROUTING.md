@@ -8,14 +8,14 @@ Updated Whimsical Routing Guide can be found [here.](https://whimsical.com/scrib
 ### CURRENT FUNCTIONAL PATHS
 
 localhost:3000 - PARENT LANDING PAGE =>
-    - /parent/faq  - FAQ PAGE - Functional with parent dashboard styling. All FAQs contain Lorem Ipsum text.
-    Needs to be updated with actual content.
-    - /parent/contact - CONTACT PAGE - Functional with parent dashboard styling. 
-    Messaging systems needs to be hooked up to backend to handle messages.
-    - /parent/add-child - ADD CHILD PAGE - Functional with parent dashboard styling. 
-    Child information needs to be added to backend. Submit child button is needed
-    - /parent/edit-players - EDIT PLAYERS PAGE - Rendering a holder page with no information. 
-    Child information will need to be brought in from backend to be displayed.
+- /parent/faq  - FAQ PAGE - Functional with parent dashboard styling. All FAQs contain Lorem Ipsum text.
+Needs to be updated with actual content.
+- /parent/contact - CONTACT PAGE - Functional with parent dashboard styling. 
+Messaging systems needs to be hooked up to backend to handle messages.
+- /parent/add-child - ADD CHILD PAGE - Functional with parent dashboard styling. 
+Child information needs to be added to backend. Submit child button is needed
+- /parent/edit-players - EDIT PLAYERS PAGE - Rendering a holder page with no information. 
+Child information will need to be brought in from backend to be displayed.
 
 GAME PLAY PATH FROM PLAY GAME BUTTON
 - localhost:3000/dashboard - CHILD DASHBOARD - Functional with child dashboard styling. Child dashboard paths all point to proper pages.
