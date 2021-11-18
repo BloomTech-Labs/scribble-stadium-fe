@@ -35,7 +35,7 @@ export default function ParentFooter(props) {
             </Link>
           </div>
         </nav>
-        <div class="copyright">©{curYear} Story Squad HQ</div>
+        <div className="copyright">©{curYear} Story Squad HQ</div>
       </div>
     </footer>
   );
