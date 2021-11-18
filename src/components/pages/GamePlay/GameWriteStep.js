@@ -47,6 +47,7 @@ export default function GameWriteStep(props) {
 
       props.enableModalWindow(modalData);
 
+      props.updateFileSubmissionData('writings', []);
       setIsUploading(false);
     }, triggerSubmitTimer);
     history.push('/child/next-steps');

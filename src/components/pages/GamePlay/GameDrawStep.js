@@ -50,6 +50,7 @@ export default function GameDrawStep(props) {
         props.updateModalStatus('draw', true);
       }
 
+      props.updateFileSubmissionData('drawings', []);
       history.push(`${props.baseURL}/write`);
     }, triggerSubmitTimer);
   };
