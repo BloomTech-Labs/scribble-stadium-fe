@@ -135,7 +135,7 @@ export default function GameDrawStep(props) {
                 onClick={handleSubmit}
                 loading={isUploading}
               >
-                {isUploading ? 'Uploading...' : 'Save'}
+                {isUploading ? 'Uploading...' : 'Submit'}
               </Button>
             )}
 
