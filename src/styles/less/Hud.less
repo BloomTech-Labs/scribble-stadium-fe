@@ -147,6 +147,14 @@
   &:nth-last-of-type(1) {
     border-right: none;
   }
+  &:nth-child(1) {
+    transform: translateX(1rem) skew(-20deg);
+    margin-bottom: .1rem;
+    margin-left: .1rem;
+    @media (max-width: 1100px) {
+      transform: translateX(1.2rem) skew(-20deg);
+    }
+  }
   animation: pulse-animation 2s infinite;
 }
 
