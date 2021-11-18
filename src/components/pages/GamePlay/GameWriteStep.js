@@ -138,11 +138,11 @@ export default function GameWriteStep(props) {
               </Button>
             )}
 
-            <button className="skip-btn" onClick={handleSkip}>
+            <Button className="skip-btn" onClick={handleSkip}>
               {props.submissionData.HasDrawn
                 ? 'Just drawing, no story'
                 : "I'd rather draw"}
-            </button>
+            </Button>
 
             {/* This button is no longer needed as the page routes to next steps. If in the future a battle mode is implemented, this button will be used. */}
             {/* {props.battleReady && (

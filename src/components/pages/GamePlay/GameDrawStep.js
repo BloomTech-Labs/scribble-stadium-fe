@@ -139,9 +139,9 @@ export default function GameDrawStep(props) {
               </Button>
             )}
 
-            <button className="skip-btn" onClick={handleSkip}>
+            <Button className="skip-btn" onClick={handleSkip}>
               I’d rather write
-            </button>
+            </Button>
           </div>
         </div>
       </div>
