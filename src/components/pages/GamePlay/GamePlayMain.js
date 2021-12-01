@@ -68,8 +68,6 @@ function GamePlayMain(props) {
         <Route component={NotFoundPage} />
       </Switch>
 
-      {/* <ChildFooter /> */}
-
       {enableModal && (
         <GameModal
           modalData={modalData}
