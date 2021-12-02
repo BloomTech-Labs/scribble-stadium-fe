@@ -72,7 +72,7 @@
       font-size: 2rem;
     }
   }
-  .team-name{
+  .team-name {
     color: #ffffff;
     text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
     text-align: center;
@@ -83,7 +83,7 @@
     letter-spacing: 10px;
     margin-top: -2.5%;
   }
-  .versus{
+  .versus {
     color: #ffffff;
     text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
     text-align: center;
@@ -94,16 +94,56 @@
     letter-spacing: 10px;
     margin-top: -2.5%;
   }
-  .points-to-win{
+  .points-to-win {
     position: absolute;
     color: white;
     text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
     font-size: 2.5rem;
-    z-index:1;
+    z-index: 1;
     font-family: bangers;
     letter-spacing: 2px;
     left: 39%;
     bottom: -18px;
     font-weight: bold;
   }
+}
+
+// Hamburger Menu Styling
+.child-header-menu.ant-dropdown-menu {
+  opacity: 0.9;
+  background-color: #ff845d;
+  clip-path: polygon(100% 100%, 0 100%, 0 25%, 25% 25%, 0 0, 50% 25%, 100% 25%);
+  height: 300px;
+  width: 250px;
+  left: 35px;
+  padding-top: 80px;
+}
+
+.child-header-menu-item.ant-dropdown-menu-item,
+.child-header-menu-item.ant-dropdown-menu-item-icon {
+  font-weight: bolder;
+  font-family: bangers;
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+  color: black;
+  letter-spacing: 5px;
+  line-height: 1.2;
+  font-size: 25px;
+  padding-right: 10px;
+}
+
+.child-header-hamburger.anticon {
+  color: #231f20;
+  font-size: 30px;
+}
+
+.child-header-button.ant-btn {
+  border: #231f20 solid 2px;
+  margin-left: 5px;
+  height: 40px;
+  width: 40px;
+}
+
+.child-header-button.ant-btn:hover,
+.child-header-button.ant-btn:focus {
+  border-color: black;
 }

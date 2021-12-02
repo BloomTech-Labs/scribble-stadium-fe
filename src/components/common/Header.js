@@ -34,43 +34,43 @@ const ChildMenu = props => {
   };
 
   return (
-    <Menu {...props} mode="inline" style={styles.menu}>
+    <Menu {...props} mode="inline" className="child-header-menu">
       <Menu.Item
         key="1"
-        style={styles.menuItem}
+        className="child-header-menu-item"
         onClick={childRedirect}
-        icon={<HomeOutlined style={styles.menuItem} />}
+        icon={<HomeOutlined className="child-header-menu-item" />}
       >
         Home
       </Menu.Item>
       <Menu.Item
         key="2"
-        style={styles.menuItem}
+        className="child-header-menu-item"
         onClick={leaderboardRedirect}
-        icon={<TrophyOutlined style={styles.menuItem} />}
+        icon={<TrophyOutlined className="child-header-menu-item" />}
       >
         Leaderboard
       </Menu.Item>
       <Menu.Item
         key="3"
-        style={styles.menuItem}
+        className="child-header-menu-item"
         onClick={galleryRedirect}
-        icon={<TableOutlined style={styles.menuItem} />}
+        icon={<TableOutlined className="child-header-menu-item" />}
       >
         My Gallery
       </Menu.Item>
       <Menu.Item
         key="4"
-        style={styles.menuItem}
+        className="child-header-menu-item"
         disabled={true}
-        icon={<QuestionCircleOutlined style={styles.menuItem} />}
+        icon={<QuestionCircleOutlined className="child-header-menu-item" />}
       >
         Help
       </Menu.Item>
       <Menu.Item
         key="5"
-        icon={<LogoutOutlined style={styles.menuItem} />}
-        style={styles.menuItem}
+        icon={<LogoutOutlined className="child-header-menu-item" />}
+        className="child-header-menu-item"
         onClick={() => logout({ returnTo: window.location.origin })}
       >
         Log Out
@@ -79,38 +79,6 @@ const ChildMenu = props => {
   );
 };
 
-//styling for child menu items
-const styles = {
-  menu: {
-    opacity: '0.9',
-    backgroundColor: '#FF845D',
-    clipPath:
-      'polygon(100% 100%, 0 100%, 0 25%, 25% 25%, 0 0, 50% 25%, 100% 25%)',
-    height: 300,
-    width: 250,
-    left: 35,
-    paddingTop: 80,
-  },
-  menuItem: {
-    fontWeight: 'bolder',
-    fontFamily: 'bangers',
-    textShadow: '-2px 0 white, 0 2px white, 2px 0 white, 0 -2px white',
-    color: 'black',
-    letterSpacing: 5,
-    lineHeight: 1.2,
-    fontSize: 25,
-  },
-  hamburger: {
-    color: '#231F20',
-    fontSize: 30,
-  },
-  button: {
-    border: '#231F20 solid 2px',
-    marginLeft: 5,
-    height: 40,
-    width: 40,
-  },
-};
 const Header = ({
   displayMenu = false,
   backButton = false,
@@ -135,8 +103,8 @@ const Header = ({
         >
           <Button
             className="menu"
-            style={styles.button}
-            icon={<MenuOutlined style={styles.hamburger} />}
+            className="child-header-button"
+            icon={<MenuOutlined className="child-header-hamburger" />}
             type="default"
           />
         </Dropdown>
