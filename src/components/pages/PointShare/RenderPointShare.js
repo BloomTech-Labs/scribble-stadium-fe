@@ -264,7 +264,10 @@ const PointShare = props => {
                   style={{ color: '#6CEAE6', fontSize: '30px' }}
                   onClick={() => {
                     handlePointShare({
-                      value: storyOnePoints - 5,
+                      value:
+                        storyOnePoints >= 5
+                          ? storyOnePoints - 5
+                          : storyOnePoints,
                       pointSetter: setStoryOnePoints,
                       a: storyTwoPoints,
                       b: illustrationOnePoints,
@@ -308,7 +311,10 @@ const PointShare = props => {
                   style={{ color: '#6CEAE6', fontSize: '30px' }}
                   onClick={() => {
                     handlePointShare({
-                      value: illustrationOnePoints - 5,
+                      value:
+                        illustrationOnePoints >= 5
+                          ? illustrationOnePoints - 5
+                          : illustrationOnePoints,
                       pointSetter: setIllustrationOnePoints,
                       a: storyTwoPoints,
                       b: storyOnePoints,
@@ -364,7 +370,10 @@ const PointShare = props => {
                   style={{ color: '#6CEAE6', fontSize: '30px' }}
                   onClick={() => {
                     handlePointShare({
-                      value: storyTwoPoints - 5,
+                      value:
+                        storyTwoPoints >= 5
+                          ? storyTwoPoints - 5
+                          : storyTwoPoints,
                       pointSetter: setStoryTwoPoints,
                       a: storyOnePoints,
                       b: illustrationOnePoints,
@@ -414,7 +423,10 @@ const PointShare = props => {
                     style={{ color: '#6CEAE6', fontSize: '30px' }}
                     onClick={() => {
                       handlePointShare({
-                        value: illustrationTwoPoints - 5,
+                        value:
+                          illustrationTwoPoints >= 5
+                            ? illustrationTwoPoints - 5
+                            : illustrationTwoPoints,
                         pointSetter: setIllustrationTwoPoints,
                         a: storyTwoPoints,
                         b: illustrationOnePoints,
