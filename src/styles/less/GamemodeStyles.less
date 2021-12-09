@@ -93,6 +93,7 @@
       display: flex;
       justify-content: center;
 
+
       .step {
         margin: 0 10px;
         background: none;
@@ -131,27 +132,16 @@
       h3 {
         margin-top: 2rem;
       }
-      #step-1 {
-        width: 40%;
+      #step-1,
+      #step-2,
+      #step-3 {
+        height: auto;
       }
     }
     @media (max-width: 500px) {
       width: 100%;
       height: auto;
       h3 {
-        margin-top: 3rem;
-      }
-      #step-1,
-      #step-2,
-      #step-3 {
-        width: 50%;
-      }
-    }
-    @media (max-width: 380px) {
-      width: 100%;
-      height: auto;
-      h3 {
-        font-size: 2.5rem;
         transform: scale(75%);
         margin-bottom: 10px;
         margin-top: 5%;
@@ -160,6 +150,25 @@
       #step-2,
       #step-3 {
         transform: scale(75%);
+        width: 50%;
+        height: auto;
+      }
+    }
+    @media (max-width: 380px) {
+      width: 100%;
+      height: auto;
+
+      h3 {
+        transform: scale(50%);
+        margin-bottom: 10px;
+        margin-top: 5%;
+      }
+      #step-1,
+      #step-2,
+      #step-3 {
+        transform: scale(65%);
+        width: 50%;
+        height: auto;
       }
     }
     @media (max-width: 300px) {
@@ -208,7 +217,6 @@
       }
          
       }
-
     }
 
     .next-btn {
