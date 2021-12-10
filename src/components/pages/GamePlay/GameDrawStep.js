@@ -50,6 +50,7 @@ export default function GameDrawStep(props) {
         props.updateModalStatus('draw', true);
       }
 
+      props.updateFileSubmissionData('drawings', []);
       history.push(`${props.baseURL}/write`);
     }, triggerSubmitTimer);
   };
@@ -134,13 +135,13 @@ export default function GameDrawStep(props) {
                 onClick={handleSubmit}
                 loading={isUploading}
               >
-                {isUploading ? 'Uploading...' : 'Save'}
+                {isUploading ? 'Uploading...' : 'Submit'}
               </Button>
             )}
 
-            <button className="skip-btn" onClick={handleSkip}>
+            <Button className="skip-btn" onClick={handleSkip}>
               I’d rather write
-            </button>
+            </Button>
           </div>
         </div>
       </div>
