@@ -42,7 +42,7 @@ export default function GameWriteStep(props) {
         title: 'Get ready for the boss battle!',
         description:
           'To complete this mission, your work will be put up head-to-head against a boss. If you are ready to fight, submit your work!',
-        buttonTxt: "Let's Go!",
+        buttonTxt: 'Battle!',
       };
 
       props.enableModalWindow(modalData);
@@ -74,7 +74,7 @@ export default function GameWriteStep(props) {
         title: 'Get ready for the boss battle!',
         description:
           'To complete this mission, your work will be put up head-to-head against a boss. If you are ready to fight, submit your work!',
-        buttonTxt: "Let's Go!",
+        buttonTxt: 'Battle!',
       };
 
       props.enableModalWindow(modalData);

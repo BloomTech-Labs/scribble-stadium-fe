@@ -17,7 +17,7 @@ export default function GameReadStep(props) {
         title: 'Your time to shine!',
         description:
           "Grab a sheet of paper and your drawing supplies. Based on the reading, draw your favorite scene by hand. When you're finished, snap a photo and upload your masterpiece.",
-        buttonTxt: "Let's Go!",
+        buttonTxt: 'Battle!',
       };
 
       props.enableModalWindow(modalData);
