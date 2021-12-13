@@ -47,6 +47,7 @@ export default function GameWriteStep(props) {
 
       props.enableModalWindow(modalData);
 
+      props.updateFileSubmissionData('writings', []);
       setIsUploading(false);
     }, triggerSubmitTimer);
     history.push('/child/next-steps');
@@ -133,15 +134,15 @@ export default function GameWriteStep(props) {
                 onClick={handleSubmit}
                 loading={isUploading}
               >
-                {isUploading ? 'Uploading...' : 'Save'}
+                {isUploading ? 'Uploading...' : 'Submit'}
               </Button>
             )}
 
-            <button className="skip-btn" onClick={handleSkip}>
+            <Button className="skip-btn" onClick={handleSkip}>
               {props.submissionData.HasDrawn
                 ? 'Just drawing, no story'
                 : "I'd rather draw"}
-            </button>
+            </Button>
 
             {/* This button is no longer needed as the page routes to next steps. If in the future a battle mode is implemented, this button will be used. */}
             {/* {props.battleReady && (

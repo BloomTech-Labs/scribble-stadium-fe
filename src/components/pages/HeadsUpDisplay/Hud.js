@@ -79,10 +79,18 @@ function Hud(props) {
           </div>
 
           <div className="days">
-            <div className="day1-3">Day 1 - 3</div>
-            <div className="day4">Day 4</div>
-            <div className="day5">Day 5</div>
-            <div className="day6-7">Day 6 - 7</div>
+            <div className={`day1-3 ${currentBar === 'bar1' && 'currentDay'}`}>
+              Day 1 - 3
+            </div>
+            <div className={`day4 ${currentBar === 'bar2' && 'currentDay'}`}>
+              Day 4
+            </div>
+            <div className={`day5 ${currentBar === 'bar3' && 'currentDay'}`}>
+              Day 5
+            </div>
+            <div className={`day6-7 ${currentBar === 'bar4' && 'currentDay'}`}>
+              Day 6 - 7
+            </div>
           </div>
         </Panel>
       </Collapse>

@@ -36,6 +36,11 @@
   margin-left: 33.33%;
   width: 50%;
   text-align: center;
+  @media screen and (max-width: 500px) {
+    margin: 0 auto;
+    padding: 25px 0;
+    width: 70%;
+  }
 }
 
 .ctimer.pos-3 {
@@ -140,6 +145,14 @@
   }
   &:nth-last-of-type(1) {
     border-right: none;
+  }
+  &:nth-child(1) {
+    transform: translateX(1rem) skew(-20deg);
+    margin-bottom: .1rem;
+    margin-left: .1rem;
+    @media (max-width: 1100px) {
+      transform: translateX(1.2rem) skew(-20deg);
+    }
   }
   animation: pulse-animation 2s infinite;
 }
@@ -281,6 +294,12 @@
   flex-flow: row wrap;
   background-color: var(--green);
   animation: pulse-animation 2s infinite;
+  color: var(--green);
+  text-shadow: -1px -1px 0 rgb(117, 117, 117), 1px -1px 0 rgb(117, 117, 117),
+    -1px 1px 0 rgb(117, 117, 117), 1px 1px 0 rgb(117, 117, 117),
+    0px 0px 20px rgba(198, 253, 126, 0.45);
+  @media @mobileLarge {
+  }
 }
 // State not done for this PT21
 .completedDay {
