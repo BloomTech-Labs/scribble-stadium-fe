@@ -10,7 +10,7 @@
     "@craco/craco": "^5.6.4",
     "ant-design-pro": "^2.3.2",
     "antd": "^4.16.6",
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "bcryptjs": "^2.4.3",
     "craco": "0.0.3",
     "craco-less": "^1.17.0",

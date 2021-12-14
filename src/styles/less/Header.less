@@ -1,18 +1,27 @@
 @import '~antd/dist/antd.less';
 @import '~antd/lib/style/themes/default.less';
 
+
 .hero {
   background-image: url('../../assets/images/cityscape.svg');
-  min-height: 30vh;
+  min-height: 45vh;
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: bottom;
   border: 5px solid @header-nero;
   background-color: @turquoise;
   position: relative;
-
   @media @mobile {
-    min-height: 20vh;
+    min-height: 25vh;
+  }
+  @media @tablet {
+    min-height: 40vh;
+  }
+  @media (max-width: 650px) {
+    min-height: 25vh;
+  }
+  @media (max-width: 768px) {
+    min-height: 25vh;
   }
   h1 {
     color: @white;
