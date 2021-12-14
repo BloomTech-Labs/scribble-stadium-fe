@@ -22,7 +22,7 @@ export default function GameMissionProgress(props) {
       history.push(`${baseURL}/${step}`);
     } else {
       const modalData = {
-        title: 'YOu must read before advancing!',
+        title: 'You must read before advancing!',
         description: 'In order to complete the mission, reading is a MUST!',
         buttonTxt: 'Close',
       };
@@ -33,15 +33,23 @@ export default function GameMissionProgress(props) {
 
   const showModal = () => {
     setIsModalVisible(true);
-  };
+    const modalData = {
+      title: 'Quick Navigation Tips!',
+      description:
+        'Click on the "Read," "Draw" or "Write" buttons to navigate through the mission. You have to complete your current step in the mission in order to advance to the next step, so if you haven\'t completed the "Read" step, you won\'t be able to click on "Draw" or "Write" to advance. Once you have completed all the steps, you can click back and forth between all of them.',
+      buttonTxt: "Let's Go!",
+    };
 
-  const handleOk = () => {
-    setIsModalVisible(false);
+    props.enableModalWindow(modalData);
   };
+  // Code for stand-alone Modal Window -- might not be needed
+  // const handleOk = () => {
+  //   setIsModalVisible(false);
+  // };
 
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
+  // const handleCancel = () => {
+  //   setIsModalVisible(false);
+  // };
 
   return (
     <div>
@@ -53,7 +61,7 @@ export default function GameMissionProgress(props) {
         >
           Game Tips
         </Button>
-        <Modal
+        {/* <Modal
           title="Basic Modal"
           bodyStyle={{ padding: '1rem' }}
           visible={isModalVisible}
@@ -77,9 +85,9 @@ export default function GameMissionProgress(props) {
             forth between all of them to look over your work.
           </p>
           <p>* Click on the "Game Tips" button to see these tips again!</p>
-        </Modal>
+        </Modal> */}
       </div>
-      {/* </div> */}
+
       <div id="mission-progress">
         <h3>Your Mission</h3>
 
