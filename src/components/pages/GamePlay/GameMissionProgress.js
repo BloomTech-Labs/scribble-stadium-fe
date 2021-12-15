@@ -56,7 +56,8 @@ export default function GameMissionProgress(props) {
       <div>
         <Button
           style={{ margin: '1rem' }}
-          className="back-btn"
+          className="info-btn"
+          // className="back-btn"
           onClick={showModal}
         >
           Game Tips
