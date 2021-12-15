@@ -37,7 +37,7 @@ export default function GameMissionProgress(props) {
       title: 'Quick Navigation Tips!',
       description:
         'Click on the "Read," "Draw" or "Write" buttons to navigate through the mission. You have to complete your current step before you can move on to the next step, so if you haven\'t completed the "Read" step, you won\'t be able to click on "Draw" or "Write" to advance. Once you have completed all the steps, you can click back and forth between all of them.',
-      buttonTxt: "Let's Go!",
+      buttonTxt: 'Got it!',
     };
 
     props.enableModalWindow(modalData);
