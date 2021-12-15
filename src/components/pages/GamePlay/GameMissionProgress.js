@@ -1,7 +1,7 @@
 //** Import Modules */
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Modal, Button } from 'antd';
+import { Button } from 'antd';
 //** Import Assets */
 import completeIcon from '../../../assets/images/gamemodeimg/completed.png';
 
@@ -42,14 +42,6 @@ export default function GameMissionProgress(props) {
 
     props.enableModalWindow(modalData);
   };
-  // Code for stand-alone Modal Window -- might not be needed
-  // const handleOk = () => {
-  //   setIsModalVisible(false);
-  // };
-
-  // const handleCancel = () => {
-  //   setIsModalVisible(false);
-  // };
 
   return (
     <div>
@@ -62,31 +54,6 @@ export default function GameMissionProgress(props) {
         >
           Game Tips
         </Button>
-        {/* <Modal
-          title="Basic Modal"
-          bodyStyle={{ padding: '1rem' }}
-          visible={isModalVisible}
-          onOk={handleOk}
-          onCancel={handleCancel}
-        >
-          <p>
-            Here are a few tips to help you navigate your way through the game!
-          </p>
-          <p>
-            * Click on the "Read," "Draw" or "Write" buttons to navigate through
-            the mission.
-          </p>
-          <p>
-            * Remember, you have to complete each step in the mission in order
-            to advance to the next step, so if you haven't completed the "Read"
-            step, you won't be able to click on "Draw" or "Write" to advance.
-          </p>
-          <p>
-            * Once you have completed all the steps, you can click back and
-            forth between all of them to look over your work.
-          </p>
-          <p>* Click on the "Game Tips" button to see these tips again!</p>
-        </Modal> */}
       </div>
 
       <div id="mission-progress">
