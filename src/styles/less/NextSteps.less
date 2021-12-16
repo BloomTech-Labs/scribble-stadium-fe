@@ -89,10 +89,18 @@
     top: 0;
     left: 0;
     margin: -3rem 0rem 0rem 3rem;
+
+    @media (max-width: 560px) {
+        transform: scale(80%);
+        left: -3rem;
+    }
 }
 
 .flip-image {
     transform: scaleX(-1);
+    @media (max-width: 560px) {
+        transform: scaleX(-1) scale(80%);
+    }
 }
 
 .talk-bubble-text {
@@ -114,15 +122,16 @@
     }
     
     @media (max-width: 450px) {
+        top: -9%;
         font-size: 1.2rem;
     }
 
     @media (max-width: 380px) {
-        font-size: 1rem;
+        top: -15%;
+        font-size: .9rem;
         line-height: 20px;
     }
-
-           
+          
 }
 
 .you-label {
