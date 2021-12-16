@@ -18,6 +18,10 @@ const RenderChildDashboard = props => {
     push('/gamemode');
   };
 
+  const handleContinueMission = e => {
+    push('/gameplay/mission');
+  };
+
   const handleTrophyRoom = e => {
     push('/gameplay/trophy-room');
   };
@@ -54,9 +58,15 @@ const RenderChildDashboard = props => {
             className="accept-mission"
             xs={24}
             sm={12}
-            onClick={handleAcceptMission}
+            onClick={
+              props.tasks.hasRead ? handleContinueMission : handleAcceptMission
+            }
           >
-            <p className="accept-mission-text">ACCEPT THE MISSION!</p>
+            <p className="accept-mission-text">
+              {props.tasks.hasRead
+                ? 'CONTINUE THE MISSION!'
+                : 'ACCEPT THE MISSION!'}
+            </p>
           </Col>
           <Col
             className="change-avatar"
