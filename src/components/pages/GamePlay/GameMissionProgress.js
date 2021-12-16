@@ -43,23 +43,32 @@ export default function GameMissionProgress(props) {
   //   props.enableModalWindow(modalData);
   // };
 
-  const showModal = () => {
+  const showGameTips = () => {
     return (
-      <p>
-        Click on the "Read," "Draw" or "Write" buttons to navigate through the
-        mission. You have to complete your current step before you can move on
-        to the next step, so if you haven\'t completed the "Read" step, you
-        won\'t be able to click on "Draw" or "Write" to advance. Once you have
-        completed all the steps, you can click back and forth between all of
-        them.
-      </p>
+      <div className="game-tips-container">
+        <div className="game-tips-text">
+          <p className="game-tips-text-p">
+            Click on the "Read," "Draw" or "Write" buttons to navigate through
+            the mission.
+          </p>
+          <p className="game-tips-text-p">
+            You have to complete your current step before you can move on to the
+            next step
+          </p>
+          <p className="game-tips-text-p">
+            Once you have completed all the steps, you can click back and forth
+            between all of them.
+          </p>
+        </div>
+        <button className="game-tips-gotit-btn">Got it!</button>
+      </div>
     );
   };
 
   return (
     <div>
       <div>
-        <Dropdown overlay={showModal} trigger={['click']}>
+        <Dropdown overlay={showGameTips} trigger={['click']}>
           <Button
             style={{ margin: '1rem' }}
             className="info-btn"
