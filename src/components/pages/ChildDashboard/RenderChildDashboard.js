@@ -55,7 +55,9 @@ const RenderChildDashboard = props => {
       <div className="dash-container">
         <Row className="toprow">
           <Col
-            className="accept-mission"
+            className={
+              props.tasks.hasRead ? 'continue-mission' : 'accept-mission'
+            }
             xs={24}
             sm={12}
             onClick={
