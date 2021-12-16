@@ -20,6 +20,13 @@ export default function GameWriteStep(props) {
   // State to help when uploading
   const [isUploading, setIsUploading] = useState(false);
 
+  // Enable the modal window to warn about no draw submittion
+  const warnData = {
+    title: 'Hold up there partner!',
+    description: 'you must submit a drawing in order to battle.',
+    buttonTxt: 'back to drawing',
+  };
+
   // This handles what happens when a picture is added/removed
   const handleChange = data => {
     setFileList(data);
@@ -45,12 +52,16 @@ export default function GameWriteStep(props) {
         buttonTxt: 'Battle!',
       };
 
-      props.enableModalWindow(modalData);
+      //props.enableModalWindow(modalData);
 
       props.updateFileSubmissionData('writings', []);
       setIsUploading(false);
     }, triggerSubmitTimer);
-    history.push('/child/next-steps');
+    if (props.submissionData.HasDrawn) {
+      history.push('/child/next-steps');
+    } else {
+      props.enableModalWindow(warnData);
+    }
   };
 
   // This function handles when we make a full submission of the entire mission(after reading, drawing, and writing)
