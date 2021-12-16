@@ -43,7 +43,7 @@ export default function GameDrawStep(props) {
           title: 'Scribble a side quest!',
           description:
             'Grab your favorite pencil and some loose leaf sheets of paper. Based on the prompt at the end of the reading, scribble down a side quest by hand. When your story is complete, snap a photo of your pages and upload them.',
-          buttonTxt: "Let's Go!",
+          buttonTxt: 'Battle!',
         };
 
         props.enableModalWindow(modalData);
@@ -68,7 +68,7 @@ export default function GameDrawStep(props) {
         title: 'Scribble a side quest!',
         description:
           'Grab your favorite pencil and some loose leaf sheets of paper. Based on the prompt at the end of the reading, scribble down a side quest by hand. When your story is complete, snap a photo of your pages and upload them.',
-        buttonTxt: "Let's Go!",
+        buttonTxt: 'Battle!',
       };
 
       props.enableModalWindow(modalData);
