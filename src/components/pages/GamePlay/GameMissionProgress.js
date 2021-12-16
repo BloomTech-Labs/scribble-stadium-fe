@@ -48,14 +48,26 @@ export default function GameMissionProgress(props) {
       <div className="game-tips-container">
         <div className="game-tips-text">
           <p className="game-tips-text-p">
+            <img
+              style={{ width: '48px', height: '48px' }}
+              src="https://img.icons8.com/flat-round/64/000000/wide-right-arrow.png"
+            />{' '}
             Click on the "Read," "Draw" or "Write" buttons to navigate through
             the mission.
           </p>
           <p className="game-tips-text-p">
+            <img
+              style={{ width: '48px', height: '48px' }}
+              src="https://img.icons8.com/flat-round/64/000000/wide-right-arrow.png"
+            />{' '}
             You have to complete your current step before you can move on to the
             next step
           </p>
           <p className="game-tips-text-p">
+            <img
+              style={{ width: '48px', height: '48px' }}
+              src="https://img.icons8.com/flat-round/64/000000/wide-right-arrow.png"
+            />{' '}
             Once you have completed all the steps, you can click back and forth
             between all of them.
           </p>
