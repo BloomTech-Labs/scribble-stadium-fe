@@ -99,7 +99,7 @@ const GamemodeBtns = props => {
     const data = {
       title: 'Welcome to Scribble Stadium!',
       description: ' Accept the mission to start your adventure!',
-      buttonTxt: "Let's Go!",
+      buttonTxt: 'Battle!',
     };
 
     props.enableModalWindow(data);
