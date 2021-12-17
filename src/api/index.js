@@ -157,7 +157,7 @@ const updateChildData = (body, childId) => {
 const childSubmissions = async (childId, storyId, body) => {
   try {
     return apiAuthPut(
-      `/child/${childId}/submission/${storyId}`,
+      `/child/${childId}/submissions/${storyId}`,
       body,
       getAuthHeader()
     ).then(response => {
