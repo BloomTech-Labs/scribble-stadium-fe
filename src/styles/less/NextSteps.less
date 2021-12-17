@@ -86,20 +86,34 @@
 
 .overlay-image {
     position: absolute;
-    top: 0;
+    top: 10%;
     left: 0;
     margin: -3rem 0rem 0rem 3rem;
 
     @media (max-width: 560px) {
+        transform: scale(90%);
+        left: -15%;
+        top: 0;
+    }
+
+    @media (max-width: 380px) {
         transform: scale(80%);
-        left: -3rem;
+        left: -5rem;
+        top: 0;
     }
 }
 
 .flip-image {
     transform: scaleX(-1);
+    top: 5%;
+    left: 2rem;
     @media (max-width: 560px) {
+        transform: scaleX(-1) scale(90%);
+        left: 1rem;
+    }
+    @media (max-width: 380px) {
         transform: scaleX(-1) scale(80%);
+        left: -2rem;
     }
 }
 
@@ -127,10 +141,17 @@
     }
 
     @media (max-width: 380px) {
-        top: -15%;
+        top: -9.5%;
+        font-size: 1rem;
+        line-height: 20px;
+    }
+
+    @media (max-width: 330px) {
+        top: -9.5%;
         font-size: .9rem;
         line-height: 20px;
     }
+      
           
 }
 
