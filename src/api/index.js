@@ -154,6 +154,22 @@ const updateChildData = (body, childId) => {
   }
 };
 
+const childSubmissions = async (childId, storyId, body) => {
+  try {
+    return apiAuthPut(
+      `/child/${childId}/submission/${storyId}`,
+      body,
+      getAuthHeader()
+    ).then(response => {
+      return response;
+    });
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+    });
+  }
+};
+
 const deleteChild = childId => {
   try {
     return apiAuthDelete(`/child/${childId}`, getAuthHeader()).then(
@@ -594,6 +610,7 @@ export {
   postNewAvatar,
   getChildTeam,
   submitPoints,
+  childSubmissions,
   getChildSquad,
   getFaceoffsForMatchup,
   getFaceoffsForVoting,
