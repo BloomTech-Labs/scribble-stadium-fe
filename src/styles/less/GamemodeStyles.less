@@ -374,7 +374,8 @@
   /* notification-modal */
   #notification-modal {
     position: fixed;
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     top: 0;
@@ -390,7 +391,10 @@
       background: url(../../assets/images/gamemodeimg/modal.png);
       background-size: cover;
       width: 720px;
+      max-width: 100%;
       height: 520px;
+      margin-left: auto;
+      margin-right: auto;
       transform: translateY(-100vh);
 
       .modal-content {
