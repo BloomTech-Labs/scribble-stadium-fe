@@ -3,9 +3,16 @@ import { CountDownTimer } from './CountdownTimer';
 import { DownCircleFilled } from '@ant-design/icons';
 import { Collapse } from 'antd';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 function Hud(props) {
-  const { completedActivity, currentActivity, currentBar } = props;
+  const {
+    completedActivity,
+    currentActivity,
+    currentBar,
+    currActivity,
+  } = props;
+
   const activities = [
     'Read',
     'Draw',
@@ -47,6 +54,11 @@ function Hud(props) {
                 currentActivity !== a &&
                 completedActivity.length - 1 < activities.indexOf(a) &&
                 'restActive'
+              }
+              ${
+                currActivity.currActivity === a.toLowerCase()
+                  ? 'currentActivity'
+                  : ''
               }
               `}
             >
@@ -135,4 +147,11 @@ Hud.propTypes = {
   currentBar: PropTypes.string.isRequired,
 };
 
-export default Hud;
+const mapStateToProps = state => {
+  return {
+    ...state,
+    currentActivity: state.currentActivity,
+  };
+};
+
+export default connect(mapStateToProps)(Hud);
