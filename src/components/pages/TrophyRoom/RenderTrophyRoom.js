@@ -84,11 +84,7 @@ const RenderLeaderboard = props => {
           <h1>Under Construction!</h1>
           <h1>Trophy Room UI Coming Soon!</h1>
         </div>{' '}
-        <Button
-          style={{ margin: '1rem' }}
-          className="back-btn"
-          onClick={dashboard}
-        >
+        <Button className="back-btn" onClick={dashboard}>
           {' '}
           Back to Dashboard{' '}
         </Button>
