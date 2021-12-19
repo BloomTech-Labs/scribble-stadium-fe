@@ -30,7 +30,7 @@ const RenderLeaderboard = props => {
       </div>
       <div>
         {' '}
-        <ChildFooter layoutContainerCheck={'no-scroll'} />
+        <ChildFooter />
       </div>
     </>
   );
