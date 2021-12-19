@@ -20,11 +20,7 @@ const RenderMatchUp = props => {
       <Header displayMenu={true} title="Scribble Stadium" />
       {/**Temporary button to redirect to point share component */}
       <div style={{ textAlign: 'center' }}>
-        <Button
-          style={{ marginTop: '1rem' }}
-          className="back-btn"
-          onClick={goToPointShare}
-        >
+        <Button className="to-pointshare-btn" onClick={goToPointShare}>
           Go To Point Share
         </Button>
       </div>
