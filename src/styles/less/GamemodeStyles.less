@@ -397,6 +397,14 @@
       margin-right: auto;
       transform: translateY(-100vh);
 
+      @media @tablet {  
+        max-width: 80%;
+      }
+
+      @media @mobile {
+        max-width: 90%;
+      }
+
       .modal-content {
         padding: 20px 5%;
         display: flex;
@@ -409,11 +417,19 @@
         h3 {
           font-size: 3rem;
           text-transform: uppercase;
+
+          @media @mobile {
+            font-size: 2.5rem;
+          }
         }
 
         p {
           font-size: 1.5rem;
           line-height: 1.5em;
+
+          @media @mobile {
+            margin-left: .5rem;
+          }
         }
 
         button {
