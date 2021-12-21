@@ -77,17 +77,18 @@ const RenderLeaderboard = props => {
     <>
       {/* TEMPORARY  BELOW SECTION IS THE UNDER CONSTRUCTION SECTION TO BE REMOVED WHEN FUNCTIONAL PAGE IS READY TO BE USED*/}
       <div className={'under-construction'}>
+        <Button className="back-to-dashboard-btn" onClick={dashboard}>
+          {' '}
+          Back to Dashboard{' '}
+        </Button>
+        <br />
         <div className={'rectangle-126'}>
           <h1>Coming Soon</h1>
         </div>
         <div className={'under-construction-content'}>
           <h1>Under Construction!</h1>
-          <h1>Trophy Room UI Coming Soon!</h1>
+          <h1>Trophy Room Coming Soon!</h1>
         </div>{' '}
-        <Button className="back-to-dashboard-btn" onClick={dashboard}>
-          {' '}
-          Back to Dashboard{' '}
-        </Button>
       </div>
       {/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  TEMPORARY UNDER CONSTRUCTION SECTION ABOVE TO BE REMOVED*/}
 
