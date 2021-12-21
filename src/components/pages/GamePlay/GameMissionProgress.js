@@ -81,6 +81,15 @@ export default function GameMissionProgress(props) {
     <div>
       <div>
         <Dropdown overlay={showGameTips} trigger={['click']}>
+          {/*Lightbulb Icon*/}
+          {/*<div className="game-tips-icon-container">
+            <img
+              style={{ width: '40px', height: '38px' }}
+              src="https://img.icons8.com/external-flat-juicy-fish/60/000000/external-crisis-crisis-management-flat-flat-juicy-fish-6.png"
+              alt="lightbulb"
+            />
+            <p className="tips">Tips</p>
+  </div>*/}
           <Button
             style={{ margin: '1rem' }}
             className="info-btn"
