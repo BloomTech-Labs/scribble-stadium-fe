@@ -154,22 +154,6 @@ const updateChildData = (body, childId) => {
   }
 };
 
-const childSubmissions = async (childId, storyId, body) => {
-  try {
-    return apiAuthPut(
-      `/child/${childId}/submissions/${storyId}`,
-      body,
-      getAuthHeader()
-    ).then(response => {
-      return response;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-    });
-  }
-};
-
 const deleteChild = childId => {
   try {
     return apiAuthDelete(`/child/${childId}`, getAuthHeader()).then(
@@ -345,6 +329,28 @@ const markAsRead = async submissionId => {
     return new Promise(() => {
       console.log(err);
       return [];
+    });
+  }
+};
+
+/**
+ *
+ * @param {Object} authState
+ * @param {number} childId id of the child
+ * @param {number} storyId id of the story
+ */
+const putChildSubmissions = async (childId, storyId, body) => {
+  try {
+    return apiAuthPut(
+      `/child/${childId}/submissions/${storyId}`,
+      body,
+      getAuthHeader()
+    ).then(response => {
+      return response;
+    });
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
     });
   }
 };
@@ -610,7 +616,7 @@ export {
   postNewAvatar,
   getChildTeam,
   submitPoints,
-  childSubmissions,
+  putChildSubmissions,
   getChildSquad,
   getFaceoffsForMatchup,
   getFaceoffsForVoting,
