@@ -43,13 +43,14 @@ export default function GameDrawStep(props) {
           title: 'Scribble a side quest!',
           description:
             'Grab your favorite pencil and some loose leaf sheets of paper. Based on the prompt at the end of the reading, scribble down a side quest by hand. When your story is complete, snap a photo of your pages and upload them.',
-          buttonTxt: "Let's Go!",
+          buttonTxt: 'Battle!',
         };
 
         props.enableModalWindow(modalData);
         props.updateModalStatus('draw', true);
       }
 
+      props.updateFileSubmissionData('drawings', []);
       history.push(`${props.baseURL}/write`);
     }, triggerSubmitTimer);
   };
@@ -67,7 +68,7 @@ export default function GameDrawStep(props) {
         title: 'Scribble a side quest!',
         description:
           'Grab your favorite pencil and some loose leaf sheets of paper. Based on the prompt at the end of the reading, scribble down a side quest by hand. When your story is complete, snap a photo of your pages and upload them.',
-        buttonTxt: "Let's Go!",
+        buttonTxt: 'Battle!',
       };
 
       props.enableModalWindow(modalData);
@@ -134,13 +135,13 @@ export default function GameDrawStep(props) {
                 onClick={handleSubmit}
                 loading={isUploading}
               >
-                {isUploading ? 'Uploading...' : 'Save'}
+                {isUploading ? 'Uploading...' : 'Submit'}
               </Button>
             )}
 
-            <button className="skip-btn" onClick={handleSkip}>
+            <Button className="skip-btn" onClick={handleSkip}>
               I’d rather write
-            </button>
+            </Button>
           </div>
         </div>
       </div>

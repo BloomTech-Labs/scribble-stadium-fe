@@ -246,9 +246,7 @@ const PointShare = props => {
             <div className="counter-box">
               <p className="points-assigned">{storyOnePoints}</p>
               <div className="increment-box">
-                <CaretUpOutlined
-                  className="increment-up"
-                  style={{ color: '#6CEAE6', fontSize: '30px' }}
+                <Button
                   onClick={() => {
                     handlePointShare({
                       value: storyOnePoints + 5,
@@ -258,20 +256,44 @@ const PointShare = props => {
                       c: illustrationTwoPoints,
                     });
                   }}
-                />
-                <CaretDownOutlined
-                  className="increment-down"
-                  style={{ color: '#6CEAE6', fontSize: '30px' }}
+                  style={{
+                    width: '100%',
+                    padding: '0',
+                    border: 'none',
+                    margin: '0',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <CaretUpOutlined
+                    style={{ color: '#6CEAE6', fontSize: '30px' }}
+                  />
+                </Button>
+                <Button
                   onClick={() => {
                     handlePointShare({
-                      value: storyOnePoints - 5,
+                      value:
+                        storyOnePoints >= 5
+                          ? storyOnePoints - 5
+                          : storyOnePoints,
                       pointSetter: setStoryOnePoints,
                       a: storyTwoPoints,
                       b: illustrationOnePoints,
                       c: illustrationTwoPoints,
                     });
                   }}
-                />
+                  style={{
+                    width: '100%',
+                    padding: '0',
+                    border: 'none',
+                    margin: '0',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <CaretDownOutlined
+                    className="increment-down"
+                    style={{ color: '#6CEAE6', fontSize: '30px' }}
+                  />
+                </Button>
               </div>
             </div>
           </div>
@@ -290,9 +312,7 @@ const PointShare = props => {
             <div className="counter-box">
               <p className="points-assigned">{illustrationOnePoints}</p>
               <div className="increment-box">
-                <CaretUpOutlined
-                  className="increment-up"
-                  style={{ color: '#6CEAE6', fontSize: '30px' }}
+                <Button
                   onClick={() => {
                     handlePointShare({
                       value: illustrationOnePoints + 5,
@@ -302,20 +322,45 @@ const PointShare = props => {
                       c: illustrationTwoPoints,
                     });
                   }}
-                />
-                <CaretDownOutlined
-                  className="increment-down"
-                  style={{ color: '#6CEAE6', fontSize: '30px' }}
+                  style={{
+                    width: '100%',
+                    padding: '0',
+                    border: 'none',
+                    margin: '0',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <CaretUpOutlined
+                    className="increment-up"
+                    style={{ color: '#6CEAE6', fontSize: '30px' }}
+                  />
+                </Button>
+                <Button
                   onClick={() => {
                     handlePointShare({
-                      value: illustrationOnePoints - 5,
+                      value:
+                        illustrationOnePoints >= 5
+                          ? illustrationOnePoints - 5
+                          : illustrationOnePoints,
                       pointSetter: setIllustrationOnePoints,
                       a: storyTwoPoints,
                       b: storyOnePoints,
                       c: illustrationTwoPoints,
                     });
                   }}
-                />
+                  style={{
+                    width: '100%',
+                    padding: '0',
+                    border: 'none',
+                    margin: '0',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <CaretDownOutlined
+                    className="increment-down"
+                    style={{ color: '#6CEAE6', fontSize: '30px' }}
+                  />
+                </Button>
               </div>
             </div>
           </div>
@@ -346,9 +391,7 @@ const PointShare = props => {
             <div className="counter-box">
               <p className="points-assigned">{storyTwoPoints}</p>
               <div className="increment-box">
-                <CaretUpOutlined
-                  className="increment-up"
-                  style={{ color: '#6CEAE6', fontSize: '30px' }}
+                <Button
                   onClick={() => {
                     handlePointShare({
                       value: storyTwoPoints + 5,
@@ -358,20 +401,45 @@ const PointShare = props => {
                       c: illustrationTwoPoints,
                     });
                   }}
-                />
-                <CaretDownOutlined
-                  className="increment-down"
-                  style={{ color: '#6CEAE6', fontSize: '30px' }}
+                  style={{
+                    width: '100%',
+                    padding: '0',
+                    border: 'none',
+                    margin: '0',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <CaretUpOutlined
+                    className="increment-up"
+                    style={{ color: '#6CEAE6', fontSize: '30px' }}
+                  />
+                </Button>
+                <Button
                   onClick={() => {
                     handlePointShare({
-                      value: storyTwoPoints - 5,
+                      value:
+                        storyTwoPoints >= 5
+                          ? storyTwoPoints - 5
+                          : storyTwoPoints,
                       pointSetter: setStoryTwoPoints,
                       a: storyOnePoints,
                       b: illustrationOnePoints,
                       c: illustrationTwoPoints,
                     });
                   }}
-                />
+                  style={{
+                    width: '100%',
+                    padding: '0',
+                    border: 'none',
+                    margin: '0',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <CaretDownOutlined
+                    className="increment-down"
+                    style={{ color: '#6CEAE6', fontSize: '30px' }}
+                  />
+                </Button>
               </div>
             </div>
           </div>
@@ -396,9 +464,7 @@ const PointShare = props => {
               <div className="counter-box">
                 <p className="points-assigned">{illustrationTwoPoints}</p>
                 <div className="increment-box">
-                  <CaretUpOutlined
-                    className="increment-up"
-                    style={{ color: '#6CEAE6', fontSize: '30px' }}
+                  <Button
                     onClick={() => {
                       handlePointShare({
                         value: illustrationTwoPoints + 5,
@@ -408,20 +474,45 @@ const PointShare = props => {
                         c: storyOnePoints,
                       });
                     }}
-                  />
-                  <CaretDownOutlined
-                    className="increment-down"
-                    style={{ color: '#6CEAE6', fontSize: '30px' }}
+                    style={{
+                      width: '100%',
+                      padding: '0',
+                      border: 'none',
+                      margin: '0',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <CaretUpOutlined
+                      className="increment-up"
+                      style={{ color: '#6CEAE6', fontSize: '30px' }}
+                    />
+                  </Button>
+                  <Button
                     onClick={() => {
                       handlePointShare({
-                        value: illustrationTwoPoints - 5,
+                        value:
+                          illustrationTwoPoints >= 5
+                            ? illustrationTwoPoints - 5
+                            : illustrationTwoPoints,
                         pointSetter: setIllustrationTwoPoints,
                         a: storyTwoPoints,
                         b: illustrationOnePoints,
                         c: storyOnePoints,
                       });
                     }}
-                  />
+                    style={{
+                      width: '100%',
+                      padding: '0',
+                      border: 'none',
+                      margin: '0',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <CaretDownOutlined
+                      className="increment-down"
+                      style={{ color: '#6CEAE6', fontSize: '30px' }}
+                    />
+                  </Button>
                 </div>
               </div>
             </div>

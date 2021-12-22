@@ -21,7 +21,7 @@ const ChildMenu = props => {
   const { push } = useHistory();
   const { logout } = useAuth0();
 
-  const childRedirect = () => {
+  const dashboard = () => {
     push('/dashboard');
   };
 
@@ -38,7 +38,7 @@ const ChildMenu = props => {
       <Menu.Item
         key="1"
         className="child-header-menu-item"
-        onClick={childRedirect}
+        onClick={dashboard}
         icon={<HomeOutlined className="child-header-menu-item" />}
       >
         Home

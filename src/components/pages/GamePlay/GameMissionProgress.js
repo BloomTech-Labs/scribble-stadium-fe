@@ -22,7 +22,7 @@ export default function GameMissionProgress(props) {
       history.push(`${baseURL}/${step}`);
     } else {
       const modalData = {
-        title: 'YOu must read before advancing!',
+        title: 'You must read before advancing!',
         description: 'In order to complete the mission, reading is a MUST!',
         buttonTxt: 'Close',
       };
