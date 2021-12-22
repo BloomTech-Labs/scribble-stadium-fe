@@ -50,9 +50,15 @@ export default function GameDrawStep(props) {
         props.updateModalStatus('draw', true);
       }
 
-      props.updateFileSubmissionData('drawings', []);
+      // props.updateFileSubmissionData('drawings', []);
       history.push(`${props.baseURL}/write`);
     }, triggerSubmitTimer);
+  };
+
+  const handleRemove = file => {
+    const updatedList = fileList.filter(f => file.uid !== f.uid);
+    setFileList(updatedList);
+    props.updateFileSubmissionData('drawings', updatedList);
   };
 
   // This handles when we skip the drawing phase
@@ -126,6 +132,7 @@ export default function GameDrawStep(props) {
               handleSubmit={handleSubmit}
               alternateHandleSubmission={true}
               savedFileList={fileList}
+              handleRemove={handleRemove}
             />
 
             {fileList.length > 0 && (
