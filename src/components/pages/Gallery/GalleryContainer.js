@@ -6,6 +6,7 @@ import ChildFooter from '../../common/ChildFooter';
 import { Button } from 'antd';
 import { getChildByID } from '../../../api/index';
 import { setWeeklySubmissions } from '../../../state/actions/galleryActions';
+
 import WeeklySubmissions from './WeeklySubmissions';
 import { useHistory, useParams } from 'react-router-dom';
 
