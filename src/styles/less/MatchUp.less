@@ -188,19 +188,6 @@
 
  // Styling for "Go to Point Share" button on RenderMatchUp.js
 .to-pointshare-btn {
-  @media @tablet {
-    width: 30%;
-  }
-}
-.to-pointshare-btn {
-  @media @tablet {
-    display: none;
-  }
-  @media @mobile {
-    display: none;
-  }
-}
-.to-pointshare-btn {
   width: auto;
   height: auto !important;
   background-color: #c6fd7e !important;
@@ -208,4 +195,16 @@
   font-family: 'atma';
   font-size: 2rem !important;
   margin-top: 1rem !important;
+
+  @media @tablet {
+    width: auto;
+    max-width: 100%;
+    display: none;
+  }
+
+  @media @mobile {
+    width: auto;
+    max-width: 100%;
+    display: none;
+  }
 }

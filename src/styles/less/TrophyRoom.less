@@ -251,19 +251,6 @@
 
 // Styling for Back to Dashboard Button on the Leaderboard page
 .back-to-dashboard-btn {
-  @media @tablet {
-    width: 30%;
-  }
-}
-.back-to-dashboard-btn {
-  @media @tablet {
-    display: none;
-  }
-  @media @mobile {
-    display: none;
-  }
-}
-.back-to-dashboard-btn {
   width: auto;
   height: auto !important;
   background-color: #c6fd7e !important;
@@ -271,4 +258,16 @@
   font-family: 'atma';
   font-size: 2rem !important;
   margin-top: 1rem !important;
+
+  @media @tablet {
+    width: auto;
+    max-width: 100%;
+    display: none;
+  }
+
+  @media @mobile {
+    width: auto;
+    max-width: 100%;
+    display: none;
+  }
 }
