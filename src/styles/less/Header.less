@@ -3,17 +3,20 @@
 
 .hero {
   background-image: url('../../assets/images/cityscape.svg');
-  min-height: 30vh;
+  min-height: 45vh;
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: bottom;
   border: 5px solid @header-nero;
   background-color: @turquoise;
   position: relative;
-
   @media @mobile {
     min-height: 20vh;
   }
+  @media @mobileLarge {
+    min-height: 20vh;
+  }
+
   h1 {
     color: @white;
     text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
@@ -25,6 +28,10 @@
     letter-spacing: 7px;
     @media @mobile {
       font-size: 3rem;
+      margin-bottom: 3rem;
+    }
+    @media @mobileLarge {
+      margin-left: 2rem;
     }
   }
   button {
