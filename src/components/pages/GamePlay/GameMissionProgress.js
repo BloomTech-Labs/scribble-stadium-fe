@@ -84,7 +84,7 @@ export default function GameMissionProgress(props) {
           {/*Lightbulb Icon*/}
           <div className="game-tips-icon-container">
             <img
-              style={{ width: '40px', height: '38px' }}
+              style={{ width: '40px', height: '38px', cursor: 'pointer' }}
               src="https://img.icons8.com/external-flat-juicy-fish/60/000000/external-crisis-crisis-management-flat-flat-juicy-fish-6.png"
               alt="lightbulb"
             />
