@@ -3,9 +3,16 @@ import { CountDownTimer } from './CountdownTimer';
 import { DownCircleFilled } from '@ant-design/icons';
 import { Collapse } from 'antd';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 function Hud(props) {
-  const { completedActivity, currentActivity, currentBar } = props;
+  const {
+    completedActivity,
+    currentActivity,
+    currentBar,
+    currActivity,
+  } = props;
+
   const activities = [
     'Read',
     'Draw',
@@ -48,6 +55,11 @@ function Hud(props) {
                 completedActivity.length - 1 < activities.indexOf(a) &&
                 'restActive'
               }
+              ${
+                currActivity.currActivity === a.toLowerCase()
+                  ? 'currentActivity'
+                  : ''
+              }
               `}
             >
               <span>{a}</span>
@@ -79,10 +91,18 @@ function Hud(props) {
           </div>
 
           <div className="days">
-            <div className="day1-3">Day 1 - 3</div>
-            <div className="day4">Day 4</div>
-            <div className="day5">Day 5</div>
-            <div className="day6-7">Day 6 - 7</div>
+            <div className={`day1-3 ${currentBar === 'bar1' && 'currentDay'}`}>
+              Day 1 - 3
+            </div>
+            <div className={`day4 ${currentBar === 'bar2' && 'currentDay'}`}>
+              Day 4
+            </div>
+            <div className={`day5 ${currentBar === 'bar3' && 'currentDay'}`}>
+              Day 5
+            </div>
+            <div className={`day6-7 ${currentBar === 'bar4' && 'currentDay'}`}>
+              Day 6 - 7
+            </div>
           </div>
         </Panel>
       </Collapse>
@@ -127,4 +147,11 @@ Hud.propTypes = {
   currentBar: PropTypes.string.isRequired,
 };
 
-export default Hud;
+const mapStateToProps = state => {
+  return {
+    ...state,
+    currentActivity: state.currentActivity,
+  };
+};
+
+export default connect(mapStateToProps)(Hud);

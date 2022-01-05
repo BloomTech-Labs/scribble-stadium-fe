@@ -20,6 +20,13 @@ export default function GameWriteStep(props) {
   // State to help when uploading
   const [isUploading, setIsUploading] = useState(false);
 
+  // Enable the modal window to warn about no draw submittion
+  const warnData = {
+    title: 'Hold up there partner!',
+    description: 'you must submit a drawing in order to battle.',
+    buttonTxt: 'back to drawing',
+  };
+
   // This handles what happens when a picture is added/removed
   const handleChange = data => {
     setFileList(data);
@@ -42,14 +49,19 @@ export default function GameWriteStep(props) {
         title: 'Get ready for the boss battle!',
         description:
           'To complete this mission, your work will be put up head-to-head against a boss. If you are ready to fight, submit your work!',
-        buttonTxt: "Let's Go!",
+        buttonTxt: 'Battle!',
       };
 
-      props.enableModalWindow(modalData);
+      //props.enableModalWindow(modalData);
 
+      props.updateFileSubmissionData('writings', []);
       setIsUploading(false);
     }, triggerSubmitTimer);
-    history.push('/child/next-steps');
+    if (props.submissionData.HasDrawn) {
+      history.push('/child/next-steps');
+    } else {
+      props.enableModalWindow(warnData);
+    }
   };
 
   // This function handles when we make a full submission of the entire mission(after reading, drawing, and writing)
@@ -74,7 +86,7 @@ export default function GameWriteStep(props) {
         title: 'Get ready for the boss battle!',
         description:
           'To complete this mission, your work will be put up head-to-head against a boss. If you are ready to fight, submit your work!',
-        buttonTxt: "Let's Go!",
+        buttonTxt: 'Battle!',
       };
 
       props.enableModalWindow(modalData);
@@ -113,21 +125,13 @@ export default function GameWriteStep(props) {
           <img src={boyImg} alt="A boy" className="boy-img" />
 
           <div className="step-description">
-            <h3>Don’t forget!</h3>
-
-            {fileList.length === 0 ? (
-              <p>
-                When your story is complete, snap a photo of your pages and
-                upload them.
-              </p>
-            ) : (
-              <p>Double check that you’re uploading the right photo!</p>
-            )}
-
+            <p style={{ fontWeight: '100 !important', width: '350px' }}>
+              Make sure you're uploading the right photo.
+            </p>
             <UploadDocs
               listType="picture"
               uploadButtonClassname="upload-picture"
-              uploadButtonText="Upload Your Writing"
+              uploadButtonText="Upload your story"
               handleChangeExtra={handleChange}
               handleSubmit={handleSubmit}
               alternateHandleSubmission={true}
@@ -141,15 +145,15 @@ export default function GameWriteStep(props) {
                 onClick={handleSubmit}
                 loading={isUploading}
               >
-                {isUploading ? 'Uploading...' : 'Save'}
+                {isUploading ? 'Uploading...' : 'Submit'}
               </Button>
             )}
 
-            <button className="skip-btn" onClick={handleSkip}>
+            <Button className="skip-btn" onClick={handleSkip}>
               {props.submissionData.HasDrawn
                 ? 'Just drawing, no story'
                 : "I'd rather draw"}
-            </button>
+            </Button>
 
             {/* This button is no longer needed as the page routes to next steps. If in the future a battle mode is implemented, this button will be used. */}
             {/* {props.battleReady && (

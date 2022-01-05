@@ -37,7 +37,6 @@ export default function CropCloud() {
           src={`data:image/png;base64, ${placeholderCloud.data}`}
         />
       </div>
-      main
     </div>
   );
 }

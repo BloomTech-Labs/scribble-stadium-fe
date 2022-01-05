@@ -6,16 +6,13 @@
 
 Scribble Stadium turns “reluctant readers” into authors and illustrators through a collaborative world-building game.
 
-<!-- Todo! Update this -->
-
-You can find the deployed project at: [AWS Amplify](https://a.storysquad.dev/)
-
 ## Current State Of The App
 
 <!-- Todo! Update this -->
 
-Work done by Labs32: https://docs.google.com/document/d/1aSt8nd0Mg_2lcXzV9of9Bkd4DsLA-KMbRKVbyIDBnEc/edit
-Work done by labs29: [Click Here](https://docs.google.com/spreadsheets/d/1ZdhfQEAsz3IhgVa8zMZ0JkuD6-oasDI4hplPFXZaXNQ/edit?usp=sharing)
+Work done by Labs32: [Click Here](https://docs.google.com/document/d/1aSt8nd0Mg_2lcXzV9of9Bkd4DsLA-KMbRKVbyIDBnEc/edit)
+<br/>
+Work done by Labs29: [Click Here](https://docs.google.com/spreadsheets/d/1ZdhfQEAsz3IhgVa8zMZ0JkuD6-oasDI4hplPFXZaXNQ/edit?usp=sharing)
 
 ## Project Overview
 
@@ -38,7 +35,7 @@ Work done by labs29: [Click Here](https://docs.google.com/spreadsheets/d/1ZdhfQE
 
 ---
 
-Welcome to Scribble Stadium! We are an interactive learning platform targeted at grade school children, and we help build reading comprehension as well as artistic, writing, and analytical/critical thinking skills through weekly competitions.
+Welcome to Scribble Stadium! We are an interactive learning platform designed for grade school children, and we help build reading comprehension as well as artistic, writing, and analytical/critical thinking skills through weekly competitions.
 
 Each week features a new chapter in an exciting novel, written and serialized specifically for Scribble Stadium by author and educator Graig Peterson. Children are provided with prompts based on the chapter they've just read, and participants are then divided into teams of two. Students create art and fanfiction to match the prompt, before going head to head in a bracket-style tournament.
 
@@ -75,6 +72,31 @@ Scribble Stadium is a paid service; parents are required to create the account f
 
 <!-- <br> -->
 
+|                                                [Rhiannon Stanford](https://github.com/Qirhi)                                                |                                               [Molly Brown](https://github.com/mollybee)                                               |                                               [Ethan Karp](https://github.com/Ksouffle)                                               |                                               [Eli Miklashevych](https://github.com/milklot)                                                |                                             [Julian Cole](https://github.com/Julianisrel)                                              |                                       [Barry Porch](https://github.com/bporch84)                                        |
+| :-----------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------: |
+|                [<img src="https://avatars.githubusercontent.com/u/61174160?v=4" width = "100" />](https://github.com/Qirhi)                 |            [<img src="https://avatars.githubusercontent.com/u/21160325?v=4" width = "100" />](https://github.com/mollybee)             |            [<img src="https://avatars.githubusercontent.com/u/72050425?v=4" width = "100" />](https://github.com/Ksouffle)            |               [<img src="https://avatars.githubusercontent.com/u/64991544?v=4" width = "100" />](https://github.com/milklot)                |           [<img src="https://avatars.githubusercontent.com/u/52305213?v=4" width = "100" />](https://github.com/Julianisrel)           |     [<img src="https://avatars.githubusercontent.com/u/69640436?v=4" width = "100" />](https://github.com/bporch84)     |
+|                                                                     Technical Lead Engineer                                                                     |                                                                  Team Project Lead                                                                   |                                                                  Lead Backend Engineer                                                                  |                                                                     Frontend Engineer                                                                     |                                                                  UX Engineer                                                                   |                                                           Team Project Lead                                                           |
+|                              [<img src="https://github.com/favicon.ico" width="15">](https://github.com/Qirhi)                              |                          [<img src="https://github.com/favicon.ico" width="15">](https://github.com/mollybee)                          |                         [<img src="https://github.com/favicon.ico" width="15">](https://github.com/Ksouffle)                          |                             [<img src="https://github.com/favicon.ico" width="15">](https://github.com/milklot)                             |                        [<img src="https://github.com/favicon.ico" width="15">](https://github.com/Julianisrel)                         |                  [<img src="https://github.com/favicon.ico" width="15">](https://github.com/bporch84)                   |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/rhiannon-stanford-35144973/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/molly-brown-52bb1b14a/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/ethan-karp-703696182/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/eli-miklashevych-405709195/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/julian-cole-4b0440189/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/bporch/) |
+
+<!-- <br> -->
+
+<!-- <br> -->
+
+|                                         [Kato Hernandez](https://github.com/zzeroyzz)                                         |                                         [Michael McFadden](https://github.com/MichaelMcFaddenjr)                                          |                                        [Tony Miller](https://github.com/artofmayhem)                                        |                                     [Stephen Aranda](https://github.com/OniWarrior)                                      |                                                       [Yonathan Admasu](https://github.com/Yonathan-Admasu728)                                                        |                                        [Alexandre Steinhauslin](https://github.com/Alisa1989)                                        |                                       [Kendria McCullough](https://github.com/kendra4227)                                       |                                     [Bryan Anderson](https://github.com/BryanPAnderson)                                     
+| :-------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------: | 
+|         [<img src="https://avatars.githubusercontent.com/u/61443096?v=4" width = "60" />](https://github.com/zzeroyzz)          |      [<img src="https://avatars.githubusercontent.com/u/78671875?v=4" width = "60" />](https://github.com/MichaelMcFaddenjr)      |      [<img src="https://avatars.githubusercontent.com/u/70006926?v=4" width = "60" />](https://github.com/artofmayhem)       |      [<img src="https://avatars.githubusercontent.com/u/75341073?v=4" width = "60" />](https://github.com/OniWarrior)       | [<img src="https://avatars.githubusercontent.com/u/75287408?v=4" width = "60" />](https://github.com/Yonathan-Admasu728) |       [<img src="https://avatars.githubusercontent.com/u/37967343?v=4" width = "60" />](https://github.com/Alisa1989)       |      [<img src="https://avatars.githubusercontent.com/u/60525789?v=4" width = "60" />](https://github.com/kendra4227)       |      [<img src="https://avatars.githubusercontent.com/u/60903793?v=4" width = "60" />](https://github.com/BryanPAnderson)       
+|                                                                   Team Project Lead                                                                   |                                                             Team Project Lead                                                             |                                                             Team Project Lead                                                              |                                                           Lead Frontend Engineer                                                           |                                                                                    Frontend Engineer                                                                                    |                                                              Frontend Engineer                                                               |                                                              Backend Engineer                                                               |                                                                Backend Engineer                                                                
+|                      [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/zzeroyzz)                      |                  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/MichaelMcFaddenjr)                   |                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/artofmayhem)                   |                   [<img src="https://github.com/favicon.ico" width="15">](https://github.com/OniWarrior)                    |                                      [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Yonathan-Admasu728)                                      |                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Alisa1989)                    |                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/kendra4227)                   |                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/BryanPAnderson)                   
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/kato-hernandez-92b1801ab) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/michael-mcfadden-jr/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/tony-miller-b13ba810/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/stephen-aranda-9b9974205/) |                     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/yonathanadmasu/)                     | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/alexandre-steinhauslin/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/lakendria-mccullough/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/bryanpanderson/) 
+
+<!-- <br> -->
+
+
+
+
+
+
 |                                                           [Lori Schlatter](https://github.com/lorischl-otter)                                                           |                                                           [Joseph Wilson](https://github.com/Jwilson1172)                                                            |                                                            [Steven Chase](https://github.com/schase15)                                                            |                                                           [Trevor Martin](https://github.com/trevorjamesmartin)                                                            |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | [<img src="https://avatars3.githubusercontent.com/u/15877666?s=400&u=e50a65dbfb10b6ad87cba62e96888331f0e72d89&v=4" width = "100" />](https://github.com/lorischl-otter) | [<img src="https://avatars0.githubusercontent.com/u/50245325?s=400&u=6a3aa4d49be9aa30dfefdc4f6c26c223c405473c&v=4" width = "100" />](https://github.com/Jwilson1172) | [<img src="https://avatars2.githubusercontent.com/u/61038689?s=400&u=6c3e70414c9f30a7580773bb24bce8983a96c414&v=4" width = "100" />](https://github.com/schase15) | [<img src="https://avatars2.githubusercontent.com/u/12375688?s=400&u=1de2f45b1d8113d7fb1290a029ddb66b21a945d4&v=4" width = "100" />](https://github.com/trevorjamesmartin) |
@@ -82,25 +104,49 @@ Scribble Stadium is a paid service; parents are required to create the account f
 |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lorischl-otter)                                       |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jwilson1172)                                       |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/schase15)                                       |                                       [<img src="https://github.com/favicon.ico" width="15">](https://github.com/trevorjamesmartin)                                        | (https://github.com/lorischl-otter) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://github.com/Jwilson1172) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](ttps://github.com/schase15) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://github.com/trevorjamesmartin) |  |
 |                          [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](www.linkedin.com/in/lorischlatter)                          |               [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/joseph-wilson-98645b49/)                |                   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/steventchase/)                   |                        [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/trevor4hire/)                        |
 
+<!-- <br> -->
+|                                                [Petr Morgoun](https://github.com/ppmorgoun)                                                 |                                               [Makoa Noble](https://github.com/afroman32)                                              |                                               [Ryan Walker](https://github.com/Fry-Fr)                                                |                                               [Alex Yeary](https://github.com/WhyseRabbit)                                                  |                                             [Carl Stimson](https://github.com/stimsonc)                                                |                                       [Amos Martineau](https://github.com/Kishkuman13)                                                   |                                       [Hansel Valentine](https://github.com/hanselviva)                                         |
+| :-----------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------:                  | :---------------------------------------------------------------------------------------------------------------------:         |
+|                [<img src="https://avatars.githubusercontent.com/u/46738087?v=4" width = "100" />](https://github.com/ppmorgoun)             |            [<img src="https://avatars.githubusercontent.com/u/7144321?v=4" width = "100" />](https://github.com/afroman32)             |            [<img src="https://avatars.githubusercontent.com/u/68477278?v=4" width = "100" />](https://github.com/Fry-Fr)              |               [<img src="https://avatars.githubusercontent.com/u/64559341?v=4" width = "100" />](https://github.com/WhyseRabbit)            |           [<img src="https://avatars.githubusercontent.com/u/76088024?v=4" width = "100" />](https://github.com/stimsonc)              |     [<img src="https://avatars.githubusercontent.com/u/73566523?v=4" width = "100" />](https://github.com/Kishkuman13)                   |     [<img src="https://avatars.githubusercontent.com/u/77471489?v=4" width = "100" />](https://github.com/hanselviva)           |
+|                                                                     Technical Project Manager                                               |                                                                  ML Ops                                                                |                                                                  UI/UX                                                                |                                                                     Data Engineer                                                           |                                                                  ML Engineer                                                           |                                                           Frontend Engineer                                                              |                                                           Backend Engineer                                                      |
+|                              [<img src="https://github.com/favicon.ico" width="15">](https://github.com/ppmorgoun)                          |                          [<img src="https://github.com/favicon.ico" width="15">](https://github.com/afroman32)                         |                         [<img src="https://github.com/favicon.ico" width="15">](https://github.com/Fry-Fr)                            |                             [<img src="https://github.com/favicon.ico" width="15">](https://github.com/WhyseRabbit)                         |                        [<img src="https://github.com/favicon.ico" width="15">](https://github.com/stimsonc)                            |                  [<img src="https://github.com/favicon.ico" width="15">](https://github.com/Kishkuman13)                                 |                  [<img src="https://github.com/favicon.ico" width="15">](https://github.com/hanselviva)                         |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/petr-morgoun-537101208/)     | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](www.linkedin.com/in/makoa-noble)                    | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/ry-j-walker/)          | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/alex-yeary-6a404b1aa/)       | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/carl-stimson-76ba37166/)| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/amos-martineau-0141641ab/)| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/hanselvalentine/)|
+
+<!-- <br> -->
+|                                                           [Paul Vigar](https://www.linkedin.com/in/pvigar/)                                                             |                                                           [Chris Collins](https://github.com/Cgcollins91)                                                            |                                                            [Tristan Miller](https://github.com/StnsGeneral)                                                       |                                                           [Mitchell Knudsen](https://github.com/Mitch98k)                                                                  |                                                           [Bipin Shrestha](https://github.com/bipin-shrestha)                                                              |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | 
+| [<img src="https://avatars.githubusercontent.com/u/18006737?s=400&u=47a3ec8f1d6a204c36de49e088fa26fe72d40ebb&v=4" width = "100" />](https://www.linkedin.com/in/pvigar/)| [<img src="https://avatars.githubusercontent.com/u/73444425?v=4" width = "100" />](https://github.com/Cgcollins91)                                                   | [<img src="https://avatars.githubusercontent.com/u/44737264?v=4" width = "100" />](https://github.com/StnsGeneral)                                                | [<img src="https://avatars.githubusercontent.com/u/57117435?v=4" width = "100" />](https://github.com/Mitch98k)                                                            | [<img src="https://avatars.githubusercontent.com/u/70555020?v=4" width = "100" />](https://github.com/bipin-shrestha)                                                      | [<img src="https://avatars2.githubusercontent.com/u/12375688?s=400&u=1de2f45b1d8113d7fb1290a029ddb66b21a945d4&v=4" width = "100" />](https://github.com/trevorjamesmartin) |
+|                                                                              Technical Project Manager                                                                  |                                                                             ML Engineer                                                                              |                                                                           Frontend Engineer                                                                       |                                                                              Frontend Engineer                                                                             |                                                                              UI/UX                                                                                         |                                                                              Project Manager                                                                               |
+|                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://www.linkedin.com/in/pvigar/)                                     |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Cgcollins91)                                       |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/StnsGeneral)                                    |                                       [<img src="https://github.com/favicon.ico" width="15">](https://github.com/Mitch98k)                                                 | [<img src="https://github.com/favicon.ico" width="15">](https://github.com/bipin-shrestha)                                                                                 |                       (https://github.com/lorischl-otter) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://github.com/Jwilson1172) |[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](ttps://github.com/schase15) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://github.com/trevorjamesmartin) |  |
+|                          [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://github.com/PVigar88)                                |               [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/cgcollins1991/)                         |                   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/tristanalexandermiller/)         |                        [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/mitchell-knudsen/)                   |                        [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/bpnshrestha/)                        |                        [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/trevor4hire/)                        |
+
+<!-- <br> -->
+|                                                           [Ashley Brennan](https://github.com/brennanashley)                                                            |                                                           [Liliana Leyva](https://github.com/Liliana-Leyva)                                                          |                                                            [Mason Menges](https://github.com/masonmenges)                                                         |                                                           [Bright Ofori](https://github.com/bkofori)                                                                       |                                                          [Orlando Rivera, Jr.](https://github.com/ORiveraJr84)                                                            |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars.githubusercontent.com/u/76409576?v=4" width = "100" />](https://github.com/brennanashley)                                                    | [<img src="https://avatars.githubusercontent.com/u/58057905?v=4" width = "100" />](https://github.com/Liliana-Leyva)                                                 | [<img src="https://avatars.githubusercontent.com/u/76698667?v=4" width = "100" />](https://github.com/masonmenges)                                                | [<img src="https://avatars.githubusercontent.com/u/54005895?v=4" width = "100" />](https://github.com/bkofori)                                                             | [<img src="https://avatars.githubusercontent.com/u/28786654?v=4" width = "100" />](https://github.com/ORiveraJr84)                                                        |
+|              Technical Project Manager                                                                                                                                  |                                                                             Backend Engineer                                                                         |                                                                           ML Ops                                                                                  |                                                                              ML Engineer                                                                                   |                                                                              UI/UX                                                                                        |
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/brennanashley)                                                                              |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Liliana-Leyva)                                     |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/masonmenges)                                    |                                       [<img src="https://github.com/favicon.ico" width="15">](https://github.com/bkofori)                                                  |                                       [<img src="https://github.com/favicon.ico" width="15">](https://github.com/ORiveraJr84)                                             | (https://github.com/lorischl-otter) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://github.com/Jwilson1172) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](ttps://github.com/schase15) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://github.com/trevorjamesmartin) |  |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/brennanashley/)                                          |               [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/liliana-leyva-327ba1223/)               |                   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/masonlmenges/)                   |                        [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/bright-ofori/)                       |                        [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/oriverajr84/)                       |
+
 ### Key Features
 
 <!-- Todo! Update this -->
 
-- A Custom, Serialized Novel geared toward children in 3rd-6th grade
-- Parental Controls which allow parents to add and customize child accounts
+- A custom, serialized novel geared toward children in 3rd-6th grade
+- Parental controls which allow parents to add and customize child accounts
   <!-- - Detailed breakdown of desired app functionality -->
   <br>
 
 ## Tech Stack
 
-### Front end built using:
+### [Frontend](https://github.com/Lambda-School-Labs/scribble-stadium-fe) built using:
 
 <!-- Todo! Update this???? -->
 
 React
 
-- First Class Performance with Virtual DOM
-- Lightweight Library resulting in low bundle size/improved load times
+- First class performance with virtual DOM
+- Lightweight library resulting in low bundle size/improved load times
 - Easy cross-platform development via progressive web app
 - Simple routing
   <br>
@@ -111,19 +157,23 @@ Ant Design
 - Powerful theme customization
 - Whole package of design resources and development tools
 
+GreenSock
+
+- An industry standard animation library that lets you craft high performance animation
+
 React Plotly
 
 - Easy to use to embed D3 charts
-- This React component takes the chart type, data and styling as Plotyly.JSON in its data and layout props, then draws the chart using Plotly.js.
+- This React component takes the chart type, data and styling as Plotly.JSON in its data and layout props, then draws the chart using Plotly.js.
 
 Redux state management
 
-- Redux helps you write applications that behave consistently,
+- Redux helps you write applications that behave consistently
 - Centrilize your application's state and logic
 - The Redux DevTools make it easy to trace bugs
 <!-- Todo! Update this -->
 
-### [Backend](https://github.com/Lambda-School-Labs/story-squad-be-b.git) built using:
+### [Backend](https://github.com/Lambda-School-Labs/scribble-stadium-be) built using:
 
 Express
 
@@ -136,9 +186,9 @@ Swagger Editor Documentation
 
 ## API's
 
-### JWT & BCrypt
+### JWT & Bcrypt
 
-JSON Web Tokens are an industry standard authentication solution. Paired with BCrypt for hashing passwords, this allows secure local password authentication without reliance on third party solutions.
+JSON Web Tokens are an industry standard authentication solution. Paired with Bcrypt for hashing passwords, which allows secure local password authentication without reliance on third party solutions.
 
 ### Environment Variables
 
@@ -164,35 +214,31 @@ Jest
 Clone repo
 
 ```
-git clone https://github.com/Lambda-School-Labs/story-squad-fe-b.git
+git clone https://github.com/Lambda-School-Labs/scribble-stadium-fe
 
-cd story-squad-fe-b/
+cd scribble-stadium-fe/
 ```
 
 Install Dependencies
 
 ```
 ## Setting up the App
-Front End:
+Frontend:
 - npm install
-- add a new .env file with the info provided by your TPL
+- add a new .env file with the info provided by your TPM
 - npm start
-- -open localhost:3000
-- ** Note: Okta auth will ONLY work on port 3000 at this time. If you have something running on another port you may encounter a CORS error.
-Back End
+- open localhost:3000
+- Note: Okta auth will only work on port 3000 at this time. If you have something running on another port you may encounter a CORS error
+Backend
 - npm install
-- add a new .env file with the info provided by your TPL (if you are using something other than Docker (like Postgres), add it to your backend .env file instead of the docker url
+- add a new .env file with the info provided by your TPM (if you are using something other than Docker (like Postgres), add it to your backend .env file instead of the docker url
 - npm start
 ```
 
+## Login Credentials
 
-
-## LOGIN Credentials
 User: llama001@maildrop.cc
 Pw: Test001Test
-
-
-
 
 Run Test
 
@@ -200,9 +246,9 @@ Run Test
 npm test
 ```
 
-Clone and download the [backend](https://github.com/Lambda-School-Labs/story-squad-be-b.git)
+Clone and download the [backend](https://github.com/Lambda-School-Labs/scribble-stadium-be)
 
-Follow backend [set up guides](https://github.com/Lambda-School-Labs/story-squad-be-b.git)
+Follow backend set up guides
 <br>
 <br>
 Run the application locally
@@ -217,64 +263,49 @@ npm dev
 * build - creates a build of the application
 * dev - runs the development server
 * test - runs tests as defined in *.spec.ts files
-* lint - format and correct errors with prettier
+* lint - format and correct errors with Prettier
 ```
 
 ## Contributing
 
-When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
+When contributing to this repository, please first discuss the change you wish to make with the owners of this repository.
 
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
-<!-- Todo! Update this -->
-
-Check [this document from labs28](https://docs.google.com/document/d/16_5xD-CXISF9lwX15nUL0mCMfQDcITRjyfNiXzN4Zzk/edit?usp=sharing) for what's been done/worked on, and what needs to be done. This will give you a good idea on where to start with your contributions. **IMPORTANT!** Please update for the benefit of future developers.
-
 ## Issue/Bug Request
 
-**If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
+**If you are having an issue with the existing codebase, please submit a bug report under the following guidelines:**
 
-- Check first to see if your issue has already been reported.
+- Check first to see if your issue has already been reported on Trello.
 - Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
 - Create a live example of the problem.
 - Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes, where you believe the issue is originating from, and any potential solutions you have considered.
 
 ### Feature Requests
 
-We would love to hear from you about new features which would improve this app and further the aims of our project. Please provide as much detail and information as possible to show us why you think your new feature should be implemented.
+We would love to hear from you about new features which would improve this app and further the goals of our project. Please provide as much detail and information as possible to show us why you think your new feature should be implemented.
 
 ### Pull Requests
 
 If you have developed a patch, bug fix, or new feature that would improve this app, please submit a pull request. It is best to communicate your ideas with the developers first before investing a great deal of time into a pull request to ensure that it will mesh smoothly with the project.
 
-Remember that this project is licensed under the MIT license, and by submitting a pull request, you agree that your work will be, too.
+Remember that this project is licensed under the MIT license, and by submitting a pull request, you agree that your work will be as well.
 
 #### Pull Request Guidelines
 
 - Update the README.md with details of changes to the interface, including new plist variables, exposed ports, useful file locations and container parameters.
 - Ensure that your code conforms to our existing code conventions and test coverage.
-- Include the relevant issue number, if applicable.
-- You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
+- Include the relevant issue number if applicable.
+- You must have at least two approved reviews from other developers before the release manager will merge your pull request.
 
 - Please see [Labs Gitflow](https://github.com/Lambda-School-Labs/labs28-gitflow.git) for proper flow on all your pull requests.
 
 ## Documentation
 
-- This is the link to the proper glossary documentation for the project (https://docs.google.com/document/d/1I2dtnjUtSmGxIfcuUWKrIRBhrCAFlmQ0RnJ3DZJIy4g/edit)
-
-See [Backend Documentation](https://story-squad-b-api.herokuapp.com/api-docs/) for details on the backend of our project.
+- This is the link to the proper glossary documentation for the project: [Click Here](https://docs.google.com/document/d/1I2dtnjUtSmGxIfcuUWKrIRBhrCAFlmQ0RnJ3DZJIy4g/edit)
 
 <br>
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
 ![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
-
-#Follow up notes for next cohort
-Note for the Parent Dashboard “Change email” and “Change password” modals:
-
-- The modals are to have a lockout feature that disables and obscures their buttons with an opacity styling. This feature is still pending completion.
-- Also, the modal’s “Cancel” and “Save” buttons themselves still lack functionality (the latter of which will need to be added with Okta).
-
-
-

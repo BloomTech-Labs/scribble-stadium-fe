@@ -11,7 +11,7 @@ export default function ParentFooter(props) {
   return (
     <footer className={layoutContainerCheck}>
       <div className="inner-container">
-        <div class="copyright">©{curYear} Story Squad HQ</div>
+        <div className="copyright">©{curYear} Story Squad HQ</div>
       </div>
     </footer>
   );

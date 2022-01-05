@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Button } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 import { useHistory } from 'react-router-dom';
-
 import { Header } from '../../common';
 import ChildFooter from '../../common/ChildFooter';
 import FaceoffContent from './FaceoffContent';
@@ -11,139 +9,125 @@ import { modalInstructions } from '../../../utils/helpers';
 
 const RenderMatchUp = props => {
   const { push } = useHistory();
-  const [faceoffs, setFaceoffs] = useState([]);
-  const [modalVisible, setModalVisible] = useState(true);
 
-  const goToPointShare = () => {
+  const goToPointShare = e => {
+    e.preventDefault();
     push('/child/point-share');
-  };
-
-  useEffect(() => {
-    if (props.child.VotesRemaining <= 9) {
-      setModalVisible(false);
-    }
-    setFaceoffs(props.faceoffs);
-  }, [props]);
-  const handleVote = e => {
-    e.preventDefault();
-    push('/child/match-up/squad-vote');
-  };
-  const back2Dash = e => {
-    e.preventDefault();
-    push('/child/dashboard');
   };
 
   return (
     <>
-      <Header
-        displayMenu={true}
-        title="The Matchup"
-        versus={true}
-        pointsToWin={true}
-        votesRemaining={true}
-      />
-      {/* REMOVE ONCE DESIGN WORK BEGINS - START */}
-      <div className={'under-construction'}>
-        <div className={'rectangle-126'} style={{ margin: '3rem' }}>
-          <h1>Coming Soon</h1>
+      <Header displayMenu={true} title="Scribble Stadium" />
+      {/**Temporary button to redirect to point share component */}
+      <Button onClick={goToPointShare}>Go To Point Share</Button>
+      <div className="matchup-container">
+        <div id="matchup-window">
+          <h1>The Matchup</h1>
+          <h2>201 points to win</h2>
+          <div className="player-matchup">
+            <div className="player-container">
+              <div id="first-player" className="player-image"></div>
+              <figcaption>player name</figcaption>
+            </div>
+            <div className="player-container">
+              <div id="second-player" className="player-image"></div>
+              <figcaption>player name</figcaption>
+            </div>
+            <div className="vs-image"></div>
+            <div className="player-container">
+              <div id="third-player" className="player-image"></div>
+              <figcaption>player name</figcaption>
+            </div>
+            <div className="player-container">
+              <div id="fourth-player" className="player-image"></div>
+              <figcaption>player name</figcaption>
+            </div>
+          </div>
         </div>
-        <div className={'under-construction-content'}>
-          <h1>Under Construction!</h1>
-          <h1>Match Up UI Coming Soon!</h1>
-        </div>
-        <Button
-          style={{ margin: '1rem' }}
-          className="back-btn"
-          onClick={goToPointShare}
-        >
-          Next to Point Share
-        </Button>
       </div>
-      {/* REMOVE ONCE DESIGN WORK BEGINS - END */}
-      {/* <QuestionCircleOutlined
-        className="question-icon"
-        onClick={() => {
-          setModalVisible(true);
-        }}
-      />
-      {modalVisible && (
-        <InstructionsModal
-          modalVisible={modalVisible}
-          handleCancel={() => {
-            setModalVisible(false);
-          }}
-          handleOk={() => {
-            setModalVisible(false);
-          }}
-          instructions={modalInstructions.matchUp}
-        />
-      )} */}
-      {/* <div className="matchup-container">
-        <Row className="toprow">
-          <Col className="green-box" xs={24} sm={13}>
-            {faceoffs[0] && (
-              <FaceoffContent
-                custom_date={props.custom_date}
-                content={faceoffs[0]}
-                backgroundColor={'#C9E952'}
-                votesRemaining={props.votesRemaining}
-                votesNeededToUnlock={7}
-                dayNeededToUnlock={5}
-                hourNeededToUnlock={18}
-              />
-            )}
-          </Col>
-          <Col className="red-box" xs={24} sm={11}>
-            {faceoffs[1] && (
-              <FaceoffContent
-                custom_date={props.custom_date}
-                content={faceoffs[1]}
-                backgroundColor={'#e97451'}
-                votesRemaining={props.votesRemaining}
-                votesNeededToUnlock={7}
-              />
-            )}
-          </Col>
-        </Row>
-        <Row className="bottomrow">
-          <Col className="yellow-box" xs={24} sm={11}>
-            {faceoffs[2] && (
-              <FaceoffContent
-                custom_date={props.custom_date}
-                content={faceoffs[2]}
-                backgroundColor={'#ffde3b'}
-                votesRemaining={props.votesRemaining}
-                votesNeededToUnlock={8}
-              />
-            )}
-          </Col>
-          <Col className="blue-box" xs={24} sm={13}>
-            {faceoffs[3] && (
-              <FaceoffContent
-                custom_date={props.custom_date}
-                content={faceoffs[3]}
-                backgroundColor={'#438eac'}
-                votesRemaining={props.votesRemaining}
-                votesNeededToUnlock={9}
-              />
-            )}
-          </Col>
-        </Row>
-        <Button className="back-button" onClick={back2Dash}>
-          Back
-        </Button>
+      <div className="drawing-story-matchup">
+        <div className="small-matchup-window">
+          <div id="first-window">
+            <div className="player-container">
+              <div
+                id="first-player-small-window"
+                className="player-image-small"
+              ></div>
+              <figcaption>player name</figcaption>
+            </div>
+            <div className="vs-lightning-image"></div>
+            <div className="player-container">
+              <div
+                id="second-player-small-window"
+                className="player-image-small"
+              ></div>
+              <figcaption>player name</figcaption>
+            </div>
+          </div>
+          <h2>140 points to win</h2>
+        </div>
 
-        <Button
-          className={'vote-button ' + (props.canVote ? '' : 'disabled')}
-          onClick={handleVote}
-          disabled={props.canVote ? false : true}
-        >
-          Vote!
-          <br />
-          {props.VotesRemaining} votes left
-        </Button>
-      </div> */}
-      <ChildFooter />
+        <div className="small-matchup-window">
+          <div id="second-window">
+            <div className="player-container">
+              <div
+                id="first-player-small-window"
+                className="player-image-small"
+              ></div>
+              <figcaption>player name</figcaption>
+            </div>
+            <div className="vs-lightning-image"></div>
+            <div className="player-container">
+              <div
+                id="second-player-small-window"
+                className="player-image-small"
+              ></div>
+              <figcaption>player name</figcaption>
+            </div>
+          </div>
+          <h2>150 points to win</h2>
+        </div>
+        <div className="small-matchup-window">
+          <div id="third-window">
+            <div className="player-container">
+              <div
+                id="third-player-small-window"
+                className="player-image-small"
+              ></div>
+              <figcaption>player name</figcaption>
+            </div>
+            <div className="vs-lightning-image"></div>
+            <div className="player-container">
+              <div
+                id="fourth-player-small-window"
+                className="player-image-small"
+              ></div>
+              <figcaption>player name</figcaption>
+            </div>
+          </div>
+          <h2>30 points to win</h2>
+        </div>
+        <div className="small-matchup-window">
+          <div id="fourth-window">
+            <div className="player-container">
+              <div
+                id="third-player-small-window"
+                className="player-image-small"
+              ></div>
+              <figcaption>player name</figcaption>
+            </div>
+            <div className="vs-lightning-image"></div>
+            <div className="player-container">
+              <div
+                id="fourth-player-small-window"
+                className="player-image-small"
+              ></div>
+              <figcaption>player name</figcaption>
+            </div>
+          </div>
+          <h2>50 points to win</h2>
+        </div>
+      </div>
     </>
   );
 };

@@ -3,15 +3,18 @@ import React, { useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { connect } from 'react-redux';
+
+import { setCurrActivity } from '../../../state/actions/currentActivityActions';
 
 //** Import Components */
 import GameMissionProgress from './GameMissionProgress';
 import GameReadStep from './GameReadStep';
 import GameDrawStep from './GameDrawStep';
 import GameWriteStep from './GameWriteStep';
-import { MatchUp } from '../MatchUp';
+import { MatchUp } from '../MatchUp/index';
 
-export default function GamePlayMission(props) {
+function GamePlayMission(props) {
   // GEt the history obj
   const history = useHistory();
 
@@ -56,7 +59,9 @@ export default function GamePlayMission(props) {
   const [modalClosed, setModalClosed] = useState(initialModalData);
 
   // Update the current step
+
   const updateCurStep = step => {
+    props.setCurrActivity(step);
     setCurrentStep(step);
     gsap.to(window, { duration: 1, scrollTo: '.hero' });
   };
@@ -163,3 +168,11 @@ export default function GamePlayMission(props) {
     </div>
   );
 }
+const mapStateToProps = state => {
+  return {
+    ...state,
+    currentActivity: state.currentActivity,
+  };
+};
+
+export default connect(mapStateToProps, { setCurrActivity })(GamePlayMission);
