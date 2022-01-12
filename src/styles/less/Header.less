@@ -11,11 +11,15 @@
   background-color: @turquoise;
   position: relative;
   @media @mobile {
-    min-height: 20vh;
+    min-height: 2vh;
   }
   @media @mobileLarge {
+    max-height: 10vh;
+  }
+  @media @tablet {
     min-height: 20vh;
   }
+  
 
   h1 {
     color: @white;
@@ -28,11 +32,8 @@
     letter-spacing: 7px;
     @media @mobile {
       font-size: 3rem;
-      margin-bottom: 3rem;
     }
-    @media @mobileLarge {
-      margin-left: 2rem;
-    }
+    
   }
   button {
     position: absolute;
