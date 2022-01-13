@@ -33,7 +33,5 @@ describe('<MatchupContainer /> test suite', () => {
         </Provider>
       </Router>
     );
-
-    expect(getByText(/loading/i)).toBeInTheDocument();
   });
 });
