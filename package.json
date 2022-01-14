@@ -12,7 +12,6 @@
     "antd": "^4.16.6",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
-    "chokidar": "^3.5.2",
     "craco": "0.0.3",
     "craco-less": "^1.17.0",
     "emailjs": "^3.4.0",
