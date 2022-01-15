@@ -3,7 +3,12 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { gsap } from 'gsap';
 
-export default function GameReadStep(props) {
+import { connect } from 'react-redux';
+
+import { setCurrActivity } from '../../../state/actions/currentActivityActions';
+import { getQuote } from '../../../state/actions/currentActivityActions';
+
+function GameReadStep(props) {
   const history = useHistory();
 
   const handleNext = () => {
@@ -91,8 +96,26 @@ export default function GameReadStep(props) {
       </div>
 
       <div className="next-btn">
-        <button onClick={handleNext}>I'm awesome, I'm done reading!</button>
+        <button
+          onClick={() => {
+            props.getQuote();
+            handleNext();
+          }}
+        >
+          I'm awesome, I'm done reading!
+        </button>
       </div>
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    ...state,
+    currentActivity: state.currentActivity,
+  };
+};
+
+export default connect(mapStateToProps, { setCurrActivity, getQuote })(
+  GameReadStep
+);

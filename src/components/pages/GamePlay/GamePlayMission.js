@@ -6,6 +6,7 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { connect } from 'react-redux';
 
 import { setCurrActivity } from '../../../state/actions/currentActivityActions';
+import { getQuote } from '../../../state/actions/currentActivityActions';
 
 //** Import Components */
 import GameMissionProgress from './GameMissionProgress';
@@ -95,7 +96,7 @@ function GamePlayMission(props) {
     gsap.from('#game-mission', { opacity: 0, y: 100, duration: 1 });
 
     gsap.registerPlugin(ScrollToPlugin);
-  }, [baseURL, history, submissionData.HasRead]);
+  }, [baseURL, history, submissionData.HasRead, props.getQuote]);
 
   console.log(submissionData);
 
@@ -175,4 +176,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { setCurrActivity })(GamePlayMission);
+export default connect(mapStateToProps, { setCurrActivity, getQuote })(
+  GamePlayMission
+);
