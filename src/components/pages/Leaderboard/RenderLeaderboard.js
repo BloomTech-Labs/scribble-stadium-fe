@@ -19,14 +19,20 @@ const RenderLeaderboard = props => {
   return (
     <>
       <Header displayMenu={true} title="Scribble Stadium" />
-      <Button style={{ margin: '1rem', width: 'auto' }} onClick={dashboard}>
-        Back to Child Dashboard
-      </Button>
-      <div className="trophy-container">
+      <div className="trophy-container" style={{ marginTop: '1rem' }}>
+        <br />
+        <Button className="back-to-dashboard-btn" onClick={dashboard}>
+          Back to Dashboard
+        </Button>
+        <br />
         <Leaderboard child={props.child} />
         <div className="custom-divider"></div>
+        <br />
       </div>
-      <ChildFooter layoutContainerCheck={'no-scroll'} />
+      <div>
+        {' '}
+        <ChildFooter />
+      </div>
     </>
   );
 };

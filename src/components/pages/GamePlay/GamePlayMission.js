@@ -6,7 +6,6 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { connect } from 'react-redux';
 
 import { setCurrActivity } from '../../../state/actions/currentActivityActions';
-import { getQuote } from '../../../state/actions/currentActivityActions';
 
 //** Import Components */
 import GameMissionProgress from './GameMissionProgress';
@@ -176,6 +175,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { setCurrActivity, getQuote })(
-  GamePlayMission
-);
+
