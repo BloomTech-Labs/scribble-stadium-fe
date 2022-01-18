@@ -19,19 +19,6 @@
     font-size: 2.5rem;
   }
 }
-.back-btn {
-  @media @tablet {
-    width: 30%;
-  }
-}
-.back-btn {
-  @media @tablet {
-    display: none;
-  }
-  @media @mobile {
-    display: none;
-  }
-}
 .tablet-mobile-button {
   display: none;
   @media @tablet {
@@ -242,16 +229,6 @@
   color: white;
   padding-top: 15px;
 }
-
-.back-btn {
-  width: auto;
-  height: auto !important;
-  background-color: #ff9100 !important;
-  color: #fff !important;
-  font-family: 'atma';
-  font-size: 2rem !important;
-}
-
 .under-construction-content {
   color: white;
   display: flex;
@@ -272,3 +249,25 @@
   align-items: center;
 }
 
+// Styling for Back to Dashboard Button on the Leaderboard page
+.back-to-dashboard-btn {
+  width: auto;
+  height: auto !important;
+  background-color: #c6fd7e !important;
+  color: rgb(8, 8, 8) !important;
+  font-family: 'atma';
+  font-size: 2rem !important;
+  margin-top: 1rem !important;
+
+  @media @tablet {
+    width: auto;
+    max-width: 100%;
+    display: none;
+  }
+
+  @media @mobile {
+    width: auto;
+    max-width: 100%;
+    display: none;
+  }
+}
