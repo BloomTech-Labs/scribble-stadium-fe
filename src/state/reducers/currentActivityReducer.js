@@ -1,4 +1,4 @@
-import { SET_CURRACTIVITY } from '../actions/index';
+import { SET_CURRACTIVITY } from '../actions/currentActivityActions';
 
 const initialState = {
   currActivity: '',
