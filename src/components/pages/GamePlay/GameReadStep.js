@@ -44,7 +44,11 @@ export default function GameReadStep(props) {
         <div className="inner-container">
           <Card
             className="story-title"
-            style={{ width: '100%' }}
+            style={{
+              width: '100%',
+              border: '10px double #8ce2e0',
+              padding: '20px',
+            }}
             title="Zoom & Boom @ A Saltwater Startup"
           >
             <h3>Chapter 1</h3>
