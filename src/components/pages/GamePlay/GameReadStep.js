@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { gsap } from 'gsap';
+import { Card } from 'antd';
 
 export default function GameReadStep(props) {
   const history = useHistory();
@@ -41,12 +42,12 @@ export default function GameReadStep(props) {
     <div id="read-step">
       <div id="story" className="gameplay-content">
         <div className="inner-container">
-          <div className="story-title">
-            <h2>Zoom & Boom @ A Saltwater Startup</h2>
-            <span>by Conner Burnham</span>
-          </div>
-
-          <div className="story-content">
+          <Card
+            className="story-title"
+            title="Zoom & Boom @ A Saltwater Startup"
+            extra={<a href="#">More</a>}
+            style={{ width: 500 }}
+          >
             <h3>Chapter 1</h3>
 
             <p>
@@ -86,7 +87,7 @@ export default function GameReadStep(props) {
               of Booneyville, passing over miles and nautical miles of
               featureless
             </p>
-          </div>
+          </Card>
         </div>
       </div>
 
