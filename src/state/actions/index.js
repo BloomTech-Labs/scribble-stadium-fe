@@ -6,7 +6,6 @@ import * as team from './teamActions';
 import * as faceoffs from './faceoffsActions';
 import * as votes from './votesActions';
 import * as date from './dateAction';
-// import * as devMode from './devModeActions';
 import * as submissions from './galleryActions';
 import * as storiesNew from './newStories';
 import * as currActivity from './currentActivityActions';
@@ -20,7 +19,6 @@ export {
   faceoffs,
   votes,
   date,
-  //   devMode,
   submissions,
   storiesNew,
   currActivity,
