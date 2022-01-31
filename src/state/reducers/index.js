@@ -11,7 +11,7 @@ import { reducer as team } from './teamReducers';
 import { reducer as faceoffs } from './faceoffsReducer';
 import { reducer as votes } from './votesReducer';
 import { reducer as date } from './dateReducer';
-import { reducer as devMode } from './devModeReducer';
+// import { reducer as devMode } from './devModeReducer';
 import { reducer as submissions } from './galleryReducer';
 import { reducer as currActivity } from './currentActivityReducer';
 
@@ -29,7 +29,7 @@ const rootReducer = combineReducers({
   faceoffs,
   votes,
   date,
-  devMode,
+  //   devMode,
   submissions,
   currActivity,
 });
