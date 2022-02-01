@@ -61,6 +61,7 @@ export default function GameReadStep(props) {
 
   // Add some animation
   useEffect(() => {
+    myStory();
     gsap.from('#read-step', {
       opacity: 0,
       y: 200,
