@@ -79,9 +79,12 @@ export default function GameReadStep(props) {
               border: '10px double #8ce2e0',
               padding: '20px',
             }}
-            title="Zoom & Boom @ A Saltwater Startup"
+            title={thisEp.title}
           >
-            <h3>Chapter 1</h3>
+            <span>Author: {thisEp.author}</span>
+            <h3>Episode {thisEp.episode}</h3>
+
+            <p>{thisEp.content}</p>
 
             {/* <p>
               In the coral reefs beneath the surface of the ocean, every kid was
