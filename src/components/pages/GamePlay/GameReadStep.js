@@ -1,11 +1,22 @@
 //** Import Modules */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { Card } from 'antd';
+import axios from 'axios';
+import { getApiUrl } from '../../../api/index';
+
+const initialStory = {
+  title: 'zoom',
+  author: 'anyone',
+  episode: '43846',
+  content: 'this is the story of a girl',
+};
 
 export default function GameReadStep(props) {
   const history = useHistory();
+
+  const [thisEp, setThisEp] = useState(initialStory);
 
   const handleNext = () => {
     // Update the current step and progress data
@@ -27,6 +38,25 @@ export default function GameReadStep(props) {
 
     // Redirect to the next step
     history.push(`${props.baseURL}/draw`);
+  };
+
+  const myStory = () => {
+    const APIURL = getApiUrl();
+
+    axios
+      .get(`${APIURL}/storyNew/1`)
+      .then(res => {
+        setThisEp({
+          ...thisEp,
+          title: res.data.Title,
+          author: res.data.Author,
+          episode: res.data.Episodes[0].EpisodeNumber,
+          content: res.data.Episodes[0].Content,
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   // Add some animation
@@ -53,7 +83,7 @@ export default function GameReadStep(props) {
           >
             <h3>Chapter 1</h3>
 
-            <p>
+            {/* <p>
               In the coral reefs beneath the surface of the ocean, every kid was
               obsessed with the sport of flipperball. It didn’t matter your
               species—dolphin, marlin, electric eel. Once school got out for the
@@ -165,7 +195,7 @@ export default function GameReadStep(props) {
               3.5 knots. It scraped the seafloor on its way toward the tiny town
               of Booneyville, passing over miles and nautical miles of
               featureless
-            </p>
+            </p> */}
           </Card>
         </div>
       </div>
