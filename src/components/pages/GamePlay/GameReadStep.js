@@ -6,6 +6,7 @@ import { Card } from 'antd';
 import axios from 'axios';
 import { getApiUrl } from '../../../api/index';
 
+// Dummy data for the state
 const initialStory = {
   title: 'zoom',
   author: 'anyone',
@@ -16,6 +17,7 @@ const initialStory = {
 export default function GameReadStep(props) {
   const history = useHistory();
 
+  // Create state variables
   const [thisEp, setThisEp] = useState(initialStory);
 
   const handleNext = () => {
@@ -40,9 +42,11 @@ export default function GameReadStep(props) {
     history.push(`${props.baseURL}/draw`);
   };
 
+  // get API base URL
   const myStory = () => {
     const APIURL = getApiUrl();
 
+    // initialize axios call
     axios
       .get(`${APIURL}/storyNew/1`)
       .then(res => {
@@ -82,6 +86,7 @@ export default function GameReadStep(props) {
             }}
             title={thisEp.title}
           >
+            {/* pull content from database */}
             <span>Author: {thisEp.author}</span>
             <h3>Episode {thisEp.episode}</h3>
 
