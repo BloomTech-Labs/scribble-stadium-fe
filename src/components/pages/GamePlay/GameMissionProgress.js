@@ -1,14 +1,14 @@
 //** Import Modules */
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
+import { Button, Dropdown } from 'antd';
 //** Import Assets */
 import completeIcon from '../../../assets/images/gamemodeimg/completed.png';
 
 export default function GameMissionProgress(props) {
   // Get the history object
   const history = useHistory();
-
+  const [isModalVisible, setIsModalVisible] = useState(false);
   // Get the current state
   const { currentStep } = props;
 
@@ -31,37 +31,87 @@ export default function GameMissionProgress(props) {
     }
   };
 
-  return (
-    <div id="mission-progress">
-      <h3>Your Mission</h3>
+  const showGameTips = () => {
+    return (
+      <div className="game-tips-container">
+        <div className="game-tips-text">
+          <p className="game-tips-text-p">
+            <img
+              style={{ width: '48px', height: '48px' }}
+              src="https://img.icons8.com/flat-round/64/000000/wide-right-arrow.png"
+            />{' '}
+            Click on the "Read," "Draw" or "Write" buttons to navigate through
+            the mission.
+          </p>
+          <p className="game-tips-text-p">
+            <img
+              style={{ width: '48px', height: '48px' }}
+              src="https://img.icons8.com/flat-round/64/000000/wide-right-arrow.png"
+            />{' '}
+            You have to complete your current step before you can move on to the
+            next step
+          </p>
+          <p className="game-tips-text-p">
+            <img
+              style={{ width: '48px', height: '48px' }}
+              src="https://img.icons8.com/flat-round/64/000000/wide-right-arrow.png"
+            />{' '}
+            Once you have completed all the steps, you can click back and forth
+            between all of them.
+          </p>
+        </div>
+        <button className="game-tips-gotit-btn">Got it!</button>
+      </div>
+    );
+  };
 
-      <div className="steps">
-        <StepButton
-          stepNum="1"
-          stepName="read"
-          currentStep={currentStep}
-          handleStepClick={handleStepClick}
-          isComplete={props.submissionData.HasRead}
-          stepBGColor="#c6fd7e"
-        />
-        <StepButton
-          stepNum="2"
-          stepName="draw"
-          currentStep={currentStep}
-          handleStepClick={handleStepClick}
-          isComplete={props.submissionData.HasDrawn}
-          requiredStep={props.submissionData.HasRead}
-          stepBGColor="#ff845d"
-        />
-        <StepButton
-          stepNum="3"
-          stepName="write"
-          currentStep={currentStep}
-          handleStepClick={handleStepClick}
-          isComplete={props.submissionData.HasWritten}
-          requiredStep={props.submissionData.HasRead}
-          stepBGColor="#ffd854"
-        />
+  return (
+    <div>
+      <div>
+        <Dropdown overlay={showGameTips} trigger={['click']}>
+          {/*Lightbulb Icon*/}
+          <div className="game-tips-icon-container">
+            <img
+              style={{ width: '40px', height: '38px', cursor: 'pointer' }}
+              src="https://img.icons8.com/external-flat-juicy-fish/60/000000/external-crisis-crisis-management-flat-flat-juicy-fish-6.png"
+              alt="lightbulb"
+            />
+            <p className="tips">Tips</p>
+          </div>
+        </Dropdown>
+      </div>
+
+      <div id="mission-progress">
+        <h3>Your Mission</h3>
+
+        <div className="steps">
+          <StepButton
+            stepNum="1"
+            stepName="read"
+            currentStep={currentStep}
+            handleStepClick={handleStepClick}
+            isComplete={props.submissionData.HasRead}
+            stepBGColor="#c6fd7e"
+          />
+          <StepButton
+            stepNum="2"
+            stepName="draw"
+            currentStep={currentStep}
+            handleStepClick={handleStepClick}
+            isComplete={props.submissionData.HasDrawn}
+            requiredStep={props.submissionData.HasRead}
+            stepBGColor="#ff845d"
+          />
+          <StepButton
+            stepNum="3"
+            stepName="write"
+            currentStep={currentStep}
+            handleStepClick={handleStepClick}
+            isComplete={props.submissionData.HasWritten}
+            requiredStep={props.submissionData.HasRead}
+            stepBGColor="#ffd854"
+          />
+        </div>
       </div>
     </div>
   );

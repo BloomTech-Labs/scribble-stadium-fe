@@ -1,12 +1,12 @@
-import { currActivity } from '../actions';
+import { SET_CURRACTIVITY } from '../actions/currentActivityActions';
 
 const initialState = {
-  currActivity: 'read',
+  currActivity: '',
 };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case currActivity.SET_CURRACTIVITY:
+    case SET_CURRACTIVITY:
       return { currActivity: action.payload };
     default:
       return state;

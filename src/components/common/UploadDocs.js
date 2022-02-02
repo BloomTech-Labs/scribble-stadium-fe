@@ -18,6 +18,7 @@ export const UploadDocs = ({
   listType,
   handleChangeExtra,
   savedFileList,
+  handleRemove,
 }) => {
   const { user } = useAuth0();
 
@@ -108,6 +109,9 @@ export const UploadDocs = ({
       newFileList.splice(index, 1);
       return newFileList;
     });
+    if (handleRemove) {
+      handleRemove(file);
+    }
   };
 
   useEffect(() => {
