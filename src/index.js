@@ -63,17 +63,8 @@ import { PlayAgain } from './components/pages/PlayAgain';
 
 // Note: for demo/developer purposes ONLY
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
-import AdminDashboard from './components/pages/AdminDashboard';
-import SatMon from './components/pages/AdminDashboard/DevTools/DayComponents/01_Sat-Mon';
-import Tues from './components/pages/AdminDashboard/DevTools/DayComponents/04_Tues';
-import Wed from './components/pages/AdminDashboard/DevTools/DayComponents/05_Wed';
-import Thurs from './components/pages/AdminDashboard/DevTools/DayComponents/06_Thurs';
-import Fri from './components/pages/AdminDashboard/DevTools/DayComponents/07_Fri';
-import DevModeHeader from './components/pages/AdminDashboard/devModeHeader';
 import GalleryContainer from './components/pages/Gallery/GalleryContainer';
 import { AudioBook } from './components/pages/AudioBook';
-
-// import RenderDayComponent from './components/pages/AdminDashboard/DevTools/RenderDayComponent.js';
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
@@ -111,7 +102,6 @@ function App() {
 
   return (
     <>
-      <DevModeHeader component={DevModeHeader} />
       <Switch>
         {/* NEW path => /gameplay/gamemode NOT for DELETE  */}
         <Route exact path="/gamemode" component={Gamemode} />
@@ -327,14 +317,6 @@ function App() {
             <PlayAgain LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        {/* DEPRECATED. OK to DELETE please work on /admin instad of moderation UPDATED 11-16-21*/}
-        <Route exact path="/moderation" component={ModerationTest} />
-        <Route exact path="/admin" component={AdminDashboard} />
-        <Route exact path="/dev/day/1-3" component={SatMon} />
-        <Route exact path="/dev/day/4" component={Tues} />
-        <Route exact path="/dev/day/5" component={Wed} />
-        <Route exact path="/dev/day/6" component={Thurs} />
-        <Route exact path="/dev/day/7" component={Fri} />
         <Route component={NotFoundPage} />
       </Switch>
     </>
