@@ -317,8 +317,6 @@ function App() {
             <PlayAgain LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        {/* DEPRECATED. OK to DELETE please work on /admin instad of moderation UPDATED 11-16-21*/}
-        <Route exact path="/moderation" component={ModerationTest} />
         <Route component={NotFoundPage} />
       </Switch>
     </>
