@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from '../../common';
 import ChildFooter from '../../common/ChildFooter';
 import { Row, Col } from 'antd';
@@ -9,10 +9,20 @@ import { HUD } from '../HeadsUpDisplay/index';
 import Explosion from '../../../assets/images/gamemodeimg/explosion.png';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 import leaderboard_icon from '../../../assets/images/child_dashboard_images/leaderboard_icon.png';
+import { getSubmissions } from '../../../api/index';
 
 const RenderChildDashboard = props => {
   const { push } = useHistory();
   const [modalVisible, setModalVisible] = useState(false);
+  const [submissionData, setSubmissionData] = useState([]);
+
+  //Import api call to get submission and call here
+  useEffect(() => {
+    getSubmissions(1).then(res => {
+      setSubmissionData(res);
+      console.log(res);
+    });
+  }, []);
 
   const handleAcceptMission = e => {
     push('/gamemode');
