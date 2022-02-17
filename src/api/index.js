@@ -567,10 +567,15 @@ const reset = async () => {
   return apiAuthPut(`/reset/reset/`, null);
 };
 
+/**
+ *
+ * @param {Object} authState necessary for API functionality
+ * @param {number} childId id of the child who is "teaming up"
+ * @returns {Array} containing information on each submission for the child
+ */
 const getSubmissions = childId => {
   try {
     return apiAuthGet(`/child/${childId}/submissions`).then(response => {
-      console.log(response);
       return response.data;
     });
   } catch (error) {
