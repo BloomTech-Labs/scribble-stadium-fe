@@ -16,11 +16,11 @@ const RenderChildDashboard = props => {
   const [modalVisible, setModalVisible] = useState(false);
   const [submissionData, setSubmissionData] = useState([]);
 
-  //Import api call to get submission and call here
+  // ChildId hardcoded for now until global state of child is retrived
+  // Retrieves array of submissions pertaining to child id, response is in the form of an array
   useEffect(() => {
     getSubmissions(1).then(res => {
       setSubmissionData(res);
-      console.log(res);
     });
   }, []);
 
@@ -66,7 +66,11 @@ const RenderChildDashboard = props => {
             sm={12}
             onClick={handleAcceptMission}
           >
-            <p className="accept-mission-text">ACCEPT THE MISSION!</p>
+            {submissionData.length > 0 ? (
+              <p className="accept-mission-text">RESUME THE MISSION!</p>
+            ) : (
+              <p className="accept-mission-text">ACCEPT THE MISSION!</p>
+            )}
           </Col>
           <Col
             className="change-avatar"
