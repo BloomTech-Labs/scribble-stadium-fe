@@ -17,6 +17,7 @@ import dad from '../../../assets/images/hero_images/hero5.png';
 
 const ParentDashboardNav = props => {
   return (
+
     <BrowserRouter>
       <Routes>
         <Route path="/">
@@ -36,6 +37,7 @@ const ParentDashboardNav = props => {
         </Route>
       </Routes>
     </BrowserRouter>
+    
   );
 };
 export default ParentDashboardNav;
