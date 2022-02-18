@@ -16,6 +16,7 @@ import { useHistory } from 'react-router-dom';
 import pinkyWinky from '../../../assets/images/hero_images/hero10.png';
 import submarineBoy from '../../../assets/images/hero_images/hero3.png';
 import dad from '../../../assets/images/hero_images/hero5.png';
+import ParentDashboardNav from '../../common/ParentDashboardNav';
 
 const RenderNewParentDashboard = props => {
   const FAKE_CHILDREN = [
@@ -63,6 +64,7 @@ const RenderNewParentDashboard = props => {
             setModalVisible(true);
           }}
         />
+        <ParentDashboardNav />
         <div className="renderWordCloud">
           <RenderWordCloud />
         </div>
