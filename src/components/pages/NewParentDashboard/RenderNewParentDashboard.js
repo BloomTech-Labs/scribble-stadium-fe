@@ -8,7 +8,7 @@ import NewChildCard from '../../common/NewChildCard';
 import AccountSettings from '../AccountSettings/AccountSettingsContainer';
 import { connect } from 'react-redux';
 import { setParent } from '../../../state/actions/parentActions';
-import RenderWordCloud from '../WordCloud';
+
 import ParentFooter from '../../common/ParentFooter';
 import ChooseChildModal from './ChooseChildModal';
 import { useHistory } from 'react-router-dom';
@@ -65,9 +65,6 @@ const RenderNewParentDashboard = props => {
           }}
         />
         <ParentDashboardNav />
-        <div className="renderWordCloud">
-          <RenderWordCloud />
-        </div>
 
         <Layout>
           <div className="progress-container">
