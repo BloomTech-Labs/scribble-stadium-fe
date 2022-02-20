@@ -12,7 +12,6 @@ import RenderWordCloud from '../WordCloud';
 import ParentFooter from '../../common/ParentFooter';
 import ChooseChildModal from './ChooseChildModal';
 import { useHistory } from 'react-router-dom';
-import ParentDashboardNav from '../../common/ParentDashboardNav';
 // TEMPORARY HARD CODE - import of image assets - remove when pulling state from BE or globally
 import pinkyWinky from '../../../assets/images/hero_images/hero10.png';
 import submarineBoy from '../../../assets/images/hero_images/hero3.png';
