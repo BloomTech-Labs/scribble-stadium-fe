@@ -8,15 +8,15 @@ import NewChildCard from '../../common/NewChildCard';
 import AccountSettings from '../AccountSettings/AccountSettingsContainer';
 import { connect } from 'react-redux';
 import { setParent } from '../../../state/actions/parentActions';
-
+import RenderWordCloud from '../WordCloud';
 import ParentFooter from '../../common/ParentFooter';
 import ChooseChildModal from './ChooseChildModal';
 import { useHistory } from 'react-router-dom';
+import ParentDashboardNav from '../../common/ParentDashboardNav';
 // TEMPORARY HARD CODE - import of image assets - remove when pulling state from BE or globally
 import pinkyWinky from '../../../assets/images/hero_images/hero10.png';
 import submarineBoy from '../../../assets/images/hero_images/hero3.png';
 import dad from '../../../assets/images/hero_images/hero5.png';
-import ParentDashboardNav from '../../common/ParentDashboardNav';
 
 const RenderNewParentDashboard = props => {
   const FAKE_CHILDREN = [
@@ -64,9 +64,15 @@ const RenderNewParentDashboard = props => {
             setModalVisible(true);
           }}
         />
-        <ParentDashboardNav />
 
+        {/* Parent Dashboard Layout */}
         <Layout>
+          <ParentDashboardNav />
+        </Layout>
+        <Layout>
+          <div className="renderWordCloud">
+            <RenderWordCloud />
+          </div>
           <div className="progress-container">
             <NewProgressCharts />
           </div>
