@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Layout } from 'antd';
+import { Layout, Tabs } from 'antd';
 import { useAuth0 } from '@auth0/auth0-react';
 import { getProfileData } from '../../../api';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
@@ -42,6 +42,7 @@ const RenderNewParentDashboard = props => {
   const { setParent } = props;
   const [childrenAccounts, setChildrenAccounts] = useState(FAKE_CHILDREN);
   const [modalVisible, setModalVisible] = useState(false);
+  const { TabPane } = Tabs;
 
   useEffect(() => {
     getProfileData()
@@ -64,27 +65,34 @@ const RenderNewParentDashboard = props => {
             setModalVisible(true);
           }}
         />
-
-        {/* Parent Dashboard Layout */}
         <Layout>
-          <ParentDashboardNav />
+          <div className="card-container">
+            <Tabs type="card" centered defaultActiveKey="1001">
+              <TabPane key="1001" tab="Word Cloud">
+                <div className="renderWordCloud">
+                  <RenderWordCloud />
+                </div>
+              </TabPane>
+              <TabPane key="1002" tab="Player Progress">
+                <div className="progress-container">
+                  <NewProgressCharts />
+                </div>
+              </TabPane>
+              <TabPane key="1003" tab="Player(s)">
+                <div className="child-container">
+                  <NewChildCard props={props} />
+                </div>
+              </TabPane>
+              <TabPane key="1004" tab="Settings">
+                <div>
+                  <AccountSettings />
+                </div>
+              </TabPane>
+            </Tabs>
+          </div>
         </Layout>
-        <Layout>
-          <div className="renderWordCloud">
-            <RenderWordCloud />
-          </div>
-          <div className="progress-container">
-            <NewProgressCharts />
-          </div>
-          <div className="child-container">
-            <NewChildCard props={props} />
-          </div>
-          <div>
-            <AccountSettings />
-          </div>
-        </Layout>
-        <ParentFooter />
       </Layout>
+      <ParentFooter />
 
       {modalVisible && (
         <ChooseChildModal
