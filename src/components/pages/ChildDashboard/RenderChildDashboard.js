@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from '../../common';
 import ChildFooter from '../../common/ChildFooter';
 import { Row, Col } from 'antd';
@@ -9,10 +9,20 @@ import { HUD } from '../HeadsUpDisplay/index';
 import Explosion from '../../../assets/images/gamemodeimg/explosion.png';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 import leaderboard_icon from '../../../assets/images/child_dashboard_images/leaderboard_icon.png';
+import { getSubmissions } from '../../../api/index';
 
 const RenderChildDashboard = props => {
   const { push } = useHistory();
   const [modalVisible, setModalVisible] = useState(false);
+  const [submissionData, setSubmissionData] = useState([]);
+
+  // ChildId hardcoded for now until global state of child is retrived
+  // Retrieves array of submissions pertaining to child id, response is in the form of an array
+  useEffect(() => {
+    getSubmissions(1).then(res => {
+      setSubmissionData(res);
+    });
+  }, []);
 
   const handleAcceptMission = e => {
     push('/gamemode');
@@ -56,7 +66,11 @@ const RenderChildDashboard = props => {
             sm={12}
             onClick={handleAcceptMission}
           >
-            <p className="accept-mission-text">ACCEPT THE MISSION!</p>
+            {submissionData.length > 0 ? (
+              <p className="accept-mission-text">RESUME THE MISSION!</p>
+            ) : (
+              <p className="accept-mission-text">ACCEPT THE MISSION!</p>
+            )}
           </Col>
           <Col
             className="change-avatar"
