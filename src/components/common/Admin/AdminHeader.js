@@ -8,7 +8,7 @@ const Header = () => {
     const navigate = useNavigate();
   
     return (
-        isAuthenticated && ( // checks for authenticated user //
+        isAuthenticated && ( // checks for authenticated user
             <div className="header">
                 <h4>Admin: {user.name}</h4>
                 <div>
