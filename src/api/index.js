@@ -586,6 +586,21 @@ const getSubmissions = childId => {
   }
 };
 
+const getWinnerbySquadId = id => {
+  try {
+    return apiAuthGet(`/results?squadId=${id}`, getAuthHeader()).then(
+      response => {
+        return response.data;
+      }
+    );
+  } catch (err) {
+    return new Promise(() => {
+      console.log(err);
+      return [];
+    });
+  }
+};
+
 export {
   getApiUrl,
   sleep,
@@ -623,4 +638,5 @@ export {
   getGallery,
   reset,
   getSubmissions,
+  getWinnerbySquadId,
 };
