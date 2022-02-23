@@ -65,6 +65,7 @@ import { PlayAgain } from './components/pages/PlayAgain';
 import ModerationTest from './components/pages/ModerationTest/ModerationTest';
 import GalleryContainer from './components/pages/Gallery/GalleryContainer';
 import { AudioBook } from './components/pages/AudioBook';
+import Admin from './components/pages/Admin/Admin';
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
@@ -319,6 +320,7 @@ function App() {
         />
         {/* DEPRECATED. OK to DELETE please work on /admin instad of moderation UPDATED 11-16-21*/}
         <Route exact path="/moderation" component={ModerationTest} />
+        <Route path="/admin" component={Admin}/>
         <Route component={NotFoundPage} />
       </Switch>
     </>
