@@ -12,18 +12,18 @@ export default function CropCloud() {
   const [cloudImg, setCloudImg] = useState(null);
 
   // Placeholder API Call to get the CropCloud once the endpoint is working
-  // useEffect(() =>{
-  //     const getCropCloud = () =>{
-  //         axios.get(baseURL)
-  //         .then((res) =>{
-  //             setCloudImg(res.data)
-  //         })
-  //         .catch((err) =>{
-  //           console.dir(err)
-  //       })
-  //   }
-  //  getCropCloud()
-// }, [])
+  useEffect(() =>{
+      const getCropCloud = () =>{
+          axios.get(baseURL)
+          .then((res) =>{
+              setCloudImg(res.data)
+          })
+          .catch((err) =>{
+            console.log(err)
+        })
+    }
+   getCropCloud()
+}, [])
 
   return (
     <div className="cropcloud">
