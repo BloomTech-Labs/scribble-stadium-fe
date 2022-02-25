@@ -54,54 +54,55 @@ export const ChildContextProvider = ({ comps }) => {
   const [streaks, setStreaks] = useState('');
   const [notifications, setNotifications] = useState('');
   const [events, setEvents] = useState('');
+
+  return (
+    <ChildContext.Provider
+      value={{
+        id,
+        setId,
+        name,
+        setName,
+        pin,
+        setPin,
+        isDyslexic,
+        setIsDyslexic,
+        parentId,
+        setParentId,
+        cohortId,
+        setCohortId,
+        avatarId,
+        setAvatarId,
+        totalPoints,
+        setTotalPoints,
+        wins,
+        setWins,
+        losses,
+        setLosses,
+        ballots,
+        setBallots,
+        votesRemaining,
+        setVotesRemaining,
+        achievements,
+        setAcievements,
+        gradeLevel,
+        setGradeLevel,
+        avatarURL,
+        setAvatarURL,
+        streaks,
+        setStreaks,
+        notifications,
+        setNotifications,
+        events,
+        setEvents,
+      }}
+    >
+      {comps}
+    </ChildContext.Provider>
+  );
 };
 
-return (
-  <ChildContext.Provider
-    value={{
-      id,
-      setId,
-      name,
-      setName,
-      pin,
-      setPin,
-      isDyslexic,
-      setIsDyslexic,
-      parentId,
-      setParentId,
-      cohortId,
-      setCohortId,
-      avatarId,
-      setAvatarId,
-      totalPoints,
-      setTotalPoints,
-      wins,
-      setWins,
-      losses,
-      setLosses,
-      ballots,
-      setBallots,
-      votesRemaining,
-      setVotesRemaining,
-      achievements,
-      setAcievements,
-      gradeLevel,
-      setGradeLevel,
-      avatarURL,
-      setAvatarURL,
-      streaks,
-      setStreaks,
-      notifications,
-      setNotifications,
-      events,
-      setEvents,
-    }}
-  >
-    {comps}
-  </ChildContext.Provider>
-);
-
 // Submission Context
+
 export const SubmissionContext = createContext();
 
 export const SubmissionContextProvider = ({ comps }) => {
