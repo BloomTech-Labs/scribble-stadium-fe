@@ -100,3 +100,66 @@ return (
     {comps}
   </ChildContext.Provider>
 );
+
+// Submission Context
+export const SubmissionContext = createContext();
+
+export const SubmissionContextProvider = ({ comps }) => {
+  const [id, setId] = useState('');
+  const [childId, setChildId] = useState('');
+  const [storyId, setStoryId] = useState('');
+  const [episodeId, setEpisodeId] = useState('');
+  const [episodeStartDate, setEpisodeStartDate] = useState('');
+  const [moderationStatus, setModerationStatus] = useState('');
+  const [startedReadingAt, setStartedReadingAt] = useState('');
+  const [finishedReadingAt, setFinishedReadingAt] = useState('');
+  const [complexity, setComplexity] = useState('');
+  const [lowConfidence, setLowConfidence] = useState('');
+  const [createdAt, setCreatedAt] = useState('');
+  const [updatedAt, setUpdatedAt] = useState('');
+  const [squadUpAt, setSquadUpAt] = useState('');
+  const [voteAt, setVoteAt] = useState('');
+  const [gameMode, setGameMode] = useState('');
+  const [pages, setPages] = useState([]);
+};
+
+return (
+  <SubmissionContext.Provider
+    value={{
+      id,
+      setId,
+      childId,
+      setChildId,
+      storyId,
+      setStoryId,
+      episodeId,
+      setEpisodeId,
+      episodeStartDate,
+      setEpisodeStartDate,
+      moderationStatus,
+      setModerationStatus,
+      startedReadingAt,
+      setStartedReadingAt,
+      finishedReadingAt,
+      setFinishedReadingAt,
+      complexity,
+      setComplexity,
+      lowConfidence,
+      setLowConfidence,
+      createdAt,
+      setCreatedAt,
+      updatedAt,
+      setUpdatedAt,
+      squadUpAt,
+      setSquadUpAt,
+      voteAt,
+      setVoteAt,
+      gameMode,
+      setGameMode,
+      pages,
+      setPages,
+    }}
+  >
+    {comps}
+  </SubmissionContext.Provider>
+);
