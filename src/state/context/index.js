@@ -1,7 +1,6 @@
 import React, { createContext, useState } from 'react';
 
 // Parent Context
-// ID: string, NAME: string, EMAIL: string, PIN: string, CHILDREN: Array<String>
 
 export const ParentContext = createContext();
 
@@ -122,45 +121,45 @@ export const SubmissionContextProvider = ({ comps }) => {
   const [voteAt, setVoteAt] = useState('');
   const [gameMode, setGameMode] = useState('');
   const [pages, setPages] = useState([]);
-};
 
-return (
-  <SubmissionContext.Provider
-    value={{
-      id,
-      setId,
-      childId,
-      setChildId,
-      storyId,
-      setStoryId,
-      episodeId,
-      setEpisodeId,
-      episodeStartDate,
-      setEpisodeStartDate,
-      moderationStatus,
-      setModerationStatus,
-      startedReadingAt,
-      setStartedReadingAt,
-      finishedReadingAt,
-      setFinishedReadingAt,
-      complexity,
-      setComplexity,
-      lowConfidence,
-      setLowConfidence,
-      createdAt,
-      setCreatedAt,
-      updatedAt,
-      setUpdatedAt,
-      squadUpAt,
-      setSquadUpAt,
-      voteAt,
-      setVoteAt,
-      gameMode,
-      setGameMode,
-      pages,
-      setPages,
-    }}
-  >
-    {comps}
-  </SubmissionContext.Provider>
-);
+  return (
+    <SubmissionContext.Provider
+      value={{
+        id,
+        setId,
+        childId,
+        setChildId,
+        storyId,
+        setStoryId,
+        episodeId,
+        setEpisodeId,
+        episodeStartDate,
+        setEpisodeStartDate,
+        moderationStatus,
+        setModerationStatus,
+        startedReadingAt,
+        setStartedReadingAt,
+        finishedReadingAt,
+        setFinishedReadingAt,
+        complexity,
+        setComplexity,
+        lowConfidence,
+        setLowConfidence,
+        createdAt,
+        setCreatedAt,
+        updatedAt,
+        setUpdatedAt,
+        squadUpAt,
+        setSquadUpAt,
+        voteAt,
+        setVoteAt,
+        gameMode,
+        setGameMode,
+        pages,
+        setPages,
+      }}
+    >
+      {comps}
+    </SubmissionContext.Provider>
+  );
+};
