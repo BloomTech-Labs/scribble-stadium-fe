@@ -9,26 +9,32 @@ export default function AdminSideBar() {
     setActive(!isActive);
   };
   return (
-    <div>
+    <div className="sidebar-component">
       <nav className={isActive ? 'wide-sidebar' : 'narrow-sidebar'}>
         <div className="navlinks">
-          <div>
+          <div className="link">
             <Link to="/admindashboard">
-              {' '}
-              <Button>D</Button>
-              {isActive ? 'Dashboard' : null}{' '}
+              <Button shape="round" type="primary">
+                <b>D</b>
+              </Button>
+              {isActive ? <h3>Dashboard</h3> : null}{' '}
             </Link>
           </div>
-          <div>
+          <div className="link">
             <Link to="/storymanager">
-              {' '}
-              <Button>SM</Button>
-              {isActive ? 'Story Manager' : null}{' '}
+              <Button shape="round" type="primary">
+                <b>SM</b>
+              </Button>
+              {isActive ? <h3>Story Manager</h3> : null}{' '}
             </Link>
           </div>
         </div>
-        <Button onClick={handleToggle}>{isActive ? 'Close' : 'Open'}</Button>
       </nav>
+      <div className={isActive ? 'close-button' : 'open-button'}>
+        <Button onClick={handleToggle} type="primary" shape="round">
+          {isActive ? <b>Close</b> : <b>Open</b>}
+        </Button>
+      </div>
     </div>
   );
 }
