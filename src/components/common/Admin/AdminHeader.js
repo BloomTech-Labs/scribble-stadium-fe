@@ -4,31 +4,29 @@ import { useHistory } from 'react-router-dom';
 import { Button } from 'antd';
 
 const AdminHeader = () => {
-  const { user, isAuthenticated, logout } = useAuth0();
+  const { user, logout } = useAuth0();
   const history = useHistory();
 
   return (
-    isAuthenticated && (
-      <div className="header">
-        <h4>Admin: {user.name}</h4>
-        <div>
-          <img
-            src="https://raw.githubusercontent.com/BloomTech-Labs/scribble-stadium-fe/main/public/assets/Login-Explosion-Final.png"
-            alt="Story Squad Logo"
-          />
-        </div>
-        <div className="buttons">
-          <Button
-            onClick={() => {
-              history.push('/admin');
-            }}
-          >
-            Home
-          </Button>
-          <Button onClick={() => logout()}>Log Out</Button>
-        </div>
+    <div className="header">
+      <h4>Admin: user.name</h4>
+      <div>
+        <img
+          src="https://raw.githubusercontent.com/BloomTech-Labs/scribble-stadium-fe/main/public/assets/Login-Explosion-Final.png"
+          alt="Story Squad Logo"
+        />
       </div>
-    )
+      <div className="buttons">
+        <Button
+          onClick={() => {
+            history.push('/admin');
+          }}
+        >
+          Home
+        </Button>
+        <Button onClick={() => logout()}>Log Out</Button>
+      </div>
+    </div>
   );
 };
 
