@@ -1,11 +1,11 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Button } from 'antd';
 
 const Header = () => {
   const { user, isAuthenticated, logout } = useAuth0();
-  const navigate = useNavigate();
+  const history = useHistory();
 
   return (
     isAuthenticated && (
@@ -20,7 +20,7 @@ const Header = () => {
         <div className="buttons">
           <Button
             onClick={() => {
-              navigate('/admin');
+              history.push('/admin');
             }}
           >
             Home
