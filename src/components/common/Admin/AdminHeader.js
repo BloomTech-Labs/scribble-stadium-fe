@@ -9,7 +9,7 @@ const AdminHeader = () => {
 
   return (
     <div className="header">
-      <h4>Admin: user.name</h4>
+      <h4>Admin: {user.name}</h4>
       <div>
         <img
           src="https://raw.githubusercontent.com/BloomTech-Labs/scribble-stadium-fe/main/public/assets/Login-Explosion-Final.png"
