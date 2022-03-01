@@ -3,7 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { useHistory } from 'react-router-dom';
 import { Button } from 'antd';
 
-const Header = () => {
+const AdminHeader = () => {
   const { user, isAuthenticated, logout } = useAuth0();
   const history = useHistory();
 
@@ -32,4 +32,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default AdminHeader;
