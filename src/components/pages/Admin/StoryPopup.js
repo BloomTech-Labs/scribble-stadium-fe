@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import React from 'react';
 
 export default function Story({ story, trigger, setTrigger }) {
@@ -7,7 +8,9 @@ export default function Story({ story, trigger, setTrigger }) {
         <p>Title: {story.title}</p>
         <p>Author: {story.author}</p>
         <p>{story.story}</p>
-        <button onClick={() => setTrigger(false)}>Close</button>
+        <Button onClick={() => setTrigger(false)} danger>
+          Close
+        </Button>
       </div>
     </div>
   ) : (

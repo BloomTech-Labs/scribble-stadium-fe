@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import UploadStoryPopup from './UploadStoryPopup';
 import { connect } from 'react-redux';
 import StoryPopup from './StoryPopup';
+import { Button } from 'antd';
 
 const StoryManager = ({ stories }) => {
   const [addButtonState, setAddButtonState] = useState(false);
@@ -20,7 +21,13 @@ const StoryManager = ({ stories }) => {
       <div className="library">
         <div className="library-top">
           <h2>Story Library</h2>
-          <button onClick={() => setAddButtonState(true)}>Add +</button>
+          <Button
+            onClick={() => setAddButtonState(true)}
+            type="primary"
+            shape="round"
+          >
+            Add +
+          </Button>
         </div>
         <div>
           <div className="review-checkboxes">
