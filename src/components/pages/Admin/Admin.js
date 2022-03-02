@@ -1,8 +1,9 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AdminHeader from '../../common/Admin/AdminHeader';
 import AdminSideBar from '../../common/Admin/AdminSidebar';
+import StoryManager from './StoryManager';
 
 const Admin = () => {
   const { isAuthenticated } = useAuth0();
@@ -13,7 +14,12 @@ const Admin = () => {
         <AdminHeader />
         <div className="main">
           <AdminSideBar />
-          <div className="container">Placeholder for Admin routes</div>
+          <div className="container">
+            <Switch>
+              <Route exact path="/admin" component={StoryManager} />
+              <Route path="/admin/storymanager" component={StoryManager} />
+            </Switch>
+          </div>
         </div>
       </Router>
     )
