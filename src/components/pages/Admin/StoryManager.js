@@ -24,7 +24,6 @@ const StoryManager = ({ stories }) => {
         </div>
         <div>
           <div className="review-checkboxes">
-            checkboxes
             {stories.map(story => {
               return story.status === 'review' ? (
                 <div key={story.title}>
@@ -54,7 +53,7 @@ const StoryManager = ({ stories }) => {
 
 const mapStateToProps = state => {
   return {
-    stories: state,
+    stories: state.admin,
   };
 };
 
