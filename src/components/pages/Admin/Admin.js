@@ -5,6 +5,7 @@ import AdminHeader from '../../common/Admin/AdminHeader';
 import AdminSideBar from '../../common/Admin/AdminSidebar';
 import StoryManager from './StoryManager';
 
+
 const Admin = () => {
   const { isAuthenticated } = useAuth0();
 
