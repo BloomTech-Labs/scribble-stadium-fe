@@ -10,21 +10,29 @@ import Explosion from '../../../assets/images/gamemodeimg/explosion.png';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 import leaderboard_icon from '../../../assets/images/child_dashboard_images/leaderboard_icon.png';
 import { getSubmissions } from '../../../api/index';
+import data from '../../../data.json';
+import { connect } from 'react-redux';
+import { gameSession } from '../../../state/actions/childActions';
 
 const RenderChildDashboard = props => {
   const { push } = useHistory();
   const [modalVisible, setModalVisible] = useState(false);
   const [submissionData, setSubmissionData] = useState([]);
+  const game_in_progress = false;
 
   // ChildId hardcoded for now until global state of child is retrived
   // Retrieves array of submissions pertaining to child id, response is in the form of an array
   useEffect(() => {
-    getSubmissions(1).then(res => {
+    /*getSubmissions(1).then(res => {
       setSubmissionData(res);
-    });
+      console.log(res)
+    });*/
+
+    props.gameSession();
   }, []);
 
   const handleAcceptMission = e => {
+    data.gameSession = true;
     push('/gamemode');
   };
 
@@ -66,7 +74,7 @@ const RenderChildDashboard = props => {
             sm={12}
             onClick={handleAcceptMission}
           >
-            {submissionData.length > 0 ? (
+            {data.gameSession == true ? (
               <p className="accept-mission-text">RESUME THE MISSION!</p>
             ) : (
               <p className="accept-mission-text">ACCEPT THE MISSION!</p>
@@ -114,4 +122,10 @@ const RenderChildDashboard = props => {
   );
 };
 
-export default RenderChildDashboard;
+const database = state => {
+  return {
+    data: state,
+  };
+};
+
+export default connect(database, { gameSession })(RenderChildDashboard);

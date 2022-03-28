@@ -4,13 +4,16 @@ import { Header } from '../../common';
 import ChildFooter from '../../common/ChildFooter';
 import { Button } from 'antd';
 import { connect } from 'react-redux';
-
+import { gameSession } from '../../../state/actions/childActions';
 import { useHistory } from 'react-router-dom';
 
 const Gamemode = ({ ...props }) => {
   const { push, location } = useHistory();
+  console.log(props);
 
   useEffect(() => {
+    props.gameSession();
+    console.log(props.gameSession());
     const propInit = () => {
       if (props.child.gamemode !== null && location.pathname === '/gamemode') {
         props.child.gamemode = {
@@ -80,5 +83,5 @@ export default connect(
   state => ({
     child: state.child,
   }),
-  {}
+  { gameSession }
 )(Gamemode);
