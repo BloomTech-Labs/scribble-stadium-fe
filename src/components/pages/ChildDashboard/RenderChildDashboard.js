@@ -6,7 +6,6 @@ import { useHistory } from 'react-router-dom';
 import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
 import { HUD } from '../HeadsUpDisplay/index';
-import Explosion from '../../../assets/images/gamemodeimg/explosion.png';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 import leaderboard_icon from '../../../assets/images/child_dashboard_images/leaderboard_icon.png';
 import { getSubmissions } from '../../../api/index';
@@ -20,7 +19,7 @@ const RenderChildDashboard = props => {
   const [submissionData, setSubmissionData] = useState([]);
   const game_in_progress = false;
 
-  // ChildId hardcoded for now until global state of child is retrived
+  // ChildId hardcoded for now until global state of child is retrieved
   // Retrieves array of submissions pertaining to child id, response is in the form of an array
   useEffect(() => {
     /*getSubmissions(1).then(res => {
@@ -102,7 +101,7 @@ const RenderChildDashboard = props => {
           >
             <img
               className="child-dash-img"
-              // This icon will need to be changed to an inhouse icon, this is just imported as a placeholder //
+              // This icon will need to be changed to an in-house icon, this is just imported as a placeholder //
               src={leaderboard_icon}
               alt="Leaderboard Button"
             />
