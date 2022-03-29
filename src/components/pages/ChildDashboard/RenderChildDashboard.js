@@ -28,7 +28,7 @@ const RenderChildDashboard = props => {
     });*/
 
     props.gameSession();
-  }, []);
+  }, [props]);
 
   const handleAcceptMission = e => {
     data.gameSession = true;
