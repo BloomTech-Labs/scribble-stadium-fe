@@ -8,16 +8,18 @@ import { modalInstructions } from '../../../utils/helpers';
 import { HUD } from '../HeadsUpDisplay/index';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 import leaderboard_icon from '../../../assets/images/child_dashboard_images/leaderboard_icon.png';
-import { getSubmissions } from '../../../api/index';
 import data from '../../../data.json';
 import { connect } from 'react-redux';
 import { gameSession } from '../../../state/actions/childActions';
+// import { getSubmissions } from '../../../api/index';
 
+// commented code in this file is currently in progress
 const RenderChildDashboard = props => {
   const { push } = useHistory();
   const [modalVisible, setModalVisible] = useState(false);
-  const [submissionData, setSubmissionData] = useState([]);
-  const game_in_progress = false;
+
+  // const [submissionData, setSubmissionData] = useState([]);
+  // const game_in_progress = false;
 
   // ChildId hardcoded for now until global state of child is retrieved
   // Retrieves array of submissions pertaining to child id, response is in the form of an array
@@ -73,7 +75,7 @@ const RenderChildDashboard = props => {
             sm={12}
             onClick={handleAcceptMission}
           >
-            {data.gameSession == true ? (
+            {data.gameSession === true ? (
               <p className="accept-mission-text">RESUME THE MISSION!</p>
             ) : (
               <p className="accept-mission-text">ACCEPT THE MISSION!</p>
