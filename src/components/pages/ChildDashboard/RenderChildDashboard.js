@@ -51,7 +51,11 @@ const RenderChildDashboard = props => {
 
   return (
     <>
-      <Header displayMenu={true} title={'Scribble Stadium'} />
+      <Header
+        displayMenu={true}
+        title={'Scribble Stadium'}
+        data-testid="child-dashboard"
+      />
       <HUD
         completedActivity={['Read', 'Draw', 'Write']}
         currentActivity={'Squad Up'}
