@@ -40,14 +40,8 @@ export const setMemberId = memberId => dispatch => {
 export const FETCH_DATA = 'FETCH_DATA';
 export function gameSession() {
   return dispatch => {
-    axios
-      .get('https://swapi.dev/api/people/1')
-      .then(res => {
-        console.log(res);
-        dispatch({ type: FETCH_DATA, payload: res.data });
-      })
-      .catch(() => {
-        console.log('Error');
-      });
+    axios.get(connectionString).then(res => {
+      dispatch({ type: FETCH_DATA, payload: res.data });
+    });
   };
 }

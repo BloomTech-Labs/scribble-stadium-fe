@@ -12,29 +12,8 @@ const Gamemode = ({ ...props }) => {
   console.log(props);
 
   useEffect(() => {
-    props.gameSession();
-    console.log(props.gameSession());
-    const propInit = () => {
-      if (props.child.gamemode !== null && location.pathname === '/gamemode') {
-        props.child.gamemode = {
-          mode: 'select',
-          read: props.child.gamemode.read,
-          write: props.child.gamemode.write,
-          draw: props.child.gamemode.draw,
-          sp: false,
-        };
-      } else {
-        props.child.gamemode = {
-          mode: 'select',
-          read: false,
-          write: false,
-          draw: false,
-          sp: false,
-        };
-      }
-    };
-    propInit();
-  }, [props, location]);
+    gameSession();
+  }, []);
 
   const reini = () => {
     // For basic prop initiation
