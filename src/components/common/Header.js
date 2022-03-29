@@ -102,8 +102,7 @@ const Header = ({
           className="menu-button"
         >
           <Button
-            className="menu"
-            className="child-header-button"
+            className="menu child-header-button"
             icon={<MenuOutlined className="child-header-hamburger" />}
             type="default"
           />
