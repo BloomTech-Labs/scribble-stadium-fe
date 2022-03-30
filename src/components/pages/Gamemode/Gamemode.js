@@ -8,7 +8,7 @@ import { gameSession } from '../../../state/actions/childActions';
 import { useHistory } from 'react-router-dom';
 
 const Gamemode = ({ ...props }) => {
-  const { push, location } = useHistory();
+  const { push } = useHistory();
   console.log(props);
 
   useEffect(() => {
