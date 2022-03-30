@@ -10,7 +10,7 @@ import { markAsRead } from '../../../api';
 const StoryViewer = props => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
-  const [hasViewedAllPages, setViewed] = useState(false);
+  const [, setViewed] = useState(false);
 
   const { user } = useAuth0();
   const { push } = useHistory();
