@@ -12,6 +12,7 @@
     "gamemodeimg",
     "GamePlay",
     "Leaderboard",
+    "persistor",
     "playagainbtn",
     "playbtn",
     "playbutton",
