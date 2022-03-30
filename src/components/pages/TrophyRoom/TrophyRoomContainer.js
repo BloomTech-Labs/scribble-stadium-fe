@@ -6,7 +6,7 @@ import RenderTrophyRoom from './RenderTrophyRoom';
 
 const TrophyRoomContainer = ({ LoadingComponent, ...props }) => {
   const { user, isAuthenticated } = useAuth0();
-  const [userInfo, setUserInfo] = useState(user);
+  const [userInfo] = useState(user);
 
   return (
     <>
