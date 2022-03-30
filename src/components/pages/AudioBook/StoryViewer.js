@@ -62,11 +62,12 @@ const StoryViewer = props => {
     setPageNumber(prevPageNumber => prevPageNumber + offset);
   };
 
-  const onFinish = e => {
-    markAsRead(user, props.tasks.id);
-    push('/child/mission-control');
-    props.setHasRead();
-  };
+  // The following code was commented out to prevent warnings during compilation.
+  // const onFinish = e => {
+  //   markAsRead(user, props.tasks.id);
+  //   push('/child/mission-control');
+  //   props.setHasRead();
+  // };
 
   return (
     <>
