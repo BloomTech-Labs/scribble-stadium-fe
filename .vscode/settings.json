@@ -5,6 +5,7 @@
     "Btns",
     "cropcloud",
     "cropcloudimage",
+    "drawingprompt",
     "Faceoff",
     "faceoffs",
     "Gamemode",
@@ -14,6 +15,7 @@
     "playbutton",
     "reini",
     "sizeme",
-    "Winky"
+    "Winky",
+    "writingprompt"
   ]
 }
