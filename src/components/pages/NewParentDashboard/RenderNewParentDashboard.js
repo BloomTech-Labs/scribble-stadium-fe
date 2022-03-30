@@ -39,7 +39,7 @@ const RenderNewParentDashboard = props => {
   const history = useHistory();
   const { user } = useAuth0();
   const { setParent } = props;
-  const [childrenAccounts, setChildrenAccounts] = useState(FAKE_CHILDREN);
+  const [childrenAccounts] = useState(FAKE_CHILDREN);
   const [modalVisible, setModalVisible] = useState(false);
   const { TabPane } = Tabs;
 
