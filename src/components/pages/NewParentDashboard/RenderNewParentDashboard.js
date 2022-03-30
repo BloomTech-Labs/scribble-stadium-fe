@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Layout, Tabs } from 'antd';
-import { useAuth0 } from '@auth0/auth0-react';
-import { getProfileData } from '../../../api';
+// import { useAuth0 } from '@auth0/auth0-react';
+// import { getProfileData } from '../../../api';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import NewProgressCharts from '../../common/NewProgressCharts';
 import NewChildCard from '../../common/NewChildCard';
@@ -37,24 +37,25 @@ const RenderNewParentDashboard = props => {
   ];
 
   const history = useHistory();
-  const { user } = useAuth0();
-  const { setParent } = props;
+  // const { user } = useAuth0();
+  // const { setParent } = props;
   const [childrenAccounts] = useState(FAKE_CHILDREN);
   const [modalVisible, setModalVisible] = useState(false);
   const { TabPane } = Tabs;
 
-  useEffect(() => {
-    getProfileData()
-      .then(res => {
-        setParent({
-          ...res[0],
-          children: res.filter(user => user.type !== 'Parent'),
-        });
-      })
-      .catch(err => {
-        console.log('error retrieving profile data', err.message);
-      });
-  }, [setParent, user]);
+  // the endpoint used for this function is currently non-functional
+  // useEffect(() => {
+  //   getProfileData()
+  //     .then(res => {
+  //       setParent({
+  //         ...res[0],
+  //         children: res.filter(user => user.type !== 'Parent'),
+  //       });
+  //     })
+  //     .catch(err => {
+  //       console.log('error retrieving profile data', err.message);
+  //     });
+  // }, [setParent, user]);
   return (
     <div id="parent-dashboard-page">
       <Layout className="newparent-dashboard">
