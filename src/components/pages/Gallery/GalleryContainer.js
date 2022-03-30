@@ -30,7 +30,7 @@ const GalleryContainer = props => {
 
   useEffect(() => {
     props.setWeeklySubmissions(id);
-  }, []);
+  }, [props, id]);
 
   return (
     <>

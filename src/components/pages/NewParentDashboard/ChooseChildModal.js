@@ -32,7 +32,7 @@ export default function ChooseChildModal(props) {
     });
     gsap.to('#notification-modal', { opacity: 1, duration: 0.5, delay: 0.5 });
     gsap.to('.modal-container', { y: 0, duration: 0.5, delay: 1 });
-  });
+  }, []);
 
   return (
     <div id="notification-modal">
