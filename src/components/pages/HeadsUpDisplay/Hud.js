@@ -134,14 +134,14 @@ function getCountdownTimerPositionIndex(currentActivity) {
 
 Hud.propTypes = {
   completedActivity: PropTypes.arrayOf(
-    PropTypes.oneOf(
+    PropTypes.oneOf([
       'Read',
       'Draw',
       'Write',
       'Squad Up',
       'Point Share',
-      'Voting'
-    )
+      'Voting',
+    ])
   ).isRequired,
   currentActivity: PropTypes.string.isRequired,
   currentBar: PropTypes.string.isRequired,
