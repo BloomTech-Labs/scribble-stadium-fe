@@ -82,7 +82,7 @@ const RenderChildDashboard = props => {
             sm={12}
             onClick={handleAcceptMission}
           >
-            {data.gameSession === true ? (
+            {props.submissions.length > 0 ? (
               <p className="accept-mission-text">RESUME THE MISSION!</p>
             ) : (
               <p className="accept-mission-text">ACCEPT THE MISSION!</p>
@@ -132,7 +132,8 @@ const RenderChildDashboard = props => {
 
 const database = state => {
   return {
-    data: state,
+    currActivity: state.currActivity,
+    submissions: state.submissions,
   };
 };
 
