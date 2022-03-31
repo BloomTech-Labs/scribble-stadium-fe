@@ -2,6 +2,7 @@
   "compile-hero.disable-compile-files-on-did-save-code": true,
   "cSpell.words": [
     "antd",
+    "bottomrow",
     "Btns",
     "centerer",
     "cropcloud",
@@ -21,6 +22,7 @@
     "reini",
     "sizeme",
     "slidein",
+    "toprow",
     "watchme",
     "Winky",
     "wordcloud",
