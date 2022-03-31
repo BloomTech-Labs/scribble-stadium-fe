@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Header } from '../../common';
 import ChildFooter from '../../common/ChildFooter';
 import { Row, Col } from 'antd';
@@ -23,14 +23,17 @@ const RenderChildDashboard = props => {
 
   // ChildId hardcoded for now until global state of child is retrieved
   // Retrieves array of submissions pertaining to child id, response is in the form of an array
+
+  const gameSession = useMemo(() => props.gameSession, [props.gameSession]);
+
   useEffect(() => {
     /*getSubmissions(1).then(res => {
       setSubmissionData(res);
       console.log(res)
     });*/
 
-    props.gameSession();
-  }, [props]);
+    gameSession();
+  }, [gameSession]);
 
   const handleAcceptMission = e => {
     data.gameSession = true;
