@@ -28,8 +28,13 @@ const RenderChildDashboard = props => {
 
   useEffect(() => {
     getSubmissions(1).then(res => {
+      console.groupCollapsed('%cgetSubmissions', 'color: #CC5500');
       setSubmissionData(res.data);
-      console.log(`getSubmissions response: ${JSON.stringify(res)}`);
+      console.log(
+        `%cgetSubmissions response: ${JSON.stringify(res)}`,
+        'color: #2980B9'
+      );
+      console.groupEnd('getSubmissions');
     });
   }, []);
 
