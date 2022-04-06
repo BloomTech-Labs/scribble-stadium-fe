@@ -56,7 +56,7 @@ const RenderChildDashboard = props => {
   };
 
   return (
-    <>
+    <div data-testid="child-dashboard">
       <Header
         displayMenu={true}
         title={'Scribble Stadium'}
@@ -129,7 +129,7 @@ const RenderChildDashboard = props => {
         </Row>
       </div>
       <ChildFooter />
-    </>
+    </div>
   );
 };
 
