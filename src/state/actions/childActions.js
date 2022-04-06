@@ -1,5 +1,4 @@
 import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
 
 const mock = new MockAdapter(axios);
 
@@ -8,23 +7,6 @@ const getTimeStamp = () => {
 };
 
 const connectionString = 'https://localhost/api/child/1/submissions';
-
-mock.onGet(connectionString).reply(200, {
-  ChildID: 1,
-  StoryID: 1,
-  EpisodeID: 1,
-  episodeStartDate: '2021-01-03',
-  // moderationStatus replaced Status in previous seed
-  moderationStatus: 'PENDING',
-  startedReadingAt: `${getTimeStamp()}` + 60000,
-  finishedReadingAt: `${getTimeStamp()}` + 15 * 60000,
-  complexity: 30,
-  lowConfidence: false,
-  gameMode: 'SINGLE_PLAYER',
-  // Timestamps for createdAt, and updatedAt to capture data of when activity was last seen
-  createdAt: `${getTimeStamp()}`,
-  updatedAt: `${getTimeStamp()}`,
-});
 
 export const SET_CHILD = 'SET_CHILD';
 export const setChild = childData => dispatch => {
