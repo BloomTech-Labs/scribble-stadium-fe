@@ -5,7 +5,7 @@ import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
-import { HUD } from '../HeadsUpDisplay/index';
+import Hud from '../GamePlay/index';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 import leaderboard_icon from '../../../assets/images/child_dashboard_images/leaderboard_icon.png';
 import data from '../../../data.json';
@@ -15,7 +15,7 @@ import { getSubmissions } from '../../../api/index';
 
 // commented code in this file is currently in progress
 const RenderChildDashboard = props => {
-  const { push } = useHistory();
+  // const { push } = useHistory();
   const [modalVisible, setModalVisible] = useState(false);
 
   const [submissionData, setSubmissionData] = useState([]);
@@ -40,19 +40,19 @@ const RenderChildDashboard = props => {
 
   const handleAcceptMission = e => {
     data.gameSession = true;
-    push('/gamemode');
+    window.location.href = '/gamemode';
   };
 
   const handleTrophyRoom = e => {
-    push('/gameplay/trophy-room');
+    window.location.href = '/gameplay/trophy-room';
   };
 
   const handleChangeAvatar = event => {
-    push('/change-avatar');
+    window.location.href = '/change-avatar';
   };
 
   const handleLeaderboard = e => {
-    push('/leaderboard');
+    window.location.href = '/leaderboard';
   };
 
   return (
@@ -62,7 +62,7 @@ const RenderChildDashboard = props => {
         title={'Scribble Stadium'}
         data-testid="child-dashboard"
       />
-      <HUD
+      <Hud
         completedActivity={['Read', 'Draw', 'Write']}
         currentActivity={'Squad Up'}
         currentBar={'bar2'}

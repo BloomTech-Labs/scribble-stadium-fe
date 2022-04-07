@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { gsap } from 'gsap';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+// import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { connect } from 'react-redux';
 
 import { setCurrActivity } from '../../../state/actions/currentActivityActions';
@@ -63,7 +63,7 @@ function GamePlayMission(props) {
   const updateCurStep = step => {
     props.setCurrActivity(step);
     setCurrentStep(step);
-    gsap.to(window, { duration: 1, scrollTo: '.hero' });
+    // gsap.to(window, { duration: 1, scrollTo: '.hero' });
   };
 
   // Update the current data to submit
@@ -94,7 +94,7 @@ function GamePlayMission(props) {
 
     gsap.from('#game-mission', { opacity: 0, y: 100, duration: 1 });
 
-    gsap.registerPlugin(ScrollToPlugin);
+    // gsap.registerPlugin(ScrollToPlugin);
   }, [baseURL, history, submissionData.HasRead]);
 
   console.log(submissionData);
