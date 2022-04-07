@@ -1,4 +1,5 @@
-import RenderChildDashboard from '../../components/pages/ChildDashboard/RenderChildDashboard';
+import React from 'react';
+import RenderChildDashboard from '../components/pages/ChildDashboard/RenderChildDashboard';
 import { render, screen } from '@testing-library/react';
 
 describe('RenderChildDashboard component', () => {
