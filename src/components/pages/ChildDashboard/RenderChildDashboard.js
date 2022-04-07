@@ -133,11 +133,11 @@ const RenderChildDashboard = props => {
   );
 };
 
-const database = state => {
+const mapStateToProps = state => {
   return {
     currActivity: state.currActivity,
     submissions: state.submissions,
   };
 };
 
-export default connect(database)(RenderChildDashboard);
+export default connect(mapStateToProps)(RenderChildDashboard);
