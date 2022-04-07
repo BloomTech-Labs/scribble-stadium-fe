@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-const mock = new MockAdapter(axios);
-
 const getTimeStamp = () => {
   return new Date().toISOString().replace('Z', '').replace('T', ' ');
 };
