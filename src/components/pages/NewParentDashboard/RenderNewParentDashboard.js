@@ -48,20 +48,19 @@ const RenderNewParentDashboard = props => {
   // const { setParent } = props;
   const [childrenAccounts] = useState(FAKE_CHILDREN);
   const [modalVisible, setModalVisible] = useState(false);
-
-  // the endpoint used for this function is currently non-functional
-  // useEffect(() => {
-  //   getProfileData()
-  //     .then(res => {
-  //       setParent({
-  //         ...res[0],
-  //         children: res.filter(user => user.type !== 'Parent'),
-  //       });
-  //     })
-  //     .catch(err => {
-  //       console.log('error retrieving profile data', err.message);
-  //     });
-  // }, [setParent, user]);
+  const { Header, Footer, Content } = Layout;
+  useEffect(() => {
+    getProfileData()
+      .then(res => {
+        setParent({
+          ...res[0],
+          children: res.filter(user => user.type !== 'Parent'),
+        });
+      })
+      .catch(err => {
+        console.log('error retrieving profile data', err.message);
+      });
+  }, [setParent, user]);
   return (
     <div id="parent-dashboard-page">
       <Layout className="newparent-dashboard">
