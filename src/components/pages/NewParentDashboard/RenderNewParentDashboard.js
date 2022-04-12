@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Layout, Grid } from 'antd';
+import { Layout, Row, Col } from 'antd';
 import { useAuth0 } from '@auth0/auth0-react';
 import { getProfileData } from '../../../api';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
@@ -41,8 +41,7 @@ const RenderNewParentDashboard = props => {
   const { setParent } = props;
   const [childrenAccounts, setChildrenAccounts] = useState(FAKE_CHILDREN);
   const [modalVisible, setModalVisible] = useState(false);
-  const { Header, Footer, Content } = Layout;
-  const { Row, Col } = Grid;
+  const { Content } = Layout;
   useEffect(() => {
     getProfileData()
       .then(res => {
@@ -67,20 +66,22 @@ const RenderNewParentDashboard = props => {
         />
         {/* </Header> */}
         <Content>
-          <div className="card-container">
-            <div className="renderWordCloud">
-              <RenderWordCloud />
-            </div>
-            <div className="progress-container">
-              <NewProgressCharts />
-            </div>
-            <div className="child-container">
+          <Row gutter={[16, 16]}>
+            <Col span={11} className="child-container">
               <NewChildCard props={props} />
-            </div>
-            <div>
+            </Col>
+            <Col span={11} className="renderWordCloud">
+              <RenderWordCloud />
+            </Col>
+          </Row>
+          <Row gutter={[16, 16]}>
+            <Col span={11} className="progress-container">
+              <NewProgressCharts />
+            </Col>
+            <Col span={11} className="account-container">
               <AccountSettings />
-            </div>
-          </div>
+            </Col>
+          </Row>
         </Content>
         {/* <Footer> */}
         <ParentFooter />
