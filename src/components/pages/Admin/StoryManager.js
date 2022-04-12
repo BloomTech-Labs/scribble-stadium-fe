@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import UploadStoryPopup from './UploadStoryPopup';
 import { connect } from 'react-redux';
 import StoryPopup from './StoryPopup';
 import { Button } from 'antd';
+import StoryBacklog from './StoryBacklog';
+import StoryDetails from './StoryDetails';
+import AdminHistory from './AdminHistory';
 
 const StoryManager = ({ stories }) => {
   const [addButtonState, setAddButtonState] = useState(false);
@@ -29,7 +33,14 @@ const StoryManager = ({ stories }) => {
             Add +
           </Button>
         </div>
-        <div>
+        <StoryBacklog />
+
+        <Switch>
+          <Route path="/admin/storymanager/:id" component={StoryDetails} />
+          <Route path="/admin/storymanager" component={AdminHistory} />
+        </Switch>
+
+        {/* <div>
           <div className="review-checkboxes">
             {stories.map(story => {
               return story.status === 'review' ? (
@@ -43,17 +54,17 @@ const StoryManager = ({ stories }) => {
               );
             })}
           </div>
-        </div>
+        </div> */}
       </div>
       <UploadStoryPopup
         trigger={addButtonState}
         setTrigger={setAddButtonState}
       />
-      <StoryPopup
+      {/* <StoryPopup
         story={story}
         trigger={storyState}
         setTrigger={setStoryState}
-      />
+      /> */}
     </div>
   );
 };
