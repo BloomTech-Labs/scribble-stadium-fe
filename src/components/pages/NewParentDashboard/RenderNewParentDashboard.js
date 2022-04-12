@@ -64,14 +64,14 @@ const RenderNewParentDashboard = props => {
   return (
     <div id="parent-dashboard-page">
       <Layout className="newparent-dashboard">
-        <Header>
-          <ParentNavTopBar
-            handlePlayGameButtonClick={evt => {
-              evt.preventDefault();
-              setModalVisible(true);
-            }}
-          />
-        </Header>
+        {/* <Header > */}
+        <ParentNavTopBar
+          handlePlayGameButtonClick={evt => {
+            evt.preventDefault();
+            setModalVisible(true);
+          }}
+        />
+        {/* </Header> */}
         <Content>
           <div className="card-container">
             <div className="renderWordCloud">
@@ -88,9 +88,9 @@ const RenderNewParentDashboard = props => {
             </div>
           </div>
         </Content>
-        <Footer>
-          <ParentFooter />
-        </Footer>
+        {/* <Footer> */}
+        <ParentFooter />
+        {/* </Footer> */}
       </Layout>
 
       {modalVisible && (
