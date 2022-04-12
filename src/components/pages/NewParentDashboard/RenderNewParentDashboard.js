@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Layout } from 'antd';
+import { Layout, Grid } from 'antd';
 import { useAuth0 } from '@auth0/auth0-react';
 import { getProfileData } from '../../../api';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
@@ -42,6 +42,7 @@ const RenderNewParentDashboard = props => {
   const [childrenAccounts, setChildrenAccounts] = useState(FAKE_CHILDREN);
   const [modalVisible, setModalVisible] = useState(false);
   const { Header, Footer, Content } = Layout;
+  const { Row, Col } = Grid;
   useEffect(() => {
     getProfileData()
       .then(res => {
