@@ -65,20 +65,21 @@ const RenderNewParentDashboard = props => {
           }}
         />
         {/* </Header> */}
+        {/* TODO: add width control to containers, responsive sizes, add breakpoints  */}
         <Content>
           <Row gutter={[16, 16]}>
-            <Col span={11} className="child-container">
+            <Col span={12} className="child-container">
               <NewChildCard props={props} />
             </Col>
-            <Col span={11} className="renderWordCloud">
+            <Col span={12} className="renderWordCloud">
               <RenderWordCloud />
             </Col>
           </Row>
           <Row gutter={[16, 16]}>
-            <Col span={11} className="progress-container">
+            <Col span={12} className="progress-container">
               <NewProgressCharts />
             </Col>
-            <Col span={11} className="account-container">
+            <Col span={12} className="account-container">
               <AccountSettings />
             </Col>
           </Row>
