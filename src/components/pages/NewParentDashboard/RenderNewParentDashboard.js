@@ -5,7 +5,7 @@ import { Layout, Tabs } from 'antd';
 // import { getProfileData } from '../../../api';
 =======
 import React, { useEffect, useState } from 'react';
-import { Layout } from 'antd';
+import { Layout, Grid } from 'antd';
 import { useAuth0 } from '@auth0/auth0-react';
 import { getProfileData } from '../../../api';
 >>>>>>> Removed Tabs.
@@ -49,6 +49,7 @@ const RenderNewParentDashboard = props => {
   const [childrenAccounts] = useState(FAKE_CHILDREN);
   const [modalVisible, setModalVisible] = useState(false);
   const { Header, Footer, Content } = Layout;
+  const { Row, Col } = Grid;
   useEffect(() => {
     getProfileData()
       .then(res => {
