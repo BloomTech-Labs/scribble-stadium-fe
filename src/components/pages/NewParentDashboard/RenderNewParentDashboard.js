@@ -1,7 +1,14 @@
+<<<<<<< refs/remotes/origin/main
 import React, { useState } from 'react';
 import { Layout, Tabs } from 'antd';
 // import { useAuth0 } from '@auth0/auth0-react';
 // import { getProfileData } from '../../../api';
+=======
+import React, { useEffect, useState } from 'react';
+import { Layout } from 'antd';
+import { useAuth0 } from '@auth0/auth0-react';
+import { getProfileData } from '../../../api';
+>>>>>>> Removed Tabs.
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import NewProgressCharts from '../../common/NewProgressCharts';
 import NewChildCard from '../../common/NewChildCard';
@@ -41,7 +48,6 @@ const RenderNewParentDashboard = props => {
   // const { setParent } = props;
   const [childrenAccounts] = useState(FAKE_CHILDREN);
   const [modalVisible, setModalVisible] = useState(false);
-  const { TabPane } = Tabs;
 
   // the endpoint used for this function is currently non-functional
   // useEffect(() => {
@@ -65,34 +71,22 @@ const RenderNewParentDashboard = props => {
             setModalVisible(true);
           }}
         />
-        <Layout>
-          <div className="card-container">
-            <Tabs type="card" centered defaultActiveKey="1001">
-              <TabPane key="1001" tab="Word Cloud">
-                <div className="renderWordCloud">
-                  <RenderWordCloud />
-                </div>
-              </TabPane>
-              <TabPane key="1002" tab="Player Progress">
-                <div className="progress-container">
-                  <NewProgressCharts />
-                </div>
-              </TabPane>
-              <TabPane key="1003" tab="Player(s)">
-                <div className="child-container">
-                  <NewChildCard props={props} />
-                </div>
-              </TabPane>
-              <TabPane key="1004" tab="Settings">
-                <div>
-                  <AccountSettings />
-                </div>
-              </TabPane>
-            </Tabs>
+        <div className="card-container">
+          <div className="renderWordCloud">
+            <RenderWordCloud />
           </div>
-        </Layout>
+          <div className="progress-container">
+            <NewProgressCharts />
+          </div>
+          <div className="child-container">
+            <NewChildCard props={props} />
+          </div>
+          <div>
+            <AccountSettings />
+          </div>
+        </div>
+        <ParentFooter />
       </Layout>
-      <ParentFooter />
 
       {modalVisible && (
         <ChooseChildModal
