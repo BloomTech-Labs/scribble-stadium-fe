@@ -63,29 +63,25 @@
 }
 
 .cropcloud {
-  height: 600px;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  object-fit: contain;
 }
 .crop-cloud-container {
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 615px;
-  width: 725px;
   background-color: #b5d33d;
-  border-radius: 111px;
-  filter: drop-shadow(0 0.25rem 0.25rem #949494);
+  border-radius: 10px;
   border: 3px solid black;
 }
 
 .cropcloudimage {
-  height: 500px;
-  width: auto;
-  border-radius: 111px;
-  filter: drop-shadow(0 0 0.25rem #949494);
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 /* Toggle Switch Styling */
