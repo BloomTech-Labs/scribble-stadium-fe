@@ -57,27 +57,33 @@ const RenderNewParentDashboard = props => {
   return (
     <div id="parent-dashboard-page">
       <Layout className="newparent-dashboard">
-        <ParentNavTopBar
-          handlePlayGameButtonClick={evt => {
-            evt.preventDefault();
-            setModalVisible(true);
-          }}
-        />
-        <div className="card-container">
-          <div className="renderWordCloud">
-            <RenderWordCloud />
+        <Header>
+          <ParentNavTopBar
+            handlePlayGameButtonClick={evt => {
+              evt.preventDefault();
+              setModalVisible(true);
+            }}
+          />
+        </Header>
+        <Content>
+          <div className="card-container">
+            <div className="renderWordCloud">
+              <RenderWordCloud />
+            </div>
+            <div className="progress-container">
+              <NewProgressCharts />
+            </div>
+            <div className="child-container">
+              <NewChildCard props={props} />
+            </div>
+            <div>
+              <AccountSettings />
+            </div>
           </div>
-          <div className="progress-container">
-            <NewProgressCharts />
-          </div>
-          <div className="child-container">
-            <NewChildCard props={props} />
-          </div>
-          <div>
-            <AccountSettings />
-          </div>
-        </div>
-        <ParentFooter />
+        </Content>
+        <Footer>
+          <ParentFooter />
+        </Footer>
       </Layout>
 
       {modalVisible && (
