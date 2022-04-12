@@ -1,5 +1,6 @@
 // TEMPORARY - REMOVED useEffect, useState while not in use. Replace when useEffect block is needed
 import React from 'react';
+import { Image } from 'antd';
 // TEMPORARY - COMMENTED OUT axios while not in use. Replace when useEffect block is needed
 // import axios from 'axios';
 
@@ -32,7 +33,8 @@ export default function CropCloud() {
     <div className="cropcloud">
       {/* The first portion of the "src" code is a built in method for decoding images, just change the file type for different img types */}
       <div className="crop-cloud-container">
-        <img
+        <Image
+          preview={false}
           className={'cropcloudimage'}
           src={`data:image/png;base64, ${placeholderCloud.data}`}
         />
