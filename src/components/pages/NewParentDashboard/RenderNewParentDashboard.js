@@ -41,7 +41,7 @@ const RenderNewParentDashboard = props => {
   const { setParent } = props;
   const [childrenAccounts, setChildrenAccounts] = useState(FAKE_CHILDREN);
   const [modalVisible, setModalVisible] = useState(false);
-
+  const { Header, Footer, Content } = Layout;
   useEffect(() => {
     getProfileData()
       .then(res => {
