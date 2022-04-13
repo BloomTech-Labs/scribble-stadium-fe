@@ -1,29 +1,40 @@
-import React,{useState} from 'react';
+import { Button } from 'antd';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function SideBar() {
-    const [isActive, setActive] = useState("true");
+export default function AdminSideBar() {
+  const [isActive, setActive] = useState('true');
 
-    const handleToggle = () => {
-        setActive(!isActive);
-      };
-    return (
-        <div>
-            <nav className={isActive? "wide-sidebar": "narrow-sidebar"}>
-                <div className='navlinks'>
-                    <div className='navlink'>
-                        <Link to="/admindashboard"> <img src="" alt='dashboard-icon'/>{isActive? "Dashboard":null} </Link>
-                    </div>
-                    <div className='navlink'>
-                        <Link to="/storymanager"> <img src="" alt='story-manager-icon'/>{isActive? "Story Manager":null} </Link>
-                    </div>
-                </div>
-                <div 
-                    className='hamburger-menu'
-                    onClick={handleToggle}>
-                    <img src="" alt='hamburger menu'/>
-                </div>
-            </nav>
+  const handleToggle = () => {
+    setActive(!isActive);
+  };
+  return (
+    <div className="sidebar-component">
+      <nav className={isActive ? 'wide-sidebar' : 'narrow-sidebar'}>
+        <div className="navlinks">
+          <div className="link">
+            <Link to="/admindashboard">
+              <Button shape="round" type="primary">
+                <b>D</b>
+              </Button>
+              {isActive ? <h3>Dashboard</h3> : null}{' '}
+            </Link>
+          </div>
+          <div className="link">
+            <Link to="/storymanager">
+              <Button shape="round" type="primary">
+                <b>SM</b>
+              </Button>
+              {isActive ? <h3>Story Manager</h3> : null}{' '}
+            </Link>
+          </div>
         </div>
-    );
+      </nav>
+      <div className={isActive ? 'close-button' : 'open-button'}>
+        <Button onClick={handleToggle} type="primary" shape="round">
+          {isActive ? <b>Close</b> : <b>Open</b>}
+        </Button>
+      </div>
+    </div>
+  );
 }

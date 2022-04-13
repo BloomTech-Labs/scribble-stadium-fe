@@ -1,5 +1,5 @@
 // TEMPORARY - REMOVED useEffect, useState while not in use. Replace when useEffect block is needed
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 // Placeholder CropCloud to render in case endpoints do not get finished in time
@@ -12,19 +12,19 @@ const baseURL = 'placeholder';
 const [cloudImg, setCloudImg] = useState(null);
 
 
-  // Placeholder API Call to get the CropCloud once the endpoint is working
-useEffect(() =>{
-     const getCropCloud = () =>{
-         axios.get(baseURL)
-         .then((res) =>{
-             setCloudImg(res.data)
-         })
-         .catch((err) =>{
-           console.log(err)
-       })
-   }
-  getCropCloud()
-}, [])
+// Placeholder API Call to get the CropCloud once the endpoint is working
+// useEffect(() =>{
+//     const getCropCloud = () =>{
+//        axios.get(baseURL)
+//         .then((res) =>{
+//             setCloudImg(res.data)
+//         })
+//         .catch((err) =>{
+//           console.dir(err)
+//      })
+//   }
+//  getCropCloud()
+// }, [])
 
   return (
     <div className="cropcloud">
@@ -33,7 +33,7 @@ useEffect(() =>{
         <img
           className={'cropcloudimage'}
           src={`data:image/png;base64, ${placeholderCloud.data}`}
-          alt="Using a child's handwritten words"
+          alt= "Using a child's handwritten words"
         />
       </div>
     </div>
