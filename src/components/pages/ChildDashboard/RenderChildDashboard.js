@@ -10,22 +10,13 @@ import change_your_avatar from '../../../assets/images/child_dashboard_images/ch
 import leaderboard_icon from '../../../assets/images/child_dashboard_images/leaderboard_icon.png';
 import data from '../../../data.json';
 import { connect } from 'react-redux';
-// import { gameSession } from '../../../state/actions/childActions';
 import { getSubmissions } from '../../../api/index';
 
-// commented code in this file is currently in progress
 const RenderChildDashboard = props => {
   const history = useHistory();
   const [modalVisible, setModalVisible] = useState(false);
 
   const [submissionData, setSubmissionData] = useState([]);
-  // const game_in_progress = false;
-
-  // ChildId hardcoded for now until global state of child is retrieved
-  // Retrieves array of submissions pertaining to child id, response is in the form of an array
-
-  // const gameSession = useMemo(() => props.gameSession, [props.gameSession]);
-
   useEffect(() => {
     getSubmissions(1).then(res => {
       console.groupCollapsed('%cgetSubmissions', 'color: #CC5500');
@@ -67,7 +58,7 @@ const RenderChildDashboard = props => {
         currentActivity={'Squad Up'}
         currentBar={'bar2'}
       />
-      <InstructionsModal //This is the pop up that happens on the child dashboard stop at one pop up
+      <InstructionsModal
         modalVisible={modalVisible}
         handleCancel={() => {
           setModalVisible(false);
@@ -113,7 +104,6 @@ const RenderChildDashboard = props => {
           >
             <img
               className="child-dash-img"
-              // This icon will need to be changed to an in-house icon, this is just imported as a placeholder //
               src={leaderboard_icon}
               alt="Leaderboard Button"
             />
