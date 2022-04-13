@@ -30,3 +30,6 @@ yarn-error.log*
 ./src/components/pages/Gamemode/uploader/
 src/components/pages/Gamemode/uploader/
 /public/assets/images/emojis
+
+# Settings for code spell check extension for VS Code
+/.vscode/settings.json
