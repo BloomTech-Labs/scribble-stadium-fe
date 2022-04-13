@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { PlusCircleOutlined, EditOutlined } from '@ant-design/icons';
-import { Card } from 'antd';
+import { Card, Button } from 'antd';
 import { connect } from 'react-redux';
 import cat from '../../assets/images/cat.svg';
 
@@ -26,18 +26,20 @@ function NewChildCard(props) {
       <div className="Players">
         <div className="playheading">
           <h2>Players</h2>
-        </div>
-        <div className="childCardButtons">
-          <button className="addPlayerButton" onClick={addPlayerPush}>
-            <PlusCircleOutlined /> Add Player
-          </button>
-          {props.props.parent.children ? (
-            <button className="editPlayerButton" onClick={editPlayerPush}>
-              <EditOutlined /> Edit Players
-            </button>
-          ) : null}
+
+          <div className="childdivns">
+            <Button className="addPlayerButton" onClick={addPlayerPush}>
+              <PlusCircleOutlined /> Add Player
+            </Button>
+            {props.props.parent.children ? (
+              <Button className="editPlayerButton" onClick={editPlayerPush}>
+                <EditOutlined /> Edit Players
+              </Button>
+            ) : null}
+          </div>
         </div>
       </div>
+
       <div className="newChild">
         {noChildren === true ? (
           <div className="noPlayers">

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Layout, Tabs } from 'antd';
+import { Layout, Row, Col } from 'antd';
 import { useAuth0 } from '@auth0/auth0-react';
 import { getProfileData } from '../../../api';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
@@ -41,8 +41,7 @@ const RenderNewParentDashboard = props => {
   const { setParent } = props;
   const [childrenAccounts, setChildrenAccounts] = useState(FAKE_CHILDREN);
   const [modalVisible, setModalVisible] = useState(false);
-  const { TabPane } = Tabs;
-
+  const { Content } = Layout;
   useEffect(() => {
     getProfileData()
       .then(res => {
@@ -58,40 +57,37 @@ const RenderNewParentDashboard = props => {
   return (
     <div id="parent-dashboard-page">
       <Layout className="newparent-dashboard">
+        {/* <Header > */}
         <ParentNavTopBar
           handlePlayGameButtonClick={evt => {
             evt.preventDefault();
             setModalVisible(true);
           }}
         />
-        <Layout>
-          <div className="card-container">
-            <Tabs type="card" centered defaultActiveKey="1001">
-              <TabPane key="1001" tab="Word Cloud">
-                <div className="renderWordCloud">
-                  <RenderWordCloud />
-                </div>
-              </TabPane>
-              <TabPane key="1002" tab="Player Progress">
-                <div className="progress-container">
-                  <NewProgressCharts />
-                </div>
-              </TabPane>
-              <TabPane key="1003" tab="Player(s)">
-                <div className="child-container">
-                  <NewChildCard props={props} />
-                </div>
-              </TabPane>
-              <TabPane key="1004" tab="Settings">
-                <div>
-                  <AccountSettings />
-                </div>
-              </TabPane>
-            </Tabs>
-          </div>
-        </Layout>
+        {/* </Header> */}
+        {/* TODO: add width control to containers, responsive sizes, add breakpoints  */}
+        <Content>
+          <Row gutter={[16, 16]}>
+            <Col span={12} className="child-container">
+              <NewChildCard props={props} />
+            </Col>
+            <Col span={12} className="renderWordCloud">
+              <RenderWordCloud />
+            </Col>
+          </Row>
+          <Row gutter={[16, 16]}>
+            <Col span={12} className="progress-container">
+              <NewProgressCharts />
+            </Col>
+            <Col span={12} className="account-container">
+              <AccountSettings />
+            </Col>
+          </Row>
+        </Content>
+        {/* <Footer> */}
+        <ParentFooter />
+        {/* </Footer> */}
       </Layout>
-      <ParentFooter />
 
       {modalVisible && (
         <ChooseChildModal
