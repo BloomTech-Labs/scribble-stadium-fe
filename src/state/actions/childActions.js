@@ -1,9 +1,5 @@
 import axios from 'axios';
 
-const getTimeStamp = () => {
-  return new Date().toISOString().replace('Z', '').replace('T', ' ');
-};
-
 const connectionString = 'https://localhost/api/child/1/submissions';
 
 export const SET_CHILD = 'SET_CHILD';
