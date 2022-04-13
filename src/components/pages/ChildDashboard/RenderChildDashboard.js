@@ -15,7 +15,7 @@ import { getSubmissions } from '../../../api/index';
 
 // commented code in this file is currently in progress
 const RenderChildDashboard = props => {
-  // const { push } = useHistory();
+  const { push } = useHistory();
   const [modalVisible, setModalVisible] = useState(false);
 
   const [submissionData, setSubmissionData] = useState([]);
@@ -40,19 +40,19 @@ const RenderChildDashboard = props => {
 
   const handleAcceptMission = e => {
     data.gameSession = true;
-    window.location.href = '/gamemode';
+    push('/gamemode');
   };
 
   const handleTrophyRoom = e => {
-    window.location.href = '/gameplay/trophy-room';
+    push('/gameplay/trophy-room');
   };
 
   const handleChangeAvatar = event => {
-    window.location.href = '/change-avatar';
+    push('/change-avatar');
   };
 
   const handleLeaderboard = e => {
-    window.location.href = '/leaderboard';
+    push('/leaderboard');
   };
 
   return (
