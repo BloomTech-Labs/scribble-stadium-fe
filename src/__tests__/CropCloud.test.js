@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {screen, render} from '@testing-library/react';
 import cropcloud from 'src/components/pages/WordCloud/CropCloud.js';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 
 describe("Croupcloud component", () => {});
 it("renders without erors", () => {

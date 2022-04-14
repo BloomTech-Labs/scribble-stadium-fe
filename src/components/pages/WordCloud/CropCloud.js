@@ -1,20 +1,12 @@
 // TEMPORARY - REMOVED useEffect, useState while not in use. Replace when useEffect block is needed
-<<<<<<< Updated upstream
-<<<<<<< HEAD
 // import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-=======
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Image } from 'antd';
+import { Provider } from 'react-redux';
+
 // TEMPORARY - COMMENTED OUT axios while not in use. Replace when useEffect block is needed
 // import axios from 'axios';
->>>>>>> 47dc88e656e40e1dbcb39178d0fa4e2c83b75b86
-=======
-import React, {useState, useEffect} from 'react';
-import { Image } from 'antd';
-// TEMPORARY - COMMENTED OUT axios while not in use. Replace when useEffect block is needed
-// import axios from 'axios';
->>>>>>> Stashed changes
 
 // Placeholder CropCloud to render in case endpoints do not get finished in time
 import { placeholderCloud } from './data';
@@ -25,31 +17,32 @@ const baseURL = 'placeholder';
   // TEMPORARY - COMMENTED OUT cloudImg useState while not in use. Uncomment when useEffect block is needed
 const [cloudImg, setCloudImg] = useState(null);
 
+  // const baseURL = 'placeholder';
+  // TEMPORARY - COMMENTED OUT cloudImg useState while not in use. Uncomment when useEffect block is needed
+  // const [cloudImg, setCloudImg] = useState(null);
 
-// Placeholder API Call to get the CropCloud once the endpoint is working
-// useEffect(() =>{
-//     const getCropCloud = () =>{
-//        axios.get(baseURL)
-//         .then((res) =>{
-//             setCloudImg(res.data)
+  // Placeholder API Call to get the CropCloud once the endpoint is working
+  // useEffect(() =>{
+  //    const getCropCloud = () =>{
+//           axios.get(baseURL)
+//           .then((res) =>{
+//               setCloudImg(res.data)
+//           })
+//           .catch((err) =>{
+//             console.log(err)
 //         })
-//         .catch((err) =>{
-//           console.dir(err)
-//      })
-//   }
-//  getCropCloud()
+//     }
+//    getCropCloud()
 // }, [])
 
   return (
-    <div data-testid="cropcloud" className="cropcloud">
-      {/*test id is to link with the test.js file}
+    <div className="cropcloud">
       {/* The first portion of the "src" code is a built in method for decoding images, just change the file type for different img types */}
       <div className="crop-cloud-container">
-        <Image
-          preview={false}
+        <img
           className={'cropcloudimage'}
           src={`data:image/png;base64, ${placeholderCloud.data}`}
-          alt= "Using a child's handwritten words"
+          alt="Using a child's handwritten words"
         />
       </div>
     </div>
