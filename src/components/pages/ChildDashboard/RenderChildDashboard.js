@@ -5,7 +5,6 @@ import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
-import { HUD } from '../HeadsUpDisplay/index';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 import leaderboard_icon from '../../../assets/images/child_dashboard_images/leaderboard_icon.png';
 import data from '../../../data.json';
@@ -52,11 +51,6 @@ const RenderChildDashboard = props => {
         displayMenu={true}
         title={'Scribble Stadium'}
         data-testid="child-dashboard"
-      />
-      <HUD
-        completedActivity={['Read', 'Draw', 'Write']}
-        currentActivity={'Squad Up'}
-        currentBar={'bar2'}
       />
       <InstructionsModal
         modalVisible={modalVisible}
