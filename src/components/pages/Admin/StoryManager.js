@@ -33,12 +33,13 @@ const StoryManager = ({ stories }) => {
             Add +
           </Button>
         </div>
-        <StoryBacklog />
-
-        <Switch>
-          <Route path="/admin/storymanager/:id" component={StoryDetails} />
-          <Route path="/admin/storymanager" component={AdminHistory} />
-        </Switch>
+        <div className="library-body">
+          <StoryBacklog />
+          <Switch>
+            <Route path="/admin/storymanager/:id" component={StoryDetails} />
+            <Route path="/admin/storymanager" component={AdminHistory} />
+          </Switch>
+        </div>
 
         {/* <div>
           <div className="review-checkboxes">
