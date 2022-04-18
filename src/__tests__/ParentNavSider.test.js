@@ -5,10 +5,6 @@ import { Provider } from 'react-redux';
 import { render, screen, cleanup } from '@testing-library/react';
 import ParentNavSider from '../components/common/ParentNavSider';
 
-afterEach(() => {
-  cleanup();
-});
-
 jest.mock('@auth0/auth0-react', () => ({
   Auth0Provider: ({ children }) => children,
   withAuthenticationRequired: (component, _) => component,
@@ -33,26 +29,35 @@ const Component = () => {
 };
 
 describe('<ParentNavSider /> test suite', () => {
-  test('renders without crashing', () => {
+  beforeEach(() => {
     render(<Component />);
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
+
+  test('renders without crashing', () => {
+    const parentNavSider = screen.getByTestId(/parentnavsider/i);
+    expect(parentNavSider).toBeInTheDocument();
   });
 
   test('Dashboard Nav', () => {
-    render(<Component />);
-    expect(screen.getByText(/Dashboard/i)).toBeInTheDocument();
+    const dashboardNav = screen.getByText(/dashboard/i);
+    expect(dashboardNav).toBeInTheDocument();
   });
 
   test('Welcome Back', () => {
-    render(<Component />);
-    expect(screen.getByText(/Welcome Back/i)).toBeInTheDocument();
+    const welcomeBack = screen.getByText(/welcome back/i);
+    expect(welcomeBack).toBeInTheDocument();
   });
 
   test('Help Nav', () => {
-    render(<Component />);
-    expect(screen.getByText(/Help/i)).toBeInTheDocument();
+    const helpNav = screen.getByText(/help/i);
+    expect(helpNav).toBeInTheDocument();
   });
   test('Log out Nav', () => {
-    render(<Component />);
-    expect(screen.getByText(/log out/i)).toBeInTheDocument();
+    const logOutNav = screen.getByText(/log out/i);
+    expect(logOutNav).toBeInTheDocument();
   });
 });
