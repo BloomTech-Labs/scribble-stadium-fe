@@ -23,13 +23,6 @@ const BacklogStoryCard = ({ story }) => {
 
   const history = useHistory();
 
-  //   if (currentStatus === 'Approved') {
-  //     setStatusColor('green');
-  //   } else if (currentStatus === 'Pending') {
-  //     setStatusColor('orange');
-  //   } else {
-  //     setStatusColor('red');
-  //   }
   const routeToDetails = e => {
     e.preventDefault();
     console.log('hi');
@@ -38,13 +31,7 @@ const BacklogStoryCard = ({ story }) => {
 
   return (
     <Badge.Ribbon text={currentStatus} size="small" color={statusColor}>
-      <Card
-        size="small"
-        title={storyTitle}
-        // extra={<p style={{ color: statusColor }}>{currentStatus}</p>}
-        //   style={{ width: { xs: 8, sm: 16, md: 24, lg: 32 } }
-        onClick={routeToDetails}
-      >
+      <Card size="small" title={storyTitle} onClick={routeToDetails}>
         <div className="backlog-card-body-statictext">
           <p>Author:</p>
           <p>Assignee:</p>
