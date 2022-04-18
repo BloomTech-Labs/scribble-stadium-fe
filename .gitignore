@@ -31,5 +31,16 @@ yarn-error.log*
 src/components/pages/Gamemode/uploader/
 /public/assets/images/emojis
 
-# Settings for code spell check extension for VS Code
-/.vscode/settings.json
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
