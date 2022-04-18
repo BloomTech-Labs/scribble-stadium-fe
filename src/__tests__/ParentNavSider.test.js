@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
@@ -35,8 +34,7 @@ const Component = () => {
 
 describe('<ParentNavSider /> test suite', () => {
   test('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDom.render(<Component />, div);
+    render(<Component />);
   });
 
   test('Dashboard Nav', () => {
