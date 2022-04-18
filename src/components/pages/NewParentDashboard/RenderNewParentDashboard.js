@@ -63,15 +63,15 @@ const RenderNewParentDashboard = props => {
   }, [setParent, user]);
   return (
     <div id="parent-dashboard-page">
+      {/* <Header > */}
+      <ParentNavTopBar
+        handlePlayGameButtonClick={evt => {
+          evt.preventDefault();
+          setModalVisible(true);
+        }}
+      />
+      {/* </Header> */}
       <Layout className="newparent-dashboard">
-        {/* <Header > */}
-        <ParentNavTopBar
-          handlePlayGameButtonClick={evt => {
-            evt.preventDefault();
-            setModalVisible(true);
-          }}
-        />
-        {/* </Header> */}
         {/* TODO: add width control to containers, responsive sizes, add breakpoints  */}
         <Content>
           <Row gutter={[16, 16]}>
@@ -92,9 +92,9 @@ const RenderNewParentDashboard = props => {
           </Row>
         </Content>
         {/* <Footer> */}
-        <ParentFooter />
         {/* </Footer> */}
       </Layout>
+      <ParentFooter />
 
       {modalVisible && (
         <ChooseChildModal
