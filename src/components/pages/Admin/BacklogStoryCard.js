@@ -11,7 +11,8 @@ const BacklogStoryCard = ({ story }) => {
     timeSubmitted,
     storyId,
   } = story;
-  const date = new Date(timeSubmitted);
+
+  const date = new Date(parseInt(timeSubmitted));
 
   const [statusColor, setStatusColor] = useState(
     currentStatus === 'Approved'
