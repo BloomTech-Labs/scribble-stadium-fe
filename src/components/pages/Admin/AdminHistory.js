@@ -1,9 +1,32 @@
-import { Card, Avatar, Alert } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Card, Avatar, Alert } from 'antd';
 
 const AdminHistory = ({ stories }) => {
   const { Meta } = Card;
+
+  const [order, setOrder] = useState('ASC');
+  const [tableData, setTableData] = useState(stories);
+
+  const sortTable = column => {
+    console.log(column);
+    if (order === 'ASC') {
+      const sorted = [...tableData].sort((a, b) => {
+        console.log('a is: ', a[column].toLowerCase(), 'b is: ', b[column]);
+        return a[column].toLowerCase() > b[column].toLowerCase() ? 1 : -1;
+      });
+      setTableData(sorted);
+      setOrder('DSC');
+    }
+    if (order === 'DSC') {
+      const sorted = [...stories].sort((a, b) => {
+        return a[column].toLowerCase() < b[column].toLowerCase() ? 1 : -1;
+      });
+
+      setTableData(sorted);
+      setOrder('ASC');
+    }
+  };
 
   return (
     <div className="admin-history">
@@ -12,12 +35,12 @@ const AdminHistory = ({ stories }) => {
         <tr>
           <th className="admin-history-story-column">Story</th>
           <>
-            <th>Assigned To</th>
-            <th>Updated</th>
-            <th>Current Status</th>
+            <th onClick={() => sortTable('assignedTo')}>Assigned To</th>
+            <th onClick={() => sortTable('lastTimeUpdated')}>Updated</th>
+            <th onClick={() => sortTable('currentStatus')}>Current Status</th>
           </>
         </tr>
-        {stories.map(story => {
+        {tableData.map(story => {
           const {
             storyTitle,
             storyDescription,
@@ -27,7 +50,7 @@ const AdminHistory = ({ stories }) => {
             storyId,
           } = story;
 
-          const date = new Date(lastTimeUpdated);
+          const date = new Date(parseInt(lastTimeUpdated));
 
           let statusColor =
             currentStatus == 'Approved'
@@ -47,7 +70,6 @@ const AdminHistory = ({ stories }) => {
                   />
                 </Card>
               </td>
-
               <td>{assignedTo}</td>
               <td>{date.toLocaleDateString()}</td>
               <td>

@@ -40,32 +40,11 @@ const StoryManager = ({ stories }) => {
             <Route path="/admin/storymanager" component={AdminHistory} />
           </Switch>
         </div>
-
-        {/* <div>
-          <div className="review-checkboxes">
-            {stories.map(story => {
-              return story.status === 'review' ? (
-                <div key={story.title}>
-                  <p onClick={() => reviewStory(story)}>
-                    <b>{story.title}</b> by {story.author}
-                  </p>
-                </div>
-              ) : (
-                ''
-              );
-            })}
-          </div>
-        </div> */}
       </div>
       <UploadStoryPopup
         trigger={addButtonState}
         setTrigger={setAddButtonState}
       />
-      {/* <StoryPopup
-        story={story}
-        trigger={storyState}
-        setTrigger={setStoryState}
-      /> */}
     </div>
   );
 };
