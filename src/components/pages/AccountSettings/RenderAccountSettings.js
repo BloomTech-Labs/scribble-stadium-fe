@@ -81,8 +81,23 @@ function RenderAccountSettings() {
 
       <Form>
         <div className="textAndButtonContainer">
-          <div className="editText">
-            <h3>Edit Account Settings</h3>
+          <h3 className="editText">Edit Account Settings</h3>
+          <div className="settings-buttons-container">
+            <button
+              className="plainButton"
+              style={unlock ? { opacity: '.3' } : null}
+              disabled={unlock}
+            >
+              Edit Credit Card Info
+            </button>
+            <br />
+            <button
+              className="plainButton"
+              style={unlock ? { opacity: '.3' } : null}
+              disabled={unlock}
+            >
+              Edit Subscription Plan
+            </button>
           </div>
         </div>
         <div
@@ -90,23 +105,6 @@ function RenderAccountSettings() {
           style={unlock ? { opacity: '.3' } : null}
         >
           <AccountSettingsForm disabled={unlock} />
-        </div>
-        <div className="settings-buttons-container">
-          <button
-            className="plainButton"
-            style={unlock ? { opacity: '.3' } : null}
-            disabled={unlock}
-          >
-            Edit Credit Card Info
-          </button>
-          <br />
-          <button
-            className="plainButton"
-            style={unlock ? { opacity: '.3' } : null}
-            disabled={unlock}
-          >
-            Edit Subscription Plan
-          </button>
         </div>
       </Form>
     </div>
