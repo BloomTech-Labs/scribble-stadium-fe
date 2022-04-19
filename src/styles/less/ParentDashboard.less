@@ -72,20 +72,9 @@
 // }
 
 #parent-dashboard-page {
-  overflow-x:hidden;
-  .newparent-dashboard{
-    display:flex;
-    justify-content: center;
-    padding:0 2em;
-    .child-container{
-    }
-    .renderWordCloud{
-    }
-    .progress-container{
-    }
-    .account-container{
-
-    }
+  overflow-x: hidden;
+  .newparent-dashboard {
+    padding: 0 2em;
   }
 
   /* notification-modal */
@@ -144,7 +133,13 @@
   //   }
   // }
 }
-
+@media @tablet {
+  #parent-dashboard-page {
+    .newparent-dashboard {
+      padding: 0 1em;
+    }
+  }
+}
 @media @tablet {
   .parent-dashboard {
     .heading-section {
