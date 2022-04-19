@@ -67,27 +67,27 @@ const RenderNewParentDashboard = props => {
       <Layout className="newparent-dashboard">
         {/* TODO: add width control to containers, responsive sizes, add breakpoints  */}
         <Content className="grid-container">
-          <Row gutter={[16, { xs: 8, sm: 14, md: 18, lg: 32 }]}>
-            <Col sm={{}} md={{ span: 12 }}>
-              <NewChildCard props={props} className="child-container" />
-            </Col>
-            <Col sm={{}} md={{ span: 12 }}>
+          <Row gutter={[16, 32]}>
+            <Col md={{ span: 12 }}>
               <RenderWordCloud className="renderWordCloud" />
             </Col>
-          </Row>
-          <Row gutter={[16, { xs: 8, sm: 14, md: 18, lg: 32 }]}>
-            <Col sm={{}} md={{ span: 12 }}>
-              <NewProgressCharts className="progress-container" />
-            </Col>
-            <Col sm={{}} md={{ span: 12 }}>
+            <Col md={{ span: 12 }}>
               <AccountSettings className="account-container" />
+            </Col>
+          </Row>
+          <Row gutter={[16, 32]}>
+            <Col md={{ span: 12 }}>
+              <NewChildCard props={props} className="child-container" />
+            </Col>
+            <Col md={{ span: 12 }}>
+              <NewProgressCharts className="progress-container" />
             </Col>
           </Row>
         </Content>
         {/* <Footer> */}
         {/* </Footer> */}
-        <ParentFooter />
       </Layout>
+      <ParentFooter />
 
       {modalVisible && (
         <ChooseChildModal
