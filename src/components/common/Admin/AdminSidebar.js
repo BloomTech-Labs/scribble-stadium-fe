@@ -13,7 +13,7 @@ export default function AdminSideBar() {
       <nav className={isActive ? 'wide-sidebar' : 'narrow-sidebar'}>
         <div className="navlinks">
           <div className="link">
-            <Link to="/admindashboard">
+            <Link to="/admin/admindashboard">
               <Button shape="round" type="primary">
                 <b>D</b>
               </Button>
@@ -21,7 +21,7 @@ export default function AdminSideBar() {
             </Link>
           </div>
           <div className="link">
-            <Link to="/storymanager">
+            <Link to="/admin/storymanager">
               <Button shape="round" type="primary">
                 <b>SM</b>
               </Button>
