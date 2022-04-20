@@ -97,7 +97,7 @@ export default function GameDrawStep(props) {
     });
 
     setFileList(props.fileSubmissionData.drawings);
-  }, []);
+  }, [props.fileSubmissionData.drawings]);
 
   return (
     <div id="draw-step">

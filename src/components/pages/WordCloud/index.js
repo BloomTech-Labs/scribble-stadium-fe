@@ -1,20 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+// import axios from 'axios';
 import WordCloud from './WordCloud';
 import CropCloud from './CropCloud';
 
 function RenderWordCloud() {
   const [cloud, setCloud] = useState('cropcloud');
-  const [wordCloudData, setWordCloudData] = useState(null);
+  const [wordCloudData] = useState(null);
 
-  useEffect(() => {
-    axios
-      .get(
-        'http://labspt21benv5.eba-nmemcxkm.us-east-1.elasticbeanstalk.com/storytext'
-      )
-      .then(res => setWordCloudData(res.data))
-      .catch(err => console.log(err));
-  }, []);
+  // the endpoint used for this function is currently non-functional
+
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       'http://labspt21benv5.eba-nmemcxkm.us-east-1.elasticbeanstalk.com/storytext'
+  //     )
+  //     .then(res => setWordCloudData(res.data))
+  //     .catch(err => console.log(err));
+  // }, []);
 
   function handleButtonPress(value) {
     value === 1 ? setCloud('cropcloud') : setCloud('wordcloud');

@@ -1,14 +1,14 @@
 //** Import Modules */
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { Button, Dropdown } from 'antd';
+import { Dropdown } from 'antd';
 //** Import Assets */
 import completeIcon from '../../../assets/images/gamemodeimg/completed.png';
-
+// Following code is commented out to prevent warnings during compilation
 export default function GameMissionProgress(props) {
   // Get the history object
   const history = useHistory();
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  // const [isModalVisible, setIsModalVisible] = useState(false);
   // Get the current state
   const { currentStep } = props;
 
@@ -39,6 +39,7 @@ export default function GameMissionProgress(props) {
             <img
               style={{ width: '48px', height: '48px' }}
               src="https://img.icons8.com/flat-round/64/000000/wide-right-arrow.png"
+              alt="wide right arrow"
             />{' '}
             Click on the "Read," "Draw" or "Write" buttons to navigate through
             the mission.
@@ -47,6 +48,7 @@ export default function GameMissionProgress(props) {
             <img
               style={{ width: '48px', height: '48px' }}
               src="https://img.icons8.com/flat-round/64/000000/wide-right-arrow.png"
+              alt="wide right arrow"
             />{' '}
             You have to complete your current step before you can move on to the
             next step
@@ -55,6 +57,7 @@ export default function GameMissionProgress(props) {
             <img
               style={{ width: '48px', height: '48px' }}
               src="https://img.icons8.com/flat-round/64/000000/wide-right-arrow.png"
+              alt="wide right arrow"
             />{' '}
             Once you have completed all the steps, you can click back and forth
             between all of them.

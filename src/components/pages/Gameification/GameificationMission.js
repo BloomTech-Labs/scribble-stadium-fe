@@ -89,7 +89,7 @@ export default function GameificationMission(props) {
     gsap.from('#game-mission', { opacity: 0, y: 100, duration: 1 });
 
     gsap.registerPlugin(ScrollToPlugin);
-  }, []);
+  }, [baseURL, history, submissionData.HasRead]);
 
   console.log(submissionData);
 

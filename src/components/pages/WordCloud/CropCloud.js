@@ -40,6 +40,7 @@ export default function CropCloud() {
       <div className="crop-cloud-container">
         <img
           className={'cropcloudimage'}
+          alt={'cropcloud'} // please add descriptive text to the alt tag
           src={`data:image/png;base64, ${placeholderCloud.data}`}
           alt="Using a child's handwritten words"
         />
