@@ -56,36 +56,40 @@ const RenderNewParentDashboard = props => {
   }, [setParent, user]);
   return (
     <div id="parent-dashboard-page">
-      {/* <Header > */}
       <ParentNavTopBar
         handlePlayGameButtonClick={evt => {
           evt.preventDefault();
           setModalVisible(true);
         }}
       />
-      {/* </Header> */}
       <Layout className="newparent-dashboard">
         {/* TODO: add width control to containers, responsive sizes, add breakpoints  */}
         <Content className="grid-container">
           <Row gutter={[16, 32]}>
             <Col md={{ span: 12 }}>
-              <RenderWordCloud className="renderWordCloud" />
+              <div className="component-container">
+                <RenderWordCloud className="renderWordCloud" />
+              </div>
             </Col>
             <Col md={{ span: 12 }}>
-              <AccountSettings className="account-container" />
+              <div className="component-container">
+                <AccountSettings className="account-container" />
+              </div>
             </Col>
           </Row>
           <Row gutter={[16, 32]}>
             <Col md={{ span: 12 }}>
-              <NewChildCard props={props} className="child-container" />
+              <div className="component-container">
+                <NewChildCard props={props} className="child-container" />
+              </div>
             </Col>
             <Col md={{ span: 12 }}>
-              <NewProgressCharts className="progress-container" />
+              <div className="component-container">
+                <NewProgressCharts className="progress-container" />
+              </div>
             </Col>
           </Row>
         </Content>
-        {/* <Footer> */}
-        {/* </Footer> */}
       </Layout>
       <ParentFooter />
 
