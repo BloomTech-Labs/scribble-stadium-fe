@@ -6,9 +6,9 @@ import { getBase64 } from '../../utils/helpers';
 
 export const UploadDocs = ({
   fileName,
-  uploadButtonClassname,
+  uploadButtonClassName,
   uploadButtonText,
-  submitButtonClassname,
+  submitButtonClassName,
   apiAxios,
   submissionId,
   storyId,
@@ -117,12 +117,12 @@ export const UploadDocs = ({
   useEffect(() => {
     console.log({ fileList, filePreviews }, 'useEffect');
 
-    // This is in case I have a filelist ready OUTSIDE this component
-    if (savedFileList != undefined) {
+    // This is in case I have a fileList ready OUTSIDE this component
+    if (savedFileList !== undefined) {
       setFilePreviews(savedFileList);
       setFileList(savedFileList);
     }
-  });
+  }, [fileList, filePreviews, savedFileList]);
 
   // For error message warning if there are too many images
   const openNotificationWithIcon = type => {
@@ -144,7 +144,7 @@ export const UploadDocs = ({
           onChange={handleChange}
           multiple={true}
         >
-          <Button className={uploadButtonClassname}>{uploadButtonText}</Button>
+          <Button className={uploadButtonClassName}>{uploadButtonText}</Button>
         </Upload>
 
         <div className="bottom">
@@ -162,7 +162,7 @@ export const UploadDocs = ({
           </Modal>
 
           <Button
-            className={submitButtonClassname}
+            className={submitButtonClassName}
             type="primary"
             htmlType="submit"
             disabled={fileList.length === 0 || fileList.length > maxLength}

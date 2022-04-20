@@ -4,9 +4,9 @@ import { useHistory } from 'react-router-dom';
 const PlayAgainButtonAnimation = () => {
   const { push } = useHistory();
 
-  const goToChildDashboard = () => {
-    push('/child/dashboard');
-  };
+  // const goToChildDashboard = () => {
+  //   push('/child/dashboard');
+  // };
   const playAgain = () => {
     push('/child/play-again');
   };
@@ -16,6 +16,8 @@ const PlayAgainButtonAnimation = () => {
       case 'animationiteration':
         l.textContent = `New loop started at time ${event.elapsedTime}`;
         break;
+      default:
+        l.textContent = `Animation event of type ${event.type}`; // no default case was included, so I made my best guess while squashing bugs.
     }
     document.getElementById('output').appendChild(l);
   }

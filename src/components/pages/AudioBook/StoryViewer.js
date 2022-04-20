@@ -1,19 +1,20 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import { useAuth0 } from '@auth0/auth0-react';
+// The following code was commented out to prevent warnings during compilation.
+// import { useAuth0 } from '@auth0/auth0-react';
 import { Button } from 'antd';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { SizeMe } from 'react-sizeme';
-import { useHistory } from 'react-router-dom';
-import { markAsRead } from '../../../api';
+// import { useHistory } from 'react-router-dom';
+// import { markAsRead } from '../../../api';
 
 const StoryViewer = props => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
-  const [hasViewedAllPages, setViewed] = useState(false);
+  const [, setViewed] = useState(false);
 
-  const { user } = useAuth0();
-  const { push } = useHistory();
+  // const { user } = useAuth0();
+  // const { push } = useHistory();
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -62,11 +63,12 @@ const StoryViewer = props => {
     setPageNumber(prevPageNumber => prevPageNumber + offset);
   };
 
-  const onFinish = e => {
-    markAsRead(user, props.tasks.id);
-    push('/child/mission-control');
-    props.setHasRead();
-  };
+  // The following code was commented out to prevent warnings during compilation.
+  // const onFinish = e => {
+  //   markAsRead(user, props.tasks.id);
+  //   push('/child/mission-control');
+  //   props.setHasRead();
+  // };
 
   return (
     <>

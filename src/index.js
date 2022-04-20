@@ -8,10 +8,11 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import { store, persistor } from './state';
 
+// The following code was commented out to prevent warnings during compilation.
 import {
   BrowserRouter as Router,
   Route,
-  useHistory,
+  // useHistory,
   Switch,
 } from 'react-router-dom';
 
@@ -92,14 +93,15 @@ ReactDOM.render(
 
 function App() {
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
-  const history = useHistory();
 
-  const authHandler = () => {
-    // We pass this function to our <Security /> component that wraps our routes.
-    // Checks if userToken is available and pushes back to login if not
-    history.push('/login');
-    console.log('AuthHandler', authHandler);
-  };
+  // const history = useHistory();
+
+  // const authHandler = () => {
+  //   // We pass this function to our <Security /> component that wraps our routes.
+  //   // Checks if userToken is available and pushes back to login if not
+  //   history.push('/login');
+  //   console.log('AuthHandler', authHandler);
+  // };
 
   return (
     <>
@@ -320,7 +322,7 @@ function App() {
         />
         {/* DEPRECATED. OK to DELETE please work on /admin instad of moderation UPDATED 11-16-21*/}
         <Route exact path="/moderation" component={ModerationTest} />
-        <Route path="/admin" component={Admin}/>
+        <Route path="/admin" component={Admin} />
         <Route component={NotFoundPage} />
       </Switch>
     </>

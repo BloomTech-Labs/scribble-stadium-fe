@@ -218,7 +218,7 @@ function ChildForm(props) {
                 },
                 ({ getFieldValue }) => ({
                   validator(_, value) {
-                    if (!isNaN(value) && value.length == 4) {
+                    if (!isNaN(value) && value.length === 4) {
                       return Promise.resolve();
                     }
                     return Promise.reject(
