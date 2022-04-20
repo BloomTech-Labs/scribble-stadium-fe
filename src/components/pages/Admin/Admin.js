@@ -18,7 +18,6 @@ const Admin = () => {
         <div className="main">
           <AdminSideBar />
           <div className="container">
-            {/* <StoryManager/> */}
             <Switch>
               <Route path="/admin/storymanager" component={StoryManager} />
             </Switch>

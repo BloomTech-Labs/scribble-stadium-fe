@@ -36,7 +36,10 @@ const StoryManager = ({ stories }) => {
         <div className="library-body">
           <StoryBacklog />
           <Switch>
-            <Route path="/admin/storymanager/:id" component={StoryDetails} />
+            <Route
+              path="/admin/storymanager/:story_id"
+              component={StoryDetails}
+            />
             <Route path="/admin/storymanager" component={AdminHistory} />
           </Switch>
         </div>

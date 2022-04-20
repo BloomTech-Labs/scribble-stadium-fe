@@ -14,13 +14,12 @@ const BacklogStoryCard = ({ story }) => {
 
   const date = new Date(parseInt(timeSubmitted));
 
-  const [statusColor, setStatusColor] = useState(
+  const statusColor =
     currentStatus === 'Approved'
       ? 'green'
       : currentStatus === 'Pending'
       ? 'orange'
-      : 'red'
-  );
+      : 'red';
 
   const history = useHistory();
 
