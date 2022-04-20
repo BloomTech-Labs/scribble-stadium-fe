@@ -1,5 +1,8 @@
 // TEMPORARY - REMOVED useEffect, useState while not in use. Replace when useEffect block is needed
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect } from 'react';
+import { Image } from 'antd';
+import { Provider } from 'react-redux';
 // TEMPORARY - COMMENTED OUT axios while not in use. Replace when useEffect block is needed
 // import axios from 'axios';
 
@@ -10,9 +13,9 @@ export default function CropCloud() {
   // Sets our baseurl to the API from DS to generate the base64 encoded crop cloud
 
   // TEMPORARY - COMMENTED OUT baseURL while not in use. Uncomment when useEffect block is needed
-  // const baseURL = 'placeholder';
+  const baseURL = 'placeholder';
   // TEMPORARY - COMMENTED OUT cloudImg useState while not in use. Uncomment when useEffect block is needed
-  // const [cloudImg, setCloudImg] = useState(null);
+  const [cloudImg, setCloudImg] = useState(null);
 
   // Placeholder API Call to get the CropCloud once the endpoint is working
   // useEffect(() =>{
@@ -35,6 +38,7 @@ export default function CropCloud() {
         <img
           className={'cropcloudimage'}
           src={`data:image/png;base64, ${placeholderCloud.data}`}
+          alt="Using a child's handwritten words"
         />
       </div>
     </div>
