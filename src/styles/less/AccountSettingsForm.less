@@ -4,20 +4,20 @@
 @import 'variables.less';
 
 .acct-settings-form {
-    box-sizing: border-box;
     height: 45vh;
-    margin:0 auto;
+    width: 400px;
     @media @mobileLarge{
         height:80vh;
         margin-top:15px;
         width:87vw;
         margin:0 auto;
     }
-   
+  
 }
 
-.email-label {
-    margin: 12vh 0 1vh 1.5vw;
+ .email-label {
+    margin-left:18%;
+    padding-left:18%;
     font-style: normal;
     font-weight: bold;
     font-size: 0.75rem;
@@ -30,7 +30,8 @@
 }
 
 .password-label {
-    margin: 12vh 0 1vh 1.5vw;
+    margin-left: 18%;
+    padding-left: 18%;
     font-style: normal;
     font-weight: bold;
     font-size: 0.75rem;
@@ -45,11 +46,11 @@
 .icon-input-and-button-container {
     align-items: center;
     padding: 1.6%;
-    width: 50vw;
+    width: 674px;
     background: #FFFFFF;
     border: 0.5px solid #7B8794;
     border-radius: 14px;
-    margin: -.8% 0 4.5% 0;
+    margin: -.8% 0 4.5% 18%;
     @media @mobileLarge {
         width: 85vw;
     }
@@ -69,9 +70,11 @@
 
 .icon-and-input-container {
     display: flex;
+    width: 674px;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    
 }
 
 .icon-container {
@@ -117,7 +120,7 @@
 .edit-button {
     border: none;
     background:#F5F5F5;
-    width: 100%;
+    width: 674px;
     &:hover {
         cursor: pointer;
     }

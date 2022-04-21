@@ -29,7 +29,7 @@ export default function ParentFooter(props) {
               Privacy
             </Link>
           </div>
-          <div className="footer-nav-div-link">
+          <div className="parent-footer-nav-div-link">
             <Link className="footer-nav-link" to="#">
               Terms
             </Link>
