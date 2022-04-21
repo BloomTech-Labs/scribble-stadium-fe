@@ -10,12 +10,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Cache node modules
+        id: cache-nodemodules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # caching node_modules
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
       - run: npm install
       - run: cp .env.sample .env
-      # - run: npx craco build # build is failing :(
+      - run: npx craco build # build is failing on lint; added skip in sample env :(
   lint:
     name: Linting
     needs: build
