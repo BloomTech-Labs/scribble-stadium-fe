@@ -5,8 +5,8 @@ on:
   pull_request:
     branches: [main]
 jobs:
-  coverage:
-    name: Test and publish test coverage
+  build:
+    name: Install and build the app
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,13 +15,14 @@ jobs:
           node-version: '12'
       - run: npm install
       - run: cp .env.sample .env
-      - uses: paambaati/codeclimate-action@v2.6.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          # Run our `coverage` script in our `package.json`
-          coverageCommand: npm run coverage
-          # By default, this looks for a `coverage` folder in the root of your project, but you may need to change this
-          coverageLocations: './coverage/clover.xml:clover'
-          # Great for troubleshooting
-          debug: true
+      - run: npm run build
+  lint:
+    name: Linting
+    needs: build
+    steps:
+      - run: npx eslint 'src/**/*.{js,jsx}'
+  coverage:
+    name: Test and publish test coverage
+    needs: build
+    steps:
+      - run: echo "testing"
