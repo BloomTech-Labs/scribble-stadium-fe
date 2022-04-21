@@ -86,14 +86,14 @@ function RenderAccountSettings() {
       </div>
       <div
         className="editFormsAndButtonsContainer"
-        style={unlock ? { opacity: '.3' } : null}
+        style={unlock ? { opacity: '.6' } : null}
       >
         <AccountSettingsForm disabled={unlock} />
       </div>
       <div className="settings-buttons-container">
         <button
           className="plainButton"
-          style={unlock ? { opacity: '.3' } : null}
+          style={unlock ? { opacity: '.6' } : null}
           disabled={unlock}
         >
           Edit Credit Card Info
@@ -101,7 +101,7 @@ function RenderAccountSettings() {
         <br />
         <button
           className="plainButton"
-          style={unlock ? { opacity: '.3' } : null}
+          style={unlock ? { opacity: '.6' } : null}
           disabled={unlock}
         >
           Edit Subscription Plan

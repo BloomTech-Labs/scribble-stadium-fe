@@ -72,7 +72,7 @@ const RenderNewParentDashboard = props => {
               <NewChildCard props={props} className="child-container" />
             </Col>
             <Col sm={{}} md={{ span: 12 }}>
-              <RenderWordCloud className="renderWordCloud" />
+              <AccountSettings className="account-container" />
             </Col>
           </Row>
           <Row gutter={[16, { xs: 8, sm: 14, md: 18, lg: 32 }]}>
@@ -80,15 +80,14 @@ const RenderNewParentDashboard = props => {
               <NewProgressCharts className="progress-container" />
             </Col>
             <Col sm={{}} md={{ span: 12 }}>
-              <AccountSettings className="account-container" />
+              <RenderWordCloud className="renderWordCloud" />
             </Col>
           </Row>
         </Content>
         {/* <Footer> */}
         {/* </Footer> */}
-        <ParentFooter />
       </Layout>
-
+      <ParentFooter />
       {modalVisible && (
         <ChooseChildModal
           childrenAccounts={childrenAccounts}
