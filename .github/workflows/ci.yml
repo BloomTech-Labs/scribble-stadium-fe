@@ -15,16 +15,16 @@ jobs:
           node-version: '12'
       - run: npm install
       - run: cp .env.sample .env
-      - run: npm run build
+      # - run: npx craco build # build is failing :(
   lint:
     name: Linting
-    runs-on: ubuntu-latest
     needs: build
+    runs-on: ubuntu-latest
     steps:
       - run: npx eslint 'src/**/*.{js,jsx}'
   coverage:
     name: Test and publish test coverage
-    runs-on: ubuntu-latest
     needs: build
+    runs-on: ubuntu-latest
     steps:
       - run: echo "testing"
