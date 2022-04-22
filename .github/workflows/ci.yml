@@ -7,37 +7,18 @@ on:
 jobs:
   build:
     name: Install and build the app
-    runs-on: ubuntu-latest
+    uses: ./.github/workflows/build.yml
     steps:
-      - uses: actions/checkout@v2
-      - name: Cache node modules
-        id: cache-nodemodules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
-        with:
-          # caching node_modules
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '14'
-      - run: npm install
-      - run: cp .env.sample .env
-      # - run: npx craco build # build is failing on lint; added skip in sample env :(
+      - run: npx craco build # build is failing on lint; added skip in sample env :(
   lint:
     name: Linting
     needs: build
-    runs-on: ubuntu-latest
+    uses: ./.github/workflows/build.yml
     steps:
-      - run: "npx eslint 'src/**/*.{js,jsx}' --rule 'prettier/prettier: warn'"
+      - run: "npx eslint 'src/**/*.{js,jsx}' --rule 'prettier/prettier: 1'"
   coverage:
     name: Test and publish test coverage
     needs: build
-    runs-on: ubuntu-latest
+    uses: ./.github/workflows/build.yml
     steps:
       - run: echo "testing"
