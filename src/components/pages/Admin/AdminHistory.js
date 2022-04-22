@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Card, Avatar, Alert } from 'antd';
+import { useEffect } from 'react';
 
 const AdminHistory = ({ stories }) => {
   const { Meta } = Card;
@@ -9,24 +10,25 @@ const AdminHistory = ({ stories }) => {
   const [tableData, setTableData] = useState(stories);
 
   const sortTable = column => {
-    console.log(column);
     if (order === 'ASC') {
       const sorted = [...tableData].sort((a, b) => {
-        console.log('a is: ', a[column].toLowerCase(), 'b is: ', b[column]);
         return a[column].toLowerCase() > b[column].toLowerCase() ? 1 : -1;
       });
       setTableData(sorted);
       setOrder('DSC');
     }
+
     if (order === 'DSC') {
       const sorted = [...stories].sort((a, b) => {
         return a[column].toLowerCase() < b[column].toLowerCase() ? 1 : -1;
       });
-
       setTableData(sorted);
       setOrder('ASC');
     }
   };
+  useEffect(() => {
+    sortTable('lastTimeUpdated');
+  }, []);
 
   return (
     <div className="admin-history">
@@ -62,7 +64,7 @@ const AdminHistory = ({ stories }) => {
           return (
             <tr>
               <td className="admin-history-story-column">
-                <Card>
+                <Card key={storyId}>
                   <Meta
                     avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
                     title={storyTitle}
@@ -85,7 +87,7 @@ const AdminHistory = ({ stories }) => {
 
 const mapStateToProps = state => {
   return {
-    stories: state.admin,
+    stories: state.admin.stories,
   };
 };
 

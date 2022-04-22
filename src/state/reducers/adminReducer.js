@@ -1,7 +1,7 @@
-import { FETCH_STORIES } from '../actions/adminActions';
+import { FETCH_STORIES, UPDATE_STORY_STATUS } from '../actions/adminActions';
 
-const stories = {
-  data: [
+const initialState = {
+  stories: [
     {
       storyId: '1',
       storyTitle: 'Title 1',
@@ -56,19 +56,44 @@ const stories = {
       timeSubmitted: '1650131979533',
       lastTimeUpdated: '1650131979533',
       currentStatus: 'Rejected',
-      assignedTo: 'Alice Smith',
+      assignedTo: 'Joe Doe',
+      storyImages: [
+        'https://freeiconshop.com/wp-content/uploads/edd/image-outline-filled.png',
+      ],
+    },
+    {
+      storyId: '5',
+      storyTitle: 'Title 5',
+      storyAuthor: 'Alex Morgan',
+      storyDescription:
+        'Story 5 - Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      timeSubmitted: '1631931979533',
+      lastTimeUpdated: '1632131979533',
+      currentStatus: 'Pending',
+      assignedTo: 'Sarah Smith',
       storyImages: [
         'https://freeiconshop.com/wp-content/uploads/edd/image-outline-filled.png',
       ],
     },
   ],
+  moderators: [
+    { user_id: 1, name: 'Unassigned' },
+    { user_id: 2, name: 'Jane Admin' },
+    { user_id: 3, name: 'John Moderator' },
+    { user_id: 4, name: 'Abe London' },
+  ],
 };
 
-export const reducer = (state = stories.data, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_STORIES:
       return {
         ...state,
+      };
+    case UPDATE_STORY_STATUS:
+      return {
+        ...state,
+        stories: action.payload,
       };
     default:
       return state;

@@ -1,36 +1,64 @@
-.story-details{
+.story-details {
+  overflow-y: hidden;
 
-   .ant-card{
+  .ant-card {
     height: 100%;
-    overflow: hidden;
 
-    .ant-card-head-wrapper{
-        width: 100%;
-    } 
+    .story-details-bottom {
+      display: flex;
+      align-items: center;
+      height: 25%;
 
-    .ant-card-body{
-        height: 100%;
+      .story-details-images {
+        width: 80%;
 
-        .ant-typography{
-            height:40vh;
-            overflow-y: scroll;
+        img {
+          margin-right: 1vw;
+          width: 10vh;
         }
+      }
+
+      .button {
+        width: 20%;
+        position: sticky;
+        button {
+          width: 100%;
+        }
+      }
+
+      .approve-btn {
+        background: rgb(118, 230, 174);
+      }
+      .reject-btn {
+        background: rgb(204, 93, 79);
+        margin-top: 2vh;
+      }
     }
 
-    .story-details-image-dialog{
-        width: 35vw;
-        height: 40vh;
-        box-shadow: 0 8px 6px -6px black;
-        left: 4vw;
-        top: 25vh;
-        
+    .ant-card-head-wrapper {
+      width: 100%;
     }
 
+    .ant-card-body {
+      height: 100%;
 
-   }
+      .story-details-description {
+        height: 70%;
+        overflow-y:scroll;
+        scroll-behavior: smooth;
+      }
 
+      .ant-typography {
+        height: 50%;
+      }
+    }
 
-   
-
-
+    .story-details-image-dialog {
+      width: 35vw;
+      height: 40vh;
+      box-shadow: 0 8px 6px -6px black;
+      left: 4vw;
+      top: 25vh;
+    }
+  }
 }

@@ -1,6 +1,6 @@
 import { Badge, Card } from 'antd';
 import React, { useState } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory, useRouteMatch } from 'react-router';
 
 const BacklogStoryCard = ({ story }) => {
   const {
@@ -22,11 +22,11 @@ const BacklogStoryCard = ({ story }) => {
       : 'red';
 
   const history = useHistory();
+  const url = useRouteMatch().url;
 
   const routeToDetails = e => {
     e.preventDefault();
-    console.log('hi');
-    history.push(`/admin/storymanager/${storyId}`);
+    history.push(`${url}/${storyId}`);
   };
 
   return (

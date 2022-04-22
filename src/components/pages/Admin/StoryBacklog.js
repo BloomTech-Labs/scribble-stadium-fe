@@ -14,6 +14,6 @@ const StoryBacklog = ({ stories }) => (
   </div>
 );
 
-const mapStateToProps = state => ({ stories: state.admin });
+const mapStateToProps = state => ({ stories: state.admin.stories });
 
 export default connect(mapStateToProps, {})(StoryBacklog);

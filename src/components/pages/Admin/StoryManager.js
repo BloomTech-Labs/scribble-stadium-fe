@@ -33,6 +33,17 @@ const StoryManager = ({ stories }) => {
             Add +
           </Button>
         </div>
+        <div>
+          <select name="" id="">
+            <option value="">Somethin</option>
+          </select>
+          <select name="" id="">
+            <option value="">Somethin</option>
+          </select>
+          <select name="" id="">
+            <option value="">Somethin</option>
+          </select>
+        </div>
         <div className="library-body">
           <StoryBacklog />
           <Switch>
@@ -54,7 +65,7 @@ const StoryManager = ({ stories }) => {
 
 const mapStateToProps = state => {
   return {
-    stories: state.admin,
+    stories: state.admin.stories,
   };
 };
 
