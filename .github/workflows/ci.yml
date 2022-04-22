@@ -34,7 +34,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - run: npx eslint 'src/**/*.{js,jsx}'
+      - run: "npx eslint 'src/**/*.{js,jsx}' --rule 'prettier/prettier: warn'"
   coverage:
     name: Test and publish test coverage
     needs: build
