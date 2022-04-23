@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 const AdminHistory = ({ stories }) => {
   const { Meta } = Card;
 
-  const [order, setOrder] = useState('ASC');
+  const [order, setOrder] = useState('DSC');
   const [tableData, setTableData] = useState(stories);
 
   const sortTable = column => {

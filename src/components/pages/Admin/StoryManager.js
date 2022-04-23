@@ -33,17 +33,6 @@ const StoryManager = ({ stories }) => {
             Add +
           </Button>
         </div>
-        <div>
-          <select name="" id="">
-            <option value="">Somethin</option>
-          </select>
-          <select name="" id="">
-            <option value="">Somethin</option>
-          </select>
-          <select name="" id="">
-            <option value="">Somethin</option>
-          </select>
-        </div>
         <div className="library-body">
           <StoryBacklog />
           <Switch>

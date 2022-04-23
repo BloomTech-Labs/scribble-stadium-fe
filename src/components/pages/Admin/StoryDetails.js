@@ -1,36 +1,30 @@
-import React, { useState } from 'react';
-import { Button, Card, Alert, Input, Form } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Button, Card, Alert, Input, Form, Select } from 'antd';
 import { connect } from 'react-redux';
-import { useEffect } from 'react';
 import { useParams } from 'react-router';
-import { useAuth0 } from '@auth0/auth0-react';
+
 import {
   fetchStories,
-  updateStoryStatus,
+  updateStories,
 } from '../../../state/actions/adminActions';
 
-const StoryDetails = ({ stories, fetchStories, updateStoryStatus, match }) => {
-  const { user } = useAuth0();
-
+const StoryDetails = ({ stories, fetchStories, updateStories, match }) => {
   const { story_id } = useParams();
-
+  const matchStory = stories.find(story => {
+    return story.storyId == story_id;
+  });
+  const [story, setStory] = useState(matchStory);
   const [imageDialog, setImageIsOpen] = useState({
     isOpen: false,
     selectedImage: '',
   });
-  console.log(stories);
-  const matchStory = stories.find(story => {
-    return story.storyId == story_id;
-  });
-
-  const [story, setStory] = useState(matchStory);
-
-  useEffect(() => {
-    const newMatchStory = stories.find(story => story.storyId == story_id);
-    setStory(newMatchStory);
-  }, [match]);
-
-  const { storyTitle, storyDescription, currentStatus, storyImages } = story;
+  const {
+    storyTitle,
+    storyDescription,
+    currentStatus,
+    storyImages,
+    assignedTo,
+  } = story;
 
   const statusColor =
     currentStatus == 'Approved'
@@ -38,6 +32,14 @@ const StoryDetails = ({ stories, fetchStories, updateStoryStatus, match }) => {
       : currentStatus == 'Pending'
       ? 'warning'
       : 'error';
+
+  useEffect(() => {
+    fetchStories();
+  }, []);
+
+  useEffect(() => {
+    setStory(matchStory);
+  }, [match]);
 
   const handleImageDialog = e => {
     e.preventDefault();
@@ -47,30 +49,24 @@ const StoryDetails = ({ stories, fetchStories, updateStoryStatus, match }) => {
     });
   };
 
-  const handleStatusChange = status => {
-    console.log(status);
-    const updatedStory = { ...story, currentStatus: status };
-    console.log(updatedStory);
+  const handleStoryUpdate = e => {
+    const updatedStory = {
+      ...story,
+      [e.currentTarget.name]: e.currentTarget.value,
+    };
+
     const updatedStories = stories.map(story => {
       return story.storyId === updatedStory.storyId ? updatedStory : story;
     });
-    console.log(updatedStories);
-    updateStoryStatus(updatedStories);
+
+    updateStories(updatedStories);
   };
 
   return (
     <div className="story-details">
       <Card
         title={storyTitle}
-        extra={
-          <>
-            <Form>
-              <Input />
-              {/* <Button type="link" size='small'>Assign</Button> */}
-            </Form>
-            <Alert message={currentStatus} type={statusColor} />
-          </>
-        }
+        extra={<Alert message={currentStatus} type={statusColor} />}
       >
         <div className="story-details-description">{storyDescription}</div>
 
@@ -95,7 +91,9 @@ const StoryDetails = ({ stories, fetchStories, updateStoryStatus, match }) => {
                 size="small"
                 type="primary"
                 className="reject-btn"
-                onClick={() => handleStatusChange('Rejected')}
+                onClick={handleStoryUpdate}
+                name="currentStatus"
+                value="Rejected"
               >
                 Reject
               </Button>
@@ -106,7 +104,9 @@ const StoryDetails = ({ stories, fetchStories, updateStoryStatus, match }) => {
                 size="small"
                 type="primary"
                 className="approve-btn"
-                onClick={() => handleStatusChange('Approved')}
+                onClick={handleStoryUpdate}
+                name="currentStatus"
+                value="Approved"
               >
                 Approve
               </Button>
@@ -117,7 +117,9 @@ const StoryDetails = ({ stories, fetchStories, updateStoryStatus, match }) => {
                 size="small"
                 type="primary"
                 className="reject-btn"
-                onClick={() => handleStatusChange('Rejected')}
+                onClick={handleStoryUpdate}
+                name="currentStatus"
+                value="Rejected"
               >
                 Reject
               </Button>
@@ -125,7 +127,9 @@ const StoryDetails = ({ stories, fetchStories, updateStoryStatus, match }) => {
                 size="small"
                 type="primary"
                 className="approve-btn"
-                onClick={() => handleStatusChange('Approved')}
+                onClick={handleStoryUpdate}
+                name="currentStatus"
+                value="Approved"
               >
                 Approve
               </Button>
@@ -153,9 +157,10 @@ const StoryDetails = ({ stories, fetchStories, updateStoryStatus, match }) => {
 const mapStateToProps = state => {
   return {
     stories: state.admin.stories,
+    moderators: state.admin.moderators,
   };
 };
 
-export default connect(mapStateToProps, { fetchStories, updateStoryStatus })(
+export default connect(mapStateToProps, { fetchStories, updateStories })(
   StoryDetails
 );

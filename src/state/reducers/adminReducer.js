@@ -56,7 +56,7 @@ const initialState = {
       timeSubmitted: '1650131979533',
       lastTimeUpdated: '1650131979533',
       currentStatus: 'Rejected',
-      assignedTo: 'Joe Doe',
+      assignedTo: 'Jane Admin',
       storyImages: [
         'https://freeiconshop.com/wp-content/uploads/edd/image-outline-filled.png',
       ],
@@ -70,7 +70,7 @@ const initialState = {
       timeSubmitted: '1631931979533',
       lastTimeUpdated: '1632131979533',
       currentStatus: 'Pending',
-      assignedTo: 'Sarah Smith',
+      assignedTo: 'John Moderator',
       storyImages: [
         'https://freeiconshop.com/wp-content/uploads/edd/image-outline-filled.png',
       ],
@@ -80,7 +80,6 @@ const initialState = {
     { user_id: 1, name: 'Unassigned' },
     { user_id: 2, name: 'Jane Admin' },
     { user_id: 3, name: 'John Moderator' },
-    { user_id: 4, name: 'Abe London' },
   ],
 };
 
