@@ -7,18 +7,16 @@ import { Button } from 'antd';
 import StoryBacklog from './StoryBacklog';
 import StoryDetails from './StoryDetails';
 import AdminHistory from './AdminHistory';
+import AdminFilters from './AdminFilters';
 
 const StoryManager = ({ stories }) => {
   const [addButtonState, setAddButtonState] = useState(false);
 
-  const [storyState, setStoryState] = useState(false);
-
-  const [story, setStory] = useState();
-
-  const reviewStory = story => {
-    setStory(story);
-    setStoryState(true);
-  };
+  const [filters, setFilters] = useState({
+    status: 'All',
+    submittedBy: 'All',
+    assignedTo: 'All',
+  });
 
   return (
     <div className="story-manager">
@@ -34,14 +32,17 @@ const StoryManager = ({ stories }) => {
           </Button>
         </div>
         <div className="library-body">
-          <StoryBacklog />
-          <Switch>
-            <Route
-              path="/admin/storymanager/:story_id"
-              component={StoryDetails}
-            />
-            <Route path="/admin/storymanager" component={AdminHistory} />
-          </Switch>
+          <AdminFilters filters={filters} setFilters={setFilters} />
+          <div className="library-body-main">
+            <StoryBacklog filters={filters} setFilters={setFilters} />
+            <Switch>
+              <Route
+                path="/admin/storymanager/:story_id"
+                component={StoryDetails}
+              />
+              <Route path="/admin/storymanager" component={AdminHistory} />
+            </Switch>
+          </div>
         </div>
       </div>
       <UploadStoryPopup
