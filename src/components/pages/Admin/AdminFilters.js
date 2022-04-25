@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 
 const { Option } = Select;
 
-const AdminFilters = ({ filters, setFilters, stories }) => {
+const AdminFilters = ({ filters, setFilters, stories, moderators }) => {
   const submittedByList = stories.map(story => story.storyAuthor);
-  const assignedToList = stories.map(story => story.assignedTo);
+  const assignedToList = moderators.map(moderator => moderator.name);
 
   const handleFilter = e => {
     console.log(e);
@@ -55,6 +55,7 @@ const AdminFilters = ({ filters, setFilters, stories }) => {
 const mapStateToProps = state => {
   return {
     stories: state.admin.stories,
+    moderators: state.admin.moderators,
   };
 };
 

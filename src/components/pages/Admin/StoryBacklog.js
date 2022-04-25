@@ -44,37 +44,10 @@ const StoryBacklog = ({ stories, filters }) => {
     } else {
       setStoriesState(multiFilter());
     }
-  }, [filters]);
-
-  // useEffect(()=>{
-  //   if(filters.status==="Approved"){
-  //     const approvedStories = stories.filter(story=> story.currentStatus==="Approved");
-  //     console.log(approvedStories);
-  //     setStoriesState(approvedStories);
-  //     setIsFilterActive
-  //   }else if(filters.status==="Pending"){
-  //     const pendingStories = stories.filter(story=> story.currentStatus==="Pending");
-  //     setStoriesState(pendingStories);
-  //   } else if(filters.status==="Rejected"){
-  //     const rejectedStories = stories.filter(story=> story.currentStatus==="Rejected");
-  //     setStoriesState(rejectedStories);
-  //   }
-  //     else{
-  //       setStoriesState(stories);
-  //       console.log(stories);
-  //     }
-
-  //   // if(filters.submittedBy==="All"){
-  //   //   setStoriesState(stories);
-  //   // }else{
-  //   //   const submittedByStories = stories.filter(story=> story.storyAuthor===filters.submittedBy);
-  //   //   setStoriesState(submittedByStories);
-  //   // }
-
-  // },[filters]);
+  }, [filters, stories]);
 
   return (
-    <div className="backlog-stories" style={{ overflowY: 'scroll' }}>
+    <div className="backlog-stories">
       {storiesState.map(story => (
         <div className="backlog-story">
           <BacklogStoryCard story={story} key={story.storyId} />

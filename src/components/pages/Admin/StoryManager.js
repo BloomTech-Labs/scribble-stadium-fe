@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import UploadStoryPopup from './UploadStoryPopup';
 import { connect } from 'react-redux';
 import StoryPopup from './StoryPopup';
@@ -22,7 +22,6 @@ const StoryManager = ({ stories }) => {
     <div className="story-manager">
       <div className="library">
         <div className="library-top">
-          <h2>Story Library</h2>
           <Button
             onClick={() => setAddButtonState(true)}
             type="primary"
@@ -34,7 +33,7 @@ const StoryManager = ({ stories }) => {
         <div className="library-body">
           <AdminFilters filters={filters} setFilters={setFilters} />
           <div className="library-body-main">
-            <StoryBacklog filters={filters} setFilters={setFilters} />
+            <StoryBacklog filters={filters} />
             <Switch>
               <Route
                 path="/admin/storymanager/:story_id"
