@@ -1,3 +1,7 @@
+/* per later discussions it was decided to not to use SideBar and instead have it as a simple link on the Admin page
+  Keeping this component in case if it is needed in the future
+*/
+
 import { Button } from 'antd';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';

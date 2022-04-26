@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Select } from 'antd';
 import { connect } from 'react-redux';
-
-const { Option } = Select;
 
 const AdminFilters = ({ filters, setFilters, stories, moderators }) => {
   const submittedByList = stories.map(story => story.storyAuthor);
@@ -19,35 +16,35 @@ const AdminFilters = ({ filters, setFilters, stories, moderators }) => {
 
   return (
     <div className="library-body-filters">
-      <select name="status" onChange={handleFilter}>
-        <option value="" disabled>
-          Select Status
-        </option>
-        <option value="All">All</option>
-        <option value="Approved">Approved</option>
-        <option value="Pending">Pending</option>
-        <option value="Rejected">Rejected</option>
-      </select>
+      <label htmlFor="status">
+        <span>Status</span>
+        <select name="status" onChange={handleFilter}>
+          <option value="All">All</option>
+          <option value="Approved">Approved</option>
+          <option value="Pending">Pending</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+      </label>
 
-      <select name="submittedBy" onChange={handleFilter}>
-        <option value="" disabled>
-          Submitted By
-        </option>
-        <option value="All">All</option>
-        {submittedByList.map(author => (
-          <option value={`${author}`}>{author}</option>
-        ))}
-      </select>
+      <label htmlFor="submittedBy">
+        <span>Submitted By</span>
+        <select name="submittedBy" onChange={handleFilter}>
+          <option value="All">All</option>
+          {submittedByList.map(author => (
+            <option value={`${author}`}>{author}</option>
+          ))}
+        </select>
+      </label>
 
-      <select name="assignedTo" onChange={handleFilter}>
-        <option value="" disabled>
-          Assignee
-        </option>
-        <option value="All">All</option>
-        {assignedToList.map(admin => (
-          <option value={`${admin}`}>{admin}</option>
-        ))}
-      </select>
+      <label htmlFor="assignedTo">
+        <span>Assigned To</span>
+        <select name="assignedTo" onChange={handleFilter}>
+          <option value="All">All</option>
+          {assignedToList.map(admin => (
+            <option value={`${admin}`}>{admin}</option>
+          ))}
+        </select>
+      </label>
     </div>
   );
 };
