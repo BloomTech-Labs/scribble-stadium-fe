@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  border: 2px solid gray;
+  border: 5px outset #c4e4f7;
   border-radius: 1vw;
   margin:0 1vw;
   width: auto;
   height: 100vh;
+
 }
 
 .library {
@@ -25,7 +26,9 @@ h3 {
 
 .library-top {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: center;
 }
 
 .library-top > h2,
@@ -56,52 +59,4 @@ button {
   cursor: pointer;
 }
 
-.backlog-stories {
-  width: 35vw;
-  margin: 1%;
-  overflow-y: scroll;
-  height: 75vh;
-}
 
-.backlog-story {
-  margin: 1vh 1vw auto;
-
-  .ant-ribbon-wrapper  {
-
-    .ant-ribbon-placement-end{
-      right:3px;
-    }
-  }
-
-  .ant-card {
-    width: 90%;
-    margin: 2% auto;
-    transition: box-shadow 0.3s;
-  }
-
-  .ant-card:hover {
-    box-shadow: 0 0 25px rgba(33, 33, 33, 0.2);
-  }
-
-  .ant-card-head-wrapper {
-    overflow: hidden;
-  }
-  .ant-card-head {
-    background-color: rgb(#8a8886d2);
-  }
-  .ant-card-head-title {
-    font-size: large;
-    margin-right: 2vw;
-  }
-
-  .ant-card-body {
-    display: flex;
-
-    .backlog-card-body-content {
-      margin-left: 1vw;
-    }
-    p {
-      font-size: small;
-    }
-  }
-}
