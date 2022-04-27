@@ -4,21 +4,24 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+
 jobs:
-  build:
-    name: Install and build the app
-    uses: ./.github/workflows/build.yml
-    steps:
-      - run: npx craco build # build is failing on lint; added skip in sample env :(
   lint:
     name: Linting
     needs: build
-    uses: ./.github/workflows/build.yml
     steps:
+      - uses: ./.github/actions/build-action.yml
       - run: "npx eslint 'src/**/*.{js,jsx}' --rule 'prettier/prettier: 1'"
+  build:
+    name: Install and build the app
+    needs: lint
+    steps:
+      - id: build
+        uses: ./.github/actions/build-action.yml
+      - run: npx craco build # build is failing on lint; added skip in sample env :(
   coverage:
     name: Test and publish test coverage
-    needs: build
-    uses: ./.github/workflows/build.yml
+    needs: lint
     steps:
+      - uses: ./.github/actions/build-action.yml
       - run: echo "testing"
