@@ -3,7 +3,9 @@ import React from 'react';
 import { useHistory, useRouteMatch } from 'react-router';
 
 const BacklogStoryCard = ({ story }) => {
-  /* - Parse needed parameters from story within props (props.story) */
+  /* 
+    - Parse needed parameters from story within props (props.story)
+  */
   const {
     storyTitle,
     storyAuthor,
@@ -13,13 +15,15 @@ const BacklogStoryCard = ({ story }) => {
     storyId,
   } = story;
 
-  /* - convert receivied timeSubmitted date param from the story (props.story)
-       to a date format
+  /* 
+    - convert receivied timeSubmitted date param from the story (props.story)
+      to a date format
   */
   const date = new Date(parseInt(timeSubmitted));
 
-  /* - declare a variable that handles each card's (BacklogStoryCard) status color 
-       to be used in css to color the badge of the card
+  /* 
+    - declare a variable that handles each card's (BacklogStoryCard) status color 
+      to be used in css to color the badge of the card
   */
   const statusColor =
     currentStatus === 'Approved'
@@ -27,14 +31,20 @@ const BacklogStoryCard = ({ story }) => {
       : currentStatus === 'Pending'
       ? 'orange'
       : 'red';
-  /* - declare a history object from React router to be used to change routing with .push method */
+  /* 
+    - declare a history object from React router to be used to change routing with .push method 
+  */
   const history = useHistory();
 
-  /* - declare a url string, that gets the existing url and saves it */
+  /*
+    - declare a url string, that gets the existing url and saves it 
+   */
   const url = useRouteMatch().url;
 
-  /* - declare a function that change the url so that StoryDetails component 
-     can render in place of AdminHistory component*/
+  /* 
+    - declare a function that change the url so that StoryDetails component 
+      can render in place of AdminHistory component
+  */
   const routeToDetails = e => {
     e.preventDefault();
     history.push(`${url}/${storyId}`);

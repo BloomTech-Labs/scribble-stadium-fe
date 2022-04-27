@@ -26,7 +26,7 @@ const initialState = {
       timeSubmitted: '1645101469533',
       lastTimeUpdated: '1647131469533',
       currentStatus: 'Pending',
-      assignedTo: 'Unassigned',
+      assignedTo: 'John Moderator',
       storyImages: [
         'https://icons-for-free.com/download-icon-gallery+image+landscape+mobile+museum+open+line+icon-1320183049020185924_512.png',
         'https://freeiconshop.com/wp-content/uploads/edd/image-outline-filled.png',
@@ -77,7 +77,6 @@ const initialState = {
     },
   ],
   moderators: [
-    { user_id: 1, name: 'Unassigned' },
     { user_id: 2, name: 'Jane Admin' },
     { user_id: 3, name: 'John Moderator' },
   ],
@@ -89,6 +88,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
       };
+    /*
+        - when updateStory function in adminActions is called it copies the exisiting state
+          and changes the stories param's value with new payload 
+          (new stories array that has the currentStatus change on the "Approved" or "Rejected" story object)
+      */
     case UPDATE_STORY_STATUS:
       return {
         ...state,

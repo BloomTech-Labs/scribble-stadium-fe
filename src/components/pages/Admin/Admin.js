@@ -6,7 +6,9 @@ import StoryManager from './StoryManager';
 import { Button } from 'antd';
 
 const Admin = () => {
-  /* to get user's auth status so that Admin component can only be displayed to authenticated users */
+  /* 
+    - to get user's auth status so that Admin component can only be displayed to authenticated users 
+  */
   const { isAuthenticated } = useAuth0();
 
   return (
@@ -14,7 +16,9 @@ const Admin = () => {
       <Router>
         <AdminHeader />
         <div className="main">
-          {/*Admin sidebar was removed and instead a simple link navigation was added */}
+          {/*
+            - Admin sidebar was removed and instead a simple link navigation was added 
+          */}
           <nav>
             <Link to="/admin/admindashboard">
               <Button type="link">
@@ -27,12 +31,13 @@ const Admin = () => {
               </Button>
             </Link>
           </nav>
-          {/* Storymanager component that contains 5 main components:
+          {/* 
+            Storymanager component that contains 5 main components:
                 - UploadStory: to add new stories by admins/moderators
                 - BacklogStory: to display all stories in the a backlog
                 - AdminFilters: to filter all backlog stories (in BacklogStory component)
                                 by status, submittedBy and assignedTo
-                - AdminHostory: that displays latest activity of tickets on story manager home page
+                - AdminHistory: that displays latest activity of tickets on story manager home page
                 - StoryDetails: that displays story description, images and 
                                 gives ability to admins to Approve or Reject stories
            */}

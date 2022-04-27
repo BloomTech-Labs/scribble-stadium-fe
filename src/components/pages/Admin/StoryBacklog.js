@@ -3,15 +3,17 @@ import { connect } from 'react-redux';
 import BacklogStoryCard from './BacklogStoryCard';
 
 const StoryBacklog = ({ stories, filters }) => {
-  /* - Local state (storiesState) that changes based on change in the filters and stories from the props
+  /* 
+     - Local state (storiesState) that changes based on change in the filters and stories from the props
      - "filters" is in props from this story's parent StoryManager, 
         however "stories" comes to props from redux connect (global state)
   */
   const [storiesState, setStoriesState] = useState(stories);
 
-  /* - declare a function to handle the multiple filter scenarios and to return a final array based on filter inputs 
-   - each filter filters the array by a given filter param, except if the selected param 
-     is "All" it returns all stories for that specific filter
+  /* 
+     - declare a function to handle the multiple filter scenarios and to return a final array based on filter inputs 
+     - each filter filters the array by a given filter param, except if the selected param 
+       is "All" it returns all stories for that specific filter
   */
   const multiFilter = () => {
     const filteredData = stories
@@ -40,7 +42,8 @@ const StoryBacklog = ({ stories, filters }) => {
     return filteredData;
   };
 
-  /* - to handle the changes in "filters" and "stories" props
+  /* 
+     - to handle the changes in "filters" and "stories" props
      - everytime there is a change on either "filters" or "stories"
      - "storiesState" changes according to "filters" params and renders
         the UI with updated "storiesState" data
@@ -57,11 +60,11 @@ const StoryBacklog = ({ stories, filters }) => {
     }
   }, [filters, stories]);
 
-  {
-    /* - map "storiesState" and return a BacklogStoryCard component for each mapped item (story) 
+  /*
+     - map "storiesState" and return a BacklogStoryCard component for each mapped item (story) 
      - pass a each "story" into rendered "BacklogStoryCard" child component as a prop
   */
-  }
+
   return (
     <div className="backlog-stories">
       {storiesState.map(story => (
