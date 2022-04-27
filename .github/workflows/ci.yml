@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v2
       - id: setup
         uses: ./.github/actions/setup-action
-      - run: npm build # build is failing on lint; added skip in sample env :(
+      - run: npm run build # build is failing on lint; added skip in sample env :(
   coverage:
     name: Test and publish test coverage
     needs: lint
