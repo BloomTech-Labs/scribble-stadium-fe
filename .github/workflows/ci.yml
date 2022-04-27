@@ -16,14 +16,14 @@ jobs:
       # skip for now. so many linting errors
       # - run: "npx eslint 'src/**/*.{js,jsx}' --rule 'prettier/prettier: warn'"
   build:
-    name: Install and build the app
+    name: Build the craco app
     needs: lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - id: setup
         uses: ./.github/actions/setup-action
-      - run: npx craco build # build is failing on lint; added skip in sample env :(
+      - run: npm build # build is failing on lint; added skip in sample env :(
   coverage:
     name: Test and publish test coverage
     needs: lint

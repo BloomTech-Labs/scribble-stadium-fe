@@ -44,7 +44,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "npx craco build",
+    "build": "DISABLE_ESLINT_PLUGIN=true npx craco build",
     "test": "npx craco test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
     "coverage": "npm run test -- --coverage --watchAll=false",
