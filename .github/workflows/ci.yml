@@ -7,7 +7,7 @@ on:
 
 jobs:
   lint:
-    name: [skip] Linting <ERRORS>
+    name: "[skip] Linting <ERRORS>"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,7 +17,7 @@ jobs:
       # skip for now. so many linting errors
       # - run: "npx eslint 'src/**/*.{js,jsx}' --rule 'prettier/prettier: warn'"
   build:
-    name: [skip] Build the craco app <BROKEN>
+    name: "[skip] Build the craco app <BROKEN>"
     needs: lint
     runs-on: ubuntu-latest
     steps:
