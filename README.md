@@ -1,22 +1,14 @@
 # Scribble Stadium Frontend
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/0a3a11c6f1e83568a5cf/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/Labs26-StorySquad-FE-TeamB/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/0a3a11c6f1e83568a5cf/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/Labs26-StorySquad-FE-TeamB/test_coverage)
+[![Codacy Score](https://app.codacy.com/project/badge/Grade/4efb6c22b2134a989cbaa49d895cf081)](https://www.codacy.com/gh/BloomTech-Labs/scribble-stadium-fe/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BloomTech-Labs/scribble-stadium-fe&amp;utm_campaign=Badge_Grade) [![Codacy Coverage](https://app.codacy.com/project/badge/Coverage/4efb6c22b2134a989cbaa49d895cf081)](https://www.codacy.com/gh/BloomTech-Labs/scribble-stadium-fe/dashboard?utm_source=github.com&utm_medium=referral&utm_content=BloomTech-Labs/scribble-stadium-fe&utm_campaign=Badge_Coverage)
 
 [<img src="https://avatars2.githubusercontent.com/t/4044276?s=280&v=4" width="200" />](https://avatars2.githubusercontent.com/t/4044276?s=280&v=4)
 
 Scribble Stadium turns “reluctant readers” into authors and illustrators through a collaborative world-building game.
 
-## Current State Of The App
-
-<!-- Todo! Update this -->
-
-Work done by Labs32: [Click Here](https://docs.google.com/document/d/1aSt8nd0Mg_2lcXzV9of9Bkd4DsLA-KMbRKVbyIDBnEc/edit)
-<br/>
-Work done by Labs29: [Click Here](https://docs.google.com/spreadsheets/d/1ZdhfQEAsz3IhgVa8zMZ0JkuD6-oasDI4hplPFXZaXNQ/edit?usp=sharing)
-
 ## Project Overview
 
-[How the App should work - A primer for devs](storysquadExplained.md)
+[How the App should work - A primer for devs](DOCUMENTATION/storysquadExplained.md)
 <br/>
 [Labs31 Product Roadmap](https://www.notion.so/Roadmap-Story-Squad-Labs-31-6f774da319e34c238764765a864632a6)
 <br/>
