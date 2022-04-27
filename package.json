@@ -47,7 +47,7 @@
     "build": "DISABLE_ESLINT_PLUGIN=true SKIP_PREFLIGHT_CHECK=true ESLINT_NO_DEV_ERRORS=true npx craco build",
     "test": "npx craco test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
-    "coverage": "npm run test -- --coverage --ci --testResultsProcessor=\"jest-junit\" --watchAll=false",
+    "coverage": "npm run test -- --coverage --ci --testResultsProcessor=jest-junit --watchAll=false",
     "lint": "npx eslint .",
     "lint:fix": "npx eslint . --fix",
     "format": "npx prettier --write 'src/**/*.{js,jsx,css,scss}'",
@@ -72,6 +72,7 @@
     ],
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/stories/",
+      "<rootDir>/src/__tests__/",
       "<rootDir>/node_modules/",
       "<rootDir>/src/api/"
     ]
