@@ -1,0 +1,31 @@
+name: Reusable setup env workflow
+
+on:
+  workflow_call:
+    inputs:
+    secrets:
+
+jobs:
+  build:
+    name: Install and setup the app
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Cache node modules
+        id: cache-nodemodules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # caching node_modules
+          path: '**/node_modules'
+          key: ${{ runner.os }}-cache-node-modules-${{ hashFiles('**/package-lock.json') }}
+      
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      
+      - run: npm install
+      
+      - run: cp .env.sample .env
