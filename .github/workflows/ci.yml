@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: setup
-        uses: ./.github/actions/build-action.yml
+        uses: ./.github/actions/build-action
       - run: "npx eslint 'src/**/*.{js,jsx}' --rule 'prettier/prettier: 1'"
   build:
     name: Install and build the app
@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: setup
-        uses: ./.github/actions/build-action.yml
+        uses: ./.github/actions/build-action
       - run: npx craco build # build is failing on lint; added skip in sample env :(
   coverage:
     name: Test and publish test coverage
@@ -30,5 +30,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: setup
-        uses: ./.github/actions/build-action.yml
+        uses: ./.github/actions/build-action
       - run: echo "testing"
