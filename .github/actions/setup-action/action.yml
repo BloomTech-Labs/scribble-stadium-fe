@@ -1,6 +1,9 @@
 name: Install node and app modules
 description: Installs node, then installs app package (with caching)
 inputs:
+  node-version:
+    required: false
+    description: the node version to be installed
 
 runs:
   using: composite
