@@ -4,13 +4,6 @@
 
 [<img src="https://avatars2.githubusercontent.com/t/4044276?s=280&v=4" width="200" />](https://avatars2.githubusercontent.com/t/4044276?s=280&v=4)
 
-Scribble Stadium turns “reluctant readers” into authors and illustrators through a collaborative world-building game.
-
-## Project Overview
-
-[How the App should work - A primer for devs](DOCUMENTATION/storysquadExplained.md)
-<br/>
-
 
 Welcome to Scribble Stadium! We are an interactive learning platform designed for grade school children, and we help build reading comprehension as well as artistic, writing, and analytical/critical thinking skills through weekly competitions.
 
