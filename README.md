@@ -13,7 +13,16 @@ In addition to growing their literary and artistic skills, students learn team b
 
 Scribble Stadium is a paid service; parents are required to create the account for their children and pay a monthly subscription fee in order for their children to compete. This brings the platform into compliance with COPPA and ensures a long future for the project.
 
+Parent (Profiles with role: "parent")
+- Which parent is logged in?
+- What children are associated with them? 
 
+Children
+- What child is currently playing? 
+- Do they have any active submissions? If yes, bring in submission. 
+
+Admin (Profiles with role: "admin")
+- Which admin is logged in? 
 
 
 
