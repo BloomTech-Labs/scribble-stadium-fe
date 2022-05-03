@@ -28,6 +28,32 @@ jest.mock('@auth0/auth0-react', () => ({
   },
 }));
 
+let mockStorage = {
+  idToken: '...',
+  isAuthenticated: true,
+};
+
+beforeAll(() => {
+  global.Storage.prototype.setitem = jest.fn((key, value) => {
+    mockStorage[key] = value;
+  });
+  global.Storage.prototype.getitem = jest.fn(key => mockStorage[key]);
+});
+
+beforeEach(() => {
+  mockStorage = {};
+});
+
+const storageBackups = {
+  setItem: global.Storage.prototype.setItem,
+  getItem: global.Storage.prototype.getItem,
+};
+
+afterAll(() => {
+  (global.Storage.prototype.getItem = storageBackups.getItem),
+    (global.Storage.prototype.setItem = storageBackups.setItem);
+});
+
 const Component = props => {
   return (
     <Router>
