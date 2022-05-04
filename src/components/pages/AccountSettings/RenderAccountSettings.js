@@ -5,7 +5,7 @@ import bc from 'bcryptjs';
 import { getProfileData } from '../../../api';
 import PinInput from 'react-pin-input';
 import AccountSettingsForm from '../AccountSettingsForm/AccountSettingsForm';
-
+// needs account settings modal
 function RenderAccountSettings() {
   const { user } = useAuth0();
   const [unlock, setUnlock] = useState(true);
