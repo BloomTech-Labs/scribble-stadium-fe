@@ -24,7 +24,6 @@ export default function ChooseChildModal(props) {
     //   props.disableModalWindow();
     // }, removeModalTimer);
   };
-
   // Add some animation effects when component loads
   useEffect(() => {
     gsap.to('#notification-modal', {
@@ -40,7 +39,6 @@ export default function ChooseChildModal(props) {
       <div className="modal-container">
         <div className="modal-content" style={{ width: '70%' }}>
           <nav>
-            {' '}
             <Button
               className="exit-button"
               onClick={evt => {
@@ -48,7 +46,6 @@ export default function ChooseChildModal(props) {
                 setModalVisible(false);
               }}
             >
-              {' '}
               X
             </Button>
           </nav>
