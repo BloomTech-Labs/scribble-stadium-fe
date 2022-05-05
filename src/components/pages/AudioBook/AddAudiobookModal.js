@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from 'antd';
 import Header from '../../common/Header';
 
-const AddAudiobookModal = props => {
+const addAudiobookModal = props => {
   const [visible, setVisible] = useState(false);
 
   return (
@@ -22,4 +22,4 @@ const AddAudiobookModal = props => {
   );
 };
 
-export default AddAudiobookModal;
+export default addAudiobookModal;
