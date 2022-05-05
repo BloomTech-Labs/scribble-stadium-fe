@@ -2,203 +2,202 @@
 @import '~antd/lib/style/themes/default.less';
 
 .avatar-select-modal {
-    .image_picker {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-    }
-    .ant-btn {
-        .blueButtonStyle();
-        margin: 0 auto;
-    }
+  .image_picker {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  .ant-btn {
+    .blueButtonStyle();
+    margin: 0 auto;
+  }
 }
 
-.edit-players, .add-child {
-    .parent-back-button {
-        .parent-back-button();
+.edit-players,
+.add-child {
+  .parent-back-button {
+    .parent-back-button();
+  }
+  .top-section {
+    width: 75%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 37px;
+    .title {
+      .titleStyle();
+      display: block;
     }
-    .top-section {
-        width: 75%;
-        max-width: 800px;
-        margin: 0 auto;
-        margin-top: 10px;
-        margin-bottom: 37px;
-        .title {
-            .titleStyle();
-            display: block;
+  }
+  .children {
+    width: 75%;
+    max-width: 800px;
+    margin: 0 auto;
+    flex-flow: column;
+    align-items: center;
+    .child-card-form {
+      width: 66%;
+      background-color: #fbfbfb;
+      position: relative;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 16px;
+      font-family: sans-serif;
+      font-weight: 600;
+      color: #f5f5f5;
+
+      .ant-card-body {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+        justify-content: space-between;
+        .card-top {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-bottom: 30px;
+          .avatar-container {
+            margin-left: 20px;
+            position: relative;
+          }
+          .avatar-img {
+            width: 115px;
+            height: 115px;
+            min-width: 115px;
+            padding: 1%;
+            clip-path: circle();
+            background-color: #f5f5f5;
+          }
+          .edit-btn {
+            .blueButtonStyle();
+            width: 35px;
+            height: 35px;
+            display: inline-block;
+
+            background-color: #f5f5f5;
+            border: 1px solid #f5f5f5;
+            border-radius: 50%;
+
+            position: absolute;
+            left: 81px;
+            top: 0;
+          }
+          .delete-btn {
+            .blueButtonStyle();
+            display: inline-block;
+
+            background-color: #fbfbfb;
+            border: 1px solid #e5e5e5;
+          }
         }
+        .ant-form {
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: space-between;
+          div.col {
+            width: 50%;
+            display: flex;
+            flex-flow: column;
+            height: 180px;
+            justify-content: space-around;
+            position: relative;
+          }
+          .ant-row.ant-form-item {
+            flex-flow: column;
+            align-content: center;
+            position: absolute;
+            top: 20%;
+            width: 90%;
+
+            .ant-form-item-label {
+              width: 100%;
+              text-align: start;
+              font-family: 'Open Sans';
+              font-weight: 700;
+              font-size: 0.8rem;
+              color: #2d2a2b;
+              margin-left: 10px;
+              ::after {
+                display: none;
+              }
+            }
+            input {
+              // .inputStyle();
+              border: 0.5px solid #7b8794;
+              border-radius: 16px;
+              padding: 7px;
+              font-size: 16px;
+              width: 100%;
+            }
+            input.pin {
+              letter-spacing: 8px;
+            }
+          }
+        }
+        .card-bottom {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 30px;
+        }
+        .save-btn {
+          .blueButtonStyle();
+          width: 315px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .edit-players {
+    .top-section {
+      margin-bottom: 15px;
     }
     .children {
-        width: 75%;
-        max-width: 800px;
-        margin: 0 auto;
-        flex-flow: column;
-        align-items: center;
-        .child-card-form {
-              width: 66%;
-                background-color: #fbfbfb;
-                position: relative;
-                margin: 30px auto;
-                padding: 20px;
-                border-radius: 16px;
-                font-family: sans-serif;
-                font-weight: 600;
-                color: #F5F5F5;
-
-
-            .ant-card-body {
-                width: 100%;
-                padding: 0;
-                display: flex;
-                flex-flow: column;
-                height: 100%;
-                justify-content: space-between;
-                .card-top {
-                    width: 100%;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    margin-bottom: 30px;
-                    .avatar-container {
-                        margin-left: 20px;
-                        position: relative;
-                    }
-                    .avatar-img {
-                        width: 115px;
-                        height: 115px;
-                        min-width: 115px;
-                        padding: 1%;
-                        clip-path: circle();
-                        background-color: #F5F5F5;
-                    }
-                    .edit-btn {
-                        .blueButtonStyle();
-                        width: 35px;
-                        height: 35px;
-                        display: inline-block;
-
-                        background-color: #F5F5F5;
-                        border: 1px solid #F5F5F5;
-                        border-radius: 50%;
-
-                        position: absolute;
-                        left: 81px;
-                        top: 0;
-                    }
-                    .delete-btn {
-                        .blueButtonStyle();
-                        display: inline-block;
-
-                        background-color: #FBFBFB;
-                        border: 1px solid #e5e5e5;
-                    }
-                }
-                .ant-form {
-                    display: flex;
-                    flex-flow: row wrap;
-                    justify-content: space-between;
-                    div.col {
-                        width: 50%;
-                        display: flex;
-                        flex-flow: column;
-                        height: 180px;
-                        justify-content: space-around;
-                        position: relative; 
-                    }
-                    .ant-row.ant-form-item {
-                        flex-flow: column;
-                        align-content: center;
-                        position: absolute; 
-                        top: 20%; 
-                        width: 90%;
-
-                        .ant-form-item-label {
-                            width:100%;
-                            text-align: start;
-                            font-family: 'Open Sans';
-                            font-weight: 700;
-                            font-size: 0.8rem;
-                            color: #2D2A2B;
-                            margin-left: 10px;
-                            ::after {
-                                display: none;
-                            }
-                        }
-                        input {
-                            // .inputStyle();
-                            border: 0.5px solid #7b8794;
-                            border-radius: 16px;
-                            padding: 7px;
-                            font-size: 16px;
-                            width: 100%;
-                        }
-                        input.pin {
-                            letter-spacing: 8px;
-                        }
-                    }
-                }
-                .card-bottom {
-                    width: 100%;
-                    display: flex;
-                    justify-content: flex-end;
-                    margin-top: 30px;
-                }
-                .save-btn {
-                    .blueButtonStyle();
-                    width: 315px;
-                }
+      width: 90%;
+      .child-card-form {
+        .ant-card-body {
+          .card-top {
+            margin-bottom: 20px;
+            .avatar-container {
+              margin-left: 8px;
+              margin-top: 8px;
             }
-        }
-    }
-}
-
-@media screen and (max-width:550px) {
-    .edit-players {
-        .top-section {
-            margin-bottom: 15px;
-        }
-        .children {
-            width: 90%;
-            .child-card-form {
-                .ant-card-body {
-                    .card-top {
-                        margin-bottom: 20px;
-                        .avatar-container {
-                            margin-left: 8px;
-                            margin-top: 8px;
-                        }
-                        .avatar-img {
-                            width: 105px;
-                            height: 105px;
-                        }
-                        .delete-btn {
-                            width: 50px;
-                            span[role="img"] + span {
-                                // Targets the span element after the span with role of img
-                                display: none;
-                            }
-                        }
-                    }
-                    .ant-form {
-                        flex-flow: column;
-                        align-items: center;
-                        div.col {
-                            width: 100%;
-                        }
-                        .ant-form-item {
-                            width: 100%;
-                        }
-                        .ant-form-item-label {
-                            padding: 0;
-                        }
-                    }
-                    .card-bottom {
-                        margin-top: 20px;
-                        justify-content: center;
-                    }
-                }
-
+            .avatar-img {
+              width: 105px;
+              height: 105px;
             }
+            .delete-btn {
+              width: 50px;
+              span[role='img'] + span {
+                // Targets the span element after the span with role of img
+                display: none;
+              }
+            }
+          }
+          .ant-form {
+            flex-flow: column;
+            align-items: center;
+            div.col {
+              width: 100%;
+            }
+            .ant-form-item {
+              width: 100%;
+            }
+            .ant-form-item-label {
+              padding: 0;
+            }
+          }
+          .card-bottom {
+            margin-top: 20px;
+            justify-content: center;
+          }
         }
+      }
     }
+  }
 }

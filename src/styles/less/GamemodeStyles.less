@@ -93,7 +93,6 @@
       display: flex;
       justify-content: center;
 
-
       .step {
         margin: 0 10px;
         background: none;
@@ -192,8 +191,7 @@
   /* Styling for the read step elements */
   #read-step {
     margin-bottom: 60px;
-    display:flex
-    #story {
+    display:flex #story {
       display: flex;
       justify-content: center;
       background: #f5f5f5;
@@ -224,20 +222,226 @@
         font-size: 1rem;
         line-height: 1.3em;
       }
-         
+    }
+  }
+
+  .ant-card-body {
+    padding: 40px;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    height: 100%;
+    max-height: 500px;
+  }
+
+  .next-btn {
+    text-align: center;
+
+    button {
+      width: auto;
+      height: auto;
+      border-radius: 5px;
+      border: #333d3e 3px solid;
+      padding: 5px 15px;
+      font-family: 'atma';
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s all;
+
+      &:hover {
+        transform: scale(1.03);
+        -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+/* Style for the draw and write step elements */
+#draw-step,
+#write-step {
+  overflow: hidden;
+
+  #draw {
+    background: #ff845d;
+  }
+
+  #write {
+    background: #ffd854;
+  }
+
+  .gameplay-content {
+    padding-bottom: 0 !important;
+  }
+
+  .inner-container {
+    display: flex;
+    justify-content: space-between;
+
+    .boy-img {
+      max-width: 30%;
+      align-self: flex-end;
+      margin-top: auto;
+      padding-top: 20px;
+      margin-bottom: -10px;
+    }
+
+    .step-description {
+      width: 65%;
+      font-family: 'atma';
+      margin-bottom: 35px;
+
+      h3 {
+        font-size: 2.5rem;
+        text-transform: uppercase;
       }
     }
 
-    .ant-card-body {
-      padding: 40px;
-      scroll-behavior: smooth;
-      overflow-y: scroll;
-      height: 100%;
-      max-height: 500px; 
+    .step-description p {
+      font-size: 1.5rem;
+      font-weight: 100 !important;
+    }
+    .ant-upload-list {
+      margin-bottom: 25px;
     }
 
-    .next-btn {
+    .ant-upload-list-item {
+      background: #f5f5f5;
+
+      .ant-upload-list-item-thumbnail {
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .ant-upload-list-item-card-actions-btn.ant-btn-sm {
+        height: auto;
+
+        svg {
+          font-size: 1.5rem;
+          color: black;
+        }
+
+        &:hover {
+          background: #8ce2e0;
+        }
+      }
+    }
+
+    .ant-btn {
+      width: auto;
+      height: auto;
+      border-radius: 5px;
+      border: #333d3e 3px solid;
+      padding: 5px 15px;
+      font-family: 'atma';
+      font-size: 1.1rem;
+      cursor: pointer;
+      background: #8ce2e0;
+
+      &:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
+        color: #333d3e !important;
+      }
+    }
+
+    .bottom {
+      margin-bottom: 15px;
+      display: none;
+    }
+
+    .submit-btn {
+      margin-right: 15px;
+    }
+
+    .skip-btn {
+      background: none;
+      // cursor: pointer;
+      // padding: 0;
+      // font-size: 1.3rem;
+      // text-decoration: underline;
+      // height: auto;
+      // width: auto;
+    }
+
+    .battle-btn {
+      display: block;
+      width: 100%;
+      text-align: right;
+      margin-top: 20px;
+
+      button {
+        border: #333d3e 3px solid;
+        background: #ff845d;
+        font-size: 1.5rem;
+        cursor: pointer;
+        height: auto;
+        width: auto;
+        padding: 5px 15px;
+      }
+    }
+  }
+}
+
+/* notification-modal */
+#notification-modal {
+  position: fixed;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  display: none;
+
+  .modal-container {
+    background: url(../../assets/images/gamemodeimg/modal.png);
+    background-size: cover;
+    width: 720px;
+    max-width: 100%;
+    height: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(-100vh);
+
+    @media @tablet {
+      max-width: 80%;
+    }
+
+    @media @mobile {
+      max-width: 90%;
+    }
+
+    .modal-content {
+      padding: 20px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      flex-direction: column;
+      font-family: 'bangers';
+
+      h3 {
+        font-size: 3rem;
+        text-transform: uppercase;
+
+        @media @mobile {
+          font-size: 2.5rem;
+        }
+      }
+
+      p {
+        font-size: 1.5rem;
+        line-height: 1.5em;
+
+        @media @mobile {
+          margin-left: 0.5rem;
+        }
+      }
 
       button {
         width: auto;
@@ -246,221 +450,13 @@
         border: #333d3e 3px solid;
         padding: 5px 15px;
         font-family: 'atma';
-        font-size: 1.1rem;
-        cursor: pointer;
-        transition: 0.3s all;
-
-        &:hover {
-          transform: scale(1.03);
-          -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-        }
-      }
-    }
-  }
-
-  /* Style for the draw and write step elements */
-  #draw-step,
-  #write-step {
-    overflow: hidden;
-
-    #draw {
-      background: #ff845d;
-    }
-
-    #write {
-      background: #ffd854;
-    }
-
-    .gameplay-content {
-      padding-bottom: 0 !important;
-    }
-
-    .inner-container {
-      display: flex;
-      justify-content: space-between;
-
-      .boy-img {
-        max-width: 30%;
-        align-self: flex-end;
-        margin-top: auto;
-        padding-top: 20px;
-        margin-bottom: -10px;
-      }
-
-      .step-description {
-        width: 65%;
-        font-family: 'atma';
-        margin-bottom: 35px;
-
-        h3 {
-          font-size: 2.5rem;
-          text-transform: uppercase;
-        }
-      }
-
-      .step-description p {
         font-size: 1.5rem;
-        font-weight: 100 !important;
-      }
-      .ant-upload-list {
-        margin-bottom: 25px;
-      }
-
-      .ant-upload-list-item {
-        background: #f5f5f5;
-
-        .ant-upload-list-item-thumbnail {
-          border-radius: 50%;
-          overflow: hidden;
-        }
-
-        .ant-upload-list-item-card-actions-btn.ant-btn-sm {
-          height: auto;
-
-          svg {
-            font-size: 1.5rem;
-            color: black;
-          }
-
-          &:hover {
-            background: #8ce2e0;
-          }
-        }
-      }
-
-      .ant-btn {
-        width: auto;
-        height: auto;
-        border-radius: 5px;
-        border: #333d3e 3px solid;
-        padding: 5px 15px;
-        font-family: 'atma';
-        font-size: 1.1rem;
         cursor: pointer;
-        background: #8ce2e0;
-
-        &:hover {
-          transform: scale(1.03);
-          box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
-          color: #333d3e !important;
-        }
-      }
-
-      .bottom {
-        margin-bottom: 15px;
-        display: none;
-      }
-
-      .submit-btn {
-        margin-right: 15px;
-      }
-
-      .skip-btn {
-        background: none;
-        // cursor: pointer;
-        // padding: 0;
-        // font-size: 1.3rem;
-        // text-decoration: underline;
-        // height: auto;
-        // width: auto;
-      }
-
-      .battle-btn {
-        display: block;
-        width: 100%;
-        text-align: right;
-        margin-top: 20px;
-
-        button {
-          border: #333d3e 3px solid;
-          background: #ff845d;
-          font-size: 1.5rem;
-          cursor: pointer;
-          height: auto;
-          width: auto;
-          padding: 5px 15px;
-        }
+        background: white;
       }
     }
   }
-
-  /* notification-modal */
-  #notification-modal {
-    position: fixed;
-    width: 100%;
-    max-width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    top: 0;
-    left: 0;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    display: none;
-
-    .modal-container {
-      background: url(../../assets/images/gamemodeimg/modal.png);
-      background-size: cover;
-      width: 720px;
-      max-width: 100%;
-      height: 520px;
-      margin-left: auto;
-      margin-right: auto;
-      transform: translateY(-100vh);
-
-      @media @tablet {  
-        max-width: 80%;
-      }
-
-      @media @mobile {
-        max-width: 90%;
-      }
-
-      .modal-content {
-        padding: 20px 5%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        flex-direction: column;
-        font-family: 'bangers';
-
-        h3 {
-          font-size: 3rem;
-          text-transform: uppercase;
-
-          @media @mobile {
-            font-size: 2.5rem;
-          }
-        }
-
-        p {
-          font-size: 1.5rem;
-          line-height: 1.5em;
-
-          @media @mobile {
-            margin-left: .5rem;
-          }
-        }
-
-        button {
-          width: auto;
-          height: auto;
-          border-radius: 5px;
-          border: #333d3e 3px solid;
-          padding: 5px 15px;
-          font-family: 'atma';
-          font-size: 1.5rem;
-          cursor: pointer;
-          background: white;
-        }
-      }
-    }
-  }
-
+}
 
 //** Gamemode Styles
 .rectangle130-yellow {

@@ -4,166 +4,162 @@
 @import 'variables.less';
 
 .next-steps {
-    color: white;
-    background-color: #231F20;
-    text-align: center;
+  color: white;
+  background-color: #231f20;
+  text-align: center;
 
-    .next-steps-container {
-        display: flex;
-        flex-direction: column;
-        width: 60%;
-        margin: 0 auto;
-        padding-bottom: 4rem;
+  .next-steps-container {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
+    padding-bottom: 4rem;
 
-            .next-steps-btn {
-                box-sizing: content-box;
-                border-radius: 5px;
-                border: #333d3e 3px solid;
-                padding: 15px 15px 25px 15px;
-                align-self: center;
-                font-family: 'atma';
-                font-size: 2rem;
-                font-weight: 100;
-                cursor: pointer;
-                background-color: #8ce2e0;
-            
-                &:hover {
-                    transform: scale(1.03);
-                    box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
-                    color: #333d3e !important;
-                }
-            
-            }
+    .next-steps-btn {
+      box-sizing: content-box;
+      border-radius: 5px;
+      border: #333d3e 3px solid;
+      padding: 15px 15px 25px 15px;
+      align-self: center;
+      font-family: 'atma';
+      font-size: 2rem;
+      font-weight: 100;
+      cursor: pointer;
+      background-color: #8ce2e0;
+
+      &:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
+        color: #333d3e !important;
+      }
     }
-
+  }
 }
 
 .next-steps-text {
+  font-family: 'atma';
+  font-size: 1.5rem;
+  font-weight: lighter;
+  margin: 2rem 0rem;
+
+  .next-steps-header {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: 4rem;
     font-family: 'atma';
-    font-size: 1.5rem;
-    font-weight: lighter;
-    margin: 2rem 0rem;
+    font-style: italic;
+  }
 
-    .next-steps-header {
-        color: white;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        font-size: 4rem;
-        font-family: 'atma';
-        font-style: italic;
-    }
-
-    .next-steps-description {
-        text-align: left;
-        font-weight: lighter !important;
-    }
+  .next-steps-description {
+    text-align: left;
+    font-weight: lighter !important;
+  }
 }
 
 .next-steps-content {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 
-    .next-steps-child-info {
-        margin: 1rem;
-    }
+  .next-steps-child-info {
+    margin: 1rem;
+  }
 }
 
 .image-wrapper {
-    position: relative;
-    top: 0;
-    left: 0;
-    margin: 2rem 0rem;
-} 
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 2rem 0rem;
+}
 
 .background-image {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 110%;
-    height: 110%;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 110%;
+  height: 110%;
 }
 
 .overlay-image {
-    position: absolute;
-    top: 10%;
-    left: 0;
-    margin: -3rem 0rem 0rem 3rem;
+  position: absolute;
+  top: 10%;
+  left: 0;
+  margin: -3rem 0rem 0rem 3rem;
 
-    @media (max-width: 560px) {
-        transform: scale(90%);
-        left: -15%;
-        top: 0;
-    }
+  @media (max-width: 560px) {
+    transform: scale(90%);
+    left: -15%;
+    top: 0;
+  }
 
-    @media (max-width: 380px) {
-        transform: scale(80%);
-        left: -5rem;
-        top: 0;
-    }
+  @media (max-width: 380px) {
+    transform: scale(80%);
+    left: -5rem;
+    top: 0;
+  }
 }
 
 .flip-image {
-    transform: scaleX(-1);
-    top: 5%;
-    left: 2rem;
-    @media (max-width: 560px) {
-        transform: scaleX(-1) scale(90%);
-        left: 1rem;
-    }
-    @media (max-width: 380px) {
-        transform: scaleX(-1) scale(80%);
-        left: -2rem;
-    }
+  transform: scaleX(-1);
+  top: 5%;
+  left: 2rem;
+  @media (max-width: 560px) {
+    transform: scaleX(-1) scale(90%);
+    left: 1rem;
+  }
+  @media (max-width: 380px) {
+    transform: scaleX(-1) scale(80%);
+    left: -2rem;
+  }
 
-    @media (max-width: 330px) {
-        transform: scaleX(-1) scale(80%);
-        left: -2rem;
-        top: -10%;
-    }
+  @media (max-width: 330px) {
+    transform: scaleX(-1) scale(80%);
+    left: -2rem;
+    top: -10%;
+  }
 }
 
 .talk-bubble-text {
-    color: #2D2A2B;
-    font-weight: 400 !important;
-    line-height: 38px;
-    margin-top: 2rem;
-    margin-left: 2rem;
-    font-size: 2rem;
-    font-family: 'atma';
+  color: #2d2a2b;
+  font-weight: 400 !important;
+  line-height: 38px;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  font-size: 2rem;
+  font-family: 'atma';
 }
 .overlay-text {
-    position: absolute;
-    top: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 
-    @media (max-width: 560px) {
-        font-size: 1.5rem;
-    }
-    
-    @media (max-width: 450px) {
-        top: -9%;
-        font-size: 1.2rem;
-    }
+  @media (max-width: 560px) {
+    font-size: 1.5rem;
+  }
 
-    @media (max-width: 380px) {
-        top: -9.5%;
-        font-size: 1rem;
-        line-height: 20px;
-    }
+  @media (max-width: 450px) {
+    top: -9%;
+    font-size: 1.2rem;
+  }
 
-    @media (max-width: 330px) {
-        top: -13%;
-        font-size: .92rem;
-        line-height: 20px;
-        left: -1rem;
-    }
-      
-          
+  @media (max-width: 380px) {
+    top: -9.5%;
+    font-size: 1rem;
+    line-height: 20px;
+  }
+
+  @media (max-width: 330px) {
+    top: -13%;
+    font-size: 0.92rem;
+    line-height: 20px;
+    left: -1rem;
+  }
 }
 
 .you-label {
-    color: white;
-    font-size: 2rem;
-    font-family: 'atma';
+  color: white;
+  font-size: 2rem;
+  font-family: 'atma';
 }

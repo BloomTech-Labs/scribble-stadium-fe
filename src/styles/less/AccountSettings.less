@@ -4,185 +4,180 @@
 @import 'variables.less';
 
 .accountSettingsContainer {
-	display: flex;
-	padding: 10px ;
-	width: 90ch;
-	@media @mobileLarge{
-	}
+  display: flex;
+  padding: 10px;
+  width: 90ch;
+  @media @mobileLarge {
+  }
 }
 
 .textAndButtonContainer {
-	display: flex;
+  display: flex;
 
-	@media @mobileLarge{
-		background-color:transparent;
-	}
-	@media @tablet{
-		justify-content:space-around;
-
-	}
+  @media @mobileLarge {
+    background-color: transparent;
+  }
+  @media @tablet {
+    justify-content: space-around;
+  }
 }
 h3 {
-	font-family: 'Open Sans';
-	font-weight: 700;
-	text-transform: uppercase;
-	@media @tablet{
-		font-size:1.1rem;
-	}
-	@media @mobileLarge{
-		font-size:1.2rem;
-		margin:0%;
-	}
+  font-family: 'Open Sans';
+  font-weight: 700;
+  text-transform: uppercase;
+  @media @tablet {
+    font-size: 1.1rem;
+  }
+  @media @mobileLarge {
+    font-size: 1.2rem;
+    margin: 0%;
+  }
 }
 .editText {
-	font-size: 1.5rem;
-	flex-grow:1;
+  font-size: 1.5rem;
+  flex-grow: 1;
 
-	@media @mobileLarge{
-		flex-grow:1;
-		padding:20px;
-		font-size:1.3rem;
-	}
+  @media @mobileLarge {
+    flex-grow: 1;
+    padding: 20px;
+    font-size: 1.3rem;
+  }
 
-	.buttonArea{
-		width:100%;
-	}
-
+  .buttonArea {
+    width: 100%;
+  }
 }
 .unlockButton {
-	padding: 20px;
-	margin-left:50%;
-	width:30vw;
-	@media @mobileLarge {
-		padding:0px;
-		margin:0%;
-	}
-	@media @tablet{
-		padding:0%;
-		padding-top:5%;
-		margin-left:25%;
-	}
-	.ant-btn {
-		background-color: #8ce2e0;
-		border:0px;
-		@media @mobile {
-			width: 50vw;
-		}
-	}
-
+  padding: 20px;
+  margin-left: 50%;
+  width: 30vw;
+  @media @mobileLarge {
+    padding: 0px;
+    margin: 0%;
+  }
+  @media @tablet {
+    padding: 0%;
+    padding-top: 5%;
+    margin-left: 25%;
+  }
+  .ant-btn {
+    background-color: #8ce2e0;
+    border: 0px;
+    @media @mobile {
+      width: 50vw;
+    }
+  }
 }
 
 .lockButton {
-	padding: 20px;
-	margin-left:50%;
-	width:30vw;
-	@media @mobileLarge {
-		padding:20px;
-		margin:0%;
-	}
-	.ant-btn {
-		background-color: #8ce2e0;
-		border:0px;
-		@media @mobile {
-			width: 50vw;
-		}
-
-	}
+  padding: 20px;
+  margin-left: 50%;
+  width: 30vw;
+  @media @mobileLarge {
+    padding: 20px;
+    margin: 0%;
+  }
+  .ant-btn {
+    background-color: #8ce2e0;
+    border: 0px;
+    @media @mobile {
+      width: 50vw;
+    }
+  }
 }
 .editFormsAndButtonsContainer {
 }
 .lockUnlockButton {
-	border-radius: 20px;
-	@media @mobileLarge {
-		margin-left: 15%;
-	}
-	@media @tablet{
-		margin:0%;
-	}
-	&:hover {
-		cursor: pointer;
-		filter: brightness(0.8);
-	}
+  border-radius: 20px;
+  @media @mobileLarge {
+    margin-left: 15%;
+  }
+  @media @tablet {
+    margin: 0%;
+  }
+  &:hover {
+    cursor: pointer;
+    filter: brightness(0.8);
+  }
 }
 
 .ant-modal-body {
-	@media @mobile {
-		width: 80vw;
-	}
+  @media @mobile {
+    width: 80vw;
+  }
 }
 .ant-modal-content {
-	@media @mobile {
-		width: 80vw;
-		margin-left: -100px;
-	}
+  @media @mobile {
+    width: 80vw;
+    margin-left: -100px;
+  }
 }
 
 .ant-modal-footer {
-	text-align: center;
-	.ant-btn-primary{
-		display: none;
-	}
-	@media @mobile {
-		width: 80vw;
-	}
-	.ant-btn {
-		width: 10vw;
-		margin-right: -150px;
-		@media @mobile {
-			width: 25vw;
-		}
-	}
-	.ant-btn-default {
-		background-color: #8ce2e0;
-	}
+  text-align: center;
+  .ant-btn-primary {
+    display: none;
+  }
+  @media @mobile {
+    width: 80vw;
+  }
+  .ant-btn {
+    width: 10vw;
+    margin-right: -150px;
+    @media @mobile {
+      width: 25vw;
+    }
+  }
+  .ant-btn-default {
+    background-color: #8ce2e0;
+  }
 }
 
-button{
-	background-color: #8ce2e0;
-	height: 40px;
-	width: 160px;
-	left: 0px;
-	top: 0px;
-	border-radius: 16px;
-	border: 0px;
-	color: @dark-gray;
-	font-family: 'Open Sans';
-	font-style: normal;
+button {
+  background-color: #8ce2e0;
+  height: 40px;
+  width: 160px;
+  left: 0px;
+  top: 0px;
+  border-radius: 16px;
+  border: 0px;
+  color: @dark-gray;
+  font-family: 'Open Sans';
+  font-style: normal;
 
-	font-weight: 600;
-	font-size: 16px;
-	line-height: 150%;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
 }
 
-.plainButton{
-	background-color: #fbfbfb;
-	height: 40px;
-	width: 256px;
-	left: 0px;
-	top: 0px;
-	border-radius: 20px;
-	border: 1px solid @dark-gray;
-	color: @dark-gray;
-	font-family: 'Open Sans';
-	font-style: normal;
-	font-weight: 600;
-	font-size: 16px;
-	line-height: 150%;
-	&:hover {
-		cursor: pointer;
-	}
-
+.plainButton {
+  background-color: #fbfbfb;
+  height: 40px;
+  width: 256px;
+  left: 0px;
+  top: 0px;
+  border-radius: 20px;
+  border: 1px solid @dark-gray;
+  color: @dark-gray;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  &:hover {
+    cursor: pointer;
+  }
 }
-.settings-buttons-container{
-	display:flex;
-	flex-direction:column;
-	justify-content:flex-start;
-	width:68vw;
-	margin:0 auto;
-	padding-bottom:10%;
-	@media @mobileLarge{
-		width:88vw;
-		margin-top:30%;
-		padding-bottom:25%;
-	}
+.settings-buttons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 68vw;
+  margin: 0 auto;
+  padding-bottom: 10%;
+  @media @mobileLarge {
+    width: 88vw;
+    margin-top: 30%;
+    padding-bottom: 25%;
+  }
 }
