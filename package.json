@@ -43,7 +43,7 @@
     "styled-components": "^5.2.2"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "node start.js",
     "build": "DISABLE_ESLINT_PLUGIN=true SKIP_PREFLIGHT_CHECK=true ESLINT_NO_DEV_ERRORS=true npx craco build",
     "test": "npx craco test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
