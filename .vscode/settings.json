@@ -1,10 +1,4 @@
 {
   "compile-hero.disable-compile-files-on-did-save-code": true,
-  "cSpell.words": [
-    "Btns",
-    "Faceoff",
-    "GamePlay",
-    "Gamemode",
-    "Leaderboard"
-  ]
+  "cSpell.words": ["Btns", "Faceoff", "GamePlay", "Gamemode", "Leaderboard"]
 }

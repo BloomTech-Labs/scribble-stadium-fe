@@ -3,23 +3,23 @@ import { Modal } from 'antd';
 import Header from '../../common/Header';
 
 const addAudiobookModal = props => {
-    const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
 
-    return (
-        <>
-        <Header displayMenu={false} />
-        {
-            <Modal
-                className="profile-modal"
-                visible={visible}
-                onClick={handleClick}
-                onCancel={handleCancel}
-                centered={true}
-                footer={null}
-            ></Modal>
-        }
-        </>
-    );
-    };
+  return (
+    <>
+      <Header displayMenu={false} />
+      {
+        <Modal
+          className="profile-modal"
+          visible={visible}
+          onClick={handleClick}
+          onCancel={handleCancel}
+          centered={true}
+          footer={null}
+        ></Modal>
+      }
+    </>
+  );
+};
 
 export default addAudiobookModal;

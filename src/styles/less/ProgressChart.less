@@ -3,59 +3,21 @@
 @import 'global.less';
 @import 'variables.less';
 
-.ProgressBox{
-    background-color:lightgray;
-    border-radius:14px;
-    height:45vh;
-    width:68vw;
-    margin:0 auto;
-    color:white;
-    font-size:15pt;
-    @media @xs {
-        height: 5vh;
-        width: 100vw;
-    }
-    @media @mobile {
-        height: 10vh;
-        width: 90vw;
-    }
-    @media @mobileLarge {
-        height: 30vh;
-        padding: 1%;
-        width: 87vw;
-        max-width: 85vw;
-    }
-
-    h4{
-        font-size:1.2rem;
-        margin:0 auto;
-        text-align: center;
-       
-    }
-
-}
 .ProgressContainer{
-    margin:3% auto;
-    font-family:'Open Sans';
-    @media @mobileLarge {
-        width:95vw;
-        margin:0 auto;
-    }
-    
-}
-.ProgressHeader{
-    margin-left:16%;
-    @media @mobileLarge{
-        margin-left:5%;
-    }
-    h2{ 
-        font-weight:700;
-        text-transform: uppercase;
-        font-size:1.7rem;
-        @media @mobileLarge {
-            margin-top:2%;
-            padding:1%;
-            font-size: 1.3rem;
-        }
-    }
+	margin: 0 auto;
+	width: 65ch;
+	border-radius: 15px 15px 0 0;
+	background-color: #dcedc1;
+	.ProgressHeader{
+		text-align: center;
+		padding: 1em;
+	}
+	.ProgressBoxContainer{
+		background-color: #a8e6cf;
+		padding: 1em;
+		border-radius:0 0 15px 15px;
+		width: 100%;
+		color:white;
+		font-size:15pt;
+	} 
 }

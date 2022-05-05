@@ -320,7 +320,7 @@ function App() {
         />
         {/* DEPRECATED. OK to DELETE please work on /admin instad of moderation UPDATED 11-16-21*/}
         <Route exact path="/moderation" component={ModerationTest} />
-        <Route path="/admin" component={Admin}/>
+        <Route path="/admin" component={Admin} />
         <Route component={NotFoundPage} />
       </Switch>
     </>
