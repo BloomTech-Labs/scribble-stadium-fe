@@ -94,6 +94,7 @@ ReactDOM.render(
 function App() {
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
 
+<<<<<<< refs/remotes/origin/main
   // const history = useHistory();
 
   // const authHandler = () => {
@@ -102,6 +103,14 @@ function App() {
   //   history.push('/login');
   //   console.log('AuthHandler', authHandler);
   // };
+=======
+//  const authHandler = () => {
+    // We pass this function to our <Security /> component that wraps our routes.
+    // Checks if userToken is available and pushes back to login if not
+//    history.push('/login');
+//    console.log('AuthHandler', authHandler);
+//  };
+>>>>>>> comment out unused function
 
   return (
     <>
