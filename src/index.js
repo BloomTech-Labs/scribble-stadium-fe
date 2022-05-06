@@ -93,6 +93,10 @@ ReactDOM.render(
 
 function App() {
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
+<<<<<<< refs/remotes/origin/main
+=======
+  // const history = useHistory();
+>>>>>>> commented variable
 
 <<<<<<< refs/remotes/origin/main
   // const history = useHistory();
