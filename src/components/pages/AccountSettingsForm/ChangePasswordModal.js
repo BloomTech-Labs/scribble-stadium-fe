@@ -16,7 +16,7 @@ const ChangePasswordModal = props => {
 
   return (
     <Modal
-      visible={props.visible}
+      visible={visible}
       width={'91%'}
       onCancel={handleCancel}
       onOk={handleClose}
