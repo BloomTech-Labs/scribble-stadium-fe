@@ -70,7 +70,11 @@ export default function GameReadStep(props) {
       y: 200,
       duration: 1,
     });
+<<<<<<< refs/remotes/origin/main
   }, [thisEp]);
+=======
+  }, [myStory]);
+>>>>>>> included useEffect dependency
 
   return (
     <div id="read-step">
