@@ -77,7 +77,11 @@ export default function ChooseChildModal(props) {
                       closeModal();
                     }}
                   >
+<<<<<<< refs/remotes/origin/main
                     <img src={AvatarURL} alt={`child ${Name} hero avatar`} />
+=======
+                    <img src={AvatarURL} alt={`child ${Name} hero `} />
+>>>>>>> redundant alt tag
                   </div>
                   <span style={{ fontSize: '1.2rem' }}>
                     {Name.toUpperCase()}
