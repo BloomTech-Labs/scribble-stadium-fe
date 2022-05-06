@@ -44,8 +44,13 @@ const RenderNewParentDashboard = props => {
   ];
 
   const history = useHistory();
+<<<<<<< refs/remotes/origin/main
   // const { user } = useAuth0();
   // const { setParent } = props;
+=======
+  const { user } = useAuth0();
+  const { setParent } = props;
+>>>>>>> unused state call
   const [childrenAccounts] = useState(FAKE_CHILDREN);
   const [modalVisible, setModalVisible] = useState(false);
   const { Content } = Layout;
