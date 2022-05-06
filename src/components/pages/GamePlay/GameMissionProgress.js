@@ -1,14 +1,22 @@
 //** Import Modules */
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+<<<<<<< refs/remotes/origin/main
 import { Dropdown } from 'antd';
+=======
+import {  Dropdown } from 'antd';
+>>>>>>> unused state
 //** Import Assets */
 import completeIcon from '../../../assets/images/gamemodeimg/completed.png';
 // Following code is commented out to prevent warnings during compilation
 export default function GameMissionProgress(props) {
   // Get the history object
   const history = useHistory();
+<<<<<<< refs/remotes/origin/main
   // const [isModalVisible, setIsModalVisible] = useState(false);
+=======
+ // const [isModalVisible, setIsModalVisible] = useState(false);
+>>>>>>> unused state
   // Get the current state
   const { currentStep } = props;
 
