@@ -47,6 +47,7 @@ export default function GameWriteStep(props) {
       // The following code is commented out to prevent warnings during compilation
       // Enable the modal window
 <<<<<<< refs/remotes/origin/main
+<<<<<<< refs/remotes/origin/main
       // const modalData = {
       //   title: 'Get ready for the boss battle!',
       //   description:
@@ -61,6 +62,14 @@ export default function GameWriteStep(props) {
 //        buttonTxt: 'Battle!',
 //      };
 >>>>>>> unused funct.
+=======
+      //      const modalData = {
+      //        title: 'Get ready for the boss battle!',
+      //        description:
+      //          'To complete this mission, your work will be put up head-to-head against a boss. If you are ready to fight, submit your work!',
+      //        buttonTxt: 'Battle!',
+      //      };
+>>>>>>> useCallback added
 
       //props.enableModalWindow(modalData);
 

@@ -1,5 +1,6 @@
 {
   "compile-hero.disable-compile-files-on-did-save-code": true,
+<<<<<<< refs/remotes/origin/main
   "cSpell.words": [
     "antd",
     "bottomrow",
@@ -41,4 +42,7 @@
     "wordcloud",
     "writingprompt"
   ]
+=======
+  "cSpell.words": ["Btns", "Faceoff", "GamePlay", "Gamemode", "Leaderboard"]
+>>>>>>> useCallback added
 }

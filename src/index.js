@@ -99,6 +99,7 @@ function App() {
 >>>>>>> commented variable
 
 <<<<<<< refs/remotes/origin/main
+<<<<<<< refs/remotes/origin/main
   // const history = useHistory();
 
   // const authHandler = () => {
@@ -115,6 +116,14 @@ function App() {
 //    console.log('AuthHandler', authHandler);
 //  };
 >>>>>>> comment out unused function
+=======
+  //  const authHandler = () => {
+  // We pass this function to our <Security /> component that wraps our routes.
+  // Checks if userToken is available and pushes back to login if not
+  //    history.push('/login');
+  //    console.log('AuthHandler', authHandler);
+  //  };
+>>>>>>> useCallback added
 
   return (
     <>

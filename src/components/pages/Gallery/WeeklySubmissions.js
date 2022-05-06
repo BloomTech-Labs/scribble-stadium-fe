@@ -6,10 +6,14 @@ import Weekly from './Weekly';
 
 const WeeklySubmissions = props => {
 <<<<<<< refs/remotes/origin/main
+<<<<<<< refs/remotes/origin/main
   // const { user, isAuthenticated } = useAuth0();
 =======
 //  const { user, isAuthenticated } = useAuth0();
 >>>>>>> commented unused deconstruction
+=======
+  //  const { user, isAuthenticated } = useAuth0();
+>>>>>>> useCallback added
   let weeks = props.data.length;
 
   // Passing state to Week Card. Displaying Week card in descending order.
