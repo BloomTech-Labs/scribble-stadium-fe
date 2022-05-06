@@ -74,20 +74,20 @@ const RenderNewParentDashboard = props => {
       <Layout className="newparent-dashboard">
         {/* TODO: add width control to containers, responsive sizes, add breakpoints  */}
         <Content className="grid-container">
-           <Row gutter={[16, { xs: 8, sm: 14, md: 18, lg: 32 }]}>
-            <Col sm={{}} md={{ span: 12 }}>
-              <NewProgressCharts className="progress-container" />
-            </Col>
+           <Row gutter={[32, { xs: 16, sm: 18, md: 24, lg: 32 }]} align="middle" justify="space-around">
             <Col sm={{}} md={{ span: 12 }}>
               <RenderWordCloud className="renderWordCloud" />
             </Col>
+            <Col sm={{}} md={{ span: 12 }}>
+              <AccountSettings className="account-container" />
+            </Col>
           </Row>
-          <Row gutter={[16, { xs: 8, sm: 14, md: 18, lg: 32 }]}>
+          <Row gutter={[32, { xs: 16, sm: 18, md: 24, lg: 32 }]} align="middle" justify="space-around">
             <Col sm={{}} md={{ span: 12 }}>
               <NewChildCard props={props} className="child-container" />
             </Col>
             <Col sm={{}} md={{ span: 12 }}>
-              <AccountSettings className="account-container" />
+              <NewProgressCharts className="progress-container" />
             </Col>
           </Row>
        </Content>
