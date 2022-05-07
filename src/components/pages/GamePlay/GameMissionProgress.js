@@ -53,6 +53,7 @@ export default function GameMissionProgress(props) {
         <div className="game-tips-text">
           <p className="game-tips-text-p">
             <img
+	      alt="right arrow"
               style={{ width: '48px', height: '48px' }}
               src="https://img.icons8.com/flat-round/64/000000/wide-right-arrow.png"
               alt="wide right arrow"
@@ -62,7 +63,8 @@ export default function GameMissionProgress(props) {
           </p>
           <p className="game-tips-text-p">
             <img
-              style={{ width: '48px', height: '48px' }}
+	     alt="large right arrpw" 
+	    style={{ width: '48px', height: '48px' }}
               src="https://img.icons8.com/flat-round/64/000000/wide-right-arrow.png"
               alt="wide right arrow"
             />{' '}
@@ -71,6 +73,7 @@ export default function GameMissionProgress(props) {
           </p>
           <p className="game-tips-text-p">
             <img
+	    alt="wide right arrow"
               style={{ width: '48px', height: '48px' }}
               src="https://img.icons8.com/flat-round/64/000000/wide-right-arrow.png"
               alt="wide right arrow"
