@@ -12,7 +12,11 @@ import boyImg from '../../../assets/images/hero_images/hero1.png';
 import PlayAgainButtonAnimation from './PlayAgainButtonAnimation';
 
 const RenderWinnerPage = props => {
+<<<<<<< refs/remotes/origin/main
   // const { push } = useHistory();
+=======
+//  const { push } = useHistory();
+>>>>>>> unused var
 
 <<<<<<< refs/remotes/origin/main
   // const goToChildDashboard = () => {
