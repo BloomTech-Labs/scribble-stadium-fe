@@ -12,7 +12,10 @@ import { store, persistor } from './state';
 import {
   BrowserRouter as Router,
   Route,
+<<<<<<< refs/remotes/origin/main
   // useHistory,
+=======
+>>>>>>> unused import
   Switch,
 } from 'react-router-dom';
 
