@@ -11,7 +11,7 @@ import WeeklySubmissions from './WeeklySubmissions';
 import { useHistory, useParams } from 'react-router-dom';
 
 const GalleryContainer = props => {
-	const {setGallerySubmissions } = props;
+	const {setWeeklySubmissions } = props;
   const { user } = useAuth0();
   const { push } = useHistory();
   const [, setDataInfo] = useState([]);
@@ -25,6 +25,7 @@ const GalleryContainer = props => {
     });
   }, [user, id]);
 
+	console.log(data);
   const leaderboard = () => {
     push('/child/leaderboard');
   };
@@ -35,8 +36,12 @@ const GalleryContainer = props => {
   }, [props, id]);
 =======
     setWeeklySubmissions(id);
+<<<<<<< refs/remotes/origin/main
   }, [id]);
 >>>>>>> useEffect deps
+=======
+  }, [setWeeklySubmissions,id]);
+>>>>>>> used unused var
 
   return (
     <>
