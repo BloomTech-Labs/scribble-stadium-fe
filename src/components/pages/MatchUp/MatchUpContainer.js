@@ -26,7 +26,11 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
 =======
 
 function MatchUpContainer({ LoadingComponent, ...props }) {
+<<<<<<< refs/remotes/origin/main
 //  const { user, isAuthenticated } = useAuth0();
+>>>>>>> no unused var
+=======
+  const { user } = useAuth0();
 >>>>>>> no unused var
   const [userInfo] = useState(user);
   const [canVote] = useState(true);
