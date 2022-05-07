@@ -11,13 +11,19 @@ import { SizeMe } from 'react-sizeme';
 const StoryViewer = props => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
+<<<<<<< refs/remotes/origin/main
   const [, setViewed] = useState(false);
 
   // const { user } = useAuth0();
   // const { push } = useHistory();
+=======
+  const [hasViewedAllPages, setViewed] = useState(false);
+  const { user } = useAuth0();
+  const { push } = useHistory();
+>>>>>>> unused var, func
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-
+  console.lod(hasViewedAllPages);
   useEffect(() => {
     if (pageNumber === numPages) {
       setViewed(true);
@@ -63,12 +69,20 @@ const StoryViewer = props => {
     setPageNumber(prevPageNumber => prevPageNumber + offset);
   };
 
+<<<<<<< refs/remotes/origin/main
   // The following code was commented out to prevent warnings during compilation.
   // const onFinish = e => {
   //   markAsRead(user, props.tasks.id);
   //   push('/child/mission-control');
   //   props.setHasRead();
   // };
+=======
+//  const onFinish = e => {
+//    markAsRead(user, props.tasks.id);
+//    push('/child/mission-control');
+//    props.setHasRead();
+//  };
+>>>>>>> unused var, func
 
   return (
     <>
