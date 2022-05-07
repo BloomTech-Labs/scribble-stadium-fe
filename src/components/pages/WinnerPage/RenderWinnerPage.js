@@ -2,10 +2,13 @@
 import React from 'react';
 import { Header } from '../../common';
 <<<<<<< refs/remotes/origin/main
+<<<<<<< refs/remotes/origin/main
 // import { useHistory } from 'react-router-dom';
 =======
 import { useHistory } from 'react-router-dom';
 >>>>>>> no-unused-vars
+=======
+>>>>>>> unused imports
 import { connect } from 'react-redux';
 import explosion from '../../../assets/images/gamemodeimg/explosion.png';
 import boyImg from '../../../assets/images/hero_images/hero1.png';
