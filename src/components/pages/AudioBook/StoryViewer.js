@@ -1,12 +1,18 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
+<<<<<<< refs/remotes/origin/main
 // The following code was commented out to prevent warnings during compilation.
+=======
+>>>>>>> unused vars, imports
 // import { useAuth0 } from '@auth0/auth0-react';
 import { Button } from 'antd';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { SizeMe } from 'react-sizeme';
+<<<<<<< refs/remotes/origin/main
 // import { useHistory } from 'react-router-dom';
 // import { markAsRead } from '../../../api';
+=======
+>>>>>>> unused vars, imports
 
 const StoryViewer = props => {
   const [numPages, setNumPages] = useState(null);
@@ -18,9 +24,14 @@ const StoryViewer = props => {
   // const { push } = useHistory();
 =======
   const [hasViewedAllPages, setViewed] = useState(false);
+<<<<<<< refs/remotes/origin/main
   const { user } = useAuth0();
   const { push } = useHistory();
 >>>>>>> unused var, func
+=======
+//  const { user } = useAuth0();
+//  const { push } = useHistory();
+>>>>>>> unused vars, imports
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
   console.lod(hasViewedAllPages);
