@@ -1,5 +1,8 @@
 import React from 'react';
+<<<<<<< refs/remotes/origin/main
 // The following code was commented out to prevent warnings during compilation.
+=======
+>>>>>>> unused var
 // import { useAuth0 } from '@auth0/auth0-react';
 import { connect } from 'react-redux';
 import Weekly from './Weekly';
