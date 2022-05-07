@@ -1,10 +1,15 @@
+<<<<<<< refs/remotes/origin/main
 import React, { useState } from 'react';
+=======
+import React, { useState} from 'react';
+>>>>>>> no unused var
 import { useAuth0 } from '@auth0/auth0-react';
 
 import RenderMatchUp from './RenderMatchUp';
 import { connect } from 'react-redux';
 
 import { child, faceoffs, votes } from '../../../state/actions';
+<<<<<<< refs/remotes/origin/main
 // the following code was commented out to prevent warnings during compilation. If is not necessary, remove it.
 // import {
 //   getChild,
@@ -18,6 +23,11 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
     user,
     //  isAuthenticated
   } = useAuth0();
+=======
+
+function MatchUpContainer({ LoadingComponent, ...props }) {
+//  const { user, isAuthenticated } = useAuth0();
+>>>>>>> no unused var
   const [userInfo] = useState(user);
   const [canVote] = useState(true);
 
