@@ -28,10 +28,7 @@ jest.mock('@auth0/auth0-react', () => ({
   },
 }));
 
-let mockStorage = {
-  idToken: '...', //The dots mean that it is a token to be found.
-  isAuthenticated: true,
-};
+let mockStorage = {};
 
 beforeAll(() => {
   global.Storage.prototype.setitem = jest.fn((key, value) => {
