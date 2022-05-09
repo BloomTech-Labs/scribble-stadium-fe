@@ -29,7 +29,7 @@ jest.mock('@auth0/auth0-react', () => ({
 }));
 
 let mockStorage = {
-  idToken: '...',
+  idToken: '...', //The dots mean that it is a token to be found.
   isAuthenticated: true,
 };
 
