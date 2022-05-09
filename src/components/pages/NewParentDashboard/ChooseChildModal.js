@@ -6,10 +6,10 @@ import { refresh } from 'less';
 export default function ChooseChildModal(props) {
   // Get the data to display
   const { childrenAccounts, handleCharacterClick } = props;
-
+  const [modalVisible, setModalVisible] = useState(false);
   // // Timeout timer before the modal is removed from the DOM(in ms)
   // const removeModalTimer = 1000;
-  const [modalVisible, setModalVisible] = useState(false);
+
   // Function to close the modal
   const closeModal = () => {
     gsap.to('.modal-container', { y: '100vh', duration: 0.5 });
@@ -38,17 +38,16 @@ export default function ChooseChildModal(props) {
     <div id="notification-modal">
       <div className="modal-container">
         <div className="modal-content" style={{ width: '70%' }}>
-          <nav>
-            <Button
-              className="exit-button"
-              onClick={evt => {
-                closeModal(evt);
-                setModalVisible(false);
-              }}
-            >
-              X
-            </Button>
-          </nav>
+          <Button
+            className="exit-button"
+            onClick={evt => {
+              closeModal(evt);
+              setModalVisible(false);
+            }}
+          >
+            X
+          </Button>
+
           <h2
             style={{
               textAlign: 'center',
