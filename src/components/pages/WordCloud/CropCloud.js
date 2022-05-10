@@ -32,7 +32,10 @@ export default function CropCloud() {
   // }, [])
 
   return (
-    <div className="cropcloud" data-testid="cropcloud">
+    <div
+      className="cropcloud"
+      data-testid="cropcloud appears at appropriate times on menu"
+    >
       {/* The first portion of the "src" code is a built in method for decoding images, just change the file type for different img types */}
       <div className="crop-cloud-container">
         <img
