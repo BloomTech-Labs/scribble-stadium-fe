@@ -63,6 +63,7 @@ const ParentNavTopBar = props => {
         </div>
         <div className="straight-bar"></div>
         <span className="welcome-back-msg">
+          Welcome back
           {props.parent &&
             `Welcome back, ` +
               (props.parent.name == null ? 'parent' : `${props.parent.name}`) +
