@@ -1,35 +1,22 @@
 // following code is commented out to prevent warnings during compilation
 import React from 'react';
 import { Header } from '../../common';
-<<<<<<< refs/remotes/origin/main
-<<<<<<< refs/remotes/origin/main
 // import { useHistory } from 'react-router-dom';
-=======
-import { useHistory } from 'react-router-dom';
->>>>>>> no-unused-vars
-=======
->>>>>>> unused imports
 import { connect } from 'react-redux';
 import explosion from '../../../assets/images/gamemodeimg/explosion.png';
 import boyImg from '../../../assets/images/hero_images/hero1.png';
 import PlayAgainButtonAnimation from './PlayAgainButtonAnimation';
 
-const RenderWinnerPage = props => {
-<<<<<<< refs/remotes/origin/main
+const RenderWinnerPage = () => {
   // const { push } = useHistory();
-=======
 //  const { push } = useHistory();
->>>>>>> unused var
 
-<<<<<<< refs/remotes/origin/main
   // const goToChildDashboard = () => {
   //   push('/child/dashboard');
   // };
-=======
 //  const goToChildDashboard = () => {
 //    push('/child/dashboard');
 //  };
->>>>>>> no-unused-vars
 
   return (
     <>

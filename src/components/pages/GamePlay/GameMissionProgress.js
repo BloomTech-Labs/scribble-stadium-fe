@@ -1,30 +1,14 @@
 //** Import Modules */
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-<<<<<<< refs/remotes/origin/main
-<<<<<<< refs/remotes/origin/main
 import { Dropdown } from 'antd';
-=======
-import {  Dropdown } from 'antd';
->>>>>>> unused state
-=======
-import { Dropdown } from 'antd';
->>>>>>> useCallback added
 //** Import Assets */
 import completeIcon from '../../../assets/images/gamemodeimg/completed.png';
 // Following code is commented out to prevent warnings during compilation
 export default function GameMissionProgress(props) {
   // Get the history object
   const history = useHistory();
-<<<<<<< refs/remotes/origin/main
-<<<<<<< refs/remotes/origin/main
   // const [isModalVisible, setIsModalVisible] = useState(false);
-=======
- // const [isModalVisible, setIsModalVisible] = useState(false);
->>>>>>> unused state
-=======
-  // const [isModalVisible, setIsModalVisible] = useState(false);
->>>>>>> useCallback added
   // Get the current state
   const { currentStep } = props;
 
@@ -53,7 +37,6 @@ export default function GameMissionProgress(props) {
         <div className="game-tips-text">
           <p className="game-tips-text-p">
             <img
-	      alt="right arrow"
               style={{ width: '48px', height: '48px' }}
               src="https://img.icons8.com/flat-round/64/000000/wide-right-arrow.png"
               alt="wide right arrow"
@@ -66,14 +49,12 @@ export default function GameMissionProgress(props) {
 	     alt="large right arrpw" 
 	    style={{ width: '48px', height: '48px' }}
               src="https://img.icons8.com/flat-round/64/000000/wide-right-arrow.png"
-              alt="wide right arrow"
             />{' '}
             You have to complete your current step before you can move on to the
             next step
           </p>
           <p className="game-tips-text-p">
             <img
-	    alt="wide right arrow"
               style={{ width: '48px', height: '48px' }}
               src="https://img.icons8.com/flat-round/64/000000/wide-right-arrow.png"
               alt="wide right arrow"

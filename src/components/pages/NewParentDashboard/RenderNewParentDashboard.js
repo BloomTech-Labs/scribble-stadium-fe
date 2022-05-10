@@ -1,14 +1,9 @@
-<<<<<<< refs/remotes/origin/main
-import React, { useState } from 'react';
-import { Layout, Tabs } from 'antd';
+import React, { useEffect, useState } from 'react';
 // import { useAuth0 } from '@auth0/auth0-react';
 // import { getProfileData } from '../../../api';
-=======
-import React, { useEffect, useState } from 'react';
 import { Layout, Row, Col } from 'antd';
 import { useAuth0 } from '@auth0/auth0-react';
 import { getProfileData } from '../../../api';
->>>>>>> Removed Tabs.
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import NewProgressCharts from '../../common/NewProgressCharts';
 import NewChildCard from '../../common/NewChildCard';
@@ -44,13 +39,10 @@ const RenderNewParentDashboard = props => {
   ];
 
   const history = useHistory();
-<<<<<<< refs/remotes/origin/main
   // const { user } = useAuth0();
   // const { setParent } = props;
-=======
   const { user } = useAuth0();
   const { setParent } = props;
->>>>>>> unused state call
   const [childrenAccounts] = useState(FAKE_CHILDREN);
   const [modalVisible, setModalVisible] = useState(false);
   const { Content } = Layout;

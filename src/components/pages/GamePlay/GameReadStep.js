@@ -42,31 +42,6 @@ export default function GameReadStep(props) {
     history.push(`${props.baseURL}/draw`);
   };
 
-<<<<<<< refs/remotes/origin/main
-  // Add some animation
-  useEffect(() => {
-    // get API base URL
-    const myStory = () => {
-      const APIURL = getApiUrl();
-
-      // initialize axios call
-      axios
-        .get(`${APIURL}/storyNew/1`)
-        .then(res => {
-          setThisEp({
-            ...thisEp,
-            title: res.data.Title,
-            author: res.data.Author,
-            episode: res.data.Episodes[0].EpisodeNumber,
-            content: res.data.Episodes[0].Content,
-          });
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    };
-    myStory();
-=======
   // get API base URL
   const myStory = useCallback(() => {
     const APIURL = getApiUrl();
@@ -91,17 +66,12 @@ export default function GameReadStep(props) {
   // Add some animation
   useEffect(() => {
 	  myStory();
->>>>>>> useCallback added
     gsap.from('#read-step', {
       opacity: 0,
       y: 200,
       duration: 1,
     });
-<<<<<<< refs/remotes/origin/main
-  }, [thisEp]);
-=======
   }, [myStory]);
->>>>>>> included useEffect dependency
 
   return (
     <div id="read-step">

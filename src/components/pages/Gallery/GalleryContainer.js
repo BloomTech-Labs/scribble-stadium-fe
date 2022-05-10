@@ -14,7 +14,7 @@ const GalleryContainer = props => {
 	const {setWeeklySubmissions } = props;
   const { user } = useAuth0();
   const { push } = useHistory();
-  const [, setDataInfo] = useState([]);
+  const [ dataInfo, setDataInfo] = useState([]);
   const { id } = useParams();
 
   // moved to Parent Component to pass down data
@@ -25,23 +25,15 @@ const GalleryContainer = props => {
     });
   }, [user, id]);
 
-	console.log(data);
+  console.log(dataInfo);
+
   const leaderboard = () => {
     push('/child/leaderboard');
   };
 
   useEffect(() => {
-<<<<<<< refs/remotes/origin/main
-    props.setWeeklySubmissions(id);
-  }, [props, id]);
-=======
     setWeeklySubmissions(id);
-<<<<<<< refs/remotes/origin/main
-  }, [id]);
->>>>>>> useEffect deps
-=======
-  }, [setWeeklySubmissions,id]);
->>>>>>> used unused var
+  }, [setWeeklySubmissions, id]);
 
   return (
     <>

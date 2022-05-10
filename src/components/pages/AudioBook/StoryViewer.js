@@ -1,37 +1,20 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect,  useCallback } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-<<<<<<< refs/remotes/origin/main
 // The following code was commented out to prevent warnings during compilation.
-=======
->>>>>>> unused vars, imports
-// import { useAuth0 } from '@auth0/auth0-react';
 import { Button } from 'antd';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { SizeMe } from 'react-sizeme';
-<<<<<<< refs/remotes/origin/main
 // import { useHistory } from 'react-router-dom';
 // import { markAsRead } from '../../../api';
-=======
->>>>>>> unused vars, imports
 
 const StoryViewer = props => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
-<<<<<<< refs/remotes/origin/main
-  const [, setViewed] = useState(false);
+  const [setViewed] = useState(false);
 
-  // const { user } = useAuth0();
-  // const { push } = useHistory();
-=======
-  const [hasViewedAllPages, setViewed] = useState(false);
-<<<<<<< refs/remotes/origin/main
-  const { user } = useAuth0();
-  const { push } = useHistory();
->>>>>>> unused var, func
-=======
+  const [hasViewedAllPages] = useState(false);
 //  const { user } = useAuth0();
 //  const { push } = useHistory();
->>>>>>> unused vars, imports
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
   console.lod(hasViewedAllPages);
@@ -39,7 +22,8 @@ const StoryViewer = props => {
     if (pageNumber === numPages) {
       setViewed(true);
     }
-  }, [pageNumber, numPages]);
+  }, [pageNumber, numPages, setViewed
+  ]);
 
   const previousPage = () => {
     if (pageNumber > 1) {
@@ -80,20 +64,17 @@ const StoryViewer = props => {
     setPageNumber(prevPageNumber => prevPageNumber + offset);
   };
 
-<<<<<<< refs/remotes/origin/main
   // The following code was commented out to prevent warnings during compilation.
   // const onFinish = e => {
   //   markAsRead(user, props.tasks.id);
   //   push('/child/mission-control');
   //   props.setHasRead();
   // };
-=======
 //  const onFinish = e => {
 //    markAsRead(user, props.tasks.id);
 //    push('/child/mission-control');
 //    props.setHasRead();
 //  };
->>>>>>> unused var, func
 
   return (
     <>

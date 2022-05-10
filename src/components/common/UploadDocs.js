@@ -117,11 +117,8 @@ export const UploadDocs = ({
   useEffect(() => {
     console.log({ fileList, filePreviews }, 'useEffect');
 
-<<<<<<< refs/remotes/origin/main
     // This is in case I have a fileList ready OUTSIDE this component
-=======
     // This is in case I have a filelist ready OUTSIDE this component
->>>>>>> strict Not equality check
     if (savedFileList !== undefined) {
       setFilePreviews(savedFileList);
       setFileList(savedFileList);

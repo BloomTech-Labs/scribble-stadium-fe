@@ -1,15 +1,25 @@
-<<<<<<< refs/remotes/origin/main
 import React, { useState } from 'react';
-=======
-import React, { useState} from 'react';
->>>>>>> no unused var
 import { useAuth0 } from '@auth0/auth0-react';
-
 import RenderMatchUp from './RenderMatchUp';
 import { connect } from 'react-redux';
-
 import { child, faceoffs, votes } from '../../../state/actions';
-<<<<<<< refs/remotes/origin/main
+
+
+export default connect(
+  state => ({
+    child: state.child,
+    faceoffs: state.faceoffs,
+    votes: state.votes,
+    custom_date: state.custom_date,
+  }),
+  {
+    setSquadFaceoffs: faceoffs.setSquadFaceoffs,
+    setMemberId: child.setMemberId,
+    setVotes: votes.setVotes,
+    setChild: child.setChild,
+  }
+)(MatchUpContainer);
+
 // the following code was commented out to prevent warnings during compilation. If is not necessary, remove it.
 // import {
 //   getChild,
@@ -18,20 +28,15 @@ import { child, faceoffs, votes } from '../../../state/actions';
 //   getFaceoffsForVoting,
 // } from '../../../api/index';
 
-function MatchUpContainer({ LoadingComponent, ...props }) {
-  const {
-    user,
-    //  isAuthenticated
-  } = useAuth0();
-=======
+//function MatchUpContainer({ LoadingComponent, ...props }) {
+//  const {
+//    user,
+//    isAuthenticated
+//  } = useAuth0();
 
 function MatchUpContainer({ LoadingComponent, ...props }) {
-<<<<<<< refs/remotes/origin/main
 //  const { user, isAuthenticated } = useAuth0();
->>>>>>> no unused var
-=======
   const { user } = useAuth0();
->>>>>>> no unused var
   const [userInfo] = useState(user);
   const [canVote] = useState(true);
 
@@ -85,7 +90,7 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
         canVote={canVote}
         votesRemaining={props.child.VotesRemaining}
       />
-      {/* {isAuthenticated && !userInfo && (
+    {/* {isAuthenticated && !userInfo && (
         <LoadingComponent message="Loading..." />
       )}
       {isAuthenticated && userInfo && props.faceoffs && (
@@ -99,18 +104,3 @@ function MatchUpContainer({ LoadingComponent, ...props }) {
     </>
   );
 }
-
-export default connect(
-  state => ({
-    child: state.child,
-    faceoffs: state.faceoffs,
-    votes: state.votes,
-    custom_date: state.custom_date,
-  }),
-  {
-    setSquadFaceoffs: faceoffs.setSquadFaceoffs,
-    setMemberId: child.setMemberId,
-    setVotes: votes.setVotes,
-    setChild: child.setChild,
-  }
-)(MatchUpContainer);

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {  Switch, Route } from 'react-router-dom';
 import UploadStoryPopup from './UploadStoryPopup';
 import { connect } from 'react-redux';
-import StoryPopup from './StoryPopup';
 import { Button } from 'antd';
 import StoryBacklog from './StoryBacklog';
 import StoryDetails from './StoryDetails';
@@ -11,14 +10,12 @@ import AdminHistory from './AdminHistory';
 const StoryManager = ({ stories }) => {
   const [addButtonState, setAddButtonState] = useState(false);
 
-  const [storyState, setStoryState] = useState(false);
 
-  const [story, setStory] = useState();
 
-  const reviewStory = story => {
-    setStory(story);
-    setStoryState(true);
-  };
+//  const reviewStory = story => {
+//    setStory(story);
+//    setStoryState(true);
+//  };
 
   return (
     <div className="story-manager">
