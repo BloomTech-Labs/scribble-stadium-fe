@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from 'antd';
 
-const ChangeCCinfoModal = props => {
+export default function ChangeCCinfoModal(props) {
   const [visible, setVisible] = useState(false);
   const handleExit = () => {
     props.setVisible(false);
@@ -20,8 +20,17 @@ const ChangeCCinfoModal = props => {
       onCancel={cancel}
       onOk={handleExit}
     >
-      <h2 className="Title-Text">Edit Payment Information</h2>
-      <form className="payment-Form"></form>
+      <h1 className="Title-Text">Edit Payment Information</h1>
+      <form className="payment-Form">
+        <label>
+          <h3 className="cardholder-Name"> Cardholder Name </h3>
+        </label>
+        <input className="name-field" type="text" name="Full Name" />
+        <h3 className="billing-address">Billing Address</h3>
+        <input className="address-field" type="text" name="Billing Address" />
+        <h3 className="CCnum">Credit/Debit Card Number</h3>
+        <input className="card-number" type="number" />
+      </form>
     </Modal>
   );
-};
+}

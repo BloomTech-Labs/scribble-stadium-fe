@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from 'antd';
 
-const ChangeSubinfoModal = props => {
+export default function ChangeSubinfoModal(props) {
   const [visible, setVisible] = useState(false);
 
   const handleExit = () => {
@@ -14,4 +14,4 @@ const ChangeSubinfoModal = props => {
   };
 
   return <Modal className="subInfoModal"></Modal>;
-};
+}

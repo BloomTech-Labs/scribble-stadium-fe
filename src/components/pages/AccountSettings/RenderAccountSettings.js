@@ -5,6 +5,9 @@ import bc from 'bcryptjs';
 import { getProfileData } from '../../../api';
 import PinInput from 'react-pin-input';
 import AccountSettingsForm from '../AccountSettingsForm/AccountSettingsForm';
+
+import ChangeCCinfoModal from '../AccountSettingsForm/ChangeCCinfo';
+import ChangeSubinfoModal from '../AccountSettingsForm/ChangeSubInfo';
 // needs account settings modal
 function RenderAccountSettings() {
   const { user } = useAuth0();
