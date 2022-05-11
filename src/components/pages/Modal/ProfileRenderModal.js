@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import bc from 'bcryptjs';
 import { useHistory } from 'react-router-dom';
 
 import { ArrowLeftOutlined } from '@ant-design/icons';
@@ -115,8 +114,7 @@ const ProfileRenderModal = props => {
                   },
                   ({ getFieldValue }) => ({
                     validator(rule, value) {
-                      const x = bc.compareSync(value, selected.PIN);
-                      if (x) {
+                      if (value == selected.PIN) {
                         return Promise.resolve();
                       }
                       return Promise.reject('Incorrect PIN!');
