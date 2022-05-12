@@ -81,9 +81,10 @@
     "format": "npx prettier --write 'src/**/*.{js,jsx,css,scss,md,json,yml,yaml}'"
   },
   "lint-staged": {
-    "**/*.js": [
-      "npm run lint:fix",
-      "npm run format"
+    "src/**/*.{js,css,jsx,json,md}": [
+      "npx eslint --fix",
+      "npx prettier --write",
+      "git add"
     ]
   },
   "husky": {
