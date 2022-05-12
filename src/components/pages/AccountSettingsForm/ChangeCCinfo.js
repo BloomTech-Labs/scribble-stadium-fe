@@ -19,6 +19,10 @@ export default function ChangeCCinfoModal(props) {
       width={'99%'}
       onCancel={cancel}
       onOk={handleExit}
+      bodyStyle={{
+        display: 'flex',
+        alignItems: 'center',
+      }}
     >
       <h1 className="Title-Text">Edit Payment Information</h1>
       <form className="payment-Form">
