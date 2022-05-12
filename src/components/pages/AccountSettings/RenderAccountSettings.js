@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Form } from 'antd';
 import { useAuth0 } from '@auth0/auth0-react';
-import bc from 'bcryptjs';
 import { getProfileData } from '../../../api';
 import PinInput from 'react-pin-input';
 import AccountSettingsForm from '../AccountSettingsForm/AccountSettingsForm';
@@ -66,8 +65,7 @@ function RenderAccountSettings() {
             inputStyle={{ borderRadius: '15px' }}
             inputFocusStyle={{ borderColor: 'blue' }}
             onComplete={(value, index) => {
-              const x = bc.compareSync(value, userInfo.PIN);
-              if (x === true) {
+              if (value == userInfo.pin) {
                 onFinish();
               } else {
                 setError(true);

@@ -15,7 +15,7 @@ jobs:
         uses: ./.github/actions/setup-action
       - run: echo "::warning title=Linting Errors::Lining has too many linting errors"
       # skip for now. so many linting errors
-      # - run: "npx eslint 'src/**/*.{js,jsx}' --rule 'prettier/prettier: warn'"
+      # - run: "npm run lint"
   build:
     name: "[skip] Build the craco app <BROKEN>"
     needs: lint
@@ -24,8 +24,8 @@ jobs:
       - uses: actions/checkout@v2
       - id: setup
         uses: ./.github/actions/setup-action
-      - run: echo "::warning title=CRACO Build Errors::Build is failing on CI"
-      # - run: npm run build # build is failing on lint; added skip in sample env :(
+      # - run: echo "::warning title=CRACO Build Errors::Build is failing on CI"
+      - run: npm run build # build is failing on lint; added skip in sample env :(
   coverage:
     name: Test and publish test coverage
     needs: lint

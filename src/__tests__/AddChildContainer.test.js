@@ -8,7 +8,7 @@ import { ParentLoadingComponent } from '../components/common';
 import AddChildContainer from '../components/pages/AddChild/AddChildContainer';
 
 import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import RenderAddChild from '../components/pages/AddChild/RenderAddChild';
 import LoadingComponent from '../components/common/ParentLoadingComponent';
 

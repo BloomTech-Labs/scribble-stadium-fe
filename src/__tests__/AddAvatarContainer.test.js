@@ -8,7 +8,7 @@ import AddAvatarContainer from '../components/pages/AddAvatarForm/AddAvatarConta
 import { ParentLoadingComponent } from '../components/common';
 
 import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import RenderAddAvatar from '../components/pages/AddAvatarForm/RenderAddAvatar';
 import LoadingComponent from '../components/common/ParentLoadingComponent';
 
@@ -21,7 +21,7 @@ afterEach(() => {
 
 jest.mock('@auth0/auth0-react', () => ({
   Auth0Provider: ({ children }) => children,
-  withAuthenticationRequired: (component, _) => component,
+  withAuthenticationRequired: component => component,
   useAuth0: () => {
     return {
       isAuthenticated: true,

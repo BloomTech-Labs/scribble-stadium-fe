@@ -1,6 +1,7 @@
 {
     "env": {
         "browser": true,
+        "node": true,
         "es6": true,
         "jest": true
     },
@@ -25,7 +26,8 @@
     ],
     "rules": {
         "react/react-in-jsx-scope": "off",
-        "prettier/prettier": "warn"
+        "prettier/prettier": "warn",
+        "react/prop-types": "off"
     },
     "settings": {
         "react": {
