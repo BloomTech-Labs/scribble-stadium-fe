@@ -62,8 +62,6 @@ import { VotingPage } from './components/pages/VotingPage';
 import { WinnerPage } from './components/pages/WinnerPage';
 import { PlayAgain } from './components/pages/PlayAgain';
 
-// Note: for demo/developer purposes ONLY
-import ModerationTest from './components/pages/ModerationTest/ModerationTest';
 import GalleryContainer from './components/pages/Gallery/GalleryContainer';
 import { AudioBook } from './components/pages/AudioBook';
 import Admin from './components/pages/Admin/Admin';
@@ -320,8 +318,6 @@ function App() {
             <PlayAgain LoadingComponent={ChildLoadingComponent} />
           )}
         />
-        {/* DEPRECATED. OK to DELETE please work on /admin instad of moderation UPDATED 11-16-21*/}
-        <Route exact path="/moderation" component={ModerationTest} />
         <Route path="/admin" component={Admin} />
         <Route component={NotFoundPage} />
       </Switch>
