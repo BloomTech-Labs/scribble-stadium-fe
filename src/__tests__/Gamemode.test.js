@@ -8,7 +8,7 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { Gamemode, Thrashbar } from '../components/pages/Gamemode';
 import { configure, shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { tasks, global } from '../state/actions';
 import { reducer } from '../state/reducers/taskReducer';
 
