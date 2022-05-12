@@ -1,6 +1,10 @@
 {
   "name": "scribble-stadium",
   "version": "0.1.2",
+  "engines": {
+    "node": ">=14.0.0 <15.0.0",
+    "npm": ">=8.3.0"
+  },
   "private": false,
   "license": "MIT",
   "repository": "github:BloomTech-Labs/labs-spa-starter",
@@ -10,24 +14,23 @@
     "@craco/craco": "^6.4.3",
     "antd": "^4.16.6",
     "axios": "^0.21.1",
-    "craco-less": "^2.0.0",
+    "craco-less": "^1.20.0",
     "emailjs": "^3.4.0",
     "emailjs-com": "^2.6.4",
     "gsap": "^3.7.1",
     "react": "^18.1.0",
-    "react-datepicker": "^3.4.1",
     "react-dom": "^18.1.0",
     "react-h5-audio-player": "^3.7.1",
     "react-image-picker": "^1.1.1",
     "react-pdf": "^5.0.0",
-    "react-pin-input": "^1.0.1",
+    "react-pin-input": "^1.1",
     "react-plotly.js": "^2.5.0",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^5.0.1",
-    "react-sizeme": "^2.6.12",
+    "react-scripts": "^4.0.3",
+    "react-sizeme": "^3.0.2",
     "react-spring": "^8.0.27",
-    "react-test-renderer": "^16.13.1",
+    "react-test-renderer": "^18.1",
     "react-toastify": "^7.0.4",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
@@ -36,18 +39,46 @@
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.2.2"
   },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
+    "enzyme": "^3.11.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "file-loader": "^6.2.0",
+    "husky": "^4.2.5",
+    "jest-canvas-mock": "^2.2.0",
+    "jest-prop-type-error": "^1.1.0",
+    "lint-staged": "^10.2.11",
+    "prettier-eslint-cli": "^5.0.0"
+  },
+  "overrides": {
+    "react-image-picker": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "react-pin-input": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@wojtekmaj/enzyme-adapter-react-17": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
+  },
   "scripts": {
     "start": "node start.js",
     "build": "DISABLE_ESLINT_PLUGIN=true SKIP_PREFLIGHT_CHECK=true ESLINT_NO_DEV_ERRORS=true npx craco build",
-    "test": "npx craco test --env=jest-environment-jsdom-sixteen",
-    "eject": "react-scripts eject",
+    "test": "npx craco test",
+    "eject": "npx react-scripts eject",
     "coverage": "npm run test -- --ci --collectCoverage=true --watchAll=false",
-    "lint": "npx eslint .",
-    "lint:fix": "npx eslint . --fix",
-    "format": "npx prettier --write 'src/**/*.{js,jsx,css,scss}'",
-    "prettier": "npx prettier --write '**/*.+(js|jsx|json|css|md)'",
-    "storybook": "npx start-storybook",
-    "deploy-storybook": "npx storybook-to-ghpages"
+    "lint": "npx eslint 'src/**/*.{js,jsx}'",
+    "lint:fix": "npx eslint 'src/**/*.{js,jsx}' --fix",
+    "format": "npx prettier --write 'src/**/*.{js,jsx,css,scss,md,json,yml,yaml}'"
   },
   "lint-staged": {
     "**/*.js": [
@@ -82,25 +113,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.2.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
-    "enzyme": "^3.11.0",
-    "eslint": "^8.13.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.4.1",
-    "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-hooks": "^4.0.4",
-    "file-loader": "^6.2.0",
-    "husky": "^4.2.5",
-    "jest-canvas-mock": "^2.2.0",
-    "jest-environment-jsdom-sixteen": "^1.0.3",
-    "jest-prop-type-error": "^1.1.0",
-    "lint-staged": "^10.2.11",
-    "prettier": "^2.6.2",
-    "prettier-eslint-cli": "^5.0.0"
   }
 }
