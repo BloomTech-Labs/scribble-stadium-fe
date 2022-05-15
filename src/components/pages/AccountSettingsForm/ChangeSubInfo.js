@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Card } from 'antd';
+import { Modal, Card, Row, Col } from 'antd';
 
 export default function ChangeSubinfoModal(props) {
   const [visible, setVisible] = useState(false);
@@ -29,13 +29,21 @@ export default function ChangeSubinfoModal(props) {
       <div className="card-row">
         <Row>
           <Col>
-            <Card className="ss-home" title="Story Squad for home">
+            <Card
+              className="ss-home"
+              title="Story Squad for home"
+              //onClick={}
+            >
               card information
             </Card>
           </Col>
 
           <Col>
-            <Card className="ss-class" title="Story Squad for the classroom">
+            <Card
+              className="ss-class"
+              title="Story Squad for the classroom"
+              //onClick={}
+            >
               card info
             </Card>
           </Col>
