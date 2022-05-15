@@ -97,7 +97,7 @@ const RenderNewParentDashboard = props => {
       {modalVisible && (
         <ChooseChildModal
           childrenAccounts={childrenAccounts}
-          handleCharacterClick={(evt, childId) => {
+          handleCharacterClick={() => {
             history.push('/dashboard');
           }}
         />

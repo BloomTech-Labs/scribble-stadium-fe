@@ -14,7 +14,7 @@ import { global } from '../../state/actions';
 import { useAuth0 } from '@auth0/auth0-react';
 import BackButton from '../common/BackButton';
 import PropTypes from 'prop-types';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 
 const ChildMenu = props => {
   const { push } = useHistory();

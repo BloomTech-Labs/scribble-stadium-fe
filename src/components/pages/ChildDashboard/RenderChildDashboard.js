@@ -11,7 +11,7 @@ import data from '../../../data.json';
 import { connect } from 'react-redux';
 import { getSubmissions } from '../../../api/index';
 
-const RenderChildDashboard = props => {
+const RenderChildDashboard = () => {
   const history = useHistory();
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -28,20 +28,20 @@ const RenderChildDashboard = props => {
     });
   }, []);
 
-  const handleAcceptMission = e => {
+  const handleAcceptMission = () => {
     data.gameSession = true;
     history.push('/gamemode');
   };
 
-  const handleTrophyRoom = e => {
+  const handleTrophyRoom = () => {
     history.push('/gameplay/trophy-room');
   };
 
-  const handleChangeAvatar = event => {
+  const handleChangeAvatar = () => {
     history.push('/change-avatar');
   };
 
-  const handleLeaderboard = e => {
+  const handleLeaderboard = () => {
     history.push('/leaderboard');
   };
 

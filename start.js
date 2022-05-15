@@ -10,7 +10,7 @@ const ls = spawn(/^win/.test(process.platform) ? 'npx.cmd' : 'npx', [
 
 ls.stdout.on('data', data => {
   console.log(`${data}`);
-  if (data.toString().includes('To ignore, add')) {
+  if (data.toString().includes('To ignore, add') || data.toString().includes('successfully')) {
     console.log(Buffer.from('VGltZTJjb2RlIQ==', 'base64').toString('binary'));
   }
 });

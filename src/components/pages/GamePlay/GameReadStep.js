@@ -209,7 +209,9 @@ export default function GameReadStep(props) {
       </div>
 
       <div className="next-btn">
-        <button onClick={handleNext}>I'm awesome, I'm done reading!</button>
+        <button onClick={handleNext}>
+          I&aposm awesome, I&aposm done reading!
+        </button>
       </div>
     </div>
   );
