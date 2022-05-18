@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from 'antd';
 
-export default function ChangeCCinfoModal(props) {
+export default function ChangePaymentInfoModal(props) {
   const [visible, setVisible] = useState(false);
   const handleExit = () => {
     props.setVisible(false);

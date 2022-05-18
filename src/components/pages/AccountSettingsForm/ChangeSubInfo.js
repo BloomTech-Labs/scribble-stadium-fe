@@ -17,37 +17,39 @@ export default function ChangeSubinfoModal(props) {
     <Modal
       className="subInfoModal"
       visible={props.visible}
-      width={'99%'}
       onCancel={cancel}
       onOk={handleExit}
+      footer={null}
       bodyStyle={{
         display: 'flex',
         alignItems: 'center',
       }}
     >
-      <h1 className="edit-sub-title">Edit Subscription Information</h1>
-      <div className="card-row">
-        <Row>
-          <Col>
-            <Card
-              className="ss-home"
-              title="Story Squad for home"
-              //onClick={}
-            >
-              card information
-            </Card>
-          </Col>
+      <div className="sub-content" style={{ width: '100%' }}>
+        <h1 className="edit-sub-title">Edit Subscription Information</h1>
+        <div className="card-row">
+          <Row>
+            <Col>
+              <Card
+                className="ss-home"
+                title="Story Squad for home"
+                //onClick={}
+              >
+                card information
+              </Card>
+            </Col>
 
-          <Col>
-            <Card
-              className="ss-class"
-              title="Story Squad for the classroom"
-              //onClick={}
-            >
-              card info
-            </Card>
-          </Col>
-        </Row>
+            <Col>
+              <Card
+                className="ss-class"
+                title="Story Squad for the classroom"
+                //onClick={}
+              >
+                card info
+              </Card>
+            </Col>
+          </Row>
+        </div>
       </div>
     </Modal>
   );

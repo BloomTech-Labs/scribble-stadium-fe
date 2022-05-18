@@ -35,7 +35,7 @@ function AccountSettingsForm({ disabled }) {
             className="acct-settings-input"
             type="text"
             name="email"
-            placeholder="caroline@gmail.com"
+            placeholder="• • • • • • • • • • • •"
             value={value.email}
           />
         </div>
