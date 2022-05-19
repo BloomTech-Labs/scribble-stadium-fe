@@ -95,7 +95,7 @@ const ChangePasswordModal = props => {
         </div>
 
         <div className="modal-save-button-container">
-          <Button className="modal-save-button">SAVE</Button>
+          <Button className="modal-save-button"> {/*onSubmit={}*/} SAVE</Button>
         </div>
       </div>
     </Modal>

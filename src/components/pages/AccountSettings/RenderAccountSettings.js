@@ -3,7 +3,6 @@ import { Modal, Button, Form } from 'antd';
 import { useAuth0 } from '@auth0/auth0-react';
 
 import { getProfileData } from '../../../api';
-import PinInput from 'react-pin-input';
 import AccountSettingsForm from '../AccountSettingsForm/AccountSettingsForm';
 
 import ChangePaymentInfoModal from '../AccountSettingsForm/Changepaymentinfo';
@@ -15,6 +14,8 @@ function RenderAccountSettings() {
   const [userInfo, setUserInfo] = useState();
   const [visible, setVisible] = useState(false);
 
+  const [subModalVisible, setSubModalVisible] = useState(false);
+
   //Grab the parents userInfo so we can validate their information (pin)
   useEffect(() => {
     getProfileData(user).then(res => {
@@ -25,15 +26,6 @@ function RenderAccountSettings() {
     });
   }, [user]);
 
-  //These functions handle's exiting the modal once it is activated
-  const handleModal = () => {
-    setVisible(false);
-  };
-
-  // this function runs once the user has inputted the correct pin.
-  //It toggles the opacity and disabled prop of the editFormsAndButtonsContainer
-  // allowing the user to see that they can now access the elements to update their account
-
   return (
     <div className="accountSettingsContainer">
       <div className="textAndButtonContainer">
@@ -41,31 +33,30 @@ function RenderAccountSettings() {
           <h3>Edit Account Settings</h3>
         </div>
       </div>
-      <div
-        className="editFormsAndButtonsContainer"
-        style={unlock ? { opacity: '.85' } : null}
-      >
+      <div className="editFormsAndButtonsContainer" style={{ opacity: '.85' }}>
         <AccountSettingsForm />
       </div>
       <div className="settings-buttons-container">
         <button
           className="plainButton"
-          style={unlock ? { opacity: '.85' } : null}
-          //onClick={()=>setVisible(true)}
+          style={{ opacity: '.85' }}
+          onClick={() => setVisible(true)}
         >
           Edit Payment Info
         </button>
-        {/*<ChangePaymentInfoModal visible={visible} setVisible={setVisible}/>*/}
-
+        <ChangePaymentInfoModal visible={visible} setVisible={setVisible} />
         <br />
         <button
           className="plainButton"
-          style={unlock ? { opacity: '.85' } : null}
-          onClick={() => setVisible(true)}
+          style={{ opacity: '.85' }}
+          onClick={() => setSubModalVisible(true)}
         >
           Edit Subscription Plan
         </button>
-        <ChangeSubinfoModal visible={visible} setVisible={setVisible} />
+        <ChangeSubinfoModal
+          subModalVisible={subModalVisible}
+          setSubModalVisible={setSubModalVisible}
+        />
       </div>
     </div>
   );
