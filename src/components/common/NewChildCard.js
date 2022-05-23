@@ -25,9 +25,9 @@ function NewChildCard(props) {
     <div className="newChildCardContainer">
       <div className="Players">
         <div className="playheading">
-          <h2>Players</h2>
+          <h2 className="playersTitle">Players</h2>
 
-          <div className="childdivns">
+          <div className="child-divns">
             <Button className="addPlayerButton" onClick={addPlayerPush}>
               <PlusCircleOutlined /> Add Player
             </Button>
@@ -50,7 +50,6 @@ function NewChildCard(props) {
           props.props.parent.children.map((child, i) => (
             <Card key={i}>
               <div className="inner">
-                {/* This is hard coded right now, once data is ready, can replace it */}
                 <div className="statusContainer">
                   <h4>Status: Matchup</h4>
                 </div>

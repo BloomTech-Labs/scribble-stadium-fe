@@ -63,12 +63,12 @@ const RenderNewParentDashboard = props => {
           setModalVisible(true);
         }}
       />
-      {/* </Header> */}
+
       <Layout className="newparent-dashboard">
         {/* TODO: add width control to containers, responsive sizes, add breakpoints  */}
         <Content className="grid-container">
           <Row gutter={[16, { xs: 8, sm: 14, md: 18, lg: 32 }]}>
-            <Col sm={{}} md={{ span: 12 }}>
+            <Col className="child-column" sm={{}} md={{ span: 12 }}>
               <NewChildCard props={props} className="child-container" />
             </Col>
             <Col sm={{}} md={{ span: 12 }}>
@@ -84,8 +84,6 @@ const RenderNewParentDashboard = props => {
             </Col>
           </Row>
         </Content>
-        {/* <Footer> */}
-        {/* </Footer> */}
       </Layout>
       <ParentFooter />
       {modalVisible && (
