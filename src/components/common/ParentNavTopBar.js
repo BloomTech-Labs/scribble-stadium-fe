@@ -52,6 +52,9 @@ const ParentNavTopBar = props => {
                 props.handlePlayGameButtonClick(evt);
               }}
             >
+              {/* bug, see ChooseChildModal.js line 48
+              
+              PLAY GAME button being clicked from another page does not bring up choose child modal*/}
               PLAY GAME
             </Button>
           </Link>

@@ -72,18 +72,21 @@ function NewChildCard(props) {
                     </div>
                     <div className="statBox">
                       <div className="statBoxBackground">
+                        {/* Missions completed */}
                         <p>{MockDataTotalPoints}</p>
                       </div>
                       <h4>Total Pts.</h4>
                     </div>
                     <div className="statBox">
                       <div className="statBoxBackground">
+                        {/* Total Points */}
                         <p>{MockDataWins}</p>
                       </div>
                       <h4>Wins</h4>
                     </div>
                     <div className="statBox">
                       <div className="statBoxBackground">
+                        {/* Total Words */}
                         <p>{MockDataLosses}</p>
                       </div>
                       <h4>Losses</h4>

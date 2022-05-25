@@ -45,7 +45,7 @@ export default function ChooseChildModal(props) {
               setModalVisible(false);
             }}
           >
-            X
+            {/* Modal closes but will not reopen without refresh*/}X
           </Button>
 
           <h2
