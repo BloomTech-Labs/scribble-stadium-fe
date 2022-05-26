@@ -27,47 +27,53 @@ function NewProgressCharts(props) {
       </div>
       <div className="ProgressBoxContainer">
         <div className="ProgressBox">
+          {/*  PLAYER 1  */}
           <Row className="player">
-            {' '}
             <div className="playerName">SubmarineBoy</div>
-            <Col className="week-num">
-              <Col className="stats"> 5 </Col>
-              Weeks completed
+            <Col className="total-words">
+              <Row className="stats"> 5 </Row>
+              Total Words
             </Col>
             <Col className="missions">
-              <Col className="stats">5</Col>
+              <Row className="stats">500</Row>
+              Total Points
+            </Col>
+            <Col className="points">
+              <Row className="stats">500</Row>
+              Things Completed
+            </Col>
+          </Row>
+          {/*  PLAYER 2  */}
+          <Row className="player">
+            <div className="playerName">Pinky Winky</div>
+            <Col className="total-words">
+              <Row className="stats">5</Row>
+              Total Words
+            </Col>
+            <Col className="missions">
+              <Row className="stats">5</Row>
               Missions Completed
             </Col>
             <Col className="points">
-              <Col className="stats"> 50 </Col>
-              Total Points
+              <Row className="stats">500</Row>
+              things Completed
             </Col>
           </Row>
-
-          <Row className="player">
-            {' '}
-            <div className="playerName">Pinky Winky</div>
-            <Col className="week-num">
-              <Col className="stats">5</Col>
-              Weeks completed
-            </Col>
-            <Col className="missions">
-              <Col className="stats">5</Col>
-              Missions Completed
-            </Col>
-          </Row>
-
+          {/*  PLAYER 3  */}
           <Row className="player">
             <div className="playerName">Dad </div>
-            <Col className="week-num">
-              <Col className="stats">5 </Col>
-              Weeks completed
+            <Col className="total-words">
+              <Row className="stats">5 </Row>
+              Total Words
             </Col>
             <Col className="missions">
-              <Col className="stats">5</Col>
+              <Row className="stats">5</Row>
               Missions Completed
             </Col>
-            `
+            <Col className="points">
+              <Row className="stats">500</Row>
+              things Completed
+            </Col>
           </Row>
         </div>
       </div>

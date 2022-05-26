@@ -3,8 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { Button } from 'antd';
 import { refresh } from 'less';
+import { useHistory } from 'react-router-dom';
+
 export default function ChooseChildModal(props) {
   // Get the data to display
+  const history = useHistory();
   const { childrenAccounts, handleCharacterClick } = props;
   const [modalVisible, setModalVisible] = useState(false);
   // // Timeout timer before the modal is removed from the DOM(in ms)
@@ -43,6 +46,7 @@ export default function ChooseChildModal(props) {
             onClick={evt => {
               closeModal(evt);
               setModalVisible(false);
+              history.push('/');
             }}
           >
             {/* Modal closes but will not reopen without refresh*/}X
