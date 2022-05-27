@@ -9,7 +9,7 @@ import {
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { connect } from 'react-redux';
-import { global } from '../../../state/actions';
+// import { global } from '../../../state/actions';
 
 import parent_avatar from '../../../assets/icons/parent_avatar.svg';
 
@@ -49,7 +49,7 @@ const AdminHeader = props => {
         </Title>
       </Link>
       <div className="nav-right">
-        <div className="link-container">
+        <div className="icons-container">
           <div>
             <HomeOutlined style={{ fontSize: 18 }} />
           </div>
@@ -63,10 +63,12 @@ const AdminHeader = props => {
           </div>
         </div>
         <div className="straight-bar"></div>
-        <span className="welcome-back-msg">
+        <span className="welcome-msg">
           {props.parent &&
             `Welcome back, ` +
-              (props.parent.name == null ? 'Admin' : `${props.parent.name}`) +
+              (props.parent.name == null
+                ? 'Moderator'
+                : `${props.parent.name}`) +
               `!`}
         </span>
         <Dropdown
@@ -76,8 +78,8 @@ const AdminHeader = props => {
         >
           <a
             href="/"
-            className="parent-avatar"
-            data-testid="parent-avatar"
+            className="admin-avatar"
+            data-testid="admin-avatar"
             onClick={e => e.preventDefault()}
           >
             <img src={parent_avatar} alt="Dropdown Menu" />
