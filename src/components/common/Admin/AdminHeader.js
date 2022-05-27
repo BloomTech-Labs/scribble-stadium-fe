@@ -1,30 +1,49 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useHistory } from 'react-router-dom';
-import { Button } from 'antd';
+
+import { Badge, Avatar } from 'antd';
+import {
+  HomeOutlined,
+  UserOutlined,
+  QuestionCircleOutlined,
+  BellOutlined,
+} from '@ant-design/icons';
+
+import { Link } from 'react-router-dom';
 
 const AdminHeader = () => {
-  const { user, logout } = useAuth0();
-  const history = useHistory();
+  const { user } = useAuth0();
+  // const history = useHistory();
 
   return (
     <div className="header">
-      <h4>Admin: {user.name}</h4>
       <div>
-        <img
-          src="https://raw.githubusercontent.com/BloomTech-Labs/scribble-stadium-fe/main/public/assets/Login-Explosion-Final.png"
-          alt="Story Squad Logo"
-        />
+        <Link to="/">
+          <h1 className="header-logo">{'STORY SQUAD'}</h1>
+        </Link>
       </div>
-      <div className="buttons">
-        <Button
-          onClick={() => {
-            history.push('/admin');
-          }}
-        >
-          Home
-        </Button>
-        <Button onClick={() => logout()}>Log Out</Button>
+
+      <div>
+        <Badge count={11}>
+          <Avatar
+            style={{ backgroundColor: '#87d068' }}
+            icon={<UserOutlined />}
+          />
+        </Badge>
+        <h4>Welcome back, {user.name}</h4>
+        <div className="header-nav">
+          <div>
+            <HomeOutlined style={{ fontSize: 18 }} />
+          </div>
+          <div>
+            <QuestionCircleOutlined style={{ fontSize: 18 }} />
+          </div>
+          <div>
+            <Badge dot>
+              <BellOutlined style={{ fontSize: 18 }} />
+            </Badge>
+          </div>
+        </div>
       </div>
     </div>
   );
