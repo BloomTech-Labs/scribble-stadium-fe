@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AdminHeader from '../../common/Admin/AdminHeader';
 import AdminSideBar from '../../common/Admin/AdminSidebar';
 import StoryManager from './StoryManager';
+import ParentFooter from '../../common/ParentFooter';
 
 // Error out: no-unused-vars
 // import StoryBacklog from './StoryBacklog';
@@ -25,6 +26,9 @@ const Admin = () => {
               <Route path="/admin/storymanager" component={StoryManager} />
             </Switch>
           </div>
+        </div>
+        <div>
+          <ParentFooter layoutContainerCheck={'no-scroll'} />
         </div>
       </Router>
     )
