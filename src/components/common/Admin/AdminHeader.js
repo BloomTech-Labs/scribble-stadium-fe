@@ -1,5 +1,11 @@
 import React from 'react';
-import { Typography, Menu, Dropdown } from 'antd';
+import { Typography, Menu, Dropdown, Badge } from 'antd';
+import {
+  HomeOutlined,
+  // UserOutlined,
+  QuestionCircleOutlined,
+  BellOutlined,
+} from '@ant-design/icons';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { connect } from 'react-redux';
@@ -43,7 +49,19 @@ const AdminHeader = props => {
         </Title>
       </Link>
       <div className="nav-right">
-        <div className="link-container"></div>
+        <div className="link-container">
+          <div>
+            <HomeOutlined style={{ fontSize: 18 }} />
+          </div>
+          <div>
+            <QuestionCircleOutlined style={{ fontSize: 18 }} />
+          </div>
+          <div>
+            <Badge dot>
+              <BellOutlined style={{ fontSize: 18 }} />
+            </Badge>
+          </div>
+        </div>
         <div className="straight-bar"></div>
         <span className="welcome-back-msg">
           {props.parent &&
