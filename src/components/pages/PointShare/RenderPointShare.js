@@ -108,10 +108,11 @@ const PointShare = props => {
 
   const formSubmit = () => {
     // notification used to handle errors related to the user's share points submission.
-    if (totalPoints < 0) {
+    if (totalPoints > 0) {
       notification.error({
         message: 'You may only allocate 100 points!',
       });
+
       return;
     }
     setTeamPoints([
@@ -192,9 +193,20 @@ const PointShare = props => {
     setTotalPoints(Math.max(100 - (value + a + b + c), 0));
   };
 
-  const handleSubmitPoints = () => {
-    formSubmit(); // submit the form
-    history.push('/child/winner'); // this page routes to Winner page per Ash / Jake's Whimsical
+  // const handleSubmitPoints = () => {
+  //   formSubmit(); // submit the form
+  //   history.push('/child/winner'); // this page routes to Winner page per Ash / Jake's Whimsical
+  // };
+
+  const handleSubmitPoints = props => {
+    if (totalPoints > 0) {
+      notification.error({
+        message: 'You may only allocate 100 points!',
+      });
+    } else if (totalPoints == 0) {
+      formSubmit(props); // submit the form
+      history.push('/child/winner'); // this page routes to Winner page per Ash / Jake's Whimsical
+    }
   };
 
   return (
