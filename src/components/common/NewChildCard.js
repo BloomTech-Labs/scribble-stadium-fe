@@ -14,10 +14,10 @@ function NewChildCard(props) {
   if (props.props.parent.children.length < 1) {
     noChildren = true;
   }
-  const editPlayerPush = e => {
+  const editPlayerPush = () => {
     push('/parent/edit-players');
   };
-  const addPlayerPush = e => {
+  const addPlayerPush = () => {
     push('/parent/add-child');
   };
 

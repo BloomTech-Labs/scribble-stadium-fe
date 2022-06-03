@@ -26,7 +26,7 @@ const ChildCard = props => {
         htmlType="submit"
         onClick={() => setVisible(true)}
       >
-        {props.name.toUpperCase()}'S {props.update}
+        {props.name.toUpperCase()} {props.update}
       </Button>
       <LargeModal
         visible={visible}
