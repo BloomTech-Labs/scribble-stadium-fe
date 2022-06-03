@@ -1,81 +1,66 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Col, Row } from 'antd';
-
-//trouble getting the childs progress data into the progress charts from NewChildCard.js, TypeError cannot read undefined ( see '>>')
+import { Col, Row, Table } from 'antd';
 
 function NewProgressCharts(props) {
-  /*const MockDataMissions = 15;
-  const MockDataTotalWords = 100;
-  const MockDataTotalPoints = 309;
-  let noChildren = false;
-  
-  >>if (props.props.parent.children.length < 1) {
-    noChildren = true;
-  }*/
-
-  /*Child stats: Missions Completed, total words, total points
-   */
-
+  //hardcoded child data
+  const childData = [
+    {
+      name: 'SubmarineBoy',
+      MissionsCompleted: 6,
+      TotalPoints: 460,
+      TotalWords: 100,
+      key: '1',
+    },
+    {
+      name: 'Pinky Winky',
+      MissionsCompleted: 7,
+      TotalPoints: 500,
+      TotalWords: 115,
+      key: '2',
+    },
+    {
+      name: 'Dad',
+      MissionsCompleted: 8,
+      TotalPoints: 390,
+      TotalWords: 80,
+      key: '3',
+    },
+  ];
+  const columns = [
+    { title: 'Name', dataIndex: 'name', key: 'key' },
+    {
+      title: 'Missions Completed',
+      dataIndex: 'MissionsCompleted',
+      key: 'key',
+      sorter: (a, b) => a.MissionsCompleted - b.MissionsCompleted,
+    },
+    {
+      title: 'Total Points',
+      dataIndex: 'TotalPoints',
+      key: 'key',
+      sorter: (a, b) => a.TotalPoints - b.TotalPoints,
+    },
+    {
+      title: 'Total Words',
+      dataIndex: 'TotalWords',
+      key: 'key',
+      sorter: (a, b) => a.TotalWords - b.TotalWords,
+    },
+  ];
   // FAKE DATA WILL NEED TO BE REPLACED WITH ACCURATE CHILD DATA
-  //
 
   return (
     <div className="ProgressContainer">
       <div className="ProgressHeader">
         <h2>Progress Charts</h2>
       </div>
-      <div className="ProgressBoxContainer">
-        <div className="ProgressBox">
-          {/*  PLAYER 1  */}
-          <Row className="player">
-            <div className="playerName">SubmarineBoy</div>
-            <Col className="total-words">
-              <Row className="stats"> 5 </Row>
-              Total Words
-            </Col>
-            <Col className="missions">
-              <Row className="stats">500</Row>
-              Total Points
-            </Col>
-            <Col className="points">
-              <Row className="stats">500</Row>
-              Things Completed
-            </Col>
-          </Row>
-          {/*  PLAYER 2  */}
-          <Row className="player">
-            <div className="playerName">Pinky Winky</div>
-            <Col className="total-words">
-              <Row className="stats">5</Row>
-              Total Words
-            </Col>
-            <Col className="missions">
-              <Row className="stats">5</Row>
-              Missions Completed
-            </Col>
-            <Col className="points">
-              <Row className="stats">500</Row>
-              things Completed
-            </Col>
-          </Row>
-          {/*  PLAYER 3  */}
-          <Row className="player">
-            <div className="playerName">Dad </div>
-            <Col className="total-words">
-              <Row className="stats">5 </Row>
-              Total Words
-            </Col>
-            <Col className="missions">
-              <Row className="stats">5</Row>
-              Missions Completed
-            </Col>
-            <Col className="points">
-              <Row className="stats">500</Row>
-              things Completed
-            </Col>
-          </Row>
-        </div>
+      <div className="ProgressBox">
+        <Table
+          pagination={false}
+          columns={columns}
+          dataSource={childData}
+        ></Table>
       </div>
     </div>
   );
