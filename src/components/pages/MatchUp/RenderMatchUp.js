@@ -8,7 +8,7 @@ import { Header } from '../../common';
 // import { InstructionsModal } from '../../common';
 // import { modalInstructions } from '../../../utils/helpers';
 
-const RenderMatchUp = props => {
+const RenderMatchUp = () => {
   const { push } = useHistory();
 
   const goToPointShare = e => {

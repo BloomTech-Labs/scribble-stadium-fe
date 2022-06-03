@@ -41,7 +41,8 @@ const RenderMissionControl = props => {
         props.setSubmissionInformation(res);
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
+    // react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

@@ -16,7 +16,7 @@ import { useHistory } from 'react-router-dom';
 // TEMPORARY
 // import { child } from '../../../state/actions';
 
-const RenderLeaderboard = props => {
+const RenderLeaderboard = () => {
   const { push } = useHistory();
 
   // TEMPORARY
