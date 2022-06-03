@@ -40,24 +40,24 @@ function GamePlayMain(props) {
       <Header displayMenu={true} />
 
       <Switch>
-        <Route exact path={baseURL}>
+        <Route exact path={props.baseURL}>
           <GamemodeBtns
             baseURL={baseURL}
             enableModalWindow={enableModalWindow}
           />
         </Route>
-        <Route path={`${baseURL}/gamemode`}>
+        <Route path={`${props.baseURL}/gamemode`}>
           <Gamemode baseURL={baseURL} />
         </Route>
 
-        <Route path={`${baseURL}/mission`}>
+        <Route path={`${props.baseURL}/mission`}>
           <GamePlayMission
             baseURL={baseURL}
             enableModalWindow={enableModalWindow}
             disableModalWindow={disableModalWindow}
           />
         </Route>
-        <Route path={`${baseURL}/`}>
+        <Route path={`${props.baseURL}/`}>
           <TrophyRoom
             baseURL={baseURL}
             enableModalWindow={enableModalWindow}

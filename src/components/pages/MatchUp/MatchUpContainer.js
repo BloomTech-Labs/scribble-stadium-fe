@@ -13,7 +13,7 @@ import { child, faceoffs, votes } from '../../../state/actions';
 //   getFaceoffsForVoting,
 // } from '../../../api/index';
 
-function MatchUpContainer({ LoadingComponent, ...props }) {
+function MatchUpContainer({ ...props }) {
   const {
     user,
     //  isAuthenticated
