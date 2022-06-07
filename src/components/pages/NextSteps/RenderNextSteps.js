@@ -92,7 +92,7 @@ const RenderNextSteps = () => {
             className="next-steps-btn"
             onClick={goToMatchup}
           >
-            Let's play!
+            Lets play!
           </Button>
         </div>
       </div>

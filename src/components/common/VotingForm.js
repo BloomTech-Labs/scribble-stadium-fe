@@ -34,7 +34,7 @@ const VotingForm = props => {
     };
 
     updateChildData(user, child, props.child.id);
-    postVotes(user, body).then(res => {
+    postVotes(user, body).then(() => {
       push('/child/match-up');
     });
   };

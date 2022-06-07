@@ -29,17 +29,18 @@ const LargeModal = props => {
             <h2>{progressInfo.welcome}</h2>
             <h3>{progressInfo.explanation}</h3>
             <h4>{progressInfo.isTitle}</h4>
-            {progressInfo.is.map(is => (
+            {/* {progressInfo.is.map(is => (
               <ul>
                 <li>{is}</li>
               </ul>
-            ))}
+            ))} */}
+
             <h4>{progressInfo.isNotTitle}</h4>
-            {progressInfo.isNot.map(isNot => (
+            {/* {progressInfo.isNot.map(isNot => (
               <ul>
                 <li>{isNot}</li>
               </ul>
-            ))}
+            ))} */}
             <ProgressChart ChildID={props.id} />
           </div>
         ) : (

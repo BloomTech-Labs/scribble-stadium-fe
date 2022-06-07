@@ -188,7 +188,7 @@ const FaceoffReveal = props => {
     goBackRef,
   ]);
 
-  const goBacktoMatchup = event => {
+  const goBacktoMatchup = () => {
     history.push('/child/match-up');
   };
 

@@ -66,10 +66,10 @@ const YourMissionComp = ({ ...props }) => {
             alt="A child dressed as a superhero called lightning kid"
           />
           <Col>
-            <h1 className="dont4get">DON'T FORGET!</h1>
+            <h1 className="dont4get">DONT FORGET!</h1>
 
             <p className="dont4get-p">
-              When you're finished drawing, snap a photo and upload your
+              When you are finished drawing, snap a photo and upload your
               masterpiece.
             </p>
             <div className="kids-story-upload kids-story-upload-font">

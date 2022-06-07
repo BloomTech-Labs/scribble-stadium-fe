@@ -1,19 +1,22 @@
-import { Card } from 'antd';
+// import { Card } from 'antd';
 import React from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { connect } from 'react-redux';
-import BacklogStoryCard from './BacklogStoryCard';
+// import BacklogStoryCard from './BacklogStoryCard';
 
-const StoryBacklog = ({ stories }) => {
+const StoryBacklog = () => {
   return (
     <div className="backlog-stories" style={{ overflowY: 'scroll' }}>
-      {stories.map(story => {
-        return (
-          <div className="backlog-story">
-            <BacklogStoryCard story={story} />
-          </div>
-        );
-      })}
+      {
+        // stories.map(story => {
+        // return (
+        //   <div className="backlog-story">
+        //     <BacklogStoryCard story={story} />
+        //   </div>
+        // );
+        // }
+        // )
+      }
     </div>
   );
 };
