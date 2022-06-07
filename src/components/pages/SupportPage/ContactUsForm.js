@@ -27,6 +27,7 @@ function ContactUs({ success, visible, userInfo }) {
     success();
     // close the modal
     visible();
+    userInfo();
   }
 
   return (

@@ -8,7 +8,7 @@ import { SizeMe } from 'react-sizeme';
 // import { useHistory } from 'react-router-dom';
 // import { markAsRead } from '../../../api';
 
-const StoryViewer = props => {
+const StoryViewer = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [, setViewed] = useState(false);
@@ -44,7 +44,8 @@ const StoryViewer = props => {
         nextPage();
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
+    // react-hooks/exhaustive-deps
     [previousPage, nextPage, numPages]
   );
 

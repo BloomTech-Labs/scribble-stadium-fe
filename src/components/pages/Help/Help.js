@@ -6,7 +6,7 @@ import ParentFooter from '../../common/ParentFooter';
 
 const { Title } = Typography;
 
-const Help = props => {
+const Help = () => {
   return (
     <>
       <Layout className="parent-dashboard">

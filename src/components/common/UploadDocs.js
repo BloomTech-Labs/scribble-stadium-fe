@@ -46,11 +46,11 @@ export const UploadDocs = ({
     });
     formData.append('storyId', storyId);
     apiAxios(user, formData, submissionId)
-      .then(res => {
+      .then(() => {
         setUploading(false);
         setSubmitted(true);
       })
-      .then(res => {
+      .then(() => {
         handleSubmit();
       })
       .catch(err => {

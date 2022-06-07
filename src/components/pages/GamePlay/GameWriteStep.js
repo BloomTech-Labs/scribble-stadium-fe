@@ -127,7 +127,7 @@ export default function GameWriteStep(props) {
 
           <div className="step-description">
             <p style={{ fontWeight: '100 !important', width: '350px' }}>
-              Make sure you're uploading the right photo.
+              {'Make sure you are uploading the right photo.'}
             </p>
             <UploadDocs
               listType="picture"

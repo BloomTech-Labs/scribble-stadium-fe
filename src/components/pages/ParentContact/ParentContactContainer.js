@@ -41,7 +41,7 @@ const ParentContactContainer = () => {
               <div className="description">
                 <Row>
                   <p>
-                    If you would like to let us know how we're doing of if you
+                    If you would like to let us know how we are doing of if you
                     are experiencing issues, contact us by filling in the form
                     bellow.
                   </p>
