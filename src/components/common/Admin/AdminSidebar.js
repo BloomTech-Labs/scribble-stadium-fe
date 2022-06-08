@@ -21,36 +21,34 @@ const items = [
     <a href="/admin" target="" rel="noopener noreferrer">
       Moderator Dashboards
     </a>,
-    'link',
+    // 'link',
     <DashboardOutlined />
   ),
-
   getItem(
     <a href="/admin/storymanager" target="" rel="">
       Story Manager
     </a>,
     'link',
     <AppstoreOutlined />,
-    [getItem('Option 5', '5'), getItem('Option 6', '6')]
+    [getItem('Option A', 'A'), getItem('Option B', 'B')]
   ),
-
-  getItem('User Management', 'sub3', <UsergroupAddOutlined />),
+  getItem('User Management', 'sub1', <UsergroupAddOutlined />),
   getItem(
     'Notifications',
-    'sub4',
+    'sub2',
     <Badge dot>
       <NotificationOutlined style={{ fontSize: 18 }} />
     </Badge>
   ),
-  getItem('Account', 'sub5', <UserOutlined />, [
+  getItem('Account', 'sub3', <UserOutlined />, [
     getItem('Option 1', '1'),
     getItem('Option 2', '2'),
   ]),
-  getItem('Finance Center', 'sub1', <DollarOutlined />, [
+  getItem('Finance Center', 'sub4', <DollarOutlined />, [
     getItem('Option 3', '3'),
     getItem('Option 4', '4'),
 
-    getItem('Submenu', 'sub2', null, [
+    getItem('Submenu', 'sub5', null, [
       getItem('Option 5', '5'),
       getItem('Option 6', '6'),
     ]),
