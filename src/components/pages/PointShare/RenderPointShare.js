@@ -30,7 +30,7 @@ import {
 } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
-
+// import { PointsShareModal } from '../PointShare/PointShareModal';
 import { SubmissionViewerModal } from '../../common';
 
 // import hero images - TEMPORARY HARD CODE - remove when pulling state ( avatarID ) from backend
@@ -525,6 +525,7 @@ const PointShare = props => {
         >
           Submit Points
         </Button>
+        {/* <PointsShareModal /> */}
       </div>
       <ChildFooter />
     </>
