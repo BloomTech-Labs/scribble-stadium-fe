@@ -18,11 +18,11 @@ Complete:
 */
 
 import React, { useEffect, useState, useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Header } from '../../common';
 import ChildFooter from '../../common/ChildFooter';
-import { Button, notification } from 'antd';
+import { Button, notification, Modal } from 'antd';
 import {
   ZoomInOutlined,
   CaretUpOutlined,
@@ -30,7 +30,7 @@ import {
 } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
-// import { PointsShareModal } from '../PointShare/PointShareModal';
+// import { PointsShareModal } from './PointShareModal';
 import { SubmissionViewerModal } from '../../common';
 
 // import hero images - TEMPORARY HARD CODE - remove when pulling state ( avatarID ) from backend
@@ -68,7 +68,7 @@ const PointShare = props => {
   // const [modalVisible, setModalVisible] = useState(true);
 
   let { user } = useAuth0();
-  let history = useHistory();
+  // let history = useHistory();
 
   // TEMPORARY HARD CODE - remove when pulling user state from backend
   user = initialStateForUserTemporaryHardcode;
@@ -192,8 +192,22 @@ const PointShare = props => {
       });
     } else if (totalPoints == 0) {
       formSubmit(props); // submit the form
-      history.push('/child/winner'); // this page routes to Winner page per Ash / Jake's Whimsical
+      show_Modal(true);
+      // history.push('/child/winner'); // this page routes to Winner page per Ash / Jake's Whimsical
     }
+  };
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const show_Modal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
   };
 
   return (
@@ -211,7 +225,7 @@ const PointShare = props => {
         displayMenu={true}
         pointsRemaining={true}
         points={totalPoints}
-        teamName={true}
+        // teamName={true}  // teamName not available
       />
 
       <div className="point-share-rectangle">
@@ -517,15 +531,37 @@ const PointShare = props => {
               </div>
             </div>
           </div>
+          <div>{/* <PointsShareModal /> */}</div>
         </div>
 
         <Button
           className="point-share-submit-button"
-          onClick={handleSubmitPoints}
+          type="primary"
+          // onClick={show_Modal}
+          // onClick={handleSubmitPoints}
+          onClick={() => {
+            handleSubmitPoints(show_Modal);
+            // show_Modal();
+          }}
         >
           Submit Points
         </Button>
-        {/* <PointsShareModal /> */}
+        <Modal
+          title="Points Sharing"
+          visible={isModalVisible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+          // onClose={handleSubmitPoints}
+          centered={true}
+        >
+          <p>Congratulations</p>
+          <p>
+            Your story has been submited,
+            <br />
+            Great Job!
+          </p>
+          <p>Its time to join your squad!</p>
+        </Modal>
       </div>
       <ChildFooter />
     </>

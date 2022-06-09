@@ -1,5 +1,5 @@
+import React, { useState } from 'react';
 import { Button, Modal } from 'antd';
-import { useState } from 'react';
 
 const PointsShareModal = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
