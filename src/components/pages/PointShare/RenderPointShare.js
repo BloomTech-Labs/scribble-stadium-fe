@@ -533,35 +533,41 @@ const PointShare = props => {
           </div>
           <div>{/* <PointsShareModal /> */}</div>
         </div>
-
-        <Button
-          className="point-share-submit-button"
-          type="primary"
-          // onClick={show_Modal}
-          // onClick={handleSubmitPoints}
-          onClick={() => {
-            handleSubmitPoints(show_Modal);
-            // show_Modal();
-          }}
-        >
-          Submit Points
-        </Button>
-        <Modal
-          title="Points Sharing"
-          visible={isModalVisible}
-          onOk={handleOk}
-          onCancel={handleCancel}
-          // onClose={handleSubmitPoints}
-          centered={true}
-        >
-          <p>Congratulations</p>
-          <p>
-            Your story has been submited,
-            <br />
-            Great Job!
-          </p>
-          <p>Its time to join your squad!</p>
-        </Modal>
+        <div>
+          <Button
+            className="point-share-submit-button"
+            type="primary"
+            // onClick={show_Modal}
+            // onClick={handleSubmitPoints}
+            onClick={() => {
+              handleSubmitPoints(show_Modal);
+              // show_Modal();
+            }}
+          >
+            Submit Points
+          </Button>
+          <Modal
+            title="Points Sharing"
+            visible={isModalVisible}
+            onOk={handleOk}
+            onCancel={handleCancel}
+            onClose={handleSubmitPoints}
+            centered={true}
+            footer={[
+              <Button key="link" type="primary" onClick={handleSubmitPoints}>
+                Continue
+              </Button>,
+            ]}
+          >
+            <p>Congratulations</p>
+            <p>
+              Your story has been submited,
+              <br />
+              Great Job!
+            </p>
+            <p>Its time to join your squad!</p>
+          </Modal>
+        </div>
       </div>
       <ChildFooter />
     </>
