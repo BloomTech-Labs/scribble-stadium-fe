@@ -7,14 +7,14 @@ function NewProgressCharts(props) {
   const childData = [
     {
       name: 'SubmarineBoy',
-      MissionsCompleted: 6,
+      MissionsCompleted: 7,
       TotalPoints: 460,
       TotalWords: 100,
       key: '1',
     },
     {
       name: 'Pinky Winky',
-      MissionsCompleted: 7,
+      MissionsCompleted: 6,
       TotalPoints: 500,
       TotalWords: 115,
       key: '2',
@@ -27,6 +27,8 @@ function NewProgressCharts(props) {
       key: '3',
     },
   ];
+
+  //Data structure
   const columns = [
     { title: 'Name', dataIndex: 'name', key: 'key' },
     {
