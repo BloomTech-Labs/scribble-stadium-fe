@@ -41,8 +41,8 @@ export default function GameMissionProgress(props) {
               src="https://img.icons8.com/flat-round/64/000000/wide-right-arrow.png"
               alt="wide right arrow"
             />{' '}
-            Click on the "Read," "Draw" or "Write" buttons to navigate through
-            the mission.
+            Click on the Read, Draw or Write buttons to navigate through the
+            mission.
           </p>
           <p className="game-tips-text-p">
             <img

@@ -31,7 +31,7 @@ function RenderAccountSettings() {
   //It toggles the opacity and disabled prop of the editFormsAndButtonsContainer
   // allowing the user to see that they can now access the elements to update their account
 
-  const onFinish = value => {
+  const onFinish = () => {
     setUnlock(!unlock);
     setIsModalVisible(!isModalVisible);
   };
@@ -64,7 +64,7 @@ function RenderAccountSettings() {
             style={{ padding: '10px', borderRadius: '20px' }}
             inputStyle={{ borderRadius: '15px' }}
             inputFocusStyle={{ borderColor: 'blue' }}
-            onComplete={(value, index) => {
+            onComplete={value => {
               if (value == userInfo.pin) {
                 onFinish();
               } else {

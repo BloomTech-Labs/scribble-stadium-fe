@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Upload, message, Form, Input, Button } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 
-function UploadEpisode(props) {
+function UploadEpisode() {
   const [state, setState] = useState({ loading: false, dataUrl: '' });
 
   const getBase64 = (img, callback) => {
