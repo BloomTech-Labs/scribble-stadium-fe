@@ -18,7 +18,7 @@ Complete:
 */
 
 import React, { useEffect, useState, useCallback } from 'react';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Header } from '../../common';
 import ChildFooter from '../../common/ChildFooter';
@@ -187,14 +187,15 @@ const PointShare = props => {
     setTotalPoints(Math.max(100 - (value + a + b + c), 0));
   };
 
-  const handleSubmitPoints = props => {
+  const handleSubmitPoints = () => {
     if (totalPoints > 0) {
       notification.error({
         message: 'You may only allocate 100 points!',
       });
     } else if (totalPoints == 0) {
-      formSubmit(props); // submit the form
+      formSubmit(); // submit the form
       show_Modal();
+      // history.push('/child/match-up');
     }
   };
 
@@ -202,9 +203,16 @@ const PointShare = props => {
     setVisible(true);
   };
 
-  const handleCancel = () => {
-    console.log('Clicked cancel button');
-    setVisible(false);
+  // const handleCancel = () => {
+  //   console.log('Clicked cancel button');
+  //   setVisible(false);
+  // };
+
+  const { push } = useHistory();
+
+  const childMatchup = e => {
+    e.preventDefault();
+    push('/child/match-up');
   };
 
   return (
@@ -534,7 +542,6 @@ const PointShare = props => {
         <Button
           className="point-share-submit-button"
           type="primary"
-          // onClick={show_Modal}
           onClick={handleSubmitPoints}
           // onClick={() => {
           // handleSubmitPoints(show_Modal);
@@ -548,13 +555,13 @@ const PointShare = props => {
           title="CONGRATULATIONS"
           visible={visible}
           // onOk={handleContinue}
-          onCancel={handleCancel}
-          // centered={true}
-          // footer={[
-          //   <Button key="submit" onClick={history.push('/')}>
-          //     Continue
-          //   </Button>,
-          // ]}
+          // onCancel={handleCancel}
+          centered={true}
+          footer={[
+            <Button key="submit" onClick={childMatchup}>
+              Continue
+            </Button>,
+          ]}
         >
           <p>
             Your story has been submited,
