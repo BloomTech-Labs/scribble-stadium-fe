@@ -27,6 +27,7 @@ import {
   ZoomInOutlined,
   CaretUpOutlined,
   CaretDownOutlined,
+  // ExclamationCircleOutlined,
 } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
@@ -64,6 +65,7 @@ const PointShare = props => {
   const [teamPoints, setTeamPoints] = useState(null);
   const [modalContent, setModalContent] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [visible, setVisible] = useState(false);
   // The following code is commented out to prevent warnings during compilation
   // const [modalVisible, setModalVisible] = useState(true);
 
@@ -192,22 +194,17 @@ const PointShare = props => {
       });
     } else if (totalPoints == 0) {
       formSubmit(props); // submit the form
-      show_Modal(true);
-      // history.push('/child/winner'); // this page routes to Winner page per Ash / Jake's Whimsical
+      show_Modal();
     }
   };
-  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const show_Modal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
+    setVisible(true);
   };
 
   const handleCancel = () => {
-    setIsModalVisible(false);
+    console.log('Clicked cancel button');
+    setVisible(false);
   };
 
   return (
@@ -533,41 +530,39 @@ const PointShare = props => {
           </div>
           <div>{/* <PointsShareModal /> */}</div>
         </div>
-        <div>
-          <Button
-            className="point-share-submit-button"
-            type="primary"
-            // onClick={show_Modal}
-            // onClick={handleSubmitPoints}
-            onClick={() => {
-              handleSubmitPoints(show_Modal);
-              // show_Modal();
-            }}
-          >
-            Submit Points
-          </Button>
-          <Modal
-            title="Points Sharing"
-            visible={isModalVisible}
-            onOk={handleOk}
-            onCancel={handleCancel}
-            onClose={handleSubmitPoints}
-            centered={true}
-            footer={[
-              <Button key="link" type="primary" onClick={handleSubmitPoints}>
-                Continue
-              </Button>,
-            ]}
-          >
-            <p>Congratulations</p>
-            <p>
-              Your story has been submited,
-              <br />
-              Great Job!
-            </p>
-            <p>Its time to join your squad!</p>
-          </Modal>
-        </div>
+
+        <Button
+          className="point-share-submit-button"
+          type="primary"
+          // onClick={show_Modal}
+          onClick={handleSubmitPoints}
+          // onClick={() => {
+          // handleSubmitPoints(show_Modal);
+          // show_Modal();
+          // }}
+        >
+          Submit Points
+        </Button>
+        <Modal
+          className="modal-box"
+          title="CONGRATULATIONS"
+          visible={visible}
+          // onOk={handleContinue}
+          onCancel={handleCancel}
+          // centered={true}
+          // footer={[
+          //   <Button key="submit" onClick={history.push('/')}>
+          //     Continue
+          //   </Button>,
+          // ]}
+        >
+          <p>
+            Your story has been submited,
+            <br />
+            Great Job!
+          </p>
+          <p>Its time to join your squad!</p>
+        </Modal>
       </div>
       <ChildFooter />
     </>
