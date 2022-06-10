@@ -27,11 +27,9 @@ import {
   ZoomInOutlined,
   CaretUpOutlined,
   CaretDownOutlined,
-  // ExclamationCircleOutlined,
 } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { submitPoints } from '../../../api/index';
-// import { PointsShareModal } from './PointShareModal';
 import { SubmissionViewerModal } from '../../common';
 
 // import hero images - TEMPORARY HARD CODE - remove when pulling state ( avatarID ) from backend
@@ -195,7 +193,6 @@ const PointShare = props => {
     } else if (totalPoints == 0) {
       formSubmit(); // submit the form
       show_Modal();
-      // history.push('/child/match-up');
     }
   };
 
@@ -543,10 +540,6 @@ const PointShare = props => {
           className="point-share-submit-button"
           type="primary"
           onClick={handleSubmitPoints}
-          // onClick={() => {
-          // handleSubmitPoints(show_Modal);
-          // show_Modal();
-          // }}
         >
           Submit Points
         </Button>
@@ -554,7 +547,6 @@ const PointShare = props => {
           className="modal-box"
           title="CONGRATULATIONS"
           visible={visible}
-          // onOk={handleContinue}
           // onCancel={handleCancel}
           centered={true}
           footer={[
