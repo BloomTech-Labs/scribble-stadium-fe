@@ -22,6 +22,7 @@ const Admin = () => {
           <AdminSideBar />
           <div className="container">
             {/* <StoryManager/> */}
+            <h2>I am a SuperUser</h2>
             <Switch>
               <Route path="/admin/storymanager" component={StoryManager} />
             </Switch>
