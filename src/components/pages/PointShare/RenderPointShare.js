@@ -191,8 +191,8 @@ const PointShare = props => {
         message: 'You may only allocate 100 points!',
       });
     } else if (totalPoints == 0) {
-      formSubmit(); // submit the form
       show_Modal();
+      formSubmit();
     }
   };
 
@@ -200,10 +200,10 @@ const PointShare = props => {
     setVisible(true);
   };
 
-  // const handleCancel = () => {
-  //   console.log('Clicked cancel button');
-  //   setVisible(false);
-  // };
+  const handleCancel = () => {
+    console.log('Clicked cancel button');
+    setVisible(false);
+  };
 
   const { push } = useHistory();
 
@@ -545,21 +545,21 @@ const PointShare = props => {
         </Button>
         <Modal
           className="modal-box"
-          title="CONGRATULATIONS"
+          // title="CONGRATULATIONS"
           visible={visible}
-          // onCancel={handleCancel}
+          onCancel={handleCancel}
           centered={true}
           footer={[
-            <Button key="submit" onClick={childMatchup}>
+            <Button className="modal-box" key="submit" onClick={childMatchup}>
               Continue
             </Button>,
           ]}
         >
-          <p>
+          <h1>
             Your story has been submited,
             <br />
             Great Job!
-          </p>
+          </h1>
           <p>Its time to join your squad!</p>
         </Modal>
       </div>

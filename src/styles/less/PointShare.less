@@ -1,24 +1,15 @@
 @import '~antd/dist/antd.less';
 @import '~antd/lib/style/themes/default.less';
 
-
 .point-share-rectangle {
   box-sizing: border-box;
   background: url(../../assets/images/gamemodeimg/steps-box.png) center
-  no-repeat;
+    no-repeat;
   background-size: cover;
-  width: 720px;
+  max-width: 720px;
   margin: 10vh auto 10vh auto;
-  z-index: 50;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fbfbfb;
   font-family: 'atma';
-  overflow: hidden;
   padding: 5rem;
-  color: white;
   text-align: center;
 }
 
@@ -31,7 +22,6 @@
   font-size: 2.5rem;
   text-align: center;
 }
-
 
 .point-share-paragraph {
   font-size: 1.5rem;
@@ -52,7 +42,7 @@
     font-family: 'atma';
     font-size: 1.5rem;
     cursor: pointer;
-    background: #6CEAE6;
+    background: #6ceae6;
     margin-bottom: 2rem;
   }
 
@@ -62,7 +52,7 @@
   }
 
   .point-share-submission img {
-    border:#6CEAE6 3px solid;
+    border: #6ceae6 3px solid;
     border-radius: 90px;
     height: 150px;
     width: 150px;
@@ -93,7 +83,7 @@
 }
 
 .point-share-zoom-container {
-  background-color: #6CEAE6;
+  background-color: #6ceae6;
   width: 50px;
   height: 50px;
   border-radius: 60px;
@@ -101,7 +91,6 @@
   margin-left: 95px;
   margin-top: -45px;
   z-index: 1;
-
 
   .point-share-zoom {
     object-fit: cover;
@@ -122,7 +111,7 @@
   display: flex;
   flex-direction: row;
   background-color: white;
-  border:#6CEAE6 3px solid;
+  border: #6ceae6 3px solid;
   border-radius: 3px;
   margin: 2rem 1rem;
   height: 65px;
@@ -142,4 +131,47 @@
   justify-content: center;
   margin-right: 10px;
   overflow: hidden;
+}
+
+.modal-box {
+  border: blue 5px solid;
+  margin: 10vh auto 10vh auto;
+
+  .ant-modal-body {
+    width: auto;
+    background: #6ceae6;
+
+    h1 {
+      margin-top: 2rem;
+      font-family: 'atma';
+      font-size: 1.4rem;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: black;
+    }
+  }
+
+  .ant-modal-footer {
+    background: #6ceae6;
+    text-align: center;
+
+    .ant-btn-default {
+      width: auto;
+      height: auto;
+      text-transform: uppercase;
+      font-family: 'atma';
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-style: italic;
+      border: #333d3e 3px solid;
+      border-radius: 5px;
+      padding: 5px 15px;
+      margin-bottom: 2rem;
+    }
+  }
 }
