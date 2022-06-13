@@ -22,7 +22,7 @@ import { useHistory } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Header } from '../../common';
 import ChildFooter from '../../common/ChildFooter';
-import { Button, notification, Modal } from 'antd';
+import { Button, notification, Modal, Statistic } from 'antd';
 import {
   ZoomInOutlined,
   CaretUpOutlined,
@@ -229,7 +229,6 @@ const PointShare = props => {
         points={totalPoints}
         // teamName={true}  // teamName not available
       />
-
       <div className="point-share-rectangle">
         <div className="point-share-text">
           <h2 className="point-share-text-heading">POINTS SHARING</h2>
@@ -381,7 +380,11 @@ const PointShare = props => {
             </div>
           </div>
         </div>
-
+        <Statistic
+          className="points-count"
+          value={totalPoints}
+          title="Points remaining:"
+        />
         <div className="point-share-box child-two">
           <div className="point-share-child-info">
             <img src={childTwoImg} alt="child-two-avatar" />
@@ -544,13 +547,13 @@ const PointShare = props => {
           Submit Points
         </Button>
         <Modal
-          className="modal-box"
+          className="point-share-modal"
           // title="CONGRATULATIONS"
           visible={visible}
           onCancel={handleCancel}
           centered={true}
           footer={[
-            <Button className="modal-box" key="submit" onClick={childMatchup}>
+            <Button key="submit" onClick={childMatchup}>
               Continue
             </Button>,
           ]}
