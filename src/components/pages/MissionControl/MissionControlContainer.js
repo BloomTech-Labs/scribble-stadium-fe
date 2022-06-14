@@ -11,7 +11,7 @@ const MissionControlContainer = ({ LoadingComponent, ...props }) => {
 
   const [checked, setChecked] = useState(false);
 
-  const checkedToggle = e => {
+  const checkedToggle = () => {
     setChecked(!checked);
   };
 

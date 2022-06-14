@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
 
-const ParentDashboardBack = props => {
+const ParentDashboardBack = () => {
   const history = useHistory();
   const backButton = () => {
     history.push('/');

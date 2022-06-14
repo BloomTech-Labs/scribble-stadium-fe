@@ -11,6 +11,7 @@ const initialState = {
     write: null,
     draw: null,
     sp: null,
+    session: null,
   },
   gradeLevel: null,
   parentId: null,
@@ -23,6 +24,7 @@ const initialState = {
   achievements: null,
   Ballots: [],
   Streaks: 'test',
+  data: null,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -53,6 +55,11 @@ export const reducer = (state = initialState, action) => {
       };
     case global.CLEAR_USERS:
       return initialState;
+    case child.FETCH_DATA:
+      return {
+        ...state,
+        data: action.payload,
+      };
     default:
       return state;
   }

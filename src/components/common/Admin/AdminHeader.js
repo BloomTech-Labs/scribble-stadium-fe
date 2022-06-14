@@ -1,33 +1,100 @@
 import React from 'react';
+import { Typography, Menu, Dropdown, Badge } from 'antd';
+import {
+  HomeOutlined,
+  // UserOutlined,
+  QuestionCircleOutlined,
+  BellOutlined,
+} from '@ant-design/icons';
+import { Link, useHistory } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useHistory } from 'react-router-dom';
-import { Button } from 'antd';
+import { connect } from 'react-redux';
+// import { global } from '../../../state/actions';
 
-const AdminHeader = () => {
-  const { user, logout } = useAuth0();
-  const history = useHistory();
+import parent_avatar from '../../../assets/icons/parent_avatar.svg';
+
+const { Title } = Typography;
+
+const ParentMenu = props => {
+  const { push } = useHistory();
+  const { logout } = useAuth0();
+  const { clearUsers, ...rest } = props;
+
+  const switchUsers = () => {
+    clearUsers();
+    push('/');
+  };
 
   return (
-    <div className="header">
-      <h4>Admin: {user.name}</h4>
-      <div>
-        <img
-          src="https://raw.githubusercontent.com/BloomTech-Labs/scribble-stadium-fe/main/public/assets/Login-Explosion-Final.png"
-          alt="Story Squad Logo"
-        />
-      </div>
-      <div className="buttons">
-        <Button
-          onClick={() => {
-            history.push('/admin');
-          }}
-        >
-          Home
-        </Button>
-        <Button onClick={() => logout()}>Log Out</Button>
-      </div>
-    </div>
+    <Menu {...rest}>
+      <Menu.Item key="1" onClick={switchUsers}>
+        Change User
+      </Menu.Item>
+      <Menu.Item
+        key="2"
+        onClick={() => logout({ returnTo: window.location.origin })}
+      >
+        Logout
+      </Menu.Item>
+    </Menu>
   );
 };
 
-export default AdminHeader;
+const AdminHeader = props => {
+  return (
+    <nav className="admin-nav-top-bar">
+      <Link to="/">
+        <Title className="title navbar-logo" level={1}>
+          Story Squad
+        </Title>
+      </Link>
+      <div className="nav-right">
+        <div className="icons-container">
+          <div>
+            <HomeOutlined style={{ fontSize: 18 }} />
+          </div>
+          <div>
+            <QuestionCircleOutlined style={{ fontSize: 18 }} />
+          </div>
+          <div>
+            <Badge dot>
+              <BellOutlined style={{ fontSize: 18 }} />
+            </Badge>
+          </div>
+        </div>
+        <div className="straight-bar"></div>
+        <span className="welcome-msg">
+          {props.parent &&
+            `Welcome back, ` +
+              (props.parent.name == null
+                ? 'Moderator'
+                : `${props.parent.name}`) +
+              `!`}
+        </span>
+        <Dropdown
+          overlay={<ParentMenu clearUsers={props.clearUsers} />}
+          trigger={['hover']}
+          placement="bottom"
+        >
+          <a
+            href="/"
+            className="admin-avatar"
+            data-testid="admin-avatar"
+            onClick={e => e.preventDefault()}
+          >
+            <img src={parent_avatar} alt="Dropdown Menu" />
+          </a>
+        </Dropdown>
+      </div>
+    </nav>
+  );
+};
+
+export default connect(
+  state => ({
+    parent: state.parent,
+  }),
+  {
+    clearUsers: global.clearUsers,
+  }
+)(AdminHeader);

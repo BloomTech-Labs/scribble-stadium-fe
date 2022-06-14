@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { gsap } from 'gsap';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 import { connect } from 'react-redux';
 
 import { setCurrActivity } from '../../../state/actions/currentActivityActions';

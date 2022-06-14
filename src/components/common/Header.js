@@ -1,7 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button, Dropdown, Menu } from 'antd';
-import { CountDown } from 'ant-design-pro/lib/CountDown';
 import {
   HomeOutlined,
   MenuOutlined,
@@ -15,7 +14,7 @@ import { global } from '../../state/actions';
 import { useAuth0 } from '@auth0/auth0-react';
 import BackButton from '../common/BackButton';
 import PropTypes from 'prop-types';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 
 const ChildMenu = props => {
   const { push } = useHistory();
@@ -82,19 +81,16 @@ const ChildMenu = props => {
 const Header = ({
   displayMenu = false,
   backButton = false,
-  countDown = false,
   pointsRemaining = false,
   teamName = false,
   versus = false,
   pointsToWin = false,
   ...props
 }) => {
-  // const targetTime = new Date().getTime() + 300;
-  // CountDown component requires 'target' property, currently not functional
   return (
     <div className="hero">
       {backButton && <BackButton destination={'/child/mission-control'} />}
-      {countDown && <CountDown className="countdown" />}
+      {/* {countDown && <CountDown className="countdown" />} */}
       {displayMenu && (
         <Dropdown
           overlay={<ChildMenu />}
@@ -102,8 +98,7 @@ const Header = ({
           className="menu-button"
         >
           <Button
-            className="menu"
-            className="child-header-button"
+            className="menu child-header-button"
             icon={<MenuOutlined className="child-header-hamburger" />}
             type="default"
           />

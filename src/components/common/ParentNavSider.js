@@ -16,7 +16,7 @@ const ParentNavSider = props => {
     push('/');
   };
   return (
-    <Sider className="sider" theme="light">
+    <Sider className="sider" theme="light" data-testid="ParentNavSider">
       <div className="logo">
         <Title className="welcome" level={4}>
           Welcome Back

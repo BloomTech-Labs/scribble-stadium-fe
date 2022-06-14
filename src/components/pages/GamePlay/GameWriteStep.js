@@ -44,13 +44,14 @@ export default function GameWriteStep(props) {
       props.updateFileSubmissionData('writings', fileList);
       props.updateBattleReady(true);
 
+      // The following code is commented out to prevent warnings during compilation
       // Enable the modal window
-      const modalData = {
-        title: 'Get ready for the boss battle!',
-        description:
-          'To complete this mission, your work will be put up head-to-head against a boss. If you are ready to fight, submit your work!',
-        buttonTxt: 'Battle!',
-      };
+      // const modalData = {
+      //   title: 'Get ready for the boss battle!',
+      //   description:
+      //     'To complete this mission, your work will be put up head-to-head against a boss. If you are ready to fight, submit your work!',
+      //   buttonTxt: 'Battle!',
+      // };
 
       //props.enableModalWindow(modalData);
 
@@ -126,7 +127,7 @@ export default function GameWriteStep(props) {
 
           <div className="step-description">
             <p style={{ fontWeight: '100 !important', width: '350px' }}>
-              Make sure you're uploading the right photo.
+              {'Make sure you are uploading the right photo.'}
             </p>
             <UploadDocs
               listType="picture"

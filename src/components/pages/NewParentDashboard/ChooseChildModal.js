@@ -35,7 +35,7 @@ export default function ChooseChildModal(props) {
     });
     gsap.to('#notification-modal', { opacity: 1, duration: 0.5, delay: 0.5 });
     gsap.to('.modal-container', { y: 0, duration: 0.5, delay: 1 });
-  });
+  }, []);
 
   return (
     <div id="notification-modal">
@@ -91,7 +91,7 @@ export default function ChooseChildModal(props) {
                       closeModal();
                     }}
                   >
-                    <img src={AvatarURL} alt={`child ${Name} hero image`} />
+                    <img src={AvatarURL} alt={`child ${Name} hero avatar`} />
                   </div>
                   <span style={{ fontSize: '1.2rem' }}>
                     {Name.toUpperCase()}

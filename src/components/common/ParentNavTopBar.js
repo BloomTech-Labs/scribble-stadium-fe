@@ -15,7 +15,7 @@ const ParentMenu = props => {
   const { logout } = useAuth0();
   const { clearUsers, ...rest } = props;
 
-  const switchUsers = e => {
+  const switchUsers = () => {
     clearUsers();
     push('/');
   };
@@ -75,7 +75,7 @@ const ParentNavTopBar = props => {
         <Dropdown
           overlay={<ParentMenu clearUsers={props.clearUsers} />}
           trigger={['hover']}
-          placement="bottomCenter"
+          placement="bottom"
         >
           <a
             href="/"

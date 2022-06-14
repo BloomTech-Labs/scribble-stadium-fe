@@ -1,54 +1,58 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from '../../common';
 import ChildFooter from '../../common/ChildFooter';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { InstructionsModal } from '../../common';
 import { modalInstructions } from '../../../utils/helpers';
-import { HUD } from '../HeadsUpDisplay/index';
-import Explosion from '../../../assets/images/gamemodeimg/explosion.png';
 import change_your_avatar from '../../../assets/images/child_dashboard_images/change_your_avatar.svg';
 import leaderboard_icon from '../../../assets/images/child_dashboard_images/leaderboard_icon.png';
+import data from '../../../data.json';
+import { connect } from 'react-redux';
 import { getSubmissions } from '../../../api/index';
 
-const RenderChildDashboard = props => {
-  const { push } = useHistory();
+const RenderChildDashboard = () => {
+  const history = useHistory();
   const [modalVisible, setModalVisible] = useState(false);
-  const [submissionData, setSubmissionData] = useState([]);
 
-  // ChildId hardcoded for now until global state of child is retrived
-  // Retrieves array of submissions pertaining to child id, response is in the form of an array
+  const [submissionData, setSubmissionData] = useState([]);
   useEffect(() => {
     getSubmissions(1).then(res => {
-      setSubmissionData(res);
+      console.groupCollapsed('%cgetSubmissions', 'color: #CC5500');
+      setSubmissionData(res.data);
+      console.log(
+        `%cgetSubmissions response: ${JSON.stringify(res)}`,
+        'color: #2980B9'
+      );
+      console.groupEnd('getSubmissions');
     });
   }, []);
 
-  const handleAcceptMission = e => {
-    push('/gamemode');
+  const handleAcceptMission = () => {
+    data.gameSession = true;
+    history.push('/gamemode');
   };
 
-  const handleTrophyRoom = e => {
-    push('/gameplay/trophy-room');
+  const handleTrophyRoom = () => {
+    history.push('/gameplay/trophy-room');
   };
 
-  const handleChangeAvatar = event => {
-    push('/change-avatar');
+  const handleChangeAvatar = () => {
+    history.push('/change-avatar');
   };
 
-  const handleLeaderboard = e => {
-    push('/leaderboard');
+  const handleLeaderboard = () => {
+    history.push('/leaderboard');
   };
 
   return (
-    <>
-      <Header displayMenu={true} title={'Scribble Stadium'} />
-      <HUD
-        completedActivity={['Read', 'Draw', 'Write']}
-        currentActivity={'Squad Up'}
-        currentBar={'bar2'}
+    <div data-testid="child-dashboard">
+      <Header
+        displayMenu={true}
+        title={'Scribble Stadium'}
+        data-testid="child-dashboard"
       />
-      <InstructionsModal //This is the pop up that happens on the child dashboard stop at one pop up
+      <InstructionsModal
         modalVisible={modalVisible}
         handleCancel={() => {
           setModalVisible(false);
@@ -94,7 +98,6 @@ const RenderChildDashboard = props => {
           >
             <img
               className="child-dash-img"
-              // This icon will need to be changed to an inhouse icon, this is just imported as a placeholder //
               src={leaderboard_icon}
               alt="Leaderboard Button"
             />
@@ -110,8 +113,15 @@ const RenderChildDashboard = props => {
         </Row>
       </div>
       <ChildFooter />
-    </>
+    </div>
   );
 };
 
-export default RenderChildDashboard;
+const mapStateToProps = state => {
+  return {
+    currActivity: state.currActivity,
+    submissions: state.submissions,
+  };
+};
+
+export default connect(mapStateToProps)(RenderChildDashboard);

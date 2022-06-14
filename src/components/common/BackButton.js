@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
 
-const BackButton = props => {
+const BackButton = () => {
   const history = useHistory();
   const backButton = () => {
     history.push('/child/mission-control');

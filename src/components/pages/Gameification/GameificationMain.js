@@ -55,7 +55,7 @@ export default function GameificationMain(props) {
       .catch(err => {
         console.log(err);
       });
-  });
+  }, []);
 
   return (
     <div id="gameification">
@@ -125,7 +125,7 @@ const GamemodeBtns = props => {
     };
 
     props.enableModalWindow(data);
-  }, []);
+  }, [props]);
 
   return (
     <div className="main-btns">

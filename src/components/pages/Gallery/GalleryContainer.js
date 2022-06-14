@@ -13,7 +13,7 @@ import { useHistory, useParams } from 'react-router-dom';
 const GalleryContainer = props => {
   const { user } = useAuth0();
   const { push } = useHistory();
-  const [data, setDataInfo] = useState([]);
+  const [, setDataInfo] = useState([]);
   const { id } = useParams();
 
   // moved to Parent Component to pass down data
@@ -30,7 +30,7 @@ const GalleryContainer = props => {
 
   useEffect(() => {
     props.setWeeklySubmissions(id);
-  }, []);
+  }, [props, id]);
 
   return (
     <>

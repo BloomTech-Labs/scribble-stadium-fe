@@ -2,7 +2,7 @@ import React from 'react';
 import RenderSupportPage from './RenderSupportPageModal';
 import { toast } from 'react-toastify';
 
-function SupportPageContainer(props) {
+function SupportPageContainer() {
   //this function takes care of the success message displayed on the screen
   //when the user hits submit to send the form data to a dedicated email addy
 

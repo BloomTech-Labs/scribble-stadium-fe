@@ -561,16 +561,10 @@ const reset = async () => {
  * @returns {Array} containing information on each submission for the child
  */
 const getSubmissions = childId => {
-  try {
-    return apiAuthGet(`/child/${childId}/submissions`).then(response => {
-      return response.data;
-    });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
-    });
-  }
+  // Mocked response to test conditional rendering of mission button on RenderChildDashboard
+  // Once the endpoint is up, submissions will be available from the API
+
+  return Promise.resolve({ childId, data: ['foo', 'bar'] });
 };
 
 const getWinnerbySquadId = id => {

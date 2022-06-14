@@ -1,21 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 
 import RenderMatchUp from './RenderMatchUp';
 import { connect } from 'react-redux';
 
 import { child, faceoffs, votes } from '../../../state/actions';
-import {
-  getChild,
-  getChildSquad,
-  getFaceoffsForMatchup,
-  getFaceoffsForVoting,
-} from '../../../api/index';
+// the following code was commented out to prevent warnings during compilation. If is not necessary, remove it.
+// import {
+//   getChild,
+//   getChildSquad,
+//   getFaceoffsForMatchup,
+//   getFaceoffsForVoting,
+// } from '../../../api/index';
 
-function MatchUpContainer({ LoadingComponent, ...props }) {
-  const { user, isAuthenticated } = useAuth0();
+function MatchUpContainer({ ...props }) {
+  const {
+    user,
+    //  isAuthenticated
+  } = useAuth0();
   const [userInfo] = useState(user);
-  const [canVote, setCanVote] = useState(true);
+  const [canVote] = useState(true);
 
   // useEffect(() => {
   //   getChild(user, props.child.id).then(child => {

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { Layout, Form, Card, Row, Input, Button, Typography } from 'antd';
+import { Layout, Form, Card, Input, Button, Typography } from 'antd';
 
 import ParentNavTopBar from '../../common/ParentNavTopBar';
-import ChildCard from '../../common/ChildCard';
+// import ChildCard from '../../common/ChildCard';
 import ParentDashboardBack from '../../common/ParentDashboardBack';
 
 import { connect } from 'react-redux';
@@ -16,16 +16,16 @@ const layoutSettings = {
   wrapperCol: { span: 16 },
 };
 
-const FamilySettings = props => {
+const FamilySettings = () => {
   const { push } = useHistory();
 
-  const handleChange = (value, e) => {
+  const handleChange = value => {
     console.log('this is value', value);
   };
 
   const [form] = Form.useForm();
 
-  const onFinish = values => {
+  const onFinish = () => {
     push('/parent-dashboard');
   };
 
@@ -40,13 +40,14 @@ const FamilySettings = props => {
           </Title>
         </div>
         <Layout className="children" style={{ flexFlow: 'row wrap' }}>
-          {props.parent.children.map(child => (
+          {/* {props.parent.children.map(child => (
             <ChildCard
               name={child.Name}
               AvatarURL={child.AvatarURL}
               update="SETTINGS"
             />
-          ))}
+          )
+          )} */}
         </Layout>
 
         <Layout className="children">

@@ -6,12 +6,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 function Hud(props) {
-  const {
-    completedActivity,
-    currentActivity,
-    currentBar,
-    currActivity,
-  } = props;
+  const { completedActivity, currentActivity, currentBar, currActivity } =
+    props;
 
   const activities = [
     'Read',
@@ -23,9 +19,8 @@ function Hud(props) {
   ];
 
   const dayBars = ['bar1', 'bar2', 'bar3', 'bar4'];
-  const countdownTimerPositionIndex = getCountdownTimerPositionIndex(
-    currentActivity
-  );
+  const countdownTimerPositionIndex =
+    getCountdownTimerPositionIndex(currentActivity);
   const { Panel } = Collapse;
 
   return (
@@ -134,14 +129,14 @@ function getCountdownTimerPositionIndex(currentActivity) {
 
 Hud.propTypes = {
   completedActivity: PropTypes.arrayOf(
-    PropTypes.oneOf(
+    PropTypes.oneOf([
       'Read',
       'Draw',
       'Write',
       'Squad Up',
       'Point Share',
-      'Voting'
-    )
+      'Voting',
+    ])
   ).isRequired,
   currentActivity: PropTypes.string.isRequired,
   currentBar: PropTypes.string.isRequired,

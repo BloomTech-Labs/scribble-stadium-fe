@@ -47,7 +47,8 @@ const RenderStoryViewer = props => {
         nextPage();
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
+    // react-hooks/exhaustive-deps
     [previousPage, nextPage, numPages]
   );
 
@@ -66,7 +67,7 @@ const RenderStoryViewer = props => {
     setPageNumber(prevPageNumber => prevPageNumber + offset);
   };
 
-  const onFinish = e => {
+  const onFinish = () => {
     markAsRead(user, props.tasks.id);
     push('/child/mission-control');
 

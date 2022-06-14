@@ -52,6 +52,7 @@ function NewProgressCharts(props) {
   ];
   // FAKE DATA WILL NEED TO BE REPLACED WITH ACCURATE CHILD DATA
 
+
   return (
     <div className="ProgressContainer">
       <div className="ProgressHeader">

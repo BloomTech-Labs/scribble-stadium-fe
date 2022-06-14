@@ -4,13 +4,8 @@ import { emojiList } from './EmojiList';
 
 export default function VotingEmojiReaction(props) {
   // Get props
-  const {
-    closeEmojiBox,
-    updateReaction,
-    storyID,
-    imgBaseUrl,
-    reactions,
-  } = props;
+  const { closeEmojiBox, updateReaction, storyID, imgBaseUrl, reactions } =
+    props;
 
   return (
     <div className="emoji-box">

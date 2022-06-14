@@ -5,7 +5,7 @@ import { getLeaderboard } from '../../../api';
 import { useAuth0 } from '@auth0/auth0-react';
 import { connect } from 'react-redux';
 
-const Leaderboard = props => {
+const Leaderboard = () => {
   const { user } = useAuth0();
   const [data, setDataInfo] = useState([]);
 

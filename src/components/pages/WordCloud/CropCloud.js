@@ -36,6 +36,7 @@ export default function CropCloud() {
         <Image
           preview={false}
           className={'cropcloudimage'}
+          alt={'cropcloud'} // please add descriptive text to the alt tag
           src={`data:image/png;base64, ${placeholderCloud.data}`}
         />
       </div>

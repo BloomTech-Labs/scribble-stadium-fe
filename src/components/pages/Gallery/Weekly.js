@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 import { Modal, Carousel } from 'antd';
 import { DownCircleFilled } from '@ant-design/icons';
 import WritingPrompt from '../StoryPrompt/SourceMaterial/WritingPrompt';
@@ -87,7 +87,7 @@ const Weekly = props => {
           >
             <Carousel arrows={true}>
               {pageUrl.map(url => (
-                <div>
+                <div key={pageUrl}>
                   <img
                     style={{ height: '65vh', objectFit: 'contain' }}
                     alt=""

@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import { global, team } from '../actions';
 
 const initialState = {

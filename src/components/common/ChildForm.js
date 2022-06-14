@@ -17,6 +17,7 @@ import {
   postNewChild,
   getChild,
   getChildFormValues,
+  // getFieldValue, // needs update
 } from '../../api';
 
 const { confirm } = Modal;
@@ -96,7 +97,7 @@ function ChildForm(props) {
         Achievements: {},
         Streaks: 0,
       })
-        .then(res => {
+        .then(() => {
           form.resetFields();
           setSelectedImage(() => {
             return {
@@ -121,7 +122,7 @@ function ChildForm(props) {
       }
 
       updateChildData(user, { ...values, AvatarID: selectedImage.ID }, props.ID)
-        .then(res => {
+        .then(() => {
           setIsSaveBtnDisabled(() => true);
 
           getChild(user, props.ID).then(child => {
@@ -137,7 +138,7 @@ function ChildForm(props) {
 
   const onDelete = () => {
     deleteChild(user, props.ID)
-      .then(res => {
+      .then(() => {
         props.removeChild(props.ID);
       })
       .catch(err => {
@@ -216,16 +217,18 @@ function ChildForm(props) {
                   // type: "integer",
                   // len: 4
                 },
-                ({ getFieldValue }) => ({
-                  validator(_, value) {
-                    if (!isNaN(value) && value.length == 4) {
-                      return Promise.resolve();
-                    }
-                    return Promise.reject(
-                      new Error('The PIN has to be a 4 digit long number')
-                    );
-                  },
-                }),
+                // DISABLED WHILE WORKING ! check API import
+
+                // ({ getFieldValue }) => ({
+                //   validator(_, value) {
+                //     if (!isNaN(value) && value.length === 4) {
+                //       return Promise.resolve();
+                //     }
+                //     return Promise.reject(
+                //       new Error('The PIN has to be a 4 digit long number')
+                //     );
+                //   },
+                // }),
               ]}
             >
               <Input type="password" className="pin" />

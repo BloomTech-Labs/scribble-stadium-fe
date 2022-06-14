@@ -1,40 +1,81 @@
-import { Button } from 'antd';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import {
+  AppstoreOutlined,
+  DashboardOutlined,
+  SettingOutlined,
+  DollarOutlined,
+  NotificationOutlined,
+  UserOutlined,
+  UsergroupAddOutlined,
+} from '@ant-design/icons';
 
-export default function AdminSideBar() {
-  const [isActive, setActive] = useState('true');
+import { Menu, Badge } from 'antd';
+// import { Link } from 'react-router-dom';
+// import { useState } from 'react';
 
-  const handleToggle = () => {
-    setActive(!isActive);
-  };
-  return (
-    <div className="sidebar-component">
-      <nav className={isActive ? 'wide-sidebar' : 'narrow-sidebar'}>
-        <div className="navlinks">
-          <div className="link">
-            <Link to="/admindashboard">
-              <Button shape="round" type="primary">
-                <b>D</b>
-              </Button>
-              {isActive ? <h3>Dashboard</h3> : null}{' '}
-            </Link>
-          </div>
-          <div className="link">
-            <Link to="/storymanager">
-              <Button shape="round" type="primary">
-                <b>SM</b>
-              </Button>
-              {isActive ? <h3>Story Manager</h3> : null}{' '}
-            </Link>
-          </div>
-        </div>
-      </nav>
-      <div className={isActive ? 'close-button' : 'open-button'}>
-        <Button onClick={handleToggle} type="primary" shape="round">
-          {isActive ? <b>Close</b> : <b>Open</b>}
-        </Button>
-      </div>
-    </div>
-  );
+function getItem(label, key, icon, children, type) {
+  return { key, icon, children, label, type };
 }
+
+const items = [
+  getItem(
+    <a href="/admin" target="" rel="noopener noreferrer">
+      Moderator Dashboards
+    </a>,
+    // 'link',
+    <DashboardOutlined />
+  ),
+  getItem(
+    <a href="/admin/storymanager" target="" rel="">
+      Story Manager
+    </a>,
+    'link',
+    <AppstoreOutlined />,
+    [getItem('Option A', 'A'), getItem('Option B', 'B')]
+  ),
+  getItem('User Management', 'sub1', <UsergroupAddOutlined />),
+  getItem(
+    'Notifications',
+    'sub2',
+    <Badge dot>
+      <NotificationOutlined style={{ fontSize: 18 }} />
+    </Badge>
+  ),
+  getItem('Account', 'sub3', <UserOutlined />, [
+    getItem('Option 1', '1'),
+    getItem('Option 2', '2'),
+  ]),
+  getItem('Finance Center', 'sub4', <DollarOutlined />, [
+    getItem('Option 3', '3'),
+    getItem('Option 4', '4'),
+
+    getItem('Submenu', 'sub5', null, [
+      getItem('Option 5', '5'),
+      getItem('Option 6', '6'),
+    ]),
+  ]),
+  getItem('Moderator Center', 'sub6', <SettingOutlined />, [
+    getItem('Option 7', '7'),
+    getItem('Option 8', '8'),
+  ]),
+];
+
+const AdminSideBar = () => {
+  const onClick = e => {
+    console.log('click ', e);
+  };
+
+  return (
+    <Menu
+      onClick={onClick}
+      style={{
+        width: 320,
+      }}
+      // defaultSelectedKeys={['5']}
+      // defaultOpenKeys={['sub5']}
+      mode="inline"
+      items={items}
+    />
+  );
+};
+
+export default AdminSideBar;

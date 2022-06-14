@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 
 import RenderTrophyRoom from './RenderTrophyRoom';
 
-const TrophyRoomContainer = ({ LoadingComponent, ...props }) => {
+// const TrophyRoomContainer = ({ LoadingComponent, ...props }) => {
+const TrophyRoomContainer = ({ ...props }) => {
   const { user, isAuthenticated } = useAuth0();
-  const [userInfo, setUserInfo] = useState(user);
+  const [userInfo] = useState(user);
 
   return (
     <>

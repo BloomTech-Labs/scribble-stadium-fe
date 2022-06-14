@@ -42,36 +42,35 @@ export default function GameReadStep(props) {
     history.push(`${props.baseURL}/draw`);
   };
 
-  // get API base URL
-  const myStory = () => {
-    const APIURL = getApiUrl();
-
-    // initialize axios call
-    axios
-      .get(`${APIURL}/storyNew/1`)
-      .then(res => {
-        setThisEp({
-          ...thisEp,
-          title: res.data.Title,
-          author: res.data.Author,
-          episode: res.data.Episodes[0].EpisodeNumber,
-          content: res.data.Episodes[0].Content,
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
   // Add some animation
   useEffect(() => {
+    // get API base URL
+    const myStory = () => {
+      const APIURL = getApiUrl();
+
+      // initialize axios call
+      axios
+        .get(`${APIURL}/storyNew/1`)
+        .then(res => {
+          setThisEp({
+            ...thisEp,
+            title: res.data.Title,
+            author: res.data.Author,
+            episode: res.data.Episodes[0].EpisodeNumber,
+            content: res.data.Episodes[0].Content,
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
     myStory();
     gsap.from('#read-step', {
       opacity: 0,
       y: 200,
       duration: 1,
     });
-  }, []);
+  }, [thisEp]);
 
   return (
     <div id="read-step">
@@ -210,7 +209,9 @@ export default function GameReadStep(props) {
       </div>
 
       <div className="next-btn">
-        <button onClick={handleNext}>I'm awesome, I'm done reading!</button>
+        <button onClick={handleNext}>
+          I&aposm awesome, I&aposm done reading!
+        </button>
       </div>
     </div>
   );

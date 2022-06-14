@@ -1,0 +1,29 @@
+name: Install node and app modules
+description: Installs node, then installs app package (with caching)
+inputs:
+  node-version:
+    required: false
+    description: the node version to be installed
+
+runs:
+  using: composite
+  steps: 
+    - name: Cache node modules
+      id: cache-nodemodules
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-node-modules
+      with:
+        # caching node_modules
+        path: '**/node_modules'
+        key: ${{ runner.os }}-cache-node-modules-${{ hashFiles('**/package-lock.json') }}
+    
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '14'
+    
+    - run: npm install
+      shell: bash
+    
+    - run: cp .env.sample .env
+      shell: bash

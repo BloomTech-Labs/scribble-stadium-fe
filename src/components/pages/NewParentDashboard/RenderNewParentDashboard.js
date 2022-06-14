@@ -1,7 +1,9 @@
+
 import React, { useEffect, useState } from 'react';
 import { Layout, Row, Col } from 'antd';
 import { useAuth0 } from '@auth0/auth0-react';
 import { getProfileData } from '../../../api';
+
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import NewProgressCharts from '../../common/NewProgressCharts';
 import NewChildCard from '../../common/NewChildCard';
@@ -37,10 +39,11 @@ const RenderNewParentDashboard = props => {
   ];
 
   const history = useHistory();
-  const { user } = useAuth0();
-  const { setParent } = props;
-  const [childrenAccounts, setChildrenAccounts] = useState(FAKE_CHILDREN);
+  // const { user } = useAuth0();
+  // const { setParent } = props;
+  const [childrenAccounts] = useState(FAKE_CHILDREN);
   const [modalVisible, setModalVisible] = useState(false);
+
   const { Content } = Layout;
   useEffect(() => {
     getProfileData()
@@ -54,6 +57,7 @@ const RenderNewParentDashboard = props => {
         console.log('error retrieving profile data', err.message);
       });
   }, [setParent, user]);
+
   return (
     <div id="parent-dashboard-page">
       {/* <Header > */}
@@ -89,7 +93,7 @@ const RenderNewParentDashboard = props => {
       {modalVisible && (
         <ChooseChildModal
           childrenAccounts={childrenAccounts}
-          handleCharacterClick={(evt, childId) => {
+          handleCharacterClick={() => {
             history.push('/dashboard');
           }}
         />

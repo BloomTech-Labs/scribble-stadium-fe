@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Button, Form } from 'antd';
+import { Modal, Form } from 'antd';
 import { useAuth0 } from '@auth0/auth0-react';
 
 import { getProfileData } from '../../../api';
@@ -26,8 +26,10 @@ function RenderAccountSettings() {
     });
   }, [user]);
 
+
   return (
     <div className="accountSettingsContainer">
+
       <div className="textAndButtonContainer">
         <div className="editText">
           <h3>Edit Account Settings</h3>

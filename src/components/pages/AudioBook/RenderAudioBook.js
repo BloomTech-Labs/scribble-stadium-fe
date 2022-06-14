@@ -5,14 +5,14 @@ import { Button } from 'antd';
 import ReactAudioPlayer from 'react-h5-audio-player';
 import { PlayCircleOutlined, PauseCircleOutlined } from '@ant-design/icons';
 import 'react-h5-audio-player/lib/styles.css';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 import './rhap-style-override.css';
 import StoryViewer from './StoryViewer';
 
 const RenderAudioBookContainer = () => {
   const { push } = useHistory();
 
-  const doneReading = e => {
+  const doneReading = () => {
     push('/child/draw');
   };
 

@@ -27,7 +27,7 @@ const ParentContactContainer = () => {
 
   useEffect(() => {
     localStorage.setItem('data', JSON.stringify(item));
-  });
+  }, [item]);
   return (
     <>
       <Layout className="edit-players">
@@ -41,8 +41,9 @@ const ParentContactContainer = () => {
               <div className="description">
                 <Row>
                   <p>
-                    If you would like to let us know how we're doing of if you are
-                    experiencing issues, contact us by filling in the form bellow.
+                    If you would like to let us know how we are doing of if you
+                    are experiencing issues, contact us by filling in the form
+                    bellow.
                   </p>
                 </Row>
               </div>

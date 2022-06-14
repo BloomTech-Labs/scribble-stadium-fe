@@ -4,34 +4,16 @@ import { Header } from '../../common';
 import ChildFooter from '../../common/ChildFooter';
 import { Button } from 'antd';
 import { connect } from 'react-redux';
-
+import { gameSession } from '../../../state/actions/childActions';
 import { useHistory } from 'react-router-dom';
 
 const Gamemode = ({ ...props }) => {
-  const { push, location } = useHistory();
+  const { push } = useHistory();
+  console.log(props);
 
   useEffect(() => {
-    const propInit = () => {
-      if (props.child.gamemode !== null && location.pathname === '/gamemode') {
-        props.child.gamemode = {
-          mode: 'select',
-          read: props.child.gamemode.read,
-          write: props.child.gamemode.write,
-          draw: props.child.gamemode.draw,
-          sp: false,
-        };
-      } else {
-        props.child.gamemode = {
-          mode: 'select',
-          read: false,
-          write: false,
-          draw: false,
-          sp: false,
-        };
-      }
-    };
-    propInit();
-  }, [props, location]);
+    gameSession();
+  }, []);
 
   const reini = () => {
     // For basic prop initiation
@@ -80,5 +62,5 @@ export default connect(
   state => ({
     child: state.child,
   }),
-  {}
+  { gameSession }
 )(Gamemode);
