@@ -2,7 +2,7 @@ import React from 'react';
 
 import RenderAccountSettings from './RenderAccountSettings';
 
-function AccountSettingsContainer(...props) {
+function AccountSettingsContainer() {
   return (
     <div>
       <RenderAccountSettings />

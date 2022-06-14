@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function NewProgressCharts(props) {
+export default function NewProgressCharts() {
   return (
     <div className="ProgressContainer">
       <div className="ProgressHeader">

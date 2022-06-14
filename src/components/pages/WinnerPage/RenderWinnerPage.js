@@ -7,7 +7,7 @@ import explosion from '../../../assets/images/gamemodeimg/explosion.png';
 import boyImg from '../../../assets/images/hero_images/hero1.png';
 import PlayAgainButtonAnimation from './PlayAgainButtonAnimation';
 
-const RenderWinnerPage = props => {
+const RenderWinnerPage = () => {
   // const { push } = useHistory();
 
   // const goToChildDashboard = () => {
