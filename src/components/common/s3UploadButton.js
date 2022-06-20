@@ -20,7 +20,7 @@ export default function S3UploadButton() {
     let fileType = fileParts[1];
     console.log('Preparing the upload');
     axios
-      .post('http://localhost:3001/sign_s3', {
+      .post('http://localhost:8000/sign_s3', {
         fileName: fileName,
         fileType: fileType,
       })
