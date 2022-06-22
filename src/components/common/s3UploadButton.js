@@ -1,9 +1,12 @@
 import React from 'react';
 import axios from 'axios';
+import { useAuth0 } from '@auth0/auth0-react';
+import { postNewUpload } from '../../api';
 
 export default function S3UploadButton() {
   const [file, setFile] = React.useState('');
   const [url, setUrl] = React.useState('');
+  const { user } = useAuth0();
 
   const fileSelected = e => {
     const selectedFile = e.target.files[0];
@@ -18,20 +21,19 @@ export default function S3UploadButton() {
     let fileParts = file.name.split('.');
     let fileName = fileParts[0];
     let fileType = fileParts[1];
-    console.log('Preparing the upload');
-    axios
-      .post('http://localhost:8000/sign_s3', {
-        fileName: fileName,
-        fileType: fileType,
-      })
+    console.log('Preparing the upload', fileName, fileType);
+    postNewUpload(user, {
+      fileName: fileName,
+      fileType: fileType,
+    })
       .then(response => {
-        var returnData = response.data.data.returnData;
-        var signedRequest = returnData.signedRequest;
-        var url = returnData.url;
-        this.setState({ url: url });
-        console.log('Recieved a signed request ' + signedRequest);
+        let returnData = response.data.data.returnData;
+        let signedRequest = returnData.signedRequest;
+        let url = returnData.url;
+        setUrl({ url: url });
+        console.log('Received a signed request ' + signedRequest);
 
-        var options = {
+        let options = {
           headers: {
             'Content-Type': fileType,
           },
@@ -43,11 +45,11 @@ export default function S3UploadButton() {
             this.setState({ success: true });
           })
           .catch(error => {
-            alert('ERROR ' + JSON.stringify(error));
+            alert('ERROR Put' + JSON.stringify(error));
           });
       })
       .catch(error => {
-        alert(JSON.stringify(error));
+        alert('ERROR API Axios' + JSON.stringify(error));
       });
   };
 

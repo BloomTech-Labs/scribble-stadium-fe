@@ -276,6 +276,15 @@ const postNewDrawingSub = async (body, subId) => {
   }
 };
 
+const postNewUpload = async body => {
+  try {
+    return apiAuthPost('/sign_s3', body, getAuthHeader()).then(res => res.data);
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+};
+
 /**
  * Returns an object identifying whether or not a child has completed their submission tasks
  * Looks in DB for submission containing childId and storyID
@@ -583,6 +592,7 @@ const getWinnerbySquadId = id => {
 };
 
 export {
+  postNewUpload,
   getApiUrl,
   sleep,
   getExampleData,
