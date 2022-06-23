@@ -276,9 +276,41 @@ const postNewDrawingSub = async (body, subId) => {
   }
 };
 
-const postNewUpload = async body => {
+const postNewUpload = async file => {
   try {
-    return apiAuthPost('/sign_s3', body, getAuthHeader()).then(res => res.data);
+    console.log('file passed to postNewUpload', file);
+    return apiAuthPost(
+      '/sign_s3',
+      {
+        fileName: file.name.split('.')[0],
+        fileType: file.name.split('.')[1],
+      },
+      getAuthHeader()
+    )
+      .then(res => {
+        console.log('response', res);
+        let returnData = res.data;
+        let signedRequest = returnData.signedRequest;
+        let url = returnData.url;
+        console.log('Recieved a signed request ' + signedRequest);
+        let options = {
+          headers: {
+            'Content-Type': file.name.split('.')[1],
+          },
+        };
+        return axios
+          .put(signedRequest, file, options)
+          .then(result => {
+            console.log('Response from s3', result);
+            return url;
+          })
+          .catch(error => {
+            alert('ERROR ' + JSON.stringify(error));
+          });
+      })
+      .catch(err => {
+        console.log('original post to signS3', err);
+      });
   } catch (err) {
     console.log(err);
     return [];
