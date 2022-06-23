@@ -21,7 +21,7 @@ const Weekly = props => {
   // Carousel Modal Functions
   const showModal = pages => {
     setIsModalVisible(true);
-    let values = Object.keys(pages).map(function (key) {
+    let values = Object.keys(pages).map(function(key) {
       return pages[key];
     });
     setpageUrl(values);
