@@ -1,1 +1,1 @@
-export { default as S3UploadButton } from './S3UploadContainer';
+export { default as S3Upload } from './S3UploadContainer';
