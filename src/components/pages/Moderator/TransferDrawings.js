@@ -13,7 +13,7 @@ const initialTargetKeys = mockData
   .filter(item => Number(item.key) > 20)
   .map(item => item.key);
 
-const TransferDrawing = () => {
+const TransferDrawings = () => {
   const [targetKeys, setTargetKeys] = useState(initialTargetKeys);
 
   const [selectedKeys, setSelectedKeys] = useState([]);
@@ -76,4 +76,4 @@ const TransferDrawing = () => {
   );
 };
 
-export default TransferDrawing;
+export default TransferDrawings;

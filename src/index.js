@@ -65,6 +65,7 @@ import { PlayAgain } from './components/pages/PlayAgain';
 import GalleryContainer from './components/pages/Gallery/GalleryContainer';
 import { AudioBook } from './components/pages/AudioBook';
 import Admin from './components/pages/Admin/Admin';
+import Moderator from './components/pages/Moderator/Moderator';
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
@@ -319,6 +320,8 @@ function App() {
           )}
         />
         <Route path="/admin" component={Admin} />
+        <Route path="/moderator" component={Moderator} />
+
         <Route component={NotFoundPage} />
       </Switch>
     </>

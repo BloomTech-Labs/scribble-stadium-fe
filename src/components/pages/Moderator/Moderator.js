@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import AdminHeader from '../../common/Admin/AdminHeader';
 import ModeratorSideBar from '../Moderator/ModeratorSidebar';
-import TransferDrawing from './TransferDrawing';
+import TransferDrawings from './TransferDrawings';
 import ParentFooter from '../../common/ParentFooter';
 // import StoryManager from '../Admin/StoryManager';
 
@@ -19,7 +19,7 @@ const Moderator = () => {
           <ModeratorSideBar />
           <div className="container">
             <h1>I am a Moderator</h1>
-            <TransferDrawing />
+            <TransferDrawings />
             {/* <StoryManager /> */}
           </div>
         </div>
