@@ -1,10 +1,10 @@
 import {
   AppstoreOutlined,
-  //   DashboardOutlined,
-  SettingOutlined,
+  // DashboardOutlined,
+  // SettingOutlined,
   NotificationOutlined,
   UserOutlined,
-  UsergroupAddOutlined,
+  // UsergroupAddOutlined,
 } from '@ant-design/icons';
 
 import { Menu, Badge } from 'antd';
@@ -14,41 +14,34 @@ function getItem(label, key, icon, children, type) {
 }
 
 const items = [
-  //   getItem(
-  //     <a href="/moderator" target="" rel="noopener noreferrer">
-  //       Moderator Dashboards
-  //     </a>,
-  //     'link',
-  //     <DashboardOutlined />
-  //   ),
   getItem(
-    <a href="/moderator" target="" rel="">
-      Story Manager
-    </a>,
-    'link',
-    <AppstoreOutlined />,
-    [getItem('Option A', 'A'), getItem('Option B', 'B')]
+    // <a href="/moderator" target="" rel="">
+    <a>Moderator Center</a>,
+    // 'link',
+    'sub1',
+    <AppstoreOutlined style={{ fontSize: 21 }} />,
+    [getItem('Stories', 'A'), getItem('Drawings', 'B')]
   ),
-  getItem('User Management', 'sub1', <UsergroupAddOutlined />),
+  // An extra menu item when need it *** USE or REMOVE ***
+  // getItem(
+  //   'User Management',
+  //   'sub2',
+  //   <UsergroupAddOutlined style={{ fontSize: 21 }} />
+  // ),
   getItem(
     'Notifications',
-    'sub2',
+    'sub3',
     <Badge dot>
-      <NotificationOutlined style={{ fontSize: 18 }} />
+      <NotificationOutlined style={{ fontSize: 21 }} />
     </Badge>
   ),
-  getItem('Account', 'sub3', <UserOutlined />, [
+  getItem('Profile', 'sub4', <UserOutlined style={{ fontSize: 21 }} />, [
     getItem('Option 1', '1'),
     getItem('Option 2', '2'),
   ]),
-
-  getItem('Moderator Center', 'sub6', <SettingOutlined />, [
-    getItem('Option 7', '7'),
-    getItem('Option 8', '8'),
-  ]),
 ];
 
-const AdminSideBar = () => {
+const ModeratorSideBarNav = () => {
   const onClick = e => {
     console.log('click ', e);
   };
@@ -57,70 +50,14 @@ const AdminSideBar = () => {
     <Menu
       onClick={onClick}
       style={{
-        width: 320,
+        width: 360,
       }}
-      // defaultSelectedKeys={['5']}
-      // defaultOpenKeys={['sub5']}
+      // defaultSelectedKeys={['1']}
+      // defaultOpenKeys={['sub1']}
       mode="inline"
       items={items}
     />
   );
 };
 
-export default AdminSideBar;
-
-// import { SettingOutlined, NotificationOutlined } from '@ant-design/icons';
-// import { Menu, Badge } from 'antd';
-
-// function getItem(label, key, icon, children, type) {
-//   return { key, icon, children, label, type };
-// }
-
-// const items = [
-//   getItem(
-//     'Moderator Center',
-//     'sub1',
-//     <SettingOutlined style={{ fontSize: 21 }} />,
-//     [
-//       getItem(
-//         <a href="/moderator" target="" rel="">
-//           DRAWINGS
-//         </a>
-//       ),
-//       getItem(
-//         <a href="/admin" target="" rel="">
-//           {' '}
-//           STORIES{' '}
-//         </a>
-//       ),
-//     ]
-//   ),
-//   getItem(
-//     'Notifications',
-//     'sub2',
-//     <Badge dot>
-//       <NotificationOutlined style={{ fontSize: 21 }} />
-//     </Badge>
-//   ),
-// ];
-
-// const AdminSideBar = () => {
-//   const onClick = e => {
-//     console.log('click ', e);
-//   };
-
-//   return (
-//     <Menu
-//       onClick={onClick}
-//       style={{
-//         width: 360,
-//       }}
-//       defaultSelectedKeys={['1']}
-//       defaultOpenKeys={['sub1']}
-//       mode="inline"
-//       items={items}
-//     />
-//   );
-// };
-
-// export default AdminSideBar;
+export default ModeratorSideBarNav;
