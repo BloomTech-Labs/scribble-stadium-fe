@@ -1,6 +1,6 @@
 import React from 'react';
 // import { useAuth0 } from '@auth0/auth0-react';
-import { postNewUpload } from '../../api';
+import { postNewUpload } from '../../../api';
 
 export default function S3UploadButton() {
   const [file, setFile] = React.useState('');
