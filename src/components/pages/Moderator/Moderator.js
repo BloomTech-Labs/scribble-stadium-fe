@@ -18,7 +18,7 @@ const Moderator = () => {
         <div className="main">
           <ModeratorSideBar />
           <div className="container">
-            <h1>I am a Moderator</h1>
+            {/* <h1>I am a Moderator</h1> */}
             <TransferDrawings />
             {/* <StoryManager /> */}
           </div>
