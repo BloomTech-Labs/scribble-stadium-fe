@@ -52,8 +52,8 @@ const ModeratorSideBarNav = () => {
       style={{
         width: 360,
       }}
-      // defaultSelectedKeys={['1']}
-      // defaultOpenKeys={['sub1']}
+      defaultSelectedKeys={['1']}
+      defaultOpenKeys={['sub1']}
       mode="inline"
       items={items}
     />

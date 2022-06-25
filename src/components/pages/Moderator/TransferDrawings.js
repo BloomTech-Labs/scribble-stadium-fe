@@ -43,10 +43,10 @@ const TransferDrawings = () => {
   return (
     <>
       <Space
-        direction="vertical"
-        style={{
-          height: 800,
-        }}
+      // direction="vertical"
+      // style={{
+      //   height: 800,
+      // }}
       >
         <Transfer
           status="approved"
@@ -62,6 +62,7 @@ const TransferDrawings = () => {
         />
         <Transfer
           status="warning"
+          showSearch
           dataSource={mockData}
           titles={['Flagged']}
           targetKeys={targetKeys}
