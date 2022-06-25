@@ -1,27 +1,26 @@
 .container {
   margin: 10px 10px 200px 40px;
   padding: 10px 10px 10px 10px;
-}
-
-.container h1 {
-  font-size: var(--font-size);
-  font-family: 'Bangers', cursive;
+  h1 {
+    font-size: var(--font-size);
+    font-family: 'Bangers', cursive;
+  }
 }
 
 .ant-space-item {
   border: 1px solid rgb(231, 231, 231);
   padding: 10px 10px 10px 10px;
   margin-bottom: 100px;
+
+  .ant-transfer-list {
+    width: 240px;
+    height: 600px;
+    border: 1px solid #cdcdcd;
+    background: rgb(251, 251, 251);
+    padding: 10px 10px 10px 10px;
+  }
 }
 
-.ant-space-item .ant-transfer-list {
-  width: 220px;
-  height: 600px;
-  border: 1px solid #cdcdcd;
-  background: rgb(251, 251, 251);
-  padding: 10px 10px 10px 10px;
-}
-
-.ant-transfer-status-warning .ant-transfer-list {
+.ant-space-item .ant-transfer-status-warning .ant-transfer-list {
   border-color: red;
 }

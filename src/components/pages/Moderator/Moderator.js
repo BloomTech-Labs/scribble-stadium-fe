@@ -19,6 +19,7 @@ const Moderator = () => {
           <ModeratorSideBar />
           <div className="container">
             <h1>Moderator Dashboard</h1>
+            <p>Chapter 1 / Week 2 / {'Insert Date'}</p>
             <TransferDrawings />
             {/* <StoryManager /> */}
           </div>
