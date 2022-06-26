@@ -1,11 +1,23 @@
 import React from 'react';
 import { postNewUpload } from '../../../api';
 import { UploadOutlined } from '@ant-design/icons';
-import { Button, Upload } from 'antd';
+import { Button, Upload, message } from 'antd';
 import { useState } from 'react';
 
 export default function S3UploadButton() {
   const [file, setFile] = useState('');
+
+  const beforeUpload = file => {
+    console.log('from before', file.file.type);
+    const isJpgOrPng =
+      file.type === 'image/jpeg/pdf' ||
+      file.type === 'image/png/pdf' ||
+      file.type === 'application/pdf';
+    if (!isJpgOrPng) {
+      message.error('You can only upload JPG/PNG/PDF file!');
+    }
+    return isJpgOrPng;
+  };
 
   const fileSelected = fileName => {
     const selectedFile = fileName.file;
@@ -27,7 +39,12 @@ export default function S3UploadButton() {
   return (
     <>
       <h2>S3 Upload Button</h2>
-      <Upload type="file" accept="image/*" onChange={fileSelected}>
+      <Upload
+        beforeUpload={beforeUpload}
+        type="file"
+        accept="image/*"
+        onChange={fileSelected}
+      >
         <Button icon={<UploadOutlined />}>Select File</Button>
       </Upload>
 
