@@ -1,12 +1,14 @@
 import React from 'react';
-
 import { postNewUpload } from '../../../api';
+import { UploadOutlined } from '@ant-design/icons';
+import { Button, Upload } from 'antd';
+import { useState } from 'react';
 
 export default function S3UploadButton() {
-  const [file, setFile] = React.useState('');
+  const [file, setFile] = useState('');
 
-  const fileSelected = e => {
-    const selectedFile = e.target.files[0];
+  const fileSelected = fileName => {
+    const selectedFile = fileName.file;
     setFile(selectedFile);
     console.log('file', selectedFile);
   };
@@ -25,12 +27,20 @@ export default function S3UploadButton() {
   return (
     <>
       <h2>S3 Upload Button</h2>
-      <form onSubmit={handleUpload}>
-        <input type="file" accept="image/*" onChange={fileSelected} />
-        <button type="submit" onClick={handleUpload}>
-          Upload
-        </button>
-      </form>
+      <Upload type="file" accept="image/*" onChange={fileSelected}>
+        <Button icon={<UploadOutlined />}>Select File</Button>
+      </Upload>
+
+      <Button
+        type="primary"
+        disabled={file.length === 0}
+        onClick={handleUpload}
+        style={{
+          marginTop: 16,
+        }}
+      >
+        Upload
+      </Button>
     </>
   );
 }
