@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 export default function S3UploadButton() {
   const [file, setFile] = useState('');
-
+  const [uploading, setUploading] = useState(false);
   const beforeUpload = file => {
     console.log('from before', file.file.type);
     const isJpgOrPng =
@@ -31,8 +31,15 @@ export default function S3UploadButton() {
       .then(res => {
         console.log(res);
       })
-      .catch(error => {
-        alert('ERROR API Axios' + JSON.stringify(error));
+      .then(() => {
+        setFile([]);
+        message.success('upload successfully.');
+      })
+      .catch(() => {
+        message.error('upload failed.');
+      })
+      .finally(() => {
+        setUploading(false);
       });
   };
 
@@ -51,12 +58,13 @@ export default function S3UploadButton() {
       <Button
         type="primary"
         disabled={file.length === 0}
+        loading={uploading}
         onClick={handleUpload}
         style={{
           marginTop: 16,
         }}
       >
-        Upload
+        {uploading ? 'Uploading' : 'Start Upload'}
       </Button>
     </>
   );
