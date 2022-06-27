@@ -1,15 +1,17 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router';
+// import { MemoryRouter } from 'react-router';
 import { createMemoryHistory } from 'history';
-import { Link, Route, Router } from 'react-router-dom';
+// import { Link, Route, Router } from 'react-router-dom';
+import { Route, Router } from 'react-router-dom';
 import { render, cleanup } from '@testing-library/react';
 import configureMockStore from 'redux-mock-store';
-import configureStore from 'redux-mock-store';
+// import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { Gamemode, Thrashbar } from '../components/pages/Gamemode';
 import { configure, shallow, mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { tasks, global } from '../state/actions';
+import { tasks } from '../state/actions';
+// import { tasks, global } from '../state/actions';
 import { reducer } from '../state/reducers/taskReducer';
 
 describe('history mock', () => {
@@ -256,7 +258,10 @@ describe('button Tests ', () => {
     // button.simulate('click'); // Nothing happens
 
     const wrapper = shallow(<button onClick={sread}>3</button>);
-    wrapper.find('button').at(0).simulate('click');
+    wrapper
+      .find('button')
+      .at(0)
+      .simulate('click');
     expect(wrapper.text()).toEqual('3');
     expect(sread).toHaveBeenCalled();
   });
@@ -291,7 +296,10 @@ describe('button Tests ', () => {
     // button.simulate('click'); // Nothing happens
 
     const wrapper = shallow(<button onClick={sread}>2</button>);
-    wrapper.find('button').at(0).simulate('click');
+    wrapper
+      .find('button')
+      .at(0)
+      .simulate('click');
     expect(wrapper.text()).toEqual('2');
     expect(sread).toHaveBeenCalled();
   });
