@@ -27,9 +27,10 @@ export default function S3UploadButton() {
 
   const handleUpload = e => {
     e.preventDefault();
+    setUploading(true);
     postNewUpload(file)
       .then(res => {
-        console.log(res);
+        console.log('response 1st .then', res);
       })
       .then(() => {
         setFile([]);
