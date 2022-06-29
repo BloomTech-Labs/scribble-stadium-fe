@@ -280,7 +280,7 @@ const postNewUpload = async file => {
   try {
     console.log('file passed to postNewUpload', file);
     return apiAuthPost(
-      '/sign_s3',
+      '/submission',
       {
         fileName: file.name.split('.')[0],
         fileType: file.name.split('.')[1],
@@ -292,7 +292,7 @@ const postNewUpload = async file => {
         let returnData = res.data;
         let signedRequest = returnData.signedRequest;
         let url = returnData.url;
-        console.log('Recieved a signed request ' + signedRequest);
+        console.log('Received a signed request ' + signedRequest);
         let options = {
           headers: {
             'Content-Type': file.name.split('.')[1],
