@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import AdminHeader from '../../common/Admin/AdminHeader';
 import ModeratorSideBar from '../Moderator/ModeratorSidebar';
+import DatePicker from './DatePicker';
 import TransferDrawings from './TransferDrawings';
 import ParentFooter from '../../common/ParentFooter';
 // import StoryManager from '../Admin/StoryManager';
@@ -19,7 +20,7 @@ const Moderator = () => {
           <ModeratorSideBar />
           <div className="container">
             <h1>Moderator Dashboard</h1>
-            <p>Chapter 1 / Week 2 / {'Insert Date'}</p>
+            <DatePicker />
             <TransferDrawings />
             {/* <StoryManager /> */}
           </div>
