@@ -1,3 +1,8 @@
+@import '~antd/dist/antd.less';
+@import '~antd/lib/style/themes/default.less';
+@import 'global.less';
+@import 'variables.less';
+
 .container {
   margin: 10px 10px 200px 40px;
   padding: 10px 10px 10px 10px;
@@ -6,21 +11,33 @@
     font-family: 'Bangers', cursive;
   }
 }
-
+.ant-table-row {
+  // color: blue;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
 .ant-space-item {
-  border: 1px solid rgb(231, 231, 231);
+  // border: 1px solid rgb(231, 231, 231);
   padding: 10px 10px 10px 10px;
   margin-bottom: 20px;
-
-  .ant-transfer-list {
-    width: 240px;
-    height: 600px;
-    border: 1px solid #cdcdcd;
-    background: rgb(251, 251, 251);
-    padding: 10px 10px 10px 10px;
-  }
+  color: red;
 }
 
-.ant-space-item .ant-transfer-status-warning .ant-transfer-list {
-  border-color: red;
+.ant-modal {
+  box-sizing: border-box;
+}
+.ant-modal .ant-modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 600px;
+  width: 600px;
+  // border: 2px solid red;
+}
+.ant-modal .ant-modal-footer {
+  display: flex;
+  justify-content: space-evenly;
+  float: left;
 }

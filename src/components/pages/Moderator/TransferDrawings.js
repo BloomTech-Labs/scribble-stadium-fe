@@ -11,7 +11,7 @@ const mockData = Array.from({
 }));
 
 const TransferDrawings = () => {
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
 
   const showModal = () => {
@@ -19,36 +19,36 @@ const TransferDrawings = () => {
   };
 
   const handleOk = () => {
-    setLoading(true);
+    // setLoading(true);
     setTimeout(() => {
-      setLoading(false);
+      // setLoading(false);
       setVisible(false);
-    }, 3000);
+    }, 1000);
   };
 
   const handleCancel = () => {
     setVisible(false);
   };
   const handleFlag = () => {
-    setVisible(false);
+    setVisible(true);
   };
 
   const columns = [
     {
       // title: 'Full Name',
       dataIndex: 'title',
-      fixed: 'left',
+      width: 150,
     },
     {
       // title: 'Column 1',
       dataIndex: 'description',
       width: 500,
       // key: '1',
-      fixed: 'left',
     },
     {
       // title: 'Action',
       // key: 'operation',
+      width: 100,
       render: () => (
         { showModal },
         (
@@ -68,8 +68,7 @@ const TransferDrawings = () => {
           dataSource={mockData}
           // render={item => item.title}
           // status="approved"
-          // showSearch
-          style={{ width: 826 }}
+          style={{ width: 834 }}
         />
         <Modal
           visible={visible}
@@ -78,32 +77,15 @@ const TransferDrawings = () => {
           onCancel={handleCancel}
           onFlag={handleFlag}
           footer={[
-            <Button key="back" onClick={handleCancel}>
-              Return
+            <Button key="approved" onClick={handleOk}>
+              Approve
             </Button>,
-            <Button key="back" onClick={handleFlag}>
-              Return
-            </Button>,
-            <Button
-              key="submit"
-              type="primary"
-              loading={loading}
-              onClick={handleOk}
-            >
-              Submit
-            </Button>,
-            <Button
-              key="link"
-              // href="https://google.com"
-              type="primary"
-              loading={loading}
-              onClick={handleOk}
-            >
-              FLAG
+            <Button key="flag" onClick={handleFlag}>
+              Flag
             </Button>,
           ]}
         >
-          <p>Approve or Flag</p>
+          <p>Approve or Flag this drawing</p>
         </Modal>
       </Space>
     </>
