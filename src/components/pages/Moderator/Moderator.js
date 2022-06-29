@@ -7,7 +7,6 @@ import ModeratorSideBar from '../Moderator/ModeratorSidebar';
 import DatePicker from './DatePicker';
 import TransferDrawings from './TransferDrawings';
 import ParentFooter from '../../common/ParentFooter';
-// import StoryManager from '../Admin/StoryManager';
 
 const Moderator = () => {
   const { isAuthenticated } = useAuth0();
@@ -22,7 +21,6 @@ const Moderator = () => {
             <h1>Moderator Dashboard</h1>
             <DatePicker />
             <TransferDrawings />
-            {/* <StoryManager /> */}
           </div>
         </div>
         <div>

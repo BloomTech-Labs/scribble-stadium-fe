@@ -12,7 +12,6 @@ const Date_Picker = () => (
     <DatePicker onChange={onChange} />
     <DatePicker onChange={onChange} picker="week" />
     <DatePicker onChange={onChange} picker="month" />
-    {/* <DatePicker onChange={onChange} picker="quarter" /> */}
     <DatePicker onChange={onChange} picker="year" />
     <Button type="primary" icon={<SearchOutlined />}>
       Search

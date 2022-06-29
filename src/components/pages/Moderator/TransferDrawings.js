@@ -1,4 +1,4 @@
-import { Transfer, Space } from 'antd';
+import { Space, Button, Modal, Table } from 'antd';
 import { useState } from 'react';
 
 // Dummy my-data
@@ -9,69 +9,102 @@ const mockData = Array.from({
   title: `Drawing${i + 1}`,
   description: `description of drawing${i + 1}`,
 }));
-const initialTargetKeys = mockData
-  .filter(item => Number(item.key) > 20)
-  .map(item => item.key);
 
 const TransferDrawings = () => {
-  const [targetKeys, setTargetKeys] = useState(initialTargetKeys);
+  const [loading, setLoading] = useState(false);
+  const [visible, setVisible] = useState(false);
 
-  const [selectedKeys, setSelectedKeys] = useState([]);
-  const [flaggedKeys, setFlaggedKeys] = useState([]);
-
-  const onChange = (nextTargetKeys, direction, moveKeys) => {
-    console.log('targetKeys:', nextTargetKeys);
-    console.log('direction:', direction);
-    console.log('moveKeys:', moveKeys);
-    setTargetKeys(nextTargetKeys);
+  const showModal = () => {
+    setVisible(true);
   };
 
-  const onSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
-    console.log('sourceSelectedKeys:', sourceSelectedKeys);
-    console.log('targetSelectedKeys:', targetSelectedKeys);
-    setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
+  const handleOk = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setVisible(false);
+    }, 3000);
   };
 
-  const onFlag = sourceSelectedKeys => {
-    setFlaggedKeys([...sourceSelectedKeys]);
+  const handleCancel = () => {
+    setVisible(false);
   };
-  const onScroll = (direction, e) => {
-    console.log('direction:', direction);
-    console.log('target:', e.target);
+  const handleFlag = () => {
+    setVisible(false);
   };
+
+  const columns = [
+    {
+      // title: 'Full Name',
+      dataIndex: 'title',
+      fixed: 'left',
+    },
+    {
+      // title: 'Column 1',
+      dataIndex: 'description',
+      width: 500,
+      // key: '1',
+      fixed: 'left',
+    },
+    {
+      // title: 'Action',
+      // key: 'operation',
+      render: () => (
+        { showModal },
+        (
+          <Button type="primary" onClick={showModal}>
+            View
+          </Button>
+        )
+      ),
+    },
+  ];
 
   return (
     <>
-      <Space
-      // direction="vertical"
-      // style={{
-      //   height: 800,
-      // }}
-      >
-        <Transfer
-          status="approved"
-          showSearch
+      <Space direction="vertical">
+        <Table
+          columns={columns}
           dataSource={mockData}
-          titles={['Drawings', 'Approved']}
-          targetKeys={targetKeys}
-          selectedKeys={selectedKeys}
-          onChange={onChange}
-          onSelectChange={onSelectChange}
-          onScroll={onScroll}
-          render={item => item.title}
+          // render={item => item.title}
+          // status="approved"
+          // showSearch
+          style={{ width: 826 }}
         />
-        <Transfer
-          status="warning"
-          showSearch
-          dataSource={mockData}
-          titles={['Flagged']}
-          targetKeys={targetKeys}
-          flaggedKeys={flaggedKeys}
-          onChange={onChange}
-          onFlag={onFlag}
-          onScroll={onScroll}
-          render={item => item.title}
-        />
+        <Modal
+          visible={visible}
+          title="Title"
+          onOk={handleOk}
+          onCancel={handleCancel}
+          onFlag={handleFlag}
+          footer={[
+            <Button key="back" onClick={handleCancel}>
+              Return
+            </Button>,
+            <Button key="back" onClick={handleFlag}>
+              Return
+            </Button>,
+            <Button
+              key="submit"
+              type="primary"
+              loading={loading}
+              onClick={handleOk}
+            >
+              Submit
+            </Button>,
+            <Button
+              key="link"
+              // href="https://google.com"
+              type="primary"
+              loading={loading}
+              onClick={handleOk}
+            >
+              FLAG
+            </Button>,
+          ]}
+        >
+          <p>Approve or Flag</p>
+        </Modal>
       </Space>
     </>
   );
