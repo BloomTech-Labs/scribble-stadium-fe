@@ -51,10 +51,8 @@ const YourMissionComp = ({ ...props }) => {
           }}
         />
       </div>
-
       {/* End Your Mission BUtton Bar
       Begin Read orange or Write yellow Background colors */}
-
       {fxd()}
       <div
         className={rwd.write === true ? 'rectangle130-yellow' : 'rectangle130'}
