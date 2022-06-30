@@ -1,35 +1,17 @@
-import React, { useState } from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
 import RenderNewParentDashboard from './RenderNewParentDashboard';
-import { connect } from 'react-redux';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function NewParentDashboardContainer({ LoadingComponent, ...props }) {
-  const { user, isAuthenticated, getIdTokenClaims } = useAuth0();
-  const [userInfo, setUserInfo] = useState();
-
-  if (isAuthenticated && !userInfo) {
-    getIdTokenClaims().then(res => {
-      localStorage.setItem('idToken', res.__raw);
-      localStorage.setItem('isAuthenticated', isAuthenticated);
-      setUserInfo(user);
-    });
-  }
+  const { isAuthenticated, user } = useAuth0();
 
   return (
     <>
-      {isAuthenticated && !userInfo && (
+      {isAuthenticated && !user && (
         <LoadingComponent message="Fetching Parent Profile..." />
       )}
-      {isAuthenticated && userInfo && (
-        <RenderNewParentDashboard {...props} userInfo={userInfo} />
-      )}
+      {isAuthenticated && user && <RenderNewParentDashboard {...props} />}
     </>
   );
 }
 
-export default connect(
-  state => ({
-    parent: state.parent,
-  }),
-  {}
-)(NewParentDashboardContainer);
+export default NewParentDashboardContainer;
