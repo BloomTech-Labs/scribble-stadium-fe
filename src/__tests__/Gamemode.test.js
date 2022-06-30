@@ -258,10 +258,7 @@ describe('button Tests ', () => {
     // button.simulate('click'); // Nothing happens
 
     const wrapper = shallow(<button onClick={sread}>3</button>);
-    wrapper
-      .find('button')
-      .at(0)
-      .simulate('click');
+    wrapper.find('button').at(0).simulate('click');
     expect(wrapper.text()).toEqual('3');
     expect(sread).toHaveBeenCalled();
   });
@@ -296,10 +293,7 @@ describe('button Tests ', () => {
     // button.simulate('click'); // Nothing happens
 
     const wrapper = shallow(<button onClick={sread}>2</button>);
-    wrapper
-      .find('button')
-      .at(0)
-      .simulate('click');
+    wrapper.find('button').at(0).simulate('click');
     expect(wrapper.text()).toEqual('2');
     expect(sread).toHaveBeenCalled();
   });

@@ -6,12 +6,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 function Hud(props) {
-  const {
-    completedActivity,
-    currentActivity,
-    currentBar,
-    currActivity,
-  } = props;
+  const { completedActivity, currentActivity, currentBar, currActivity } =
+    props;
 
   const activities = [
     'Read',
@@ -23,9 +19,8 @@ function Hud(props) {
   ];
 
   const dayBars = ['bar1', 'bar2', 'bar3', 'bar4'];
-  const countdownTimerPositionIndex = getCountdownTimerPositionIndex(
-    currentActivity
-  );
+  const countdownTimerPositionIndex =
+    getCountdownTimerPositionIndex(currentActivity);
   const { Panel } = Collapse;
 
   return (
@@ -37,19 +32,24 @@ function Hud(props) {
       </div>
 
       <div
-        className={`progressionBar ${completedActivity[0] === 'Read' &&
-          'progressionBarLoaded'}`}
+        className={`progressionBar ${
+          completedActivity[0] === 'Read' && 'progressionBarLoaded'
+        }`}
       >
         {activities.map(a => {
           return (
             <div
               key={`${a}`}
               className={`activity ${currentActivity === a && 'currentActivity'}
-              ${completedActivity.length - 1 >= activities.indexOf(a) &&
-                'completedActivity'}
-              ${currentActivity !== a &&
+              ${
+                completedActivity.length - 1 >= activities.indexOf(a) &&
+                'completedActivity'
+              }
+              ${
+                currentActivity !== a &&
                 completedActivity.length - 1 < activities.indexOf(a) &&
-                'restActive'}
+                'restActive'
+              }
               ${
                 currActivity.currActivity === a.toLowerCase()
                   ? 'currentActivity'

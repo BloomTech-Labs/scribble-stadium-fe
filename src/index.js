@@ -3,10 +3,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // Redux
+import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-
-import { store, persistor } from './state';
+import rootReducers from './state/reducers/index';
+import thunk from 'redux-thunk';
 
 // The following code was commented out to prevent warnings during compilation.
 import {
@@ -66,6 +66,9 @@ import GalleryContainer from './components/pages/Gallery/GalleryContainer';
 import { AudioBook } from './components/pages/AudioBook';
 import Admin from './components/pages/Admin/Admin';
 
+const store = createStore(rootReducers, applyMiddleware(thunk));
+window.store = store; // Remove before full deployment. In here for development purposes.
+
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
@@ -74,15 +77,13 @@ ReactDOM.render(
   <Router>
     <React.StrictMode>
       <Provider store={store}>
-        <PersistGate persistor={persistor}>
-          <Auth0Provider
-            domain={domain}
-            clientId={clientId}
-            redirectUri={window.location.origin}
-          >
-            <App />
-          </Auth0Provider>
-        </PersistGate>
+        <Auth0Provider
+          domain={domain}
+          clientId={clientId}
+          redirectUri={window.location.origin}
+        >
+          <App />
+        </Auth0Provider>
       </Provider>
     </React.StrictMode>
   </Router>,
