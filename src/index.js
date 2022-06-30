@@ -1,6 +1,6 @@
 // istanbul ignore file
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 // Redux
 import { applyMiddleware, createStore } from 'redux';
@@ -72,8 +72,10 @@ window.store = store; // Remove before full deployment. In here for development 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
-ReactDOM.render(
-  //
+const app = document.getElementById('root');
+const root = createRoot(app);
+
+root.render(
   <Router>
     <React.StrictMode>
       <Provider store={store}>
@@ -86,22 +88,10 @@ ReactDOM.render(
         </Auth0Provider>
       </Provider>
     </React.StrictMode>
-  </Router>,
-  document.getElementById('root')
+  </Router>
 );
 
 function App() {
-  // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
-
-  // const history = useHistory();
-
-  // const authHandler = () => {
-  //   // We pass this function to our <Security /> component that wraps our routes.
-  //   // Checks if userToken is available and pushes back to login if not
-  //   history.push('/login');
-  //   console.log('AuthHandler', authHandler);
-  // };
-
   return (
     <>
       <Switch>
