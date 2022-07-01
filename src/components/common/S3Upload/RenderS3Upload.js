@@ -1,5 +1,6 @@
 import React from 'react';
-import { postNewUpload } from '../../../api';
+import { postNewUpload, postSubmissionPage } from '../../../api';
+// import { postNewUpload } from '../../../api';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Upload, message } from 'antd';
 import { useState } from 'react';
@@ -30,7 +31,14 @@ export default function S3UploadButton() {
     setUploading(true);
     postNewUpload(file)
       .then(res => {
-        console.log('response 1st .then', res);
+        console.log('response from 1st .then', res);
+        postSubmissionPage({ url: res })
+          .then(res => {
+            console.log('response from uploading url to DB', res);
+          })
+          .catch(err => {
+            console.log('error from uploading url to DB', err);
+          });
       })
       .then(() => {
         setFile([]);

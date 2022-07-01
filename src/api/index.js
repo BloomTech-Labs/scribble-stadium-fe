@@ -280,7 +280,7 @@ const postNewUpload = async file => {
   try {
     console.log('file passed to postNewUpload', file);
     return apiAuthPost(
-      '/submission',
+      '/submission/s3',
       {
         fileName: file.name.split('.')[0],
         fileType: file.name.split('.')[1],
@@ -310,6 +310,23 @@ const postNewUpload = async file => {
       })
       .catch(err => {
         console.log('original post to signS3', err);
+      });
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+};
+
+const postSubmissionPage = async url => {
+  try {
+    return apiAuthPost(`/submission/page`, url, getAuthHeader())
+      .then(res => {
+        console.log('response from url upload', res);
+        return res.data;
+      })
+      .catch(err => {
+        console.log(err);
+        return [];
       });
   } catch (err) {
     console.log(err);
@@ -624,6 +641,7 @@ const getWinnerbySquadId = id => {
 };
 
 export {
+  postSubmissionPage,
   postNewUpload,
   getApiUrl,
   sleep,
