@@ -13,7 +13,7 @@ In addition to growing their literary and artistic skills, students learn team b
 
 Scribble Stadium is a paid service; parents are required to create the account for their children and pay a monthly subscription fee in order for their children to compete. This brings the platform into compliance with COPPA and ensures a long future for the project. 
 
-
+This is a project maintained by BloomTech Labs. 
 
 
 
