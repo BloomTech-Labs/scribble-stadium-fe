@@ -11,7 +11,6 @@ export default function S3UploadButton() {
   const fileSelected = fileName => {
     const selectedFile = fileName.file;
     setFile(selectedFile);
-    console.log('file', selectedFile);
   };
 
   const handleUpload = e => {
@@ -19,24 +18,21 @@ export default function S3UploadButton() {
     setUploading(true);
     postNewUpload(file)
       .then(res => {
-        console.log('response from 1st .then', res);
         postSubmissionPage({ url: res })
           .then(res => {
-            console.log('response from uploading url to DB', res);
+            if (res.length === 0) {
+              message.error('Upload Failed.');
+            } else {
+              message.success(`${file.name} Uploaded Successfully!`);
+            }
           })
           .catch(err => {
-            console.log('error from uploading url to DB', err);
+            message.error('Upload Failed!' + err);
           });
-      })
-      .then(() => {
-        setFile([]);
-        message.success('upload successfully.');
-      })
-      .catch(() => {
-        message.error('upload failed.');
       })
       .finally(() => {
         setUploading(false);
+        setFile([]);
       });
   };
 

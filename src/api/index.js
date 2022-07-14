@@ -276,9 +276,15 @@ const postNewDrawingSub = async (body, subId) => {
   }
 };
 
+/* 
+***** Uploading to S3 *****
+This function gets an authorized temp url from the BE.
+Then gets the returning data along with the signed request and url 
+Then it preps the upload with the headers and uploads the signed request with the file and returns the url
+After this the postSubmissionPage component will submit the submission's page 
+*/
 const postNewUpload = async file => {
   try {
-    console.log('file passed to postNewUpload', file);
     return apiAuthPost(
       '/submission/s3',
       {
@@ -288,11 +294,9 @@ const postNewUpload = async file => {
       getAuthHeader()
     )
       .then(res => {
-        console.log('response', res);
         let returnData = res.data;
         let signedRequest = returnData.signedRequest;
         let url = returnData.url;
-        console.log('Received a signed request ' + signedRequest);
         let options = {
           headers: {
             'Content-Type': file.name.split('.')[1],
@@ -317,11 +321,13 @@ const postNewUpload = async file => {
   }
 };
 
+/*
+This function will submit the submission's page 
+*/
 const postSubmissionPage = async url => {
   try {
     return apiAuthPost(`/submission/page`, url, getAuthHeader())
       .then(res => {
-        console.log('response from url upload', res);
         return res.data;
       })
       .catch(err => {
