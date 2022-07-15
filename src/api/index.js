@@ -305,7 +305,6 @@ const postNewUpload = async file => {
         return axios
           .put(signedRequest, file, options)
           .then(result => {
-            console.log('Response from s3', result);
             return url;
           })
           .catch(error => {
