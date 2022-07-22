@@ -1,9 +1,9 @@
 
+
 import React, { useEffect, useState } from 'react';
 import { Layout, Row, Col } from 'antd';
 import { useAuth0 } from '@auth0/auth0-react';
 import { getProfileData } from '../../../api';
-
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import NewProgressCharts from '../../common/NewProgressCharts';
 import NewChildCard from '../../common/NewChildCard';
@@ -19,7 +19,16 @@ import pinkyWinky from '../../../assets/images/hero_images/hero10.png';
 import submarineBoy from '../../../assets/images/hero_images/hero3.png';
 import dad from '../../../assets/images/hero_images/hero5.png';
 
-const RenderNewParentDashboard = props => {
+const RenderNewParentDashboard = () => {
+  const { isAuthenticated, user } = useAuth0();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      dispatch(getProfile(user.sub));
+    }
+  }, [isAuthenticated]);
+
   const FAKE_CHILDREN = [
     {
       ID: 0,

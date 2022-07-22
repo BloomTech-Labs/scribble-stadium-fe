@@ -1,12 +1,12 @@
 // istanbul ignore file
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 // Redux
+import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-
-import { store, persistor } from './state';
+import rootReducers from './state/reducers/index';
+import thunk from 'redux-thunk';
 
 // The following code was commented out to prevent warnings during compilation.
 import {
@@ -66,41 +66,32 @@ import GalleryContainer from './components/pages/Gallery/GalleryContainer';
 import { AudioBook } from './components/pages/AudioBook';
 import Admin from './components/pages/Admin/Admin';
 
+const store = createStore(rootReducers, applyMiddleware(thunk));
+window.store = store; // Remove before full deployment. In here for development purposes.
+
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
-ReactDOM.render(
-  //
+const app = document.getElementById('root');
+const root = createRoot(app);
+
+root.render(
   <Router>
     <React.StrictMode>
       <Provider store={store}>
-        <PersistGate persistor={persistor}>
-          <Auth0Provider
-            domain={domain}
-            clientId={clientId}
-            redirectUri={window.location.origin}
-          >
-            <App />
-          </Auth0Provider>
-        </PersistGate>
+        <Auth0Provider
+          domain={domain}
+          clientId={clientId}
+          redirectUri={window.location.origin}
+        >
+          <App />
+        </Auth0Provider>
       </Provider>
     </React.StrictMode>
-  </Router>,
-  document.getElementById('root')
+  </Router>
 );
 
 function App() {
-  // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
-
-  // const history = useHistory();
-
-  // const authHandler = () => {
-  //   // We pass this function to our <Security /> component that wraps our routes.
-  //   // Checks if userToken is available and pushes back to login if not
-  //   history.push('/login');
-  //   console.log('AuthHandler', authHandler);
-  // };
-
   return (
     <>
       <Switch>

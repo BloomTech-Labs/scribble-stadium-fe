@@ -276,6 +276,69 @@ const postNewDrawingSub = async (body, subId) => {
   }
 };
 
+/* 
+***** Uploading to S3 *****
+This function gets an authorized temp url from the BE.
+Then gets the returning data along with the signed request and url 
+Then it preps the upload with the headers and uploads the signed request with the file and returns the url
+After this the postSubmissionPage component will submit the submission's page 
+*/
+const postNewUpload = async file => {
+  try {
+    return apiAuthPost(
+      '/submission/s3',
+      {
+        fileName: file.name.split('.')[0],
+        fileType: file.name.split('.')[1],
+      },
+      getAuthHeader()
+    )
+      .then(res => {
+        let returnData = res.data;
+        let signedRequest = returnData.signedRequest;
+        let url = returnData.url;
+        let options = {
+          headers: {
+            'Content-Type': file.name.split('.')[1],
+          },
+        };
+        return axios
+          .put(signedRequest, file, options)
+          .then(result => {
+            return url;
+          })
+          .catch(error => {
+            alert('ERROR ' + JSON.stringify(error));
+          });
+      })
+      .catch(err => {
+        console.log('original post to signS3', err);
+      });
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+};
+
+/*
+This function will submit the submission's page 
+*/
+const postSubmissionPage = async url => {
+  try {
+    return apiAuthPost(`/submission/page`, url, getAuthHeader())
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        console.log(err);
+        return [];
+      });
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+};
+
 /**
  * Returns an object identifying whether or not a child has completed their submission tasks
  * Looks in DB for submission containing childId and storyID
@@ -583,6 +646,8 @@ const getWinnerbySquadId = id => {
 };
 
 export {
+  postSubmissionPage,
+  postNewUpload,
   getApiUrl,
   sleep,
   getExampleData,
