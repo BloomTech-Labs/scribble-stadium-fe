@@ -1,8 +1,9 @@
+
+
 import React, { useEffect, useState } from 'react';
-import { Layout, Tabs } from 'antd';
+import { Layout, Row, Col } from 'antd';
 import { useAuth0 } from '@auth0/auth0-react';
-import { getProfile } from '../../../state/actions/userActions';
-import { useDispatch } from 'react-redux';
+import { getProfileData } from '../../../api';
 import ParentNavTopBar from '../../common/ParentNavTopBar';
 import NewProgressCharts from '../../common/NewProgressCharts';
 import NewChildCard from '../../common/NewChildCard';
@@ -51,59 +52,53 @@ const RenderNewParentDashboard = () => {
   // const { setParent } = props;
   const [childrenAccounts] = useState(FAKE_CHILDREN);
   const [modalVisible, setModalVisible] = useState(false);
-  const { TabPane } = Tabs;
 
-  // the endpoint used for this function is currently non-functional
-  // useEffect(() => {
-  //   getProfileData()
-  //     .then(res => {
-  //       setParent({
-  //         ...res[0],
-  //         children: res.filter(user => user.type !== 'Parent'),
-  //       });
-  //     })
-  //     .catch(err => {
-  //       console.log('error retrieving profile data', err.message);
-  //     });
-  // }, [setParent, user]);
+  const { Content } = Layout;
+  useEffect(() => {
+    getProfileData()
+      .then(res => {
+        setParent({
+          ...res[0],
+          children: res.filter(user => user.type !== 'Parent'),
+        });
+      })
+      .catch(err => {
+        console.log('error retrieving profile data', err.message);
+      });
+  }, [setParent, user]);
+
   return (
     <div id="parent-dashboard-page">
+      {/* <Header > */}
+      <ParentNavTopBar
+        handlePlayGameButtonClick={evt => {
+          evt.preventDefault();
+          setModalVisible(true);
+        }}
+      />
+
       <Layout className="newparent-dashboard">
-        <ParentNavTopBar
-          handlePlayGameButtonClick={evt => {
-            evt.preventDefault();
-            setModalVisible(true);
-          }}
-        />
-        <Layout>
-          <div className="card-container">
-            <Tabs type="card" centered defaultActiveKey="1001">
-              <TabPane key="1001" tab="Word Cloud">
-                <div className="renderWordCloud">
-                  <RenderWordCloud />
-                </div>
-              </TabPane>
-              <TabPane key="1002" tab="Player Progress">
-                <div className="progress-container">
-                  <NewProgressCharts />
-                </div>
-              </TabPane>
-              <TabPane key="1003" tab="Player(s)">
-                <div className="child-container">
-                  <NewChildCard />
-                </div>
-              </TabPane>
-              <TabPane key="1004" tab="Settings">
-                <div>
-                  <AccountSettings />
-                </div>
-              </TabPane>
-            </Tabs>
-          </div>
-        </Layout>
+        {/* TODO: add width control to containers, responsive sizes, add breakpoints  */}
+        <Content className="grid-container">
+          <Row gutter={[16, { xs: 8, sm: 14, md: 18, lg: 32 }]}>
+            <Col className="child-column" sm={{}} md={{ span: 12 }}>
+              <NewChildCard props={props} className="child-container" />
+            </Col>
+            <Col sm={{}} md={{ span: 12 }}>
+              <AccountSettings className="account-container" />
+            </Col>
+          </Row>
+          <Row gutter={[16, { xs: 8, sm: 14, md: 18, lg: 32 }]}>
+            <Col sm={{}} md={{ span: 12 }}>
+              <NewProgressCharts className="progress-container" />
+            </Col>
+            <Col sm={{}} md={{ span: 12 }}>
+              <RenderWordCloud className="renderWordCloud" />
+            </Col>
+          </Row>
+        </Content>
       </Layout>
       <ParentFooter />
-
       {modalVisible && (
         <ChooseChildModal
           childrenAccounts={childrenAccounts}

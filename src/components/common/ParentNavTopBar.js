@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typography, Menu, Dropdown, Button } from 'antd';
+
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { connect } from 'react-redux';
@@ -46,11 +47,14 @@ const ParentNavTopBar = props => {
         <div className="link-container">
           <Link to="/dashboard">
             <Button
+              className="play-game-btn"
               onClick={evt => {
                 props.handlePlayGameButtonClick(evt);
               }}
-              className="play-game-btn"
             >
+              {/* bug, see ChooseChildModal.js line 48
+              
+              PLAY GAME button being clicked from another page does not bring up choose child modal*/}
               PLAY GAME
             </Button>
           </Link>

@@ -1,11 +1,15 @@
 //** Import Modules */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
+import { Button } from 'antd';
+import { refresh } from 'less';
+import { useHistory } from 'react-router-dom';
 
 export default function ChooseChildModal(props) {
   // Get the data to display
+  const history = useHistory();
   const { childrenAccounts, handleCharacterClick } = props;
-
+  const [modalVisible, setModalVisible] = useState(false);
   // // Timeout timer before the modal is removed from the DOM(in ms)
   // const removeModalTimer = 1000;
 
@@ -23,7 +27,6 @@ export default function ChooseChildModal(props) {
     //   props.disableModalWindow();
     // }, removeModalTimer);
   };
-
   // Add some animation effects when component loads
   useEffect(() => {
     gsap.to('#notification-modal', {
@@ -38,6 +41,17 @@ export default function ChooseChildModal(props) {
     <div id="notification-modal">
       <div className="modal-container">
         <div className="modal-content" style={{ width: '70%' }}>
+          <Button
+            className="exit-button"
+            onClick={evt => {
+              closeModal(evt);
+              setModalVisible(false);
+              history.push('/');
+            }}
+          >
+            {/* Modal closes but will not reopen without refresh*/}X
+          </Button>
+
           <h2
             style={{
               textAlign: 'center',

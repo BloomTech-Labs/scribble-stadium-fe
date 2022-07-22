@@ -4,21 +4,20 @@
 @import 'variables.less';
 
 .acct-settings-form {
-    box-sizing: border-box;
     height: 45vh;
-    width:68vw;
-    margin:0 auto;
+    width: 400px;
     @media @mobileLarge{
         height:80vh;
         margin-top:15px;
         width:87vw;
         margin:0 auto;
     }
-   
+  
 }
 
-.email-label {
-    margin: 12vh 0 1vh 1.5vw;
+ .email-label {
+    margin-left:18%;
+    padding-left:18%;
     font-style: normal;
     font-weight: bold;
     font-size: 0.75rem;
@@ -31,7 +30,8 @@
 }
 
 .password-label {
-    margin: 12vh 0 1vh 1.5vw;
+    margin-left: 18%;
+    padding-left: 18%;
     font-style: normal;
     font-weight: bold;
     font-size: 0.75rem;
@@ -46,12 +46,11 @@
 .icon-input-and-button-container {
     align-items: center;
     padding: 1.6%;
-    width: 63vw;
-    height: 6vh;
+    width: 674px;
     background: #FFFFFF;
     border: 0.5px solid #7B8794;
     border-radius: 14px;
-    margin: -.8% 0 4.5% 0;
+    margin: -.8% 0 4.5% 18%;
     @media @mobileLarge {
         width: 85vw;
     }
@@ -71,9 +70,11 @@
 
 .icon-and-input-container {
     display: flex;
+    width: 674px;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    
 }
 
 .icon-container {
@@ -93,7 +94,7 @@
     border-radius: 14px;
     height: 5.5vh;
     align-items: center;
-    width: 56%;
+    width: 50%;
     margin-top: 2.5vh;
     margin-left: 5%;
     padding: 2.65vh;
@@ -119,7 +120,7 @@
 .edit-button {
     border: none;
     background:#F5F5F5;
-    width: 100%;
+    width: 674px;
     &:hover {
         cursor: pointer;
     }
@@ -132,7 +133,7 @@
 // Change Password and Change Email MODAL rulesets below
 
 .email-modal-form {
-    width: 107%;
+    width: 80%;
     box-sizing: border-box;
     height: 17vh;
     @media screen and (min-width: 750px) {
@@ -142,7 +143,7 @@
 }
 
 .password-modal-form {
-    width: 107%;
+    width: 80%;
     box-sizing: border-box;
     height: 45vh;
     @media screen and (min-width: 750px) {
@@ -193,7 +194,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 107%;
+    width: 100%;
     @media screen and (min-width: 750px) {
         width: 350px;
     }
@@ -241,3 +242,27 @@
     }
 }
 
+// Change payment  and change sub MODAL rulesets below
+
+/*PAYMENT*/
+.input-labels{
+    margin:25px;
+}
+.payment-submit{
+    margin:10%;
+}
+
+
+
+
+
+/*SUBSCRIPTION*/
+.ss-home{
+    margin: 0px 0px 50px 50px;
+    
+}
+
+
+.ss-class{
+    margin:0px 30px 20px 50px ;
+}

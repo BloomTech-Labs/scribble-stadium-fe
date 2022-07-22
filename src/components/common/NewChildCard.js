@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { PlusCircleOutlined, EditOutlined } from '@ant-design/icons';
-import { Card } from 'antd';
+import { Card, Button } from 'antd';
 import { connect } from 'react-redux';
 import cat from '../../assets/images/cat.svg';
 
@@ -25,19 +25,21 @@ function NewChildCard(props) {
     <div className="newChildCardContainer">
       <div className="Players">
         <div className="playheading">
-          <h2>Players</h2>
-        </div>
-        <div className="childCardButtons">
-          <button className="addPlayerButton" onClick={addPlayerPush}>
-            <PlusCircleOutlined /> Add Player
-          </button>
-          {props.props.parent.children ? (
-            <button className="editPlayerButton" onClick={editPlayerPush}>
-              <EditOutlined /> Edit Players
-            </button>
-          ) : null}
+          <h2 className="playersTitle">Players</h2>
+
+          <div className="child-divns">
+            <Button className="addPlayerButton" onClick={addPlayerPush}>
+              <PlusCircleOutlined /> Add Player
+            </Button>
+            {props.props.parent.children ? (
+              <Button className="editPlayerButton" onClick={editPlayerPush}>
+                <EditOutlined /> Edit Players
+              </Button>
+            ) : null}
+          </div>
         </div>
       </div>
+
       <div className="newChild">
         {noChildren === true ? (
           <div className="noPlayers">
@@ -48,7 +50,6 @@ function NewChildCard(props) {
           props.props.parent.children.map((child, i) => (
             <Card key={i}>
               <div className="inner">
-                {/* This is hard coded right now, once data is ready, can replace it */}
                 <div className="statusContainer">
                   <h4>Status: Matchup</h4>
                 </div>
@@ -71,18 +72,21 @@ function NewChildCard(props) {
                     </div>
                     <div className="statBox">
                       <div className="statBoxBackground">
+                        {/* Missions completed */}
                         <p>{MockDataTotalPoints}</p>
                       </div>
                       <h4>Total Pts.</h4>
                     </div>
                     <div className="statBox">
                       <div className="statBoxBackground">
+                        {/* Total Points */}
                         <p>{MockDataWins}</p>
                       </div>
                       <h4>Wins</h4>
                     </div>
                     <div className="statBox">
                       <div className="statBoxBackground">
+                        {/* Total Words */}
                         <p>{MockDataLosses}</p>
                       </div>
                       <h4>Losses</h4>

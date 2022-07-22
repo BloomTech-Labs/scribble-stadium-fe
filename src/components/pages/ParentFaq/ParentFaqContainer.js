@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Collapse, Layout, Card, Row, Col } from 'antd';
 import { CaretRightOutlined } from '@ant-design/icons';
 import img1 from './img1.png';
@@ -6,13 +6,44 @@ import ParentNavTopBar from '../../common/ParentNavTopBar';
 import ParentDashboardBack from '../../common/ParentDashboardBack';
 import ParentFooter from '../../common/ParentFooter';
 
+import ChooseChildModal from '../NewParentDashboard/ChooseChildModal';
+import { useHistory } from 'react-router-dom';
+import pinkyWinky from '../../../assets/images/hero_images/hero10.png';
+import submarineBoy from '../../../assets/images/hero_images/hero3.png';
+import dad from '../../../assets/images/hero_images/hero5.png';
 const { Panel } = Collapse;
 
 const ParentFaqContainer = () => {
+  const history = useHistory();
+  const FAKE_CHILDREN = [
+    {
+      ID: 0,
+      Name: 'Pinky Winky',
+      AvatarURL: pinkyWinky,
+    },
+    {
+      ID: 1,
+      Name: 'Submarine Boy',
+      AvatarURL: submarineBoy,
+    },
+    {
+      ID: 2,
+      Name: 'Dad',
+      AvatarURL: dad,
+    },
+  ];
+
+  const [childrenAccounts, setChildrenAccounts] = useState(FAKE_CHILDREN);
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
       <Layout className="newparent-dashboard">
-        <ParentNavTopBar />
+        <ParentNavTopBar
+          handlePlayGameButtonClick={evt => {
+            evt.preventDefault();
+            setModalVisible(true);
+          }}
+        />
         <div className='"site-card-border-less-wrapper"'>
           <div style={{ width: '66%', margin: '0 auto' }}>
             <ParentDashboardBack />
@@ -433,6 +464,14 @@ const ParentFaqContainer = () => {
         </div>
       </Layout>
       <ParentFooter />
+      {modalVisible && (
+        <ChooseChildModal
+          childrenAccounts={childrenAccounts}
+          handleCharacterClick={(evt, childId) => {
+            history.push('/dashboard');
+          }}
+        />
+      )}
     </>
   );
 };

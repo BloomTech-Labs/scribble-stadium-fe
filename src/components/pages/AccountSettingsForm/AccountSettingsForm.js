@@ -31,11 +31,10 @@ function AccountSettingsForm({ disabled }) {
           </div>
           <input
             onChange={e => onChange(e)}
-            disabled={disabled ? true : false}
             className="acct-settings-input"
             type="text"
             name="email"
-            placeholder="caroline@gmail.com"
+            placeholder="• • • • • • • • • • • •"
             value={value.email}
           />
         </div>
@@ -43,7 +42,6 @@ function AccountSettingsForm({ disabled }) {
         <div className="edit-button-container">
           <button
             className="edit-button"
-            disabled={disabled ? true : false}
             onClick={() => setEmailModalVisible(true)}
           >
             Change email
@@ -66,7 +64,6 @@ function AccountSettingsForm({ disabled }) {
           </div>
           <input
             onChange={e => onChange(e)}
-            disabled={disabled ? true : false}
             className="acct-settings-input"
             type="text"
             name="password"
@@ -76,11 +73,7 @@ function AccountSettingsForm({ disabled }) {
         </div>
 
         <div className="edit-button-container">
-          <button
-            className="edit-button"
-            disabled={disabled ? true : false}
-            onClick={() => setVisible(true)}
-          >
+          <button className="edit-button" onClick={() => setVisible(true)}>
             Change password
           </button>
           <ChangePasswordModal visible={visible} setVisible={setVisible} />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal } from 'antd';
+import { Modal, Button } from 'antd';
 import { LockOutlined } from '@ant-design/icons';
 
 const ChangePasswordModal = props => {
@@ -89,11 +89,13 @@ const ChangePasswordModal = props => {
 
       <div className="modal-buttons-container">
         <div className="modal-cancel-button-container">
-          <button className="modal-cancel-button">CANCEL</button>
+          <Button className="modal-cancel-button" onClick={handleCancel}>
+            CANCEL
+          </Button>
         </div>
 
         <div className="modal-save-button-container">
-          <button className="modal-save-button">SAVE</button>
+          <Button className="modal-save-button"> {/*onSubmit={}*/} SAVE</Button>
         </div>
       </div>
     </Modal>

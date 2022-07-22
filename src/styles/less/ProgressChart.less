@@ -3,14 +3,16 @@
 @import 'global.less';
 @import 'variables.less';
 
+
 .ProgressBox{
-    background-color:lightgray;
+    background-color:#9BE1DF;
     border-radius:14px;
-    height:45vh;
-    width:68vw;
+    width:75%;
     margin:0 auto;
     color:white;
     font-size:15pt;
+    font-family: 'Bangers';
+    
     @media @xs {
         height: 5vh;
         width: 100vw;
@@ -34,8 +36,14 @@
     }
 
 }
+
+.ant-table-content{
+    background-color: #9BE1DF;
+    
+}
+
 .ProgressContainer{
-    margin:3% auto;
+    margin:5% auto;
     font-family:'Open Sans';
     @media @mobileLarge {
         width:95vw;
@@ -44,7 +52,7 @@
     
 }
 .ProgressHeader{
-    margin-left:16%;
+    margin-left:34%;
     @media @mobileLarge{
         margin-left:5%;
     }
@@ -58,4 +66,35 @@
             font-size: 1.3rem;
         }
     }
+}
+
+
+.playerName{
+    padding-top:5.5%;
+    padding-right:4%;
+}
+
+
+.player{
+    padding-left:5%;
+    color:black;
+    font-size:1.2rem;
+    padding-top:7%;
+}
+
+
+
+/*.stats{
+    
+
+}*/
+.total-words{
+    margin:0% 4%;
+}
+.missions{
+    margin-left:2%
+}
+
+.points{
+    margin-left:2%;
 }
