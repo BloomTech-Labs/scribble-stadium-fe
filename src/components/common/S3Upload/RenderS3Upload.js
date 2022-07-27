@@ -21,7 +21,9 @@ export default function S3UploadButton(props) {
       .then(res => {
         postSubmissionPage({
           submissionId: submissionPage.submissionId,
+          type: submissionPage.type,
           url: res,
+          pageNum: submissionPage.pageNum,
         })
           .then(res => {
             if (res.length === 0) {
