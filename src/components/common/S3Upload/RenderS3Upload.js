@@ -4,7 +4,8 @@ import { UploadOutlined } from '@ant-design/icons';
 import { Button, Upload, message } from 'antd';
 import { useState } from 'react';
 
-export default function S3UploadButton() {
+export default function S3UploadButton(props) {
+  const { submissionPage } = props;
   const [file, setFile] = useState([]);
   const [uploading, setUploading] = useState(false);
 
@@ -18,7 +19,12 @@ export default function S3UploadButton() {
     setUploading(true);
     postNewUpload(file)
       .then(res => {
-        postSubmissionPage({ url: res })
+        postSubmissionPage({
+          submissionId: submissionPage.submissionId,
+          type: submissionPage.type,
+          url: res,
+          pageNum: submissionPage.pageNum,
+        })
           .then(res => {
             if (res.length === 0) {
               message.error('Upload Failed.');
