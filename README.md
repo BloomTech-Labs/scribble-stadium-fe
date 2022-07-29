@@ -1,4 +1,4 @@
-# Scribble Stadium Frontend
+# Scribble Stadium: Frontend
 
 [![Codacy Score](https://app.codacy.com/project/badge/Grade/4efb6c22b2134a989cbaa49d895cf081)](https://www.codacy.com/gh/BloomTech-Labs/scribble-stadium-fe/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BloomTech-Labs/scribble-stadium-fe&amp;utm_campaign=Badge_Grade) [![Codacy Coverage](https://app.codacy.com/project/badge/Coverage/4efb6c22b2134a989cbaa49d895cf081)](https://www.codacy.com/gh/BloomTech-Labs/scribble-stadium-fe/dashboard?utm_source=github.com&utm_medium=referral&utm_content=BloomTech-Labs/scribble-stadium-fe&utm_campaign=Badge_Coverage)
 
