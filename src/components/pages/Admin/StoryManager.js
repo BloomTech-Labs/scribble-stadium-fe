@@ -35,7 +35,8 @@ const StoryManager = () => {
             Add +
           </Button> */}
           <Upload>
-            <Button 
+            <Button
+              className="upload-button" 
               icon={<UploadOutlined />}
               onClick={() => setAddButtonState(true)}
               type="primary"
