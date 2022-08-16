@@ -27,13 +27,6 @@ const StoryManager = () => {
       <div className="library">
         <div className="library-top">
           <h2>Story Library</h2>
-          {/* <Button
-            onClick={() => setAddButtonState(true)}
-            type="primary"
-            shape="round"
-          >
-            Add +
-          </Button> */}
           <Upload>
             <Button
               className="upload-button" 
@@ -44,7 +37,6 @@ const StoryManager = () => {
               Upload
             </Button>
           </Upload>
-          
         </div>
         <div className="library-body">
           <StoryBacklog />
