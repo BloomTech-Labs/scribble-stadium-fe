@@ -3,7 +3,9 @@ import { BrowserRouter as Switch, Route } from 'react-router-dom';
 import UploadStoryPopup from './UploadStoryPopup';
 import { connect } from 'react-redux';
 // import StoryPopup from './StoryPopup';
-import { Button } from 'antd';
+import 'antd/dist/antd.css'
+import { UploadOutlined } from '@ant-design/icons'
+import { Button, Upload } from 'antd';
 import StoryBacklog from './StoryBacklog';
 import StoryDetails from './StoryDetails';
 import AdminHistory from './AdminHistory';
@@ -25,13 +27,16 @@ const StoryManager = () => {
       <div className="library">
         <div className="library-top">
           <h2>Story Library</h2>
-          <Button
-            onClick={() => setAddButtonState(true)}
-            type="primary"
-            shape="round"
-          >
-            Add +
-          </Button>
+          <Upload>
+            <Button
+              className="upload-button" 
+              icon={<UploadOutlined />}
+              onClick={() => setAddButtonState(true)}
+              type="primary"
+            >
+              Upload
+            </Button>
+          </Upload>
         </div>
         <div className="library-body">
           <StoryBacklog />
