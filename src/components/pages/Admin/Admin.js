@@ -6,11 +6,6 @@ import AdminSideBar from '../../common/Admin/AdminSidebar';
 import StoryManager from './StoryManager';
 import ParentFooter from '../../common/ParentFooter';
 
-// Error out: no-unused-vars
-// import StoryBacklog from './StoryBacklog';
-// import AdminHistory from './AdminHistory';
-// import StoryDetails from './StoryDetails';
-
 const Admin = () => {
   const { isAuthenticated } = useAuth0();
 
