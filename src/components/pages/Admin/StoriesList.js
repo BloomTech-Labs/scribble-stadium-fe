@@ -7,7 +7,7 @@ const StoriesList = () => {
         <div>
             {
                 dummyStoryData.map(storyData => {
-                    return <StoryCard storyData={storyData} />
+                    return <StoryCard key={storyData.id} storyData={storyData} />
                 })
             }
         </div>
