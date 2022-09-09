@@ -23,7 +23,8 @@ const Admin = () => {
           </div>
         </div>
         <div>
-          <ParentFooter layoutContainerCheck={'no-scroll'} />
+          {/* <ParentFooter layoutContainerCheck={'no-scroll'} /> */}
+          <ParentFooter />
         </div>
       </Router>
     )
