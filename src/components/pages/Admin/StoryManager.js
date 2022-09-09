@@ -9,6 +9,7 @@ import { Button, Upload } from 'antd';
 import StoryBacklog from './StoryBacklog';
 import StoryDetails from './StoryDetails';
 import AdminHistory from './AdminHistory';
+import StoriesList from './StoriesList';
 
 const StoryManager = () => {
   const [addButtonState, setAddButtonState] = useState(false);
@@ -39,11 +40,12 @@ const StoryManager = () => {
           </Upload>
         </div>
         <div className="library-body">
-          <StoryBacklog />
-          <Switch>
+          <StoriesList />
+          {/* <StoryBacklog /> */}
+          {/* <Switch>
             <Route path="/admin/storymanager/:id" component={StoryDetails} />
             <Route path="/admin/storymanager" component={AdminHistory} />
-          </Switch>
+          </Switch> */}
         </div>
 
         {/* <div>
