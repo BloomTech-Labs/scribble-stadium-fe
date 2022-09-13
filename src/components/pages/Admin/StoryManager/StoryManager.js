@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Switch, Route } from 'react-router-dom';
-import UploadStoryPopup from './UploadStoryPopup';
+import UploadStoryPopup from '../UploadStoryPopup';
 import { connect } from 'react-redux';
 // import StoryPopup from './StoryPopup';
 import 'antd/dist/antd.css'
 import { UploadOutlined } from '@ant-design/icons'
 import { Button, Upload } from 'antd';
-import StoryBacklog from './StoryBacklog';
-import StoryDetails from './StoryDetails';
-import AdminHistory from './AdminHistory';
-import StoriesList from './StoriesList';
+import StoryBacklog from '../StoryBacklog';
+import StoryDetails from '../StoryDetails';
+import AdminHistory from '../AdminHistory';
+import StoriesList from '../StoriesList';
 
 const StoryManager = () => {
   const [addButtonState, setAddButtonState] = useState(false);

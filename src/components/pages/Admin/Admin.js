@@ -3,7 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AdminHeader from '../../common/Admin/AdminHeader';
 import AdminSideBar from '../../common/Admin/AdminSidebar';
-import StoryManager from './StoryManager';
+import StoryManager from './StoryManager/StoryManager';
 import ParentFooter from '../../common/ParentFooter';
 
 const Admin = () => {
