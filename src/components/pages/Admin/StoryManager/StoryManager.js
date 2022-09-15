@@ -9,7 +9,7 @@ import { Button, Upload } from 'antd';
 import StoryBacklog from '../StoryBacklog';
 import StoryDetails from '../StoryDetails';
 import AdminHistory from '../AdminHistory';
-import StoriesList from '../StoriesList';
+import StoriesList from '../StoryManager/StoriesList';
 
 const StoryManager = () => {
   const [addButtonState, setAddButtonState] = useState(false);
